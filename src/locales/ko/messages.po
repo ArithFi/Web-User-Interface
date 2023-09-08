@@ -25,8 +25,8 @@ msgid "* Due to the complexity of financial data, there might be nuances and del
 msgstr "*금융 데이터의 복잡성으로 인해 미묘한 차이와 지연이 있을 수 있습니다. 위에 표시된 데이터는 참고용일 뿐이며, 불편을 드려 죄송합니다."
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "*NESTFi only supports NEST withdrawals."
-msgstr "*NESTFi는 NEST 인출만 지원합니다."
+msgid "*ArithFi only supports ATF withdrawals."
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
@@ -61,10 +61,8 @@ msgstr "> 개장 가격"
 #: src/components/NormalInput/NESTInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
-"between USDT and NEST token."
+"between USDT and ATF token."
 msgstr ""
-"0 잔액. 거래하기 전에 \"스왑\"으로 전환하여 \n"
-"USDT와 NEST 토큰으로 교환할 수 있습니다."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -134,8 +132,8 @@ msgid "7D PnL"
 msgstr "7일 수익"
 
 #: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using NESTFi"
-msgstr "NEST Fi 사용 초보자 가이드"
+msgid "A beginner's guide to using ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -173,6 +171,11 @@ msgstr "실제 마진"
 msgid "Add"
 msgstr "추가"
 
+#: src/pages/DirectPoster/DirectPoster.tsx
+#: src/pages/Swap/Swap.tsx
+msgid "Add ATF to wallet"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "복사 거래 금액 추가"
@@ -180,11 +183,6 @@ msgstr "복사 거래 금액 추가"
 #: src/pages/Share/Modal/ChangeNewTokenModal.tsx
 msgid "Add NEST 2.0 to wallet"
 msgstr "지갑에 NEST 2.0 추가하기"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/Swap/Swap.tsx
-msgid "Add NEST to wallet"
-msgstr "월렛에 NEST 추가"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -236,14 +234,30 @@ msgstr "승인 필요함"
 msgid "Approve"
 msgstr "승인"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Next-Generation"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi's new features enable you to open a position with a single click."
+msgstr ""
+
+#: src/pages/Futures/MoreInfo.tsx
+msgid "ATF White Paper"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "AUM (NEST)"
-msgstr "AUM (NEST)"
+msgid "AUM (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-msgid "AUM(NEST)"
-msgstr "AUM(NEST)"
+msgid "AUM(ATF)"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -270,8 +284,8 @@ msgid "Boost your earning and influence by becoming copy traders."
 msgstr "복사 트레이더가 되어 수익과 영향력을 높이세요."
 
 #: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the NESTFi affiliate program."
-msgstr "NESTFi 제휴 프로그램에 가입하여 수익과 영향력을 높이세요."
+msgid "Boost your earning and influence by joining the ArithFi affiliate program."
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -405,8 +419,8 @@ msgid "Copy Trader Service Agreement"
 msgstr "트레이더 복사 서비스 계약"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "Copy Traders’ PnL (NEST)"
-msgstr "복사 트레이더 수익/손실（NEST）"
+msgid "Copy Traders’ PnL (ATF)"
+msgstr ""
 
 #: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -415,8 +429,8 @@ msgid "Copy Trading"
 msgstr "복사 거래"
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Copy Trading Assets(NEST)"
-msgstr "복사 거래 자산（NEST）"
+msgid "Copy Trading Assets(ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trading Each Order"
@@ -427,8 +441,8 @@ msgid "Copy Trading Effortlessly"
 msgstr "편안하게 복사 거래"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Copy Trading Total Amount (NEST)"
-msgstr "복사 거래 총 금액 (NEST)"
+msgid "Copy Trading Total Amount (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -510,8 +524,8 @@ msgid "Deflationary"
 msgstr "물가 하락형"
 
 #: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $NEST will be burned."
-msgstr "디플레이션 경제 모델. 더 많은 사용자가 거래할수록 더 많은 $NEST가 소각됩니다."
+msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
+msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/hooks/useDepositModal.ts
@@ -601,9 +615,14 @@ msgstr "요청 실패"
 msgid "Faucet"
 msgstr "수도꼭지"
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+msgid ""
+"Follow the right person, making money is as easy as breathing.\n"
+"You can follow the right person on ArithFi, here is my refer link"
+msgstr ""
+
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on NESTFi, here is my refer link"
@@ -617,7 +636,6 @@ msgstr "NESTFi에서 최고의 거래 전략을 따르다"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Trader.tsx
 msgid "Followers"
 msgstr "팔로워"
 
@@ -653,8 +671,8 @@ msgid "GET"
 msgstr "얻다"
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "Get NEST"
-msgstr "얻다 NEST"
+msgid "Get ATF"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -723,6 +741,12 @@ msgstr "무한한 유동성"
 msgid "Insufficient"
 msgstr "불충분함"
 
+#: src/hooks/useFuturesAdd.ts
+#: src/hooks/useFuturesNewOrder.ts
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
+msgid "Insufficient ATF balance"
+msgstr ""
+
 #: src/hooks/useWithDrawModal.ts
 msgid "Insufficient balance"
 msgstr "잔액 부족"
@@ -730,12 +754,6 @@ msgstr "잔액 부족"
 #: src/components/NormalInput/NESTInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
-
-#: src/hooks/useFuturesAdd.ts
-#: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Insufficient NEST balance"
-msgstr "NEST 잔액 부족"
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -753,13 +771,13 @@ msgstr "가입"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Join NESTFi affiliate program and get commission on your referrals."
-msgstr "NESTFi 제휴 프로그램에 가입하고 추천에 대한 수수료를 받으세요."
+msgid "Join ArithFi affiliate program and get commission on your referrals."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "KOLs Joined NESTFi"
-msgstr "NESTFi에 합류한 인플루언서"
+msgid "KOLs Joined ArithFi"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -875,13 +893,13 @@ msgid "MAX"
 msgstr "최대"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 200 NEST"
-msgstr "최소 200 NEST"
+msgid "Minimum 200 ATF"
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 50 NEST"
-msgstr "최소 50 NEST"
+msgid "Minimum 50 ATF"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Home/Home.tsx
@@ -921,22 +939,6 @@ msgstr "내 트레이더"
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Trades"
 msgstr "내 거래"
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "NEST White Paper"
-msgstr "NEST 종합 보고서"
-
-#: src/pages/Home/Home.tsx
-msgid "NEST's economic model is deflationary. The more users trade, the more $NEST will be burned."
-msgstr "NEST의 경제 모델은 디플레이션입니다. 더 많은 사용자가 거래할수록 더 많은 $NEST가 소각됩니다."
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi, A Next-Generation"
-msgstr "NESTFi, 차세대"
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi's new features enable you to open a position with a single click."
-msgstr "NESTFi의 새로운 기능은 클릭 한 번으로 포지션을 개설할 수 있습니다."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "News"
@@ -1128,8 +1130,8 @@ msgid "Profit"
 msgstr "이익"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Profit (NEST)"
-msgstr "이익（NEST)"
+msgid "Profit (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1140,16 +1142,16 @@ msgstr "이익 공유"
 #: src/pages/Copy/Components/TraderFollowers.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
-msgid "Profit(NEST)"
-msgstr "이익（NEST)"
+msgid "Profit(ATF)"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
 msgstr "수신됨"
 
 #: src/hooks/useTransactionReceipt.ts
-msgid "Received 100NEST test tokens"
-msgstr "100NEST 테스트 토큰 수령"
+msgid "Received 100 ATF test tokens"
+msgstr ""
 
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Recent transactions"
@@ -1384,8 +1386,8 @@ msgid "The maximum deposit amount is"
 msgstr "최대 예금 금액은"
 
 #: src/hooks/useWithDrawModal.ts
-msgid "The minimum withdrawal amount greater than 15NEST"
-msgstr "최소 인출 금액은 15NEST보다 큼"
+msgid "The minimum withdrawal amount greater than 15 ATF"
+msgstr ""
 
 #: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "The NESTfi Team"
@@ -1396,8 +1398,8 @@ msgid "The NESTFi Team"
 msgstr "NESTfi 팀 드림"
 
 #: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $NEST."
-msgstr "스마트 컨트랙트는 $NEST 소각 및 발행을 통해 무한한 유동성을 보장합니다."
+msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
@@ -1445,8 +1447,8 @@ msgstr "총 소각된"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Burned (NEST)"
-msgstr "총 소각량(NEST)"
+msgid "Total Burned (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1493,8 +1495,8 @@ msgstr "총 거래량"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (NEST)"
-msgstr "총 거래량(NEST)"
+msgid "Total Trading Volume (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total User"
@@ -1520,8 +1522,8 @@ msgid "TP Executed"
 msgstr "TP 실행됨"
 
 #: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with NEST."
-msgstr "NEST로 BTC, ETH 및 BNB를 1-50 레버리지로 거래하십시오. 포지션을 열어보십시오."
+msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Trade easily anytime and anywhere."
@@ -1536,8 +1538,8 @@ msgid "Trade tokens in instant"
 msgstr "즉시 토큰 거래"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid "Trade with me on NESTFi"
-msgstr "NESTFi에서 함께 거래해요"
+msgid "Trade with me on ArithFi"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1584,12 +1586,12 @@ msgid "Type"
 msgstr "유형"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Unrealized PnL (NEST)"
-msgstr "미실현 손익 (NEST)"
+msgid "Unrealized PnL (ATF)"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Unrealized PnL(NEST)"
-msgstr "미실현 손익 (NEST)"
+msgid "Unrealized PnL(ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1666,8 +1668,8 @@ msgid "White Paper"
 msgstr "종합 보고서"
 
 #: src/pages/Home/Home.tsx
-msgid "Why You Should Choose NESTFi"
-msgstr "NESTFi를 선택해야 하는 이유"
+msgid "Why You Should Choose ArithFi"
+msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

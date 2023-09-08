@@ -25,8 +25,8 @@ msgid "* Due to the complexity of financial data, there might be nuances and del
 msgstr "* Finansal verilerin karmaşıklığı nedeniyle nüanslar ve gecikmeler olabilir. Yukarıda gösterilen veriler sadece referans içindir. Herhangi bir rahatsızlık için içtenlikle özür dileriz."
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "*NESTFi only supports NEST withdrawals."
-msgstr "*NESTFi yalnızca NEST çekimlerini destekler."
+msgid "*ArithFi only supports ATF withdrawals."
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
@@ -61,8 +61,8 @@ msgstr "＞ AÇILIŞ FİYATI"
 #: src/components/NormalInput/NESTInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
-"between USDT and NEST token."
-msgstr "0 bakiye. İşlem yapmadan önce, \"Değiş tokuş\\"
+"between USDT and ATF token."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -132,8 +132,8 @@ msgid "7D PnL"
 msgstr "7D Kar/Zararı"
 
 #: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using NESTFi"
-msgstr "NESTFi kullanımına yönelik bir başlangıç ​​rehberi"
+msgid "A beginner's guide to using ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -171,6 +171,11 @@ msgstr "Gerçek Marj"
 msgid "Add"
 msgstr "Ekle"
 
+#: src/pages/DirectPoster/DirectPoster.tsx
+#: src/pages/Swap/Swap.tsx
+msgid "Add ATF to wallet"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "Kopya Ticaret Miktarı Ekleyin"
@@ -178,11 +183,6 @@ msgstr "Kopya Ticaret Miktarı Ekleyin"
 #: src/pages/Share/Modal/ChangeNewTokenModal.tsx
 msgid "Add NEST 2.0 to wallet"
 msgstr "NEST 2.0'ı cüzdana ekle"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/Swap/Swap.tsx
-msgid "Add NEST to wallet"
-msgstr "NEST'i cüzdana ekle"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -234,14 +234,30 @@ msgstr "Onay gerekiyor"
 msgid "Approve"
 msgstr "Onayla"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Next-Generation"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi's new features enable you to open a position with a single click."
+msgstr ""
+
+#: src/pages/Futures/MoreInfo.tsx
+msgid "ATF White Paper"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "AUM (NEST)"
-msgstr "AUM (NEST)"
+msgid "AUM (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-msgid "AUM(NEST)"
-msgstr "AUM(NEST)"
+msgid "AUM(ATF)"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -268,8 +284,8 @@ msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Kopya Tüccarları Olarak Gelirinizi ve Etkinliğinizi Artırın."
 
 #: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the NESTFi affiliate program."
-msgstr "NESTFi bağlı kuruluş programına katılarak kazancınızı ve etkinliğinizi artırın."
+msgid "Boost your earning and influence by joining the ArithFi affiliate program."
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -403,8 +419,8 @@ msgid "Copy Trader Service Agreement"
 msgstr "Kopya Tüccar Hizmet Sözleşmesi"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "Copy Traders’ PnL (NEST)"
-msgstr "Kopya Tüccarların Kâr ve Zararı(NEST)"
+msgid "Copy Traders’ PnL (ATF)"
+msgstr ""
 
 #: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -413,8 +429,8 @@ msgid "Copy Trading"
 msgstr "Kopya İşlem"
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Copy Trading Assets(NEST)"
-msgstr "Kopya İşlem Varlıkları(NEST)"
+msgid "Copy Trading Assets(ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trading Each Order"
@@ -425,8 +441,8 @@ msgid "Copy Trading Effortlessly"
 msgstr "Zahmetsizce Kopya İşlem"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Copy Trading Total Amount (NEST)"
-msgstr "Kopya Ticaret Toplam Tutarı (NEST)"
+msgid "Copy Trading Total Amount (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -508,8 +524,8 @@ msgid "Deflationary"
 msgstr "Deflasyonist"
 
 #: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $NEST will be burned."
-msgstr "Deflasyonist ekonomik model. Kullanıcılar ne kadar çok işlem yaparsa, o kadar çok $NEST yakılır."
+msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
+msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/hooks/useDepositModal.ts
@@ -599,9 +615,14 @@ msgstr "Başarısız İstek"
 msgid "Faucet"
 msgstr "Musluk"
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+msgid ""
+"Follow the right person, making money is as easy as breathing.\n"
+"You can follow the right person on ArithFi, here is my refer link"
+msgstr ""
+
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on NESTFi, here is my refer link"
@@ -615,7 +636,6 @@ msgstr "NESTFi'de en iyi ticaret stratejilerini takip edin"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Trader.tsx
 msgid "Followers"
 msgstr "Takipçiler"
 
@@ -651,8 +671,8 @@ msgid "GET"
 msgstr "Al"
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "Get NEST"
-msgstr "NEST Al"
+msgid "Get ATF"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -721,6 +741,12 @@ msgstr "Sonsuz Likidite"
 msgid "Insufficient"
 msgstr "Yetersiz"
 
+#: src/hooks/useFuturesAdd.ts
+#: src/hooks/useFuturesNewOrder.ts
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
+msgid "Insufficient ATF balance"
+msgstr ""
+
 #: src/hooks/useWithDrawModal.ts
 msgid "Insufficient balance"
 msgstr "Yetersiz bakiye"
@@ -728,12 +754,6 @@ msgstr "Yetersiz bakiye"
 #: src/components/NormalInput/NESTInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yatırın."
-
-#: src/hooks/useFuturesAdd.ts
-#: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Insufficient NEST balance"
-msgstr "Yetersiz NEST bakiyesi"
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -751,13 +771,13 @@ msgstr "Katılın"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Join NESTFi affiliate program and get commission on your referrals."
-msgstr "NESTFi bağlı kuruluş programına katılın ve yönlendirmelerinizden komisyon alın."
+msgid "Join ArithFi affiliate program and get commission on your referrals."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "KOLs Joined NESTFi"
-msgstr "KOL'ler NESTFi'ye Katıldı"
+msgid "KOLs Joined ArithFi"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -875,13 +895,13 @@ msgid "MAX"
 msgstr "MAKS"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 200 NEST"
-msgstr "Minimum 200 NEST"
+msgid "Minimum 200 ATF"
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 50 NEST"
-msgstr "En az 50 NEST"
+msgid "Minimum 50 ATF"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Home/Home.tsx
@@ -921,22 +941,6 @@ msgstr "Tüccarlarım"
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Trades"
 msgstr "Tüccarlarım"
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "NEST White Paper"
-msgstr "NEST Beyaz Kağıdı"
-
-#: src/pages/Home/Home.tsx
-msgid "NEST's economic model is deflationary. The more users trade, the more $NEST will be burned."
-msgstr "NEST'in ekonomik modeli deflasyonisttir. Kullanıcılar ne kadar çok işlem yaparsa, o kadar çok $NEST yakılacaktır."
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi, A Next-Generation"
-msgstr "NESTFi, Yeni Nesil"
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi's new features enable you to open a position with a single click."
-msgstr "NESTFi'nin yeni özellikleri tek tıklamayla pozisyon açmanıza olanak tanır."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "News"
@@ -1130,8 +1134,8 @@ msgid "Profit"
 msgstr "Kâr"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Profit (NEST)"
-msgstr "Kâr(NEST)"
+msgid "Profit (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1142,16 +1146,16 @@ msgstr "Kar Paylaşımı"
 #: src/pages/Copy/Components/TraderFollowers.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
-msgid "Profit(NEST)"
-msgstr "Kâr(NEST)"
+msgid "Profit(ATF)"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
 msgstr "Alındı"
 
 #: src/hooks/useTransactionReceipt.ts
-msgid "Received 100NEST test tokens"
-msgstr "100 NEST test jetonu alındı"
+msgid "Received 100 ATF test tokens"
+msgstr ""
 
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Recent transactions"
@@ -1386,8 +1390,8 @@ msgid "The maximum deposit amount is"
 msgstr "Maksimum depozito tutarı"
 
 #: src/hooks/useWithDrawModal.ts
-msgid "The minimum withdrawal amount greater than 15NEST"
-msgstr "15NEST'den büyük minimum çekim miktarı"
+msgid "The minimum withdrawal amount greater than 15 ATF"
+msgstr ""
 
 #: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "The NESTfi Team"
@@ -1398,8 +1402,8 @@ msgid "The NESTFi Team"
 msgstr "NESTfi Ekibi"
 
 #: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $NEST."
-msgstr "Akıllı sözleşme, $NEST'in yakılması ve dağıtılması yoluyla sonsuz likiditeyi garanti eder."
+msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
@@ -1447,8 +1451,8 @@ msgstr "Toplam Yakılan"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Burned (NEST)"
-msgstr "Toplam Yakılan (NEST)"
+msgid "Total Burned (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1495,8 +1499,8 @@ msgstr "Toplam Kar ve Zarar"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (NEST)"
-msgstr "Toplam İşlem Hacmi (NEST)"
+msgid "Total Trading Volume (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total User"
@@ -1522,8 +1526,8 @@ msgid "TP Executed"
 msgstr "TP Yürütüldü"
 
 #: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with NEST."
-msgstr "BTC, ETH ve BNB ile 1-50 kaldıraçla işlem yapın. Bir pozisyon NEST ile açın."
+msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Trade easily anytime and anywhere."
@@ -1538,8 +1542,8 @@ msgid "Trade tokens in instant"
 msgstr "Anında jetonlarla işlem yapın"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid "Trade with me on NESTFi"
-msgstr "NESTFi'de benimle işlem yapın"
+msgid "Trade with me on ArithFi"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1586,12 +1590,12 @@ msgid "Type"
 msgstr "Tür"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Unrealized PnL (NEST)"
-msgstr "Gerçekleşmemiş Kar/Zarar(NEST)"
+msgid "Unrealized PnL (ATF)"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Unrealized PnL(NEST)"
-msgstr "Gerçekleşmemiş Kar/Zarar(NEST)"
+msgid "Unrealized PnL(ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1668,8 +1672,8 @@ msgid "White Paper"
 msgstr "Beyaz Kağıt"
 
 #: src/pages/Home/Home.tsx
-msgid "Why You Should Choose NESTFi"
-msgstr "NESTFi'yi Neden Seçmelisiniz"
+msgid "Why You Should Choose ArithFi"
+msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

@@ -25,8 +25,8 @@ msgid "* Due to the complexity of financial data, there might be nuances and del
 msgstr "* Debido a la complejidad de los datos financieros, puede haber matices y retraso."
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "*NESTFi only supports NEST withdrawals."
-msgstr "*NESTFi solo admite retiros de NEST."
+msgid "*ArithFi only supports ATF withdrawals."
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
@@ -61,10 +61,8 @@ msgstr "＞ PRECIO DE APERTURA"
 #: src/components/NormalInput/NESTInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
-"between USDT and NEST token."
+"between USDT and ATF token."
 msgstr ""
-"Saldo 0. Antes de operar, puedes cambiar a \"Swap\"\\ para intercambiar.\n"
-"entre USDT y el token NEST."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -134,8 +132,8 @@ msgid "7D PnL"
 msgstr "7D Pnl"
 
 #: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using NESTFi"
-msgstr "Guía para principiantes sobre cómo usar NESTFi"
+msgid "A beginner's guide to using ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -173,6 +171,11 @@ msgstr "Margen Actual"
 msgid "Add"
 msgstr "Añadir"
 
+#: src/pages/DirectPoster/DirectPoster.tsx
+#: src/pages/Swap/Swap.tsx
+msgid "Add ATF to wallet"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "Agregar Cantidad de Copia de Trading"
@@ -180,11 +183,6 @@ msgstr "Agregar Cantidad de Copia de Trading"
 #: src/pages/Share/Modal/ChangeNewTokenModal.tsx
 msgid "Add NEST 2.0 to wallet"
 msgstr "Añadir NEST 2.0 a la billetera"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/Swap/Swap.tsx
-msgid "Add NEST to wallet"
-msgstr "Añadir NEST a la billetera"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -236,14 +234,30 @@ msgstr "Aprobación requerida"
 msgid "Approve"
 msgstr "Aprobar"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Next-Generation"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi's new features enable you to open a position with a single click."
+msgstr ""
+
+#: src/pages/Futures/MoreInfo.tsx
+msgid "ATF White Paper"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "AUM (NEST)"
-msgstr "AUM (NEST)"
+msgid "AUM (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-msgid "AUM(NEST)"
-msgstr "AUM (NEST)"
+msgid "AUM(ATF)"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -270,8 +284,8 @@ msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Aumente sus ganancias e influencia al convertirse en traders copiados."
 
 #: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the NESTFi affiliate program."
-msgstr "Aumenta tus ganancias e influencia uniéndote al programa de afiliados de NESTFi."
+msgid "Boost your earning and influence by joining the ArithFi affiliate program."
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -405,8 +419,8 @@ msgid "Copy Trader Service Agreement"
 msgstr "Acuerdo de Servicio de Copia de Trader"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
-msgid "Copy Traders’ PnL (NEST)"
-msgstr "Ganancias y Pérdidas de Copia de Traders (NEST)"
+msgid "Copy Traders’ PnL (ATF)"
+msgstr ""
 
 #: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -415,8 +429,8 @@ msgid "Copy Trading"
 msgstr "Trading de Copia"
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Copy Trading Assets(NEST)"
-msgstr "Activos de Copia de Trading(NEST)"
+msgid "Copy Trading Assets(ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trading Each Order"
@@ -427,8 +441,8 @@ msgid "Copy Trading Effortlessly"
 msgstr "Copia de Trading sin esfuerzo"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Copy Trading Total Amount (NEST)"
-msgstr "total de negociación por copia (NEST)"
+msgid "Copy Trading Total Amount (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -510,8 +524,8 @@ msgid "Deflationary"
 msgstr "Deflacionario"
 
 #: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $NEST will be burned."
-msgstr "Modelo económico deflacionario. Cuanto más operan los usuarios, más $NEST se quemará."
+msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
+msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/hooks/useDepositModal.ts
@@ -601,9 +615,14 @@ msgstr "Solicitud Fallida"
 msgid "Faucet"
 msgstr "Grifo"
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+msgid ""
+"Follow the right person, making money is as easy as breathing.\n"
+"You can follow the right person on ArithFi, here is my refer link"
+msgstr ""
+
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on NESTFi, here is my refer link"
@@ -617,7 +636,6 @@ msgstr "Siga as principais estratégias de negociação no NESTFi"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Trader.tsx
 msgid "Followers"
 msgstr "Seguidores"
 
@@ -653,8 +671,8 @@ msgid "GET"
 msgstr "Obtener"
 
 #: src/pages/Share/Modal/DepositModal.tsx
-msgid "Get NEST"
-msgstr "Obtener NEST"
+msgid "Get ATF"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -723,6 +741,12 @@ msgstr "Liquidez Infinita"
 msgid "Insufficient"
 msgstr "Insuficiente"
 
+#: src/hooks/useFuturesAdd.ts
+#: src/hooks/useFuturesNewOrder.ts
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
+msgid "Insufficient ATF balance"
+msgstr ""
+
 #: src/hooks/useWithDrawModal.ts
 msgid "Insufficient balance"
 msgstr "Saldo Insuficiente"
@@ -730,12 +754,6 @@ msgstr "Saldo Insuficiente"
 #: src/components/NormalInput/NESTInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Saldo insuficiente. Por favor, deposita para comenzar el trading rápido."
-
-#: src/hooks/useFuturesAdd.ts
-#: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Insufficient NEST balance"
-msgstr "Saldo de NEST insuficiente"
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -753,13 +771,13 @@ msgstr "Unirse"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Join NESTFi affiliate program and get commission on your referrals."
-msgstr "Únete al programa de afiliados de NESTFi y obtén comisiones por tus referidos."
+msgid "Join ArithFi affiliate program and get commission on your referrals."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "KOLs Joined NESTFi"
-msgstr "KOLs se han unido a NESTFi"
+msgid "KOLs Joined ArithFi"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -877,13 +895,13 @@ msgid "MAX"
 msgstr "MÁXIMO"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 200 NEST"
-msgstr "Mínimo 200 NEST"
+msgid "Minimum 200 ATF"
+msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 50 NEST"
-msgstr "Mínimo 50 NEST"
+msgid "Minimum 50 ATF"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Home/Home.tsx
@@ -923,22 +941,6 @@ msgstr "Mis Traders"
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Trades"
 msgstr "Mis Operaciones"
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "NEST White Paper"
-msgstr "Libro Blanco de NEST"
-
-#: src/pages/Home/Home.tsx
-msgid "NEST's economic model is deflationary. The more users trade, the more $NEST will be burned."
-msgstr "El modelo económico de NEST es deflacionario. Cuanto más operan los usuarios, más $NEST se quemará."
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi, A Next-Generation"
-msgstr "NESTFi, una Plataforma de Próxima Generación"
-
-#: src/pages/Home/Home.tsx
-msgid "NESTFi's new features enable you to open a position with a single click."
-msgstr "Las nuevas funciones de NESTFi te permiten abrir una posición con un solo clic."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "News"
@@ -1130,8 +1132,8 @@ msgid "Profit"
 msgstr "Ganancias"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Profit (NEST)"
-msgstr "Ganancias (NEST)"
+msgid "Profit (ATF)"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1142,16 +1144,16 @@ msgstr "Participación en las Ganancias"
 #: src/pages/Copy/Components/TraderFollowers.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
-msgid "Profit(NEST)"
-msgstr "Ganancias(NEST)"
+msgid "Profit(ATF)"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
 msgstr "Recibido"
 
 #: src/hooks/useTransactionReceipt.ts
-msgid "Received 100NEST test tokens"
-msgstr "Recibidos 100 tokens de prueba NEST"
+msgid "Received 100 ATF test tokens"
+msgstr ""
 
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Recent transactions"
@@ -1386,8 +1388,8 @@ msgid "The maximum deposit amount is"
 msgstr "El monto máximo de depósito es"
 
 #: src/hooks/useWithDrawModal.ts
-msgid "The minimum withdrawal amount greater than 15NEST"
-msgstr "El monto mínimo de retiro es mayor que 15NEST"
+msgid "The minimum withdrawal amount greater than 15 ATF"
+msgstr ""
 
 #: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "The NESTfi Team"
@@ -1398,8 +1400,8 @@ msgid "The NESTFi Team"
 msgstr "El Equipo de NESTfi"
 
 #: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $NEST."
-msgstr "El contrato inteligente garantiza una liquidez infinita a través de la quema y emisión de $NEST."
+msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
@@ -1447,8 +1449,8 @@ msgstr "Total Quemado"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Burned (NEST)"
-msgstr "Total Quemado (NEST)"
+msgid "Total Burned (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1495,8 +1497,8 @@ msgstr "Volumen Total de Operaciones"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (NEST)"
-msgstr "Volumen Total de Operaciones (NEST)"
+msgid "Total Trading Volume (ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total User"
@@ -1522,8 +1524,8 @@ msgid "TP Executed"
 msgstr "TP Ejecutado"
 
 #: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with NEST."
-msgstr "Opera BTC, ETH y BNB con un apalancamiento de hasta 1-50. Abre una posición con NEST."
+msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Trade easily anytime and anywhere."
@@ -1538,8 +1540,8 @@ msgid "Trade tokens in instant"
 msgstr "Opera tokens al instante"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid "Trade with me on NESTFi"
-msgstr "Opera conmigo en NESTFi"
+msgid "Trade with me on ArithFi"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Dashboard/Referral/Referral.tsx
@@ -1586,12 +1588,12 @@ msgid "Type"
 msgstr "Tipo"
 
 #: src/pages/Copy/Copy.tsx
-msgid "Unrealized PnL (NEST)"
-msgstr "PNL no realizado (NEST)"
+msgid "Unrealized PnL (ATF)"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
-msgid "Unrealized PnL(NEST)"
-msgstr "PNL no realizado(NEST)"
+msgid "Unrealized PnL(ATF)"
+msgstr ""
 
 #: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1668,8 +1670,8 @@ msgid "White Paper"
 msgstr "Libro Blanco"
 
 #: src/pages/Home/Home.tsx
-msgid "Why You Should Choose NESTFi"
-msgstr "Por Qué Deberías Elegir NESTFi"
+msgid "Why You Should Choose ArithFi"
+msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
