@@ -140,7 +140,7 @@ export function serviceBaseURL(chainId: number) {
   if (chainId === 56) {
     return "https://db.nestfi.net/nestfi";
   } else {
-    return "https://me.nestfi.net/mutualfi";
+    return "https://me.nestfi.net/arithfi";
   }
 }
 export function serviceLogin(

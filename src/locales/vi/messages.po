@@ -615,6 +615,7 @@ msgstr "Yêu cầu thất bại"
 msgid "Faucet"
 msgstr "Faucet"
 
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid ""
@@ -622,17 +623,9 @@ msgid ""
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-msgstr ""
-"“Chỉ cần theo dõi đúng người, việc kiếm tiền dễ như là thở.\n"
-"”Bạn có thể theo dõi người có năng lực tốt trên NESTFi, đây là liên kết giới thiệu của tôi."
-
 #: src/pages/Copy/Copy.tsx
-msgid "Follow top trading strategies on NESTFi"
-msgstr "Theo các chiến lược giao dịch hàng đầu trên NESTFi"
+msgid "Follow top trading strategies on ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx

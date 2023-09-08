@@ -615,6 +615,7 @@ msgstr "Solicitud Fallida"
 msgid "Faucet"
 msgstr "Grifo"
 
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid ""
@@ -622,17 +623,9 @@ msgid ""
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-msgstr ""
-"Sigue a la persona adecuada y ganar dinero será tan fácil como respirar.\n"
-"Puedes seguir a la persona adecuada en NESTFi, aquí está mi enlace de referencia."
-
 #: src/pages/Copy/Copy.tsx
-msgid "Follow top trading strategies on NESTFi"
-msgstr "Siga as principais estratégias de negociação no NESTFi"
+msgid "Follow top trading strategies on ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx

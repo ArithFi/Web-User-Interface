@@ -599,7 +599,7 @@ const Copy: FC = () => {
                 color: theme.normal.text0,
               })}
             >
-              <Trans>Follow top trading strategies on NESTFi</Trans>
+              <Trans>Follow top trading strategies on ArithFi</Trans>
             </Box>
             <Box
               sx={{

@@ -617,6 +617,7 @@ msgstr "Fail Request"
 msgid "Faucet"
 msgstr "Faucet"
 
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid ""
@@ -626,17 +627,9 @@ msgstr ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on ArithFi, here is my refer link"
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-msgstr ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-
 #: src/pages/Copy/Copy.tsx
-msgid "Follow top trading strategies on NESTFi"
-msgstr "Follow top trading strategies on NESTFi"
+msgid "Follow top trading strategies on ArithFi"
+msgstr "Follow top trading strategies on ArithFi"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx

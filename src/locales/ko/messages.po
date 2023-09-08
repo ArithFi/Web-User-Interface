@@ -615,6 +615,7 @@ msgstr "요청 실패"
 msgid "Faucet"
 msgstr "수도꼭지"
 
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid ""
@@ -622,17 +623,9 @@ msgid ""
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-msgstr ""
-"올바른 사람을 따라가면 돈 버는 것은 숨 쉬는 것만큼 쉽습니다.\n"
-"NESTFi에서 올바른 사람을 팔로우할 수 있습니다. 여기는 제 추천 링크입니다."
-
 #: src/pages/Copy/Copy.tsx
-msgid "Follow top trading strategies on NESTFi"
-msgstr "NESTFi에서 최고의 거래 전략을 따르다"
+msgid "Follow top trading strategies on ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx

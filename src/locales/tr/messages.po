@@ -615,6 +615,7 @@ msgstr "Başarısız İstek"
 msgid "Faucet"
 msgstr "Musluk"
 
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid ""
@@ -622,17 +623,9 @@ msgid ""
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
 
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid ""
-"Follow the right person, making money is as easy as breathing.\n"
-"You can follow the right person on NESTFi, here is my refer link"
-msgstr ""
-"Takip ettiğiniz doğru kişi, para kazanmak nefes almak kadar kolay olacaktır.\n"
-"NESTFi'de doğru kişiyi takip edebilirsiniz, işte benim referans bağlantım"
-
 #: src/pages/Copy/Copy.tsx
-msgid "Follow top trading strategies on NESTFi"
-msgstr "NESTFi'de en iyi ticaret stratejilerini takip edin"
+msgid "Follow top trading strategies on ArithFi"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx

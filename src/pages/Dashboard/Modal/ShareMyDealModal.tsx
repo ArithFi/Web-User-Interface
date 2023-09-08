@@ -114,7 +114,7 @@ const ShareMyDealModal: FC<ShareMyDealModalProps> = ({...props}) => {
   const tweet = (address: string) => {
     const link = `https://nestfi.org/?a=${address?.slice(-8).toLowerCase()}`
     const text = `${t`Follow the right person, making money is as easy as breathing.
-You can follow the right person on NESTFi, here is my refer link`}: ${link}`
+You can follow the right person on ArithFi, here is my refer link`}: ${link}`
     window.open(`https://twitter.com/intent/tweet?text=${encodeURI(text)}&hashtags=NEST,btc,eth&via=NEST_Protocol`)
   }
   const [select, setSelect] = useState({
