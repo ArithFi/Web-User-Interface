@@ -144,7 +144,7 @@ const Home: FC = () => {
             px={["0", "20px", "40px"]}
             pt={["32px", "40px"]}
           >
-            <Link to={"/futures"}>
+            <Link to={"/future"}>
               <MainButton
                 title={t`Start Trading`}
                 style={{ width: "200px", height: "48px" }}
@@ -723,7 +723,7 @@ const Home: FC = () => {
               swiftly, and effortlessly.`}
               </Box>
               <Box pt={"28px"}>
-                <Link to={"/futures"}>
+                <Link to={"/future"}>
                   <MainButton
                     title={t`Trade Now`}
                     style={{
