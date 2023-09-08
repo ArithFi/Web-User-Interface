@@ -12,6 +12,7 @@ import {
   XRPTokenLogo,
 } from "../components/icons";
 
+
 export type TokenType = {
   symbol: string;
   icon: typeof ETHLogo;
