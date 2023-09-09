@@ -98,7 +98,7 @@ function useFuturesAdd(
   }, [data.balance, data.direction, data.leverage]);
 
   const showOpenPrice = useMemo(() => {
-    return `${data.orderPrice.toFixed(tokenPair.getTokenPriceDecimals())} USDT`;
+    return `${data.orderPrice.toFixed(tokenPair.getTokenPriceDecimals())}`;
   }, [data.orderPrice, tokenPair]);
 
   const showLiqPrice = useMemo(() => {

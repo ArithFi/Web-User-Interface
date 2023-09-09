@@ -118,7 +118,7 @@ function useFuturesEditPosition(
     return `${lever}X ${longOrShort} ${balance} ATF`;
   }, [data.balance, data.leverage, data.direction]);
   const showOpenPrice = useMemo(() => {
-    return `${baseOpenPrice} USDT`;
+    return `${baseOpenPrice}`;
   }, [baseOpenPrice]);
   const showLiqPrice = useMemo(() => {
     if (price) {
