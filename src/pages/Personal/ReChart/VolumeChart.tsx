@@ -13,6 +13,7 @@ import useSWR from "swr";
 import useTheme from "../../../hooks/useTheme";
 import {Stack} from "@mui/material";
 import numeral from 'numeral';
+import useNEST from '../../../hooks/useNEST';
 
 type ChartsProps = {
   address: string | undefined
@@ -22,10 +23,11 @@ type ChartsProps = {
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
+  const {chainsData} = useNEST()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
 
-  const {data} = useSWR(`https://api.nestfi.net/api/dashboard/v2/personal/volume?address=${props.address}&chainId=56&from=${from}&to=${to}`,
+  const {data} = useSWR(`https://api.nestfi.net/api/dashboard/v2/personal/volume?address=${props.address}&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}`,
     (url: string) => fetch(url)
       .then((res) => res.json())
       .then((res: any) => res.value))

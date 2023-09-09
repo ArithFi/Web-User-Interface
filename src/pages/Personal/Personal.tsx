@@ -31,7 +31,7 @@ import {NESTTooltipFC} from "../../components/NESTTooltip/NESTTooltip";
 
 const Personal = () => {
   const { address } = useParams();
-  const { account, checkSigned } = useNEST();
+  const { account, checkSigned, chainsData } = useNEST();
   const { isBigMobile } = useWindowWidth();
   const [showShareMyDealModal, setShareMyDealModal] = useState(false);
   const [range, setRange] = useState<Range[]>([
@@ -61,7 +61,7 @@ const Personal = () => {
   const { data: positions } = useSWR(
     `https://api.nestfi.net/api/dashboard/v2/personal/positons?address=${
       address ?? account.address
-    }&chainId=56`,
+    }&chainId=${chainsData.chainId ?? 56}`,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())
