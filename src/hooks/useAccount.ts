@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import useService from "../contracts/useService";
 import useNEST from "./useNEST";
-import {serviceAccountList} from "../lib/NESTRequest";
+import {serviceAccountList, serviceHistory} from "../lib/NESTRequest";
 import {t} from "@lingui/macro";
 
 export interface AccountListData {
@@ -71,28 +71,29 @@ function useAccount() {
       }
     }
   }, [account.address, chainsData.chainId, signature]);
-  // const getTransactionList = useCallback(async () => {
-  //   if (chainsData.chainId && account.address && signature) {
-  //     const transactionListBase = await serviceHistory(
-  //       chainsData.chainId,
-  //       account.address,
-  //       { Authorization: signature.signature }
-  //     );
-  //     if (Number(transactionListBase["errorCode"]) === 0) {
-  //       const value = transactionListBase["value"];
-  //       const list: Array<AccountListData> = value.map((item: any) => {
-  //         const one: AccountListData = {
-  //           text: serviceTypeToWebTypeString(item["orderType"]),
-  //           time: item["timestamp"],
-  //           status: item["status"],
-  //           ordertype: item["orderType"],
-  //         };
-  //         return one;
-  //       });
-  //       setHistoryList(list);
-  //     }
-  //   }
-  // }, [account.address, chainsData.chainId, signature]);
+  const getTransactionList = useCallback(async () => {
+    if (chainsData.chainId && account.address && signature) {
+      const transactionListBase = await serviceHistory(
+        chainsData.chainId,
+        account.address,
+        { Authorization: signature.signature }
+      );
+      if (Number(transactionListBase["errorCode"]) === 0) {
+        const value = transactionListBase["value"];
+        // const list: Array<AccountListData> = value.map((item: any) => {
+        //   const one: AccountListData = {
+        //     text: "",
+        //     time: item["timestamp"],
+        //     status: item["status"],
+        //     ordertype: item["orderType"],
+        //     orderTypeString: ""
+        //   };
+        //   return one;
+        // });
+        // setHistoryList(list);
+      }
+    }
+  }, [account.address, chainsData.chainId, signature]);
   /**
    * balance
    */
@@ -157,15 +158,15 @@ function useAccount() {
 
   useEffect(() => {
     getAssetsList();
-    // getTransactionList();
+    getTransactionList();
     const time = setInterval(() => {
       getAssetsList();
-      // getTransactionList();
+      getTransactionList();
     }, 10 * 1000);
     return () => {
       clearInterval(time);
     };
-  }, [getAssetsList]);
+  }, [getAssetsList, getTransactionList]);
 
   return {
     showDeposit,

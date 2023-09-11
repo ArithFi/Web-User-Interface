@@ -99,12 +99,6 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://api.nestfi.net/api/kol/tx", info);
 }
 
-export function futuresHistory(address: string, chainId: number): Promise<any> {
-  return baseRequestGet(
-    `https://api.nestfi.net/api/dashboard/history/list?address=${address}&chainId=${chainId}`
-  );
-}
-
 export function hideFuturesOrder(
   chainId: number,
   address: string,
@@ -315,6 +309,19 @@ export function serviceHistory(
     `${serviceBaseURL(
       chainId
     )}/op/future/history?chainId=${chainId}&walletAddress=${address}`,
+    info
+  );
+}
+
+export function serviceFutureHistory(
+  chainId: number,
+  address: string,
+  info: RequestBodyInterface
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/op/history/list?chainId=${chainId}&address=${address}`,
     info
   );
 }

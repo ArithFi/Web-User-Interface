@@ -7,8 +7,8 @@ import FuturesNewOrder from "./NewOrder";
 import FuturesOrderList, { FuturesOrderService } from "./OrderList";
 import ExchangeTVChart from "./ExchangeTVChart";
 import {
-  futuresHistory,
   getPriceList,
+  serviceFutureHistory,
   serviceList,
 } from "../../lib/NESTRequest";
 import { getQueryVariable } from "../../lib/queryVaribale";
@@ -148,11 +148,11 @@ const Futures: FC = () => {
       if (!chainsData.chainId || !account.address || !signature) {
         return;
       }
-      const baseList = await futuresHistory(
+      const baseList = await serviceFutureHistory(
+        chainsData.chainId,
         account.address,
-        chainsData.chainId
-      );
-      console.log(baseList);
+        { Authorization: signature.signature }
+      )
       if (Number(baseList["errorCode"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
           (item: { [x: string]: any }) => {
