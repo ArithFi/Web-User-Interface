@@ -7,16 +7,16 @@ function useThemeBase() {
   /**
    * Local theme
    */
-  const localThemeIsWhite = useMemo(() => {
-    return localStorage.getItem("themeIsWhite") === "0";
-  }, []);
-  const defaultTheme = useMemo(() => {
-    return localThemeIsWhite ? whiteTheme : darkTheme;
-  }, [localThemeIsWhite]);
+  // const localThemeIsWhite = useMemo(() => {
+  //   return localStorage.getItem("themeIsWhite") === "0";
+  // }, []);
+  // const defaultTheme = useMemo(() => {
+  //   return whiteTheme;
+  // }, []);
   /**
    * Theme
    */
-  const [nowTheme, setNowTheme] = useState<Theme>(defaultTheme);
+  const [nowTheme, setNowTheme] = useState<Theme>(whiteTheme);
   /**
    * Change theme
    */
