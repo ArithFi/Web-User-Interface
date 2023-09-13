@@ -53,7 +53,7 @@ export const BNB: AddressType = {
   534353: String().zeroAddress,
 };
 
-export const NESTToken: AddressType = {
+export const ATFToken: AddressType = {
   1: "0x04abEdA201850aC0124161F037Efd70c74ddC74C",
   5: "0xE2975bf674617bbCE57D2c72dCfC926716D8AC1F",
   56: "0xcd6926193308d3B371FdD6A6219067E550000000",
@@ -93,14 +93,6 @@ export const SwapContract: AddressType = {
   534353: "0xF50822767bEce47c277982d3fCFd39f0F561bf2E",
 };
 
-export const NESTFiVault: AddressType = {
-  1: String().zeroAddress,
-  5: String().zeroAddress,
-  56: String().zeroAddress,
-  97: "0x0649A02C15229Cb970CDcE456f9dd52248023520",
-  534353: "0x3948F9ec377110327dE3Fb8176C8Ed46296d76bA",
-};
-
 export const FuturesV2Contract: AddressType = {
   1: String().zeroAddress,
   5: String().zeroAddress,
@@ -116,7 +108,7 @@ export const NESTRedeemContract: AddressType = {
   97: "0x6E9c1edACe6Fc03f9666769f09D557b1383f7F57",
   534353: "0x6E9c1edACe6Fc03f9666769f09D557b1383f7F57",
 };
-export const NESTService: AddressType = {
+export const ATFService: AddressType = {
   1: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
   5: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
   56: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
@@ -124,7 +116,7 @@ export const NESTService: AddressType = {
   534353: "0xd9f3aA57576a6da995fb4B7e7272b4F16f04e681",
 };
 
-export const NESTServiceOther: AddressType = {
+export const ATFServiceOther: AddressType = {
   1: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
   5: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
   56: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
@@ -173,7 +165,7 @@ export const TokenList: Array<TokenType> = [
     symbol: "ATF",
     icon: NESTLogo,
     decimals: All18,
-    address: NESTToken,
+    address: ATFToken,
     priceDecimals: 2,
   },
   {
@@ -194,28 +186,28 @@ export const TokenList: Array<TokenType> = [
     symbol: "MATIC",
     icon: MATICTokenLogo,
     decimals: All18,
-    address: NESTToken,
+    address: ATFToken,
     priceDecimals: 4,
   },
   {
     symbol: "ADA",
     icon: ADATokenLogo,
     decimals: All18,
-    address: NESTToken,
+    address: ATFToken,
     priceDecimals: 4,
   },
   {
     symbol: "DOGE",
     icon: DOGETokenLogo,
     decimals: All18,
-    address: NESTToken,
+    address: ATFToken,
     priceDecimals: 5,
   },
   {
     symbol: "XRP",
     icon: XRPTokenLogo,
     decimals: All18,
-    address: NESTToken,
+    address: ATFToken,
     priceDecimals: 4,
   },
 ];

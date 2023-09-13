@@ -70,8 +70,8 @@ msgstr "1. Tetikleme fiyatına ulaşıldı ancak yeterli süre yoktur."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "1. Uncertainty risk of income: The calculation method of NEST perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The NEST perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr "1. Gelirin belirsiz riski: NEST sürekli kontratının hesaplama yöntemi, geleneksel merkezi borsa sürekli kontratının hesaplama yönteminden farklıdır. NEST sürekli kontratı, varlığın tarihçesine dayalı olarak varlığın gelecekteki fiyatını dönüştürür. Bu nedenle, kullanıcı bir pozisyon açtıktan sonra varlık fiyatı %100 artar, ancak kullanıcının geliri %100 değildir. Aşırı durumlarda, varlık fiyatı yükselse bile geliriniz negatif olabilir."
+msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -79,8 +79,8 @@ msgstr "2. Uygulama emrini kimse almaz. Tetikleme fiyatında işlem yapmak için
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "2. Position liquidation risk: NEST perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr "2. Pozisyon likidasyon riski: NEST sürekli kontratları 1-20 kat kaldıraç sağlar. Kaldıraç 1 kat kaldıraçtan büyük olduğunda, temel varlığın fiyat dalgalanması likidasyona neden olabilir."
+msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
+msgstr ""
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -96,8 +96,8 @@ msgstr "24 saatlik Düşük"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "3. NEST Token price fluctuation risk: Both the margin and the final profit and loss use NEST Token, and NEST itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the NEST price itself, it may cause you to lose money in terms of fiat currency."
-msgstr "3. NEST Token fiyat dalgalanma riski: Marj ve son kar zarar NEST Token kullanır ve NEST kendisi de oldukça oynak bir varlıktır. Aşırı durumlarda, sürekli kontrat pozisyonunuz karlı olsa bile, NEST fiyatındaki dalgalanma nedeniyle, nakit para birimi cinsinden para kaybetmenize neden olabilir."
+msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -108,8 +108,8 @@ msgstr "30 Gün Kar/Zarar"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "4. External oracle risk: NEST protocol's perpetual contract price comes from the NEST oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr "4. Harici oracle riski: NEST protokolünün sürekli kontrat fiyatı NEST oracle'dan gelir. Eğer oracle saldırıya uğrarsa veya diğer nedenler fiyatın anormal olmasına yol açarsa, sistem düzenleme istisnalarıyla karşılaşabilir ve kullanıcının gelir hesaplamasında hatalar oluşabilir."
+msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -179,10 +179,6 @@ msgstr ""
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "Kopya Ticaret Miktarı Ekleyin"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Add NEST 2.0 to wallet"
-msgstr "NEST 2.0'ı cüzdana ekle"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -498,14 +494,6 @@ msgstr "Koyu Mod"
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Dear NESTFi Community,"
-msgstr "Sevgili NESTFi Topluluğu,"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Dear NESTfi Users,"
-msgstr "Sevgili NESTfi Kullanıcıları,"
-
 #: src/pages/Home/Home.tsx
 msgid "Decentralized"
 msgstr "Merkezi Olmayan"
@@ -550,10 +538,6 @@ msgstr "Bağlantıyı Kes"
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "Piyasa oynaklığı nedeniyle, gerçek likidasyon fiyatı teorik likidasyon fiyatından farklı olabilir. İşte teorik likidasyon fiyatı, sadece referans için."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "During the airdrop period, NESTfi's trading services will be temporarily unavailable for approximately 1-2 hours. This suspension is necessary to ensure a smooth and successful airdrop of NEST 2.0 tokens to all eligible participants. We apologize for any inconvenience caused during this temporary interruption of services."
-msgstr "Piyasa oynaklığı nedeniyle, gerçek likidasyon fiyatı teorik likidasyon fiyatından farklı olabilir. İşte teorik likidasyon fiyatı, yalnızca referans için."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -634,8 +618,8 @@ msgstr "Takipçiler"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "For users/smart contracts using NEST Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr "NEST Protokol sürekli kontratlarını kullanan kullanıcılar/akıllı sözleşmeler, pozisyon, düzenleme, likidasyon ve diğer ilgili işlemleri gerçekleştirirken, lütfen kurallarını ve piyasada benzer ürünlerin farklarını anlayın. Aşağıdaki olası riskleri tamamen anladıktan sonra ve risk durumunda katlanabilecek durumda olan kullanıcılar katılabilir:"
+msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -703,7 +687,6 @@ msgstr "Okudum ve kabul ettim"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 #: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "I understand"
 msgstr "Anladım"
 
@@ -711,19 +694,11 @@ msgstr "Anladım"
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Kendinize ait güvenli bir cihaz kullanıyorsanız. Bu seçeneği seçmek, genel bir cihazda veya güvensiz bir cihazda olmanız durumunda anahtarlarınızın ve bilgilerinizin başkalarına açığa çıkmasına neden olabilir."
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "If you have any questions or require further assistance, please feel free to reach out to our support team. We are here to help and provide guidance throughout this process."
-msgstr "Herhangi bir sorunuz varsa veya daha fazla yardıma ihtiyacınız varsa, lütfen destek ekibimize başvurun. Bu süreç boyunca size yardımcı olmak ve rehberlik etmek için buradayız."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Görsel"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Important Announcement: Temporary Suspension of Trading Services on NESTfi"
-msgstr "Önemli Duyuru: NESTfi'de Geçici Olarak Ticaret Hizmetlerinin Askıya Alınması"
 
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
@@ -973,10 +948,6 @@ msgstr "Henüz İşlem Yok"
 msgid "Number of Orders"
 msgstr "Sipariş Sayısı"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Once the airdrop is completed, NESTfi will only support trading with NEST 2.0 tokens. The previous version of NEST tokens (NEST 1.0) will become obsolete and will no longer be accepted for trading or other activities on the platform."
-msgstr "Airdrop tamamlandığında, NESTfi yalnızca NEST 2.0 jetonları ile ticareti destekleyecektir. Önceki sürüm NEST jetonları (NEST 1.0) kullanım dışı kalacak ve platformda ticaret veya diğer faaliyetler için artık kabul edilmeyecektir."
-
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Open"
 msgstr "Aç"
@@ -1079,10 +1050,6 @@ msgstr ""
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Please note that due to price fluctuation during settlement, the PNL, profit shared and settled value may vary from displayed above."
 msgstr "Lütfen dikkat edin, uzlaşma sırasında fiyat dalgalanmaları nedeniyle PNL, kar payı ve uzlaşılan değer yukarıda gösterilenden farklılık gösterebilir."
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Please note that NEST 1.0 tokens have been officially deprecated and will no longer be supported. To continue participating in the NESTFi ecosystem and enjoy its benefits, it is crucial that you add NEST 2.0 tokens to your wallet. We have provided a button below for your convenience to add NEST 2.0 tokens to your wallet effortlessly."
-msgstr "Lütfen unutmayın ki NEST 1.0 jetonları resmi olarak kullanımdan kaldırılmıştır ve artık desteklenmeyecektir. NESTFi ekosistemine katılmaya ve faydalarından yararlanmaya devam etmek için cüzdanınıza NEST 2.0 jetonlarını eklemeniz önemlidir. Aşağıda, cüzdanınıza NEST 2.0 jetonlarını kolayca eklemek için sizin için bir düğme sağladık."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "PnL Ratio"
@@ -1254,10 +1221,6 @@ msgstr "Paylaş"
 msgid "Short"
 msgstr "Kısa"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Sincerely,"
-msgstr "Saygılarımla"
-
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1385,14 +1348,6 @@ msgstr "Maksimum depozito tutarı"
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "The NESTfi Team"
-msgstr "NESTfi Ekibi"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "The NESTFi Team"
-msgstr "NESTfi Ekibi"
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
@@ -1602,10 +1557,6 @@ msgstr "Hesaplanmamış"
 msgid "Unsettled Commissions"
 msgstr "Hesaplanmamış Komisyonlar"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Update: NEST 2.0 Airdrop Completed - NESTFi Services Now Available"
-msgstr "Güncelleme: NEST 2.0 Airdrop Tamamlandı - NESTFi Hizmetleri Şimdi Kullanılabilir"
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "Kullanıcı"
@@ -1651,14 +1602,6 @@ msgstr "Cüzdan Yatırımı"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Cüzdan Çekme"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "We are delighted to inform you that the NEST 2.0 token airdrop has been successfully completed. As a result, NESTFi services are now fully operational, and you can resume using the platform as usual."
-msgstr "NEST 2.0 jeton airdrop'unun başarıyla tamamlandığını size bildirmekten mutluluk duyuyoruz. Sonuç olarak, NESTFi hizmetleri şimdi tamamen operasyonel durumda ve platformu normal şekilde kullanmaya devam edebilirsiniz."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "We would like to inform you about an upcoming event regarding the NEST token. We are currently conducting an airdrop of NEST 2.0 tokens, which will bring significant upgrades and improvements to the NEST protocol."
-msgstr "Size NEST token ile ilgili yaklaşan bir etkinlik hakkında bilgi vermek istiyoruz. Şu anda NEST protokolüne önemli yükseltmeler ve iyileştirmeler getiren NEST 2.0 token'ının bir airdrop'unu gerçekleştiriyoruz."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"

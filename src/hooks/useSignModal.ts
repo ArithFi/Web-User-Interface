@@ -4,7 +4,7 @@ import { RequestBodyInterface, serviceLogin } from "../lib/NESTRequest";
 import { t } from "@lingui/macro";
 import { useSignMessage, useSignTypedData } from "wagmi";
 
-const BASE_SIGN_CONTENT = "https://nestfi.org";
+const BASE_SIGN_CONTENT = "https://arithfi.com";
 
 function useSignModal() {
   const { account, chainsData, setSignature } = useNEST();

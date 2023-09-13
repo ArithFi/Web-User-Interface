@@ -7,7 +7,7 @@ import {
   usePendingTransactions,
 } from "../hooks/useTransactionReceipt";
 import useNEST from "../hooks/useNEST";
-import { NESTService, NESTServiceOther, USDTToken } from "./contractAddress";
+import { ATFService, ATFServiceOther, USDTToken } from "./contractAddress";
 import useAddGasLimit from "./useAddGasLimit";
 
 function useTokenApprove(
@@ -51,9 +51,9 @@ export function useTokenTransfer(
         tokenAddress.toLocaleLowerCase() ===
         USDTToken[chainsData.chainId].toLocaleLowerCase()
       ) {
-        return NESTServiceOther[chainsData.chainId] as `0x${string}`;
+        return ATFServiceOther[chainsData.chainId] as `0x${string}`;
       }
-      return NESTService[chainsData.chainId] as `0x${string}`;
+      return ATFService[chainsData.chainId] as `0x${string}`;
     }
   }, [chainsData.chainId, tokenAddress]);
   const token = useMemo(() => {

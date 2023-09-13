@@ -30,7 +30,7 @@ const DepositModalBase: FC<DepositModalBaseProps> = ({ ...props }) => {
     maxCallBack,
     showBalance,
     showPrice,
-    showGetNEST,
+    showGetATF,
     selectButtonCallBack,
     isError,
     checkMax,
@@ -96,7 +96,7 @@ const DepositModalBase: FC<DepositModalBaseProps> = ({ ...props }) => {
               })}
               component={"p"}
             >
-              {`${showGetNEST} ATF`}
+              {`${showGetATF} ATF`}
             </Box>
           </Stack>
           <Stack
@@ -126,7 +126,7 @@ const DepositModalBase: FC<DepositModalBaseProps> = ({ ...props }) => {
     } else {
       return <></>;
     }
-  }, [selectToken, showGetNEST, showPrice]);
+  }, [selectToken, showGetATF, showPrice]);
   const inputNestAmount = useCallback(() => {
     return (
       <NESTInputSelect

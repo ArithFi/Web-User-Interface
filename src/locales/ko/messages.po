@@ -70,8 +70,8 @@ msgstr "1. 트리거 가격이 도달했지만 실행에 충분한 시간이 없
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "1. Uncertainty risk of income: The calculation method of NEST perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The NEST perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr "1. 수익의 불확실성 위험: NEST 영구 계약의 계산 방법은 전통적인 중앙 집중식 거래소의 영구 계약의 계산 방법과 다릅니다. NEST 영구 계약은 자산의 과거 수익률을 기반으로 자산의 미래 가격을 변환합니다. 따라서 사용자가 포지션을 오픈한 후 자산 가격이 100% 상승합니다. 사용자의 수익은 100%가 아닙니다. 극단적인 경우 자산 가격이 상승하더라도 수익이 음수가 될 수 있습니다."
+msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -79,8 +79,8 @@ msgstr "2. 아무도 실행 주문을 수행하지 않으면 트리거 가격에
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "2. Position liquidation risk: NEST perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr "2. 포지션 청산 리스크: NEST 영구 계약은 1-20 배 레버리지를 제공합니다. 레버리지가 1 배 이상일 때, 기초 자산의 가격 변동으로 인해 청산될 수 있습니다."
+msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
+msgstr ""
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -96,8 +96,8 @@ msgstr "24시간 저가"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "3. NEST Token price fluctuation risk: Both the margin and the final profit and loss use NEST Token, and NEST itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the NEST price itself, it may cause you to lose money in terms of fiat currency."
-msgstr "3. NEST 토큰 가격 변동 리스크: 마진과 최종 이익과 손실 모두 NEST 토큰을 사용하며, NEST 자체도 매우 불안정한 자산입니다. 극단적인 경우, 영구 계약 포지션이 이익을 낼 수 있더라도, NEST 자체의 가격 변동으로 인해, 당신은 법정 화폐로 손해를 볼 수 있습니다."
+msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -108,8 +108,8 @@ msgstr "30 일 손익"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "4. External oracle risk: NEST protocol's perpetual contract price comes from the NEST oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr "4. 외부 오라클 리스크: NEST 프로토콜의 영구 계약 가격은 NEST 오라클에서 나옵니다. 오라클이 공격을 받거나 기타 이유로 가격이 비정상적인 경우 시스템은 결제 예외 상황을 만날 수 있으며, 이는 사용자의 수익 계산에서 오류를 발생시킬 수 있습니다."
+msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -179,10 +179,6 @@ msgstr ""
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "복사 거래 금액 추가"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Add NEST 2.0 to wallet"
-msgstr "지갑에 NEST 2.0 추가하기"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -498,14 +494,6 @@ msgstr "다크 모드"
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Dear NESTFi Community,"
-msgstr "NESTFi 커뮤니티 여러분께,"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Dear NESTfi Users,"
-msgstr "NESTfi 사용자 여러분께,"
-
 #: src/pages/Home/Home.tsx
 msgid "Decentralized"
 msgstr "분산형"
@@ -550,10 +538,6 @@ msgstr "연결 해제"
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "시장 변동성으로 인해 실제 청산 가격은 이론적인 청산 가격과 다를 수 있습니다. 이곳에서는 참고용 이론적 청산 가격이 제시됩니다."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "During the airdrop period, NESTfi's trading services will be temporarily unavailable for approximately 1-2 hours. This suspension is necessary to ensure a smooth and successful airdrop of NEST 2.0 tokens to all eligible participants. We apologize for any inconvenience caused during this temporary interruption of services."
-msgstr "에어드롭 기간 동안 NESTfi의 거래 서비스는 약 1-2시간 동안 일시적으로 사용할 수 없습니다. 이러한 일시적인 중단은 모든 자격을 갖춘 참가자에게 NEST 2.0 토큰의 원활하고 성공적인 에어드롭을 보장하기 위해 필요합니다. 이러한 일시적인 서비스 중단으로 인한 불편을 사과드립니다."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -634,8 +618,8 @@ msgstr "팔로워"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "For users/smart contracts using NEST Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr "NEST 프로토콜 영구 계약을 사용하는 사용자/스마트 계약의 경우, 포지션, 결제, 청산 및 기타 관련 작업 수행 시 해당 규칙 및 시장에서 유사한 제품과의 차이점을 이해해야 합니다. 다음과 같은 위험 가능성을 완전히 이해하고 수용할 수 있는 경우 위험 상황에 참여할 수 있습니다:"
+msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -703,7 +687,6 @@ msgstr "내가 읽었으며 동의합니다"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 #: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "I understand"
 msgstr "이해했습니다"
 
@@ -711,19 +694,11 @@ msgstr "이해했습니다"
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "당신이 소유한 안전한 장치를 사용하고 있다면, 이 옵션을 선택하는 것은 공공장치나 보안이 되지 않은 장치에서 키와 정보가 다른 사람들에게 노출될 수 있습니다."
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "If you have any questions or require further assistance, please feel free to reach out to our support team. We are here to help and provide guidance throughout this process."
-msgstr "질문이 있거나 추가 도움이 필요한 경우 지원팀에 문의해주시기 바랍니다. 이 과정 전반에 걸쳐 도움과 안내를 제공하기 위해 준비되어 있습니다."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "이미지"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Important Announcement: Temporary Suspension of Trading Services on NESTfi"
-msgstr "중요 공지: NESTFi의 거래 서비스 일시 중단"
 
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
@@ -971,10 +946,6 @@ msgstr "아직 트랜잭션 없음"
 msgid "Number of Orders"
 msgstr "주문 수"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Once the airdrop is completed, NESTfi will only support trading with NEST 2.0 tokens. The previous version of NEST tokens (NEST 1.0) will become obsolete and will no longer be accepted for trading or other activities on the platform."
-msgstr "에어드롭이 완료되면 NESTfi는 NEST 2.0 토큰과만 거래를 지원할 예정입니다. 이전 버전인 NEST 토큰(NEST 1.0)은 사용되지 않으며 플랫폼에서의 거래나 기타 활동에 사용할 수 없게 될 것입니다."
-
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Open"
 msgstr "열기"
@@ -1075,10 +1046,6 @@ msgstr "\"지정가 주문\" 또는 \"스탑 오더 주문\"은 실행이 보장
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Please note that due to price fluctuation during settlement, the PNL, profit shared and settled value may vary from displayed above."
 msgstr "결제 중 가격 변동으로 인해 PNL, 공유된 이익 및 정산된 가치가 위에 표시된 것과 다를 수 있습니다."
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Please note that NEST 1.0 tokens have been officially deprecated and will no longer be supported. To continue participating in the NESTFi ecosystem and enjoy its benefits, it is crucial that you add NEST 2.0 tokens to your wallet. We have provided a button below for your convenience to add NEST 2.0 tokens to your wallet effortlessly."
-msgstr "NEST 1.0 토큰은 공식적으로 지원이 중단되었으며, 더 이상 지원되지 않습니다. NESTFi 생태계에 계속 참여하고 혜택을 누리기 위해서는 반드시 지갑에 NEST 2.0 토큰을 추가해야 합니다. 편의를 위해 아래에 NEST 2.0 토큰을 간편하게 지갑에 추가할 수 있는 버튼을 제공하였습니다."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "PnL Ratio"
@@ -1250,10 +1217,6 @@ msgstr "공유"
 msgid "Short"
 msgstr "숏"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Sincerely,"
-msgstr "감사합니다,"
-
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1381,14 +1344,6 @@ msgstr "최대 예금 금액은"
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "The NESTfi Team"
-msgstr "NESTfi 팀 드림"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "The NESTFi Team"
-msgstr "NESTfi 팀 드림"
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
@@ -1598,10 +1553,6 @@ msgstr "미정"
 msgid "Unsettled Commissions"
 msgstr "미정산 수수료"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Update: NEST 2.0 Airdrop Completed - NESTFi Services Now Available"
-msgstr "업데이트: NEST 2.0 에어드롭 완료 - NESTFi 서비스 이용 가능"
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "사용자"
@@ -1647,14 +1598,6 @@ msgstr "지갑 입금"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "지갑 출금"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "We are delighted to inform you that the NEST 2.0 token airdrop has been successfully completed. As a result, NESTFi services are now fully operational, and you can resume using the platform as usual."
-msgstr "NEST 2.0 토큰의 에어드롭이 성공적으로 완료되었음을 기쁘게 알려드립니다. 이에 따라 NESTFi 서비스가 정상적으로 운영 중이며, 플랫폼을 평소처럼 사용하실 수 있습니다."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "We would like to inform you about an upcoming event regarding the NEST token. We are currently conducting an airdrop of NEST 2.0 tokens, which will bring significant upgrades and improvements to the NEST protocol."
-msgstr "NEST 토큰에 관한 다가오는 이벤트에 대해 알려드리고자 합니다. 저희는 현재 NEST 2.0 토큰의 에어드롭을 진행 중이며, 이는 NEST 프로토콜에 상당한 업그레이드와 개선 사항을 가져올 것입니다."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"

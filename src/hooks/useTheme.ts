@@ -8,7 +8,7 @@ function useThemeBase() {
    * Local theme
    */
   const localThemeIsWhite = useMemo(() => {
-    return localStorage.getItem("themeIsWhite") === "1";
+    return localStorage.getItem("themeIsWhite") === "0";
   }, []);
   const defaultTheme = useMemo(() => {
     return localThemeIsWhite ? whiteTheme : darkTheme;

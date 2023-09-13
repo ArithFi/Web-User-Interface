@@ -4,7 +4,7 @@ import {
   TransactionType,
   usePendingTransactions,
 } from "../hooks/useTransactionReceipt";
-import { NESTServiceOther } from "./contractAddress";
+import { ATFServiceOther } from "./contractAddress";
 import { BigNumber } from "ethers/lib/ethers";
 import { useEffect, useMemo } from "react";
 
@@ -15,7 +15,7 @@ export function useTransferValue(amount: BigNumber) {
   }, [amount, chainsData.chainId]);
   const { addPendingList } = usePendingTransactions();
   const { config } = usePrepareSendTransaction({
-    to: NESTServiceOther[chainsData.chainId ?? 97],
+    to: ATFServiceOther[chainsData.chainId ?? 97],
     value: value.toBigInt(),
   });
   const { data, isLoading, isSuccess, sendTransaction, reset } =

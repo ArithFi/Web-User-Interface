@@ -56,7 +56,7 @@ function useAccount() {
         const value = assetsListBase["value"];
         const list: Array<AccountListData> = value.map((item: any) => {
           const one: AccountListData = {
-            text: `${Number(item["amount"]).floor(2)} ${item["token"]}`,
+            text: `${Number(item["amount"]).floor(2)} ATF`,
             time: item["timestamp"],
             applyTime: item["applyTime"],
             status: item["status"],

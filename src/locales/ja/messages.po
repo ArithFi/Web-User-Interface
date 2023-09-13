@@ -70,8 +70,8 @@ msgstr "1. トリガー価格が達成されましたが、実行する時間が
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "1. Uncertainty risk of income: The calculation method of NEST perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The NEST perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr "1. 収益の不確実性リスク：NEST永続契約の計算方法は、従来の中央集権型取引所の永続契約の計算方法と異なります。 NEST永続契約は、資産の過去の収益率に基づいて将来の資産価格を変換します。したがって、ユーザーがポジションを開くと資産価格が100％上昇しますが、ユーザーの収益率は100％ではありません。極端な場合、資産価格が上昇していても、収益率がマイナスになる可能性があります。"
+msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -79,8 +79,8 @@ msgstr "2. 注文が誰にも引き取られない場合、トリガー価格で
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "2. Position liquidation risk: NEST perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr "2. ポジション清算リスク：NEST永続契約は1〜20倍のレバレッジを提供します。レバレッジが1倍以上の場合、基礎となる資産の価格変動が清算を引き起こす可能性があります。"
+msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
+msgstr ""
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -96,8 +96,8 @@ msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "3. NEST Token price fluctuation risk: Both the margin and the final profit and loss use NEST Token, and NEST itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the NEST price itself, it may cause you to lose money in terms of fiat currency."
-msgstr "3. NESTトークン価格変動リスク：マージンと最終的な損益の両方にNESTトークンが使用され、NEST自体も非常に変動しやすい資産です。極端な場合、永続契約ポジションが利益を生んでも、NEST価格の変動により、法定通貨に換算した場合には損失が生じる可能性があります。"
+msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -108,8 +108,8 @@ msgstr "30日間の損益"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "4. External oracle risk: NEST protocol's perpetual contract price comes from the NEST oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr "4. 外部オラクルリスク：NESTプロトコルの永続契約価格は、NESTオラクルから取得されます。オラクルが攻撃された場合やその他の原因により価格が異常になった場合、システムは決済例外に遭遇する可能性があります。これにより、ユーザーの収益計算に誤差が生じる可能性があります。"
+msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -178,10 +178,6 @@ msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
-msgstr ""
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Add NEST 2.0 to wallet"
 msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
@@ -498,14 +494,6 @@ msgstr "ダークモード"
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Dear NESTFi Community,"
-msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Dear NESTfi Users,"
-msgstr ""
-
 #: src/pages/Home/Home.tsx
 msgid "Decentralized"
 msgstr "分散化された"
@@ -550,10 +538,6 @@ msgstr "ディスコネクト"
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "市場の変動により、実際の清算価格は理論的な清算価格と異なる場合があります。以下は理論的な清算価格ですが、参考程度にとどめてください。"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "During the airdrop period, NESTfi's trading services will be temporarily unavailable for approximately 1-2 hours. This suspension is necessary to ensure a smooth and successful airdrop of NEST 2.0 tokens to all eligible participants. We apologize for any inconvenience caused during this temporary interruption of services."
-msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -634,8 +618,8 @@ msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "For users/smart contracts using NEST Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr "NESTプロトコル永続契約を使用するユーザー/スマートコントラクトの方は、ポジション、決済、清算など関連する操作を実行する際に、そのルールと市場における類似製品の違いを理解してください。以下の可能なリスクを完全に理解し、そのリスク状況に耐えることができる場合に参加してください:"
+msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -703,7 +687,6 @@ msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 #: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "I understand"
 msgstr "理解しました"
 
@@ -711,19 +694,11 @@ msgstr "理解しました"
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr ""
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "If you have any questions or require further assistance, please feel free to reach out to our support team. We are here to help and provide guidance throughout this process."
-msgstr ""
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "画像"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Important Announcement: Temporary Suspension of Trading Services on NESTfi"
-msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
@@ -971,10 +946,6 @@ msgstr "まだ取引はありません"
 msgid "Number of Orders"
 msgstr ""
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Once the airdrop is completed, NESTfi will only support trading with NEST 2.0 tokens. The previous version of NEST tokens (NEST 1.0) will become obsolete and will no longer be accepted for trading or other activities on the platform."
-msgstr ""
-
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Open"
 msgstr "オープン"
@@ -1074,10 +1045,6 @@ msgstr "「指値注文」または「ストップ注文」は実行されるこ
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Please note that due to price fluctuation during settlement, the PNL, profit shared and settled value may vary from displayed above."
-msgstr ""
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Please note that NEST 1.0 tokens have been officially deprecated and will no longer be supported. To continue participating in the NESTFi ecosystem and enjoy its benefits, it is crucial that you add NEST 2.0 tokens to your wallet. We have provided a button below for your convenience to add NEST 2.0 tokens to your wallet effortlessly."
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -1250,10 +1217,6 @@ msgstr "シェア"
 msgid "Short"
 msgstr "ショート"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Sincerely,"
-msgstr ""
-
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1380,14 +1343,6 @@ msgstr ""
 
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
-msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "The NESTfi Team"
-msgstr ""
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "The NESTFi Team"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -1598,10 +1553,6 @@ msgstr ""
 msgid "Unsettled Commissions"
 msgstr ""
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Update: NEST 2.0 Airdrop Completed - NESTFi Services Now Available"
-msgstr ""
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr ""
@@ -1646,14 +1597,6 @@ msgstr ""
 
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
-msgstr ""
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "We are delighted to inform you that the NEST 2.0 token airdrop has been successfully completed. As a result, NESTFi services are now fully operational, and you can resume using the platform as usual."
-msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "We would like to inform you about an upcoming event regarding the NEST token. We are currently conducting an airdrop of NEST 2.0 tokens, which will bring significant upgrades and improvements to the NEST protocol."
 msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx

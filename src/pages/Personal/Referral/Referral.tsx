@@ -492,14 +492,14 @@ const Referral = () => {
                                 style={{height: '36px', fontSize: '12px', lineHeight: '16px', fontWeight: 700}}
                                 onClick={() => {
                                   if (!user && !address) return;
-                                  let link = 'https://nestfi.org/'
+                                  let link = 'https://arithfi.com/'
                                   if (address) {
                                     link =
-                                      "https://nestfi.org/?a=" +
+                                      "https://arithfi.com/?a=" +
                                       address.slice(-8).toLowerCase();
                                   } else if (user) {
                                     link =
-                                      "https://nestfi.org/?a=" +
+                                      "https://arithfi.com/?a=" +
                                       user.slice(-8).toLowerCase();
                                   }
                                   copy(link);
@@ -536,11 +536,11 @@ const Referral = () => {
                       disable={!address && !user}
                       onClick={() => {
                         if (!address && !user) return;
-                        let link = "https://nestfi.org/";
+                        let link = "https://arithfi.com/";
                         if (address) {
-                          link = 'https://nestfi.org/?a=' + address.slice(-8).toLowerCase()
+                          link = 'https://arithfi.com/?a=' + address.slice(-8).toLowerCase()
                         } else if (user) {
-                          link = 'https://nestfi.org/?a=' + user.slice(-8).toLowerCase()
+                          link = 'https://arithfi.com/?a=' + user.slice(-8).toLowerCase()
                         }
                         copy(link);
                         messageSnackBar("Copy Successfully");

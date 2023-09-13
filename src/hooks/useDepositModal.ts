@@ -1,4 +1,4 @@
-import { NESTService, WBNBToken } from "./../contracts/contractAddress";
+import { ATFService, WBNBToken } from "./../contracts/contractAddress";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import useReadTokenBalance, {
   useReadTokenAllowance,
@@ -16,7 +16,7 @@ import {
   usePendingTransactions,
 } from "./useTransactionReceipt";
 import {
-  NESTToken,
+  ATFToken,
   SwapContract,
   USDTToken,
 } from "../contracts/contractAddress";
@@ -63,9 +63,9 @@ function useDepositModal(onClose: () => void) {
       return String().zeroAddress;
     }
   }, [chainsData.chainId]);
-  const NEST = useMemo(() => {
+  const ATF = useMemo(() => {
     if (chainsData.chainId) {
-      return NESTToken[chainsData.chainId];
+      return ATFToken[chainsData.chainId];
     } else {
       return String().zeroAddress;
     }
@@ -77,9 +77,9 @@ function useDepositModal(onClose: () => void) {
       return String().zeroAddress;
     }
   }, [chainsData.chainId]);
-  const NEST_Service = useMemo(() => {
+  const ATF_Service = useMemo(() => {
     if (chainsData.chainId) {
-      return NESTService[chainsData.chainId];
+      return ATFService[chainsData.chainId];
     } else {
       return undefined;
     }
@@ -163,14 +163,14 @@ function useDepositModal(onClose: () => void) {
     }
   }, [tokenAmountToBigNumber]);
   const swapPathAddress = useMemo(() => {
-    if (selectToken === "USDT" && USDT && NEST) {
-      return [USDT, NEST];
-    } else if (selectToken === "BNB" && WBNB && USDT && NEST) {
-      return [WBNB, USDT, NEST];
+    if (selectToken === "USDT" && USDT && ATF) {
+      return [USDT, ATF];
+    } else if (selectToken === "BNB" && WBNB && USDT && ATF) {
+      return [WBNB, USDT, ATF];
     } else {
       return undefined;
     }
-  }, [NEST, USDT, WBNB, selectToken]);
+  }, [ATF, USDT, WBNB, selectToken]);
   const {
     uniSwapAmountOut,
     uniSwapAmountOutRefetch,
@@ -196,7 +196,7 @@ function useDepositModal(onClose: () => void) {
       return String().placeHolder;
     }
   }, [selectToken, defaultInput, uniSwapAmountOut]);
-  const showGetNEST = useMemo(() => {
+  const showGetATF = useMemo(() => {
     if (price !== String().placeHolder && tokenAmount !== "") {
       return (parseFloat(tokenAmount) * parseFloat(price)).floor(2);
     } else {
@@ -209,7 +209,7 @@ function useDepositModal(onClose: () => void) {
   const MAX_Amount: {
     [key: string]: number;
   } = useMemo(() => {
-    return { USDT: 10000, NEST: 1000000, BNB: 30 };
+    return { USDT: 10000, ATF: 1000000, BNB: 30 };
   }, []);
   const checkMax = useMemo(() => {
     if (parseFloat(tokenAmount) > MAX_Amount[selectToken]) {
@@ -284,7 +284,7 @@ function useDepositModal(onClose: () => void) {
       uniInputAmount,
       amountOutMin,
       TTTPath,
-      NEST_Service,
+      ATF_Service,
       TransactionType.deposit
     );
   const ETTPath = useMemo(() => {
@@ -297,7 +297,7 @@ function useDepositModal(onClose: () => void) {
       uniInputAmount,
       amountOutMin,
       ETTPath,
-      NEST_Service,
+      ATF_Service,
       TransactionType.deposit
     );
 
@@ -451,7 +451,7 @@ function useDepositModal(onClose: () => void) {
     maxCallBack,
     showBalance,
     showPrice,
-    showGetNEST,
+    showGetATF,
     selectButtonCallBack,
     isError,
     checkMax,

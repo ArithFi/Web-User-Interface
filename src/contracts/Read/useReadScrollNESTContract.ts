@@ -2,7 +2,7 @@ import { BigNumber } from "ethers";
 import { useMemo } from "react";
 import { useContractRead } from "wagmi";
 import ScrollNESTABI from "../ABI/ScrollNEST.json";
-import { NESTToken } from "../contractAddress";
+import { ATFToken } from "../contractAddress";
 
 export function useReadScrollNESTRemain(account: string, target: string) {
   const {
@@ -11,7 +11,7 @@ export function useReadScrollNESTRemain(account: string, target: string) {
     isSuccess: remainIsSuccess,
     refetch: remainRefetch,
   } = useContractRead({
-    address: NESTToken[534353] as `0x${string}`,
+    address: ATFToken[534353] as `0x${string}`,
     abi: ScrollNESTABI,
     functionName: "remain",
     args: [target],

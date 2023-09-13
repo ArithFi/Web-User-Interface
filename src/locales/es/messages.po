@@ -70,8 +70,8 @@ msgstr "1. El precio de activación se ha alcanzado pero no hay tiempo suficient
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "1. Uncertainty risk of income: The calculation method of NEST perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The NEST perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr "1. Riesgo de incertidumbre de ingresos: El método de cálculo del contrato perpetuo de NEST es diferente al método de cálculo del contrato perpetuo de un intercambio centralizado tradicional. El contrato perpetuo de NEST convierte el precio futuro del activo basado en la tasa de rendimiento histórico del activo. Por lo tanto, el precio del activo aumenta en un 100% después de que el usuario abre una posición. Los ingresos del usuario no son del 100%. En casos extremos, incluso si el precio del activo está subiendo, tus ingresos pueden ser negativos."
+msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -79,8 +79,8 @@ msgstr "2. Nadie recoge la orden de ejecución. Puede haber deslizamiento para e
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "2. Position liquidation risk: NEST perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr "2. Riesgo de liquidación de posición: Los contratos perpetuos de NEST ofrecen un apalancamiento de 1 a 20 veces. Cuando tu apalancamiento es mayor que 1 vez, las fluctuaciones de precio del activo subyacente pueden causar la liquidación."
+msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
+msgstr ""
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -96,8 +96,8 @@ msgstr "24h Low"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "3. NEST Token price fluctuation risk: Both the margin and the final profit and loss use NEST Token, and NEST itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the NEST price itself, it may cause you to lose money in terms of fiat currency."
-msgstr "3. Riesgo de fluctuación del precio del token NEST: Tanto el margen como la ganancia o pérdida final utilizan el token NEST, y NEST en sí es un activo altamente volátil. En casos extremos, incluso si tu posición en el contrato perpetuo es rentable, sin embargo, debido a la fluctuación del precio del token NEST en sí, puede hacer que pierdas dinero en términos de moneda fiduciaria."
+msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -108,8 +108,8 @@ msgstr "30 Days' PNL"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "4. External oracle risk: NEST protocol's perpetual contract price comes from the NEST oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr "4. Riesgo de oráculo externo: El precio del contrato perpetuo del protocolo NEST proviene del oráculo de NEST. Si el oráculo es atacado u otras razones provocan un precio anormal, el sistema puede enfrentar excepciones de liquidación, lo que puede causar errores en el cálculo de los ingresos del usuario."
+msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
+msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -179,10 +179,6 @@ msgstr ""
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
 msgstr "Agregar Cantidad de Copia de Trading"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Add NEST 2.0 to wallet"
-msgstr "Añadir NEST 2.0 a la billetera"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -498,14 +494,6 @@ msgstr "Modo Oscuro"
 msgid "Dashboard"
 msgstr "Panel de Control"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Dear NESTFi Community,"
-msgstr "Estimada Comunidad de NESTFi"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Dear NESTfi Users,"
-msgstr "Estimados Usuarios de NESTfi,"
-
 #: src/pages/Home/Home.tsx
 msgid "Decentralized"
 msgstr "Descentralizado"
@@ -550,10 +538,6 @@ msgstr "Desconectar"
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "Debido a la volatilidad del mercado, el precio real de liquidación puede ser diferente del precio teórico de liquidación. Aquí está el precio teórico de liquidación, solo para referencia."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "During the airdrop period, NESTfi's trading services will be temporarily unavailable for approximately 1-2 hours. This suspension is necessary to ensure a smooth and successful airdrop of NEST 2.0 tokens to all eligible participants. We apologize for any inconvenience caused during this temporary interruption of services."
-msgstr "Durante el período de distribución de tokens (airdrop), los servicios de trading de NESTfi estarán temporalmente no disponibles durante aproximadamente 1-2 horas. Esta suspensión es necesaria para garantizar una distribución exitosa y sin problemas de los tokens NEST 2.0 a todos los participantes elegibles. Pedimos disculpas por cualquier inconveniente causado durante esta interrupción temporal de los servicios."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -634,8 +618,8 @@ msgstr "Seguidores"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
-msgid "For users/smart contracts using NEST Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr "Para los usuarios/contratos inteligentes que utilizan contratos perpetuos del Protocolo NEST, por favor, comprendan sus reglas y las diferencias con productos similares en el mercado al realizar posiciones, liquidaciones y otras operaciones relacionadas. Después de comprender completamente los siguientes posibles riesgos y estar dispuestos a asumir la situación de riesgo, pueden participar:"
+msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -703,7 +687,6 @@ msgstr "He leído y aceptado el/la"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 #: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Share/Modal/StopTransactionModal.tsx
 msgid "I understand"
 msgstr "Entiendo"
 
@@ -711,19 +694,11 @@ msgstr "Entiendo"
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Si estás utilizando un dispositivo seguro que es de tu propiedad. Seleccionar esta opción puede exponer tus claves e información a otros si estás en un dispositivo público o no seguro."
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "If you have any questions or require further assistance, please feel free to reach out to our support team. We are here to help and provide guidance throughout this process."
-msgstr "Si tienes alguna pregunta o necesitas ayuda adicional, no dudes en comunicarte con nuestro equipo de soporte. Estamos aquí para ayudar y brindar orientación durante todo este proceso."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Imagen"
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Important Announcement: Temporary Suspension of Trading Services on NESTfi"
-msgstr "Anuncio Importante: Suspensión Temporal de los Servicios de Trading en NESTfi"
 
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
@@ -973,10 +948,6 @@ msgstr "Todavía no hay transacciones"
 msgid "Number of Orders"
 msgstr "Número de Órdenes"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Once the airdrop is completed, NESTfi will only support trading with NEST 2.0 tokens. The previous version of NEST tokens (NEST 1.0) will become obsolete and will no longer be accepted for trading or other activities on the platform."
-msgstr "Una vez que se complete el airdrop, NESTfi solo admitirá el comercio con tokens NEST 2.0. La versión anterior de los tokens NEST (NEST 1.0) quedará obsoleta y ya no se aceptará para el comercio u otras actividades en la plataforma."
-
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Open"
 msgstr "Abrir"
@@ -1077,10 +1048,6 @@ msgstr "Ten en cuenta que las órdenes de \"Límite\"\\ o \"Stop\"\\ no están g
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Please note that due to price fluctuation during settlement, the PNL, profit shared and settled value may vary from displayed above."
 msgstr "Por favor, tenga en cuenta que debido a la fluctuación de precios durante el proceso de liquidación, las ganancias y pérdidas (PNL), la participación en las ganancias y el valor liquidado pueden variar con respecto a lo mostrado anteriormente."
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Please note that NEST 1.0 tokens have been officially deprecated and will no longer be supported. To continue participating in the NESTFi ecosystem and enjoy its benefits, it is crucial that you add NEST 2.0 tokens to your wallet. We have provided a button below for your convenience to add NEST 2.0 tokens to your wallet effortlessly."
-msgstr "Ten en cuenta que los tokens NEST 1.0 han sido oficialmente descontinuados y ya no recibirán soporte. Para continuar participando en el ecosistema de NESTFi y disfrutar de sus beneficios, es crucial que añadas los tokens NEST 2.0 a tu billetera. Hemos proporcionado un botón a continuación para que puedas agregar los tokens NEST 2.0 a tu billetera fácilmente."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "PnL Ratio"
@@ -1252,10 +1219,6 @@ msgstr "Compartir"
 msgid "Short"
 msgstr "Corto"
 
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "Sincerely,"
-msgstr "Sinceramente"
-
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1383,14 +1346,6 @@ msgstr "El monto máximo de depósito es"
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "The NESTfi Team"
-msgstr "El Equipo de NESTfi"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "The NESTFi Team"
-msgstr "El Equipo de NESTfi"
 
 #: src/pages/Home/Home.tsx
 msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
@@ -1600,10 +1555,6 @@ msgstr "Sin Liquidar"
 msgid "Unsettled Commissions"
 msgstr "Comisiones sin Liquidar"
 
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "Update: NEST 2.0 Airdrop Completed - NESTFi Services Now Available"
-msgstr "Actualización: Airdrop de NEST 2.0 Completado - Servicios de NESTFi Disponibles Ahora"
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "Usuario"
@@ -1649,14 +1600,6 @@ msgstr "Depósito en la billetera"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Retiro de la billetera"
-
-#: src/pages/Share/Modal/ChangeNewTokenModal.tsx
-msgid "We are delighted to inform you that the NEST 2.0 token airdrop has been successfully completed. As a result, NESTFi services are now fully operational, and you can resume using the platform as usual."
-msgstr "Nos complace informarte que el airdrop del token NEST 2.0 se ha completado con éxito. Como resultado, los servicios de NESTFi ahora están completamente operativos y puedes continuar usando la plataforma como de costumbre."
-
-#: src/pages/Share/Modal/StopTransactionModal.tsx
-msgid "We would like to inform you about an upcoming event regarding the NEST token. We are currently conducting an airdrop of NEST 2.0 tokens, which will bring significant upgrades and improvements to the NEST protocol."
-msgstr "Nos gustaría informarte sobre un evento próximo relacionado con el token NEST. Actualmente estamos llevando a cabo un airdrop de tokens NEST 2.0, lo que traerá importantes mejoras y actualizaciones al protocolo NEST."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"

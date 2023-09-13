@@ -21,7 +21,7 @@ const TriggerRiskModal: FC<TriggerRiskModalProps> = ({ ...props }) => {
     >
       <p>
         <Trans>
-          For users/smart contracts using NEST Protocol perpetual contracts,
+          For users/smart contracts using Arith Protocol perpetual contracts,
           please understand its rules and the differences of similar products in
           the market when performing positions, settlement, liquidation and
           other related operations. After fully understanding the following
@@ -29,9 +29,9 @@ const TriggerRiskModal: FC<TriggerRiskModalProps> = ({ ...props }) => {
         </Trans>
         <br />
         <Trans>
-          1. Uncertainty risk of income: The calculation method of NEST
+          1. Uncertainty risk of income: The calculation method of Arith
           perpetual contract is different from the calculation method of
-          perpetual contract of traditional centralized exchange. The NEST
+          perpetual contract of traditional centralized exchange. The Arith
           perpetual contract converts the future price of the asset based on the
           historical rate of return of the asset. Therefore, the asset price
           increases by 100% after the user opens a position. The user's income
@@ -40,24 +40,24 @@ const TriggerRiskModal: FC<TriggerRiskModalProps> = ({ ...props }) => {
         </Trans>
         <br />
         <Trans>
-          2. Position liquidation risk: NEST perpetual contracts provide
+          2. Position liquidation risk: Arith perpetual contracts provide
           leverage of 1-20 times. When your leverage is greater than 1 times
           leverage, the price fluctuation of the underlying asset may cause
           liquidation.
         </Trans>
         <br />
         <Trans>
-          3. NEST Token price fluctuation risk: Both the margin and the final
-          profit and loss use NEST Token, and NEST itself is also a highly
+          3. ATF Token price fluctuation risk: Both the margin and the final
+          profit and loss use ATF Token, and ATF itself is also a highly
           volatile asset. In extreme cases, even if your perpetual contract
-          position is profitable, However, due to the fluctuation of the NEST
+          position is profitable, However, due to the fluctuation of the ATF
           price itself, it may cause you to lose money in terms of fiat
           currency.
         </Trans>
         <br />
         <Trans>
-          4. External oracle risk: NEST protocol's perpetual contract price
-          comes from the NEST oracle. If the oracle is attacked or other reasons
+          4. External oracle risk: Arith protocol's perpetual contract price
+          comes from the Arith oracle. If the oracle is attacked or other reasons
           cause the price to be abnormal, The system may encounter settlement
           exceptions, which may cause errors in the user's revenue calculation.
         </Trans>
