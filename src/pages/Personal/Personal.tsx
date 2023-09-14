@@ -59,7 +59,7 @@ const Personal = () => {
   const [messagesStr] = useLocalStorage(`nest.messages`, "{}");
 
   const { data: positions } = useSWR(
-    `https://api.nestfi.net/api/dashboard/v2/personal/positons?address=${
+    `https://me.nestfi.net/dashboardapi/dashboard/v2/personal/positons?address=${
       address ?? account.address
     }&chainId=${chainsData.chainId ?? 56}`,
     (url: any) =>

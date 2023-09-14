@@ -26,7 +26,7 @@ export type Order = {
   sl: number;
 };
 const Dashboard: FC = () => {
-  const {data: infoData} = useSWR(`https://api.nestfi.net/api/dashboard/v2/entirety/info?chainId=56`, (url: any) => fetch(url)
+  const {data: infoData} = useSWR(`https://me.nestfi.net/dashboardapi/dashboard/v2/entirety/info?chainId=56`, (url: any) => fetch(url)
     .then((res) => res.json())
     .then((res: any) => res.value), {
     refreshInterval: 10_000,
