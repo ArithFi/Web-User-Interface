@@ -17,8 +17,6 @@ msgstr ""
 msgid "{0}"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -131,10 +129,6 @@ msgstr ""
 msgid "7D PnL"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using ArithFi"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
@@ -191,7 +185,6 @@ msgid "Add Position"
 msgstr "ポジションを追加"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr ""
@@ -230,20 +223,8 @@ msgstr "承認が必要です"
 msgid "Approve"
 msgstr "承認"
 
-#: src/pages/Home/Home.tsx
-msgid "ArithFi, A Next-Generation"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi's new features enable you to open a position with a single click."
-msgstr ""
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -266,11 +247,6 @@ msgstr "残高"
 msgid "Balance:"
 msgstr "残高:"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Become a Trading KOL"
-msgstr "トレーディングKOLになる"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Become Elite Traders >"
 msgstr ""
@@ -279,17 +255,9 @@ msgstr ""
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the ArithFi affiliate program."
-msgstr ""
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr ""
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Channel link"
-msgstr "チャンネルリンク"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -345,7 +313,6 @@ msgstr ""
 #: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Confirm"
 msgstr "確認"
@@ -365,10 +332,6 @@ msgstr ""
 msgid "Connect Wallet"
 msgstr "ウォレットに接続"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Contact info (Telegram handle)"
-msgstr "連絡先情報（Telegram ハンドル）"
-
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -376,8 +339,6 @@ msgstr "連絡先情報（Telegram ハンドル）"
 msgid "Copy"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Invitation Link"
@@ -399,9 +360,6 @@ msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -440,12 +398,10 @@ msgstr ""
 msgid "Copy Trading Total Amount (ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr ""
@@ -454,7 +410,6 @@ msgstr ""
 msgid "Cumulative Copy Traders"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr ""
@@ -494,25 +449,8 @@ msgstr "ダークモード"
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: src/pages/Home/Home.tsx
-msgid "Decentralized"
-msgstr "分散化された"
-
-#: src/pages/Home/Home.tsx
-msgid "Decentralized Perpetual Exchange"
-msgstr "分散型永続契約取引所"
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary"
-msgstr "デフレーション"
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
 msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
@@ -567,14 +505,6 @@ msgstr ""
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr ""
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter Channel link"
-msgstr "チャンネルリンクを入力"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter your Contact info"
-msgstr "連絡先情報を入力してください"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -661,22 +591,6 @@ msgstr "Github"
 msgid "History"
 msgstr "沿革"
 
-#: src/pages/Home/Home.tsx
-msgid "How to copy trading?"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "How to join affiliate program?"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "How to make your first trade?"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "How to Start?"
-msgstr ""
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
 msgstr ""
@@ -686,7 +600,6 @@ msgid "I have read and agreed to the"
 msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 msgid "I understand"
 msgstr "理解しました"
 
@@ -699,10 +612,6 @@ msgstr ""
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "画像"
-
-#: src/pages/Home/Home.tsx
-msgid "Infinite Liquidity"
-msgstr "無限の流動性"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -723,28 +632,12 @@ msgstr ""
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr ""
 
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "It's available once in 24 hours. Please come later."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join ArithFi affiliate program and get commission on your referrals."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "KOLs Joined ArithFi"
 msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
@@ -776,12 +669,6 @@ msgstr ""
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Last Price"
 msgstr "最終価格"
-
-#: src/pages/Home/Home.tsx
-msgid ""
-"Leading cryptocurrency decentralized exchange. Trade BTC/USDT, ETH/USDT and BNB/USDT futures securely,\n"
-"swiftly, and effortlessly."
-msgstr ""
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Learn more"
@@ -870,7 +757,6 @@ msgid "Minimum 50 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
-#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "もっと見る"
@@ -883,8 +769,6 @@ msgstr "詳細情報"
 msgid "My Balance"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -912,16 +796,10 @@ msgstr ""
 msgid "News"
 msgstr "ニュース"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "No Market Makers"
-msgstr "マーケットメーカーなし"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -999,8 +877,6 @@ msgstr "操作"
 msgid "Orders"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1017,15 +893,10 @@ msgstr ""
 msgid "Performance"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
 msgstr ""
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Platform (Youtube, Telegram, Twitter, Instagram, Facebook, Tiktok, Others)"
-msgstr "プラットフォーム（Youtube、Telegram、Twitter、Instagram、Facebook、Tiktok、その他）"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1117,7 +988,6 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "最近の取引"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1153,7 +1023,6 @@ msgstr ""
 msgid "Scan and copy the trade"
 msgstr "取引をスキャンしてコピー"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr ""
@@ -1187,13 +1056,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1236,10 +1102,6 @@ msgstr ""
 msgid "Slippage Tolerance Setting"
 msgstr "スリッページトレランス設定"
 
-#: src/pages/Home/Home.tsx
-msgid "Start Trading"
-msgstr "取引を開始"
-
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
 msgstr ""
@@ -1271,10 +1133,6 @@ msgstr "ストップオーダー"
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "ストップ・リミット"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Submit successfully"
-msgstr "送信完了しました"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -1345,14 +1203,6 @@ msgstr ""
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
-msgstr ""
-
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr ""
@@ -1393,14 +1243,6 @@ msgstr ""
 msgid "Total Burned"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Burned (ATF)"
-msgstr ""
-
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1411,8 +1253,6 @@ msgstr ""
 msgid "Total Copy Amount"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Invitees"
@@ -1434,16 +1274,9 @@ msgstr "総利益"
 msgid "Total Profit & Loss"
 msgstr "総損益"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (ATF)"
 msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
@@ -1469,18 +1302,6 @@ msgstr "設定したTP価格とSL価格はすぐにトリガーされます。"
 msgid "TP Executed"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "Trade easily anytime and anywhere."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "Trade Now"
-msgstr ""
-
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "トークンを瞬時に取引"
@@ -1489,8 +1310,6 @@ msgstr "トークンを瞬時に取引"
 msgid "Trade with me on ArithFi"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Traded Invitees"
@@ -1506,11 +1325,6 @@ msgstr ""
 msgid "Trader Profile"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "Trading only with smart contract.No third-party intervention."
-msgstr ""
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr ""
@@ -1541,13 +1355,10 @@ msgstr ""
 msgid "Unrealized PnL(ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1603,10 +1414,6 @@ msgstr ""
 msgid "White Paper"
 msgstr "ホワイトペーパー"
 
-#: src/pages/Home/Home.tsx
-msgid "Why You Should Choose ArithFi"
-msgstr ""
-
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
 msgstr "閉じた後は表示されません"
@@ -1636,7 +1443,3 @@ msgstr ""
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr ""
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Youtube"
-msgstr "Youtube"

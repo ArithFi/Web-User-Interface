@@ -17,8 +17,6 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -131,10 +129,6 @@ msgstr "7일 동안의 팔로워 수익"
 msgid "7D PnL"
 msgstr "7일 수익"
 
-#: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using ArithFi"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩니다."
@@ -191,7 +185,6 @@ msgid "Add Position"
 msgstr "포지션 추가"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "주소"
@@ -230,20 +223,8 @@ msgstr "승인 필요함"
 msgid "Approve"
 msgstr "승인"
 
-#: src/pages/Home/Home.tsx
-msgid "ArithFi, A Next-Generation"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi's new features enable you to open a position with a single click."
-msgstr ""
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -266,11 +247,6 @@ msgstr "잔고"
 msgid "Balance:"
 msgstr "잔액:"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Become a Trading KOL"
-msgstr "트레이딩 인플루언서가 되기"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Become Elite Traders >"
 msgstr "엘리트 트레이더가 되세요 >"
@@ -279,17 +255,9 @@ msgstr "엘리트 트레이더가 되세요 >"
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "복사 트레이더가 되어 수익과 영향력을 높이세요."
 
-#: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the ArithFi affiliate program."
-msgstr ""
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "소각된"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Channel link"
-msgstr "채널 링크"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -345,7 +313,6 @@ msgstr "닫힘"
 #: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Confirm"
 msgstr "확인"
@@ -365,10 +332,6 @@ msgstr "이 지갑의 소유자임을 확인하십시오."
 msgid "Connect Wallet"
 msgstr "지갑 연결"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Contact info (Telegram handle)"
-msgstr "연락처 정보 (텔레그램 핸들)"
-
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -376,8 +339,6 @@ msgstr "연락처 정보 (텔레그램 핸들)"
 msgid "Copy"
 msgstr "복사"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Invitation Link"
@@ -399,9 +360,6 @@ msgstr "주문 복사"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -440,12 +398,10 @@ msgstr "편안하게 복사 거래"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "누적 수수료"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "누적 수수료"
@@ -454,7 +410,6 @@ msgstr "누적 수수료"
 msgid "Cumulative Copy Traders"
 msgstr "누적 복사 트레이더"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "누적 피추천인 거래량"
@@ -494,26 +449,9 @@ msgstr "다크 모드"
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: src/pages/Home/Home.tsx
-msgid "Decentralized"
-msgstr "분산형"
-
-#: src/pages/Home/Home.tsx
-msgid "Decentralized Perpetual Exchange"
-msgstr "분산형 영구 계약 거래소"
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "기본값"
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary"
-msgstr "물가 하락형"
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
-msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/hooks/useDepositModal.ts
@@ -567,14 +505,6 @@ msgstr "편집됨"
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "마지막 복사는 시장 주문으로 포지션을 정리하고 수익 공유를 공제한 후 자산을 자동으로 계정으로 반환합니다."
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter Channel link"
-msgstr "채널 링크를 입력하세요"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter your Contact info"
-msgstr "연락처 정보를 입력하세요"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -661,22 +591,6 @@ msgstr "깃허브"
 msgid "History"
 msgstr "주문 내역"
 
-#: src/pages/Home/Home.tsx
-msgid "How to copy trading?"
-msgstr "복사 거래는 어떻게 하나요?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to join affiliate program?"
-msgstr "제휴 프로그램에 가입하는 방법은 무엇인가요?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to make your first trade?"
-msgstr "첫 거래는 어떻게 하나요?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to Start?"
-msgstr "어떻게 시작하나요?"
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
 msgstr "거래 방법"
@@ -686,7 +600,6 @@ msgid "I have read and agreed to the"
 msgstr "내가 읽었으며 동의합니다"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 msgid "I understand"
 msgstr "이해했습니다"
 
@@ -699,10 +612,6 @@ msgstr "당신이 소유한 안전한 장치를 사용하고 있다면, 이 옵�
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "이미지"
-
-#: src/pages/Home/Home.tsx
-msgid "Infinite Liquidity"
-msgstr "무한한 유동성"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -723,7 +632,6 @@ msgstr "잔액 부족"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "피추천인의 거래량"
@@ -731,21 +639,6 @@ msgstr "피추천인의 거래량"
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "It's available once in 24 hours. Please come later."
 msgstr "24시간에 한 번만 이용할 수 있습니다. 나중에 방문해 주세요."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join"
-msgstr "가입"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join ArithFi affiliate program and get commission on your referrals."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "KOLs Joined ArithFi"
-msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -776,12 +669,6 @@ msgstr "지난 달"
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Last Price"
 msgstr "최종 가격"
-
-#: src/pages/Home/Home.tsx
-msgid ""
-"Leading cryptocurrency decentralized exchange. Trade BTC/USDT, ETH/USDT and BNB/USDT futures securely,\n"
-"swiftly, and effortlessly."
-msgstr "선도적인 암호화폐 탈중앙화 거래소. BTC/USDT, ETH/USDT, BNB/USDT 선물을 안전하게 거래하세요.신속하고 간편하게."
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Learn more"
@@ -870,7 +757,6 @@ msgid "Minimum 50 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
-#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "자세히 보기"
@@ -883,8 +769,6 @@ msgstr "자세한 정보"
 msgid "My Balance"
 msgstr "내 잔고"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -912,16 +796,10 @@ msgstr "내 거래"
 msgid "News"
 msgstr "뉴스"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "아직 수수료 없음"
-
-#: src/pages/Home/Home.tsx
-msgid "No Market Makers"
-msgstr "시장 메이커 없음"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -999,8 +877,6 @@ msgstr "주문"
 msgid "Orders"
 msgstr "주문"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1017,15 +893,10 @@ msgstr "Pendente"
 msgid "Performance"
 msgstr "성과"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
 msgstr "개인"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Platform (Youtube, Telegram, Twitter, Instagram, Facebook, Tiktok, Others)"
-msgstr "플랫폼 (유튜브, 텔레그램, 트위터, 인스타그램, 페이스북, 틱톡, 기타)"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1117,7 +988,6 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "최근 트랜잭션"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1153,7 +1023,6 @@ msgstr "저장"
 msgid "Scan and copy the trade"
 msgstr "거래 스캔 및 복사"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "검색"
@@ -1187,13 +1056,10 @@ msgstr "각 주문 및 전체 복사 거래 금액에 마진 설정."
 msgid "Settings"
 msgstr "설정"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "해결됨"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1236,10 +1102,6 @@ msgstr "슬리피지 허용 범위"
 msgid "Slippage Tolerance Setting"
 msgstr "슬리피지 허용 범위 설정"
 
-#: src/pages/Home/Home.tsx
-msgid "Start Trading"
-msgstr "거래 시작하기"
-
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "상태"
@@ -1271,10 +1133,6 @@ msgstr "스탑 오더"
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "예약 지정가"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Submit successfully"
-msgstr "성공적으로 제출됨"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -1345,14 +1203,6 @@ msgstr "최대 예금 금액은"
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
-msgstr "스마트 컨트랙트는 시스템의 유일한 판매자입니다. 시장 표시 비용과 유동성 부채가 없습니다."
-
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "이 트레이더의 신호를 복사하는 데 투자한 총 금액."
@@ -1393,14 +1243,6 @@ msgstr "총 자산 가치"
 msgid "Total Burned"
 msgstr "총 소각된"
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Burned (ATF)"
-msgstr ""
-
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1411,8 +1253,6 @@ msgstr "총 수수료"
 msgid "Total Copy Amount"
 msgstr "총 복사 금액"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Invitees"
@@ -1434,17 +1274,10 @@ msgstr "총 이익"
 msgid "Total Profit & Loss"
 msgstr "총 수익과 손실"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "총 거래량"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (ATF)"
-msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total User"
@@ -1469,18 +1302,6 @@ msgstr "설정한 TP 및 SL 가격이 즉시 트리거됩니다."
 msgid "TP Executed"
 msgstr "TP 실행됨"
 
-#: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "Trade easily anytime and anywhere."
-msgstr "언제 어디서나 쉽게 거래하세요."
-
-#: src/pages/Home/Home.tsx
-msgid "Trade Now"
-msgstr "지금 거래하기"
-
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "즉시 토큰 거래"
@@ -1489,8 +1310,6 @@ msgstr "즉시 토큰 거래"
 msgid "Trade with me on ArithFi"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Traded Invitees"
@@ -1506,11 +1325,6 @@ msgstr "트레이더"
 msgid "Trader Profile"
 msgstr "트레이더 프로필"
 
-#: src/pages/Home/Home.tsx
-msgid "Trading only with smart contract.No third-party intervention."
-msgstr "스마트 컨트랙트로만 거래하며 제3자 개입이 없습니다."
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "거래량"
@@ -1541,13 +1355,10 @@ msgstr ""
 msgid "Unrealized PnL(ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "미정"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1603,10 +1414,6 @@ msgstr "지갑 출금"
 msgid "White Paper"
 msgstr "종합 보고서"
 
-#: src/pages/Home/Home.tsx
-msgid "Why You Should Choose ArithFi"
-msgstr ""
-
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
 msgstr "닫은 후에는 표시되지 않습니다"
@@ -1636,7 +1443,3 @@ msgstr "인출"
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "리더보드에서 당신에게 맞는 KOL을 자유롭게 선택할 수 있습니다."
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Youtube"
-msgstr "Youtube"

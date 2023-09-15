@@ -8,7 +8,6 @@ import useWindowWidth from "../hooks/useWindowWidth";
 import useNEST from "../hooks/useNEST";
 import { KOLClick, KOLWallet } from "../lib/NESTRequest";
 
-const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
 const OverviewPage = lazy(() => import("./Overview/Overview"));
 const SwapPage = lazy(() => import("./Swap/Swap"));
@@ -111,7 +110,6 @@ const App: FC = () => {
         <MainContent>
           <Suspense fallback={<></>}>
             <Routes>
-              <Route path="home" element={<HomePage />} />
               <Route path="future" element={<FuturesPage />} />
               {swapOrDirectPoster}
               <Route path="dashboard" element={<DashboardPage />} />

@@ -17,8 +17,6 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -131,10 +129,6 @@ msgstr "Lợi nhuận Followers 7 ngày"
 msgid "7D PnL"
 msgstr "Lợi nhuận 7 ngày"
 
-#: src/pages/Home/Home.tsx
-msgid "A beginner's guide to using ArithFi"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được tự động sao chép và thực hiện cho bạn."
@@ -191,7 +185,6 @@ msgid "Add Position"
 msgstr "Thêm vị thế"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "Địa chỉ"
@@ -230,20 +223,8 @@ msgstr "Yêu cầu phê duyệt"
 msgid "Approve"
 msgstr "Phê duyệt"
 
-#: src/pages/Home/Home.tsx
-msgid "ArithFi, A Next-Generation"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi's new features enable you to open a position with a single click."
-msgstr ""
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ATF's economic model is deflationary. The more users trade, the more $ATF will be burned."
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -266,11 +247,6 @@ msgstr "Số dư"
 msgid "Balance:"
 msgstr "Số dư:"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Become a Trading KOL"
-msgstr "Trở thành một Trading KOL"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Become Elite Traders >"
 msgstr "Trở thành các nhà giao dịch ưu tú >"
@@ -279,17 +255,9 @@ msgstr "Trở thành các nhà giao dịch ưu tú >"
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Tăng thu nhập và sự ảnh hưởng của bạn bằng cách trở thành các nhà giao dịch sao chép."
 
-#: src/pages/Home/Home.tsx
-msgid "Boost your earning and influence by joining the ArithFi affiliate program."
-msgstr ""
-
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Đã đốt cháy"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Channel link"
-msgstr "Liên kết kênh"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -345,7 +313,6 @@ msgstr "Closed"
 #: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Confirm"
 msgstr "Xác nhận"
@@ -365,10 +332,6 @@ msgstr "Xác nhận bạn là chủ sở hữu của ví này."
 msgid "Connect Wallet"
 msgstr "Kết nối ví"
 
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Contact info (Telegram handle)"
-msgstr "Thông tin liên hệ (Tên tài khoản Telegram)"
-
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -376,8 +339,6 @@ msgstr "Thông tin liên hệ (Tên tài khoản Telegram)"
 msgid "Copy"
 msgstr "sao chép"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Invitation Link"
@@ -399,9 +360,6 @@ msgstr "Sao chép các đơn hàng"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -440,12 +398,10 @@ msgstr "Sao chép giao dịch một cách dễ dàng"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Hoa hồng tích lũy"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "Hoa hồng tích lũy"
@@ -454,7 +410,6 @@ msgstr "Hoa hồng tích lũy"
 msgid "Cumulative Copy Traders"
 msgstr "Nhà giao dịch sao chép tích luỹ"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Tổng khối lượng giao dịch của người được mời tích lũy"
@@ -494,26 +449,9 @@ msgstr "Chế độ tối"
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
-#: src/pages/Home/Home.tsx
-msgid "Decentralized"
-msgstr "Phi tập trung"
-
-#: src/pages/Home/Home.tsx
-msgid "Decentralized Perpetual Exchange"
-msgstr "Sàn giao dịch vô thời hạn phi tập trung"
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "Mặc định"
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary"
-msgstr "giảm phát"
-
-#: src/pages/Home/Home.tsx
-msgid "Deflationary economic model. The more users trade, the more $ATF will be burned."
-msgstr ""
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/hooks/useDepositModal.ts
@@ -567,14 +505,6 @@ msgstr "Đã chỉnh sửa"
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "Kết thúc sao chép sẽ thanh lý vị trí của bạn bằng các lệnh thị trường và tự động trả lại tài sản vào tài khoản của bạn sau khi trừ đi lợi nhuận chia sẻ."
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter Channel link"
-msgstr "Nhập liên kết kênh"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Enter your Contact info"
-msgstr "Nhập thông tin liên hệ của bạn"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -661,22 +591,6 @@ msgstr "Github"
 msgid "History"
 msgstr "Lịch sử"
 
-#: src/pages/Home/Home.tsx
-msgid "How to copy trading?"
-msgstr "Làm thế nào để sao chép giao dịch?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to join affiliate program?"
-msgstr "Làm thế nào để tham gia chương trình liên kết?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to make your first trade?"
-msgstr "Làm cách nào để thực hiện giao dịch đầu tiên của bạn?"
-
-#: src/pages/Home/Home.tsx
-msgid "How to Start?"
-msgstr "Làm cách nào để bắt đầu?"
-
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
 msgstr "Cách giao dịch"
@@ -686,7 +600,6 @@ msgid "I have read and agreed to the"
 msgstr "Tôi đã đọc và đồng ý với"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
-#: src/pages/Home/Modal/ApplyModal.tsx
 msgid "I understand"
 msgstr "Tôi hiểu."
 
@@ -699,10 +612,6 @@ msgstr "Nếu bạn đang sử dụng một thiết bị an toàn mà bạn sở
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Hình ảnh"
-
-#: src/pages/Home/Home.tsx
-msgid "Infinite Liquidity"
-msgstr "Thanh khoản vô hạn"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -723,7 +632,6 @@ msgstr "Số dư không đủ"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao dịch nhanh."
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Khối lượng giao dịch của người được giới thiệu"
@@ -731,21 +639,6 @@ msgstr "Khối lượng giao dịch của người được giới thiệu"
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "It's available once in 24 hours. Please come later."
 msgstr "Nó chỉ có sẵn một lần trong 24 giờ. Vui lòng quay lại sau."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join"
-msgstr "Tham gia"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Join ArithFi affiliate program and get commission on your referrals."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "KOLs Joined ArithFi"
-msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -776,14 +669,6 @@ msgstr "Tháng trước"
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Last Price"
 msgstr "Giá cuối cùng"
-
-#: src/pages/Home/Home.tsx
-msgid ""
-"Leading cryptocurrency decentralized exchange. Trade BTC/USDT, ETH/USDT and BNB/USDT futures securely,\n"
-"swiftly, and effortlessly."
-msgstr ""
-"Sàn giao dịch tiền điện tử phi tập trung hàng đầu. Giao dịch Futures BTC/USDT, ETH/USDT và BNB/USDT một cách an toàn, \n"
-"nhanh chóng và dễ dàng."
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Learn more"
@@ -872,7 +757,6 @@ msgid "Minimum 50 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
-#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "Thêm"
@@ -885,8 +769,6 @@ msgstr "Thông tin thêm"
 msgid "My Balance"
 msgstr "Số dư của tôi"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -914,16 +796,10 @@ msgstr "Các giao dịch của tôi"
 msgid "News"
 msgstr "Tin tức"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Chưa có hoa hồng nào"
-
-#: src/pages/Home/Home.tsx
-msgid "No Market Makers"
-msgstr "Không có nhà tạo lập thị trường"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1001,8 +877,6 @@ msgstr "Hoạt động"
 msgid "Orders"
 msgstr "Đơn hàng"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1019,15 +893,10 @@ msgstr "Đang chờ"
 msgid "Performance"
 msgstr "Hiệu suất"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
 msgstr "Cá nhân"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Platform (Youtube, Telegram, Twitter, Instagram, Facebook, Tiktok, Others)"
-msgstr "Nền tảng (Youtube, Telegram, Twitter, Instagram, Facebook, Tiktok, Các nền tảng khác)"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1119,7 +988,6 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "Các lệnh giao dịch gần đây"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1155,7 +1023,6 @@ msgstr "Lưu"
 msgid "Scan and copy the trade"
 msgstr "Quét và sao chép giao dịch"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "Tìm kiếm"
@@ -1189,13 +1056,10 @@ msgstr "Đặt biên độ cho mỗi lệnh cũng như tổng số tiền giao d
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Đã thanh toán"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1238,10 +1102,6 @@ msgstr "Dung sai Slippage"
 msgid "Slippage Tolerance Setting"
 msgstr "Cài đặt ngưỡng độ trượt giá"
 
-#: src/pages/Home/Home.tsx
-msgid "Start Trading"
-msgstr "Bắt đầu giao dịch"
-
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "Trạng thái"
@@ -1273,10 +1133,6 @@ msgstr "Lệnh dừng"
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "Dừng-Giới hạn"
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Submit successfully"
-msgstr "Gửi thành công"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -1347,14 +1203,6 @@ msgstr "Số tiền nạp tối đa là"
 msgid "The minimum withdrawal amount greater than 15 ATF"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "The smart contract guarantees infinite liquidity through burning and issuing $ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "The smart contract is the only seller of the system. No market marking costs and no liquidity debt."
-msgstr "Hợp đồng thông minh là người bán duy nhất của hệ thống. Không có chi phí đánh dấu thị trường và không có nợ thanh khoản."
-
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "Tổng số tiền bạn đã đầu tư để sao chép các tín hiệu của người giao dịch này."
@@ -1395,14 +1243,6 @@ msgstr "Giá trị tài sản tổng cộng"
 msgid "Total Burned"
 msgstr "Tổng số đã đốt cháy"
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Burned (ATF)"
-msgstr ""
-
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1413,8 +1253,6 @@ msgstr "Tổng hoa hồng"
 msgid "Total Copy Amount"
 msgstr "Tổng số tiền sao chép"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Invitees"
@@ -1436,17 +1274,10 @@ msgstr "Tổng lợi nhuận"
 msgid "Total Profit & Loss"
 msgstr "Tổng lợi nhuận & lỗ"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "Tổng khối lượng giao dịch"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Total Trading Volume (ATF)"
-msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total User"
@@ -1471,18 +1302,6 @@ msgstr "Giá TP và SL bạn đặt sẽ kích hoạt ngay lập tức."
 msgid "TP Executed"
 msgstr "TP Executed"
 
-#: src/pages/Home/Home.tsx
-msgid "Trade BTC, ETH and BNB with up to 1-50 leverage. Open a position with ATF."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "Trade easily anytime and anywhere."
-msgstr "Giao dịch dễ dàng bất cứ lúc nào và bất cứ đâu."
-
-#: src/pages/Home/Home.tsx
-msgid "Trade Now"
-msgstr "Giao dịch Ngay"
-
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "Giao dịch token ngay lập tức"
@@ -1491,8 +1310,6 @@ msgstr "Giao dịch token ngay lập tức"
 msgid "Trade with me on ArithFi"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Traded Invitees"
@@ -1508,11 +1325,6 @@ msgstr "Người giao dịch"
 msgid "Trader Profile"
 msgstr "Trader Profile"
 
-#: src/pages/Home/Home.tsx
-msgid "Trading only with smart contract.No third-party intervention."
-msgstr "Chỉ giao dịch với hợp đồng thông minh. Không có sự can thiệp của bên thứ ba."
-
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Khối lượng giao dịch"
@@ -1543,13 +1355,10 @@ msgstr ""
 msgid "Unrealized PnL(ATF)"
 msgstr ""
 
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Chưa thanh toán"
 
-#: src/pages/Dashboard/Referral/Referral.tsx
-#: src/pages/Dashboard/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1605,10 +1414,6 @@ msgstr "Rút tiền từ ví"
 msgid "White Paper"
 msgstr "White Paper"
 
-#: src/pages/Home/Home.tsx
-msgid "Why You Should Choose ArithFi"
-msgstr ""
-
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
 msgstr "Sẽ không được hiển thị sau khi đóng"
@@ -1638,7 +1443,3 @@ msgstr "Rút tiền"
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Bạn có thể tự do chọn KOL phù hợp với bạn trong bảng xếp hạng."
-
-#: src/pages/Home/Modal/ApplyModal.tsx
-msgid "Youtube"
-msgstr "Youtube"
