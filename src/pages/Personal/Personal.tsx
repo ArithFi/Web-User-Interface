@@ -73,7 +73,7 @@ const Personal = () => {
 
   const { data: isKol } = useSWR(
     address || account.address
-      ? `https://api.nestfi.net/api/invite/is-kol-whitelist/${
+      ? `https://me.nestfi.net/dashboardapi/invite/is-kol-whitelist/${
           address ?? account.address
         }`
       : undefined,

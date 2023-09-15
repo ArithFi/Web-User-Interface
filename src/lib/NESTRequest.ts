@@ -88,15 +88,15 @@ async function baseRequestGetWithHeader(
 }
 
 export function KOLClick(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://api.nestfi.net/api/kol/click", info);
+  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/click", info);
 }
 
 export function KOLWallet(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://api.nestfi.net/api/kol/wallet", info);
+  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/wallet", info);
 }
 
 export function KOLTx(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://api.nestfi.net/api/kol/tx", info);
+  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/tx", info);
 }
 
 export function hideFuturesOrder(
