@@ -191,8 +191,8 @@ const Referral = () => {
     return [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2]
   }, [currentPage, totalPage])
 
-  const {data: overview} = useSWR((address || user) ? `https://api.nestfi.net/api/invite/overview/${address || user}` : undefined, (url) => fetch(url).then((res) => res.json()));
-  const {data: listData} = useSWR((address || user) ? `https://api.nestfi.net/api/invite/list-invitee/${address || user}` : undefined, (url) => fetch(url).then((res) => res.json()));
+  const {data: overview} = useSWR((address || user) ? `https://me.nestfi.net/dashboardapi/invite/overview/${address || user}` : undefined, (url) => fetch(url).then((res) => res.json()));
+  const {data: listData} = useSWR((address || user) ? `https://me.nestfi.net/dashboardapi/invite/list-invitee/${address || user}` : undefined, (url) => fetch(url).then((res) => res.json()));
 
   const inviteeList = useMemo(() => {
     if (!listData) {

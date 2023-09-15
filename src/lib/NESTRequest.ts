@@ -99,16 +99,6 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/tx", info);
 }
 
-export function hideFuturesOrder(
-  chainId: number,
-  address: string,
-  index: string
-) {
-  const url = `https://api.nestfi.net/api/order/save/${chainId}?address=${address}&index=${index.toString()}`;
-
-  baseRequestPOST(url);
-}
-
 export function getPriceFromNESTLocal(token: string): Promise<any> {
   return baseRequestGet(`https://api.nestfi.net/api/oracle/price/${token}usdt`);
 }
@@ -117,14 +107,6 @@ export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://api.nestfi.net/api/oracle/price/list`);
 }
 
-export function getNESTAmountForAll(
-  address: string,
-  chainId: number
-): Promise<any> {
-  return baseRequestGet(
-    `https://api.nestfi.net/api/oracle/whitelist?address=${address}&chainId=${chainId}`
-  );
-}
 
 /**
  * service
