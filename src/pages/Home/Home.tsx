@@ -45,7 +45,7 @@ const Home = () => {
           maxWidth: '1200px',
           width: '100%',
           alignItems: 'center',
-          padding: '48px',
+          padding: '0 48px 48px 48px',
           borderRadius: '18px',
           backgroundColor: 'white',
           filter: 'drop-shadow(0px 8px 40px rgba(9, 26, 178, 0.10))'
