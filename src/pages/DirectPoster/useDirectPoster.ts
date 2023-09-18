@@ -27,8 +27,12 @@ export function useDirectPoster() {
 
   const getETHBalance = useCallback(async () => {
     if (account.address) {
-      const balance = await provider.getBalance({ address: account.address });
-      setEthBalance(balance.toBigNumber());
+      try {
+        const balance = await provider.getBalance({ address: account.address });
+        setEthBalance(balance.toBigNumber());
+      } catch (e) {
+        console.log(e)
+      }
     }
   }, [account.address, provider]);
 
