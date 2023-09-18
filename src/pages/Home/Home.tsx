@@ -40,16 +40,24 @@ const Home = () => {
           zIndex: 10,
         }}>Start Trading
         </button>
-        <Stack zIndex={'20'} sx={{
+        <Stack zIndex={'20'} position={'relative'} sx={{
           marginTop: '160px',
           maxWidth: '1200px',
           width: '100%',
           alignItems: 'center',
           padding: '48px',
-          borderRadius: '12px',
+          borderRadius: '18px',
           backgroundColor: 'white',
           filter: 'drop-shadow(0px 8px 40px rgba(9, 26, 178, 0.10))'
         }}>
+          <Stack direction={'row'} maxWidth={'1200px'} width={'1200px'} position={'absolute'} top={0} justifyContent={'space-between'}>
+            <img src={'/images/home_left.png'} alt={''} style={{
+              height: '68px',
+            }} />
+            <img src={'/images/home_right.png'} alt={''} style={{
+              height: '68px',
+            }} />
+          </Stack>
           <Stack sx={{
             fontSize: '32px',
             fontWeight: '700',
