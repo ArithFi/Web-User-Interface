@@ -62,6 +62,11 @@ msgid ""
 "between USDT and ATF token."
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "0 Slippage"
+msgstr ""
+
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
 msgstr "1. Đã đạt đến mức giá kích hoạt nhưng không đủ thời gian để thực hiện."
@@ -133,6 +138,11 @@ msgstr "Lợi nhuận 7 ngày"
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được tự động sao chép và thực hiện cho bạn."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
+msgstr ""
+
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "về việc kết nối ví"
@@ -189,6 +199,10 @@ msgstr "Thêm vị thế"
 msgid "Address"
 msgstr "Địa chỉ"
 
+#: src/pages/Home/Home.tsx
+msgid "Advantages of ArithFi"
+msgstr ""
+
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
@@ -223,6 +237,14 @@ msgstr "Yêu cầu phê duyệt"
 msgid "Approve"
 msgstr "Phê duyệt"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi can meet the needs of long-tail users."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+msgstr ""
+
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
 msgstr ""
@@ -254,6 +276,11 @@ msgstr "Trở thành các nhà giao dịch ưu tú >"
 #: src/pages/Copy/Copy.tsx
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Tăng thu nhập và sự ảnh hưởng của bạn bằng cách trở thành các nhà giao dịch sao chép."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Burn $ATF"
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -398,6 +425,10 @@ msgstr "Sao chép giao dịch một cách dễ dàng"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
+msgstr ""
+
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Hoa hồng tích lũy"
@@ -477,6 +508,11 @@ msgstr "Ngắt kết nối"
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "Do sự biến động của thị trường, giá thanh lý thực tế có thể khác với giá thanh lý lý thuyết. Dưới đây là giá thanh lý lý thuyết, chỉ để tham khảo."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Earn $ATF"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
 msgstr "Lợi nhuận"
@@ -502,6 +538,11 @@ msgstr "Chỉnh sửa vị thế"
 msgid "Edited"
 msgstr "Đã chỉnh sửa"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Eliminate market makers and LPs in trading"
+msgstr ""
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "Kết thúc sao chép sẽ thanh lý vị trí của bạn bằng các lệnh thị trường và tự động trả lại tài sản vào tài khoản của bạn sau khi trừ đi lợi nhuận chia sẻ."
@@ -513,6 +554,14 @@ msgstr "Giá vào lệnh "
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Estimated Realized Amount"
 msgstr "Số tiền thực tế ước tính"
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more assets:"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more products:"
+msgstr ""
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -572,6 +621,10 @@ msgstr "Từ"
 msgid "Future"
 msgstr "Tương lai"
 
+#: src/pages/Home/Home.tsx
+msgid "Futures, Options, Structure Products"
+msgstr ""
+
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "GET"
@@ -595,6 +648,11 @@ msgstr "Lịch sử"
 msgid "How to Trade"
 msgstr "Cách giao dịch"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "How to Trade on ArithFi?"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "I have read and agreed to the"
 msgstr "Tôi đã đọc và đồng ý với"
@@ -603,15 +661,42 @@ msgstr "Tôi đã đọc và đồng ý với"
 msgid "I understand"
 msgstr "Tôi hiểu."
 
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+msgstr ""
+
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Nếu bạn đang sử dụng một thiết bị an toàn mà bạn sở hữu. Lựa chọn này có thể tiếp xúc các khóa và thông tin của bạn với người khác nếu bạn đang sử dụng một thiết bị công cộng hoặc không được bảo mật."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you incur losses, your $ATF will be burned to the system."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you make a profit, you will earn $ATF."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Hình ảnh"
+
+#: src/pages/Home/Home.tsx
+msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Infinite Liquidity"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -800,6 +885,16 @@ msgstr "Tin tức"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Chưa có hoa hồng nào"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No LPs"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No Market Makers"
+msgstr ""
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1007,6 +1102,10 @@ msgstr "nhớ tôi"
 msgid "Risk Warning"
 msgstr "Cảnh báo rủi ro"
 
+#: src/pages/Home/Home.tsx
+msgid "Roadmap of ArithFi"
+msgstr ""
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
@@ -1101,6 +1200,13 @@ msgstr "Dung sai Slippage"
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Slippage Tolerance Setting"
 msgstr "Cài đặt ngưỡng độ trượt giá"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Start Trading"
+msgstr ""
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
@@ -1306,6 +1412,11 @@ msgstr "TP Executed"
 msgid "Trade tokens in instant"
 msgstr "Giao dịch token ngay lập tức"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Trade With $ATF"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Trade with me on ArithFi"
 msgstr ""
@@ -1364,6 +1475,11 @@ msgstr "Chưa thanh toán"
 msgid "Unsettled Commissions"
 msgstr "Hoa hồng chưa được thanh toán"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Use $ATF as margin to open positions."
+msgstr ""
+
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "Người dùng"
@@ -1413,6 +1529,11 @@ msgstr "Rút tiền từ ví"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"
 msgstr "White Paper"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Why is this considered the next-generation trading model?"
+msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

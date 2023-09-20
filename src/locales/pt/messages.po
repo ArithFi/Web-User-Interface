@@ -62,6 +62,11 @@ msgid ""
 "between USDT and ATF token."
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "0 Slippage"
+msgstr ""
+
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
 msgstr "1. O preço de acionamento foi alcançado, mas não há tempo suficiente para executar."
@@ -133,6 +138,11 @@ msgstr "7D PnL"
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "A posição de um trader profissional será automaticamente copiada e executada para você."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
+msgstr ""
+
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "sobre as carteiras digitais"
@@ -189,6 +199,10 @@ msgstr "Adicionar Posição"
 msgid "Address"
 msgstr "Endereço"
 
+#: src/pages/Home/Home.tsx
+msgid "Advantages of ArithFi"
+msgstr ""
+
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
@@ -223,6 +237,14 @@ msgstr "Aprovação necessária"
 msgid "Approve"
 msgstr "Aprovar"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi can meet the needs of long-tail users."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+msgstr ""
+
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
 msgstr ""
@@ -254,6 +276,11 @@ msgstr "Torne-se Traders de Elite >"
 #: src/pages/Copy/Copy.tsx
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Aumente seus ganhos e influência ao se tornar um trader por cópia."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Burn $ATF"
+msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -398,6 +425,10 @@ msgstr "Negociação por Cópia sem Esforço"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
+msgstr ""
+
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Comissão cumulativa"
@@ -477,6 +508,11 @@ msgstr "Desligar"
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "Devido à volatilidade do mercado, o preço de liquidação real pode ser diferente do preço de liquidação teórico. Aqui está o preço de liquidação teórico, apenas para referência."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Earn $ATF"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
 msgstr "Ganhos"
@@ -502,6 +538,11 @@ msgstr "Editar posição"
 msgid "Edited"
 msgstr "Editado"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Eliminate market makers and LPs in trading"
+msgstr ""
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "O fim da cópia liquidará sua posição com ordens de mercado e retornará automaticamente os ativos para sua conta após deduzir a partilha dos lucros."
@@ -513,6 +554,14 @@ msgstr "Preço de entrada"
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Estimated Realized Amount"
 msgstr "Valor Realizado Estimado"
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more assets:"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more products:"
+msgstr ""
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -572,6 +621,10 @@ msgstr "From"
 msgid "Future"
 msgstr "Futuro"
 
+#: src/pages/Home/Home.tsx
+msgid "Futures, Options, Structure Products"
+msgstr ""
+
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "GET"
@@ -595,6 +648,11 @@ msgstr "História"
 msgid "How to Trade"
 msgstr "Como Negociar"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "How to Trade on ArithFi?"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "I have read and agreed to the"
 msgstr "Eu li e concordei com o"
@@ -603,15 +661,42 @@ msgstr "Eu li e concordei com o"
 msgid "I understand"
 msgstr "Entendi"
 
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+msgstr ""
+
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Se você estiver usando um dispositivo seguro de sua propriedade. Selecionar essa opção pode expor suas chaves e informações a terceiros se você estiver em um dispositivo público ou não seguro."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you incur losses, your $ATF will be burned to the system."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you make a profit, you will earn $ATF."
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Imagem"
+
+#: src/pages/Home/Home.tsx
+msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Infinite Liquidity"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -800,6 +885,16 @@ msgstr "Notícias"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Ainda não há comissões"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No LPs"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No Market Makers"
+msgstr ""
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1007,6 +1102,10 @@ msgstr "lembre-se de mim"
 msgid "Risk Warning"
 msgstr "Aviso de Risco"
 
+#: src/pages/Home/Home.tsx
+msgid "Roadmap of ArithFi"
+msgstr ""
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
@@ -1101,6 +1200,13 @@ msgstr "Tolerância de Deslizamento"
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Slippage Tolerance Setting"
 msgstr "Configuração de Tolerância ao Deslizamento"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Start Trading"
+msgstr ""
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
@@ -1306,6 +1412,11 @@ msgstr "TP executado"
 msgid "Trade tokens in instant"
 msgstr "Negocie tokens instantaneamente"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Trade With $ATF"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Trade with me on ArithFi"
 msgstr ""
@@ -1364,6 +1475,11 @@ msgstr "Inquieto"
 msgid "Unsettled Commissions"
 msgstr "Comissões não liquidadas"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Use $ATF as margin to open positions."
+msgstr ""
+
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "Usuário"
@@ -1413,6 +1529,11 @@ msgstr "Retirada da carteira"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"
 msgstr "White paper"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Why is this considered the next-generation trading model?"
+msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

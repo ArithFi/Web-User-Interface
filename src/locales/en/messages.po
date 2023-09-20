@@ -64,6 +64,11 @@ msgstr ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "0 Slippage"
+msgstr "0 Slippage"
+
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
 msgstr "1. The trigger price has been reached but there is not enough time to execute."
@@ -135,6 +140,11 @@ msgstr "7D PnL"
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "A professional trader's position will be automatically copied and executed for you."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
+msgstr "A Trading Model CAN Eliminate Market Maker and LP Costs"
+
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "about connecting wallets"
@@ -191,6 +201,10 @@ msgstr "Add Position"
 msgid "Address"
 msgstr "Address"
 
+#: src/pages/Home/Home.tsx
+msgid "Advantages of ArithFi"
+msgstr "Advantages of ArithFi"
+
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
@@ -225,6 +239,14 @@ msgstr "Approval required"
 msgid "Approve"
 msgstr "Approve"
 
+#: src/pages/Home/Home.tsx
+msgid "ArithFi can meet the needs of long-tail users."
+msgstr "ArithFi can meet the needs of long-tail users."
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+msgstr "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
 msgstr "ATF White Paper"
@@ -256,6 +278,11 @@ msgstr "Become Elite Traders >"
 #: src/pages/Copy/Copy.tsx
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Boost your earning and influence by becoming copy traders."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Burn $ATF"
+msgstr "Burn $ATF"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -400,6 +427,10 @@ msgstr "Copy Trading Effortlessly"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Copy Trading Total Amount (ATF)"
 
+#: src/pages/Home/Home.tsx
+msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
+msgstr "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
+
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Cumulative Commission"
@@ -479,6 +510,11 @@ msgstr "Disconnect"
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 msgstr "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Earn $ATF"
+msgstr "Earn $ATF"
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
 msgstr "Earnings"
@@ -504,6 +540,11 @@ msgstr "Edit Position"
 msgid "Edited"
 msgstr "Edited"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Eliminate market makers and LPs in trading"
+msgstr "Eliminate market makers and LPs in trading"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
@@ -515,6 +556,14 @@ msgstr "Entry Price"
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Estimated Realized Amount"
 msgstr "Estimated Realized Amount"
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more assets:"
+msgstr "Expand more assets:"
+
+#: src/pages/Home/Home.tsx
+msgid "Expand more products:"
+msgstr "Expand more products:"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -576,6 +625,10 @@ msgstr "From"
 msgid "Future"
 msgstr "Future"
 
+#: src/pages/Home/Home.tsx
+msgid "Futures, Options, Structure Products"
+msgstr "Futures, Options, Structure Products"
+
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/DirectPoster/useDirectPoster.ts
 msgid "GET"
@@ -599,6 +652,11 @@ msgstr "History"
 msgid "How to Trade"
 msgstr "How to Trade"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "How to Trade on ArithFi?"
+msgstr "How to Trade on ArithFi?"
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "I have read and agreed to the"
 msgstr "I have read and agreed to the"
@@ -607,15 +665,42 @@ msgstr "I have read and agreed to the"
 msgid "I understand"
 msgstr "I understand"
 
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+
+#: src/pages/Home/Home.tsx
+msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+msgstr "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you incur losses, your $ATF will be burned to the system."
+msgstr "If you incur losses, your $ATF will be burned to the system."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "If you make a profit, you will earn $ATF."
+msgstr "If you make a profit, you will earn $ATF."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Image"
+
+#: src/pages/Home/Home.tsx
+msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+msgstr "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Infinite Liquidity"
+msgstr "Infinite Liquidity"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -804,6 +889,16 @@ msgstr "News"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "No commissions yet"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No LPs"
+msgstr "No LPs"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "No Market Makers"
+msgstr "No Market Makers"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1011,6 +1106,10 @@ msgstr "Remember me"
 msgid "Risk Warning"
 msgstr "Risk Warning"
 
+#: src/pages/Home/Home.tsx
+msgid "Roadmap of ArithFi"
+msgstr "Roadmap of ArithFi"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
@@ -1105,6 +1204,13 @@ msgstr "Slippage Tolerance"
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Slippage Tolerance Setting"
 msgstr "Slippage Tolerance Setting"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Start Trading"
+msgstr "Start Trading"
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
@@ -1310,6 +1416,11 @@ msgstr "TP Executed"
 msgid "Trade tokens in instant"
 msgstr "Trade tokens in instant"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Trade With $ATF"
+msgstr "Trade With $ATF"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Trade with me on ArithFi"
 msgstr "Trade with me on ArithFi"
@@ -1368,6 +1479,11 @@ msgstr "Unsettled"
 msgid "Unsettled Commissions"
 msgstr "Unsettled Commissions"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Use $ATF as margin to open positions."
+msgstr "Use $ATF as margin to open positions."
+
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
 msgstr "User"
@@ -1417,6 +1533,11 @@ msgstr "Wallet Withdraw"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "White Paper"
 msgstr "White Paper"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Why is this considered the next-generation trading model?"
+msgstr "Why is this considered the next-generation trading model?"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
