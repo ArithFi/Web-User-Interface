@@ -121,12 +121,7 @@ const NESTHead: FC = () => {
     return {
       marginLeft: marginLeft,
       "& svg": {
-        width: logoSize[0],
-        height: logoSize[1],
         display: "block",
-        "& path": {
-          fill: theme.normal.text0,
-        },
       },
     };
   });
@@ -254,7 +249,6 @@ const NESTHead: FC = () => {
   const nav = () => {
     const NavStack = styled(Stack)(({ theme }) => {
       return {
-        width: "100%",
         "& a": {
           color: theme.normal.text0,
           fontWeight: 700,
@@ -337,9 +331,11 @@ const NESTHead: FC = () => {
             <NESTFiLogo />
           </Link>
         </LogoBox>
+
+        {showNav ? nav() : <></>}
       </Stack>
 
-      {showNav ? nav() : <></>}
+      
 
       <Stack
         direction="row"
@@ -361,7 +357,7 @@ const NESTHead: FC = () => {
         >
           {isBigMobile ? <></> : <LanguageMenu />}
 
-          {!isBigMobile ? (
+          {/* {!isBigMobile ? (
             <>
               <ThemeBox onClick={changeTheme}>
                 {nowTheme.isLight ? <Dark /> : <Light />}
@@ -369,7 +365,7 @@ const NESTHead: FC = () => {
             </>
           ) : (
             <></>
-          )}
+          )} */}
           {navMenu}
         </Stack>
       </Stack>
