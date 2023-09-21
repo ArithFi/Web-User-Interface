@@ -1,7 +1,6 @@
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import {Link} from "react-router-dom";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
@@ -1327,32 +1326,34 @@ const Home = () => {
               </Stack>
             </Stack>
             <Stack>
-              <Link to={'/futures'}>
-                <Stack direction={'row'} spacing={'12px'} style={{
-                  backgroundColor: '#F69C00',
-                  height: '48px',
-                  width: '200px',
-                  fontSize: '16px',
-                  fontWeight: '700',
-                  lineHeight: '22px',
-                  borderRadius: '12px',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#030308',
-                  cursor: 'pointer',
-                }}>
-                  <div>
-                    <Trans>
-                      Start Trading
-                    </Trans>
-                  </div>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd"
-                          d="M18.5889 9.41058C18.9144 9.73602 18.9144 10.2637 18.5889 10.5891L13.5889 15.5891C13.2635 15.9145 12.7359 15.9145 12.4104 15.5891C12.085 15.2637 12.085 14.736 12.4104 14.4106L15.9878 10.8332H2.99967C2.53944 10.8332 2.16634 10.4601 2.16634 9.99984C2.16634 9.5396 2.53944 9.1665 2.99967 9.1665H15.9878L12.4104 5.58909C12.085 5.26366 12.085 4.73602 12.4104 4.41058C12.7359 4.08514 13.2635 4.08514 13.5889 4.41058L18.5889 9.41058Z"
-                          fill="#333333"/>
-                  </svg>
-                </Stack>
-              </Link>
+              <Stack direction={'row'} spacing={'12px'}
+                     onClick={() => {
+                       window.location.href = '/#/futures'
+                     }}
+                     style={{
+                backgroundColor: '#F69C00',
+                height: '48px',
+                width: '200px',
+                fontSize: '16px',
+                fontWeight: '700',
+                lineHeight: '22px',
+                borderRadius: '12px',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#030308',
+                cursor: 'pointer',
+              }}>
+                <div>
+                  <Trans>
+                    Start Trading
+                  </Trans>
+                </div>
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M18.5889 9.41058C18.9144 9.73602 18.9144 10.2637 18.5889 10.5891L13.5889 15.5891C13.2635 15.9145 12.7359 15.9145 12.4104 15.5891C12.085 15.2637 12.085 14.736 12.4104 14.4106L15.9878 10.8332H2.99967C2.53944 10.8332 2.16634 10.4601 2.16634 9.99984C2.16634 9.5396 2.53944 9.1665 2.99967 9.1665H15.9878L12.4104 5.58909C12.085 5.26366 12.085 4.73602 12.4104 4.41058C12.7359 4.08514 13.2635 4.08514 13.5889 4.41058L18.5889 9.41058Z"
+                        fill="#333333"/>
+                </svg>
+              </Stack>
             </Stack>
           </Stack>
         </Stack>
