@@ -1821,10 +1821,10 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack position={'absolute'} minWidth={'1920px'} bottom={0} zIndex={0} width={'100%'}>
-          <img src={'/images/home_bg2.png'} alt={''} style={{
-            width: '100%'
-          }}/>
+        <Stack position={'absolute'} height={'620px'} bottom={0} zIndex={0} width={'100%'} bgcolor={'#1D2129'}>
+          {/*<img src={'/images/home_bg2.png'} alt={''} style={{*/}
+          {/*  width: '100%'*/}
+          {/*}}/>*/}
         </Stack>
       </Stack>
     </Stack>
