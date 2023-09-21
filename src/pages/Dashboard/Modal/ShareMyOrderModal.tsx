@@ -3,7 +3,7 @@ import {FC, useEffect, useMemo, useRef, useState} from "react";
 import BaseModal from "../Components/DashboardBaseModal";
 import {Order} from "../Dashboard";
 import {styled} from "@mui/material/styles";
-import {Close, NESTFiLogo, NESTLogo} from "../../../components/icons";
+import {ATFIconDark, Close, NESTLogo} from "../../../components/icons";
 import {QRCodeCanvas} from "qrcode.react";
 import {useAccount} from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
@@ -234,19 +234,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   backgroundSize: "contain",
                 }}
               >
-                <Box
-                  sx={{
-                    "& svg": {
-                      height: "48px",
-                      display: "block",
-                      "& path": {
-                        fill: "#fff",
-                      },
-                    },
-                  }}
-                >
-                  <NESTFiLogo/>
-                </Box>
+                <ATFIconDark/>
                 <Stack direction={"row"} pt={"60px"}>
                   <ShareOrderPosition
                     tokenName={props.value.tokenPair.split("/")[0]}
