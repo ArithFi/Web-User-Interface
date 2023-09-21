@@ -24,7 +24,7 @@ msgstr "*금융 데이터의 복잡성으로 인해 미묘한 차이와 지연�
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
-msgstr ""
+msgstr "ArithFi는 ATF 인출만 지원합니다."
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
@@ -61,11 +61,13 @@ msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
 msgstr ""
+"잔고가 0입니다. 거래 전에 '스왑'\\으로 전환하여 교환할 수 있습니다.\n"
+"USDT 및 ATF 토큰 간에 교환할 수 있습니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "0 Slippage"
-msgstr ""
+msgstr "0 슬리피지"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -74,7 +76,7 @@ msgstr "1. 트리거 가격이 도달했지만 실행에 충분한 시간이 없
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr ""
+msgstr "1.수익의 불확실성 리스크: Arith 계속 계약의 계산 방법은 전통적인 중앙 집중식 거래소의 계속 계약의 계산 방법과 다릅니다. Arith 계속 계약은 자산의 과거 수익률을 기반으로 자산의 미래 가격을 변환합니다. 따라서 사용자가 포지션을 개설한 후 자산 가격은 100% 증가합니다. 사용자의 수입은 100%가 아닙니다. 극단적인 경우에는 자산 가격이 상승하더라도 수입이 음수가 될 수 있습니다."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -83,7 +85,7 @@ msgstr "2. 아무도 실행 주문을 수행하지 않으면 트리거 가격에
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr ""
+msgstr "2.포지션 청산 리스크: Arith 계속 계약은 1-20 배의 레버리지를 제공합니다. 레버리지가 1 배 이상인 경우, 기초 자산의 가격 변동이 청산을 유발할 수 있습니다."
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -100,7 +102,7 @@ msgstr "24시간 저가"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
-msgstr ""
+msgstr "3. ATF 토큰 가격 변동 리스크: 마진과 최종 손익 모두 ATF 토큰을 사용하며, ATF 자체도 고도로 변동성 있는 자산입니다. 극단적인 경우에는 영구 계속 계약 포지션이 수익을 내더라도, ATF 가격 자체의 변동으로 인해 피아트 화폐 기준으로 손해를 볼 수 있습니다."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -112,7 +114,7 @@ msgstr "30 일 손익"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr ""
+msgstr "4. 외부 오라클 리스크: Arith 프로토콜의 영구 계속 계약 가격은 Arith 오라클에서 나옵니다. 만약 오라클이 공격을 받거나 다른 이유로 가격이 비정상적으로 변동하면, 시스템은 결제 예외 상황을 마주칠 수 있으며, 이로 인해 사용자의 수익 계산에 오류가 발생할 수 있습니다."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -141,7 +143,7 @@ msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩�
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-msgstr ""
+msgstr "거래 모델은 시장 메이커와 LP 비용을 제거할 수 있습니다."
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
@@ -178,7 +180,7 @@ msgstr "추가"
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
-msgstr ""
+msgstr "ATF를 지갑에 추가하세요."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
@@ -201,7 +203,7 @@ msgstr "주소"
 
 #: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
-msgstr ""
+msgstr "ArithFi의 이점"
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Futures/Modal/EditPositionModal.tsx
@@ -239,24 +241,24 @@ msgstr "승인"
 
 #: src/pages/Home/Home.tsx
 msgid "ArithFi can meet the needs of long-tail users."
-msgstr ""
+msgstr "ArithFi는 장기 사용자의 요구를 충족시킬 수 있습니다."
 
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-msgstr ""
+msgstr "ArithFi, 분산형 영구 계속 거래소<0/> 시장 메이커와 LP를 제거합니다."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
-msgstr ""
+msgstr "ATF 화이트페이퍼"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
-msgstr ""
+msgstr "AUM (ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
-msgstr ""
+msgstr "AUM (ATF)"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -280,7 +282,7 @@ msgstr "복사 트레이더가 되어 수익과 영향력을 높이세요."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Burn $ATF"
-msgstr ""
+msgstr "$ATF 소각"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -401,7 +403,7 @@ msgstr "트레이더 복사 서비스 계약"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Copy Traders’ PnL (ATF)"
-msgstr ""
+msgstr "트레이더의 수익 및 손실 (ATF)"
 
 #: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -411,7 +413,7 @@ msgstr "복사 거래"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
-msgstr ""
+msgstr "복사 거래 자산 (ATF)"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trading Each Order"
@@ -423,11 +425,11 @@ msgstr "편안하게 복사 거래"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
-msgstr ""
+msgstr "복사 거래 총액 (ATF)"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
-msgstr ""
+msgstr "암호화폐, 외환, 귀금속, 상품, 주식"
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
@@ -470,10 +472,6 @@ msgstr "맞춤 복사 거래"
 msgid "Daily Return"
 msgstr "일일 수익률"
 
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Dark mode"
-msgstr "다크 모드"
-
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
@@ -511,7 +509,7 @@ msgstr "시장 변동성으로 인해 실제 청산 가격은 이론적인 청�
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Earn $ATF"
-msgstr ""
+msgstr "$ATF를 획득하세요."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -541,7 +539,7 @@ msgstr "편집됨"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Eliminate market makers and LPs in trading"
-msgstr ""
+msgstr "거래에서 시장 메이커와 LP를 제거하세요."
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
@@ -557,11 +555,11 @@ msgstr "예상 실현 금액"
 
 #: src/pages/Home/Home.tsx
 msgid "Expand more assets:"
-msgstr ""
+msgstr "더 많은 자산을 확장하세요."
 
 #: src/pages/Home/Home.tsx
 msgid "Expand more products:"
-msgstr ""
+msgstr "더 많은 제품을 확장하세요."
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -585,10 +583,12 @@ msgid ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
+"올바른 사람을 따라가면 돈 버는 것은 숨쉬는 것만큼 쉽습니다.\n"
+"ArithFi에서 올바른 사람을 따를 수 있으며, 여기가 내 추천 링크입니다."
 
 #: src/pages/Copy/Copy.tsx
 msgid "Follow top trading strategies on ArithFi"
-msgstr ""
+msgstr "ArithFi에서 최고의 거래 전략을 따르세요."
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -598,7 +598,7 @@ msgstr "팔로워"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr ""
+msgstr "Arith Protocol 영속적인 계약을 사용하는 사용자/스마트 계약은 포지션, 결제, 청산 및 기타 관련 작업 수행 시 시장 내 유사한 제품과의 규칙 및 차이를 이해하십시오. 다음의 가능한 리스크를 완전히 이해하고 리스크 상황을 감당할 수 있다면 참여하세요."
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -623,7 +623,7 @@ msgstr "미래"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
-msgstr ""
+msgstr "선물, 옵션, 구조 제품"
 
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/DirectPoster/useDirectPoster.ts
@@ -632,7 +632,7 @@ msgstr "얻다"
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Get ATF"
-msgstr ""
+msgstr "ATF 획득하기"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -651,7 +651,7 @@ msgstr "거래 방법"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "How to Trade on ArithFi?"
-msgstr ""
+msgstr "ArithFi에서 어떻게 거래하는지요?"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "I have read and agreed to the"
@@ -663,11 +663,11 @@ msgstr "이해했습니다"
 
 #: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr ""
+msgstr "중앙 집중식 거래소 (CEX)가 금 선물과 같은 새로운 자산 페어를 선물 거래에 도입하려면 일반적으로 시장 메이커가 유동성을 제공하도록 요구합니다. 그렇지 않으면 거래 중에 높은 슬리피지가 발생할 수 있습니다. 그러나 이 새로운 자산을 거래하려는 사용자가 10명뿐이라면, 수익은 시장 메이킹 비용을 커버하지 못할 수 있습니다."
 
 #: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-msgstr ""
+msgstr "중앙 집중식 거래소 (CEX)가 금 선물과 같은 새로운 자산 페어를 선물 거래에 도입하려면 일반적으로 시장 메이커가 유동성을 제공하도록 요구합니다. 그렇지 않으면 거래 중에 높은 슬리피지가 발생할 수 있습니다. 그러나 이 새로운 자산을 거래하려는 사용자가 10명뿐이라면, 수익은 시장 메이킹 비용을 커버하지 못할 수 있습니다. ArithFi의 거래 모델에서는 금 선물과 같은 새로운 자산 페어를 선물 거래에 추가하는 비용은 대략 하루 당 1달러이며, 슬리피지가 없는 무제한 유동성을 제공합니다. 심지어 하나의 사용자만 거래하고 싶어도 우리는 지원할 수 있습니다. ArithFi는 장기 사용자의 요구를 충족시킬 수 있습니다."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -676,12 +676,12 @@ msgstr "당신이 소유한 안전한 장치를 사용하고 있다면, 이 옵�
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "If you incur losses, your $ATF will be burned to the system."
-msgstr ""
+msgstr "손실이 발생하면 $ATF가 시스템에 태워집니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "If you make a profit, you will earn $ATF."
-msgstr ""
+msgstr "이익을 창출하면 $ATF를 벌게 됩니다."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -691,12 +691,12 @@ msgstr "이미지"
 
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-msgstr ""
+msgstr "ArithFi의 거래 모델에서 금 선물과 같은 새로운 자산 페어를 선물 거래에 추가하는 비용은 대략 하루 당 1달러이며, 슬리피지가 없는 무제한 유동성을 제공합니다. 심지어 하나의 사용자만 거래하고 싶어도 우리는 지원할 수 있습니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
-msgstr ""
+msgstr "무한한 유동성"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -707,7 +707,7 @@ msgstr "불충분함"
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Insufficient ATF balance"
-msgstr ""
+msgstr "부족한 ATF 잔고"
 
 #: src/hooks/useWithDrawModal.ts
 msgid "Insufficient balance"
@@ -834,12 +834,12 @@ msgstr "최대"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 200 ATF"
-msgstr ""
+msgstr "최소 200 ATF"
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 50 ATF"
-msgstr ""
+msgstr "최소 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -889,12 +889,12 @@ msgstr "아직 수수료 없음"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "No LPs"
-msgstr ""
+msgstr "LP 없음"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "No Market Makers"
-msgstr ""
+msgstr "시장 메이커 없음"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1057,7 +1057,7 @@ msgstr "이익"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
-msgstr ""
+msgstr "이익 (ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1069,7 +1069,7 @@ msgstr "이익 공유"
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
-msgstr ""
+msgstr "이익 (ATF)"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1077,7 +1077,7 @@ msgstr "수신됨"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received 100 ATF test tokens"
-msgstr ""
+msgstr "100 ATF 테스트 토큰을 받았습니다."
 
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Recent transactions"
@@ -1104,7 +1104,7 @@ msgstr "위험 경고"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
-msgstr ""
+msgstr "ArithFi의 로드맵"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1206,7 +1206,7 @@ msgstr "슬리피지 허용 범위 설정"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Start Trading"
-msgstr ""
+msgstr "거래 시작"
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
@@ -1307,7 +1307,7 @@ msgstr "최대 예금 금액은"
 
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
-msgstr ""
+msgstr "최소 인출 금액은 15 ATF보다 커야 합니다."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The total amount you invested in copying this trader’s signals."
@@ -1415,11 +1415,11 @@ msgstr "즉시 토큰 거래"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
-msgstr ""
+msgstr "$ATF로 거래하기"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Trade with me on ArithFi"
-msgstr ""
+msgstr "ArithFi에서 저와 함께 거래하세요."
 
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1460,11 +1460,11 @@ msgstr "유형"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
-msgstr ""
+msgstr "미실현 이익 및 손실 (ATF)"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Unrealized PnL(ATF)"
-msgstr ""
+msgstr "미실현 이익 및 손실 (ATF)"
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled"
@@ -1478,7 +1478,7 @@ msgstr "미정산 수수료"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Use $ATF as margin to open positions."
-msgstr ""
+msgstr "Use $ATF as margin to open positions."
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
@@ -1533,7 +1533,7 @@ msgstr "종합 보고서"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Why is this considered the next-generation trading model?"
-msgstr ""
+msgstr "왜 이것이 차세대 거래 모델로 간주되는지요?"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

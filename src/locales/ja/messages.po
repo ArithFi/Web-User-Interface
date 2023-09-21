@@ -470,10 +470,6 @@ msgstr ""
 msgid "Daily Return"
 msgstr ""
 
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Dark mode"
-msgstr "ダークモード"
-
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx

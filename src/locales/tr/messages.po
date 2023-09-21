@@ -24,7 +24,7 @@ msgstr "* Finansal verilerin karmaşıklığı nedeniyle nüanslar ve gecikmeler
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
-msgstr ""
+msgstr "*ArithFi yalnızca ATF çekimlerini destekler."
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
@@ -61,11 +61,13 @@ msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
 msgstr ""
+"0 bakiye. Ticarete başlamadan önce \"Takas\" yapmak için geçiş yapabilirsiniz\n"
+"USDT ve ATF jetonu arasında."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "0 Slippage"
-msgstr ""
+msgstr "0 Kayma"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -74,7 +76,7 @@ msgstr "1. Tetikleme fiyatına ulaşıldı ancak yeterli süre yoktur."
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "1. Uncertainty risk of income: The calculation method of Arith perpetual contract is different from the calculation method of perpetual contract of traditional centralized exchange. The Arith perpetual contract converts the future price of the asset based on the historical rate of return of the asset. Therefore, the asset price increases by 100% after the user opens a position. The user's income is not 100%. In extreme cases, even if the asset price is rising, your income may be negative."
-msgstr ""
+msgstr "1. Gelir belirsizliği riski: Arith sürekli sözleşmesinin hesaplama yöntemi geleneksel merkezi borsa sürekli sözleşmesinin hesaplama yönteminden farklıdır. Arith sürekli sözleşme, varlığın geçmiş getiri oranına dayalı olarak gelecekteki varlık fiyatını dönüştürür. Bu nedenle, kullanıcı bir pozisyon açtıktan sonra varlık fiyatı %100 artsa bile, kullanıcının geliri %100 değildir. Aşırı durumlarda, varlık fiyatı yükseliyor olsa bile geliriniz negatif olabilir."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "2. No one picks up the execution order There may be slippage to execute at the trigger price."
@@ -83,7 +85,7 @@ msgstr "2. Uygulama emrini kimse almaz. Tetikleme fiyatında işlem yapmak için
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "2. Position liquidation risk: Arith perpetual contracts provide leverage of 1-20 times. When your leverage is greater than 1 times leverage, the price fluctuation of the underlying asset may cause liquidation."
-msgstr ""
+msgstr "2.Pozisyon likidasyon riski: Arith sürekli sözleşmeleri 1-20 kat kaldıraç sağlar. Kaldıracınız 1 kat kaldıraçtan büyük olduğunda, temel varlık fiyatının dalgalanması likidasyona neden olabilir."
 
 #: src/pages/Futures/ExchangeTVChart.tsx
 msgid "24h Change"
@@ -100,7 +102,7 @@ msgstr "24 saatlik Düşük"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
-msgstr ""
+msgstr "3.ATF Token fiyat dalgalanma riski: Hem teminat hem de nihai kar ve zarar ATF Tokeni kullanır ve ATF kendisi de oldukça volatil bir varlıktır. Aşırı durumlarda, sürekli sözleşme pozisyonunuz karlı olsa bile, ATF fiyatının dalgalanması nedeniyle fiat para cinsinden kayıp yaşamanıza neden olabilir."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -112,7 +114,7 @@ msgstr "30 Gün Kar/Zarar"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "4. External oracle risk: Arith protocol's perpetual contract price comes from the Arith oracle. If the oracle is attacked or other reasons cause the price to be abnormal, The system may encounter settlement exceptions, which may cause errors in the user's revenue calculation."
-msgstr ""
+msgstr "Harici oracle riski: Arith protokolünün sürekli sözleşme fiyatı, Arith oracle'ından gelir. Oracle'ın saldırıya uğraması veya diğer nedenler fiyatın anormal olmasına yol açarsa, sistem hesaplaşma istisnalarıyla karşılaşabilir, bu da kullanıcının gelir hesaplamasında hatalara neden olabilir."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -141,7 +143,7 @@ msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve siz
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-msgstr ""
+msgstr "Bir Ticaret Modeli Piyasa Yapıcı ve LP Maliyetlerini Ortadan Kaldırabilir"
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
@@ -178,7 +180,7 @@ msgstr "Ekle"
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
-msgstr ""
+msgstr "Cüzdanınıza ATF ekleyin."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Add Copy Trading Amount"
@@ -201,7 +203,7 @@ msgstr "Adres"
 
 #: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
-msgstr ""
+msgstr "ArithFi'nin Avantajları"
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Futures/Modal/EditPositionModal.tsx
@@ -239,24 +241,24 @@ msgstr "Onayla"
 
 #: src/pages/Home/Home.tsx
 msgid "ArithFi can meet the needs of long-tail users."
-msgstr ""
+msgstr "ArithFi, uzun kuyruk kullanıcılarının ihtiyaçlarını karşılayabilir."
 
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-msgstr ""
+msgstr "ArithFi, Merkezi Olmayan Sürekli Takas Sağlar ve Piyasa Yapıcıları ile Likidite Sağlayıcılarını Ortadan Kaldırır."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
-msgstr ""
+msgstr "ATF Beyaz Kağıdı"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
-msgstr ""
+msgstr "AUM (ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
-msgstr ""
+msgstr "AUM (ATF)"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -280,7 +282,7 @@ msgstr "Kopya Tüccarları Olarak Gelirinizi ve Etkinliğinizi Artırın."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Burn $ATF"
-msgstr ""
+msgstr "$ATF Yakma"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
@@ -401,7 +403,7 @@ msgstr "Kopya Tüccar Hizmet Sözleşmesi"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Copy Traders’ PnL (ATF)"
-msgstr ""
+msgstr "Kopya Yatırımcıların Kar ve Zararı (ATF)"
 
 #: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -411,7 +413,7 @@ msgstr "Kopya İşlem"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
-msgstr ""
+msgstr "Kopya İşlem Toplam Tutarı (ATF)"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trading Each Order"
@@ -423,11 +425,11 @@ msgstr "Zahmetsizce Kopya İşlem"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
-msgstr ""
+msgstr "Kopya İşlem Varlıkları (ATF)"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
-msgstr ""
+msgstr "Kripto Paralar, Forex, Değerli Maden, Emtia, Hisse Senedi"
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Commission"
@@ -470,10 +472,6 @@ msgstr "Özel Kopya İşlem"
 msgid "Daily Return"
 msgstr "Günlük Getiri"
 
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Dark mode"
-msgstr "Koyu Mod"
-
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
@@ -511,7 +509,7 @@ msgstr "Piyasa oynaklığı nedeniyle, gerçek likidasyon fiyatı teorik likidas
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Earn $ATF"
-msgstr ""
+msgstr "$ATF Kazanın"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Earnings"
@@ -541,7 +539,7 @@ msgstr "Düzenlendi"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Eliminate market makers and LPs in trading"
-msgstr ""
+msgstr "Ticarette piyasa yapıcıları ve LP'leri ortadan kaldırın"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
@@ -557,11 +555,11 @@ msgstr "Tahmini Gerçekleşmiş Tutar"
 
 #: src/pages/Home/Home.tsx
 msgid "Expand more assets:"
-msgstr ""
+msgstr "Daha fazla varlık genişletin:"
 
 #: src/pages/Home/Home.tsx
 msgid "Expand more products:"
-msgstr ""
+msgstr "Daha fazla ürün genişletin:"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -585,10 +583,12 @@ msgid ""
 "Follow the right person, making money is as easy as breathing.\n"
 "You can follow the right person on ArithFi, here is my refer link"
 msgstr ""
+"Doğru kişiyi takip etmek, para kazanmak soluk almak kadar kolaydır.\n"
+"ArithFi'de doğru kişiyi takip edebilirsiniz, işte benim referans bağlantım."
 
 #: src/pages/Copy/Copy.tsx
 msgid "Follow top trading strategies on ArithFi"
-msgstr ""
+msgstr "ArithFi'de en iyi ticaret stratejilerini takip edin."
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -598,7 +598,7 @@ msgstr "Takipçiler"
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
-msgstr ""
+msgstr "Arith Protokolü sürekli sözleşmelerini kullanan kullanıcılar/smart sözleşmeler, pozisyon, hesaplaşma, likidasyon ve diğer ilgili işlemleri gerçekleştirirken lütfen kurallarını ve benzer ürünlerin piyasada farklarını anlayın. Aşağıda belirtilen olası riskleri tamamen anladıktan ve bu risk durumuna katlanabileceğinizden emin olduktan sonra katılın:"
 
 #: src/pages/Personal/Personal.tsx
 msgid "Freeze Accounts"
@@ -623,7 +623,7 @@ msgstr "Gelecek"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
-msgstr ""
+msgstr "Futures, Options, Structure Ürünleri"
 
 #: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/DirectPoster/useDirectPoster.ts
@@ -632,7 +632,7 @@ msgstr "Al"
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Get ATF"
-msgstr ""
+msgstr "ATF Alın"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -651,7 +651,7 @@ msgstr "Nasıl Ticaret Yapılır"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "How to Trade on ArithFi?"
-msgstr ""
+msgstr "ArithFi'de Nasıl İşlem Yapılır?"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "I have read and agreed to the"
@@ -663,11 +663,11 @@ msgstr "Anladım"
 
 #: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr ""
+msgstr "Eğer Merkezi Olmayan Bir Borsa (CEX), yeni varlık çiftleri eklemek istiyorsa, örneğin ALTIN vadeli işlemleri gibi, vadeli işlem için genellikle piyasa yapıcılarının likidite sağlamaları gerekir; aksi takdirde ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, yalnızca 10 kullanıcının bu yeni varlığı ticaret yapmaya ilgi gösterdiği durumda, karlar piyasa yapma maliyetlerini karşılamayabilir."
 
 #: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-msgstr ""
+msgstr "Eğer Merkezi Olmayan Bir Borsa (CEX), yeni varlık çiftleri eklemek istiyorsa, örneğin ALTIN vadeli işlemleri gibi, vadeli işlem için genellikle piyasa yapıcılarının likidite sağlamaları gerekir; aksi takdirde ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, yalnızca 10 kullanıcının bu yeni varlığı ticaret yapmaya ilgi gösterdiği durumda, karlar piyasa yapma maliyetlerini karşılamayabilir."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -676,12 +676,12 @@ msgstr "Kendinize ait güvenli bir cihaz kullanıyorsanız. Bu seçeneği seçme
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "If you incur losses, your $ATF will be burned to the system."
-msgstr ""
+msgstr "Zarar ederseniz, $ATF'niz sistemde yakılacaktır."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "If you make a profit, you will earn $ATF."
-msgstr ""
+msgstr "Kar elde ederseniz, $ATF kazanırsınız."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -691,12 +691,12 @@ msgstr "Görsel"
 
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-msgstr ""
+msgstr "ArithFi'nin ticaret modelinde, yeni varlık çiftleri eklemenin maliyeti, örneğin ALTIN vadeli işlemleri gibi, vadeli işlem için günlük yaklaşık olarak $1'dir ve sıfır kayma ile sınırsız likidite sunar. Yalnızca bir kullanıcı bile ticaret yapmak isterse, destek sağlayabiliriz."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
-msgstr ""
+msgstr "Sınırsız Likidite"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -707,7 +707,7 @@ msgstr "Yetersiz"
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Insufficient ATF balance"
-msgstr ""
+msgstr "Yetersiz ATF bakiyesi"
 
 #: src/hooks/useWithDrawModal.ts
 msgid "Insufficient balance"
@@ -834,12 +834,12 @@ msgstr "MAKS"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 200 ATF"
-msgstr ""
+msgstr "Minimum 200 ATF"
 
 #: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 50 ATF"
-msgstr ""
+msgstr "Minimum 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -889,12 +889,12 @@ msgstr "Henüz komisyon yok"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "No LPs"
-msgstr ""
+msgstr "Likidite Sağlayıcıları Yok"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "No Market Makers"
-msgstr ""
+msgstr "Piyasa Yapıcıları Yok"
 
 #: src/pages/Overview/Overview.tsx
 msgid "No Order"
@@ -1059,7 +1059,7 @@ msgstr "Kâr"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
-msgstr ""
+msgstr "Kar (ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1071,7 +1071,7 @@ msgstr "Kar Paylaşımı"
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
-msgstr ""
+msgstr "Kar (ATF)"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1079,7 +1079,7 @@ msgstr "Alındı"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received 100 ATF test tokens"
-msgstr ""
+msgstr "100 ATF deneme jetonu aldı"
 
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Recent transactions"
@@ -1106,7 +1106,7 @@ msgstr "Risk Uyarısı"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
-msgstr ""
+msgstr "ArithFi'nin Yol Haritası"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1208,7 +1208,7 @@ msgstr "Kayma Toleransı Ayarı"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Start Trading"
-msgstr ""
+msgstr "Ticaret'e Başla"
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Status"
@@ -1309,7 +1309,7 @@ msgstr "Maksimum depozito tutarı"
 
 #: src/hooks/useWithDrawModal.ts
 msgid "The minimum withdrawal amount greater than 15 ATF"
-msgstr ""
+msgstr "Minimum çekim miktarı 15 ATF'den büyük\""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The total amount you invested in copying this trader’s signals."
@@ -1417,11 +1417,11 @@ msgstr "Anında jetonlarla işlem yapın"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
-msgstr ""
+msgstr "$ATF ile Ticaret Yap"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Trade with me on ArithFi"
-msgstr ""
+msgstr "ArithFi'de benimle ticaret yap"
 
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1462,11 +1462,11 @@ msgstr "Tür"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
-msgstr ""
+msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Unrealized PnL(ATF)"
-msgstr ""
+msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled"
@@ -1480,7 +1480,7 @@ msgstr "Hesaplanmamış Komisyonlar"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Use $ATF as margin to open positions."
-msgstr ""
+msgstr "Pozisyon açmak için $ATF olarak teminat kullanın"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
@@ -1535,7 +1535,7 @@ msgstr "Beyaz Kağıt"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Why is this considered the next-generation trading model?"
-msgstr ""
+msgstr "Bu neden gelecek nesil ticaret modeli olarak kabul ediliyor?"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"

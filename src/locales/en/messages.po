@@ -472,10 +472,6 @@ msgstr "Custom Copy Trading"
 msgid "Daily Return"
 msgstr "Daily Return"
 
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Dark mode"
-msgstr "Dark mode"
-
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
