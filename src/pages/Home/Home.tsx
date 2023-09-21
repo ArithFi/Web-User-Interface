@@ -899,7 +899,7 @@ const Home = () => {
         </Stack>
       </Stack>
       <Stack alignItems={'center'} position={'relative'}>
-        <Stack width={'100%'} paddingTop={'140px'} paddingBottom={'140px'} zIndex={10} alignItems={'center'} sx={{
+        <Stack width={'100%'} paddingTop={'140px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'} sx={{
           background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
         }}>
           <Stack position={'absolute'} right={0} top={-200}>
