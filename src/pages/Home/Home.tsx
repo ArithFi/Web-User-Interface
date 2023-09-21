@@ -8,12 +8,21 @@ const Home = () => {
   if (isBigMobile) {
     return (
       <Stack>
-        <Stack px={'20px'} alignItems={'center'} pt={'120px'} pb={'80px'} gap={'40px'} sx={{
-          background: `url('/images/home_bg1.png'), lightgray 50% / cover no-repeat`
-        }}>
-          <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} color={'rgba(249, 249, 249, 1)'}>ArithFi, A Decentralized
+        <Stack px={'20px'} alignItems={'center'} pt={'120px'} pb={'80px'} gap={'40px'} position={'relative'}>
+          <Stack position={'absolute'} zIndex={5} top={0} height={'400px'}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="788" viewBox="0 0 1920 788" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M0 556.262V695.738C96.3379 735.86 273.296 768.658 495.637 788H1424.36C1646.7 768.658 1823.66 735.86 1920 695.738V556.262V0H0V556.262Z" fill="url(#paint0_linear_16800_41836)"/>
+              <defs>
+                <linearGradient id="paint0_linear_16800_41836" x1="-80" y1="378.683" x2="1935.5" y2="-228.966" gradientUnits="userSpaceOnUse">
+                  <stop offset="0.166227" stopColor="#3D404D"/>
+                  <stop offset="1" stopColor="#222529"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </Stack>
+          <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} color={'rgba(249, 249, 249, 1)'}>ArithFi, A Decentralized
             Perpetual Exchange Eliminates Market Makers and LPs.</Stack>
-          <Stack height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
+          <Stack zIndex={10} height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
                  justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
                  onClick={() => {
                    window.location.href = '/#/futures'
@@ -531,7 +540,6 @@ const Home = () => {
     )
   }
 
-
   return (
     <Stack sx={{
       overflowX: 'hidden'
@@ -540,13 +548,17 @@ const Home = () => {
         width: '100%',
         alignItems: 'center',
       }}>
-        <img src={'/images/home_bg1.png'} alt={''} style={{
-          width: '100%',
-          position: 'absolute',
-          zIndex: 5,
-          top: 0,
-          minWidth: '1920px'
-        }}/>
+        <Stack position={'absolute'} zIndex={5} top={0}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="788" viewBox="0 0 1920 788" fill="none">
+            <path fillRule="evenodd" clipRule="evenodd" d="M0 556.262V695.738C96.3379 735.86 273.296 768.658 495.637 788H1424.36C1646.7 768.658 1823.66 735.86 1920 695.738V556.262V0H0V556.262Z" fill="url(#paint0_linear_16800_41836)"/>
+            <defs>
+              <linearGradient id="paint0_linear_16800_41836" x1="-80" y1="378.683" x2="1935.5" y2="-228.966" gradientUnits="userSpaceOnUse">
+                <stop offset="0.166227" stopColor="#3D404D"/>
+                <stop offset="1" stopColor="#222529"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </Stack>
         <Stack position={'absolute'} zIndex={0} bottom={0} width={'100%'} height={'1000px'} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)'
         }}>
@@ -558,6 +570,8 @@ const Home = () => {
           marginTop: '160px',
           textAlign: 'center',
           color: 'white',
+          maxWidth: '1200px',
+          padding: '0 20px',
         }}>
           <Trans>
             ArithFi, A Decentralized Perpetual Exchange<br/> Eliminates Market Makers and LPs.
