@@ -84,7 +84,7 @@ function useMainReact() {
     const token = "ATF".getToken();
     if (chainId && token && account.connector) {
       const imageURL =
-        "https://bafybeidwmzhy6njm66meh5g5tyuva3sl6yaz7ncjfquv4or7xfctjj3ylq.ipfs.nftstorage.link/n.svg";
+        "https://raw.githubusercontent.com/ArithFi/Images/main/Token32.png";
       await account.connector.watchAsset?.({
         address: token.address[chainId], // The address that the token is at.
         symbol: "ATF", // A ticker symbol or shorthand, up to 5 chars.
