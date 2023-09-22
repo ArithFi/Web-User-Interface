@@ -257,7 +257,7 @@ const Home = () => {
             ArithFi, A Decentralized Perpetual Exchange<br/> Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
-        <button style={{
+        <Stack sx={{
           cursor: 'pointer',
           marginTop: '40px',
           width: '200px',
@@ -267,14 +267,19 @@ const Home = () => {
           fontSize: '16px',
           fontWeight: '700',
           lineHeight: '22px',
-          zIndex: 10
+          zIndex: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+          '&:hover': {
+            backgroundColor: '#FFC933',
+          }
         }} onClick={() => {
           window.location.href = '/#/futures'
         }}>
           <Trans>
             Start Trading
           </Trans>
-        </button>
+        </Stack>
         <Stack zIndex={'20'} position={'relative'} sx={{
           marginTop: '160px',
           maxWidth: '1200px',
@@ -596,7 +601,7 @@ const Home = () => {
                      onClick={() => {
                        window.location.href = '/#/futures'
                      }}
-                     style={{
+                     sx={{
                        backgroundColor: '#F69C00',
                        height: '48px',
                        width: '200px',
@@ -608,6 +613,9 @@ const Home = () => {
                        justifyContent: 'center',
                        color: '#030308',
                        cursor: 'pointer',
+                       '&:hover': {
+                         backgroundColor: '#FFC933',
+                       }
                      }}>
                 <div>
                   <Trans>
