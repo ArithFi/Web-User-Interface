@@ -1,9 +1,18 @@
 import {Trans} from "@lingui/macro";
 import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
+import {useEffect, useState} from "react";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
+  const [lang, setLang] = useState('en')
+
+  useEffect(() => {
+    const cache = localStorage.getItem("Language");
+    if (cache) {
+      setLang(cache)
+    }
+  }, []);
 
   if (isBigMobile) {
     return (
@@ -177,7 +186,7 @@ const Home = () => {
             </Trans>
           </Stack>
           <Stack mt={'80px'} alignItems={'center'}>
-            <img src={'/images/home_icon1_en.svg'} alt={''} />
+            <img src={`/images/home_icon1_${lang}.svg`} alt={''} />
           </Stack>
         </Stack>
         <Stack px={'20px'} py={'20px'} sx={{
@@ -659,7 +668,7 @@ const Home = () => {
               </Stack>
             </Stack>
             <Stack pl={'80px'} height={'500px'}>
-              <img src={'/images/home_icon1_en.svg'} alt={''}/>
+              <img src={`/images/home_icon1_${lang}.svg`} alt={''}/>
             </Stack>
           </Stack>
         </Stack>
@@ -669,7 +678,7 @@ const Home = () => {
                  background: 'linear-gradient(358deg, #3D404D 1.38%, #222529 98.62%)',
                }}
         >
-          <img src={'/images/home_icon2_en.svg'} alt={''}/>
+          <img src={`/images/home_icon2_${lang}.svg`} alt={''}/>
         </Stack>
         <Stack position={'absolute'} bottom={0} left={0} width={'100%'} height={'640px'} sx={{
           backgroundImage: `url('/images/home_bg2.svg')`,
