@@ -83,36 +83,7 @@ const Home = () => {
               <Trans>A Trading Model CAN Eliminate Market Maker and LP Costs</Trans>
             </Stack>
             <Stack>
-              <svg width="192" height="120" viewBox="0 0 192 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="0.4">
-                  <path
-                    d="M189.853 54.7036C192.716 57.6846 192.716 62.3154 189.853 65.2965L137.783 119.525C132.848 124.665 124 121.265 124 114.229L124 5.77105C124 -1.26475 132.849 -4.66492 137.783 0.474582L189.853 54.7036Z"
-                    fill="url(#paint0_linear_16800_42438)"/>
-                  <path opacity="0.56"
-                        d="M127.853 54.7036C130.716 57.6846 130.716 62.3154 127.853 65.2965L75.7834 119.525C70.8485 124.665 62 121.265 62 114.229L62 5.77105C62 -1.26475 70.8485 -4.66492 75.7834 0.474582L127.853 54.7036Z"
-                        fill="url(#paint1_linear_16800_42438)"/>
-                  <path opacity="0.3"
-                        d="M65.8532 54.7036C68.7156 57.6846 68.7156 62.3154 65.8532 65.2965L13.7834 119.525C8.8485 124.665 -3.15858e-07 121.265 0 114.229L4.869e-06 5.77105C5.18485e-06 -1.26475 8.8485 -4.66492 13.7834 0.474582L65.8532 54.7036Z"
-                        fill="url(#paint2_linear_16800_42438)"/>
-                </g>
-                <defs>
-                  <linearGradient id="paint0_linear_16800_42438" x1="192" y1="60" x2="124" y2="60"
-                                  gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white" stopOpacity="0.6"/>
-                    <stop offset="1" stopColor="white" stopOpacity="0"/>
-                  </linearGradient>
-                  <linearGradient id="paint1_linear_16800_42438" x1="130" y1="60" x2="62" y2="60"
-                                  gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white" stopOpacity="0.6"/>
-                    <stop offset="1" stopColor="white" stopOpacity="0"/>
-                  </linearGradient>
-                  <linearGradient id="paint2_linear_16800_42438" x1="68" y1="60" x2="-5.92169e-07" y2="60"
-                                  gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white" stopOpacity="0.6"/>
-                    <stop offset="1" stopColor="white" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img src={'/images/home_icon8.svg'} alt={''}/>
             </Stack>
           </Stack>
         </Stack>
@@ -201,39 +172,7 @@ const Home = () => {
                  }}
                  borderRadius={'8px'} lineHeight={'32px'}>
             <Stack width={'100%'} alignItems={'center'}>
-              <svg width="240" height="56" viewBox="0 0 240 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="16" width="240" height="22" fill="url(#paint0_linear_16803_64325)"/>
-                <g filter="url(#filter0_i_16803_64325)">
-                  <circle cx="120" cy="28" r="28" fill="white"/>
-                </g>
-                <circle cx="120" cy="28" r="24" fill="#171A1F"/>
-                <path
-                  d="M120.365 15.25H113.25L104.515 39.2499H109.303L112.579 30.25H125.824L124.186 25.75H114.217L116.401 19.75H122.003L120.365 15.25Z"
-                  fill="white"/>
-                <path d="M128.388 19.7499L126.75 15.25H121.961L123.599 19.7499H128.388Z" fill="#F69C00"/>
-                <path d="M124.145 21.25H128.933L135.485 39.25H130.696L124.145 21.25Z" fill="white"/>
-                <defs>
-                  <filter id="filter0_i_16803_64325" x="92" y="0" width="56" height="56" filterUnits="userSpaceOnUse"
-                          color-interpolation-filters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                   result="hardAlpha"/>
-                    <feOffset/>
-                    <feGaussianBlur stdDeviation="5.48498"/>
-                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                    <feColorMatrix type="matrix"
-                                   values="0 0 0 0 0.231373 0 0 0 0 0.388235 0 0 0 0 0.952941 0 0 0 0.3 0"/>
-                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_16803_64325"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_16803_64325" x1="6.28702" y1="24.25" x2="237.813" y2="24.25"
-                                  gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#030308" stopOpacity="0"/>
-                    <stop offset="0.489726" stopColor="#030308" stopOpacity="0.4"/>
-                    <stop offset="1" stopColor="#030308" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img src={'/images/home_icon9.svg'} alt={''}/>
             </Stack>
             <Stack fontSize={'24px'} fontWeight={'700'} alignItems={'center'} mt={'24px'} color={'#030308'}>
               <Trans>
@@ -278,11 +217,7 @@ const Home = () => {
             <Trans>
               Start Trading
             </Trans>
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-              <path fillRule="evenodd" clipRule="evenodd"
-                    d="M18.5889 9.41107C18.9144 9.73651 18.9144 10.2641 18.5889 10.5896L13.5889 15.5896C13.2635 15.915 12.7359 15.915 12.4104 15.5896C12.085 15.2641 12.085 14.7365 12.4104 14.4111L15.9878 10.8337H2.99967C2.53944 10.8337 2.16634 10.4606 2.16634 10.0003C2.16634 9.54009 2.53944 9.16699 2.99967 9.16699H15.9878L12.4104 5.58958C12.085 5.26414 12.085 4.73651 12.4104 4.41107C12.7359 4.08563 13.2635 4.08563 13.5889 4.41107L18.5889 9.41107Z"
-                    fill="#333333"/>
-            </svg>
+            <img src={'/images/home_icon10.svg'} alt={''}/>
           </Stack>
         </Stack>
       </Stack>
@@ -729,11 +664,7 @@ const Home = () => {
                     Start Trading
                   </Trans>
                 </div>
-                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd"
-                        d="M18.5889 9.41058C18.9144 9.73602 18.9144 10.2637 18.5889 10.5891L13.5889 15.5891C13.2635 15.9145 12.7359 15.9145 12.4104 15.5891C12.085 15.2637 12.085 14.736 12.4104 14.4106L15.9878 10.8332H2.99967C2.53944 10.8332 2.16634 10.4601 2.16634 9.99984C2.16634 9.5396 2.53944 9.1665 2.99967 9.1665H15.9878L12.4104 5.58909C12.085 5.26366 12.085 4.73602 12.4104 4.41058C12.7359 4.08514 13.2635 4.08514 13.5889 4.41058L18.5889 9.41058Z"
-                        fill="#333333"/>
-                </svg>
+                <img src={'/images/home_icon10.svg'} alt={''}/>
               </Stack>
             </Stack>
           </Stack>
