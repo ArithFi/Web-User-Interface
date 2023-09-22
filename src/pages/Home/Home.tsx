@@ -87,7 +87,7 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack py={'80px'} alignItems={'center'} sx={{
+        <Stack py={'80px'} alignItems={'center'} zIndex={10} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
         }}>
           <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'}>Advantages of ArithFi</Stack>
@@ -455,7 +455,7 @@ const Home = () => {
           </Trans>
         </Stack>
         <Stack direction={'row'} zIndex={10} gap={'24px'} marginTop={'48px'} marginBottom={'120px'}>
-          <Stack direction={'row'} spacing={'8px'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
@@ -468,7 +468,7 @@ const Home = () => {
               <Trans>No LPs</Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
@@ -483,7 +483,7 @@ const Home = () => {
               </Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
@@ -498,7 +498,7 @@ const Home = () => {
               </Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
@@ -515,62 +515,12 @@ const Home = () => {
           </Stack>
         </Stack>
       </Stack>
-      <Stack alignItems={'center'} position={'relative'}>
+      <Stack alignItems={'center'} position={'relative'} zIndex={5}>
         <Stack width={'100%'} paddingTop={'140px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'} sx={{
           background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
         }}>
-          <Stack position={'absolute'} right={0} top={-200}>
-            <svg width="994" height="1278" viewBox="0 0 994 1278" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <mask id="mask0_16796_35964" maskUnits="userSpaceOnUse" x="0" y="0" width="994" height="1278">
-                <rect width="994" height="1278" fill="url(#paint0_linear_16796_35964)"/>
-              </mask>
-              <g mask="url(#mask0_16796_35964)">
-                <g opacity="0.2" filter="url(#filter0_b_16796_35964)">
-                  <circle cx="640" cy="633" r="629" fill="#B9D0FF" fillOpacity="0.3"/>
-                  <circle cx="640" cy="633" r="628.198" stroke="url(#paint1_linear_16796_35964)" stroke-opacity="0.3"
-                          stroke-width="1.60413"/>
-                </g>
-                <g opacity="0.4" filter="url(#filter1_b_16796_35964)">
-                  <circle cx="640" cy="633" r="524.746" fill="#B9D0FF" fillOpacity="0.3"/>
-                  <circle cx="640" cy="633" r="523.944" stroke="url(#paint2_linear_16796_35964)" stroke-opacity="0.3"
-                          stroke-width="1.60413"/>
-                </g>
-                <circle opacity="0.1" cx="225" cy="948" r="8" fill="#264AFF"/>
-                <circle opacity="0.1" cx="51" cy="499" r="6" fill="#264AFF"/>
-                <circle opacity="0.08" cx="628" cy="331" r="4" fill="#264AFF"/>
-              </g>
-              <defs>
-                <filter id="filter0_b_16796_35964" x="-75.6231" y="-82.6231" width="1431.25" height="1431.25"
-                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="43.3116"/>
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_16796_35964"/>
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_16796_35964" result="shape"/>
-                </filter>
-                <filter id="filter1_b_16796_35964" x="28.6308" y="21.6308" width="1222.74" height="1222.74"
-                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="43.3116"/>
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_16796_35964"/>
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_16796_35964" result="shape"/>
-                </filter>
-                <linearGradient id="paint0_linear_16796_35964" x1="497" y1="0" x2="497" y2="1278"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#EBF5FF"/>
-                  <stop offset="1" stopColor="white"/>
-                </linearGradient>
-                <linearGradient id="paint1_linear_16796_35964" x1="640" y1="4" x2="640" y2="1262"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#EFE71E"/>
-                  <stop offset="1" stopColor="#EFCE1E" stopOpacity="0"/>
-                </linearGradient>
-                <linearGradient id="paint2_linear_16796_35964" x1="640" y1="108.254" x2="640" y2="1157.75"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#EFE71E"/>
-                  <stop offset="1" stopColor="#EFCE1E" stopOpacity="0"/>
-                </linearGradient>
-              </defs>
-            </svg>
+          <Stack position={'absolute'} right={0} zIndex={5} top={-200}>
+            <img src={'/images/home_icon11.svg'} alt={''} />
           </Stack>
           <Stack direction={'row'} maxWidth={'1200px'} width={'100%'} position={'relative'}>
             <Stack gap={'40px'} maxWidth={'600px'} width={'100%'} px={'20px'}>
