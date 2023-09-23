@@ -618,8 +618,8 @@ msgstr "From"
 
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
-msgid "Future"
-msgstr "Future"
+msgid "Futures"
+msgstr "Futures"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"

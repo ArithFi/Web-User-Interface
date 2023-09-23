@@ -618,7 +618,7 @@ msgstr "Desde"
 
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
-msgid "Future"
+msgid "Futures"
 msgstr "Futuro"
 
 #: src/pages/Home/Home.tsx

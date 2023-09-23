@@ -112,7 +112,7 @@ const App: FC = () => {
           <Suspense fallback={<></>}>
             <Routes>
               <Route path={"home"} element={<HomePage />} />
-              <Route path="future" element={<FuturesPage />} />
+              <Route path="futures" element={<FuturesPage />} />
               {swapOrDirectPoster}
               <Route path="dashboard" element={<DashboardPage />} />
               <Route path="account">
@@ -130,7 +130,7 @@ const App: FC = () => {
                 <Route path=":address" element={<TraderPage />} />
               </Route>
               <Route path="myCopies" element={<MyCopiesPage />} />
-              <Route path="*" element={<Navigate to="/future" />} />
+              <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
           </Suspense>
 
