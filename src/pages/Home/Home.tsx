@@ -157,7 +157,7 @@ const Home = () => {
             </Trans>
           </Stack>
           <Stack mt={'80px'} alignItems={'center'}>
-            <img src={`/images/home_icon1_${lang}.svg`} alt={''} />
+            <img src={`/images/home_icon1_${lang}.svg`} alt={''} width={'100%'} />
           </Stack>
         </Stack>
         <Stack px={'20px'} py={'20px'} sx={{
