@@ -8,6 +8,7 @@ import {
   FuturesIcon,
   Light,
   NESTFiLogo,
+  NESTLogo,
   SwapExchangeSmall,
 } from "../../../components/icons";
 import Box from "@mui/material/Box";
@@ -182,15 +183,6 @@ const NESTHead: FC = () => {
       },
     };
   });
-  const logoSize = useMemo(() => {
-    switch (widthLv) {
-      case WidthType.ssm:
-      case WidthType.sm:
-        return [50, 24];
-      default:
-        return [67, 32];
-    }
-  }, [widthLv]);
   const showNav = useMemo(() => {
     switch (widthLv) {
       case WidthType.ssm:
@@ -270,7 +262,7 @@ const NESTHead: FC = () => {
         },
       };
     });
-    const liList = navItems.slice(0, navItems.length-1).map((item, index) => {
+    const liList = navItems.slice(0, navItems.length - 1).map((item, index) => {
       return (
         <Link
           className={`nav${
@@ -322,20 +314,34 @@ const NESTHead: FC = () => {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        spacing={0}
+        spacing={"40px"}
         width={"100%"}
         height={headHeight}
       >
         <LogoBox>
           <Link to={"/home"}>
-            <NESTFiLogo />
+            {isBigMobile ? (
+              <Box
+                sx={{
+                  width: "36px",
+                  height: "36px",
+                  "& svg": {
+                    width: "36px",
+                    height: "36px",
+                    display: "block",
+                  },
+                }}
+              >
+                <NESTLogo />
+              </Box>
+            ) : (
+              <NESTFiLogo />
+            )}
           </Link>
         </LogoBox>
 
         {showNav ? nav() : <></>}
       </Stack>
-
-      
 
       <Stack
         direction="row"
