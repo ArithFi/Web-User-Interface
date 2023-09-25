@@ -80,7 +80,7 @@ const Home = () => {
           <Stack direction={'row'} justifyContent={'space-between'} mt={'40px'} height={'120px'} width={'100%'}
                  bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
                  onClick={() => {
-                   window.open('https://docs.arithfi.com/docs/overview/arithfi', '_blank')
+                   window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
                  lineHeight={'24px'}>
             <Stack pl={'20px'} py={'24px'} color={'rgba(255, 255, 255, 1)'} width={'230px'}>
@@ -422,7 +422,7 @@ const Home = () => {
           </Stack>
           <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}
                  onClick={() => {
-                   window.open('https://docs.arithfi.com/docs/overview/arithfi', '_blank')
+                   window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
                  sx={{
                    marginTop: '62px',
