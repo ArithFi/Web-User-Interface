@@ -17,7 +17,7 @@ const Home = () => {
   if (isBigMobile) {
     return (
       <Stack>
-        <Stack px={'20px'} alignItems={'center'} pt={'120px'} pb={'80px'} gap={'40px'} position={'relative'}>
+        <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'} position={'relative'}>
           <Stack position={'absolute'} zIndex={5} top={0} height={'400px'} width={'100%'}
                  sx={{
                    backgroundImage: `url('/images/home_bg2.svg')`,
