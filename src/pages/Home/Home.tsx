@@ -94,7 +94,11 @@ const Home = () => {
         <Stack py={'80px'} alignItems={'center'} zIndex={10} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
         }}>
-          <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'}>Advantages of ArithFi</Stack>
+          <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'}>
+            <Trans>
+              Advantages of ArithFi
+            </Trans>
+          </Stack>
           <Stack direction={'row'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 1)'}
                  gap={'16px'} mt={'40px'}>
             <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
@@ -139,7 +143,6 @@ const Home = () => {
           <Stack position={'absolute'} right={0} top={-300}>
             <img src={'/images/home_icon7.svg'} alt={''}/>
           </Stack>
-
           <Stack fontSize={'24px'} lineHeight={'32px'} fontWeight={'700'} color={'#030308'}>
             <Trans>
               Why is this considered the next-generation trading model?

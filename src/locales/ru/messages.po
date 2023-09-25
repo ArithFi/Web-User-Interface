@@ -202,6 +202,7 @@ msgid "Address"
 msgstr "Адрес"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
 msgstr "Преимущества ArithFi"
 

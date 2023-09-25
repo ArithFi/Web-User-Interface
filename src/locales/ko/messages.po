@@ -202,6 +202,7 @@ msgid "Address"
 msgstr "주소"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
 msgstr "ArithFi의 이점"
 
