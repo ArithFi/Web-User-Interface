@@ -51,7 +51,7 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Trade With $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Use $ATF as margin to open positions.</Trans>
             </Stack>
           </Stack>
@@ -62,7 +62,7 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Earn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Make a profit, you will earn $ATF</Trans>
             </Stack>
           </Stack>
@@ -73,12 +73,12 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Burn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
-          <Stack direction={'row'} justifyContent={'space-between'} mt={'40px'} height={'120px'} width={'100%'}
-                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
+          <Stack direction={'row'} justifyContent={'space-between'} mt={'40px'} minHeight={'120px'} width={'100%'}
+                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'} alignItems={'center'}
                  onClick={() => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
