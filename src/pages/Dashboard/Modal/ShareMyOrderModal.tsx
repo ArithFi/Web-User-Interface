@@ -158,7 +158,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURI(
         text
-      )}&hashtags=NEST,btc,eth&via=NEST_Protocol`
+      )}&hashtags=ATF,btc,eth&via=ArithFi`
     );
   };
 

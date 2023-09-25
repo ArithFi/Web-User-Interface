@@ -150,7 +150,7 @@ const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({...props}) => {
     const link = shareLink
     const text = `${t`Follow the right person, making money is as easy as breathing.
 You can follow the right person on ArithFi, here is my refer link`}: ${link}`
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURI(text)}&hashtags=NEST,btc,eth&via=NEST_Protocol`)
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURI(text)}&hashtags=ATF,btc,eth&via=ArithFi`)
   }
 
   return (
