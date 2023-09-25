@@ -142,8 +142,8 @@ msgstr "Позиция профессионального трейдера бу�
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-msgstr "Торговая модель МОЖЕТ исключить расходы на создание рынка и ликвидность."
+#~ msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
+#~ msgstr "Торговая модель МОЖЕТ исключить расходы на создание рынка и ликвидность."
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
@@ -240,12 +240,23 @@ msgid "Approve"
 msgstr "Подтвердить"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "ArithFi can meet the needs of long-tail users."
 msgstr "ArithFi может удовлетворить потребности пользователей с длинным хвостом."
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-msgstr "ArithFi, Децентрализованная Постоянная Биржа<0/> Исключает Рыночных Мейкеров и LPs."
+#: src/pages/Home/Home.tsx
+msgid "ArithFi Uses the SCP Trading Model for All Participants."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+#~ msgstr "ArithFi, Децентрализованная Постоянная Биржа<0/> Исключает Рыночных Мейкеров и LPs."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
@@ -537,13 +548,16 @@ msgid "Edited"
 msgstr "измененный"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
 msgid "Eliminate market makers and LPs in trading"
 msgstr "Исключить рыночных мейкеров и LPs в торговле."
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "Окончание копирования приведет к ликвидации вашей позиции с помощью рыночных ордеров и автоматическому возврату активов на ваш счет после учета доли прибыли."
+
+#: src/pages/Home/Home.tsx
+msgid "Enjoy 0 slippage trading on ArithFi"
+msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -662,12 +676,13 @@ msgid "I understand"
 msgstr "Я понимаю"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr "Если централизованная биржа (CEX) хочет ввести новые пары активов, например, фьючерсы на золото, для торговли фьючерсами, обычно требуется, чтобы рыночные мейкеры предоставляли ликвидность; в противном случае во время торговли может возникнуть высокий скольжение. Однако, если только 10 пользователей заинтересованы в торговле этим новым активом, то прибыль может не покрыть расходы на создание рынка."
 
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-msgstr "Если централизованная биржа (CEX) хочет ввести новые пары активов, например, фьючерсы на золото, для торговли фьючерсами, обычно требуется, чтобы рыночные мейкеры предоставляли ликвидность; в противном случае во время торговли может возникнуть высокий скольжение. Однако, если только 10 пользователей заинтересованы в торговле этим новым активом, то прибыль может не покрыть расходы на создание рынка. В торговой модели ArithFi стоимость добавления новых пар активов, например, фьючерсов на золото, для торговли фьючерсами, составляет примерно $1 в день, и она предлагает неограниченную ликвидность без скольжения. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку. ArithFi может удовлетворить потребности пользователей с длинным хвостом."
+#~ msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+#~ msgstr "Если централизованная биржа (CEX) хочет ввести новые пары активов, например, фьючерсы на золото, для торговли фьючерсами, обычно требуется, чтобы рыночные мейкеры предоставляли ликвидность; в противном случае во время торговли может возникнуть высокий скольжение. Однако, если только 10 пользователей заинтересованы в торговле этим новым активом, то прибыль может не покрыть расходы на создание рынка. В торговой модели ArithFi стоимость добавления новых пар активов, например, фьючерсов на золото, для торговли фьючерсами, составляет примерно $1 в день, и она предлагает неограниченную ликвидность без скольжения. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку. ArithFi может удовлетворить потребности пользователей с длинным хвостом."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -675,13 +690,13 @@ msgstr "Если вы используете безопасное устройс
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If you incur losses, your $ATF will be burned to the system."
-msgstr "Если вы понесете убытки, ваши $ATF будут сожжены системой."
+#~ msgid "If you incur losses, your $ATF will be burned to the system."
+#~ msgstr "Если вы понесете убытки, ваши $ATF будут сожжены системой."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If you make a profit, you will earn $ATF."
-msgstr "Если вы получите прибыль, вы заработаете $ATF."
+#~ msgid "If you make a profit, you will earn $ATF."
+#~ msgstr "Если вы получите прибыль, вы заработаете $ATF."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -690,8 +705,18 @@ msgid "Image"
 msgstr "Изображение"
 
 #: src/pages/Home/Home.tsx
-msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-msgstr "В торговой модели ArithFi стоимость добавления новых пар активов, например, фьючерсов на золото, для фьючерсной торговли составляет примерно $1 в день, и она предоставляет неограниченную ликвидность без скольжения. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку."
+#: src/pages/Home/Home.tsx
+msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+#~ msgstr "В торговой модели ArithFi стоимость добавления новых пар активов, например, фьючерсов на золото, для фьючерсной торговли составляет примерно $1 в день, и она предоставляет неограниченную ликвидность без скольжения. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Incur a loss, your $ATF will be burned"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -814,6 +839,11 @@ msgstr "Лонг"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Losing Trades"
 msgstr "Убыточные сделки"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Make a profit, you will earn $ATF"
+msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"

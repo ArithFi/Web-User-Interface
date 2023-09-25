@@ -142,8 +142,8 @@ msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được t�
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-msgstr "Một mô hình giao dịch CÓ THỂ loại bỏ chi phí của thợ làm thị trường và LP."
+#~ msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
+#~ msgstr "Một mô hình giao dịch CÓ THỂ loại bỏ chi phí của thợ làm thị trường và LP."
 
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
@@ -240,12 +240,23 @@ msgid "Approve"
 msgstr "Phê duyệt"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "ArithFi can meet the needs of long-tail users."
 msgstr "ArithFi có thể đáp ứng nhu cầu của người dùng dài hạn."
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-msgstr "ArithFi, một Sàn giao dịch vĩnh viễn phi tập trung <0/> Loại bỏ thợ làm thị trường và LPs."
+#: src/pages/Home/Home.tsx
+msgid "ArithFi Uses the SCP Trading Model for All Participants."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
+#~ msgstr "ArithFi, một Sàn giao dịch vĩnh viễn phi tập trung <0/> Loại bỏ thợ làm thị trường và LPs."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
@@ -537,13 +548,16 @@ msgid "Edited"
 msgstr "Đã chỉnh sửa"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
 msgid "Eliminate market makers and LPs in trading"
 msgstr "Loại bỏ thợ làm thị trường và LP trong giao dịch"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
 msgstr "Kết thúc sao chép sẽ thanh lý vị trí của bạn bằng các lệnh thị trường và tự động trả lại tài sản vào tài khoản của bạn sau khi trừ đi lợi nhuận chia sẻ."
+
+#: src/pages/Home/Home.tsx
+msgid "Enjoy 0 slippage trading on ArithFi"
+msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -662,12 +676,13 @@ msgid "I understand"
 msgstr "Tôi hiểu."
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr "Nếu một Sàn Giao dịch Tập trung (CEX) muốn giới thiệu các cặp tài sản mới, như hợp đồng tương lai VÀNG, cho giao dịch tương lai, họ thường yêu cầu thợ làm thị trường cung cấp tính thanh khoản; nếu không, có thể xảy ra hiện tượng trượt giá cao trong quá trình giao dịch. Tuy nhiên, nếu chỉ có 10 người dùng quan tâm đến việc giao dịch tài sản mới này, lợi nhuận có thể không đủ để đối phó với chi phí của việc làm thị trường."
 
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-msgstr "Nếu một Sàn Giao dịch Tập trung (CEX) muốn giới thiệu các cặp tài sản mới, như hợp đồng tương lai VÀNG, cho giao dịch tương lai, họ thường yêu cầu thợ làm thị trường cung cấp tính thanh khoản; nếu không, có thể xảy ra hiện tượng trượt giá cao trong quá trình giao dịch. Tuy nhiên, nếu chỉ có 10 người dùng quan tâm đến việc giao dịch tài sản mới này, lợi nhuận có thể không đủ để đối phó với chi phí của việc làm thị trường. Trong mô hình giao dịch của ArithFi, chi phí để thêm các cặp tài sản mới, chẳng hạn như hợp đồng tương lai VÀNG, cho giao dịch tương lai, là khoảng $1 mỗi ngày, và nó cung cấp tính thanh khoản không giới hạn với sự trượt giá bằng không. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi vẫn có thể hỗ trợ. ArithFi có thể đáp ứng nhu cầu của người dùng dài hạn."
+#~ msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
+#~ msgstr "Nếu một Sàn Giao dịch Tập trung (CEX) muốn giới thiệu các cặp tài sản mới, như hợp đồng tương lai VÀNG, cho giao dịch tương lai, họ thường yêu cầu thợ làm thị trường cung cấp tính thanh khoản; nếu không, có thể xảy ra hiện tượng trượt giá cao trong quá trình giao dịch. Tuy nhiên, nếu chỉ có 10 người dùng quan tâm đến việc giao dịch tài sản mới này, lợi nhuận có thể không đủ để đối phó với chi phí của việc làm thị trường. Trong mô hình giao dịch của ArithFi, chi phí để thêm các cặp tài sản mới, chẳng hạn như hợp đồng tương lai VÀNG, cho giao dịch tương lai, là khoảng $1 mỗi ngày, và nó cung cấp tính thanh khoản không giới hạn với sự trượt giá bằng không. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi vẫn có thể hỗ trợ. ArithFi có thể đáp ứng nhu cầu của người dùng dài hạn."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -675,13 +690,13 @@ msgstr "Nếu bạn đang sử dụng một thiết bị an toàn mà bạn sở
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If you incur losses, your $ATF will be burned to the system."
-msgstr "Nếu bạn gánh chịu lỗ, số lượng $ATF của bạn sẽ bị tiêu hủy trong hệ thống."
+#~ msgid "If you incur losses, your $ATF will be burned to the system."
+#~ msgstr "Nếu bạn gánh chịu lỗ, số lượng $ATF của bạn sẽ bị tiêu hủy trong hệ thống."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If you make a profit, you will earn $ATF."
-msgstr "Nếu bạn gánh chịu lỗ, số lượng $ATF của bạn sẽ được tiêu hủy trong hệ thống."
+#~ msgid "If you make a profit, you will earn $ATF."
+#~ msgstr "Nếu bạn gánh chịu lỗ, số lượng $ATF của bạn sẽ được tiêu hủy trong hệ thống."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -690,8 +705,18 @@ msgid "Image"
 msgstr "Hình ảnh"
 
 #: src/pages/Home/Home.tsx
-msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-msgstr "Trong mô hình giao dịch của ArithFi, chi phí để thêm các cặp tài sản mới, chẳng hạn như hợp đồng tương lai VÀNG, cho giao dịch tương lai, là khoảng $1 mỗi ngày, và nó cung cấp tính thanh khoản không giới hạn với sự trượt giá bằng không. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi vẫn có thể hỗ trợ."
+#: src/pages/Home/Home.tsx
+msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
+#~ msgstr "Trong mô hình giao dịch của ArithFi, chi phí để thêm các cặp tài sản mới, chẳng hạn như hợp đồng tương lai VÀNG, cho giao dịch tương lai, là khoảng $1 mỗi ngày, và nó cung cấp tính thanh khoản không giới hạn với sự trượt giá bằng không. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi vẫn có thể hỗ trợ."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Incur a loss, your $ATF will be burned"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -814,6 +839,11 @@ msgstr "Mua"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Losing Trades"
 msgstr "Các giao dịch thua lỗ"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Make a profit, you will earn $ATF"
+msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
