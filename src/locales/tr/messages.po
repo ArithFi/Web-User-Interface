@@ -625,7 +625,7 @@ msgstr "Gönderen"
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Futures"
-msgstr "Gelecek"
+msgstr "Vadeli işlemler"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"

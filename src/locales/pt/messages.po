@@ -625,7 +625,7 @@ msgstr "From"
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Futures"
-msgstr "Futuro"
+msgstr "Futuros"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"

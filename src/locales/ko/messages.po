@@ -625,7 +625,7 @@ msgstr "교환할 토큰"
 #: src/pages/Share/Head/NESTHead.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Futures"
-msgstr "미래"
+msgstr "선물"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
