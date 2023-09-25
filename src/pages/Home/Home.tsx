@@ -77,7 +77,7 @@ const Home = () => {
               <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
-          <Stack direction={'row'} justifyContent={'space-between'} mt={'40px'} minHeight={'120px'} width={'100%'}
+          <Stack direction={'row'} mt={'40px'} minHeight={'120px'} width={'100%'} position={'relative'}
                  bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'} alignItems={'center'}
                  onClick={() => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
@@ -86,7 +86,7 @@ const Home = () => {
             <Stack pl={'20px'} py={'24px'} color={'rgba(255, 255, 255, 1)'} width={'230px'}>
               <Trans>ArithFi Uses the SCP Trading Model for All Participants.</Trans>
             </Stack>
-            <Stack>
+            <Stack position={'absolute'} right={0}>
               <img src={'/images/home_icon8.svg'} alt={''}/>
             </Stack>
           </Stack>
