@@ -272,7 +272,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
             <Trans>User Guide</Trans>
           </p>
         </Stack>
-        <Stack
+        {/* <Stack
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -295,7 +295,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           <p>
             <Trans>White Paper</Trans>
           </p>
-        </Stack>
+        </Stack> */}
         <Stack
           direction={"row"}
           justifyContent={"space-between"}

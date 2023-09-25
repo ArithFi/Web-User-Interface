@@ -60,7 +60,7 @@ const FuturesMoreInfo: FC = () => {
           width: "100%",
         }}
       >
-        <Stack
+        {/* <Stack
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -82,7 +82,7 @@ const FuturesMoreInfo: FC = () => {
             <NEXT />
           </NextBox>
         </Stack>
-        <NESTLine style={{ padding: "0 20px" }} />
+        <NESTLine style={{ padding: "0 20px" }} /> */}
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
