@@ -28,8 +28,9 @@ const Home = () => {
           >
           </Stack>
           <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'}
-                 color={'rgba(249, 249, 249, 1)'}>ArithFi, A Decentralized
-            Perpetual Exchange Eliminates Market Makers and LPs.</Stack>
+                 color={'rgba(249, 249, 249, 1)'}>
+            <Trans>ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.</Trans>
+          </Stack>
           <Stack zIndex={10} height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
                  justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
                  onClick={() => {
@@ -62,7 +63,7 @@ const Home = () => {
               <Trans>Earn $ATF</Trans>
             </Stack>
             <Stack mt={'16px'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
-              <Trans>If you make a profit, you will earn $ATF.</Trans>
+              <Trans>Make a profit, you will earn $ATF</Trans>
             </Stack>
           </Stack>
           <Stack alignItems={'center'} height={'204px'} mt={'24px'}>
@@ -73,14 +74,17 @@ const Home = () => {
               <Trans>Burn $ATF</Trans>
             </Stack>
             <Stack mt={'16px'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
-              <Trans>If you incur losses, your $ATF will be burned to the system.</Trans>
+              <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
           <Stack direction={'row'} justifyContent={'space-between'} mt={'40px'} height={'120px'} width={'100%'}
                  bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
+                 onClick={() => {
+                   window.open('https://docs.arithfi.com/docs/overview/arithfi', '_blank')
+                 }}
                  lineHeight={'24px'}>
             <Stack pl={'20px'} py={'24px'} color={'rgba(255, 255, 255, 1)'} width={'230px'}>
-              <Trans>A Trading Model CAN Eliminate Market Maker and LP Costs</Trans>
+              <Trans>ArithFi Uses the SCP Trading Model for All Participants.</Trans>
             </Stack>
             <Stack>
               <img src={'/images/home_icon8.svg'} alt={''}/>
@@ -96,7 +100,7 @@ const Home = () => {
             <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
                    boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
-              <img src={'/images/home_icon6.svg'} alt={''} />
+              <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 No LPs
               </Trans>
@@ -104,7 +108,7 @@ const Home = () => {
             <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
                    boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
-              <img src={'/images/home_icon6.svg'} alt={''} />
+              <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 No Market Makers
               </Trans>
@@ -115,14 +119,14 @@ const Home = () => {
             <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
                    boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
-              <img src={'/images/home_icon6.svg'} alt={''} />
+              <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 0 Slippage
               </Trans>
             </Stack>
             <Stack px={'20px'} py={'12px'} bgcolor={'white'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}
                    borderRadius={'8px'} direction={'row'} gap={'8px'} alignItems={'center'}>
-              <img src={'/images/home_icon6.svg'} alt={''} />
+              <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 Infinite Liquidity
               </Trans>
@@ -142,22 +146,33 @@ const Home = () => {
             </Trans>
           </Stack>
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} mt={'24px'} color={'rgba(3, 3, 8, 0.8)'}>
-            <Trans>
-              If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
-              trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
-              during trading. However, if only 10 users are interested in trading this new asset, the profits may not
-              cover the costs of market making.
-
-              In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is
-              approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user
-              wishes
-              to trade, we can provide support.
-
-              ArithFi can meet the needs of long-tail users.
-            </Trans>
+            <div>
+              <Trans>
+                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
+                during trading. However, if only 10 users are interested in trading this new asset, the profits may not
+                cover the costs of market making.
+              </Trans>
+            </div>
+            <br/>
+            <div>
+              <Trans>
+                In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading,
+                is
+                approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user
+                wishes
+                to trade, we can provide support.
+              </Trans>
+            </div>
+            <br/>
+            <div>
+              <Trans>
+                ArithFi can meet the needs of long-tail users.
+              </Trans>
+            </div>
           </Stack>
           <Stack mt={'80px'} alignItems={'center'}>
-            <img src={`/images/home_icon1_${lang}.svg`} alt={''} width={'100%'} />
+            <img src={`/images/home_icon1_${lang}.svg`} alt={''} width={'100%'}/>
           </Stack>
         </Stack>
         <Stack px={'20px'} py={'20px'} sx={{
@@ -254,7 +269,7 @@ const Home = () => {
           padding: '0 20px',
         }}>
           <Trans>
-            ArithFi, A Decentralized Perpetual Exchange<br/> Eliminates Market Makers and LPs.
+            ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
         <Stack sx={{
@@ -310,14 +325,14 @@ const Home = () => {
               How to Trade on ArithFi?
             </Trans>
           </Stack>
-          <Stack direction={'row'}>
+          <Stack direction={'row'} width={'100%'}>
             <Stack sx={{
               alignItems: 'center',
               maxWidth: '368px',
               width: '100%',
             }}>
               <Stack>
-              <img src={'/images/home_icon3.svg'} alt={''} />
+                <img src={'/images/home_icon3.svg'} alt={''}/>
               </Stack>
               <Stack sx={{
                 fontSize: '24px',
@@ -341,14 +356,13 @@ const Home = () => {
                 </Trans>
               </Stack>
             </Stack>
-
             <Stack sx={{
               alignItems: 'center',
               maxWidth: '368px',
               width: '100%',
             }}>
               <Stack>
-                <img src={'/images/home_icon4.svg'} alt={''} />
+                <img src={'/images/home_icon4.svg'} alt={''}/>
               </Stack>
               <Stack color={'#030308'} sx={{
                 fontSize: '24px',
@@ -368,7 +382,7 @@ const Home = () => {
                 textAlign: 'center',
               }}>
                 <Trans>
-                  If you make a profit, you will earn $ATF.
+                  Make a profit, you will earn $ATF
                 </Trans>
               </Stack>
             </Stack>
@@ -378,7 +392,7 @@ const Home = () => {
               width: '100%',
             }}>
               <Stack>
-                <img src={'/images/home_icon5.svg'} alt={''} />
+                <img src={'/images/home_icon5.svg'} alt={''}/>
               </Stack>
               <Stack color={'#030308'} sx={{
                 fontSize: '24px',
@@ -398,55 +412,31 @@ const Home = () => {
                 textAlign: 'center',
               }}>
                 <Trans>
-                  If you incur losses, your $ATF will be burned to the system.
+                  Incur a loss, your $ATF will be burned
                 </Trans>
               </Stack>
             </Stack>
           </Stack>
-          <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{
-            marginTop: '62px',
-            backgroundColor: '#35373D',
-            width: '100%',
-            color: 'white',
-            fontSize: '24px',
-            fontWeight: '700',
-            lineHeight: '32px',
-            padding: '0 48px 0 40px',
-            borderRadius: '12px',
-          }}>
+          <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}
+                 onClick={() => {
+                   window.open('https://docs.arithfi.com/docs/overview/arithfi', '_blank')
+                 }}
+                 sx={{
+                   marginTop: '62px',
+                   backgroundColor: '#35373D',
+                   width: '100%',
+                   color: 'white',
+                   fontSize: '24px',
+                   fontWeight: '700',
+                   lineHeight: '32px',
+                   padding: '0 48px 0 40px',
+                   borderRadius: '12px',
+                   cursor: "pointer",
+                 }}>
             <Trans>
-              A Trading Model CAN Eliminate Market Maker and LP Costs
+              ArithFi Uses the SCP Trading Model for All Participants.
             </Trans>
-            <svg width="192" height="80" viewBox="0 0 192 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.4">
-                <path
-                  d="M189.853 34.7036C192.716 37.6846 192.716 42.3154 189.853 45.2965L137.783 99.5254C132.848 104.665 124 101.265 124 94.229L124 -14.229C124 -21.2647 132.849 -24.6649 137.783 -19.5254L189.853 34.7036Z"
-                  fill="url(#paint0_linear_16570_56119)"/>
-                <path opacity="0.56"
-                      d="M127.853 34.7036C130.716 37.6846 130.716 42.3154 127.853 45.2965L75.7834 99.5254C70.8485 104.665 62 101.265 62 94.229L62 -14.229C62 -21.2647 70.8485 -24.6649 75.7834 -19.5254L127.853 34.7036Z"
-                      fill="url(#paint1_linear_16570_56119)"/>
-                <path opacity="0.3"
-                      d="M65.8532 34.7036C68.7156 37.6846 68.7156 42.3154 65.8532 45.2965L13.7834 99.5254C8.8485 104.665 -3.15858e-07 101.265 0 94.229L4.869e-06 -14.229C5.18485e-06 -21.2647 8.8485 -24.6649 13.7834 -19.5254L65.8532 34.7036Z"
-                      fill="url(#paint2_linear_16570_56119)"/>
-              </g>
-              <defs>
-                <linearGradient id="paint0_linear_16570_56119" x1="192" y1="40" x2="124" y2="40"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="white" stopOpacity="0.6"/>
-                  <stop offset="1" stopColor="white" stopOpacity="0"/>
-                </linearGradient>
-                <linearGradient id="paint1_linear_16570_56119" x1="130" y1="40" x2="62" y2="40"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="white" stopOpacity="0.6"/>
-                  <stop offset="1" stopColor="white" stopOpacity="0"/>
-                </linearGradient>
-                <linearGradient id="paint2_linear_16570_56119" x1="68" y1="40" x2="-5.92169e-07" y2="40"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stopColor="white" stopOpacity="0.6"/>
-                  <stop offset="1" stopColor="white" stopOpacity="0"/>
-                </linearGradient>
-              </defs>
-            </svg>
+            <img src={'/images/home_icon12.svg'} alt={''}/>
           </Stack>
         </Stack>
         <Stack color={'#030308'} zIndex={10} sx={{
@@ -468,7 +458,7 @@ const Home = () => {
             boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
           }}>
-            <img src={'/images/home_icon6.svg'} alt={''} />
+            <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
               <Trans>No LPs</Trans>
             </div>
@@ -481,7 +471,7 @@ const Home = () => {
             boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
           }}>
-            <img src={'/images/home_icon6.svg'} alt={''} />
+            <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
               <Trans>
                 No Market Makers
@@ -496,7 +486,7 @@ const Home = () => {
             boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
           }}>
-            <img src={'/images/home_icon6.svg'} alt={''} />
+            <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
               <Trans>
                 0 Slippage
@@ -511,7 +501,7 @@ const Home = () => {
             boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
           }}>
-            <img src={'/images/home_icon6.svg'} alt={''} />
+            <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
               <Trans>
                 Infinite Liquidity
@@ -525,7 +515,7 @@ const Home = () => {
           background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
         }}>
           <Stack position={'absolute'} right={0} zIndex={5} top={-200}>
-            <img src={'/images/home_icon11.svg'} alt={''} />
+            <img src={'/images/home_icon11.svg'} alt={''}/>
           </Stack>
           <Stack direction={'row'} maxWidth={'1200px'} width={'100%'} position={'relative'}>
             <Stack gap={'40px'} maxWidth={'600px'} width={'100%'} px={'20px'}>
@@ -536,19 +526,17 @@ const Home = () => {
               </Stack>
               <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.80)'}>
                 <Trans>
-                  If a Centralized Exchange (CEX) wants to
-                  introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market
-                  makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10
-                  users are interested in trading this new asset, the profits may not cover the costs of market making.
+                  If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                  trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
+                  during trading. However, if only 10 users are interested in trading this new asset, the profits may
+                  not cover the costs of market making.
                 </Trans>
                 <br/>
                 <br/>
                 <Trans>
                   In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures
-                  trading,
-                  is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one
-                  user
-                  wishes to trade, we can provide support.
+                  trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only
+                  one user wishes to trade, we can provide support.
                 </Trans>
                 <br/>
                 <br/>
@@ -589,7 +577,7 @@ const Home = () => {
             <Stack gap={'25px'} direction={'row'} alignItems={"center"}>
               <Stack>
                 <Trans>
-                  Eliminate market makers and LPs in trading
+                  Enjoy 0 slippage trading on ArithFi
                 </Trans>
               </Stack>
               <Stack>
