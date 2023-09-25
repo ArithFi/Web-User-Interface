@@ -1482,7 +1482,7 @@ msgstr "미정산 수수료"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Use $ATF as margin to open positions."
-msgstr "Use $ATF as margin to open positions."
+msgstr "$ATF를 마진으로 사용하여 포지션을 개설하세요."
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
