@@ -140,11 +140,6 @@ msgstr "7일 수익"
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩니다."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-#~ msgstr "거래 모델은 시장 메이커와 LP 비용을 제거할 수 있습니다."
-
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "지갑 연결 정보"
@@ -248,16 +243,12 @@ msgstr "ArithFi는 장기 사용자의 요구를 충족시킬 수 있습니다."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi Uses the SCP Trading Model for All Participants."
-msgstr ""
+msgstr "ArithFi는 모든 참가자를 위해 SCP 거래 모델을 사용합니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-#~ msgstr "ArithFi, 분산형 영구 계속 거래소<0/> 시장 메이커와 LP를 제거합니다."
+msgstr "ArithFi는 시장 메이커와 LP를 제거하는 분산형 파생상품 거래소입니다."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
@@ -558,7 +549,7 @@ msgstr "마지막 복사는 시장 주문으로 포지션을 정리하고 수익
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "ArithFi에서 0 슬리피지 거래를 즐기세요."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -681,23 +672,9 @@ msgstr "이해했습니다"
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr "중앙 집중식 거래소 (CEX)가 금 선물과 같은 새로운 자산 페어를 선물 거래에 도입하려면 일반적으로 시장 메이커가 유동성을 제공하도록 요구합니다. 그렇지 않으면 거래 중에 높은 슬리피지가 발생할 수 있습니다. 그러나 이 새로운 자산을 거래하려는 사용자가 10명뿐이라면, 수익은 시장 메이킹 비용을 커버하지 못할 수 있습니다."
 
-#: src/pages/Home/Home.tsx
-#~ msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-#~ msgstr "중앙 집중식 거래소 (CEX)가 금 선물과 같은 새로운 자산 페어를 선물 거래에 도입하려면 일반적으로 시장 메이커가 유동성을 제공하도록 요구합니다. 그렇지 않으면 거래 중에 높은 슬리피지가 발생할 수 있습니다. 그러나 이 새로운 자산을 거래하려는 사용자가 10명뿐이라면, 수익은 시장 메이킹 비용을 커버하지 못할 수 있습니다. ArithFi의 거래 모델에서는 금 선물과 같은 새로운 자산 페어를 선물 거래에 추가하는 비용은 대략 하루 당 1달러이며, 슬리피지가 없는 무제한 유동성을 제공합니다. 심지어 하나의 사용자만 거래하고 싶어도 우리는 지원할 수 있습니다. ArithFi는 장기 사용자의 요구를 충족시킬 수 있습니다."
-
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "당신이 소유한 안전한 장치를 사용하고 있다면, 이 옵션을 선택하는 것은 공공장치나 보안이 되지 않은 장치에서 키와 정보가 다른 사람들에게 노출될 수 있습니다."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you incur losses, your $ATF will be burned to the system."
-#~ msgstr "손실이 발생하면 $ATF가 시스템에 태워집니다."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you make a profit, you will earn $ATF."
-#~ msgstr "이익을 창출하면 $ATF를 벌게 됩니다."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -708,16 +685,12 @@ msgstr "이미지"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-#~ msgstr "ArithFi의 거래 모델에서 금 선물과 같은 새로운 자산 페어를 선물 거래에 추가하는 비용은 대략 하루 당 1달러이며, 슬리피지가 없는 무제한 유동성을 제공합니다. 심지어 하나의 사용자만 거래하고 싶어도 우리는 지원할 수 있습니다."
+msgstr "ArithFi의 거래 모델에서는 GOLD 선물과 같은 새로운 자산 쌍을 추가하는 비용은 하루에 약 0.1 달러이며, 슬리피지 없는 무한한 유동성을 제공합니다. 하나의 사용자만 거래하려는 경우에도 지원할 수 있습니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
-msgstr ""
+msgstr "손실을 입으면 $ATF가 태워집니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -844,7 +817,7 @@ msgstr "손실 거래"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
-msgstr ""
+msgstr "이익을 내면 $ATF를 얻게 됩니다."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"

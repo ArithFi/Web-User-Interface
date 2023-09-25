@@ -138,11 +138,6 @@ msgstr ""
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-#~ msgstr ""
-
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "コネクティングウォレットについて"
@@ -252,10 +247,6 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-#~ msgstr ""
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
@@ -677,23 +668,9 @@ msgstr "理解しました"
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-#~ msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-#~ msgstr ""
-
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you incur losses, your $ATF will be burned to the system."
-#~ msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you make a profit, you will earn $ATF."
-#~ msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -705,10 +682,6 @@ msgstr "画像"
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-#~ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

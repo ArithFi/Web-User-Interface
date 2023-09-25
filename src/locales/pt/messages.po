@@ -140,11 +140,6 @@ msgstr "7D PnL"
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "A posição de um trader profissional será automaticamente copiada e executada para você."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "A Trading Model CAN Eliminate Market Maker and LP Costs"
-#~ msgstr "Um modelo de negociação PODE eliminar os custos de market maker e LP"
-
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "sobre as carteiras digitais"
@@ -248,16 +243,12 @@ msgstr "O ArithFi pode atender às necessidades de usuários de longo prazo."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi Uses the SCP Trading Model for All Participants."
-msgstr ""
+msgstr "O ArithFi usa o Modelo de Negociação SCP para Todos os Participantes."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, A Decentralized Perpetual Exchange<0/> Eliminates Market Makers and LPs."
-#~ msgstr "ArithFi, uma Exchange Perpétua Descentralizada<0/> Elimina Market Makers e LPs."
+msgstr "ArithFi, uma Bolsa Descentralizada de Derivativos, Elimina Fabricantes de Mercado e LPs."
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "ATF White Paper"
@@ -558,7 +549,7 @@ msgstr "O fim da cópia liquidará sua posição com ordens de mercado e retorna
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "Aproveite a negociação sem deslize no ArithFi."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -681,23 +672,9 @@ msgstr "Entendi"
 msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr "Se uma Bolsa Centralizada (CEX) deseja introduzir novos pares de ativos, como futuros de OURO, para negociação de futuros, geralmente eles exigem que os market makers forneçam liquidez; caso contrário, pode ocorrer alta variação durante a negociação. No entanto, se apenas 10 usuários estiverem interessados em negociar esse novo ativo, os lucros podem não cobrir os custos de criação de mercado."
 
-#: src/pages/Home/Home.tsx
-#~ msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making. In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support. ArithFi can meet the needs of long-tail users."
-#~ msgstr "Se uma Bolsa Centralizada (CEX) deseja introduzir novos pares de ativos, como futuros de OURO, para negociação de futuros, geralmente eles exigem que os market makers forneçam liquidez; caso contrário, pode ocorrer alta variação durante a negociação. No entanto, se apenas 10 usuários estiverem interessados em negociar esse novo ativo, os lucros podem não cobrir os custos de criação de mercado. No modelo de negociação da ArithFi, o custo de adicionar novos pares de ativos, como futuros de OURO, para negociação de futuros, é de aproximadamente $1 por dia, e oferece liquidez ilimitada sem variação. Mesmo que apenas um usuário queira negociar, podemos oferecer suporte. A ArithFi pode atender às necessidades de usuários com demandas menores."
-
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Se você estiver usando um dispositivo seguro de sua propriedade. Selecionar essa opção pode expor suas chaves e informações a terceiros se você estiver em um dispositivo público ou não seguro."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you incur losses, your $ATF will be burned to the system."
-#~ msgstr "Se você incorrer em perdas, seus $ATF serão queimados pelo sistema."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "If you make a profit, you will earn $ATF."
-#~ msgstr "Se você obtiver lucro, você ganhará $ATF."
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -708,16 +685,12 @@ msgstr "Imagem"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $1 per day, and it offers unlimited liquidity with zero slippage. Even if only one user wishes to trade, we can provide support."
-#~ msgstr "No modelo de negociação da ArithFi, o custo de adicionar novos pares de ativos, como futuros de OURO, para negociação de futuros, é de aproximadamente $1 por dia, e oferece liquidez ilimitada sem derrapagem. Mesmo se apenas um usuário desejar negociar, podemos oferecer suporte."
+msgstr "No modelo de negociação do ArithFi, o custo de adicionar novos pares de ativos, como futuros de OURO, para negociação de futuros, é de aproximadamente $0,1 por dia, e oferece liquidez infinita sem deslize. Mesmo que apenas um usuário queira negociar, podemos oferecer suporte."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
-msgstr ""
+msgstr "Incorra em uma perda e seus $ATF serão queimados."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -844,7 +817,7 @@ msgstr "Negociações Perdedoras"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
-msgstr ""
+msgstr "Faça um lucro e você ganhará $ATF."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
