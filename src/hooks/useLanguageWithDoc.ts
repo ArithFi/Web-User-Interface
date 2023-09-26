@@ -5,7 +5,7 @@ function useLanguageWithDoc() {
   const docLink = useMemo(() => {
     const locale = i18n.locale;
     if (locale === "en") {
-      return "https://www.nestprotocol.org/blogs/How-to-make-your-first-trade-on-NESTFi-with-Lightning-Trade-feature";
+      return "https://docs.arithfi.com/blog/how-to-trade";
     } else if (locale === "ko") {
       return "https://www.nestprotocol.org/blogs/Korean-How-to-make-your-first-trade-on-NESTFi-with-Lightning-Trade-feature";
     } else if (locale === "pt") {
@@ -17,7 +17,7 @@ function useLanguageWithDoc() {
     } else if (locale === "ru") {
       return "https://www.nestprotocol.org/blogs/Russian-How-to-make-your-first-trade-on-NESTFi-with-Lightning-Trade-feature";
     } else {
-      return "https://www.nestprotocol.org/blogs/How-to-make-your-first-trade-on-NESTFi-with-Lightning-Trade-feature";
+      return "https://docs.arithfi.com/blog/how-to-trade";
     }
   }, []);
 

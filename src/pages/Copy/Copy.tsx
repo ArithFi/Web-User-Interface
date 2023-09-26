@@ -654,7 +654,7 @@ const Copy: FC = () => {
                 spacing={"4px"}
                 onClick={() => {
                   window.open(
-                    "https://www.nestprotocol.org/blogs/guide-on-copy-trading-service"
+                    "https://docs.arithfi.com/blog/guildline"
                   );
                 }}
                 sx={{
