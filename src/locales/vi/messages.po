@@ -67,7 +67,7 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "0 Slippage"
-msgstr "Slippage 0"
+msgstr "0 Trượt giá"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
