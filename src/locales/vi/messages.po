@@ -242,17 +242,13 @@ msgstr "ArithFi có thể đáp ứng nhu cầu của người dùng dài hạn.
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi Uses the SCP Trading Model for All Participants."
-msgstr "ArithFi Sử Dụng Mô Hình Giao Dịch SCP Cho Tất Cả Người Tham Gia."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgstr "ArithFi dựa trên mô hình SCP (Smart contract Counterparty)"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, Một Sàn Giao Dịch Tài Chính Phi Tập Trung Loại Bỏ Các Nhà Tạo Lập Thị Trường và LPs."
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "ATF White Paper"
-msgstr "Bản giấy trắng ATF"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -1529,10 +1525,6 @@ msgstr "Nạp tiền vào ví"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Rút tiền từ ví"
-
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "White Paper"
-msgstr "White Paper"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

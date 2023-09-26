@@ -242,17 +242,13 @@ msgstr "ArithFi can meet the needs of long-tail users."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi Uses the SCP Trading Model for All Participants."
-msgstr "ArithFi Uses the SCP Trading Model for All Participants."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgstr "ArithFi is based on the SCP (Smart contract Counterparty) model."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "ATF White Paper"
-msgstr "ATF White Paper"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -1529,10 +1525,6 @@ msgstr "Wallet Deposit"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Wallet Withdraw"
-
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "White Paper"
-msgstr "White Paper"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

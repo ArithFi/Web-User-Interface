@@ -84,7 +84,7 @@ const Home = () => {
                  }}
                  lineHeight={'24px'}>
             <Stack pl={'20px'} py={'24px'} color={'rgba(255, 255, 255, 1)'} width={'230px'}>
-              <Trans>ArithFi Uses the SCP Trading Model for All Participants.</Trans>
+              <Trans>ArithFi is based on the SCP (Smart contract Counterparty) model.</Trans>
             </Stack>
             <Stack position={'absolute'} right={0}>
               <img src={'/images/home_icon8.svg'} alt={''}/>
@@ -437,7 +437,7 @@ const Home = () => {
                    cursor: "pointer",
                  }}>
             <Trans>
-              ArithFi Uses the SCP Trading Model for All Participants.
+              ArithFi is based on the SCP (Smart contract Counterparty) model.
             </Trans>
             <img src={'/images/home_icon12.svg'} alt={''}/>
           </Stack>
