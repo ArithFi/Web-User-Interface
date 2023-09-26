@@ -313,7 +313,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://github.com/NEST-Protocol");
+            window.open("https://github.com/ArithFi");
           }}
         >
           <p>
@@ -337,7 +337,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://nest-protocol.medium.com");
+            window.open("https://medium.com/@ArithFi");
           }}
         >
           <p>

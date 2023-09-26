@@ -151,7 +151,7 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
   }, [width]);
 
   const chartData = useMemo(() => {
-    return props.data.roiList.map((item, index) => {
+    return props.data.roiList?.map((item, index) => {
       return { name: `${index}`, value: parseFloat(item.floor(2)) };
     });
   }, [props.data.roiList]);

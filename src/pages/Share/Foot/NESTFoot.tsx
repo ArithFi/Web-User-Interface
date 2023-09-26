@@ -12,10 +12,10 @@ import useNEST from "../../../hooks/useNEST";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 
 export const FootArray = [
-  { icon: TelegramIcon, link: "https://t.me/nest_chat" },
-  { icon: TwitterIcon, link: "https://twitter.com/NEST_protocol" },
-  { icon: GithubIcon, link: "https://github.com/NEST-Protocol" },
-  { icon: MediumIcon, link: "https://nest-protocol.medium.com/" },
+  { icon: TelegramIcon, link: "https://t.me/ArithFi_Dao" },
+  { icon: TwitterIcon, link: "https://twitter.com/ArithFi" },
+  { icon: GithubIcon, link: "https://github.com/ArithFi" },
+  { icon: MediumIcon, link: "https://medium.com/@ArithFi" },
   { icon: BNBTokenLogo, link: "https://testnet.bnbchain.org/faucet-smart" },
 ];
 
