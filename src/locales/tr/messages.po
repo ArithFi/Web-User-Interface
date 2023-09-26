@@ -242,17 +242,13 @@ msgstr "ArithFi, uzun kuyruk kullanıcılarının ihtiyaçlarını karşılayabi
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi Uses the SCP Trading Model for All Participants."
-msgstr "ArithFi, Tüm Katılımcılar İçin SCP Ticaret Modelini Kullanır."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgstr "ArithFi, SCP (Akıllı sözleşme karşı taraf) modeline dayanmaktadır"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, Piyasa Yapıcılarını ve LP'leri Ortadan Kaldıran Merkezi Olmayan Bir Türev Borsasıdır."
-
-#: src/pages/Futures/MoreInfo.tsx
-msgid "ATF White Paper"
-msgstr "ATF Beyaz Kağıdı"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -1531,10 +1527,6 @@ msgstr "Cüzdan Yatırımı"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Cüzdan Çekme"
-
-#: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "White Paper"
-msgstr "Beyaz Kağıt"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
