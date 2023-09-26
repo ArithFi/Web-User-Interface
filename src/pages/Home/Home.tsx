@@ -83,7 +83,7 @@ const Home = () => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
                  lineHeight={'24px'}>
-            <Stack pl={'20px'} py={'24px'} color={'rgba(255, 255, 255, 1)'} width={'230px'}>
+            <Stack pl={'20px'} pr={'50px'} py={'24px'} color={'rgba(255, 255, 255, 1)'}>
               <Trans>ArithFi is based on the SCP (Smart contract Counterparty) model.</Trans>
             </Stack>
             <Stack position={'absolute'} right={0}>
@@ -424,6 +424,7 @@ const Home = () => {
                  onClick={() => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
+                 position={'relative'}
                  sx={{
                    marginTop: '62px',
                    backgroundColor: '#35373D',
@@ -432,14 +433,18 @@ const Home = () => {
                    fontSize: '24px',
                    fontWeight: '700',
                    lineHeight: '32px',
-                   padding: '0 48px 0 40px',
+                   padding: '24px 40px 24px 40px',
                    borderRadius: '12px',
                    cursor: "pointer",
                  }}>
-            <Trans>
-              ArithFi is based on the SCP (Smart contract Counterparty) model.
-            </Trans>
-            <img src={'/images/home_icon12.svg'} alt={''}/>
+            <Stack pr={'20px'}>
+              <Trans>
+                ArithFi is based on the SCP (Smart contract Counterparty) model.
+              </Trans>
+            </Stack>
+            <Stack position={'absolute'} right={'40px'}>
+              <img src={'/images/home_icon12.svg'} alt={''}/>
+            </Stack>
           </Stack>
         </Stack>
         <Stack color={'#030308'} zIndex={10} sx={{
