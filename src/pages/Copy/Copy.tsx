@@ -10,6 +10,7 @@ import useCopy from "./Hooks/useCopy";
 import Pagination from "@mui/material/Pagination";
 import useTheme from "../../hooks/useTheme";
 import { LJ1, LJ2 } from "../../components/icons";
+import { useLanguageWithCopyDoc } from "../../hooks/useLanguageWithDoc";
 
 const MY_COPY_ICON = (
   <svg
@@ -184,6 +185,7 @@ const HOW_TO_USE_3 = (
 
 const Copy: FC = () => {
   const { isBigMobile } = useWindowWidth();
+  const { docLink } = useLanguageWithCopyDoc();
   const { nowTheme } = useTheme();
   const {
     kolList,
@@ -653,9 +655,7 @@ const Copy: FC = () => {
                 alignItems={"center"}
                 spacing={"4px"}
                 onClick={() => {
-                  window.open(
-                    "https://docs.arithfi.com/blog/guildline"
-                  );
+                  window.open(docLink);
                 }}
                 sx={{
                   "&:hover": {
