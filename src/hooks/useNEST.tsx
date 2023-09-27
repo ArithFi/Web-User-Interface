@@ -66,7 +66,7 @@ function useMainReact() {
       (async () => {
         try {
           await fetch(
-            `https://me.nestfi.net/dashboardapi/users/users/setwallet?address=${account.address}&chainId=${chainId}`,
+            `https://db.arithfi.com/dashboardapi/users/users/setwallet?address=${account.address}&chainId=${chainId}`,
             {
               method: "POST",
             }

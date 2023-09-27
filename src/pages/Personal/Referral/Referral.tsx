@@ -265,7 +265,7 @@ const Referral = () => {
 
   const { data: overview } = useSWR(
     address || user
-      ? `https://me.nestfi.net/dashboardapi/invite/overview/${
+      ? `https://db.arithfi.com/dashboardapi/invite/overview/${
           address || user
         }?chainId=${chainsData.chainId ?? 56}`
       : undefined,
@@ -273,7 +273,7 @@ const Referral = () => {
   );
   const { data: listData } = useSWR(
     address || user
-      ? `https://me.nestfi.net/dashboardapi/invite/list-invitee/${
+      ? `https://db.arithfi.com/dashboardapi/invite/list-invitee/${
           address || user
         }?chainId=${chainsData.chainId ?? 56}`
       : undefined,

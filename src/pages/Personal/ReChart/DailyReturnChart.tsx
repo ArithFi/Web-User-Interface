@@ -33,7 +33,7 @@ const ReCharts: FC<ChartsProps> = ({ ...props }) => {
       .replaceAll("/", "-");
 
   const { data } = useSWR(
-    `https://me.nestfi.net/dashboardapi/dashboard/v2/personal/return?address=${
+    `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/return?address=${
       props.address
     }&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}`,
     (url: string) =>

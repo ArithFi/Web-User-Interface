@@ -59,7 +59,7 @@ const Personal = () => {
   const [messagesStr] = useLocalStorage(`nest.messages`, "{}");
 
   const { data: positions } = useSWR(
-    `https://me.nestfi.net/dashboardapi/dashboard/v2/personal/positons?address=${
+    `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/positons?address=${
       address ?? account.address
     }&chainId=${chainsData.chainId ?? 56}`,
     (url: any) =>
@@ -73,7 +73,7 @@ const Personal = () => {
 
   const { data: isKol } = useSWR(
     address || account.address
-      ? `https://me.nestfi.net/dashboardapi/invite/is-kol-whitelist/${
+      ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
           address ?? account.address
         }`
       : undefined,

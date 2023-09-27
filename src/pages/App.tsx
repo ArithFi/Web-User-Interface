@@ -54,7 +54,7 @@ const App: FC = () => {
       ) {
         return;
       }
-      fetch("https://me.nestfi.net/dashboardapi/users/users/saveInviteUser", {
+      fetch("https://db.arithfi.com/dashboardapi/users/users/saveInviteUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

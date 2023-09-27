@@ -28,7 +28,7 @@ export type Order = {
 };
 const Dashboard: FC = () => {
   const {chainsData} = useNEST()
-  const {data: infoData} = useSWR(`https://me.nestfi.net/dashboardapi/dashboard/v2/entirety/info?chainId=${chainsData.chainId ?? 56}`, (url: any) => fetch(url)
+  const {data: infoData} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/entirety/info?chainId=${chainsData.chainId ?? 56}`, (url: any) => fetch(url)
     .then((res) => res.json())
     .then((res: any) => res.value), {
     refreshInterval: 10_000,

@@ -88,15 +88,15 @@ async function baseRequestGetWithHeader(
 }
 
 export function KOLClick(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/click", info);
+  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/click", info);
 }
 
 export function KOLWallet(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/wallet", info);
+  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/wallet", info);
 }
 
 export function KOLTx(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://me.nestfi.net/dashboardapi/kol/tx", info);
+  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
 export function getPriceFromNESTLocal(token: string): Promise<any> {
@@ -114,9 +114,9 @@ export function getPriceList(): Promise<any> {
 
 export function serviceBaseURL(chainId: number) {
   if (chainId === 56) {
-    return "https://me.nestfi.net/arithfi";
+    return "https://db.arithfi.com/arithfi";
   } else {
-    return "https://me.nestfi.net/arithfi";
+    return "https://db.arithfi.com/arithfi";
   }
 }
 export function serviceLogin(
