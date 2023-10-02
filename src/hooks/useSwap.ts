@@ -157,13 +157,7 @@ function useSwap() {
   const showPrice = useMemo(() => {
     if (inputAmount === "") {
       const destToken = swapToken.src.getToken();
-      if (swapToken.src === "NHBTC") {
-        if (samePrice) {
-          return `1 ${swapToken.src} = 0.5 ${swapToken.dest}`;
-        } else {
-          return `1 ${swapToken.dest} = 2 ${swapToken.src}`;
-        }
-      } else if (uniSwapAmountOut && destToken && destDecimals) {
+      if (uniSwapAmountOut && destToken && destDecimals) {
         if (samePrice) {
           return `1 ${
             swapToken.src
@@ -413,11 +407,9 @@ function useSwap() {
       //  use swap amount
       if (uniSwapAmountOut && destDecimals) {
         setOutAmount(
-          uniSwapAmountOut[1].bigNumberToShowString(destDecimals, 2)
+          uniSwapAmountOut[1].bigNumberToShowString(destDecimals, 6)
         );
       }
-    } else if (swapToken.src === "NHBTC" && destDecimals) {
-      setOutAmount(`${parseFloat((parseFloat(inputAmount) / 2).toFixed(2))}`);
     }
   }, [destDecimals, inputAmount, swapToken.src, uniSwapAmountOut]);
   /**
