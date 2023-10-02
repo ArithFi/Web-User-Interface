@@ -367,7 +367,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
               },
             }}
           >
-            {kolBaseInfo(t`ROI`, kolProfitLossRate)}
+            {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
             {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
             {kolBaseInfo(t`Followers`, currentFollowers)}
           </Stack>
@@ -519,7 +519,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
                 </Stack>
               </Stack>
               <Stack spacing={"64px"} direction={"row"} alignItems={"center"}>
-                {kolBaseInfo(t`ROI`, kolProfitLossRate)}
+                {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
                 {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
                 {kolBaseInfo(t`Followers`, currentFollowers)}
               </Stack>
