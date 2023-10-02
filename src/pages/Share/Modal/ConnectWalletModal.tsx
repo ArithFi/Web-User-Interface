@@ -165,14 +165,19 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
       alignItems={"center"}
       marginTop={"16px"}
     >
-      {wallets.slice(0, 3).map((item, index) => {
-        const Icon = Wallets.filter((item2) => item2.wallet.id === item.id)[0]
-          .icon;
+      {Wallets.slice(0, 3).map((item, index) => {
+        const Icon = item.icon
+        // const Icon = Wallets.filter((item2) => item2.wallet.id === item.id)[0]
+        //   .icon;
         return (
           <ItemBox
             key={`WalletModalRow1 + ${index}`}
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            onClick={() => selectWallet(item)}
+            // onClick={() => selectWallet(item)}
+            onClick={() => {
+              const con = connectData.connectors.filter((item2) => item2.name === item.name)[0]
+              connectData.connect({connector: con})
+            }}
           >
             <div className="WalletIcon">
               <Icon />
@@ -191,14 +196,19 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
       alignItems={"center"}
       marginTop={"16px"}
     >
-      {wallets.slice(3, 5).map((item, index) => {
-        const Icon = Wallets.filter((item2) => item2.wallet.id === item.id)[0]
-          .icon;
+      {Wallets.slice(3, 5).map((item, index) => {
+        const Icon = item.icon
+        // const Icon = Wallets.filter((item2) => item2.wallet.id === item.id)[0]
+        //   .icon;
         return (
           <ItemBox
             key={`WalletModalRow2 + ${index}`}
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            onClick={() => selectWallet(item)}
+            // onClick={() => selectWallet(item)}
+            onClick={() => {
+              const con = connectData.connectors.filter((item2) => item2.name === item.name)[0]
+              connectData.connect({connector: con})
+            }}
           >
             <div className="WalletIcon">
               <Icon />
@@ -217,7 +227,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
     <BaseStack spacing={0}>
       <p className="WalletLearnMore">
         <NESTa
-          href="https://docs.arithfi.com/ko/blog/How-to-Swap-On-ArithFi"
+          href="https://docs.arithfi.com/blog/How-to-Swap-On-ArithFi"
           target={"_blank"}
         >
           <Trans>Learn more</Trans>{" "}

@@ -681,7 +681,7 @@ msgstr "Hình ảnh"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr "Trong mô hình giao dịch của ArithFi, chi phí thêm các cặp tài sản mới, như hợp đồng tương lai VÀNG, để giao dịch tương lai, là khoảng $0,1 mỗi ngày và cung cấp thanh khoản vô hạn với 0 trượt giá. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi cũng có thể hỗ trợ."
+msgstr "Trong mô hình giao dịch của ArithFi, chi phí thêm các cặp tài sản mới, như hợp đồng tương lai VÀNG, để giao dịch tương lai, là khoảng $0.1 mỗi ngày và cung cấp thanh khoản vô hạn với 0 trượt giá. Ngay cả khi chỉ có một người dùng muốn giao dịch, chúng tôi cũng có thể hỗ trợ."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

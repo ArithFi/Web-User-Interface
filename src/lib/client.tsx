@@ -90,7 +90,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   ],
   { retryCount: 5 }
 );
-const PROJECT_ID = "4ea5acecf1faa0887415ff933691f96f";
+const PROJECT_ID = "91c4a65d26960c2d42b245b5bf92b17c";
 
 export const Wallets = [
   {
@@ -109,7 +109,7 @@ export const Wallets = [
   {
     wallet: coinbaseWallet({ chains, appName: "ATF" }),
     icon: CoinbaseWallet,
-    name: "coinbase Wallet",
+    name: "Coinbase Wallet",
   },
   {
     wallet: trustWallet({ projectId: PROJECT_ID, chains: chains }),

@@ -681,7 +681,7 @@ msgstr "Изображение"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr "В модели торговли ArithFi стоимость добавления новых пар активов, таких как фьючерсы на ЗОЛОТО, для фьючерсной торговли составляет около $0,1 в день, и она предлагает бесконечную ликвидность без проскальзывания. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку."
+msgstr "В модели торговли ArithFi стоимость добавления новых пар активов, таких как фьючерсы на ЗОЛОТО, для фьючерсной торговли составляет около $0.1 в день, и она предлагает бесконечную ликвидность без проскальзывания. Даже если только один пользователь хочет торговать, мы можем предоставить поддержку."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

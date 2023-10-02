@@ -56,7 +56,7 @@
 //     return getQueryVariable("psl");
 //   }, []);
 //   const NESTTokenAddress = useMemo(() => {
-//     const token = "NEST".getToken();
+//     const token = "ATF".getToken();
 //     if (token && chainsData.chainId) {
 //       return token.address[chainsData.chainId];
 //     } else {
@@ -200,10 +200,10 @@
 //           !BigNumber.from("0").eq(nestBalance) &&
 //           BigNumber.from("0").eq(usdtBalance)
 //         ) {
-//           setInputToken("NEST");
+//           setInputToken("ATF");
 //           setInputAmount("10000");
 //         } else if (uniSwapAmountOut && uniSwapAmountOut[1].lt(nestBalance)) {
-//           setInputToken("NEST");
+//           setInputToken("ATF");
 //           setInputAmount("10000");
 //         } else {
 //           setInputToken("USDT");
@@ -212,7 +212,7 @@
 //         setSetToken(true);
 //       }
 //     } else {
-//       setInputToken("NEST");
+//       setInputToken("ATF");
 //       setInputAmount("100");
 //       setSetToken(true);
 //     }
@@ -419,7 +419,7 @@
 //         <NormalInfo
 //           title={t`Service Fee`}
 //           value={showFee}
-//           symbol={"NEST"}
+//           symbol={"ATF"}
 //           help
 //           helpInfo={
 //             <Stack>
@@ -433,12 +433,12 @@
 //           <NormalInfo
 //             title={t`Positions`}
 //             value={showPositions}
-//             symbol={"NEST"}
+//             symbol={"ATF"}
 //           />
 //         ) : (
 //           <></>
 //         )}
-//         <NormalInfo title={t`Total Pay`} value={showTotalPay} symbol={"NEST"}/>
+//         <NormalInfo title={t`Total Pay`} value={showTotalPay} symbol={"ATF"}/>
 //       </Stack>
 //     );
 //   }, [inputToken, showFee, showFeeHoverText, showPositions, showTotalPay]);
