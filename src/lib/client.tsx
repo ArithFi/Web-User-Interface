@@ -148,7 +148,6 @@ const config = createConfig({
 
 const WalletProvider: FC<ProviderProps> = ({ children }) => {
   const { nowTheme } = useTheme();
-  console.log(config.connectors);
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider
