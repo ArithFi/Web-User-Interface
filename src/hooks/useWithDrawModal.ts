@@ -24,8 +24,12 @@ function useWithDrawModal(onClose: (res?: boolean) => void) {
    */
   const getBalance = useCallback(async () => {
     service_balance((result: number) => {
-      const balance_bigNumber = result.toString().stringToBigNumber(18);
-      setTokenBalance(balance_bigNumber ?? BigNumber.from("0"));
+      if (result) {
+        const balance_bigNumber = result.toString().stringToBigNumber(18);
+        setTokenBalance(balance_bigNumber ?? BigNumber.from("0"));
+      } else {
+        setTokenBalance(BigNumber.from("0"));
+      }
     });
   }, [service_balance]);
 
@@ -51,6 +55,7 @@ function useWithDrawModal(onClose: (res?: boolean) => void) {
   );
   const checkBalance = useMemo(() => {
     if (tokenBalance) {
+      
       return tokenAmount.stringToBigNumber(18)?.gt(tokenBalance);
     }
     return false;
