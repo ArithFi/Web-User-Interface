@@ -1,4 +1,6 @@
 import {Stack} from "@mui/system";
+import {NESTTooltipFC} from "../../components/NESTTooltip/NESTTooltip";
+import {Link} from "react-router-dom";
 
 const Token = () => {
   return (
@@ -6,21 +8,49 @@ const Token = () => {
       background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)',
     }}>
       <Stack width={'100%'} maxWidth={'1200px'} alignItems={'center'}>
-        <Stack py={'12px'} direction={'row'} borderBottom={'1px solid rgba(28, 28, 35, 0.08)'} fontSize={'14px'} width={'100%'}
+        <Stack py={'12px'} direction={'row'} borderBottom={'1px solid rgba(28, 28, 35, 0.08)'} fontSize={'14px'}
+               width={'100%'}
                lineHeight={'20px'} fontWeight={'400'} color={'#03030899'} alignItems={'center'}>
-          <Stack padding={'4px 8px'}>Home</Stack>
+          <Link to={"/home"}>
+            <Stack padding={'4px 8px'} sx={{
+              cursor: 'pointer',
+              color: '#03030899',
+              '&:hover': {
+                color: '#F69C00'
+              }
+            }}>
+              Home
+            </Stack>
+          </Link>
           <Stack>/</Stack>
           <Stack padding={'4px 8px'} color={'#030308'}>Where to buy $ATF</Stack>
         </Stack>
         <Stack fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'} mt={'40px'}>
           Where to buy $ATF
         </Stack>
-        <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'#03030899'} mt={'16px'} maxWidth={'640px'} textAlign={'center'}>
-          You can buy $ATF from exchanges or wallets directly.CEXs let you buy crypto using fiat. They hold $ATF you buy until you send it to a wallet you control. Or your can buy $ATF peer-to-peer on DEXs to lets you keep your funds in your hands.
+        <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'#03030899'} mt={'16px'}
+               maxWidth={'640px'} textAlign={'center'}>
+          You can buy $ATF from exchanges or wallets directly.CEXs let you buy crypto using fiat. They hold $ATF you buy
+          until you send it to a wallet you control. Or your can buy $ATF peer-to-peer on DEXs to lets you keep your
+          funds in your hands.
         </Stack>
-        <Stack width={'640px'} mt={'40px'} padding={'40px'} bgcolor={'#CFF5D0'} border={'1px solid #2ECD3C'} borderRadius={'12px'} gap={'16px'} alignItems={'center'}>
-          <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'#03030899'}>CURRENT ATF PRICE (USD)</Stack>
-          <Stack fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'}  color={'#030308'}>$0.02593</Stack>
+        <Stack width={'640px'} mt={'40px'} padding={'40px'} bgcolor={'#CFF5D0'} border={'1px solid #2ECD3C'}
+               borderRadius={'12px'} gap={'16px'} alignItems={'center'}>
+          <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'#03030899'} direction={'row'}
+                 gap={'8px'} alignItems={'center'}>
+            <Stack>
+              CURRENT ATF PRICE (USD)
+            </Stack>
+            <NESTTooltipFC title={<Stack alignItems={'center'}>
+              <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
+                Data source:
+              </Stack>
+              <Stack fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'#F69C00'}>
+                pancakeswap.com
+              </Stack>
+            </Stack>}/>
+          </Stack>
+          <Stack fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'} color={'#030308'}>$0.02593</Stack>
           <Stack direction={'row'} gap={'8px'} alignItems={'center'}>
             <Stack fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'} color={'#2ECD3C'}>0.04%</Stack>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'#03030899'}>
@@ -38,7 +68,7 @@ const Token = () => {
               cursor: 'pointer',
             },
           }}>
-            <img src={'/images/home_icon14.svg'} alt={''} height={'64px'} width={'64px'} />
+            <img src={'/images/home_icon14.svg'} alt={''} height={'64px'} width={'64px'}/>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>Pancake</Stack>
           </Stack>
           <Stack padding={'24px 40px'} borderRadius={'12px'} width={'100%'} alignItems={'center'} gap={'12px'} sx={{
@@ -50,7 +80,7 @@ const Token = () => {
               cursor: 'pointer',
             },
           }}>
-            <img src={'/images/home_icon15.svg'} alt={''}  height={'64px'} width={'64px'}/>
+            <img src={'/images/home_icon15.svg'} alt={''} height={'64px'} width={'64px'}/>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>ArithFi Swap</Stack>
           </Stack>
         </Stack>
