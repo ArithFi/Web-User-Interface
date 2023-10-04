@@ -16,6 +16,7 @@ import {formatAmount, numberWithCommas} from "../../lib/numbers";
 import {styled} from "@mui/material";
 import {get24HrFromBinance} from "../../domain/prices";
 import { Trans } from "@lingui/macro";
+import useNEST from "../../hooks/useNEST";
 
 interface ExchangeTVChartProps {
   tokenPair: string;
@@ -34,6 +35,7 @@ const ChartDataValue = styled("div")(({theme}) => ({
 }));
 
 const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
+  const { chainsData } = useNEST();
   const {width, isBigMobile} = useWindowWidth();
   const [isHide, setIsHide] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -317,8 +319,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
       ) : (
         <Box height={height}>
           <TVChartContainer
+            chainId={chainsData?.chainId || 56}
             symbol={props.tokenPair}
             dataProvider={dataProvider.current!}
+            changeTokenPair={props.changeTokenPair}
           />
         </Box>
       )}

@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {defaultChartProps, DEFAULT_PERIOD, disabledFeaturesOnMobile} from "./constants";
 import useTVDatafeed from "../../domain/tradingview/useTVDatafeed";
-import {IChartingLibraryWidget, Timezone} from "../../charting_library";
+import {ChartData, IChartingLibraryWidget, IPositionLineAdapter, Timezone} from "../../charting_library";
 import {getObjectKeyFromValue} from "../../domain/tradingview/utils";
 import {SUPPORTED_RESOLUTIONS, TV_CHART_RELOAD_INTERVAL} from "../../config/tradingview";
 import {TVDataProvider} from "../../domain/tradingview/TVDataProvider";
@@ -10,13 +10,17 @@ import {CHART_PERIODS} from "../../lib/legacy";
 import {Box, CircularProgress} from "@mui/material";
 import useTheme from "../../hooks/useTheme";
 import useWindowWidth from "../../hooks/useWindowWidth";
+import {SaveLoadAdapter} from "./SaveLoadAdapter";
+import {useLocalStorage} from "react-use";
 
 type Props = {
   symbol: string;
+  chainId: number;
   dataProvider?: TVDataProvider;
+  changeTokenPair: (value: string) => void;
 };
 
-export default function TVChartContainer({symbol, dataProvider}: Props) {
+export default function TVChartContainer({symbol, chainId, dataProvider, changeTokenPair}: Props) {
   let [period, setPeriod] = useLocalStorageSerializeKey(["Chart-period"], DEFAULT_PERIOD);
 
   if (!period || !(period in CHART_PERIODS)) {
@@ -27,6 +31,7 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
   const tvWidgetRef = useRef<IChartingLibraryWidget | null>(null);
   const [chartReady, setChartReady] = useState(false);
   const [chartDataLoading, setChartDataLoading] = useState(true);
+  const [tvCharts, setTvCharts] = useLocalStorage<ChartData[] | undefined>('TV_SAVE_LOAD_CHARTS_KEY', []);
   const {datafeed, resetCache} = useTVDatafeed({dataProvider});
   const symbolRef = useRef(symbol);
   const {nowTheme} = useTheme();
@@ -63,6 +68,28 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
   }, [symbol, chartReady, period]);
 
   useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        localStorage.setItem('TV_CHART_RELOAD_TIMESTAMP_KEY', Date.now().toString());
+      } else {
+        const tvReloadTimestamp = Number(localStorage.getItem('TV_CHART_RELOAD_TIMESTAMP_KEY'));
+        if (tvReloadTimestamp && Date.now() - tvReloadTimestamp > TV_CHART_RELOAD_INTERVAL) {
+          if (resetCache) {
+            resetCache();
+            tvWidgetRef.current?.activeChart().resetData();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [resetCache]);
+
+  useEffect(() => {
     const widgetOptions = {
       debug: false,
       symbol: symbolRef.current, // Using ref to avoid unnecessary re-renders on symbol change and still have access to the latest symbol
@@ -86,6 +113,7 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       interval: getObjectKeyFromValue(period, SUPPORTED_RESOLUTIONS),
       favorites: defaultChartProps.favorites,
       custom_formatters: defaultChartProps.custom_formatters,
+      save_load_adapter: new SaveLoadAdapter(chainId, tvCharts, setTvCharts, changeTokenPair),
     };
     tvWidgetRef.current = new window.TradingView.widget(widgetOptions);
     tvWidgetRef.current!.onChartReady(function () {

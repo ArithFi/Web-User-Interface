@@ -53,7 +53,7 @@ const disabledFeatures = [
   "use_localstorage_for_settings",
   "right_bar_stays_on_scroll",
   "symbol_info",
-  "header_saveload",
+  // "header_saveload",
   "border_around_the_chart",
 ];
 export const disabledFeaturesOnMobile = [
