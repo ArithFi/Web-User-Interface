@@ -17,7 +17,8 @@ const Home = () => {
   if (isBigMobile) {
     return (
       <Stack>
-        <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'} position={'relative'}>
+        <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
+               position={'relative'}>
           <Stack position={'absolute'} zIndex={5} top={0} height={'400px'} width={'100%'}
                  sx={{
                    backgroundImage: `url('/images/home_bg2.svg')`,
@@ -51,7 +52,8 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Trade With $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Use $ATF as margin to open positions.</Trans>
             </Stack>
           </Stack>
@@ -62,7 +64,8 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Earn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Make a profit, you will earn $ATF</Trans>
             </Stack>
           </Stack>
@@ -73,12 +76,14 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Burn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
           <Stack direction={'row'} mt={'40px'} minHeight={'120px'} width={'100%'} position={'relative'}
-                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'} alignItems={'center'}
+                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
+                 alignItems={'center'}
                  onClick={() => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
@@ -444,6 +449,58 @@ const Home = () => {
             </Stack>
             <Stack position={'absolute'} right={'40px'}>
               <img src={'/images/home_icon12.svg'} alt={''}/>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack zIndex={10} direction={'row'} alignItems={'center'} sx={{
+          marginTop: '120px',
+          height: '500px',
+          width: '100%',
+          maxWidth: '1200px'
+        }} justifyContent={'space-between'}>
+          <div>
+            <img src={'/images/home_icon13.svg'} alt={''} height={'433px'}/>
+          </div>
+          <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'}>
+            <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
+              <Trans>
+                ArithFi Token
+              </Trans>
+            </Stack>
+            <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
+              <Trans>
+                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
+                during trading. However, if only 10 users are interested in trading this new asset, the profits may not
+                cover the costs of market making.
+              </Trans>
+            </Stack>
+            <Stack direction={'row'} spacing={'12px'}
+                   onClick={() => {
+                     window.location.href = '/#/token'
+                   }}
+                   sx={{
+                     backgroundColor: '#F69C00',
+                     height: '48px',
+                     width: '200px',
+                     fontSize: '16px',
+                     fontWeight: '700',
+                     lineHeight: '22px',
+                     borderRadius: '12px',
+                     alignItems: 'center',
+                     justifyContent: 'center',
+                     color: '#030308',
+                     cursor: 'pointer',
+                     '&:hover': {
+                       backgroundColor: '#FFC933',
+                     }
+                   }}>
+              <div>
+                <Trans>
+                  GET $ATF
+                </Trans>
+              </div>
+              <img src={'/images/home_icon10.svg'} alt={''}/>
             </Stack>
           </Stack>
         </Stack>

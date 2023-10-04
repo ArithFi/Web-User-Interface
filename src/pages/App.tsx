@@ -19,6 +19,7 @@ const PersonalPage = lazy(() => import("./Personal/Personal"));
 const CopyPage = lazy(() => import("./Copy/Copy"));
 const TraderPage = lazy(() => import("./Copy/Trader"));
 const MyCopiesPage = lazy(() => import("./Copy/MyCopies"));
+const TokenPage = lazy(() => import("./Token/Token"));
 const App: FC = () => {
   const { headHeight, isBigMobile } = useWindowWidth();
   const { account, chainsData } = useNEST();
@@ -112,6 +113,7 @@ const App: FC = () => {
           <Suspense fallback={<></>}>
             <Routes>
               <Route path={"home"} element={<HomePage />} />
+              <Route path={"token"} element={<TokenPage />} />
               <Route path="futures" element={<FuturesPage />} />
               {swapOrDirectPoster}
               <Route path="dashboard" element={<DashboardPage />} />
