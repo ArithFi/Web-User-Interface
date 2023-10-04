@@ -264,7 +264,10 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
               })}
             >
               <Trans>I have read and agreed to the</Trans>{" "}
-              <NESTa href="https://docs.arithfi.com/blog/ArithFi-Copy-Trading-TermsConditions">
+              <NESTa
+                target={"blank"}
+                href="https://docs.arithfi.com/blog/ArithFi-Copy-Trading-TermsConditions"
+              >
                 <Trans>Copy Trader Service Agreement</Trans>
               </NESTa>
             </Box>
