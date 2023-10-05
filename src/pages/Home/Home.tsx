@@ -331,17 +331,13 @@ const Home = () => {
             ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
-        <Stack sx={{
-          width: '200px',
-          height: '48px',
-          zIndex: 10,
-        }}>
+        <Stack zIndex={10}>
           <Link to={'/futures'}>
             <Stack sx={{
               cursor: 'pointer',
               marginTop: '40px',
-              width: '100%',
-              height: '100%',
+              width: '200px',
+              height: '48px',
               backgroundColor: '#F69C00',
               borderRadius: '12px',
               fontSize: '16px',
