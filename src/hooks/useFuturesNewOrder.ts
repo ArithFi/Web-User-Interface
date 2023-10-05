@@ -28,10 +28,10 @@ export const lipPrice = (
   ) {
     return BigNumber.from("0");
   }
-  const i = BigNumber.from("1")
+  const i = BigNumber.from("5")
     .mul(balance)
     .mul(lever)
-    .div(BigNumber.from("100"));
+    .div(BigNumber.from("1000"));
   const top = BigNumber.from(balance.toString()).add(appends).sub(i).mul(price);
   const bottom = BigNumber.from(balance.toString()).mul(lever);
   const subPrice = top.div(bottom);
