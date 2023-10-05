@@ -6,7 +6,7 @@ import {
   TransactionType,
   usePendingTransactions,
 } from "../hooks/useTransactionReceipt";
-import useNEST from "../hooks/useNEST";
+import useArithFi from "../hooks/useArithFi";
 import { ATFService, ATFServiceOther, USDTToken } from "./contractAddress";
 import useAddGasLimit from "./useAddGasLimit";
 
@@ -43,7 +43,7 @@ export function useTokenTransfer(
   tokenAddress: `0x${string}`,
   amount: BigNumber
 ) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const { addPendingList } = usePendingTransactions();
   const toAddress = useMemo(() => {
     if (chainsData.chainId) {

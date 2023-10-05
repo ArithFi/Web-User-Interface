@@ -19,7 +19,7 @@ import NavMenu from "./NavMenu";
 import useTheme from "../../../hooks/useTheme";
 import NetMenu from "./NetMenu";
 import { NavMenuV2, NavMenuV3 } from "./NavMenuV2Base";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import { Trans } from "@lingui/macro";
 import LanguageMenu from "./LanguageMenu";
 import SignModal from "../Modal/SignModal";
@@ -82,7 +82,7 @@ const NESTHead: FC = () => {
   const location = useLocation();
   const { width: widthLv, headHeight, isBigMobile, isPC } = useWindowWidth();
   const { nowTheme, changeTheme } = useTheme();
-  const { account, chainsData, navItems, checkSigned } = useNEST();
+  const { account, chainsData, navItems, checkSigned } = useArithFi();
 
   const [openSignModal, setOpenSignModal] = useState(false);
   useEffect(() => {

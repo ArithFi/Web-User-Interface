@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { copyAllKOL, copyMyTradeInfo } from "../../../lib/NESTRequest";
-import useNEST from "../../../hooks/useNEST";
+import { copyAllKOL, copyMyTradeInfo } from "../../../lib/ArithFiRequest";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
 
@@ -30,7 +30,7 @@ export interface MyTradeInfoModel {
 }
 
 function useCopy() {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [page, setPage] = useState<number>(1);

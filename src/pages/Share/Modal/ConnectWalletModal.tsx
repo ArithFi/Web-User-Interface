@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC, useCallback, useMemo, useState } from "react";
 import ArithFia from "../../../components/MainButton/ArithFia";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { Wallets } from "../../../lib/client";
 import {
@@ -85,7 +85,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
   const wallets = useWalletConnectors();
   const { isBigMobile } = useWindowWidth();
   const [isMore, setIsMore] = useState(false);
-  const { connectData } = useNEST();
+  const { connectData } = useArithFi();
 
   const selectWallet = useCallback(
     async (item: WalletConnector) => {

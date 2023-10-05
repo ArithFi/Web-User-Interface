@@ -22,7 +22,7 @@ import {
   usePendingTransactionsBase,
 } from "../../hooks/useTransactionReceipt";
 import { SnackBarType } from "../../components/SnackBar/NormalSnackBar";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import useWalletIcon from "../../hooks/uswWalletIcon";
 import copy from "copy-to-clipboard";
 import useNESTSnackBar from "../../hooks/useNESTSnackBar";
@@ -31,7 +31,7 @@ import {ArithFiTooltipFC} from "../../components/ArithFiTooltip/ArithFiTooltip";
 
 const Personal = () => {
   const { address } = useParams();
-  const { account, checkSigned, chainsData } = useNEST();
+  const { account, checkSigned, chainsData } = useArithFi();
   const { isBigMobile } = useWindowWidth();
   const [showShareMyDealModal, setShareMyDealModal] = useState(false);
   const [range, setRange] = useState<Range[]>([

@@ -1,9 +1,9 @@
 import { BigNumber } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FuturesPrice } from "../pages/Futures/Futures";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import { getQueryVariable } from "../lib/queryVaribale";
-import { KOLTx, serviceOpen } from "../lib/NESTRequest";
+import { KOLTx, serviceOpen } from "../lib/ArithFiRequest";
 import { t } from "@lingui/macro";
 import useService from "../contracts/useService";
 import {
@@ -55,7 +55,7 @@ function useFuturesNewOrder(
   tokenPair: string,
   updateList: () => void
 ) {
-  const { account, chainsData, setShowConnect, signature } = useNEST();
+  const { account, chainsData, setShowConnect, signature } = useArithFi();
   const [longOrShort, setLongOrShort] = useState(true);
   const [tabsValue, setTabsValue] = useState(0);
   const [nestAmount, setNestAmount] = useState("");
@@ -429,15 +429,10 @@ function useFuturesNewOrder(
 
   useEffect(() => {
     if (isShareLink) {
-      if (chainsData.chainId !== 534353) {
-        setInputToken("ATF");
-        setInputAmount("10000");
-      } else {
-        setInputToken("ATF");
-        setInputAmount("100");
-      }
+      setInputToken("ATF");
+      setInputAmount("10000");
     }
-  }, [chainsData.chainId, isShareLink]);
+  }, [isShareLink]);
   /**
    * show
    */

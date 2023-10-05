@@ -2,7 +2,7 @@ import { FC, useCallback, useMemo } from "react";
 import Stack from "@mui/material/Stack";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import LongOrShort from "../../components/LongOrShort/LongOrShort";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import MainButton from "../../components/MainButton/MainButton";
 import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
@@ -239,7 +239,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           boxSizing: "border-box",
         })}
       >
-        <NESTTabs
+        <ArithFiTabs
           value={tabsValue}
           className={"FuturesNewOrderTabs"}
           datArray={newOrderTabsData}

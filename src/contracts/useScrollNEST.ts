@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
-import useNEST from "../hooks/useNEST";
+import useArithFi from "../hooks/useArithFi";
 import ScrollNESTABI from "./ABI/ScrollNEST.json";
 import { ATFToken } from "./contractAddress";
 import useAddGasLimit from "./useAddGasLimit";
@@ -10,7 +10,7 @@ import {
 } from "../hooks/useTransactionReceipt";
 
 export function useScrollNESTfaucet() {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const { addPendingList } = usePendingTransactions();
   const address = useMemo(() => {
     if (chainsData.chainId) {

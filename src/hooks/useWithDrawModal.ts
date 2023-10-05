@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import { BigNumber } from "ethers/lib/ethers";
 import useService from "../contracts/useService";
 import { t } from "@lingui/macro";
-import { serviceWithdraw } from "../lib/NESTRequest";
+import { serviceWithdraw } from "../lib/ArithFiRequest";
 import {
   TransactionType,
   usePendingTransactionsBase,
@@ -13,7 +13,7 @@ import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 function useWithDrawModal(onClose: (res?: boolean) => void) {
   const [tokenAmount, setTokenAmount] = useState<string>("");
   const [selectButton, setSelectButton] = useState<number>();
-  const { chainsData, account, signature } = useNEST();
+  const { chainsData, account, signature } = useArithFi();
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();
   const [loading, setLoading] = useState<boolean>(false);

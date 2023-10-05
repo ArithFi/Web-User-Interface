@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC, useMemo, useState } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import useWalletIcon from "../../../hooks/uswWalletIcon";
 import MyWalletModal from "../Modal/MyWalletModal";
 import { Trans, t } from "@lingui/macro";
@@ -87,7 +87,7 @@ interface ConnectButtonProps {
 }
 
 const ConnectButton: FC<ConnectButtonProps> = ({ ...props }) => {
-  const { account, setShowConnect, checkSigned, disconnect } = useNEST();
+  const { account, setShowConnect, checkSigned, disconnect } = useArithFi();
   const [openModal, setOpenModal] = useState(false);
   const walletIcon = useWalletIcon();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

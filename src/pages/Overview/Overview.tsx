@@ -2,13 +2,13 @@ import Stack from "@mui/material/Stack";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import { Trans } from "@lingui/macro";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import MobileList, { AccountListType } from "./Components/MobileList";
 import MoneyTable from "./Components/MoneyTable";
 import useAccount from "../../hooks/useAccount";
 import { NoOrderMobile } from "../Futures/OrderList";
 import Box from "@mui/material/Box";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { useLocalStorage } from "react-use";
 import { useSearchParams } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const Overview: FC = () => {
   const [tabsValue, setTabsValue] = useState(
     searchParams.get("type") === "withdraw" ? 1 : 0
   );
-  const { account, checkSigned } = useNEST();
+  const { account, checkSigned } = useArithFi();
   const { moneyList } = useAccount();
   const [messagesStr, setMessagesStr] = useLocalStorage(`nest.messages`, "{}");
 
@@ -67,7 +67,7 @@ const Overview: FC = () => {
       </Stack>,
     ];
     return (
-      <NESTTabs
+      <ArithFiTabs
         value={tabsValue}
         className={"AccountTabs"}
         datArray={accountTabsData}

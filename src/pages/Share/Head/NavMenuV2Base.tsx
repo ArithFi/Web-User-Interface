@@ -11,7 +11,7 @@ import Menu from "@mui/material/Menu";
 import Modal from "@mui/material/Modal";
 import Switch from "@mui/material/Switch";
 import useTheme from "../../../hooks/useTheme";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import { Trans } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { LanData } from "./LanguageMenu";
@@ -104,7 +104,7 @@ interface NavMenuV2BaseProps {
 const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
   const { nowTheme, changeTheme } = useTheme();
   const [showLanModal, setShowLanModal] = useState(false);
-  const { chainsData, navItems } = useNEST();
+  const { chainsData, navItems } = useArithFi();
   const location = useLocation();
   const { docLink } = useLanguageWithDoc();
   const navList = navItems.map((item, index) => {

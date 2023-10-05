@@ -3,7 +3,7 @@ import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import CopyRoute from "./Components/CopyRoute";
 import Box from "@mui/material/Box";
 import { Trans, t } from "@lingui/macro";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import MyCopiesCurrent from "./Components/MyCopiesCurrent";
 import MyCopiesHistory from "./Components/MyCopiesHistory";
 import MyCopiesMyTraders from "./Components/MyCopiesMyTraders";
@@ -94,7 +94,7 @@ const MyCopies: FC = () => {
       </Box>,
     ];
     return (
-      <NESTTabs
+      <ArithFiTabs
         value={tabsValue}
         className={"MyCopiesTabs"}
         datArray={data}

@@ -4,7 +4,7 @@ import { Fail, NEXT, Success } from "../../../components/icons";
 import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
 import { AccountListData } from "../../../hooks/useAccount";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 
 export enum AccountListType {
   deposit,
@@ -18,7 +18,7 @@ interface MobileListProps {
 }
 
 const MobileList: FC<MobileListProps> = ({ ...props }) => {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const icon = useMemo(() => {
     switch (props.type) {
       case AccountListType.deposit:

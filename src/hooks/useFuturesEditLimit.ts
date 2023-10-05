@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useState } from "react";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 import { t } from "@lingui/macro";
-import useNEST from "./useNEST";
-import { serviceUpdateLimitPrice } from "../lib/NESTRequest";
+import useArithFi from "./useArithFi";
+import { serviceUpdateLimitPrice } from "../lib/ArithFiRequest";
 
 function useFuturesEditLimit(
   data: FuturesOrderService,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
   const tokenPair = useMemo(() => {
     return data.product.split("/")[0];

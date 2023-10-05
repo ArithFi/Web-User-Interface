@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import BaseModal from "./BaseModal";
 import { Copy, Fail, NEXT, Success } from "../../../components/icons";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import LinkButton from "../../../components/MainButton/LinkButton";
 import Box from "@mui/material/Box";
 import useNESTSnackBar from "../../../hooks/useNESTSnackBar";
@@ -97,7 +97,7 @@ interface MyWalletModalProps {
 }
 
 const MyWalletModal: FC<MyWalletModalProps> = ({ ...props }) => {
-  const { account, disconnect, chainsData } = useNEST();
+  const { account, disconnect, chainsData } = useArithFi();
   const { messageSnackBar } = useNESTSnackBar();
   const walletIcon = useWalletIcon();
   const transactionsData: Array<any> = useMemo(() => {

@@ -1,7 +1,7 @@
 // import { useEffect, useMemo } from "react";
 // import { BigNumber } from "ethers";
 // import { useContractWrite, usePrepareContractWrite } from "wagmi";
-// import useNEST from "../hooks/useNEST";
+// import useArithFi from "../hooks/useArithFi";
 // import FuturesV2ABI from "./ABI/FuturesV2.json";
 // import { FuturesV2Contract } from "./contractAddress";
 // import useAddGasLimit from "./useAddGasLimit";
@@ -19,7 +19,7 @@
 //   orientation: boolean,
 //   amount: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && !MIN_NEST_BIG_NUMBER.gt(amount)) {
@@ -63,7 +63,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && !MIN_NEST_BIG_NUMBER.gt(amount)) {
@@ -113,7 +113,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && usdtAmount && minNestAmount) {
@@ -164,7 +164,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (
@@ -220,7 +220,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (
@@ -269,7 +269,7 @@
 // }
 
 // export function useFuturesSell(orderIndex: BigNumber) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId) {
@@ -308,7 +308,7 @@
 //   orderIndex: BigNumber,
 //   amount: BigNumber | undefined
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && amount) {
@@ -345,7 +345,7 @@
 //   trustOrderIndex: BigNumber | undefined,
 //   limitPrice: BigNumber | undefined
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && limitPrice && trustOrderIndex) {
@@ -381,7 +381,7 @@
 // }
 
 // export function useFuturesCloseLimit(trustOrderIndex: BigNumber | undefined) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && trustOrderIndex) {
@@ -421,7 +421,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId && trustOrderIndex) {
@@ -461,7 +461,7 @@
 //   stopProfitPrice: BigNumber,
 //   stopLossPrice: BigNumber
 // ) {
-//   const { chainsData } = useNEST();
+//   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
 //     if (chainsData.chainId) {

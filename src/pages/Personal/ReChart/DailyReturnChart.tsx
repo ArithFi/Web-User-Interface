@@ -13,7 +13,7 @@ import useTheme from "../../../hooks/useTheme";
 import { CustomTooltip } from "./CustomTooltip";
 import numeral from "numeral";
 import { Stack } from "@mui/system";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 
 type ChartsProps = {
   address: string | undefined;
@@ -24,7 +24,7 @@ type ChartsProps = {
 
 const ReCharts: FC<ChartsProps> = ({ ...props }) => {
   const { nowTheme } = useTheme();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const to = props.to ?? new Date().toLocaleDateString().replaceAll("/", "-");
   const from =
     props.from ??

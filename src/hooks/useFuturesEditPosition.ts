@@ -5,15 +5,15 @@ import { BigNumber } from "ethers";
 import { lipPrice } from "./useFuturesNewOrder";
 import { FuturesPrice } from "../pages/Futures/Futures";
 import { t } from "@lingui/macro";
-import { serviceUpdateStopPrice } from "../lib/NESTRequest";
-import useNEST from "./useNEST";
+import { serviceUpdateStopPrice } from "../lib/ArithFiRequest";
+import useArithFi from "./useArithFi";
 
 function useFuturesEditPosition(
   data: FuturesOrderService,
   price: FuturesPrice | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
   const tokenPair = useMemo(() => {
     return data.product.split("/")[0];

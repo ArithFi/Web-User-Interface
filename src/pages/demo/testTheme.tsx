@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { styled } from "@mui/material/styles";
 import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 import Stack from "@mui/material/Stack";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Alert from "@mui/material/Alert";
@@ -17,7 +17,7 @@ const ThemeButton2 = styled(ButtonUnstyled)(({ theme }) => ({
   backgroundColor: theme.normal.primary,
   width: 200,
 }));
-const NESTTabs = styled(Tabs)(({ theme }) => ({
+const ArithFiTabs = styled(Tabs)(({ theme }) => ({
   "& .MuiTabs-scroller .MuiTabs-flexContainer .Mui-selected": {
     color: "#56d7f4",
   },
@@ -27,7 +27,7 @@ const NESTTabs = styled(Tabs)(({ theme }) => ({
 }));
 
 const TestTheme: FC = () => {
-  const { account, connectData, chainsData, disconnect } = useNEST();
+  const { account, connectData, chainsData, disconnect } = useArithFi();
   const { transactionSnackBar, messageSnackBar } = useTransactionSnackBar();
   const { changeTheme } = useTheme();
   const [value, setValue] = useState(0);
@@ -45,11 +45,11 @@ const TestTheme: FC = () => {
   };
   return (
     <Stack spacing={2}>
-      <NESTTabs value={value} onChange={handleChange} centered>
+      <ArithFiTabs value={value} onChange={handleChange} centered>
         <Tab label={<p>55555</p>} />
         <Tab label="Item Two" />
         <Tab label="Item Three" />
-      </NESTTabs>
+      </ArithFiTabs>
       <ThemeButton2 onClick={changeTheme}>切换</ThemeButton2>
       <Stack direction="column" spacing={0}>
         <div>

@@ -1,20 +1,20 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { FuturesOrderService } from "../pages/Futures/OrderList";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import { BigNumber } from "ethers";
 import { lipPrice } from "./useFuturesNewOrder";
 import { FuturesPrice } from "../pages/Futures/Futures";
 import { t } from "@lingui/macro";
 import useService from "../contracts/useService";
-import { serviceAdd } from "../lib/NESTRequest";
+import { serviceAdd } from "../lib/ArithFiRequest";
 
 function useFuturesAdd(
   data: FuturesOrderService,
   price: FuturesPrice | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { account, chainsData, signature } = useNEST();
+  const { account, chainsData, signature } = useArithFi();
   const [nestAmount, setNestAmount] = useState("");
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();

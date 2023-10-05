@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import { FC, useEffect, useMemo } from "react";
 import Box from "@mui/material/Box";
 import { Trans, t } from "@lingui/macro";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import TraderCurrent from "./Components/TraderCurrent";
 import TraderFollowers from "./Components/TraderFollowers";
 import CopyRoute from "./Components/CopyRoute";
@@ -53,7 +53,7 @@ const Trader: FC = () => {
       // </Box>,
     ];
     return (
-      <NESTTabs
+      <ArithFiTabs
         value={tabsValue}
         className={"TraderTabs"}
         datArray={data}

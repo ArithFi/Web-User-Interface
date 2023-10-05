@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import useNEST from "../../../hooks/useNEST";
-import { copyClose, copyCloseInfo } from "../../../lib/NESTRequest";
+import useArithFi from "../../../hooks/useArithFi";
+import { copyClose, copyCloseInfo } from "../../../lib/ArithFiRequest";
 
 export interface MyCopiesCloseModel {
   openInterest: number;
@@ -13,7 +13,7 @@ function useCloseCopyModal(
   address: string | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [closeInfo, setCloseInfo] = useState<MyCopiesCloseModel>();
   const [isLoading, setIsLoading] = useState(false);
 

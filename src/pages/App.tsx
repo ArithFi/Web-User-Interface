@@ -5,8 +5,8 @@ import NESTFoot from "./Share/Foot/NESTFoot";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import useWindowWidth from "../hooks/useWindowWidth";
-import useNEST from "../hooks/useNEST";
-import { KOLClick, KOLWallet } from "../lib/NESTRequest";
+import useArithFi from "../hooks/useArithFi";
+import { KOLClick, KOLWallet } from "../lib/ArithFiRequest";
 
 const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
@@ -14,7 +14,6 @@ const OverviewPage = lazy(() => import("./Overview/Overview"));
 const SwapPage = lazy(() => import("./Swap/Swap"));
 const DashboardPage = lazy(() => import("./Dashboard/Dashboard"));
 const ReferralPage = lazy(() => import("./Personal/Referral/Referral"));
-const DirectPosterPage = lazy(() => import("./DirectPoster/DirectPoster"));
 const PersonalPage = lazy(() => import("./Personal/Personal"));
 const CopyPage = lazy(() => import("./Copy/Copy"));
 const TraderPage = lazy(() => import("./Copy/Trader"));
@@ -22,7 +21,7 @@ const MyCopiesPage = lazy(() => import("./Copy/MyCopies"));
 const TokenPage = lazy(() => import("./Token/Token"));
 const App: FC = () => {
   const { headHeight, isBigMobile } = useWindowWidth();
-  const { account, chainsData } = useNEST();
+  const { account, chainsData } = useArithFi();
 
   const getQueryVariable = (variable: string) => {
     const query = window.location.search.substring(1);
@@ -97,13 +96,9 @@ const App: FC = () => {
       background: theme.normal.bg0,
     };
   });
-  const swapOrDirectPoster = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return <Route path="/faucet" element={<DirectPosterPage />} />;
-    } else {
-      return <Route path="/swap" element={<SwapPage />} />;
-    }
-  }, [chainsData.chainId]);
+  const swap = useMemo(() => {
+    return <Route path="/swap" element={<SwapPage />} />;
+  }, []);
 
   return (
     <Stack spacing={0}>
@@ -115,7 +110,7 @@ const App: FC = () => {
               <Route path={"home"} element={<HomePage />} />
               <Route path={"token"} element={<TokenPage />} />
               <Route path="futures" element={<FuturesPage />} />
-              {swapOrDirectPoster}
+              {swap}
               <Route path="dashboard" element={<DashboardPage />} />
               <Route path="account">
                 <Route path=":address" element={<PersonalPage />} />

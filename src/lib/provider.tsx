@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
 import { FC, useEffect } from "react";
-import useNEST, { NESTProvider } from "../hooks/useNEST";
+import useArithFi, { NESTProvider } from "../hooks/useArithFi";
 import useTheme, { SetThemeProvider } from "../hooks/useTheme";
 import { PendingTransactionsProvider } from "../hooks/useTransactionReceipt";
 import ConnectWalletModal from "../pages/Share/Modal/ConnectWalletModal";
@@ -37,7 +37,7 @@ const MainProvider: FC<ProviderProps> = ({ children }) => {
 };
 
 const ConnectWallet: FC = () => {
-  const { showConnect, setShowConnect } = useNEST();
+  const { showConnect, setShowConnect } = useArithFi();
   // const { openConnectModal } = useConnectModal();
   // useEffect(() => {
   //   if (showConnect) {

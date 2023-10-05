@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import useReadTokenBalance, {
   useReadTokenAllowance,
 } from "../contracts/Read/useReadTokenContract";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import useReadSwapAmountOut from "../contracts/Read/useReadSwapContract";
 import { NESTRedeemContract, SwapContract } from "../contracts/contractAddress";
 import useTokenApprove from "../contracts/useTokenContract";
@@ -24,7 +24,7 @@ interface SwapToken {
 const SWAP_UPDATE = 30;
 
 function useSwap() {
-  const { chainsData, account, setShowConnect } = useNEST();
+  const { chainsData, account, setShowConnect } = useArithFi();
   const swapTokenOfChain = useCallback(() => {
     if (chainsData.chainId === 1) {
       return {

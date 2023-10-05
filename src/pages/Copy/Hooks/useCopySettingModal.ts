@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import useNEST from "../../../hooks/useNEST";
-import { copyAsset, copyFollow } from "../../../lib/NESTRequest";
+import useArithFi from "../../../hooks/useArithFi";
+import { copyAsset, copyFollow } from "../../../lib/ArithFiRequest";
 import { t } from "@lingui/macro";
 import useService from "../../../contracts/useService";
 
@@ -8,7 +8,7 @@ function useCopySettingModal(
   address: string | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature, account } = useNEST();
+  const { chainsData, signature, account } = useArithFi();
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<number>();
   const [copyAccountBalance, setCopyAccountBalance] = useState<string>("");

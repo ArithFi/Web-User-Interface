@@ -31,32 +31,6 @@ import {
 } from "../components/icons";
 import useTheme from "../hooks/useTheme";
 
-const scrollAlphaTestnet = {
-  id: 534353,
-  name: "scroll Alpha Testnet",
-  network: "scroll Alpha Testnet",
-  nativeCurrency: {
-    name: "Ether",
-    symbol: "ETH",
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://scroll-alpha-public.unifra.io"],
-    },
-    public: {
-      http: ["https://scroll-alpha-public.unifra.io"],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: "scrollExplorer",
-      url: "https://blockscout.scroll.io/",
-    },
-  },
-  testnet: true,
-};
-
 export const DEFAULT_CHAIN_ID = 56;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -74,10 +48,6 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
         } else if (chain.id === 56) {
           return {
             http: "https://bsc-dataseed1.defibit.io/",
-          };
-        } else if (chain.id === 534353) {
-          return {
-            http: "https://scroll-alpha-public.unifra.io",
           };
         } else {
           return {

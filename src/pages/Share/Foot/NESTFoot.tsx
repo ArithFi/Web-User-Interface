@@ -8,7 +8,7 @@ import {
   MediumIcon,
   BNBTokenLogo,
 } from "../../../components/icons";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 
 export const FootArray = [
@@ -48,7 +48,7 @@ export const FootAList = FootArray.map((item, index) => {
 });
 const NESTFoot: FC = () => {
   const { isBigMobile } = useWindowWidth();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const foot = () => {
     return isBigMobile ? (
       <></>

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { BigNumber } from "ethers";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
-import useNEST from "../hooks/useNEST";
+import useArithFi from "../hooks/useArithFi";
 import UNISwapV2ABI from "./ABI/UNISwapV2.json";
 import { SwapContract } from "./contractAddress";
 import useAddGasLimit from "./useAddGasLimit";
@@ -17,7 +17,7 @@ function useSwapExactTokensForTokens(
   to: string | undefined,
   type?: TransactionType
 ) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const { addPendingList } = usePendingTransactions();
   const time = new Date().getTime() / 1000 + 600;
   const address = useMemo(() => {
@@ -65,7 +65,7 @@ export function useSwapExactETHForTokens(
   to: string | undefined,
   type?: TransactionType
 ) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const { addPendingList } = usePendingTransactions();
   const time = new Date().getTime() / 1000 + 600;
   const address = useMemo(() => {

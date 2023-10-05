@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { SelectToken } from "../../pages/Swap/Components/SwapInputItem";
 import { NEXT, SelectedTokenDown, SwapExchangeSmall } from "../icons";
 import OneIconWithString from "../IconWithString/OneIconWithString";
@@ -28,7 +28,7 @@ interface NESTInputSelectProps {
 }
 
 const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
-  const { account, chainsData } = useNEST();
+  const { account } = useArithFi();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -70,23 +70,15 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
       });
   }, [props]);
   const noNESTText = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return t`The balance is 0. You can go to "Faucet" to get test token before trading.`;
-    } else {
-      return t`0 balance. Before trading, you can switch to "Swap" to exchange
+    return t`0 balance. Before trading, you can switch to "Swap" to exchange
       between USDT and ATF token.`;
-    }
-  }, [chainsData.chainId]);
+  }, []);
   const swapLink = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return "/faucet";
-    } else {
-      return "/swap";
-    }
-  }, [chainsData.chainId]);
+    return "/swap";
+  }, []);
   const swapTitle = useMemo(() => {
-    return chainsData.chainId === 534353 ? t`Faucet` : t`Swap`;
-  }, [chainsData.chainId]);
+    return t`Swap`;
+  }, []);
   const showBottom = useMemo(() => {
     if (props.showToSwap) {
       return (

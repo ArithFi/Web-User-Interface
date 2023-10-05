@@ -19,7 +19,7 @@ import { Trans, t } from "@lingui/macro";
 import NetworkIcon from "../../Dashboard/Components/NetworkIcon";
 import { useParams } from "react-router-dom";
 import { useAccount } from "wagmi";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 
 const Select1 = styled("select")(({ theme }) => ({
   width: "100%",
@@ -237,7 +237,7 @@ const Referral = () => {
   const [searchText, setSearchText] = useState("");
   const { address } = useParams();
   const { address: user } = useAccount();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({ length: totalPage }, (v, k) => k + 1);

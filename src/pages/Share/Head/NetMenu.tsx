@@ -4,7 +4,7 @@ import { FC, useMemo, useState } from "react";
 import { BNBLogo, NetworkDownIcon, ScrollIcon } from "../../../components/icons";
 import OneIconWithString from "../../../components/IconWithString/OneIconWithString";
 import SelectListMenu from "../../../components/SelectListMemu/SelectListMenu";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth, { WidthType } from "../../../hooks/useWindowWidth";
 
 const NetButton = styled("button")(({ theme }) => {
@@ -40,11 +40,10 @@ const networkArray = [
   // { icon: ETHLogo, title: "Ethereum", chainId: 1 },
   { icon: BNBLogo, title: "BNB", chainId: 56 },
   // { icon: BNBLogo, title: "BNBTest", chainId: 97 },
-  // { icon: ScrollIcon, title: "ScrollTest", chainId: 534353 },
 ];
 
 const NetMenu: FC = () => {
-  const { chainsData, setShowConnect } = useNEST();
+  const { chainsData, setShowConnect } = useArithFi();
   const { width: widthLv } = useWindowWidth();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

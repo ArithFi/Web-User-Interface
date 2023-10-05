@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import useNEST from "../hooks/useNEST";
-import {serviceAsset} from "../lib/NESTRequest";
+import useArithFi from "../hooks/useArithFi";
+import {serviceAsset} from "../lib/ArithFiRequest";
 
 function useService() {
-    const { account, chainsData, signature } = useNEST();
+    const { account, chainsData, signature } = useArithFi();
     const service_balance = useCallback(async (back: (result: number) => void) => {
         if (chainsData.chainId && account.address && signature) {
           const balanceBase: { [key: string]: any } = await serviceAsset(

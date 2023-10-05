@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo } from "react";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { NEXT, SwapExchangeSmall } from "../icons";
 import LinkButton from "../MainButton/LinkButton";
 import ArithFiLine from "../ArithFiLine";
@@ -21,21 +21,17 @@ interface NESTInputProps {
 }
 
 const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
-  const { account, chainsData, checkSigned } = useNEST();
+  const { account, checkSigned } = useArithFi();
   const noNESTText = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return t`The balance is 0. You can go to "Faucet" to get test token before trading.`;
+    if (checkSigned) {
+      return t`Insufficient balance. Please deposit to start the lightning trade.`;
     } else {
-      if (checkSigned) {
-        return t`Insufficient balance. Please deposit to start the lightning trade.`;
-      } else {
-        return t`Please complete your sign`;
-      }
+      return t`Please complete your sign`;
     }
-  }, [chainsData.chainId, checkSigned]);
+  }, [checkSigned]);
   const swapTitle = useMemo(() => {
-    return chainsData.chainId === 534353 ? t`Faucet` : t`Deposit`;
-  }, [chainsData.chainId]);
+    return t`Deposit`
+  }, []);
   return (
     <Stack
       justifyContent={"flex-start"}
