@@ -111,17 +111,14 @@ const Home = () => {
                 opacity: 0.8
               }}>
                 <Trans>
-                  ArithFi Token
+                  ArithFi Coin
                 </Trans>
               </Stack>
               <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} mt={'8px'} color={'#1D2129'} sx={{
                 opacity: 0.8
               }}>
                 <Trans>
-                  If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
-                  trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
-                  during trading. However, if only 10 users are interested in trading this new asset, the profits may not
-                  cover the costs of market making.
+                  ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future.
                 </Trans>
               </Stack>
               <Link to={'/token'}>
@@ -513,7 +510,7 @@ const Home = () => {
           <div>
             <img src={'/images/home_icon13.svg'} alt={''} height={'433px'}/>
           </div>
-          <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'}>
+          <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'} px={'24px'}>
             <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
               <Trans>
                 ArithFi Token
@@ -521,10 +518,7 @@ const Home = () => {
             </Stack>
             <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
               <Trans>
-                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
-                trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
-                during trading. However, if only 10 users are interested in trading this new asset, the profits may not
-                cover the costs of market making.
+                ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future.
               </Trans>
             </Stack>
             <Link to={'/token'}>
