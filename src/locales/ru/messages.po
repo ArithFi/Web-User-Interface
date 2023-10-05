@@ -172,7 +172,6 @@ msgstr "Фактический залог"
 msgid "Add"
 msgstr "Добавить"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr "Добавьте ATF в кошелек"
@@ -280,7 +279,6 @@ msgstr "баланс"
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
 msgid "Balance:"
 msgstr "Баланс:"
 
@@ -366,8 +364,6 @@ msgstr "Подтвердите, что вы владелец этого коше
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -590,8 +586,6 @@ msgstr "Неудача"
 msgid "Fail Request"
 msgstr "Не удалось выполнить запрос"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Faucet"
 msgstr "Кран"
@@ -644,11 +638,6 @@ msgstr "Фьючерсы"
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
 msgstr "Фьючерсы, опционы, структурированные продукты"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
-msgstr "ПОЛУЧИТЬ"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -742,10 +731,6 @@ msgstr "Недостаточный баланс. Пожалуйста, попо�
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Объем торговли приглашенных пользователей"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
-msgstr "Доступно раз в 24 часа. Пожалуйста, приходите позже."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1032,10 +1017,6 @@ msgstr "Пожалуйста, нажмите \"Approve\" для авториза
 msgid "Please complete your sign"
 msgstr "Пожалуйста, завершите вашу регистрацию"
 
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr "Пожалуйста, сначала получите тестовые токены ETH"
-
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
 msgstr "Обратите внимание, что «лимитный ордер» или «стоп-ордер» не гарантируют исполнение. Это может включать, но не ограничивается следующими случаями."
@@ -1313,16 +1294,6 @@ msgstr "Прибыль"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "Тест BNB"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr "Тестовый токен"
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr "Баланс равен 0. Вы можете перейти к разделу «Кран» и получить тестовый токен перед торговлей."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."

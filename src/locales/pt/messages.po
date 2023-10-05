@@ -172,7 +172,6 @@ msgstr "Margem Atual"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr "Adicionar ATF à carteira"
@@ -280,7 +279,6 @@ msgstr "saldo"
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
 msgid "Balance:"
 msgstr "Saldo:"
 
@@ -366,8 +364,6 @@ msgstr "Confirme que você é o proprietário desta carteira."
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -590,8 +586,6 @@ msgstr "falha"
 msgid "Fail Request"
 msgstr "Pedido de reprovação"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Faucet"
 msgstr "Torneira"
@@ -644,11 +638,6 @@ msgstr "Futuros"
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
 msgstr "Futuros, Opções, Produtos Estruturados"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
-msgstr "OBTER"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -742,10 +731,6 @@ msgstr "Saldo insuficiente. Por favor, deposite para começar a negociação rel
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Volume de negociação de convidados"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
-msgstr "Está disponível uma vez em 24 horas. Por favor, venha mais tarde."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1032,10 +1017,6 @@ msgstr "Clique em Aprovar para obter autorização e, em seguida, pode abrir a p
 msgid "Please complete your sign"
 msgstr "Por favor, complete sua assinatura. "
 
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr "Obter primeiro o token ETH testnet"
-
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
 msgstr "Tenha em atenção que a execução de uma \"ordem de limite\" ou \"ordem de paragem\" não é garantida. Isto pode incluir, mas não se limita a, os seguintes casos."
@@ -1313,16 +1294,6 @@ msgstr "Obter lucro"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "Teste BNB"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr "Token Testnet"
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr "O saldo é de 0. Pode ir a \"Faucet\" para obter um token de teste antes de negociar."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."

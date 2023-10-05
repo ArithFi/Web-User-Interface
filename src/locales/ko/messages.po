@@ -172,7 +172,6 @@ msgstr "실제 마진"
 msgid "Add"
 msgstr "추가"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr "ATF를 지갑에 추가하세요."
@@ -280,7 +279,6 @@ msgstr "잔고"
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
 msgid "Balance:"
 msgstr "잔액:"
 
@@ -366,8 +364,6 @@ msgstr "이 지갑의 소유자임을 확인하십시오."
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -590,8 +586,6 @@ msgstr "실패"
 msgid "Fail Request"
 msgstr "요청 실패"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Faucet"
 msgstr "수도꼭지"
@@ -644,11 +638,6 @@ msgstr "선물"
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
 msgstr "선물, 옵션, 구조 제품"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
-msgstr "얻다"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -742,10 +731,6 @@ msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "피추천인의 거래량"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
-msgstr "24시간에 한 번만 이용할 수 있습니다. 나중에 방문해 주세요."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1032,10 +1017,6 @@ msgstr "인증을 위해 승인을 클릭하면 포지션을 열 수 있으며, 
 msgid "Please complete your sign"
 msgstr "서명을 완료하세요."
 
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr "먼저 이더리움 테스트넷 토큰을 받으세요"
-
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
 msgstr "\"지정가 주문\" 또는 \"스탑 오더 주문\"은 실행이 보장되지 않을 수 있습니다. 다음과 같은 경우가 포함될 수 있습니다."
@@ -1313,16 +1294,6 @@ msgstr "익절"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "테스트 BNB"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr "테스트넷 토큰"
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr "잔액은 0입니다. 거래하기 전에 \"수도꼭지\"로 이동하여 테스트 토큰을 받을 수 있습니다."
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."

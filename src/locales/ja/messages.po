@@ -170,7 +170,6 @@ msgstr "実際の証拠金"
 msgid "Add"
 msgstr "追加"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr ""
@@ -278,7 +277,6 @@ msgstr "残高"
 
 #: src/components/NormalInput/NESTInput.tsx
 #: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
 msgid "Balance:"
 msgstr "残高:"
 
@@ -364,8 +362,6 @@ msgstr ""
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -588,8 +584,6 @@ msgstr ""
 msgid "Fail Request"
 msgstr "リクエストに失敗しました"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
 #: src/pages/Share/Head/NESTHead.tsx
 msgid "Faucet"
 msgstr ""
@@ -639,11 +633,6 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
-msgstr ""
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -737,10 +726,6 @@ msgstr ""
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
-msgstr ""
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
 msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
@@ -1028,10 +1013,6 @@ msgstr "承認をクリックして承認し、ポジションを開いてくだ
 msgid "Please complete your sign"
 msgstr ""
 
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr ""
-
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
 msgstr "「指値注文」または「ストップ注文」は実行されることが保証されていません。これには以下のケースが含まれる場合があります。"
@@ -1309,16 +1290,6 @@ msgstr "利益確定"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "テスト BNB"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr ""
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."
