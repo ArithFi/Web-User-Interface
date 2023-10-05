@@ -23,7 +23,7 @@ const Overview: FC = () => {
   );
   const { account, checkSigned } = useArithFi();
   const { moneyList } = useAccount();
-  const [messagesStr, setMessagesStr] = useLocalStorage(`nest.messages`, "{}");
+  const [messagesStr, setMessagesStr] = useLocalStorage(`atf.messages`, "{}");
 
   const updateMessages = useCallback(() => {
     if (moneyList.length > 0) {

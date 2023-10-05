@@ -12,7 +12,7 @@ import {
 } from "./useTransactionReceipt";
 import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 
-export const MIN_NEST_BIG_NUMBER = BigNumber.from("500000");
+export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
 export const lipPrice = (
   balance: BigNumber,
@@ -253,7 +253,7 @@ function useFuturesNewOrder(
    */
   const checkMinATF = useMemo(() => {
     return (arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0")).lt(
-      MIN_NEST_BIG_NUMBER
+      MIN_ATF_BIG_NUMBER
     );
   }, [arithFiAmount]);
   const tpError = useMemo(() => {

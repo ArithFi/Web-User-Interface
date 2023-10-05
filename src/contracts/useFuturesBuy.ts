@@ -11,7 +11,7 @@
 // } from "../hooks/useTransactionReceipt";
 
 // export const MIN_NEST = 50;
-// export const MIN_NEST_BIG_NUMBER = BigNumber.from("500000");
+// export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
 // function useFuturesBuy(
 //   channelIndex: BigNumber,
@@ -22,7 +22,7 @@
 //   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
-//     if (chainsData.chainId && !MIN_NEST_BIG_NUMBER.gt(amount)) {
+//     if (chainsData.chainId && !MIN_ATF_BIG_NUMBER.gt(amount)) {
 //       return FuturesV2Contract[chainsData.chainId] as `0x${string}`;
 //     }
 //   }, [amount, chainsData.chainId]);
@@ -66,7 +66,7 @@
 //   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
-//     if (chainsData.chainId && !MIN_NEST_BIG_NUMBER.gt(amount)) {
+//     if (chainsData.chainId && !MIN_ATF_BIG_NUMBER.gt(amount)) {
 //       return FuturesV2Contract[chainsData.chainId] as `0x${string}`;
 //     }
 //   }, [amount, chainsData.chainId]);
@@ -169,7 +169,7 @@
 //   const address = useMemo(() => {
 //     if (
 //       chainsData.chainId &&
-//       !MIN_NEST_BIG_NUMBER.gt(amount) &&
+//       !MIN_ATF_BIG_NUMBER.gt(amount) &&
 //       !BigNumber.from("0").eq(limitPrice)
 //     ) {
 //       return FuturesV2Contract[chainsData.chainId] as `0x${string}`;

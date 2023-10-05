@@ -56,7 +56,7 @@ const Personal = () => {
   } = useAccount();
   const walletIcon = useWalletIcon();
   const { messageSnackBar } = useArithFiSnackBar();
-  const [messagesStr] = useLocalStorage(`nest.messages`, "{}");
+  const [messagesStr] = useLocalStorage(`atf.messages`, "{}");
 
   const { data: positions } = useSWR(
     `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/positons?address=${
