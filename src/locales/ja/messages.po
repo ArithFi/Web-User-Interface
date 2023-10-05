@@ -239,6 +239,7 @@ msgid "ArithFi can meet the needs of long-tail users."
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "ArithFi Coin"
 msgstr ""
 
@@ -249,10 +250,6 @@ msgstr ""
 
 #: src/pages/Token/Token.tsx
 msgid "ArithFi Swap"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi Token"
 msgstr ""
 
 #: src/pages/Home/Home.tsx

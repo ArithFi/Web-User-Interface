@@ -241,8 +241,9 @@ msgid "ArithFi can meet the needs of long-tail users."
 msgstr "ArithFi может удовлетворить потребности пользователей с длинным хвостом."
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "ArithFi Coin"
-msgstr ""
+msgstr "Монета ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -251,11 +252,7 @@ msgstr "ArithFi основана на модели SCP (Smart contract Counterpa
 
 #: src/pages/Token/Token.tsx
 msgid "ArithFi Swap"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi Token"
-msgstr ""
+msgstr "Обмен ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -265,7 +262,7 @@ msgstr "ArithFi, децентрализованная биржа дериват�
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
-msgstr ""
+msgstr "ATF — это дефляционный токен, который служит в качестве расчетного токена для арифметической торговой модели ArithFi. Владельцы токенов ATF могут рассматриваться как контрагенты для всех трейдеров в ArithFi. Мы верим, что трейдеры не могут постоянно превосходить рынок в долгосрочной перспективе, поэтому владельцы ATF могут получить выгоду от роста стоимости токена из-за убытков, понесенных трейдерами. С непрерывными итерациями продукта и развитием сообщества ATF станет активом равновесия. Кроме того, токены ATF также обладают функциями управления, предоставляя более широкие права владельцам ATF в будущем."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -476,7 +473,7 @@ msgstr "Текущий"
 
 #: src/pages/Token/Token.tsx
 msgid "CURRENT ATF PRICE (USD)"
-msgstr ""
+msgstr "Текущая цена ATF (USD)"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Current:"
@@ -656,7 +653,7 @@ msgstr "ПОЛУЧИТЬ"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
-msgstr ""
+msgstr "Получить $ATF"
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Get ATF"
@@ -674,7 +671,7 @@ msgstr "История"
 
 #: src/pages/Token/Token.tsx
 msgid "Home"
-msgstr ""
+msgstr "Главная"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
@@ -1011,7 +1008,7 @@ msgstr "Обзор"
 
 #: src/pages/Token/Token.tsx
 msgid "Pancake"
-msgstr ""
+msgstr "Pancake"
 
 #: src/pages/Overview/Components/MobileList.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
@@ -1563,7 +1560,7 @@ msgstr "Вывод средств из кошелька"
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
-msgstr ""
+msgstr "Где купить $ATF"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1598,7 +1595,7 @@ msgstr "Вывести"
 
 #: src/pages/Token/Token.tsx
 msgid "You can buy $ATF from exchanges or wallets directly.CEXs let you buy crypto using fiat. They hold $ATF you buy until you send it to a wallet you control. Or your can buy $ATF peer-to-peer on DEXs to lets you keep your funds in your hands."
-msgstr ""
+msgstr "Вы можете приобрести $ATF на биржах или непосредственно в кошельках. Централизованные биржи (CEXs) позволяют вам покупать криптовалюту, используя фиатные средства. Они удерживают $ATF, который вы покупаете, пока вы не отправите его в кошелек, который вы контролируете. Или вы можете покупать $ATF напрямую через P2P на децентрализованных биржах (DEXs), чтобы сохранить контроль над вашими средствами."
 
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."

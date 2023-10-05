@@ -241,6 +241,7 @@ msgid "ArithFi can meet the needs of long-tail users."
 msgstr "ArithFi can meet the needs of long-tail users."
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "ArithFi Coin"
 msgstr "ArithFi Coin"
 
@@ -252,10 +253,6 @@ msgstr "ArithFi is based on the SCP (Smart contract Counterparty) model."
 #: src/pages/Token/Token.tsx
 msgid "ArithFi Swap"
 msgstr "ArithFi Swap"
-
-#: src/pages/Home/Home.tsx
-msgid "ArithFi Token"
-msgstr "ArithFi Token"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
