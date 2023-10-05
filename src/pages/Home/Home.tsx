@@ -2,6 +2,7 @@ import {Trans} from "@lingui/macro";
 import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
@@ -17,7 +18,8 @@ const Home = () => {
   if (isBigMobile) {
     return (
       <Stack>
-        <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'} position={'relative'}>
+        <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
+               position={'relative'}>
           <Stack position={'absolute'} zIndex={5} top={0} height={'400px'} width={'100%'}
                  sx={{
                    backgroundImage: `url('/images/home_bg2.svg')`,
@@ -31,14 +33,13 @@ const Home = () => {
                  color={'rgba(249, 249, 249, 1)'}>
             <Trans>ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.</Trans>
           </Stack>
-          <Stack zIndex={10} height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
-                 justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
-                 onClick={() => {
-                   window.location.href = '/#/futures'
-                 }}
-                 lineHeight={'24px'} width={'200px'} color={'#030308'}>
-            <Trans>Start Trading</Trans>
-          </Stack>
+          <Link to={'/futures'}>
+            <Stack zIndex={10} height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
+                   justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
+                   lineHeight={'24px'} width={'200px'} color={'#030308'}>
+              <Trans>Start Trading</Trans>
+            </Stack>
+          </Link>
         </Stack>
         <Stack alignItems={'center'} py={'40px'} px={'20px'}>
           <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} color={'#030308'}>
@@ -51,7 +52,8 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Trade With $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Use $ATF as margin to open positions.</Trans>
             </Stack>
           </Stack>
@@ -62,7 +64,8 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Earn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Make a profit, you will earn $ATF</Trans>
             </Stack>
           </Stack>
@@ -73,12 +76,14 @@ const Home = () => {
             <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
               <Trans>Burn $ATF</Trans>
             </Stack>
-            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'}>
+            <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
+                   color={'rgba(3, 3, 8, 0.6)'}>
               <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
           <Stack direction={'row'} mt={'40px'} minHeight={'120px'} width={'100%'} position={'relative'}
-                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'} alignItems={'center'}
+                 bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
+                 alignItems={'center'}
                  onClick={() => {
                    window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
                  }}
@@ -91,10 +96,63 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack py={'80px'} alignItems={'center'} zIndex={10} sx={{
+        <Stack pt={'60px'} pb={'80px'} alignItems={'center'} zIndex={10} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
         }}>
-          <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'}>
+          <Stack zIndex={10} alignItems={'center'} sx={{
+            width: '100%',
+            padding: '0 16px',
+          }} justifyContent={'space-between'}>
+            <div>
+              <img src={'/images/home_icon13.svg'} alt={''} height={'240px'}/>
+            </div>
+            <Stack justifyContent={'center'} maxWidth={'600px'} alignItems={'center'} textAlign={'center'}>
+              <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} color={'#1D2129'} sx={{
+                opacity: 0.8
+              }}>
+                <Trans>
+                  ArithFi Token
+                </Trans>
+              </Stack>
+              <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} mt={'8px'} color={'#1D2129'} sx={{
+                opacity: 0.8
+              }}>
+                <Trans>
+                  If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                  trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
+                  during trading. However, if only 10 users are interested in trading this new asset, the profits may not
+                  cover the costs of market making.
+                </Trans>
+              </Stack>
+              <Link to={'/token'}>
+                <Stack direction={'row'} spacing={'12px'} mt={'24px'}
+                       sx={{
+                         backgroundColor: '#F69C00',
+                         height: '48px',
+                         width: '200px',
+                         fontSize: '16px',
+                         fontWeight: '700',
+                         lineHeight: '22px',
+                         borderRadius: '12px',
+                         alignItems: 'center',
+                         justifyContent: 'center',
+                         color: '#030308',
+                         cursor: 'pointer',
+                         '&:hover': {
+                           backgroundColor: '#FFC933',
+                         }
+                       }}>
+                  <div>
+                    <Trans>
+                      GET $ATF
+                    </Trans>
+                  </div>
+                  <img src={'/images/home_icon10.svg'} alt={''}/>
+                </Stack>
+              </Link>
+            </Stack>
+          </Stack>
+          <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'} mt={'100px'}>
             <Trans>
               Advantages of ArithFi
             </Trans>
@@ -226,17 +284,16 @@ const Home = () => {
               Eliminate market makers and LPs in trading
             </Trans>
           </Stack>
-          <Stack direction={'row'} fontSize={'16px'} fontWeight={'700'} gap={'12px'} bgcolor={'#F69C00'} width={'200px'}
-                 onClick={() => {
-                   window.location.href = '/#/futures'
-                 }}
-                 height={'48px'} alignItems={'center'} justifyContent={'center'} borderRadius={'12px'} mt={'12px'}
-                 color={'rgba(3, 3, 8, 1)'}>
-            <Trans>
-              Start Trading
-            </Trans>
-            <img src={'/images/home_icon10.svg'} alt={''}/>
-          </Stack>
+          <Link to={'/futures'}>
+            <Stack direction={'row'} fontSize={'16px'} fontWeight={'700'} gap={'12px'} bgcolor={'#F69C00'} width={'200px'}
+                   height={'48px'} alignItems={'center'} justifyContent={'center'} borderRadius={'12px'} mt={'12px'}
+                   color={'rgba(3, 3, 8, 1)'}>
+              <Trans>
+                Start Trading
+              </Trans>
+              <img src={'/images/home_icon10.svg'} alt={''}/>
+            </Stack>
+          </Link>
         </Stack>
       </Stack>
     )
@@ -275,29 +332,29 @@ const Home = () => {
             ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
-        <Stack sx={{
-          cursor: 'pointer',
-          marginTop: '40px',
-          width: '200px',
-          height: '48px',
-          backgroundColor: '#F69C00',
-          borderRadius: '12px',
-          fontSize: '16px',
-          fontWeight: '700',
-          lineHeight: '22px',
-          zIndex: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-          '&:hover': {
-            backgroundColor: '#FFC933',
-          }
-        }} onClick={() => {
-          window.location.href = '/#/futures'
-        }}>
-          <Trans>
-            Start Trading
-          </Trans>
-        </Stack>
+        <Link to={'/futures'}>
+          <Stack sx={{
+            cursor: 'pointer',
+            marginTop: '40px',
+            width: '200px',
+            height: '48px',
+            backgroundColor: '#F69C00',
+            borderRadius: '12px',
+            fontSize: '16px',
+            fontWeight: '700',
+            lineHeight: '22px',
+            zIndex: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            '&:hover': {
+              backgroundColor: '#FFC933',
+            }
+          }}>
+            <Trans>
+              Start Trading
+            </Trans>
+          </Stack>
+        </Link>
         <Stack zIndex={'20'} position={'relative'} sx={{
           marginTop: '160px',
           maxWidth: '1200px',
@@ -447,6 +504,57 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
+        <Stack zIndex={10} direction={'row'} alignItems={'center'} sx={{
+          marginTop: '120px',
+          height: '500px',
+          width: '100%',
+          maxWidth: '1200px'
+        }} justifyContent={'space-between'}>
+          <div>
+            <img src={'/images/home_icon13.svg'} alt={''} height={'433px'}/>
+          </div>
+          <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'}>
+            <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
+              <Trans>
+                ArithFi Token
+              </Trans>
+            </Stack>
+            <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
+              <Trans>
+                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
+                during trading. However, if only 10 users are interested in trading this new asset, the profits may not
+                cover the costs of market making.
+              </Trans>
+            </Stack>
+            <Link to={'/token'}>
+              <Stack direction={'row'} spacing={'12px'}
+                     sx={{
+                       backgroundColor: '#F69C00',
+                       height: '48px',
+                       width: '200px',
+                       fontSize: '16px',
+                       fontWeight: '700',
+                       lineHeight: '22px',
+                       borderRadius: '12px',
+                       alignItems: 'center',
+                       justifyContent: 'center',
+                       color: '#030308',
+                       cursor: 'pointer',
+                       '&:hover': {
+                         backgroundColor: '#FFC933',
+                       }
+                     }}>
+                <div>
+                  <Trans>
+                    GET $ATF
+                  </Trans>
+                </div>
+                <img src={'/images/home_icon10.svg'} alt={''}/>
+              </Stack>
+            </Link>
+          </Stack>
+        </Stack>
         <Stack color={'#030308'} zIndex={10} sx={{
           marginTop: '120px',
           fontWeight: '700',
@@ -592,11 +700,8 @@ const Home = () => {
                 <img src={'/images/home_icon2.svg'} alt={''}/>
               </Stack>
             </Stack>
-            <Stack>
+            <Link to={'/futures'}>
               <Stack direction={'row'} spacing={'12px'}
-                     onClick={() => {
-                       window.location.href = '/#/futures'
-                     }}
                      sx={{
                        backgroundColor: '#F69C00',
                        height: '48px',
@@ -620,7 +725,7 @@ const Home = () => {
                 </div>
                 <img src={'/images/home_icon10.svg'} alt={''}/>
               </Stack>
-            </Stack>
+            </Link>
           </Stack>
         </Stack>
       </Stack>
