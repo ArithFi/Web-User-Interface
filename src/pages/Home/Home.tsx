@@ -513,7 +513,7 @@ const Home = () => {
           <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'} px={'24px'}>
             <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
               <Trans>
-                ArithFi Token
+                ArithFi Coin
               </Trans>
             </Stack>
             <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
