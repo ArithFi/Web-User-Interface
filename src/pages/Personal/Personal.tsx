@@ -25,7 +25,7 @@ import { SnackBarType } from "../../components/SnackBar/NormalSnackBar";
 import useArithFi from "../../hooks/useArithFi";
 import useWalletIcon from "../../hooks/uswWalletIcon";
 import copy from "copy-to-clipboard";
-import useNESTSnackBar from "../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../hooks/useArithFiSnackBar";
 import { useLocalStorage } from "react-use";
 import {ArithFiTooltipFC} from "../../components/ArithFiTooltip/ArithFiTooltip";
 
@@ -55,7 +55,7 @@ const Personal = () => {
     moneyList,
   } = useAccount();
   const walletIcon = useWalletIcon();
-  const { messageSnackBar } = useNESTSnackBar();
+  const { messageSnackBar } = useArithFiSnackBar();
   const [messagesStr] = useLocalStorage(`nest.messages`, "{}");
 
   const { data: positions } = useSWR(
@@ -103,7 +103,7 @@ const Personal = () => {
     return false;
   }, [moneyList.length, messagesStr, account.address, address]);
 
-  const NESTIcon = useMemo(() => {
+  const ATFIcon = useMemo(() => {
     return "ATF".getToken()!.icon;
   }, []);
 
@@ -362,7 +362,7 @@ const Personal = () => {
                       height: "28px",
                     },
                   })}>
-                    <NESTIcon />
+                    <ATFIcon />
                     <Box>
                       {showBalance}
                     </Box>

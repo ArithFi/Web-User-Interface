@@ -56,7 +56,7 @@ msgstr "＞ PAZAR FİYATI"
 msgid "> OPEN PRICE"
 msgstr "＞ AÇILIŞ FİYATI"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
@@ -146,7 +146,7 @@ msgstr "cüzdanları bağlamak hakkında"
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "Hesap"
 
@@ -213,8 +213,8 @@ msgstr "Diğer Tüccarlarla Uyum Sağlayın"
 msgid "All Traders"
 msgstr "Tüm Tüccarlar"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Miktar"
@@ -277,8 +277,8 @@ msgstr "AUM (ATF)"
 msgid "balance"
 msgstr "bakiye"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid "Balance:"
 msgstr "bakiye"
 
@@ -373,7 +373,7 @@ msgstr "Cüzdanı Bağla"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -485,9 +485,9 @@ msgstr "Özel Kopya İşlem"
 msgid "Daily Return"
 msgstr "Günlük Getiri"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
@@ -495,7 +495,7 @@ msgstr "Kontrol Paneli"
 msgid "Default"
 msgstr "Varsayılan"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Overview/Overview.tsx
@@ -582,11 +582,11 @@ msgstr "Daha fazla ürün genişletin:"
 msgid "Fail"
 msgstr "Başarısız"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Fail Request"
 msgstr "Başarısız İstek"
 
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Faucet"
 msgstr "Musluk"
 
@@ -630,8 +630,8 @@ msgstr "Depozit yapmak için dondurmak"
 msgid "From"
 msgstr "Gönderen"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Vadeli işlemler"
 
@@ -724,7 +724,7 @@ msgstr "Yetersiz ATF bakiyesi"
 msgid "Insufficient balance"
 msgstr "Yetersiz bakiye"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yatırın."
 
@@ -838,8 +838,8 @@ msgstr "Piyasa"
 msgid "Market Price"
 msgstr "Piyasa Fiyatı"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "MAKS"
@@ -1013,7 +1013,7 @@ msgstr "Kişisel"
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 msgstr "Yetkilendirme için Onay'a tıklayın ve ardından pozisyon açabilirsiniz, bu işlem biraz gaz tüketecektir."
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Please complete your sign"
 msgstr "Lütfen işaretinizi tamamlayın"
 
@@ -1259,15 +1259,15 @@ msgstr "Stop-Limit"
 msgid "Success"
 msgstr "Başarı"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
 msgstr "Takas"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Switch network successfully"
 msgstr "Ağ başarıyla değiştirildi"
 
@@ -1317,7 +1317,7 @@ msgstr "Minimum çekim miktarı 15 ATF'den büyük\""
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "Bu tüccarın sinyallerini kopyalamak için yatırdığınız toplam miktar."
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "İşlem başarısız oldu ve miktar tamamen iade edildi. Yeniden işlem yapabilirsiniz."
 

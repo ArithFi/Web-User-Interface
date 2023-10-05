@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import BaseModal from "./BaseModal";
 import Stack from "@mui/material/Stack";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTInputSelect from "../../../components/NormalInput/NESTInputSelect";
+import ArithFiInputSelect from "../../../components/NormalInput/ArithFiInputSelect";
 import TokenAmountButtons from "./TokenAmountButtons";
 import useDepositModal from "../../../hooks/useDepositModal";
 import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
@@ -127,9 +127,9 @@ const DepositModalBase: FC<DepositModalBaseProps> = ({ ...props }) => {
       return <></>;
     }
   }, [selectToken, showGetATF, showPrice]);
-  const inputNestAmount = useCallback(() => {
+  const inputATFAmount = useCallback(() => {
     return (
-      <NESTInputSelect
+      <ArithFiInputSelect
         tokenName={selectToken}
         tokenArray={depositTokens}
         selectToken={(tokenName: string) => {
@@ -172,7 +172,7 @@ const DepositModalBase: FC<DepositModalBaseProps> = ({ ...props }) => {
   return (
     <Stack spacing={"24px"} width={"100%"}>
       <Stack spacing={"16px"}>
-        {inputNestAmount()}
+        {inputATFAmount()}
         {midText}
         <TokenAmountButtons
           nowValue={selectButton ?? 0}

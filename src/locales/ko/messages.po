@@ -56,7 +56,7 @@ msgstr "> 시장 가격"
 msgid "> OPEN PRICE"
 msgstr "> 개장 가격"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
@@ -146,7 +146,7 @@ msgstr "지갑 연결 정보"
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "계정"
 
@@ -213,8 +213,8 @@ msgstr "트레이더와 조율"
 msgid "All Traders"
 msgstr "모든 트레이더"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "수량"
@@ -277,8 +277,8 @@ msgstr "AUM (ATF)"
 msgid "balance"
 msgstr "잔고"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid "Balance:"
 msgstr "잔액:"
 
@@ -373,7 +373,7 @@ msgstr "지갑 연결"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "복사"
 
@@ -485,9 +485,9 @@ msgstr "맞춤 복사 거래"
 msgid "Daily Return"
 msgstr "일일 수익률"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "대시보드"
 
@@ -495,7 +495,7 @@ msgstr "대시보드"
 msgid "Default"
 msgstr "기본값"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Overview/Overview.tsx
@@ -582,11 +582,11 @@ msgstr "더 많은 제품을 확장하세요."
 msgid "Fail"
 msgstr "실패"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Fail Request"
 msgstr "요청 실패"
 
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Faucet"
 msgstr "수도꼭지"
 
@@ -630,8 +630,8 @@ msgstr "입금을 얼리다"
 msgid "From"
 msgstr "교환할 토큰"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "선물"
 
@@ -724,7 +724,7 @@ msgstr "부족한 ATF 잔고"
 msgid "Insufficient balance"
 msgstr "잔액 부족"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
 
@@ -838,8 +838,8 @@ msgstr "시장가"
 msgid "Market Price"
 msgstr "시장 가격"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "최대"
@@ -1013,7 +1013,7 @@ msgstr "개인"
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 msgstr "인증을 위해 승인을 클릭하면 포지션을 열 수 있으며, 이 과정에서 일부 GAS가 소비됩니다."
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Please complete your sign"
 msgstr "서명을 완료하세요."
 
@@ -1257,15 +1257,15 @@ msgstr "예약 지정가"
 msgid "Success"
 msgstr "성공"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
 msgstr "스왑"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Switch network successfully"
 msgstr "네트워크 변경 성공"
 
@@ -1315,7 +1315,7 @@ msgstr "최소 인출 금액은 15 ATF보다 커야 합니다."
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "이 트레이더의 신호를 복사하는 데 투자한 총 금액."
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "트랜잭션이 실패하고 모든 금액이 환불되었습니다. 재거래할 수 있습니다."
 

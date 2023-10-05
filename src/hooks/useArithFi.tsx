@@ -7,7 +7,7 @@ import {
   useNetwork,
   useSwitchNetwork,
 } from "wagmi";
-import { NavItems } from "../pages/Share/Head/NESTHead";
+import { NavItems } from "../pages/Share/Head/ArithFiHead";
 
 export interface signatureData {
   address: string;
@@ -168,5 +168,5 @@ function useArithFi() {
   return ArithFi.useContainer();
 }
 
-export const NESTProvider = ArithFi.Provider;
+export const ArithFiProvider = ArithFi.Provider;
 export default useArithFi;

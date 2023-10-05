@@ -9,7 +9,7 @@ import {useAccount} from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
 import MainButton from "../../../components/MainButton/MainButton";
 import domtoimage from "../../../lib/dom-to-image";
-import useNESTSnackBar from "../../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import copy from "copy-to-clipboard";
 import {parseUnits} from "ethers/lib/utils.js";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -75,7 +75,7 @@ interface ShareNewOrderModalProps {
 
 const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({...props}) => {
   const {address} = useAccount()
-  const {messageSnackBar} = useNESTSnackBar()
+  const {messageSnackBar} = useArithFiSnackBar()
   const myShareRef = useRef(null)
   const [dataUrl, setDataUrl] = useState<string | null>(null)
 

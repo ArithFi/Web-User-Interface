@@ -17,7 +17,7 @@ import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
 import { Trans, t } from "@lingui/macro";
-import NESTInput from "../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../components/NormalInput/ArithFiInput";
 import DepositModal from "../Share/Modal/DepositModal";
 import SignModal from "../Share/Modal/SignModal";
 
@@ -89,9 +89,9 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </p>,
     ];
   }, []);
-  const inputNestAmount = useCallback(() => {
+  const inputATFAmount = useCallback(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={!(!checkBalance || checkMinNEST)}
         showToSwap={!checkBalance}
         showBalance={showBalance}
@@ -414,7 +414,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           </Stack>
         )}
         <Stack spacing={"8px"} width={"100%"}>
-          {inputNestAmount()}
+          {inputATFAmount()}
           {showAmountError ? <ErrorLabel title={showAmountError} /> : <></>}
         </Stack>
 

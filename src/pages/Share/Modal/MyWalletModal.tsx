@@ -6,7 +6,7 @@ import { Copy, Fail, NEXT, Success } from "../../../components/icons";
 import useArithFi from "../../../hooks/useArithFi";
 import LinkButton from "../../../components/MainButton/LinkButton";
 import Box from "@mui/material/Box";
-import useNESTSnackBar from "../../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWalletIcon from "../../../hooks/uswWalletIcon";
 import copy from "copy-to-clipboard";
 import { Trans, t } from "@lingui/macro";
@@ -98,7 +98,7 @@ interface MyWalletModalProps {
 
 const MyWalletModal: FC<MyWalletModalProps> = ({ ...props }) => {
   const { account, disconnect, chainsData } = useArithFi();
-  const { messageSnackBar } = useNESTSnackBar();
+  const { messageSnackBar } = useArithFiSnackBar();
   const walletIcon = useWalletIcon();
   const transactionsData: Array<any> = useMemo(() => {
     var cache = localStorage.getItem(

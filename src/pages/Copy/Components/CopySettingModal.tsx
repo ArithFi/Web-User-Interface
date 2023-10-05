@@ -7,7 +7,7 @@ import { Trans, t } from "@lingui/macro";
 import Modal from "@mui/material/Modal";
 import BaseModal from "../../Share/Modal/BaseModal";
 import Stack from "@mui/material/Stack";
-import NESTInput from "../../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../../components/NormalInput/ArithFiInput";
 import TokenAmountButtons from "../../Share/Modal/TokenAmountButtons";
 import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import ArithFiLine from "../../../components/ArithFiLine";
@@ -44,9 +44,9 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
     errorLabel2,
   } = useCopySettingModal(props.address, props.onClose);
 
-  const inputNestAmount = useMemo(() => {
+  const inputATFAmount = useMemo(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={errorLabel1 === undefined}
         showToSwap={false}
         showBalance={
@@ -125,7 +125,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
             </Stack>
           </Stack>
 
-          {inputNestAmount}
+          {inputATFAmount}
           {errorLabel1 ? <ErrorLabel title={errorLabel1} /> : <></>}
           <TokenAmountButtons
             nowValue={selectButton ?? 0}

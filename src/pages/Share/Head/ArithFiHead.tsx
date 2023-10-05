@@ -78,7 +78,7 @@ export const NavItemsForScroll = [
   },
 ];
 
-const NESTHead: FC = () => {
+const ArithFiHead: FC = () => {
   const location = useLocation();
   const { width: widthLv, headHeight, isBigMobile, isPC } = useWindowWidth();
   const { nowTheme, changeTheme } = useTheme();
@@ -112,7 +112,7 @@ const NESTHead: FC = () => {
     }
   }, [account.address, chainsData, location]);
 
-  const NESTHeadStack = styled(Stack)(({ theme }) => ({
+  const ArithFiHeadStack = styled(Stack)(({ theme }) => ({
     background: theme.normal.bg0,
     borderBottom: `1px solid ${theme.normal.border}`,
     boxSizing: "content-box",
@@ -303,7 +303,7 @@ const NESTHead: FC = () => {
   }, [widthLv]);
 
   return (
-    <NESTHeadStack
+    <ArithFiHeadStack
       direction="row"
       justifyContent="space-between"
       alignItems="center"
@@ -375,8 +375,8 @@ const NESTHead: FC = () => {
           {navMenu}
         </Stack>
       </Stack>
-    </NESTHeadStack>
+    </ArithFiHeadStack>
   );
 };
 
-export default NESTHead;
+export default ArithFiHead;

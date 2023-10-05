@@ -6,7 +6,7 @@ import { FC, useMemo, useState } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
 import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
-import NESTInput from "../../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../../components/NormalInput/ArithFiInput";
 import useFuturesAdd from "../../../hooks/useFuturesAdd";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import BaseDrawer from "../../Share/Modal/BaseDrawer";
@@ -41,7 +41,7 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
   const [showDeposit, setShowDeposit] = useState(false);
   const input = useMemo(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={checkBalance}
         showToSwap={showToSwap}
         showBalance={showBalance}

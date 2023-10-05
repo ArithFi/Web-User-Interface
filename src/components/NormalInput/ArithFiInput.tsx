@@ -8,7 +8,7 @@ import ArithFiLine from "../ArithFiLine";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
 
-interface NESTInputProps {
+interface ArithFiInputProps {
   checkBalance: boolean;
   showToSwap: boolean;
   showBalance: string;
@@ -20,7 +20,7 @@ interface NESTInputProps {
   style?: React.CSSProperties;
 }
 
-const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
+const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
   const { account, checkSigned } = useArithFi();
   const noNESTText = useMemo(() => {
     if (checkSigned) {
@@ -169,4 +169,4 @@ const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
   );
 };
 
-export default NESTInput;
+export default ArithFiInput;

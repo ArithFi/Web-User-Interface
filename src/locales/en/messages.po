@@ -56,7 +56,7 @@ msgstr "> MARKET PRICE"
 msgid "> OPEN PRICE"
 msgstr "> OPEN PRICE"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
@@ -146,7 +146,7 @@ msgstr "about connecting wallets"
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "Account"
 
@@ -213,8 +213,8 @@ msgstr "Align With Traders"
 msgid "All Traders"
 msgstr "All Traders"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Amount"
@@ -277,8 +277,8 @@ msgstr "AUM(ATF)"
 msgid "balance"
 msgstr "balance"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid "Balance:"
 msgstr "Balance:"
 
@@ -373,7 +373,7 @@ msgstr "Connect Wallet"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "Copy"
 
@@ -485,9 +485,9 @@ msgstr "Custom Copy Trading"
 msgid "Daily Return"
 msgstr "Daily Return"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -495,7 +495,7 @@ msgstr "Dashboard"
 msgid "Default"
 msgstr "Default"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Overview/Overview.tsx
@@ -582,11 +582,11 @@ msgstr "Expand more products:"
 msgid "Fail"
 msgstr "Fail"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Fail Request"
 msgstr "Fail Request"
 
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -630,8 +630,8 @@ msgstr "Freeze to Deposit"
 msgid "From"
 msgstr "From"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futures"
 
@@ -724,7 +724,7 @@ msgstr "Insufficient ATF balance"
 msgid "Insufficient balance"
 msgstr "Insufficient balance"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Insufficient balance. Please deposit to start the lightning trade."
 
@@ -838,8 +838,8 @@ msgstr "Market"
 msgid "Market Price"
 msgstr "Market Price"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "MAX"
@@ -1013,7 +1013,7 @@ msgstr "Personal"
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 msgstr "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Please complete your sign"
 msgstr "Please complete your sign"
 
@@ -1257,15 +1257,15 @@ msgstr "Stop-Limit"
 msgid "Success"
 msgstr "Success"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
 msgstr "Swap"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Switch network successfully"
 msgstr "Switch network successfully"
 
@@ -1315,7 +1315,7 @@ msgstr "The minimum withdrawal amount greater than 15 ATF"
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "The total amount you invested in copying this trader’s signals."
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "The transaction failed and the amount has been fully refunded. You can re-trade"
 

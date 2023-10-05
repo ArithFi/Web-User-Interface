@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import { Link, useLocation } from "react-router-dom";
 import { Close, MobileListIcon, NEXT } from "../../../components/icons";
 import ArithFiLine from "../../../components/ArithFiLine";
-import { FootAList, NESTFootStack } from "../Foot/NESTFoot";
+import { FootAList, ArithFiFootStack } from "../Foot/ArithFiFoot";
 import Box from "@mui/material/Box";
 import { MobileListButton } from "./NavMenu";
 import Menu from "@mui/material/Menu";
@@ -165,7 +165,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
       </Stack>
     );
   });
-  const NESTFootStackSmall = styled(NESTFootStack)(({ theme }) => {
+  const ArithFiFootStackSmall = styled(ArithFiFootStack)(({ theme }) => {
     return {
       border: 0,
       height: 32,
@@ -374,7 +374,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
         )}
       </Box>
 
-      <NESTFootStackSmall
+      <ArithFiFootStackSmall
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -382,7 +382,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
         style={{ marginTop: "24px" }}
       >
         {FootAList.slice(0, 3)}
-      </NESTFootStackSmall>
+      </ArithFiFootStackSmall>
     </Stack>
   );
 };

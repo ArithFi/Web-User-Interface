@@ -12,7 +12,7 @@ import SelectListMenu from "../SelectListMemu/SelectListMenu";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
 
-interface NESTInputSelectProps {
+interface ArithFiInputSelectProps {
   tokenName: string;
   tokenArray: string[];
   selectToken: (tokenName: string) => void;
@@ -27,7 +27,7 @@ interface NESTInputSelectProps {
   style?: React.CSSProperties;
 }
 
-const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
+const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
   const { account } = useArithFi();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: any) => {
@@ -246,4 +246,4 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
   );
 };
 
-export default NESTInputSelect;
+export default ArithFiInputSelect;

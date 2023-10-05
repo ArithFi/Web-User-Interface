@@ -1,7 +1,7 @@
 import { FC, Suspense, lazy, useCallback, useEffect, useMemo } from "react";
 import Stack from "@mui/material/Stack";
-import NESTHead from "./Share/Head/NESTHead";
-import NESTFoot from "./Share/Foot/NESTFoot";
+import ArithFiHead from "./Share/Head/ArithFiHead";
+import ArithFiFoot from "./Share/Foot/ArithFiFoot";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import useWindowWidth from "../hooks/useWindowWidth";
@@ -103,7 +103,7 @@ const App: FC = () => {
   return (
     <Stack spacing={0}>
       <HashRouter>
-        <NESTHead />
+        <ArithFiHead />
         <MainContent>
           <Suspense fallback={<></>}>
             <Routes>
@@ -133,7 +133,7 @@ const App: FC = () => {
 
           {/* <TestTheme /> */}
         </MainContent>
-        <NESTFoot />
+        <ArithFiFoot />
       </HashRouter>
     </Stack>
   );

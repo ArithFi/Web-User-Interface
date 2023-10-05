@@ -7,7 +7,7 @@ import useReadTokenBalance, {
 } from "../contracts/Read/useReadTokenContract";
 import useArithFi from "./useArithFi";
 import useReadSwapAmountOut from "../contracts/Read/useReadSwapContract";
-import { NESTRedeemContract, SwapContract } from "../contracts/contractAddress";
+import { SwapContract } from "../contracts/contractAddress";
 import useTokenApprove from "../contracts/useTokenContract";
 import useSwapExactTokensForTokens from "../contracts/useSwapContract";
 import {
@@ -26,18 +26,11 @@ const SWAP_UPDATE = 30;
 function useSwap() {
   const { chainsData, account, setShowConnect } = useArithFi();
   const swapTokenOfChain = useCallback(() => {
-    if (chainsData.chainId === 1) {
-      return {
-        src: "NHBTC",
-        dest: "ATF",
-      };
-    } else {
-      return {
-        src: "USDT",
-        dest: "ATF",
-      };
-    }
-  }, [chainsData.chainId]);
+    return {
+      src: "USDT",
+      dest: "ATF",
+    };
+  }, []);
   const [swapToken, setSwapToken] = useState<SwapToken>(swapTokenOfChain());
   const [slippage, setSlippage] = useState<number>(0.1);
   const [inputAmount, setInputAmount] = useState<string>("");
@@ -45,12 +38,8 @@ function useSwap() {
   const [samePrice, setSamePrice] = useState<boolean>(true);
   const { isPendingType } = usePendingTransactions();
   const tokenArray = useMemo(() => {
-    if (chainsData.chainId === 1 || chainsData.chainId === 5) {
-      return ["NHBTC"];
-    } else if (chainsData.chainId === 56 || chainsData.chainId === 97) {
-      return ["USDT", "ATF"];
-    }
-  }, [chainsData.chainId]);
+    return ["USDT", "ATF"];
+  }, []);
   useEffect(() => {
     setSwapToken(swapTokenOfChain());
   }, [swapTokenOfChain]);
@@ -58,18 +47,14 @@ function useSwap() {
    * swap contract
    */
   const swapContract = useMemo(() => {
-    if (chainsData.chainId && swapToken.src === "NHBTC") {
-      return NESTRedeemContract[chainsData.chainId];
-    } else if (chainsData.chainId) {
+    if (chainsData.chainId) {
       return SwapContract[chainsData.chainId];
     } else {
       return undefined;
     }
-  }, [chainsData.chainId, swapToken.src]);
+  }, [chainsData.chainId]);
   const swapPath = useMemo(() => {
-    if (swapToken.src === "NHBTC") {
-      return ["NHBTC", "ATF"];
-    } else if (swapToken.src === "USDT") {
+    if (swapToken.src === "USDT") {
       return ["USDT", "ATF"];
     } else if (swapToken.src === "ATF") {
       return ["ATF", "USDT"];
@@ -273,9 +258,6 @@ function useSwap() {
       return String().placeHolder;
     }
   }, [destBalance, swapToken.dest, chainsData.chainId]);
-  const hideSetting = useMemo(() => {
-    return swapToken.src === "NHBTC";
-  }, [swapToken.src]);
   /**
    * check
    */
@@ -373,9 +355,6 @@ function useSwap() {
    * exchange button
    */
   const exchangeButton = useCallback(() => {
-    if (swapToken.src === "NHBTC") {
-      return;
-    }
     const newSwapToken = { ...swapToken };
     newSwapToken.src = swapToken.dest;
     newSwapToken.dest = swapToken.src;
@@ -392,8 +371,6 @@ function useSwap() {
         setSwapToken({ src: tokenName, dest: "ATF" });
       } else if (tokenName === "ATF") {
         setSwapToken({ src: tokenName, dest: "USDT" });
-      } else if (tokenName === "NHBTC") {
-        setSwapToken({ src: tokenName, dest: "ATF" });
       }
       setInputAmount("");
       setSamePrice(true);
@@ -459,7 +436,6 @@ function useSwap() {
     mainButtonLoading,
     tokenArray,
     selectToken,
-    hideSetting,
   };
 }
 

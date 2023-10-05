@@ -11,7 +11,7 @@ import useTheme from "../../hooks/useTheme";
 import { SnackBarType } from "../../components/SnackBar/NormalSnackBar";
 import { BigNumber } from "ethers";
 import useTokenApprove from "../../contracts/useTokenContract";
-import useTransactionSnackBar from "../../hooks/useNESTSnackBar";
+import useTransactionSnackBar from "../../hooks/useArithFiSnackBar";
 
 const ThemeButton2 = styled(ButtonUnstyled)(({ theme }) => ({
   backgroundColor: theme.normal.primary,

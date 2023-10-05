@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import BaseModal from "./BaseModal";
 import Stack from "@mui/material/Stack";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTInput from "../../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../../components/NormalInput/ArithFiInput";
 import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
 import TokenAmountButtons from "./TokenAmountButtons";
 import useWithDrawModal from "../../../hooks/useWithDrawModal";
@@ -35,9 +35,9 @@ const WithDrawModalBase: FC<WithDrawModalBaseProps> = ({ ...props }) => {
     errorLabel
   } = useWithDrawModal(props.onClose);
 
-  const inputNestAmount = useMemo(() => {
+  const inputATFAmount = useMemo(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={!isError}
         showToSwap={false}
         showBalance={showBalance}
@@ -62,7 +62,7 @@ const WithDrawModalBase: FC<WithDrawModalBaseProps> = ({ ...props }) => {
   return (
     <Stack spacing={"24px"} width={"100%"}>
       <Stack spacing={"16px"}>
-        {inputNestAmount}
+        {inputATFAmount}
         {isError ? (
           <ErrorLabel title={errorLabel} />
         ) : (

@@ -7,7 +7,6 @@ import {
   ETHTokenLogo,
   MATICTokenLogo,
   ATFLogo,
-  NHBTCTokenLogo,
   USDTLogo,
   XRPTokenLogo,
 } from "../components/icons";
@@ -71,13 +70,6 @@ export const WBNBToken: AddressType = {
   97: "0x0302E130B79A2220725eDFe0B9315b6290Ed7D1D",
 };
 
-export const NHBTCToken: AddressType = {
-  1: "0x1F832091fAf289Ed4f50FE7418cFbD2611225d46",
-  5: String().zeroAddress,
-  56: String().zeroAddress,
-  97: "0xDda3801487a8Bb5ec19dD1E3510b6340BA435863",
-};
-
 export const SwapContract: AddressType = {
   1: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
   5: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
@@ -90,13 +82,6 @@ export const FuturesV2Contract: AddressType = {
   5: String().zeroAddress,
   56: "0x02904e03937E6a36D475025212859f1956BeC3f0",
   97: "0x476981D37FaA3bE8E8768E8E7d0d01625433126a",
-};
-
-export const NESTRedeemContract: AddressType = {
-  1: "0xaf22d05095d09cb6cb4f18cb7aefd94cb39eb113",
-  5: String().zeroAddress,
-  56: String().zeroAddress,
-  97: "0x6E9c1edACe6Fc03f9666769f09D557b1383f7F57",
 };
 export const ATFService: AddressType = {
   1: "0xb5C9A6df1B4C525D629b85c5979f93cFc8D02Df4",
@@ -159,13 +144,6 @@ export const TokenList: Array<TokenType> = [
     icon: USDTLogo,
     decimals: USDTDecimals,
     address: USDTToken,
-    priceDecimals: 2,
-  },
-  {
-    symbol: "NHBTC",
-    icon: NHBTCTokenLogo,
-    decimals: All18,
-    address: NHBTCToken,
     priceDecimals: 2,
   },
   {
