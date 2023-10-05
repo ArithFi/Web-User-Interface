@@ -28,8 +28,8 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
     showToSwap,
     showBalance,
     maxCallBack,
-    nestAmount,
-    setNestAmount,
+    arithFiAmount,
+    setArithFiAmount,
     showPosition,
     showOpenPrice,
     showLiqPrice,
@@ -46,9 +46,9 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
         showToSwap={showToSwap}
         showBalance={showBalance}
         maxCallBack={maxCallBack}
-        nestAmount={nestAmount}
-        changeNestAmount={(value: string) =>
-          setNestAmount(value.formatInputNum4())
+        arithFiAmount={arithFiAmount}
+        changeArithFiAmount={(value: string) =>
+          setArithFiAmount(value.formatInputNum4())
         }
         otherCallBack={() => setShowDeposit(true)}
       />
@@ -56,8 +56,8 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
   }, [
     checkBalance,
     maxCallBack,
-    nestAmount,
-    setNestAmount,
+    arithFiAmount,
+    setArithFiAmount,
     showBalance,
     showToSwap,
   ]);

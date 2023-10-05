@@ -20,8 +20,8 @@ interface ArithFiInputSelectProps {
   showToSwap: boolean;
   showBalance: string;
   maxCallBack: () => void;
-  nestAmount: string;
-  changeNestAmount: (value: string) => void;
+  arithFiAmount: string;
+  changeArithFiAmount: (value: string) => void;
   balanceTitle?: string;
   isShare?: boolean;
   style?: React.CSSProperties;
@@ -69,7 +69,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
         );
       });
   }, [props]);
-  const noNESTText = useMemo(() => {
+  const noATFText = useMemo(() => {
     return t`0 balance. Before trading, you can switch to "Swap" to exchange
       between USDT and ATF token.`;
   }, []);
@@ -110,7 +110,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
           })}
           alignItems={"center"}
         >
-          <Link to={swapLink}>{noNESTText}</Link>
+          <Link to={swapLink}>{noATFText}</Link>
           <Link to={swapLink}>
             <NEXT />
           </Link>
@@ -118,7 +118,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
       );
     }
     return <></>;
-  }, [noNESTText, props.showToSwap, swapLink]);
+  }, [noATFText, props.showToSwap, swapLink]);
   return (
     <Stack
       justifyContent={"flex-start"}
@@ -159,10 +159,10 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
           })}
           component={"input"}
           placeholder={t`Amount`}
-          value={props.nestAmount}
+          value={props.arithFiAmount}
           maxLength={32}
           onChange={(e) =>
-            props.changeNestAmount(e.target.value.formatInputNum())
+            props.changeArithFiAmount(e.target.value.formatInputNum())
           }
         />
         <SelectToken

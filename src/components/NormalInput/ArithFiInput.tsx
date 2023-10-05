@@ -13,8 +13,8 @@ interface ArithFiInputProps {
   showToSwap: boolean;
   showBalance: string;
   maxCallBack: () => void;
-  nestAmount: string;
-  changeNestAmount: (value: string) => void;
+  arithFiAmount: string;
+  changeArithFiAmount: (value: string) => void;
   otherCallBack: () => void;
   hideSwapTitle?: boolean;
   style?: React.CSSProperties;
@@ -22,7 +22,7 @@ interface ArithFiInputProps {
 
 const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
   const { account, checkSigned } = useArithFi();
-  const noNESTText = useMemo(() => {
+  const noATFText = useMemo(() => {
     if (checkSigned) {
       return t`Insufficient balance. Please deposit to start the lightning trade.`;
     } else {
@@ -70,10 +70,10 @@ const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
           })}
           component={"input"}
           placeholder={t`Amount`}
-          value={props.nestAmount}
+          value={props.arithFiAmount}
           maxLength={32}
           onChange={(e) =>
-            props.changeNestAmount(e.target.value.formatInputNum())
+            props.changeArithFiAmount(e.target.value.formatInputNum())
           }
         />
         <OneTokenIN tokenName={"ATF"} height={24} />
@@ -159,7 +159,7 @@ const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
           component={"button"}
           onClick={props.otherCallBack}
         >
-          <Box textAlign={"left"}>{noNESTText}</Box>
+          <Box textAlign={"left"}>{noATFText}</Box>
           <NEXT />
         </Stack>
       ) : (

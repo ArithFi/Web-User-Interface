@@ -15,7 +15,7 @@ function useFuturesAdd(
   onClose: (res?: boolean) => void
 ) {
   const { account, chainsData, signature } = useArithFi();
-  const [nestAmount, setNestAmount] = useState("");
+  const [arithFiAmount, setArithFiAmount] = useState("");
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();
   const [loading, setLoading] = useState<boolean>(false);
@@ -36,22 +36,22 @@ function useFuturesAdd(
    */
   const checkBalance = useMemo(() => {
     if (tokenBalance) {
-      const nestAmountNumber =
-        nestAmount === ""
+      const arithFiAmountNumber =
+        arithFiAmount === ""
           ? BigNumber.from("0")
-          : nestAmount.stringToBigNumber(18)!;
-      return nestAmountNumber.lte(tokenBalance);
+          : arithFiAmount.stringToBigNumber(18)!;
+      return arithFiAmountNumber.lte(tokenBalance);
     } else {
       return false;
     }
-  }, [nestAmount, tokenBalance]);
+  }, [arithFiAmount, tokenBalance]);
   /**
    * action
    */
   const add = useCallback(async () => {
     if (chainsData.chainId && signature) {
       const addBase: { [key: string]: any } = await serviceAdd(
-        nestAmount,
+        arithFiAmount,
         chainsData.chainId,
         data.id.toString(),
         { Authorization: signature.signature }
@@ -62,11 +62,11 @@ function useFuturesAdd(
       onClose(Number(addBase["errorCode"]) === 0);
     }
     setLoading(false);
-  }, [chainsData.chainId, data.id, getBalance, nestAmount, onClose, signature]);
+  }, [chainsData.chainId, data.id, getBalance, arithFiAmount, onClose, signature]);
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
-      setNestAmount(tokenBalance.bigNumberToShowString(18, 2));
+      setArithFiAmount(tokenBalance.bigNumberToShowString(18, 2));
     }
   }, [tokenBalance]);
   /**
@@ -109,9 +109,9 @@ function useFuturesAdd(
         data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
         balance,
-        nestAmount === ""
+        arithFiAmount === ""
           ? BigNumber.from("0")
-          : nestAmount.stringToBigNumber(4)!,
+          : arithFiAmount.stringToBigNumber(4)!,
         BigNumber.from(data.leverage.toString()),
         price[tokenPair],
         orderPrice,
@@ -126,7 +126,7 @@ function useFuturesAdd(
     data.direction,
     data.leverage,
     data.orderPrice,
-    nestAmount,
+    arithFiAmount,
     price,
     tokenPair,
   ]);
@@ -147,13 +147,13 @@ function useFuturesAdd(
     if (
       !account.address ||
       BigNumber.from("0").eq(
-        nestAmount.stringToBigNumber(4) ?? BigNumber.from("0")
+        arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0")
       )
     ) {
       return true;
     }
     return !checkBalance;
-  }, [account.address, checkBalance, nestAmount]);
+  }, [account.address, checkBalance, arithFiAmount]);
   const mainButtonAction = useCallback(() => {
     if (mainButtonLoading || !checkBalance || mainButtonDis) {
       return;
@@ -179,8 +179,8 @@ function useFuturesAdd(
     showToSwap,
     showBalance,
     maxCallBack,
-    nestAmount,
-    setNestAmount,
+    arithFiAmount,
+    setArithFiAmount,
     showPosition,
     showOpenPrice,
     showLiqPrice,

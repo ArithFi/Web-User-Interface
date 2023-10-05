@@ -25,14 +25,14 @@ function useFuturesClose(
   }, [data.product]);
 
   const closePrice = useMemo(() => {
-    const nestBigNumber = data.balance.toString().stringToBigNumber(18);
+    const atfBigNumber = data.balance.toString().stringToBigNumber(18);
     const orderPrice = data.orderPrice.toString().stringToBigNumber(18);
     const token = tokenPair;
-    if (price && nestBigNumber && orderPrice) {
+    if (price && atfBigNumber && orderPrice) {
       const nowPrice = price[token];
-      if (nestBigNumber.gte("100000".stringToBigNumber(18)!)) {
+      if (atfBigNumber.gte("100000".stringToBigNumber(18)!)) {
         const cc_top = BigNumber.from("55560000")
-          .mul(nestBigNumber)
+          .mul(atfBigNumber)
           .mul(BigNumber.from(data.leverage.toString()))
           .mul(nowPrice)
           .add(

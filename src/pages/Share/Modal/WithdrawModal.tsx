@@ -42,9 +42,9 @@ const WithDrawModalBase: FC<WithDrawModalBaseProps> = ({ ...props }) => {
         showToSwap={false}
         showBalance={showBalance}
         maxCallBack={maxCallBack}
-        nestAmount={tokenAmount}
+        arithFiAmount={tokenAmount}
         hideSwapTitle={true}
-        changeNestAmount={(value: string) => {
+        changeArithFiAmount={(value: string) => {
           setTokenAmount(value.formatInputNum4());
           setSelectButton(0);
         }}

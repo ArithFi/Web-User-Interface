@@ -55,7 +55,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     mainButtonDis,
     mainButtonAction,
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
@@ -92,12 +92,12 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
   const inputATFAmount = useCallback(() => {
     return (
       <ArithFiInput
-        checkBalance={!(!checkBalance || checkMinNEST)}
+        checkBalance={!(!checkBalance || checkMinATF)}
         showToSwap={!checkBalance}
         showBalance={showBalance}
         maxCallBack={maxCallBack}
-        nestAmount={inputAmount}
-        changeNestAmount={(value: string) => {
+        arithFiAmount={inputAmount}
+        changeArithFiAmount={(value: string) => {
           setInputAmount(value.formatInputNum4());
           closeShareLink();
         }}
@@ -112,7 +112,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     );
   }, [
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     closeShareLink,
     inputAmount,
     maxCallBack,

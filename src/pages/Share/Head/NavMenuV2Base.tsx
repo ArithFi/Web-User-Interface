@@ -289,7 +289,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://nestprotocol.org/doc/ennestwhitepaper.pdf");
+            window.open();
           }}
         >
           <p>

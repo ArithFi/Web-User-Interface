@@ -19,7 +19,7 @@ const MainProvider: FC<ProviderProps> = ({ children }) => {
   return (
     <LanguageProvider>
       <SetThemeProvider>
-        <NESTThemeProvider>
+        <ArithFiThemeProvider>
           <WalletProvider>
             <ArithFiProvider>
               <SnackbarProvider maxSnack={10}>
@@ -30,7 +30,7 @@ const MainProvider: FC<ProviderProps> = ({ children }) => {
               </SnackbarProvider>
             </ArithFiProvider>
           </WalletProvider>
-        </NESTThemeProvider>
+        </ArithFiThemeProvider>
       </SetThemeProvider>
     </LanguageProvider>
   );
@@ -52,7 +52,7 @@ const ConnectWallet: FC = () => {
   );
 };
 
-const NESTThemeProvider: FC<ProviderProps> = ({ children }) => {
+const ArithFiThemeProvider: FC<ProviderProps> = ({ children }) => {
   const { nowTheme } = useTheme();
   return <ThemeProvider theme={nowTheme}>{children}</ThemeProvider>;
 };

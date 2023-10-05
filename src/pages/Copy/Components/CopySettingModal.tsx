@@ -53,9 +53,9 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
           tokenBalance ? tokenBalance.floor(2) : String().placeHolder
         }
         maxCallBack={maxCallBack}
-        nestAmount={copyAccountBalance}
+        arithFiAmount={copyAccountBalance}
         hideSwapTitle={true}
-        changeNestAmount={(value: string) => {
+        changeArithFiAmount={(value: string) => {
           setCopyAccountBalance(value.formatInputNum4());
           setSelectButton(0);
         }}

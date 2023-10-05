@@ -67,7 +67,7 @@ const FuturesMoreInfo: FC = () => {
           width={"100%"}
           component={"button"}
           onClick={() => {
-            window.open("https://nestprotocol.org/doc/ennestwhitepaper.pdf");
+            window.open();
           }}
           sx={(theme) => ({
             paddingX: "20px",

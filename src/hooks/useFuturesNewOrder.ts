@@ -58,7 +58,7 @@ function useFuturesNewOrder(
   const { account, chainsData, setShowConnect, signature } = useArithFi();
   const [longOrShort, setLongOrShort] = useState(true);
   const [tabsValue, setTabsValue] = useState(0);
-  const [nestAmount, setNestAmount] = useState("");
+  const [arithFiAmount, setArithFiAmount] = useState("");
   const [lever, setLever] = useState(1);
   const [limitAmount, setLimitAmount] = useState("");
   const [isStop, setIsStop] = useState(false);
@@ -87,12 +87,12 @@ function useFuturesNewOrder(
     }
   }, [price, tokenPair]);
   const openPrice = useMemo(() => {
-    const nestBigNumber = nestAmount.stringToBigNumber(18);
-    if (openPriceBase && nestBigNumber) {
+    const atfBigNumber = arithFiAmount.stringToBigNumber(18);
+    if (openPriceBase && atfBigNumber) {
       const nowPrice = openPriceBase;
-      if (parseFloat(nestAmount) * lever >= 0) {
+      if (parseFloat(arithFiAmount) * lever >= 0) {
         const c0_top = BigNumber.from("55560000")
-          .mul(nestBigNumber)
+          .mul(atfBigNumber)
           .mul(BigNumber.from(lever.toString()))
           .add(
             BigNumber.from("444400000000000").mul(BigNumber.from("10").pow(18))
@@ -112,7 +112,7 @@ function useFuturesNewOrder(
     } else {
       return undefined;
     }
-  }, [lever, longOrShort, nestAmount, openPriceBase]);
+  }, [lever, longOrShort, arithFiAmount, openPriceBase]);
   /**
    * uniswap out amount
    */
@@ -125,7 +125,7 @@ function useFuturesNewOrder(
     [lever]
   );
   useEffect(() => {
-    setNestAmount(inputAmount);
+    setArithFiAmount(inputAmount);
   }, [inputAmount]);
 
   /**
@@ -148,16 +148,16 @@ function useFuturesNewOrder(
   }, [service_balance]);
 
   const fee = useMemo(() => {
-    if (nestAmount === "") {
+    if (arithFiAmount === "") {
       return BigNumber.from("0");
     }
-    const baseFee = nestAmount
+    const baseFee = arithFiAmount
       .stringToBigNumber(18)!
       .mul(BigNumber.from(lever.toString()))
       .mul(BigNumber.from("5"))
       .div(BigNumber.from("10000"));
     return baseFee;
-  }, [lever, nestAmount]);
+  }, [lever, arithFiAmount]);
   /**
    * check
    */
@@ -241,21 +241,21 @@ function useFuturesNewOrder(
     updateList,
   ]);
   const showTotalPay = useMemo(() => {
-    if (nestAmount !== "") {
+    if (arithFiAmount !== "") {
       return fee
-        .add(nestAmount.stringToBigNumber(18)!)
+        .add(arithFiAmount.stringToBigNumber(18)!)
         .bigNumberToShowString(18, 2);
     }
     return fee.bigNumberToShowString(18, 2);
-  }, [fee, nestAmount]);
+  }, [fee, arithFiAmount]);
   /**
    * main button
    */
-  const checkMinNEST = useMemo(() => {
-    return (nestAmount.stringToBigNumber(4) ?? BigNumber.from("0")).lt(
+  const checkMinATF = useMemo(() => {
+    return (arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0")).lt(
       MIN_NEST_BIG_NUMBER
     );
-  }, [nestAmount]);
+  }, [arithFiAmount]);
   const tpError = useMemo(() => {
     if (
       tp !== "" &&
@@ -294,13 +294,13 @@ function useFuturesNewOrder(
   const mainButtonDis = useMemo(() => {
     if (!account.address) {
       return false;
-    } else if (checkMinNEST) {
+    } else if (checkMinATF) {
       return true;
     } else if (stopDis) {
       return true;
     } else if (
       tabsValue === 1 &&
-      (checkMinNEST ||
+      (checkMinATF ||
         (limitAmount.stringToBigNumber(18) ?? BigNumber.from("0")).eq(
           BigNumber.from("0")
         ))
@@ -311,7 +311,7 @@ function useFuturesNewOrder(
   }, [
     account.address,
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     limitAmount,
     stopDis,
     tabsValue,
@@ -461,12 +461,12 @@ function useFuturesNewOrder(
     return fee.bigNumberToShowString(18, 2);
   }, [fee]);
   const showLiqPrice = useMemo(() => {
-    if (!openPrice || nestAmount === "" || nestAmount === "0") {
+    if (!openPrice || arithFiAmount === "" || arithFiAmount === "0") {
       return String().placeHolder;
     }
     const nowPrice = openPrice;
     const result = lipPrice(
-      nestAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
+      arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
       BigNumber.from("0"),
       BigNumber.from(lever.toString()),
       nowPrice,
@@ -477,7 +477,7 @@ function useFuturesNewOrder(
       result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
       String().placeHolder
     );
-  }, [lever, longOrShort, nestAmount, openPrice, tokenPair]);
+  }, [lever, longOrShort, arithFiAmount, openPrice, tokenPair]);
   const showFeeHoverText = useMemo(() => {
     if (tabsValue === 0 && !isStop) {
       return [t`Position fee = Position * 0.05%`];
@@ -490,22 +490,22 @@ function useFuturesNewOrder(
     }
   }, [isStop, tabsValue]);
   const showPositions = useMemo(() => {
-    const nestAmountNumber = nestAmount.stringToBigNumber(18);
-    if (nestAmountNumber && nestAmountNumber.gte(BigNumber.from("0"))) {
-      return nestAmountNumber.mul(lever).bigNumberToShowString(18, 2);
+    const arithFiAmountNumber = arithFiAmount.stringToBigNumber(18);
+    if (arithFiAmountNumber && arithFiAmountNumber.gte(BigNumber.from("0"))) {
+      return arithFiAmountNumber.mul(lever).bigNumberToShowString(18, 2);
     } else {
       return String().placeHolder;
     }
-  }, [lever, nestAmount]);
+  }, [lever, arithFiAmount]);
   const showAmountError = useMemo(() => {
-    if (checkMinNEST) {
+    if (checkMinATF) {
       return t`Minimum 50 ATF`;
     } else if (!checkBalance) {
       return t`Insufficient ATF balance`;
     } else {
       return undefined;
     }
-  }, [checkBalance, checkMinNEST]);
+  }, [checkBalance, checkMinATF]);
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
@@ -609,7 +609,7 @@ function useFuturesNewOrder(
     mainButtonDis,
     mainButtonAction,
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
