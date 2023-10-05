@@ -33,13 +33,15 @@ const Home = () => {
                  color={'rgba(249, 249, 249, 1)'}>
             <Trans>ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.</Trans>
           </Stack>
-          <Link to={'/futures'}>
-            <Stack zIndex={10} height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
-                   justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
-                   lineHeight={'24px'} width={'200px'} color={'#030308'}>
-              <Trans>Start Trading</Trans>
-            </Stack>
-          </Link>
+          <Stack zIndex={10}>
+            <Link to={'/futures'}>
+              <Stack height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'} color={'#030308'}
+                     justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
+                     lineHeight={'24px'} width={'200px'}>
+                <Trans>Start Trading</Trans>
+              </Stack>
+            </Link>
+          </Stack>
         </Stack>
         <Stack alignItems={'center'} py={'40px'} px={'20px'}>
           <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} color={'#030308'}>
@@ -329,29 +331,35 @@ const Home = () => {
             ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
-        <Link to={'/futures'}>
-          <Stack sx={{
-            cursor: 'pointer',
-            marginTop: '40px',
-            width: '200px',
-            height: '48px',
-            backgroundColor: '#F69C00',
-            borderRadius: '12px',
-            fontSize: '16px',
-            fontWeight: '700',
-            lineHeight: '22px',
-            zIndex: 10,
-            justifyContent: 'center',
-            alignItems: 'center',
-            '&:hover': {
-              backgroundColor: '#FFC933',
-            }
-          }}>
-            <Trans>
-              Start Trading
-            </Trans>
-          </Stack>
-        </Link>
+        <Stack sx={{
+          width: '200px',
+          height: '48px',
+          zIndex: 10,
+        }}>
+          <Link to={'/futures'}>
+            <Stack sx={{
+              cursor: 'pointer',
+              marginTop: '40px',
+              width: '100%',
+              height: '100%',
+              backgroundColor: '#F69C00',
+              borderRadius: '12px',
+              fontSize: '16px',
+              fontWeight: '700',
+              lineHeight: '22px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: '#030308',
+              '&:hover': {
+                backgroundColor: '#FFC933',
+              }
+            }}>
+              <Trans>
+                Start Trading
+              </Trans>
+            </Stack>
+          </Link>
+        </Stack>
         <Stack zIndex={'20'} position={'relative'} sx={{
           marginTop: '160px',
           maxWidth: '1200px',
