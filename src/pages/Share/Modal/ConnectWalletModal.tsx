@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC, useCallback, useMemo, useState } from "react";
-import NESTa from "../../../components/MainButton/NESTa";
+import ArithFia from "../../../components/MainButton/ArithFia";
 import useNEST from "../../../hooks/useNEST";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { Wallets } from "../../../lib/client";
@@ -349,12 +349,12 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
   return (
     <BaseStack spacing={0}>
       <p className="WalletLearnMore">
-        <NESTa
+        <ArithFia
           href="https://docs.arithfi.com/blog/How-to-Swap-On-ArithFi"
           target={"_blank"}
         >
           <Trans>Learn more</Trans>{" "}
-        </NESTa>
+        </ArithFia>
         <Trans>about connecting wallets</Trans>
       </p>
       {Row1}

@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-const NESTa = styled("a")(({ theme }) => ({
+const ArithFia = styled("a")(({ theme }) => ({
   fontSize: 12,
   fontWeight: 400,
   color: theme.normal.primary,
@@ -13,4 +13,4 @@ const NESTa = styled("a")(({ theme }) => ({
   },
 }));
 
-export default NESTa;
+export default ArithFia;

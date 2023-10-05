@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import {NESTTooltipFC} from "../../../components/NESTTooltip/NESTTooltip";
+import {ArithFiTooltipFC} from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import {Trans} from "@lingui/macro";
 
 export interface FuturesTableTitleHelp {
@@ -54,7 +54,7 @@ const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
         {help ? (
           <Stack direction={"row"} alignItems={"center"} spacing={"4px"} whiteSpace={'nowrap'}>
             <Box>{item}</Box>
-            <NESTTooltipFC title={helpInfo}/>
+            <ArithFiTooltipFC title={helpInfo}/>
           </Stack>
         ) : (
           <>{item}</>

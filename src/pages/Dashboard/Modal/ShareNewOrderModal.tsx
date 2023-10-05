@@ -3,7 +3,7 @@ import {FC, useEffect, useMemo, useRef, useState} from "react";
 import BaseModal from "../Components/DashboardBaseModal";
 import {Order} from "../Dashboard";
 import {styled} from "@mui/material/styles";
-import {ATFIconDark, Close, NESTLogo} from "../../../components/icons";
+import {ATFIconDark, Close, ATFLogo} from "../../../components/icons";
 import {QRCodeCanvas} from "qrcode.react";
 import {useAccount} from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
@@ -248,7 +248,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                      bgcolor={'rgba(29, 30, 34, 1)'}
                      alignItems={"center"} py={'18px'}>
                 <Stack direction={'row'} spacing={'12px'}>
-                  <NESTLogo/>
+                  <ATFLogo/>
                   <Stack>
                     <Caption7>{t`Scan and copy the trade`}</Caption7>
                     <Caption7>{t`with 1 click`}</Caption7>

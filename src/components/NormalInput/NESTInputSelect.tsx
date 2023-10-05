@@ -7,7 +7,7 @@ import { SelectToken } from "../../pages/Swap/Components/SwapInputItem";
 import { NEXT, SelectedTokenDown, SwapExchangeSmall } from "../icons";
 import OneIconWithString from "../IconWithString/OneIconWithString";
 import LinkButton from "../MainButton/LinkButton";
-import NESTLine from "../NESTLine";
+import ArithFiLine from "../ArithFiLine";
 import SelectListMenu from "../SelectListMemu/SelectListMenu";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
@@ -193,7 +193,7 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
           <Stack>{tokenPairList}</Stack>
         </SelectListMenu>
       </Stack>
-      <NESTLine style={{ marginTop: "12px", marginBottom: "12px" }} />
+      <ArithFiLine style={{ marginTop: "12px", marginBottom: "12px" }} />
       <Stack
         direction={"row"}
         justifyContent={"space-between"}

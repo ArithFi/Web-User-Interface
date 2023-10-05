@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import BaseModal from "./BaseModal";
 import Stack from "@mui/material/Stack";
 import MainButton from "../../../components/MainButton/MainButton";
-import { NESTTooltipFC } from "../../../components/NESTTooltip/NESTTooltip";
+import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import { FuturesIcon } from "../../../components/icons";
 import useSignModal from "../../../hooks/useSignModal";
 import { styled } from "@mui/material/styles";
@@ -150,7 +150,7 @@ const SignModalBase: FC = () => {
           >
             <Trans>Remember me</Trans>
           </Box>
-          <NESTTooltipFC
+          <ArithFiTooltipFC
             title={t`If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device.`}
           />
         </Stack>

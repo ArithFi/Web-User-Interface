@@ -6,7 +6,7 @@ import {
   ETHLogo,
   ETHTokenLogo,
   MATICTokenLogo,
-  NESTLogo,
+  ATFLogo,
   NHBTCTokenLogo,
   USDTLogo,
   XRPTokenLogo,
@@ -163,7 +163,7 @@ export const TokenList: Array<TokenType> = [
   },
   {
     symbol: "ATF",
-    icon: NESTLogo,
+    icon: ATFLogo,
     decimals: All18,
     address: ATFToken,
     priceDecimals: 2,

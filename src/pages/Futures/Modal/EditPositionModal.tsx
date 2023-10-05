@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
 import NormalInputWithCloseButton from "../../../components/NormalInput/NormalInputWithCloseButton";
 import useFuturesEditPosition from "../../../hooks/useFuturesEditPosition";
@@ -124,7 +124,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
           <></>
         )}
       </Stack>
-      <NESTLine />
+      <ArithFiLine />
       <Stack spacing={"8px"}>
         <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
         <NormalInfo

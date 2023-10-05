@@ -6,7 +6,7 @@
 // import {FC, useCallback, useEffect, useMemo, useState} from "react";
 // import {Back, Close, Edit, Long, Short} from "../../../components/icons";
 // import MainButton from "../../../components/MainButton/MainButton";
-// import NESTLine from "../../../components/NESTLine";
+// import ArithFiLine from "../../../components/ArithFiLine";
 // import NormalInfo from "../../../components/NormalInfo/NormalInfo";
 // import NESTInputSelect from "../../../components/NormalInput/NESTInputSelect";
 // import {INPUT_TOKENS} from "../../../hooks/useFuturesNewOrder";
@@ -526,7 +526,7 @@
 //             {showAmountError ? <ErrorLabel title={showAmountError}/> : <></>}
 //           </Stack>
 //           {info1}
-//           <NESTLine/>
+//           <ArithFiLine/>
 //           {info2}
 //           <MainButton
 //             title={mainButtonTitle}

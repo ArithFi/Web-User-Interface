@@ -83,7 +83,7 @@ const Token = () => {
                 CURRENT ATF PRICE (USD)
               </Trans>
             </Stack>
-            {/*<NESTTooltipFC title={<Stack alignItems={'center'}>*/}
+            {/*<ArithFiTooltipFC title={<Stack alignItems={'center'}>*/}
             {/*  <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>*/}
             {/*    <Trans>*/}
             {/*      Data source:*/}

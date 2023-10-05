@@ -2,8 +2,8 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
-import { NESTTooltipFC } from "../../../components/NESTTooltip/NESTTooltip";
+import ArithFiLine from "../../../components/ArithFiLine";
+import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import useFuturesPOrder from "../../../hooks/useFuturesPOrder";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
 import { FuturesPrice } from "../Futures";
@@ -89,7 +89,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
             </Stack>
           </FuturesOrderListInfoMain>
         </Stack>
-        <NESTLine />
+        <ArithFiLine />
         {!(tp === String().placeHolder && sl === String().placeHolder) ? (
           <Stack direction={"row"} justifyContent={"space-around"}>
             <FuturesOrderListInfo
@@ -130,7 +130,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               component={"p"}
             >
               <Box component={"p"}>Liq Price</Box>
-              <NESTTooltipFC
+              <ArithFiTooltipFC
                 title={
                   <p>
                     <Trans>

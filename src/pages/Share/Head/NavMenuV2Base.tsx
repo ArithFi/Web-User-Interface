@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import { Link, useLocation } from "react-router-dom";
 import { Close, MobileListIcon, NEXT } from "../../../components/icons";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import { FootAList, NESTFootStack } from "../Foot/NESTFoot";
 import Box from "@mui/material/Box";
 import { MobileListButton } from "./NavMenu";
@@ -179,7 +179,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
     <Stack className="NavMain" justifyContent={"space-between"}>
       <Box>
         <NavMenu>{navList}</NavMenu>
-        <NESTLine sx={{ margin: "15px 0" }} />
+        <ArithFiLine sx={{ margin: "15px 0" }} />
         {/* <Stack
           direction={"row"}
           justifyContent={"space-between"}
@@ -248,7 +248,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
             }}
           />
         </Stack>
-        <NESTLine sx={{ margin: "15px 0" }} />
+        <ArithFiLine sx={{ margin: "15px 0" }} />
         <Stack
           direction={"row"}
           justifyContent={"space-between"}

@@ -3,7 +3,7 @@ import {FC, useMemo, useRef, useState} from "react";
 import domtoimage from "../../../lib/dom-to-image";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import MainButton from "../../../components/MainButton/MainButton";
-import {ATFIconDark, Close, NESTLogo, Success, UpIcon} from "../../../components/icons";
+import {ATFIconDark, Close, ATFLogo, Success, UpIcon} from "../../../components/icons";
 import {styled} from "@mui/material/styles";
 import BaseModal from "../Components/DashboardBaseModal";
 import {QRCodeCanvas} from "qrcode.react";
@@ -704,7 +704,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                    bgcolor={'rgba(29, 30, 34, 1)'}
                    alignItems={"center"} py={'18px'}>
               <Stack direction={'row'} spacing={'12px'}>
-                <NESTLogo/>
+                <ATFLogo/>
                 <Stack spacing={'4px'}>
                   <Box sx={{
                     fontWeight: "400",

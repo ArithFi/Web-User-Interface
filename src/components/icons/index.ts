@@ -1,4 +1,4 @@
-export { ReactComponent as NESTFiLogo } from "./svg/nestFiLogo.svg";
+export { ReactComponent as ArithFiLogo } from "./svg/ArithFiLogo.svg";
 export { ReactComponent as Dark } from "./svg/dark.svg";
 export { ReactComponent as Light } from "./svg/light.svg";
 export { ReactComponent as Language } from "./svg/language.svg";
@@ -6,7 +6,7 @@ export { ReactComponent as BTCLogo } from "./svg/BTCLogo.svg";
 export { ReactComponent as ETHLogo } from "./svg/ETHLogo.svg";
 export { ReactComponent as BNBLogo } from "./svg/BNBLogo.svg";
 export { ReactComponent as USDTLogo } from "./svg/USDTLogo.svg";
-export { ReactComponent as NESTLogo } from "./svg/NESTLogo.svg";
+export { ReactComponent as ATFLogo } from "./svg/ATFLogo.svg";
 export { ReactComponent as Dashboard } from "./svg/dashboard.svg";
 export { ReactComponent as NetworkDownIcon } from "./svg/networkDownIcon.svg";
 export { ReactComponent as MobileListIcon } from "./svg/mobileListIcon.svg";

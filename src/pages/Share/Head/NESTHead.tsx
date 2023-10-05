@@ -7,8 +7,8 @@ import {
   Dashboard,
   FuturesIcon,
   Light,
-  NESTFiLogo,
-  NESTLogo,
+  ArithFiLogo,
+  ATFLogo,
   SwapExchangeSmall,
 } from "../../../components/icons";
 import Box from "@mui/material/Box";
@@ -332,10 +332,10 @@ const NESTHead: FC = () => {
                   },
                 }}
               >
-                <NESTLogo />
+                <ATFLogo />
               </Box>
             ) : (
-              <NESTFiLogo />
+              <ArithFiLogo />
             )}
           </Link>
         </LogoBox>

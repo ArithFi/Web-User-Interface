@@ -27,7 +27,7 @@ import useWalletIcon from "../../hooks/uswWalletIcon";
 import copy from "copy-to-clipboard";
 import useNESTSnackBar from "../../hooks/useNESTSnackBar";
 import { useLocalStorage } from "react-use";
-import {NESTTooltipFC} from "../../components/NESTTooltip/NESTTooltip";
+import {ArithFiTooltipFC} from "../../components/ArithFiTooltip/ArithFiTooltip";
 
 const Personal = () => {
   const { address } = useParams();
@@ -395,7 +395,7 @@ const Personal = () => {
                             lineHeight: '10px',
                             fontWeight: 700,
                           })}>{showBlockBalance}</Box>
-                          <NESTTooltipFC title={t`The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support.`}/>
+                          <ArithFiTooltipFC title={t`The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support.`}/>
                         </Stack>
                       </Stack>
                     )

@@ -4,7 +4,7 @@ import { FC, useMemo } from "react";
 import useNEST from "../../hooks/useNEST";
 import { NEXT, SwapExchangeSmall } from "../icons";
 import LinkButton from "../MainButton/LinkButton";
-import NESTLine from "../NESTLine";
+import ArithFiLine from "../ArithFiLine";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
 
@@ -82,7 +82,7 @@ const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
         />
         <OneTokenIN tokenName={"ATF"} height={24} />
       </Stack>
-      <NESTLine style={{ marginTop: "12px", marginBottom: "12px" }} />
+      <ArithFiLine style={{ marginTop: "12px", marginBottom: "12px" }} />
       <Stack
         direction={"row"}
         justifyContent={"space-between"}

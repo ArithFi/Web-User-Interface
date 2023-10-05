@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo, useState } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
 import NESTInput from "../../../components/NormalInput/NESTInput";
 import useFuturesAdd from "../../../hooks/useFuturesAdd";
@@ -72,7 +72,7 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
     <Stack spacing={"24px"} width={"100%"}>
       {depositModal}
       {input}
-      <NESTLine />
+      <ArithFiLine />
       <Stack spacing={"8px"}>
         <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
         <NormalInfo
