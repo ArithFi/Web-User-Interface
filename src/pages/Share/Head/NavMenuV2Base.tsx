@@ -3,15 +3,15 @@ import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import { Link, useLocation } from "react-router-dom";
 import { Close, MobileListIcon, NEXT } from "../../../components/icons";
-import NESTLine from "../../../components/NESTLine";
-import { FootAList, NESTFootStack } from "../Foot/NESTFoot";
+import ArithFiLine from "../../../components/ArithFiLine";
+import { FootAList, ArithFiFootStack } from "../Foot/ArithFiFoot";
 import Box from "@mui/material/Box";
 import { MobileListButton } from "./NavMenu";
 import Menu from "@mui/material/Menu";
 import Modal from "@mui/material/Modal";
 import Switch from "@mui/material/Switch";
 import useTheme from "../../../hooks/useTheme";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import { Trans } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { LanData } from "./LanguageMenu";
@@ -104,7 +104,7 @@ interface NavMenuV2BaseProps {
 const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
   const { nowTheme, changeTheme } = useTheme();
   const [showLanModal, setShowLanModal] = useState(false);
-  const { chainsData, navItems } = useNEST();
+  const { chainsData, navItems } = useArithFi();
   const location = useLocation();
   const { docLink } = useLanguageWithDoc();
   const navList = navItems.map((item, index) => {
@@ -165,7 +165,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
       </Stack>
     );
   });
-  const NESTFootStackSmall = styled(NESTFootStack)(({ theme }) => {
+  const ArithFiFootStackSmall = styled(ArithFiFootStack)(({ theme }) => {
     return {
       border: 0,
       height: 32,
@@ -179,7 +179,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
     <Stack className="NavMain" justifyContent={"space-between"}>
       <Box>
         <NavMenu>{navList}</NavMenu>
-        <NESTLine sx={{ margin: "15px 0" }} />
+        <ArithFiLine sx={{ margin: "15px 0" }} />
         {/* <Stack
           direction={"row"}
           justifyContent={"space-between"}
@@ -248,7 +248,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
             }}
           />
         </Stack>
-        <NESTLine sx={{ margin: "15px 0" }} />
+        <ArithFiLine sx={{ margin: "15px 0" }} />
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
@@ -289,7 +289,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://nestprotocol.org/doc/ennestwhitepaper.pdf");
+            window.open();
           }}
         >
           <p>
@@ -374,7 +374,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
         )}
       </Box>
 
-      <NESTFootStackSmall
+      <ArithFiFootStackSmall
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -382,7 +382,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
         style={{ marginTop: "24px" }}
       >
         {FootAList.slice(0, 3)}
-      </NESTFootStackSmall>
+      </ArithFiFootStackSmall>
     </Stack>
   );
 };

@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
 import useFuturesClose from "../../../hooks/useFuturesClose";
 import useWindowWidth from "../../../hooks/useWindowWidth";
@@ -33,7 +33,7 @@ const CloseModalBase: FC<CloseModalBaseProps> = ({ ...props }) => {
   } = useFuturesClose(props.data, props.price, props.onClose);
   return (
     <Stack spacing={"24px"} width={"100%"}>
-      <NESTLine />
+      <ArithFiLine />
       <Stack spacing={"8px"}>
         <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
         <NormalInfo

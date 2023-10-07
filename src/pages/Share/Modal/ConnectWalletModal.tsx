@@ -4,8 +4,8 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC, useCallback, useMemo, useState } from "react";
-import NESTa from "../../../components/MainButton/NESTa";
-import useNEST from "../../../hooks/useNEST";
+import ArithFia from "../../../components/MainButton/ArithFia";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { Wallets } from "../../../lib/client";
 import {
@@ -85,7 +85,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
   const wallets = useWalletConnectors();
   const { isBigMobile } = useWindowWidth();
   const [isMore, setIsMore] = useState(false);
-  const { connectData } = useNEST();
+  const { connectData } = useArithFi();
 
   const selectWallet = useCallback(
     async (item: WalletConnector) => {
@@ -349,12 +349,12 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
   return (
     <BaseStack spacing={0}>
       <p className="WalletLearnMore">
-        <NESTa
+        <ArithFia
           href="https://docs.arithfi.com/blog/How-to-Swap-On-ArithFi"
           target={"_blank"}
         >
           <Trans>Learn more</Trans>{" "}
-        </NESTa>
+        </ArithFia>
         <Trans>about connecting wallets</Trans>
       </p>
       {Row1}

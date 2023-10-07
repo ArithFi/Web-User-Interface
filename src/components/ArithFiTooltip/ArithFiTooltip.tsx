@@ -4,7 +4,7 @@ import Tooltip, { tooltipClasses, TooltipProps } from "@mui/material/Tooltip";
 import { FC } from "react";
 import { Tip } from "../icons";
 
-const NESTTooltip = styled(({ className, ...props }: TooltipProps) => (
+const ArithFiTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
@@ -19,13 +19,13 @@ const NESTTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }));
 
-interface NESTTooltipFCProps {
+interface ArithFiTooltipFCProps {
   title: React.ReactNode;
 }
 
-export const NESTTooltipFC: FC<NESTTooltipFCProps> = ({ ...props }) => {
+export const ArithFiTooltipFC: FC<ArithFiTooltipFCProps> = ({ ...props }) => {
   return (
-    <NESTTooltip
+    <ArithFiTooltip
       title={props.title}
       placement="top-start"
       arrow
@@ -51,8 +51,8 @@ export const NESTTooltipFC: FC<NESTTooltipFCProps> = ({ ...props }) => {
       >
         <Tip />
       </Box>
-    </NESTTooltip>
+    </ArithFiTooltip>
   );
 };
 
-export default NESTTooltip;
+export default ArithFiTooltipFC;

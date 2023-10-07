@@ -6,7 +6,7 @@ import BaseDrawer from "../../Share/Modal/BaseDrawer";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import BaseModal from "../../Share/Modal/BaseModal";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import Stack from "@mui/material/Stack";
 import MainButton from "../../../components/MainButton/MainButton";
 import useCloseCopyModal from "../Hooks/useCloseCopyModal";
@@ -83,7 +83,7 @@ const CopyStopBaseModal: FC<CopyStopBaseModalProps> = ({ ...props }) => {
         {info(t`Open Interest`, openInterest + "ATF")}
         {info(t`Total Profit`, totalProfit + "ATF")}
       </Stack>
-      <NESTLine />
+      <ArithFiLine />
       {info(t`Estimated Realized Amount`, aum + "ATF")}
 
       <Stack spacing={"12px"}>

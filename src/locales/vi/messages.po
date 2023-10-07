@@ -56,7 +56,7 @@ msgstr "> GIÁ THỊ TRƯỜNG"
 msgid "> OPEN PRICE"
 msgstr "> GIÁ MỞ CỬA"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
@@ -146,7 +146,7 @@ msgstr "về việc kết nối ví"
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "tài khoản"
 
@@ -172,7 +172,6 @@ msgstr "Tiền Ký quỹ thực có"
 msgid "Add"
 msgstr "Thêm"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr "Thêm ATF vào ví"
@@ -214,8 +213,8 @@ msgstr "Căn chỉnh với các nhà giao dịch\""
 msgid "All Traders"
 msgstr "Tất cả các nhà giao dịch"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Số lượng"
@@ -278,9 +277,8 @@ msgstr "AUM(ATF)"
 msgid "balance"
 msgstr "Số dư"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid "Balance:"
 msgstr "Số dư:"
 
@@ -366,8 +364,6 @@ msgstr "Xác nhận bạn là chủ sở hữu của ví này."
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -377,7 +373,7 @@ msgstr "Kết nối ví"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "sao chép"
 
@@ -489,9 +485,9 @@ msgstr "Sao chép giao dịch tùy chỉnh"
 msgid "Daily Return"
 msgstr "Lợi nhuận hàng ngày"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
@@ -499,7 +495,7 @@ msgstr "Bảng điều khiển"
 msgid "Default"
 msgstr "Mặc định"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Overview/Overview.tsx
@@ -586,13 +582,11 @@ msgstr "Mở rộng thêm sản phẩm:"
 msgid "Fail"
 msgstr "thất bại"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Fail Request"
 msgstr "Yêu cầu thất bại"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -636,19 +630,14 @@ msgstr "Đóng băng để gửi tiền"
 msgid "From"
 msgstr "Từ"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Tương lai"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
 msgstr "Hợp đồng tương lai, Quyền chọn, Sản phẩm cấu trúc"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
-msgstr "NHẬN"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -735,17 +724,13 @@ msgstr "Số dư ATF không đủ"
 msgid "Insufficient balance"
 msgstr "Số dư không đủ"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao dịch nhanh."
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Khối lượng giao dịch của người được giới thiệu"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
-msgstr "Nó chỉ có sẵn một lần trong 24 giờ. Vui lòng quay lại sau."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -853,8 +838,8 @@ msgstr "Thị trường"
 msgid "Market Price"
 msgstr "Giá thị trường"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "Tối đa"
@@ -1028,13 +1013,9 @@ msgstr "Cá nhân"
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 msgstr "Vui lòng nhấp vào \"Approve\" để xác thực và sau đó bạn có thể mở vị thế, quá trình này sẽ tiêu thụ một khoản GAS."
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Please complete your sign"
 msgstr "Vui lòng hoàn thành chữ ký của bạn."
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr "Vui lòng nhận token thử nghiệm ETH trước."
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
@@ -1276,15 +1257,15 @@ msgstr "Dừng-Giới hạn"
 msgid "Success"
 msgstr "Thành công"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
 msgstr "Đổi"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Switch network successfully"
 msgstr "Chuyển mạng thành công"
 
@@ -1314,16 +1295,6 @@ msgstr "Chốt lời"
 msgid "Test BNB"
 msgstr "Thử nghiệm BNB"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr "Token mạng thử nghiệm"
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr "Số dư là 0. Bạn có thể đến \"Faucet\" để nhận token thử nghiệm trước khi giao dịch."
-
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."
 msgstr "Số tiền cố định bạn đã đầu tư cho mỗi lệnh khi giao dịch sao chép."
@@ -1344,7 +1315,7 @@ msgstr "Số tiền tối thiểu có thể rút lớn hơn 15 ATF"
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "Tổng số tiền bạn đã đầu tư để sao chép các tín hiệu của người giao dịch này."
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "Giao dịch thất bại và số tiền đã được hoàn trả đầy đủ. Bạn có thể giao dịch lại."
 

@@ -7,7 +7,7 @@ import {
   useNetwork,
   useSwitchNetwork,
 } from "wagmi";
-import { NavItems } from "../pages/Share/Head/NESTHead";
+import { NavItems } from "../pages/Share/Head/ArithFiHead";
 
 export interface signatureData {
   address: string;
@@ -78,9 +78,9 @@ function useMainReact() {
     }
   }, [account.address, chainId]);
   /**
-   * add nest
+   * add ATF
    */
-  const addNESTToWallet = useCallback(async () => {
+  const addATFToWallet = useCallback(async () => {
     const token = "ATF".getToken();
     if (chainId && token && account.connector) {
       const imageURL =
@@ -156,17 +156,17 @@ function useMainReact() {
     chainsData,
     disconnect,
     navItems,
-    addNESTToWallet,
+    addATFToWallet,
     checkSigned,
     signature,
     setSignature,
   };
 }
-const NEST = createContainer(useMainReact);
+const ArithFi = createContainer(useMainReact);
 
-function useNEST() {
-  return NEST.useContainer();
+function useArithFi() {
+  return ArithFi.useContainer();
 }
 
-export const NESTProvider = NEST.Provider;
-export default useNEST;
+export const ArithFiProvider = ArithFi.Provider;
+export default useArithFi;

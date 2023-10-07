@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import useNEST from "../../../hooks/useNEST";
-import { serviceClose } from "../../../lib/NESTRequest";
+import useArithFi from "../../../hooks/useArithFi";
+import { serviceClose } from "../../../lib/ArithFiRequest";
 import {
   TransactionType,
   usePendingTransactionsBase,
@@ -8,7 +8,7 @@ import {
 import { SnackBarType } from "../../../components/SnackBar/NormalSnackBar";
 
 function useMyCopiesCurrent(updateList: () => void) {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [isLoading, setIsLoading] = useState<number>(-1);
   const { addTransactionNotice } = usePendingTransactionsBase();
   const close = useCallback(

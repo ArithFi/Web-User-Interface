@@ -1,5 +1,5 @@
 import { usePrepareSendTransaction, useSendTransaction } from "wagmi";
-import useNEST from "../hooks/useNEST";
+import useArithFi from "../hooks/useArithFi";
 import {
   TransactionType,
   usePendingTransactions,
@@ -9,7 +9,7 @@ import { BigNumber } from "ethers/lib/ethers";
 import { useEffect, useMemo } from "react";
 
 export function useTransferValue(amount: BigNumber) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const value = useMemo(() => {
     return chainsData.chainId ? amount : BigNumber.from("0");
   }, [amount, chainsData.chainId]);

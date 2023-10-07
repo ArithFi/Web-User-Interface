@@ -99,10 +99,6 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
-export function getPriceFromNESTLocal(token: string): Promise<any> {
-  return baseRequestGet(`https://db.arithfi.com/api/oracle/price/${token}usdt`);
-}
-
 export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
 }

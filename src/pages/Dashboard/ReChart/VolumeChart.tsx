@@ -12,7 +12,7 @@ import {FC} from "react";
 import useSWR from "swr";
 import useTheme from "../../../hooks/useTheme";
 import numeral from "numeral";
-import useNEST from '../../../hooks/useNEST';
+import useArithFi from '../../../hooks/useArithFi';
 
 type ReChartsProps = {
   from?: string
@@ -20,7 +20,7 @@ type ReChartsProps = {
 }
 const ReCharts: FC<ReChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
-  const {chainsData} = useNEST()
+  const {chainsData} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
 

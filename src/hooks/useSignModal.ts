@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import useNEST, { signatureData } from "./useNEST";
-import { RequestBodyInterface, serviceLogin } from "../lib/NESTRequest";
+import useArithFi, { signatureData } from "./useArithFi";
+import { RequestBodyInterface, serviceLogin } from "../lib/ArithFiRequest";
 import { t } from "@lingui/macro";
 import { useSignMessage, useSignTypedData } from "wagmi";
 
 const BASE_SIGN_CONTENT = "https://arithfi.com";
 
 function useSignModal() {
-  const { account, chainsData, setSignature } = useNEST();
+  const { account, chainsData, setSignature } = useArithFi();
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
 

@@ -7,7 +7,7 @@ import {
   FuturesLimitOrder,
   HistoryIcon,
 } from "../../components/icons";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import OrderList from "./Components/OrderList";
 import OrderTable from "./Components/OrderTable";
@@ -250,7 +250,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
       </Stack>,
     ];
     return (
-      <NESTTabs
+      <ArithFiTabs
         value={tabsValue}
         className={"FuturesOrderTabs"}
         datArray={orderTabsData}

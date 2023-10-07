@@ -1,4 +1,4 @@
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 
 import { useMemo } from "react";
 import {
@@ -12,7 +12,7 @@ import {
 } from "../components/icons";
 
 function useWalletIcon() {
-  const { account, checkSigned } = useNEST();
+  const { account, checkSigned } = useArithFi();
   const walletIcon = useMemo(() => {
     if (!checkSigned) {
       return <Warning className="warning" />;

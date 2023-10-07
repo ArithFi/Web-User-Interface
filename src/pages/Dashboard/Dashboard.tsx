@@ -9,7 +9,7 @@ import {DateRange, Range} from "react-date-range";
 import Box from "@mui/material/Box";
 import useTheme from "../../hooks/useTheme";
 import {t} from "@lingui/macro";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 
 export type Order = {
   owner: string;
@@ -27,7 +27,7 @@ export type Order = {
   sl: number;
 };
 const Dashboard: FC = () => {
-  const {chainsData} = useNEST()
+  const {chainsData} = useArithFi()
   const {data: infoData} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/entirety/info?chainId=${chainsData.chainId ?? 56}`, (url: any) => fetch(url)
     .then((res) => res.json())
     .then((res: any) => res.value), {

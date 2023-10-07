@@ -4,9 +4,9 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo, useState } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
-import NESTInput from "../../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../../components/NormalInput/ArithFiInput";
 import useFuturesAdd from "../../../hooks/useFuturesAdd";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import BaseDrawer from "../../Share/Modal/BaseDrawer";
@@ -28,8 +28,8 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
     showToSwap,
     showBalance,
     maxCallBack,
-    nestAmount,
-    setNestAmount,
+    arithFiAmount,
+    setArithFiAmount,
     showPosition,
     showOpenPrice,
     showLiqPrice,
@@ -41,14 +41,14 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
   const [showDeposit, setShowDeposit] = useState(false);
   const input = useMemo(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={checkBalance}
         showToSwap={showToSwap}
         showBalance={showBalance}
         maxCallBack={maxCallBack}
-        nestAmount={nestAmount}
-        changeNestAmount={(value: string) =>
-          setNestAmount(value.formatInputNum4())
+        arithFiAmount={arithFiAmount}
+        changeArithFiAmount={(value: string) =>
+          setArithFiAmount(value.formatInputNum4())
         }
         otherCallBack={() => setShowDeposit(true)}
       />
@@ -56,8 +56,8 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
   }, [
     checkBalance,
     maxCallBack,
-    nestAmount,
-    setNestAmount,
+    arithFiAmount,
+    setArithFiAmount,
     showBalance,
     showToSwap,
   ]);
@@ -72,7 +72,7 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
     <Stack spacing={"24px"} width={"100%"}>
       {depositModal}
       {input}
-      <NESTLine />
+      <ArithFiLine />
       <Stack spacing={"8px"}>
         <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
         <NormalInfo

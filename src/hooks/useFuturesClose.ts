@@ -4,8 +4,8 @@ import { FuturesPrice } from "../pages/Futures/Futures";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 
 import { t } from "@lingui/macro";
-import { serviceClose } from "../lib/NESTRequest";
-import useNEST from "./useNEST";
+import { serviceClose } from "../lib/ArithFiRequest";
+import useArithFi from "./useArithFi";
 
 function useFuturesClose(
   data: FuturesOrderService,
@@ -13,7 +13,7 @@ function useFuturesClose(
   onClose: (result: boolean) => void
 ) {
   const [loading, setLoading] = useState<boolean>(false);
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const showPosition = useMemo(() => {
     const lever = data.leverage.toString();
     const longOrShort = data.direction ? t`Long` : t`Short`;
@@ -25,14 +25,14 @@ function useFuturesClose(
   }, [data.product]);
 
   const closePrice = useMemo(() => {
-    const nestBigNumber = data.balance.toString().stringToBigNumber(18);
+    const atfBigNumber = data.balance.toString().stringToBigNumber(18);
     const orderPrice = data.orderPrice.toString().stringToBigNumber(18);
     const token = tokenPair;
-    if (price && nestBigNumber && orderPrice) {
+    if (price && atfBigNumber && orderPrice) {
       const nowPrice = price[token];
-      if (nestBigNumber.gte("100000".stringToBigNumber(18)!)) {
+      if (atfBigNumber.gte("100000".stringToBigNumber(18)!)) {
         const cc_top = BigNumber.from("55560000")
-          .mul(nestBigNumber)
+          .mul(atfBigNumber)
           .mul(BigNumber.from(data.leverage.toString()))
           .mul(nowPrice)
           .add(

@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import { styled } from "@mui/material/styles";
 import Tab from "@mui/material/Tab";
 
-interface NESTTabsProps {
+interface ArithFiTabsProps {
   value: number;
   className: string;
   datArray: JSX.Element[];
@@ -13,12 +13,12 @@ interface NESTTabsProps {
   isFull?: boolean;
 }
 
-const NESTTabs: FC<NESTTabsProps> = ({ ...props }) => {
+const ArithFiTabs: FC<ArithFiTabsProps> = ({ ...props }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     props.selectCallBack(newValue);
   };
 
-  const NESTTabs = styled(Tabs)(({ theme }) => ({
+  const ArithFiTabs = styled(Tabs)(({ theme }) => ({
     minHeight: props.height,
     width: props.isFull ? '100%' : 'auto',
     "& .MuiTabs-scroller .MuiTabs-flexContainer button": {
@@ -68,10 +68,10 @@ const NESTTabs: FC<NESTTabsProps> = ({ ...props }) => {
   ));
 
   return (
-    <NESTTabs value={props.value} onChange={handleChange} centered>
+    <ArithFiTabs value={props.value} onChange={handleChange} centered>
       {tabs}
-    </NESTTabs>
+    </ArithFiTabs>
   );
 };
 
-export default NESTTabs;
+export default ArithFiTabs;

@@ -4,7 +4,7 @@ import { FC, useMemo, useState } from "react";
 import { SelectedTokenDown } from "../../../components/icons";
 import OneIconWithString from "../../../components/IconWithString/OneIconWithString";
 import LinkButton from "../../../components/MainButton/LinkButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import SelectListMenu from "../../../components/SelectListMemu/SelectListMenu";
 import OneTokenIN from "../../../components/TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
@@ -194,7 +194,7 @@ const SwapInputItem: FC<SwapInputItemProps> = ({ children, ...props }) => {
           <Stack>{tokenPairList}</Stack>
         </SelectListMenu>
       </ShowInputStack>
-      <NESTLine />
+      <ArithFiLine />
       <ShowInfoStack direction={"row"} justifyContent={"space-between"}>
         <p className="SwapInfoTitle">
           <Trans>From</Trans>
@@ -230,7 +230,7 @@ export const SwapShowItem: FC<SwapShowItemProps> = ({ ...props }) => {
         <input readOnly value={props.value} />
         <OneTokenIN tokenName={props.tokenName} height={24} />
       </ShowInputStack>
-      <NESTLine />
+      <ArithFiLine />
       <ShowInfoStack direction={"row"} justifyContent={"space-between"}>
         <p className="SwapInfoTitle">
           <Trans>To(Estimated)</Trans>

@@ -10,9 +10,9 @@ import {
   getPriceList,
   serviceFutureHistory,
   serviceList,
-} from "../../lib/NESTRequest";
+} from "../../lib/ArithFiRequest";
 import { getQueryVariable } from "../../lib/queryVaribale";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
 
 export interface FuturesPrice {
@@ -22,7 +22,7 @@ const UPDATE_PRICE = 15;
 export const priceToken = ["ETH", "BTC", "BNB", "MATIC", "ADA", "DOGE", "XRP"];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
-  const { account, chainsData, signature } = useNEST();
+  const { account, chainsData, signature } = useArithFi();
   const defaultTokenPair = useMemo(() => {
     let code = getQueryVariable("pt");
     if (code) {

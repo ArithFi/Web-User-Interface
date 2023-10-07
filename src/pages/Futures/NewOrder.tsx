@@ -2,7 +2,7 @@ import { FC, useCallback, useMemo } from "react";
 import Stack from "@mui/material/Stack";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import LongOrShort from "../../components/LongOrShort/LongOrShort";
-import NESTTabs from "../../components/NESTTabs/NESTTabs";
+import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import MainButton from "../../components/MainButton/MainButton";
 import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
@@ -17,7 +17,7 @@ import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
 import { Trans, t } from "@lingui/macro";
-import NESTInput from "../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../components/NormalInput/ArithFiInput";
 import DepositModal from "../Share/Modal/DepositModal";
 import SignModal from "../Share/Modal/SignModal";
 
@@ -55,7 +55,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     mainButtonDis,
     mainButtonAction,
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
@@ -89,15 +89,15 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </p>,
     ];
   }, []);
-  const inputNestAmount = useCallback(() => {
+  const inputATFAmount = useCallback(() => {
     return (
-      <NESTInput
-        checkBalance={!(!checkBalance || checkMinNEST)}
+      <ArithFiInput
+        checkBalance={!(!checkBalance || checkMinATF)}
         showToSwap={!checkBalance}
         showBalance={showBalance}
         maxCallBack={maxCallBack}
-        nestAmount={inputAmount}
-        changeNestAmount={(value: string) => {
+        arithFiAmount={inputAmount}
+        changeArithFiAmount={(value: string) => {
           setInputAmount(value.formatInputNum4());
           closeShareLink();
         }}
@@ -112,7 +112,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     );
   }, [
     checkBalance,
-    checkMinNEST,
+    checkMinATF,
     closeShareLink,
     inputAmount,
     maxCallBack,
@@ -239,7 +239,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           boxSizing: "border-box",
         })}
       >
-        <NESTTabs
+        <ArithFiTabs
           value={tabsValue}
           className={"FuturesNewOrderTabs"}
           datArray={newOrderTabsData}
@@ -414,7 +414,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           </Stack>
         )}
         <Stack spacing={"8px"} width={"100%"}>
-          {inputNestAmount()}
+          {inputATFAmount()}
           {showAmountError ? <ErrorLabel title={showAmountError} /> : <></>}
         </Stack>
 

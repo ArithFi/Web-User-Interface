@@ -7,14 +7,14 @@ import { Trans, t } from "@lingui/macro";
 import Modal from "@mui/material/Modal";
 import BaseModal from "../../Share/Modal/BaseModal";
 import Stack from "@mui/material/Stack";
-import NESTInput from "../../../components/NormalInput/NESTInput";
+import ArithFiInput from "../../../components/NormalInput/ArithFiInput";
 import TokenAmountButtons from "../../Share/Modal/TokenAmountButtons";
-import { NESTTooltipFC } from "../../../components/NESTTooltip/NESTTooltip";
-import NESTLine from "../../../components/NESTLine";
+import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
+import ArithFiLine from "../../../components/ArithFiLine";
 import MainButton from "../../../components/MainButton/MainButton";
 import Agree from "../../../components/Agree/Agree";
 import useCopySettingModal from "../Hooks/useCopySettingModal";
-import NESTa from "../../../components/MainButton/NESTa";
+import ArithFia from "../../../components/MainButton/ArithFia";
 import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
 
 interface CopySettingBaseModalProps {
@@ -44,18 +44,18 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
     errorLabel2,
   } = useCopySettingModal(props.address, props.onClose);
 
-  const inputNestAmount = useMemo(() => {
+  const inputATFAmount = useMemo(() => {
     return (
-      <NESTInput
+      <ArithFiInput
         checkBalance={errorLabel1 === undefined}
         showToSwap={false}
         showBalance={
           tokenBalance ? tokenBalance.floor(2) : String().placeHolder
         }
         maxCallBack={maxCallBack}
-        nestAmount={copyAccountBalance}
+        arithFiAmount={copyAccountBalance}
         hideSwapTitle={true}
-        changeNestAmount={(value: string) => {
+        changeArithFiAmount={(value: string) => {
           setCopyAccountBalance(value.formatInputNum4());
           setSelectButton(0);
         }}
@@ -92,7 +92,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
                 <Trans>Add Copy Trading Amount</Trans>
               </Box>
 
-              <NESTTooltipFC
+              <ArithFiTooltipFC
                 title={t`The total amount you invested in copying this trader’s signals.`}
               />
             </Stack>
@@ -125,7 +125,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
             </Stack>
           </Stack>
 
-          {inputNestAmount}
+          {inputATFAmount}
           {errorLabel1 ? <ErrorLabel title={errorLabel1} /> : <></>}
           <TokenAmountButtons
             nowValue={selectButton ?? 0}
@@ -144,7 +144,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
             >
               <Trans>Copy Trading Each Order</Trans>
             </Box>
-            <NESTTooltipFC
+            <ArithFiTooltipFC
               title={t`The fixed amount you invested for each order when copy trading.`}
             />
           </Stack>
@@ -247,7 +247,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
             </Box>
           </Stack>
         </Stack>
-        <NESTLine />
+        <ArithFiLine />
 
         <Stack spacing={"8px"}>
           <Stack direction={"row"} spacing={"8px"} paddingY={"8px"}>
@@ -264,12 +264,12 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
               })}
             >
               <Trans>I have read and agreed to the</Trans>{" "}
-              <NESTa
+              <ArithFia
                 target={"blank"}
                 href="https://docs.arithfi.com/blog/ArithFi-Copy-Trading-TermsConditions"
               >
                 <Trans>Copy Trader Service Agreement</Trans>
-              </NESTa>
+              </ArithFia>
             </Box>
           </Stack>
 

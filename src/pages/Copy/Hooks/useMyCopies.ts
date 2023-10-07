@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { MyTradeInfoModel } from "./useCopy";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import {
   copyMyCopiesHistoryList,
   copyMyCopiesList,
   copyMyCopiesMyTradersList,
   copyMyTradeInfo,
-} from "../../../lib/NESTRequest";
+} from "../../../lib/ArithFiRequest";
 
 export interface MyCopiesList {
   id: number;
@@ -37,7 +37,7 @@ export interface MyCopiesMyTradersList {
 }
 
 function useMyCopies() {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [myCopiesList, setMyCopiesList] = useState<Array<MyCopiesList>>([]);
   const [myCopiesHistoryList, setMyCopiesHistoryList] = useState<

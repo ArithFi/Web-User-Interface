@@ -8,7 +8,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import CopyTablePosition from "./CopyTablePosition";
 import CopyListPosition from "./CopyListPosition";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import { MyCopiesList } from "../Hooks/useMyCopies";
 import useMyCopiesCurrent from "../Hooks/useMyCopiesCurrent";
 import { DefaultKolIcon } from "../../../components/icons";
@@ -182,7 +182,7 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
                 </Stack>
               </Stack>
             </Stack>
-            <NESTLine />
+            <ArithFiLine />
             <Stack spacing={"8px"}>
               <Stack direction={"row"}>
                 <Stack direction={"row"} spacing={"4px"} width={"100%"}>

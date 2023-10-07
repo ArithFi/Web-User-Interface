@@ -22,16 +22,16 @@ import {
   usePendingTransactionsBase,
 } from "../../hooks/useTransactionReceipt";
 import { SnackBarType } from "../../components/SnackBar/NormalSnackBar";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import useWalletIcon from "../../hooks/uswWalletIcon";
 import copy from "copy-to-clipboard";
-import useNESTSnackBar from "../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../hooks/useArithFiSnackBar";
 import { useLocalStorage } from "react-use";
-import {NESTTooltipFC} from "../../components/NESTTooltip/NESTTooltip";
+import {ArithFiTooltipFC} from "../../components/ArithFiTooltip/ArithFiTooltip";
 
 const Personal = () => {
   const { address } = useParams();
-  const { account, checkSigned, chainsData } = useNEST();
+  const { account, checkSigned, chainsData } = useArithFi();
   const { isBigMobile } = useWindowWidth();
   const [showShareMyDealModal, setShareMyDealModal] = useState(false);
   const [range, setRange] = useState<Range[]>([
@@ -55,8 +55,8 @@ const Personal = () => {
     moneyList,
   } = useAccount();
   const walletIcon = useWalletIcon();
-  const { messageSnackBar } = useNESTSnackBar();
-  const [messagesStr] = useLocalStorage(`nest.messages`, "{}");
+  const { messageSnackBar } = useArithFiSnackBar();
+  const [messagesStr] = useLocalStorage(`atf.messages`, "{}");
 
   const { data: positions } = useSWR(
     `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/positons?address=${
@@ -103,7 +103,7 @@ const Personal = () => {
     return false;
   }, [moneyList.length, messagesStr, account.address, address]);
 
-  const NESTIcon = useMemo(() => {
+  const ATFIcon = useMemo(() => {
     return "ATF".getToken()!.icon;
   }, []);
 
@@ -362,7 +362,7 @@ const Personal = () => {
                       height: "28px",
                     },
                   })}>
-                    <NESTIcon />
+                    <ATFIcon />
                     <Box>
                       {showBalance}
                     </Box>
@@ -395,7 +395,7 @@ const Personal = () => {
                             lineHeight: '10px',
                             fontWeight: 700,
                           })}>{showBlockBalance}</Box>
-                          <NESTTooltipFC title={t`The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support.`}/>
+                          <ArithFiTooltipFC title={t`The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support.`}/>
                         </Stack>
                       </Stack>
                     )

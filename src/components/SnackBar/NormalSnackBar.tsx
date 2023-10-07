@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { SnackbarContent, SnackbarKey, SnackbarMessage } from "notistack";
 import React, { useMemo } from "react";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { Close, Fail, Success } from "../icons";
 import MainButton from "../MainButton/MainButton";
 import { t } from "@lingui/macro";
@@ -72,7 +72,7 @@ const NormalSnackBarStack = styled(Stack)(({ theme }) => ({
 
 const NormalSnackBar = React.forwardRef<HTMLDivElement, NormalSnackBarProps>(
   (props, ref) => {
-    const { chainsData } = useNEST();
+    const { chainsData } = useArithFi();
     const Icon = useMemo(() => {
       if (props.type === SnackBarType.success) {
         return <Success />;

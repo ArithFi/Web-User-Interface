@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from "react";
 import { Order } from "../pages/Dashboard/Dashboard";
 import { t } from "@lingui/macro";
-import useNEST from "./useNEST";
-import { serviceCancel } from "../lib/NESTRequest";
+import useArithFi from "./useArithFi";
+import { serviceCancel } from "../lib/ArithFiRequest";
 import {
   TransactionType,
   usePendingTransactionsBase,
@@ -11,7 +11,7 @@ import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 
 function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
   const tokenName = data.product.split("/")[0];
   const isLong = data.direction;

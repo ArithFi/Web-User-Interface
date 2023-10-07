@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import useService from "../contracts/useService";
-import useNEST from "./useNEST";
-import {serviceAccountList, serviceHistory} from "../lib/NESTRequest";
+import useArithFi from "./useArithFi";
+import {serviceAccountList, serviceHistory} from "../lib/ArithFiRequest";
 import {t} from "@lingui/macro";
 
 export interface AccountListData {
@@ -17,7 +17,7 @@ export interface AccountListData {
 
 function useAccount() {
   const {service_balance, block_balance} = useService();
-  const {account, chainsData, signature} = useNEST();
+  const {account, chainsData, signature} = useArithFi();
   const [showDeposit, setShowDeposit] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);
   const [tokenBalance, setTokenBalance] = useState<number>();

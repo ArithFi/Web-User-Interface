@@ -3,14 +3,14 @@ import {FC, useEffect, useMemo, useRef, useState} from "react";
 import BaseModal from "../Components/DashboardBaseModal";
 import {Order} from "../Dashboard";
 import {styled} from "@mui/material/styles";
-import {ATFIconDark, Close, NESTLogo} from "../../../components/icons";
+import {ATFIconDark, Close, ATFLogo} from "../../../components/icons";
 import {QRCodeCanvas} from "qrcode.react";
 import {useAccount} from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
 import MainButton from "../../../components/MainButton/MainButton";
 import domtoimage from "../../../lib/dom-to-image";
 import copy from "copy-to-clipboard";
-import useNESTSnackBar from "../../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import {parseUnits} from "ethers/lib/utils.js";
 import CircularProgress from "@mui/material/CircularProgress";
 import {t} from "@lingui/macro";
@@ -82,7 +82,7 @@ interface ShareMyOrderModalProps {
 
 const ShareMyOrderModal: FC<ShareMyOrderModalProps> = ({...props}) => {
   const {address} = useAccount();
-  const {messageSnackBar} = useNESTSnackBar();
+  const {messageSnackBar} = useArithFiSnackBar();
   const myShareRef = useRef(null);
   const [dataUrl, setDataUrl] = useState<string | null>(null)
 
@@ -290,7 +290,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 py={"18px"}
               >
                 <Stack direction={"row"} spacing={"12px"}>
-                  <NESTLogo/>
+                  <ATFLogo/>
                   <Stack>
                     <Caption7>{t`Scan and copy the trade`}</Caption7>
                     <Caption7>{t`with 1 click`}</Caption7>

@@ -4,7 +4,7 @@ import MessageSnackBar from "../components/SnackBar/MessageSnackBar";
 import NormalSnackBar, {
   SnackBarType,
 } from "../components/SnackBar/NormalSnackBar";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import useWindowWidth from "./useWindowWidth";
 import { t } from "@lingui/macro";
 import {
@@ -15,7 +15,7 @@ import SnackBarWithButton from "../components/SnackBar/SnackBarWithButton";
 
 function useTransactionSnackBar() {
   const { isBigMobile } = useWindowWidth();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const transactionsData: Array<any> = useMemo(() => {

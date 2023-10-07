@@ -1,41 +1,37 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo } from "react";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { NEXT, SwapExchangeSmall } from "../icons";
 import LinkButton from "../MainButton/LinkButton";
-import NESTLine from "../NESTLine";
+import ArithFiLine from "../ArithFiLine";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
 
-interface NESTInputProps {
+interface ArithFiInputProps {
   checkBalance: boolean;
   showToSwap: boolean;
   showBalance: string;
   maxCallBack: () => void;
-  nestAmount: string;
-  changeNestAmount: (value: string) => void;
+  arithFiAmount: string;
+  changeArithFiAmount: (value: string) => void;
   otherCallBack: () => void;
   hideSwapTitle?: boolean;
   style?: React.CSSProperties;
 }
 
-const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
-  const { account, chainsData, checkSigned } = useNEST();
-  const noNESTText = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return t`The balance is 0. You can go to "Faucet" to get test token before trading.`;
+const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
+  const { account, checkSigned } = useArithFi();
+  const noATFText = useMemo(() => {
+    if (checkSigned) {
+      return t`Insufficient balance. Please deposit to start the lightning trade.`;
     } else {
-      if (checkSigned) {
-        return t`Insufficient balance. Please deposit to start the lightning trade.`;
-      } else {
-        return t`Please complete your sign`;
-      }
+      return t`Please complete your sign`;
     }
-  }, [chainsData.chainId, checkSigned]);
+  }, [checkSigned]);
   const swapTitle = useMemo(() => {
-    return chainsData.chainId === 534353 ? t`Faucet` : t`Deposit`;
-  }, [chainsData.chainId]);
+    return t`Deposit`
+  }, []);
   return (
     <Stack
       justifyContent={"flex-start"}
@@ -74,15 +70,15 @@ const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
           })}
           component={"input"}
           placeholder={t`Amount`}
-          value={props.nestAmount}
+          value={props.arithFiAmount}
           maxLength={32}
           onChange={(e) =>
-            props.changeNestAmount(e.target.value.formatInputNum())
+            props.changeArithFiAmount(e.target.value.formatInputNum())
           }
         />
         <OneTokenIN tokenName={"ATF"} height={24} />
       </Stack>
-      <NESTLine style={{ marginTop: "12px", marginBottom: "12px" }} />
+      <ArithFiLine style={{ marginTop: "12px", marginBottom: "12px" }} />
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
@@ -163,7 +159,7 @@ const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
           component={"button"}
           onClick={props.otherCallBack}
         >
-          <Box textAlign={"left"}>{noNESTText}</Box>
+          <Box textAlign={"left"}>{noATFText}</Box>
           <NEXT />
         </Stack>
       ) : (
@@ -173,4 +169,4 @@ const NESTInput: FC<NESTInputProps> = ({ ...props }) => {
   );
 };
 
-export default NESTInput;
+export default ArithFiInput;

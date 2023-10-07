@@ -16,7 +16,7 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 import SwapInputItem, { SwapShowItem } from "./Components/SwapInputItem";
 import SwapSlippageModal from "./Components/SwapSlippageModal";
 import { Trans } from "@lingui/macro";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 
 const SwapBaseStack = styled(Stack)(({ theme }) => {
   return {
@@ -37,7 +37,7 @@ const SwapBaseStack = styled(Stack)(({ theme }) => {
 
 const Swap: FC = () => {
   const { isMobile } = useWindowWidth();
-  const { addNESTToWallet } = useNEST();
+  const { addATFToWallet } = useArithFi();
   const [openModal, setOpenModal] = useState(false);
   const {
     swapToken,
@@ -58,7 +58,6 @@ const Swap: FC = () => {
     mainButtonLoading,
     tokenArray,
     selectToken,
-    hideSetting,
   } = useSwap();
 
   const ExchangeIcon = styled("button")(({ theme }) => {
@@ -189,7 +188,7 @@ const Swap: FC = () => {
                   },
                 },
               })}
-              onClick={addNESTToWallet}
+              onClick={addATFToWallet}
             >
               <Add />
               <Box
@@ -236,25 +235,21 @@ const Swap: FC = () => {
           value={showOutAmount}
         />
         <Stack spacing={"12px"} width={"100%"} marginY={"24px"}>
-          {hideSetting ? (
-            <></>
-          ) : (
-            <SettingStack direction={"row"} justifyContent={"space-between"}>
-              <p className="SwapSettingTitle">
-                <Trans>Slippage Tolerance</Trans>
-              </p>
-              <Stack
-                direction={"row"}
-                justifyContent={"flex-end"}
-                spacing={"8px"}
-              >
-                {/* <p>{slippage} %</p> */}
-                <LinkButton onClick={() => setOpenModal(true)}>
-                  <WriteIcon />
-                </LinkButton>
-              </Stack>
-            </SettingStack>
-          )}
+          <SettingStack direction={"row"} justifyContent={"space-between"}>
+            <p className="SwapSettingTitle">
+              <Trans>Slippage Tolerance</Trans>
+            </p>
+            <Stack
+              direction={"row"}
+              justifyContent={"flex-end"}
+              spacing={"8px"}
+            >
+              {/* <p>{slippage} %</p> */}
+              <LinkButton onClick={() => setOpenModal(true)}>
+                <WriteIcon />
+              </LinkButton>
+            </Stack>
+          </SettingStack>
 
           <SettingStack direction={"row"} justifyContent={"space-between"}>
             <p className="SwapSettingTitle">

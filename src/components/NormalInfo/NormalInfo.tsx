@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC } from "react";
-import { NESTTooltipFC } from "../NESTTooltip/NESTTooltip";
+import { ArithFiTooltipFC } from "../ArithFiTooltip/ArithFiTooltip";
 
 interface NormalInfoProps {
   title: string;
@@ -39,7 +39,7 @@ const NormalInfo: FC<NormalInfoProps> = ({ ...props }) => {
         >
           {props.title}
         </Box>
-        {props.help ? <NESTTooltipFC title={props.helpInfo}/> : <></>}
+        {props.help ? <ArithFiTooltipFC title={props.helpInfo}/> : <></>}
       </Stack>
 
       <Stack

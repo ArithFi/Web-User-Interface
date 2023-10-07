@@ -6,8 +6,8 @@ import MainButton from "../../../components/MainButton/MainButton";
 import { Trans, t } from "@lingui/macro";
 import CopySettingModal from "./CopySettingModal";
 import { AllKOLModel } from "../Hooks/useCopy";
-import useNEST from "../../../hooks/useNEST";
-import { copyMyCopiesMyTradersList } from "../../../lib/NESTRequest";
+import useArithFi from "../../../hooks/useArithFi";
+import { copyMyCopiesMyTradersList } from "../../../lib/ArithFiRequest";
 import CopyStopModal from "./CopyStopModal";
 import {
   TransactionType,
@@ -81,7 +81,7 @@ interface KolInfoProps {
 
 const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const { isBigMobile } = useWindowWidth();
-  const { chainsData, signature } = useNEST();
+  const { chainsData, signature } = useArithFi();
   const [openCopyModal, setOpenCopyModal] = useState(false);
   const [openStopModal, setOpenStopModal] = useState(false);
   const { addTransactionNotice } = usePendingTransactionsBase();

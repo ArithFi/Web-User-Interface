@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC } from "react";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
 import { FuturesModalInfo } from "../OrderList";
 import FuturesOrderListInfo, {
@@ -83,7 +83,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
             </Stack>
           </FuturesOrderListInfoMain>
         </Stack>
-        <NESTLine />
+        <ArithFiLine />
         {!(tp === String().placeHolder && sl === String().placeHolder) ? (
           <Stack direction={"row"} justifyContent={"space-around"}>
             <FuturesOrderListInfo

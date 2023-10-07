@@ -6,7 +6,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import CopyListPosition from "./CopyListPosition";
 import CopyTablePosition from "./CopyTablePosition";
 import { TraderOrderList } from "../Hooks/useTrader";
@@ -145,7 +145,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                 </Box>
               </Stack>
             </Stack>
-            <NESTLine />
+            <ArithFiLine />
             <Stack
               spacing={"8px"}
               alignItems={"center"}

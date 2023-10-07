@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import useReadTokenBalance, {
   useReadTokenAllowance,
 } from "../contracts/Read/useReadTokenContract";
-import useNEST from "./useNEST";
+import useArithFi from "./useArithFi";
 import { useBalance } from "wagmi";
 import { parseEther } from "ethers/lib/utils.js";
 import { BigNumber } from "ethers/lib/ethers";
@@ -29,7 +29,7 @@ import { sleep } from "../lib/sleep";
 
 function useDepositModal(onClose: () => void) {
   const { isPendingType } = usePendingTransactions();
-  const { chainsData, account } = useNEST();
+  const { chainsData, account } = useArithFi();
   const [tokenAmount, setTokenAmount] = useState<string>("");
   const [selectToken, setSelectToken] = useState<string>("ATF");
   const [selectButton, setSelectButton] = useState<number>();

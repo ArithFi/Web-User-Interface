@@ -2,17 +2,17 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import { SelectToken } from "../../pages/Swap/Components/SwapInputItem";
 import { NEXT, SelectedTokenDown, SwapExchangeSmall } from "../icons";
 import OneIconWithString from "../IconWithString/OneIconWithString";
 import LinkButton from "../MainButton/LinkButton";
-import NESTLine from "../NESTLine";
+import ArithFiLine from "../ArithFiLine";
 import SelectListMenu from "../SelectListMemu/SelectListMenu";
 import OneTokenIN from "../TokenIconAndName/OneTokenI&N";
 import { Trans, t } from "@lingui/macro";
 
-interface NESTInputSelectProps {
+interface ArithFiInputSelectProps {
   tokenName: string;
   tokenArray: string[];
   selectToken: (tokenName: string) => void;
@@ -20,15 +20,15 @@ interface NESTInputSelectProps {
   showToSwap: boolean;
   showBalance: string;
   maxCallBack: () => void;
-  nestAmount: string;
-  changeNestAmount: (value: string) => void;
+  arithFiAmount: string;
+  changeArithFiAmount: (value: string) => void;
   balanceTitle?: string;
   isShare?: boolean;
   style?: React.CSSProperties;
 }
 
-const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
-  const { account, chainsData } = useNEST();
+const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
+  const { account } = useArithFi();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -69,24 +69,16 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
         );
       });
   }, [props]);
-  const noNESTText = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return t`The balance is 0. You can go to "Faucet" to get test token before trading.`;
-    } else {
-      return t`0 balance. Before trading, you can switch to "Swap" to exchange
+  const noATFText = useMemo(() => {
+    return t`0 balance. Before trading, you can switch to "Swap" to exchange
       between USDT and ATF token.`;
-    }
-  }, [chainsData.chainId]);
+  }, []);
   const swapLink = useMemo(() => {
-    if (chainsData.chainId === 534353) {
-      return "/faucet";
-    } else {
-      return "/swap";
-    }
-  }, [chainsData.chainId]);
+    return "/swap";
+  }, []);
   const swapTitle = useMemo(() => {
-    return chainsData.chainId === 534353 ? t`Faucet` : t`Swap`;
-  }, [chainsData.chainId]);
+    return t`Swap`;
+  }, []);
   const showBottom = useMemo(() => {
     if (props.showToSwap) {
       return (
@@ -118,7 +110,7 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
           })}
           alignItems={"center"}
         >
-          <Link to={swapLink}>{noNESTText}</Link>
+          <Link to={swapLink}>{noATFText}</Link>
           <Link to={swapLink}>
             <NEXT />
           </Link>
@@ -126,7 +118,7 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
       );
     }
     return <></>;
-  }, [noNESTText, props.showToSwap, swapLink]);
+  }, [noATFText, props.showToSwap, swapLink]);
   return (
     <Stack
       justifyContent={"flex-start"}
@@ -167,10 +159,10 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
           })}
           component={"input"}
           placeholder={t`Amount`}
-          value={props.nestAmount}
+          value={props.arithFiAmount}
           maxLength={32}
           onChange={(e) =>
-            props.changeNestAmount(e.target.value.formatInputNum())
+            props.changeArithFiAmount(e.target.value.formatInputNum())
           }
         />
         <SelectToken
@@ -193,7 +185,7 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
           <Stack>{tokenPairList}</Stack>
         </SelectListMenu>
       </Stack>
-      <NESTLine style={{ marginTop: "12px", marginBottom: "12px" }} />
+      <ArithFiLine style={{ marginTop: "12px", marginBottom: "12px" }} />
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
@@ -254,4 +246,4 @@ const NESTInputSelect: FC<NESTInputSelectProps> = ({ ...props }) => {
   );
 };
 
-export default NESTInputSelect;
+export default ArithFiInputSelect;

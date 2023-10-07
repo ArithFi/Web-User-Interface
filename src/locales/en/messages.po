@@ -56,7 +56,7 @@ msgstr "> MARKET PRICE"
 msgid "> OPEN PRICE"
 msgstr "> OPEN PRICE"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
 "between USDT and ATF token."
@@ -146,7 +146,7 @@ msgstr "about connecting wallets"
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "Account"
 
@@ -172,7 +172,6 @@ msgstr "Actual Margin"
 msgid "Add"
 msgstr "Add"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Add ATF to wallet"
 msgstr "Add ATF to wallet"
@@ -214,8 +213,8 @@ msgstr "Align With Traders"
 msgid "All Traders"
 msgstr "All Traders"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Amount"
@@ -278,9 +277,8 @@ msgstr "AUM(ATF)"
 msgid "balance"
 msgstr "balance"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/DirectPoster/DirectPoster.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid "Balance:"
 msgstr "Balance:"
 
@@ -366,8 +364,6 @@ msgstr "Confirm you are the owner of this wallet"
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
-#: src/pages/DirectPoster/useDirectPoster.ts
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -377,7 +373,7 @@ msgstr "Connect Wallet"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "Copy"
 
@@ -489,9 +485,9 @@ msgstr "Custom Copy Trading"
 msgid "Daily Return"
 msgstr "Daily Return"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -499,7 +495,7 @@ msgstr "Dashboard"
 msgid "Default"
 msgstr "Default"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Overview/Overview.tsx
@@ -586,13 +582,11 @@ msgstr "Expand more products:"
 msgid "Fail"
 msgstr "Fail"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Fail Request"
 msgstr "Fail Request"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -636,19 +630,14 @@ msgstr "Freeze to Deposit"
 msgid "From"
 msgstr "From"
 
-#: src/pages/Share/Head/NESTHead.tsx
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futures"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
 msgstr "Futures, Options, Structure Products"
-
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "GET"
-msgstr "GET"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -735,17 +724,13 @@ msgstr "Insufficient ATF balance"
 msgid "Insufficient balance"
 msgstr "Insufficient balance"
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Insufficient balance. Please deposit to start the lightning trade."
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Invitee Trading Volume"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "It's available once in 24 hours. Please come later."
-msgstr "It's available once in 24 hours. Please come later."
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -853,8 +838,8 @@ msgstr "Market"
 msgid "Market Price"
 msgstr "Market Price"
 
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "MAX"
@@ -1028,13 +1013,9 @@ msgstr "Personal"
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 msgstr "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
 
-#: src/components/NormalInput/NESTInput.tsx
+#: src/components/NormalInput/ArithFiInput.tsx
 msgid "Please complete your sign"
 msgstr "Please complete your sign"
-
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Please get ETH testnet token first"
-msgstr "Please get ETH testnet token first"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "Please note that \"Limit order\" or \"Stop order\" is not guaranteed to be executed. This may include, but is not limited to, the following cases."
@@ -1276,15 +1257,15 @@ msgstr "Stop-Limit"
 msgid "Success"
 msgstr "Success"
 
-#: src/components/NormalInput/NESTInputSelect.tsx
+#: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Share/Head/NESTHead.tsx
+#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
 msgstr "Swap"
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "Switch network successfully"
 msgstr "Switch network successfully"
 
@@ -1314,16 +1295,6 @@ msgstr "Take Profit"
 msgid "Test BNB"
 msgstr "Test BNB"
 
-#: src/pages/DirectPoster/DirectPoster.tsx
-#: src/pages/DirectPoster/useDirectPoster.ts
-msgid "Testnet token"
-msgstr "Testnet token"
-
-#: src/components/NormalInput/NESTInput.tsx
-#: src/components/NormalInput/NESTInputSelect.tsx
-msgid "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-msgstr "The balance is 0. You can go to \"Faucet\" to get test token before trading."
-
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order when copy trading."
 msgstr "The fixed amount you invested for each order when copy trading."
@@ -1344,7 +1315,7 @@ msgstr "The minimum withdrawal amount greater than 15 ATF"
 msgid "The total amount you invested in copying this trader’s signals."
 msgstr "The total amount you invested in copying this trader’s signals."
 
-#: src/hooks/useNESTSnackBar.tsx
+#: src/hooks/useArithFiSnackBar.tsx
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "The transaction failed and the amount has been fully refunded. You can re-trade"
 

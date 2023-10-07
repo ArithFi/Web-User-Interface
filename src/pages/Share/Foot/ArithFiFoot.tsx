@@ -8,7 +8,7 @@ import {
   MediumIcon,
   BNBTokenLogo,
 } from "../../../components/icons";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 
 export const FootArray = [
@@ -19,7 +19,7 @@ export const FootArray = [
   { icon: BNBTokenLogo, link: "https://testnet.bnbchain.org/faucet-smart" },
 ];
 
-export const NESTFootStack = styled(Stack)(({ theme }) => ({
+export const ArithFiFootStack = styled(Stack)(({ theme }) => ({
   height: 112,
   background: theme.normal.bg0,
   borderTop: `1px solid ${theme.normal.border}`,
@@ -46,24 +46,24 @@ export const FootAList = FootArray.map((item, index) => {
     </a>
   );
 });
-const NESTFoot: FC = () => {
+const ArithFiFoot: FC = () => {
   const { isBigMobile } = useWindowWidth();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const foot = () => {
     return isBigMobile ? (
       <></>
     ) : (
-      <NESTFootStack
+      <ArithFiFootStack
         direction="row"
         justifyContent="center"
         alignItems="center"
         spacing={"24px"}
       >
         {chainsData.chainId === 97 ? FootAList : FootAList.slice(0, 4)}
-      </NESTFootStack>
+      </ArithFiFootStack>
     );
   };
   return foot();
 };
 
-export default NESTFoot;
+export default ArithFiFoot;

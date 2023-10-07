@@ -1,12 +1,12 @@
 import { BigNumber } from "ethers";
 import { useMemo } from "react";
 import { useContractRead } from "wagmi";
-import useNEST from "../../hooks/useNEST";
+import useArithFi from "../../hooks/useArithFi";
 import FuturesV2ABI from "../ABI/FuturesV2.json";
 import { FuturesV2Contract } from "../contractAddress";
 
 function useReadFuturesPrice(channelIndex: number) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const {
     data: futuresPriceData,
     isRefetching: futuresPriceIsRefetching,

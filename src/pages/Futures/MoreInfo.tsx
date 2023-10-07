@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC } from "react";
 import { NEXT } from "../../components/icons";
-import NESTLine from "../../components/NESTLine";
+import ArithFiLine from "../../components/ArithFiLine";
 import { Trans } from "@lingui/macro";
 import useLanguageWithDoc from "../../hooks/useLanguageWithDoc";
 
@@ -67,7 +67,7 @@ const FuturesMoreInfo: FC = () => {
           width={"100%"}
           component={"button"}
           onClick={() => {
-            window.open("https://nestprotocol.org/doc/ennestwhitepaper.pdf");
+            window.open();
           }}
           sx={(theme) => ({
             paddingX: "20px",
@@ -82,7 +82,7 @@ const FuturesMoreInfo: FC = () => {
             <NEXT />
           </NextBox>
         </Stack>
-        <NESTLine style={{ padding: "0 20px" }} /> */}
+        <ArithFiLine style={{ padding: "0 20px" }} /> */}
         <Stack
           direction={"row"}
           justifyContent={"space-between"}

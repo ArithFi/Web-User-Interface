@@ -2,7 +2,7 @@ import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import MainButton from "../../../components/MainButton/MainButton";
 import copy from "copy-to-clipboard";
-import useNESTSnackBar from "../../../hooks/useNESTSnackBar";
+import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import useWindowWidth from "../../../hooks/useWindowWidth";
@@ -19,7 +19,7 @@ import { Trans, t } from "@lingui/macro";
 import NetworkIcon from "../../Dashboard/Components/NetworkIcon";
 import { useParams } from "react-router-dom";
 import { useAccount } from "wagmi";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 
 const Select1 = styled("select")(({ theme }) => ({
   width: "100%",
@@ -226,7 +226,7 @@ const DownSort = () => {
 };
 
 const Referral = () => {
-  const { messageSnackBar } = useNESTSnackBar();
+  const { messageSnackBar } = useArithFiSnackBar();
   const { isBigMobile } = useWindowWidth();
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
@@ -237,7 +237,7 @@ const Referral = () => {
   const [searchText, setSearchText] = useState("");
   const { address } = useParams();
   const { address: user } = useAccount();
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({ length: totalPage }, (v, k) => k + 1);

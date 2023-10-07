@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import { FC, useMemo } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
-import NESTLine from "../../../components/NESTLine";
+import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInput from "../../../components/NormalInput/NormalInput";
 import useFuturesEditLimit from "../../../hooks/useFuturesEditLimit";
 import useWindowWidth from "../../../hooks/useWindowWidth";
@@ -35,7 +35,7 @@ const EditLimitModalBase: FC<EditLimitModalBaseProps> = ({ ...props }) => {
         value={limitPrice}
         changeValue={(value: string) => setLimitPrice(value.formatInputNum())}
       />
-      <NESTLine />
+      <ArithFiLine />
       <MainButton
         title={mainButtonTitle}
         disable={mainButtonDis}

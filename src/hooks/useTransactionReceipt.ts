@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createContainer } from "unstated-next";
 import { useWaitForTransaction } from "wagmi";
 import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
-import useTransactionSnackBar from "./useNESTSnackBar";
+import useTransactionSnackBar from "./useArithFiSnackBar";
 import { t } from "@lingui/macro";
 
 export enum TransactionType {

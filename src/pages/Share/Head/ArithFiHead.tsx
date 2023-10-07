@@ -7,8 +7,8 @@ import {
   Dashboard,
   FuturesIcon,
   Light,
-  NESTFiLogo,
-  NESTLogo,
+  ArithFiLogo,
+  ATFLogo,
   SwapExchangeSmall,
 } from "../../../components/icons";
 import Box from "@mui/material/Box";
@@ -19,7 +19,7 @@ import NavMenu from "./NavMenu";
 import useTheme from "../../../hooks/useTheme";
 import NetMenu from "./NetMenu";
 import { NavMenuV2, NavMenuV3 } from "./NavMenuV2Base";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import { Trans } from "@lingui/macro";
 import LanguageMenu from "./LanguageMenu";
 import SignModal from "../Modal/SignModal";
@@ -78,11 +78,11 @@ export const NavItemsForScroll = [
   },
 ];
 
-const NESTHead: FC = () => {
+const ArithFiHead: FC = () => {
   const location = useLocation();
   const { width: widthLv, headHeight, isBigMobile, isPC } = useWindowWidth();
   const { nowTheme, changeTheme } = useTheme();
-  const { account, chainsData, navItems, checkSigned } = useNEST();
+  const { account, chainsData, navItems, checkSigned } = useArithFi();
 
   const [openSignModal, setOpenSignModal] = useState(false);
   useEffect(() => {
@@ -112,7 +112,7 @@ const NESTHead: FC = () => {
     }
   }, [account.address, chainsData, location]);
 
-  const NESTHeadStack = styled(Stack)(({ theme }) => ({
+  const ArithFiHeadStack = styled(Stack)(({ theme }) => ({
     background: theme.normal.bg0,
     borderBottom: `1px solid ${theme.normal.border}`,
     boxSizing: "content-box",
@@ -303,7 +303,7 @@ const NESTHead: FC = () => {
   }, [widthLv]);
 
   return (
-    <NESTHeadStack
+    <ArithFiHeadStack
       direction="row"
       justifyContent="space-between"
       alignItems="center"
@@ -332,10 +332,10 @@ const NESTHead: FC = () => {
                   },
                 }}
               >
-                <NESTLogo />
+                <ATFLogo />
               </Box>
             ) : (
-              <NESTFiLogo />
+              <ArithFiLogo />
             )}
           </Link>
         </LogoBox>
@@ -375,8 +375,8 @@ const NESTHead: FC = () => {
           {navMenu}
         </Stack>
       </Stack>
-    </NESTHeadStack>
+    </ArithFiHeadStack>
   );
 };
 
-export default NESTHead;
+export default ArithFiHead;

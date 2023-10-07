@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import useNEST from "../../../hooks/useNEST";
+import useArithFi from "../../../hooks/useArithFi";
 import {
   copyEarningsList,
   copyKOLInfo,
@@ -8,7 +8,7 @@ import {
   copyTraderFollowers,
   copyTraderHistory,
   serviceList,
-} from "../../../lib/NESTRequest";
+} from "../../../lib/ArithFiRequest";
 import { AllKOLModel } from "./useCopy";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
 
@@ -55,7 +55,7 @@ export interface TraderFollowerList {
 }
 
 function useTrader(address: string | undefined) {
-  const { chainsData } = useNEST();
+  const { chainsData } = useArithFi();
   const [kolInfo, setKolInfo] = useState<AllKOLModel>();
   const [earningsData, setEarningsData] = useState<Array<EarningsListModel>>(
     []
