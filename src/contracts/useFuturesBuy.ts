@@ -10,7 +10,7 @@
 //   usePendingTransactions,
 // } from "../hooks/useTransactionReceipt";
 
-// export const MIN_NEST = 50;
+// export const MIN_ATF = 50;
 // export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
 // function useFuturesBuy(
@@ -106,7 +106,7 @@
 
 // export function useFuturesBuyWithUSDT(
 //   usdtAmount: BigNumber | undefined,
-//   minNestAmount: BigNumber | undefined,
+//   minATFAmount: BigNumber | undefined,
 //   channelIndex: BigNumber,
 //   lever: BigNumber,
 //   orientation: boolean,
@@ -116,17 +116,17 @@
 //   const { chainsData } = useArithFi();
 //   const { addPendingList } = usePendingTransactions();
 //   const address = useMemo(() => {
-//     if (chainsData.chainId && usdtAmount && minNestAmount) {
+//     if (chainsData.chainId && usdtAmount && minATFAmount) {
 //       return FuturesV2Contract[chainsData.chainId] as `0x${string}`;
 //     }
-//   }, [chainsData.chainId, minNestAmount, usdtAmount]);
+//   }, [chainsData.chainId, minATFAmount, usdtAmount]);
 //   const { config } = usePrepareContractWrite({
 //     address: address,
 //     abi: FuturesV2ABI,
 //     functionName: "buyWithUsdt",
 //     args: [
 //       usdtAmount,
-//       minNestAmount,
+//       minATFAmount,
 //       channelIndex,
 //       lever,
 //       orientation,
@@ -212,7 +212,7 @@
 
 // export function useFuturesNewTrustOrderWithUSDT(
 //   usdtAmount: BigNumber | undefined,
-//   minNestAmount: BigNumber | undefined,
+//   minATFAmount: BigNumber | undefined,
 //   channelIndex: BigNumber,
 //   lever: BigNumber,
 //   orientation: boolean,
@@ -226,19 +226,19 @@
 //     if (
 //       chainsData.chainId &&
 //       usdtAmount &&
-//       minNestAmount &&
+//       minATFAmount &&
 //       !BigNumber.from("0").eq(limitPrice)
 //     ) {
 //       return FuturesV2Contract[chainsData.chainId] as `0x${string}`;
 //     }
-//   }, [chainsData.chainId, usdtAmount, minNestAmount, limitPrice]);
+//   }, [chainsData.chainId, usdtAmount, minATFAmount, limitPrice]);
 //   const { config } = usePrepareContractWrite({
 //     address: address,
 //     abi: FuturesV2ABI,
 //     functionName: "newTrustOrderWithUsdt",
 //     args: [
 //       usdtAmount,
-//       minNestAmount,
+//       minATFAmount,
 //       channelIndex,
 //       lever,
 //       orientation,
