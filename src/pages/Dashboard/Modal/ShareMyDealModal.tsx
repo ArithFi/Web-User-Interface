@@ -476,7 +476,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
           <Stack ref={myShareRef} width={'100%'}>
             <Stack pt={'50px'} px={'24px'} bgcolor={'#0B0C0D'}
                    style={{
-                     backgroundImage: `url('/images/share_deal.png')`,
+                     backgroundImage: `url('/images/share_order.png')`,
                      backgroundRepeat: 'no-repeat',
                      backgroundPosition: 'top',
                      backgroundSize: 'contain',
