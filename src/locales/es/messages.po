@@ -191,7 +191,6 @@ msgid "Add Position"
 msgstr "Agregar posición"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "Dirección"
 
@@ -398,6 +397,8 @@ msgstr "Copiar órdenes"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -420,6 +421,10 @@ msgstr "Ganancias y Pérdidas de Copia de Traders (ATF)"
 msgid "Copy Trading"
 msgstr "Trading de Copia"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr ""
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr "Activos de Copia de Trading (ATF)"
@@ -431,6 +436,12 @@ msgstr "Copiar Cada Orden de Trading"
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
 msgstr "Copia de Trading sin esfuerzo"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -455,6 +466,11 @@ msgstr "Traders Copiados Acumulativos"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Volumen Total de Operaciones de Invitados Acumulado"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -491,6 +507,7 @@ msgstr "Retorno Diario"
 msgid "Dashboard"
 msgstr "Panel de Control"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "Predeterminado"
@@ -729,6 +746,10 @@ msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Saldo insuficiente. Por favor, deposita para comenzar el trading rápido."
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr ""
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Volumen de Operaciones de Invitados"
 
@@ -866,6 +887,8 @@ msgstr "Más Información"
 msgid "My Balance"
 msgstr "Mi Saldo"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -893,6 +916,8 @@ msgstr "Mis Operaciones"
 msgid "News"
 msgstr "Noticias"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -985,6 +1010,8 @@ msgid "Orders"
 msgstr "Órdenes"
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1000,10 +1027,16 @@ msgstr "Pancake"
 msgid "Pending"
 msgstr "Pendiente"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Rendimiento"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1056,6 +1089,11 @@ msgstr "Posiciones"
 msgid "Positions Value"
 msgstr "Valor de Posiciones"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr ""
+
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
@@ -1095,6 +1133,7 @@ msgstr "Recibido 100 fichas de prueba ATF"
 msgid "Recent transactions"
 msgstr "Transacciones recientes"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1134,6 +1173,7 @@ msgstr "Guardar"
 msgid "Scan and copy the trade"
 msgstr "Escanear y copiar la operación"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "Buscar"
@@ -1167,10 +1207,13 @@ msgstr "Establezca el margen para cada orden, así como el monto total de la cop
 msgid "Settings"
 msgstr "Configuraciones"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Liquidado"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1323,6 +1366,8 @@ msgstr "La transacción falló y el monto ha sido reembolsado completamente. Pue
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Tiempo"
 
@@ -1351,6 +1396,7 @@ msgstr "Valor Total de Activos"
 msgid "Total Burned"
 msgstr "Total Quemado"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1372,6 +1418,8 @@ msgstr "Total Pagado"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "Ganancia Total"
 
@@ -1382,6 +1430,8 @@ msgstr "Ganancia Total"
 msgid "Total Profit & Loss"
 msgstr "Ganancia y Pérdida Total"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1438,6 +1488,7 @@ msgstr "Trader"
 msgid "Trader Profile"
 msgstr "Perfil del Trader"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Volumen de Operaciones"
@@ -1472,6 +1523,7 @@ msgstr "Ganancias y Pérdidas no Realizadas (ATF)"
 msgid "Unsettled"
 msgstr "Sin Liquidar"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
