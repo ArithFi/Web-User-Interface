@@ -56,7 +56,6 @@ function useFuturesNewOrder(
   updateList: () => void
 ) {
   const { account, chainsData, setShowConnect, signature } = useArithFi();
-  const [longOrShort, setLongOrShort] = useState(true);
   const [tabsValue, setTabsValue] = useState(0);
   const [arithFiAmount, setArithFiAmount] = useState("");
   const [lever, setLever] = useState(1);
@@ -64,7 +63,6 @@ function useFuturesNewOrder(
   const [isStop, setIsStop] = useState(false);
   const [tp, setTp] = useState("");
   const [sl, setSl] = useState("");
-  const [inputToken, setInputToken] = useState<string>("ATF");
   const [inputAmount, setInputAmount] = useState("");
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();
   const [loading, setLoading] = useState<boolean>(false);
@@ -72,12 +70,7 @@ function useFuturesNewOrder(
   const { addTransactionNotice } = usePendingTransactionsBase();
   const [showDeposit, setShowDeposit] = useState(false);
   const [showSignModal, setShowSignModal] = useState(false);
-  // const nowToken = useMemo(() => {
-  //   const token = inputToken.getToken();
-  //   if (chainsData.chainId && token) {
-  //     return token.address[chainsData.chainId];
-  //   }
-  // }, [chainsData.chainId, inputToken]);
+
   const openPriceBase = useMemo(() => {
     if (price) {
       const nowPrice = price[tokenPair];
@@ -86,33 +79,33 @@ function useFuturesNewOrder(
       return undefined;
     }
   }, [price, tokenPair]);
-  const openPrice = useMemo(() => {
-    const atfBigNumber = arithFiAmount.stringToBigNumber(18);
-    if (openPriceBase && atfBigNumber) {
-      const nowPrice = openPriceBase;
-      if (parseFloat(arithFiAmount) * lever >= 0) {
-        const c0_top = BigNumber.from("55560000")
-          .mul(atfBigNumber)
-          .mul(BigNumber.from(lever.toString()))
-          .add(
-            BigNumber.from("444400000000000").mul(BigNumber.from("10").pow(18))
-          );
-        const c0_long = BigNumber.from("10")
-          .pow(36)
-          .add(c0_top)
-          .mul(nowPrice)
-          .div(BigNumber.from("10").pow(36));
-        const c0_Short = nowPrice
-          .mul(BigNumber.from("10").pow(36))
-          .div(c0_top.add(BigNumber.from("10").pow(36)));
-        return longOrShort ? c0_long : c0_Short;
-      } else {
-        return nowPrice;
-      }
-    } else {
-      return undefined;
-    }
-  }, [lever, longOrShort, arithFiAmount, openPriceBase]);
+  // const openPrice = useMemo(() => {
+  //   const atfBigNumber = arithFiAmount.stringToBigNumber(18);
+  //   if (openPriceBase && atfBigNumber) {
+  //     const nowPrice = openPriceBase;
+  //     if (parseFloat(arithFiAmount) * lever >= 0) {
+  //       const c0_top = BigNumber.from("55560000")
+  //         .mul(atfBigNumber)
+  //         .mul(BigNumber.from(lever.toString()))
+  //         .add(
+  //           BigNumber.from("444400000000000").mul(BigNumber.from("10").pow(18))
+  //         );
+  //       const c0_long = BigNumber.from("10")
+  //         .pow(36)
+  //         .add(c0_top)
+  //         .mul(nowPrice)
+  //         .div(BigNumber.from("10").pow(36));
+  //       const c0_Short = nowPrice
+  //         .mul(BigNumber.from("10").pow(36))
+  //         .div(c0_top.add(BigNumber.from("10").pow(36)));
+  //       return longOrShort ? c0_long : c0_Short;
+  //     } else {
+  //       return nowPrice;
+  //     }
+  //   } else {
+  //     return undefined;
+  //   }
+  // }, [lever, longOrShort, arithFiAmount, openPriceBase]);
   /**
    * uniswap out amount
    */
@@ -181,65 +174,67 @@ function useFuturesNewOrder(
       if (tabsValue === 1) {
         return limitAmount.stringToBigNumber(18) ?? BigNumber.from("0");
       } else {
-        const nowPrice = openPriceBase;
-        return addPricePoint(nowPrice, longOrShort);
+        return openPriceBase;
+        // return addPricePoint(nowPrice, longOrShort);
       }
     } else {
       return undefined;
     }
-  }, [limitAmount, longOrShort, openPriceBase, tabsValue]);
+  }, [limitAmount, openPriceBase, tabsValue]);
 
-  const open = useCallback(async () => {
-    if (chainsData.chainId && account.address && basePrice && signature) {
-      const orderPrice = basePrice.bigNumberToShowString(18, 5);
-      const openBase: { [key: string]: any } = await serviceOpen(
-        chainsData.chainId,
-        account.address,
-        longOrShort,
-        lever,
-        tabsValue === 1,
-        Number(inputAmount),
-        Number(orderPrice),
-        `${tokenPair}/USDT`,
-        Number(sl),
-        Number(tp),
-        { Authorization: signature.signature }
-      );
-      if (Number(openBase["errorCode"]) === 0) {
-        getBalance();
-        KOLTx({
-          kolLink: window.location.href,
-          hash: "",
-          positionIndex: openBase["value"],
+  const open = useCallback(
+    async (isLong: boolean) => {
+      if (chainsData.chainId && account.address && basePrice && signature) {
+        const orderPrice = basePrice.bigNumberToShowString(18, 5);
+        const openBase: { [key: string]: any } = await serviceOpen(
+          chainsData.chainId,
+          account.address,
+          isLong,
+          lever,
+          tabsValue === 1,
+          Number(inputAmount),
+          Number(orderPrice),
+          `${tokenPair}/USDT`,
+          Number(sl),
+          Number(tp),
+          { Authorization: signature.signature }
+        );
+        if (Number(openBase["errorCode"]) === 0) {
+          getBalance();
+          KOLTx({
+            kolLink: window.location.href,
+            hash: "",
+            positionIndex: openBase["value"],
+          });
+          updateList();
+        }
+        addTransactionNotice({
+          type: TransactionType.futures_buy,
+          info: "",
+          result:
+            Number(openBase["errorCode"]) === 0
+              ? SnackBarType.success
+              : SnackBarType.fail,
         });
-        updateList();
       }
-      addTransactionNotice({
-        type: TransactionType.futures_buy,
-        info: "",
-        result:
-          Number(openBase["errorCode"]) === 0
-            ? SnackBarType.success
-            : SnackBarType.fail,
-      });
-    }
-    setLoading(false);
-  }, [
-    account.address,
-    addTransactionNotice,
-    basePrice,
-    chainsData.chainId,
-    getBalance,
-    inputAmount,
-    lever,
-    longOrShort,
-    signature,
-    sl,
-    tabsValue,
-    tokenPair,
-    tp,
-    updateList,
-  ]);
+      setLoading(false);
+    },
+    [
+      account.address,
+      addTransactionNotice,
+      basePrice,
+      chainsData.chainId,
+      getBalance,
+      inputAmount,
+      lever,
+      signature,
+      sl,
+      tabsValue,
+      tokenPair,
+      tp,
+      updateList,
+    ]
+  );
   const showTotalPay = useMemo(() => {
     if (arithFiAmount !== "") {
       return fee
@@ -256,106 +251,111 @@ function useFuturesNewOrder(
       MIN_ATF_BIG_NUMBER
     );
   }, [arithFiAmount]);
-  const tpError = useMemo(() => {
-    if (
-      tp !== "" &&
-      !BigNumber.from("0").eq(tp.stringToBigNumber(18) ?? BigNumber.from("0"))
-    ) {
-      return longOrShort
-        ? Number(tp) < Number(limitAmount)
-        : Number(tp) > Number(limitAmount);
-    }
-    return false;
-  }, [limitAmount, longOrShort, tp]);
-  const slError = useMemo(() => {
-    if (
-      sl !== "" &&
-      !BigNumber.from("0").eq(sl.stringToBigNumber(18) ?? BigNumber.from("0"))
-    ) {
-      return longOrShort
-        ? Number(sl) > Number(limitAmount)
-        : Number(sl) < Number(limitAmount);
-    }
-    return false;
-  }, [limitAmount, longOrShort, sl]);
-  const stopDis = useMemo(() => {
-    return isStop && (tpError || slError);
-  }, [isStop, slError, tpError]);
-  const mainButtonTitle = useMemo(() => {
-    if (!account.address) {
-      return t`Connect Wallet`;
-    } else {
-      return `${t`Open`} ${longOrShort ? t`Long` : t`Short`}`;
-    }
-  }, [account.address, longOrShort]);
-  const mainButtonLoading = useMemo(() => {
-    return loading;
-  }, [loading]);
-  const mainButtonDis = useMemo(() => {
-    if (!account.address) {
+  // const tpError = useMemo(() => {
+  //   if (
+  //     tp !== "" &&
+  //     !BigNumber.from("0").eq(tp.stringToBigNumber(18) ?? BigNumber.from("0"))
+  //   ) {
+  //     return longOrShort
+  //       ? Number(tp) < Number(limitAmount)
+  //       : Number(tp) > Number(limitAmount);
+  //   }
+  //   return false;
+  // }, [limitAmount, longOrShort, tp]);
+  // const slError = useMemo(() => {
+  //   if (
+  //     sl !== "" &&
+  //     !BigNumber.from("0").eq(sl.stringToBigNumber(18) ?? BigNumber.from("0"))
+  //   ) {
+  //     return longOrShort
+  //       ? Number(sl) > Number(limitAmount)
+  //       : Number(sl) < Number(limitAmount);
+  //   }
+  //   return false;
+  // }, [limitAmount, longOrShort, sl]);
+  // const stopDis = useMemo(() => {
+  //   return isStop && (tpError || slError);
+  // }, [isStop, slError, tpError]);
+
+  const [isTPError, setIsTPError] = useState(false);
+  const [isSLError, setIsSLError] = useState(false);
+  const checkTP = useCallback(
+    (isLong: boolean) => {
+      if (tp !== "" && Number(tp) !== 0) {
+        if (isLong && Number(tp) < Number(limitAmount)) {
+          setIsTPError(true);
+          return true;
+        } else if (!isLong && Number(tp) > Number(limitAmount)) {
+          setIsTPError(true);
+          return true;
+        }
+      }
+      setIsTPError(false);
       return false;
-    } else if (checkMinATF) {
-      return true;
-    } else if (stopDis) {
-      return true;
-    } else if (
-      tabsValue === 1 &&
-      (checkMinATF ||
-        (limitAmount.stringToBigNumber(18) ?? BigNumber.from("0")).eq(
-          BigNumber.from("0")
-        ))
-    ) {
-      return true;
-    }
-    return !checkBalance;
-  }, [
-    account.address,
-    checkBalance,
-    checkMinATF,
-    limitAmount,
-    stopDis,
-    tabsValue,
-  ]);
+    },
+    [limitAmount, tp]
+  );
+  const clearTPSLError = useCallback(() => {
+    setIsTPError(false);
+    setIsSLError(false);
+  }, []);
+
+  const checkSL = useCallback(
+    (isLong: boolean) => {
+      if (sl !== "" && Number(sl) !== 0) {
+        if (isLong && Number(sl) > Number(limitAmount)) {
+          setIsSLError(true);
+          return true;
+        } else if (!isLong && Number(sl) < Number(limitAmount)) {
+          setIsSLError(true);
+          return true;
+        }
+      }
+      setIsSLError(false);
+      return false;
+    },
+    [limitAmount, sl]
+  );
+
   const baseAction = useCallback(() => {
     setLoading(true);
-    open();
-  }, [open]);
+    // open();
+  }, []);
   const triggerNoticeCallback = useCallback(() => {
     setShowedTriggerNotice(true);
     baseAction();
   }, [baseAction]);
-  const mainButtonAction = useCallback(() => {
-    if (mainButtonTitle === t`Connect Wallet`) {
-      setShowConnect(true);
-    } else if (mainButtonLoading || !checkBalance || stopDis) {
-      return;
-    } else {
-      if (checkShowTriggerNotice && !showedTriggerNotice) {
-        setShowTriggerNotice(true);
-        return;
+  // const mainButtonAction = useCallback(() => {
+  //   if (mainButtonTitle === t`Connect Wallet`) {
+  //     setShowConnect(true);
+  //   } else if (!checkBalance || stopDis) {
+  //     return;
+  //   } else {
+  //     if (checkShowTriggerNotice && !showedTriggerNotice) {
+  //       setShowTriggerNotice(true);
+  //       return;
+  //     }
+  //     baseAction();
+  //   }
+  // }, [
+  //   baseAction,
+  //   checkBalance,
+  //   checkShowTriggerNotice,
+  //   setShowConnect,
+  //   showedTriggerNotice,
+  //   stopDis,
+  // ]);
+
+  const openCallBack = useCallback(
+    (isLong: boolean) => {
+      const tpResult = checkTP(isLong);
+      const slResult = checkSL(isLong);
+      if (checkBalance && !checkMinATF && !tpResult && !slResult) {
+        alert("下单成功");
       }
-      baseAction();
-    }
-  }, [
-    baseAction,
-    checkBalance,
-    checkShowTriggerNotice,
-    mainButtonLoading,
-    mainButtonTitle,
-    setShowConnect,
-    showedTriggerNotice,
-    stopDis,
-  ]);
-  const lastPriceButton = useCallback(() => {
-    if (openPriceBase) {
-      setLimitAmount(
-        openPriceBase.bigNumberToShowString(
-          18,
-          tokenPair.getTokenPriceDecimals()
-        )
-      );
-    }
-  }, [openPriceBase, tokenPair]);
+    },
+    [checkBalance, checkMinATF, checkSL, checkTP]
+  );
 
   /**
    * share order
@@ -390,7 +390,6 @@ function useFuturesNewOrder(
     ) {
       const tokenPriceDecimals = tokenPair.getTokenPriceDecimals();
       setTabsValue(1);
-      setLongOrShort(orientation_info);
       setLever(parseInt(lever_info));
       setLimitAmount(
         (parseFloat(basePrice_info) / Math.pow(10, tokenPriceDecimals)).toFixed(
@@ -429,7 +428,6 @@ function useFuturesNewOrder(
 
   useEffect(() => {
     if (isShareLink) {
-      setInputToken("ATF");
       setInputAmount("10000");
     }
   }, [isShareLink]);
@@ -460,24 +458,27 @@ function useFuturesNewOrder(
   const showFee = useMemo(() => {
     return fee.bigNumberToShowString(18, 2);
   }, [fee]);
-  const showLiqPrice = useMemo(() => {
-    if (!openPrice || arithFiAmount === "" || arithFiAmount === "0") {
-      return String().placeHolder;
-    }
-    const nowPrice = openPrice;
-    const result = lipPrice(
-      arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
-      BigNumber.from("0"),
-      BigNumber.from(lever.toString()),
-      nowPrice,
-      nowPrice,
-      longOrShort
-    );
-    return (
-      result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
-      String().placeHolder
-    );
-  }, [lever, longOrShort, arithFiAmount, openPrice, tokenPair]);
+  const showLiqPrice = useCallback(
+    (isLong: boolean) => {
+      if (!openPriceBase || arithFiAmount === "" || arithFiAmount === "0") {
+        return String().placeHolder;
+      }
+      const nowPrice = openPriceBase;
+      const result = lipPrice(
+        arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
+        BigNumber.from("0"),
+        BigNumber.from(lever.toString()),
+        nowPrice,
+        nowPrice,
+        isLong
+      );
+      return (
+        result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
+        String().placeHolder
+      );
+    },
+    [openPriceBase, arithFiAmount, lever, tokenPair]
+  );
   const showFeeHoverText = useMemo(() => {
     if (tabsValue === 0 && !isStop) {
       return [t`Position fee = Position * 0.05%`];
@@ -489,23 +490,23 @@ function useFuturesNewOrder(
       return [t`Position fee = Position * 0.05%`];
     }
   }, [isStop, tabsValue]);
-  const showPositions = useMemo(() => {
-    const arithFiAmountNumber = arithFiAmount.stringToBigNumber(18);
-    if (arithFiAmountNumber && arithFiAmountNumber.gte(BigNumber.from("0"))) {
-      return arithFiAmountNumber.mul(lever).bigNumberToShowString(18, 2);
-    } else {
-      return String().placeHolder;
-    }
-  }, [lever, arithFiAmount]);
+
   const showAmountError = useMemo(() => {
-    if (checkMinATF) {
+    if (inputAmount === "") {
+      return undefined;
+    } else if (checkMinATF) {
       return t`Minimum 50 ATF`;
     } else if (!checkBalance) {
       return t`Insufficient ATF balance`;
-    } else {
-      return undefined;
     }
-  }, [checkBalance, checkMinATF]);
+  }, [checkBalance, checkMinATF, inputAmount]);
+
+  const showDepositError = useMemo(() => {
+    if (signature && tokenBalance?.eq(BigNumber.from("0"))) {
+      return true
+    }
+    return false
+  }, [signature, tokenBalance])
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
@@ -515,20 +516,6 @@ function useFuturesNewOrder(
     }
   }, [tokenBalance, allValue]);
 
-  const tpDefault = useMemo(() => {
-    if (tabsValue === 0) {
-      return longOrShort ? t`> MARKET PRICE` : t`< MARKET PRICE`;
-    } else {
-      return longOrShort ? t`> LIMIT PRICE` : t`< LIMIT PRICE`;
-    }
-  }, [longOrShort, tabsValue]);
-  const slDefault = useMemo(() => {
-    if (tabsValue === 0) {
-      return longOrShort ? t`< MARKET PRICE` : t`> MARKET PRICE`;
-    } else {
-      return longOrShort ? t`< LIMIT PRICE` : t`> LIMIT PRICE`;
-    }
-  }, [longOrShort, tabsValue]);
   const stopErrorText = useMemo(() => {
     if (tabsValue === 0) {
       return t`TP and SL price you set will trigger immediately.`;
@@ -584,8 +571,6 @@ function useFuturesNewOrder(
   }, []);
 
   return {
-    longOrShort,
-    setLongOrShort,
     tabsValue,
     changeTabs,
     lever,
@@ -604,26 +589,13 @@ function useFuturesNewOrder(
     showOpenPrice,
     showFee,
     showTotalPay,
-    mainButtonTitle,
-    mainButtonLoading,
-    mainButtonDis,
-    mainButtonAction,
-    checkBalance,
-    checkMinATF,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
     triggerNoticeCallback,
-    inputToken,
     inputAmount,
     setInputAmount,
-    showPositions,
     showAmountError,
-    tpDefault,
-    slDefault,
-    tpError,
-    slError,
-    lastPriceButton,
     stopErrorText,
     isShareLink,
     closeShareLink,
@@ -631,7 +603,11 @@ function useFuturesNewOrder(
     setShowDeposit,
     showSignModal,
     setShowSignModal,
-    signature,
+    isTPError,
+    isSLError,
+    openCallBack,
+    clearTPSLError,
+    showDepositError
   };
 }
 

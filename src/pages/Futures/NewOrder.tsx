@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo } from "react";
+import { FC, useCallback, useMemo, useState } from "react";
 import Stack from "@mui/material/Stack";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import LongOrShort from "../../components/LongOrShort/LongOrShort";
@@ -20,6 +20,14 @@ import { Trans, t } from "@lingui/macro";
 import ArithFiInput from "../../components/NormalInput/ArithFiInput";
 import DepositModal from "../Share/Modal/DepositModal";
 import SignModal from "../Share/Modal/SignModal";
+import LinkButton from "../../components/MainButton/LinkButton";
+import {
+  NEXT,
+  NetworkDownIcon,
+  SwapExchangeSmall,
+} from "../../components/icons";
+import InputWithSymbol from "../../components/NormalInput/InputWidthSymbol";
+import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 
 interface FuturesNewOrderProps {
   price: FuturesPrice | undefined;
@@ -30,8 +38,6 @@ interface FuturesNewOrderProps {
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
   const { isBigMobile, isPC } = useWindowWidth();
   const {
-    longOrShort,
-    setLongOrShort,
     tabsValue,
     changeTabs,
     lever,
@@ -50,26 +56,13 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showOpenPrice,
     showFee,
     showTotalPay,
-    mainButtonTitle,
-    mainButtonLoading,
-    mainButtonDis,
-    mainButtonAction,
-    checkBalance,
-    checkMinATF,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
     triggerNoticeCallback,
-    inputToken,
     inputAmount,
     setInputAmount,
-    showPositions,
     showAmountError,
-    tpDefault,
-    slDefault,
-    tpError,
-    slError,
-    lastPriceButton,
     stopErrorText,
     isShareLink,
     closeShareLink,
@@ -77,250 +70,13 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     setShowDeposit,
     showSignModal,
     setShowSignModal,
-    signature,
+    isTPError,
+    isSLError,
+    openCallBack,
+    clearTPSLError,
+    showDepositError,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
-  const newOrderTabsData = useMemo(() => {
-    return [
-      <p>
-        <Trans>Market</Trans>
-      </p>,
-      <p>
-        <Trans>Limit</Trans>
-      </p>,
-    ];
-  }, []);
-  const inputATFAmount = useCallback(() => {
-    return (
-      <ArithFiInput
-        checkBalance={!(!checkBalance || checkMinATF)}
-        showToSwap={!checkBalance}
-        showBalance={showBalance}
-        maxCallBack={maxCallBack}
-        arithFiAmount={inputAmount}
-        changeArithFiAmount={(value: string) => {
-          setInputAmount(value.formatInputNum4());
-          closeShareLink();
-        }}
-        otherCallBack={() => {
-          if (signature) {
-            setShowDeposit(true);
-          } else {
-            setShowSignModal(true);
-          }
-        }}
-      />
-    );
-  }, [
-    checkBalance,
-    checkMinATF,
-    closeShareLink,
-    inputAmount,
-    maxCallBack,
-    setInputAmount,
-    setShowDeposit,
-    setShowSignModal,
-    showBalance,
-    signature,
-  ]);
 
-  const stopPrice = useCallback(() => {
-    return (
-      <Stack marginTop={"16px"}>
-        <Stack direction={"row"} alignItems={"center"}>
-          <Agree
-            value={isStop}
-            changeValue={(value: boolean) => {
-              setTp("");
-              setSl("");
-              setIsStop(value);
-            }}
-          />{" "}
-          <Box
-            component={"button"}
-            sx={(theme) => ({
-              fontSize: 16,
-              fontWeight: 700,
-              marginLeft: "4px",
-              color: theme.normal.text0,
-            })}
-            onClick={() => {
-              setTp("");
-              setSl("");
-              setIsStop(!isStop);
-            }}
-          >
-            <Trans>Stop-Limit</Trans>
-          </Box>
-        </Stack>
-        {isStop ? (
-          <Stack spacing={"12px"} width={"100%"} marginTop={"12px"}>
-            <Stack spacing={"8px"} width={"100%"}>
-              <Box
-                component={"p"}
-                sx={(theme) => ({
-                  height: `16px`,
-                  fontSize: 12,
-                  fontWeight: 400,
-                  lineHeight: `16px`,
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Take Profit</Trans>
-              </Box>
-              <NormalInput
-                placeHolder={tpDefault}
-                rightTitle={"USDT"}
-                value={tp}
-                isShare={isShareLink}
-                error={tpError}
-                changeValue={(value: string) => {
-                  setTp(value.formatInputNum());
-                  closeShareLink();
-                }}
-              />
-            </Stack>
-            <Stack spacing={"8px"} width={"100%"}>
-              <Box
-                component={"p"}
-                sx={(theme) => ({
-                  height: `16px`,
-                  fontSize: 12,
-                  fontWeight: 400,
-                  lineHeight: `16px`,
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Stop Loss</Trans>
-              </Box>
-              <NormalInput
-                placeHolder={slDefault}
-                rightTitle={"USDT"}
-                value={sl}
-                isShare={isShareLink}
-                error={slError}
-                changeValue={(value: string) => {
-                  setSl(value.formatInputNum());
-                  closeShareLink();
-                }}
-              />
-            </Stack>
-            {tpError || slError ? <ErrorLabel title={stopErrorText} /> : <></>}
-          </Stack>
-        ) : (
-          <></>
-        )}
-      </Stack>
-    );
-  }, [
-    isShareLink,
-    isStop,
-    closeShareLink,
-    setIsStop,
-    setSl,
-    setTp,
-    sl,
-    slDefault,
-    slError,
-    stopErrorText,
-    tp,
-    tpDefault,
-    tpError,
-  ]);
-
-  const newOrderTabs = useMemo(() => {
-    return (
-      <Stack
-        direction={"row"}
-        justifyContent={"flex-start"}
-        sx={(theme) => ({
-          height: "44px",
-          width: "100%",
-          borderBottom: `1px solid ${theme.normal.border}`,
-          boxSizing: "border-box",
-        })}
-      >
-        <ArithFiTabs
-          value={tabsValue}
-          className={"FuturesNewOrderTabs"}
-          datArray={newOrderTabsData}
-          height={44}
-          space={24}
-          selectCallBack={changeTabs}
-        />
-      </Stack>
-    );
-  }, [newOrderTabsData, changeTabs, tabsValue]);
-
-  const info = useCallback(() => {
-    return (
-      <>
-        {tabsValue === 0 ? (
-          <>
-            <NormalInfo
-              title={t`Entry Price`}
-              value={showOpenPrice}
-              symbol={"USDT"}
-              // help
-              // helpInfo={
-              //   <Stack>
-              //     {openPriceHelpInfo.map((item, index) => (
-              //       <p key={`HelpOpenPrice + ${index}`}>{item}</p>
-              //     ))}
-              //   </Stack>
-              // }
-            />
-            <NormalInfo
-              title={t`Liq Price`}
-              value={showLiqPrice}
-              symbol={"USDT"}
-              style={{ marginTop: "8px" }}
-            />
-          </>
-        ) : (
-          <></>
-        )}
-        <NormalInfo
-          title={t`Service Fee`}
-          value={showFee}
-          symbol={"ATF"}
-          style={{ marginTop: tabsValue === 0 ? "8px" : "16px" }}
-          help
-          helpInfo={
-            <Stack>
-              {showFeeHoverText.map((item, index) => (
-                <p key={`Help + ${index}`}>{item}</p>
-              ))}
-            </Stack>
-          }
-        />
-        {inputToken === "USDT" ? (
-          <NormalInfo
-            title={t`Positions`}
-            value={showPositions}
-            symbol={"ATF"}
-            style={{ marginTop: "8px" }}
-          />
-        ) : (
-          <></>
-        )}
-        <NormalInfo
-          title={t`Total Pay`}
-          value={showTotalPay}
-          symbol={"ATF"}
-          style={{ marginTop: "8px" }}
-        />
-      </>
-    );
-  }, [
-    inputToken,
-    showFee,
-    showFeeHoverText,
-    showLiqPrice,
-    showOpenPrice,
-    showPositions,
-    showTotalPay,
-    tabsValue,
-  ]);
   const modals = useMemo(() => {
     return (
       <>
@@ -361,77 +117,490 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       <DepositModal open={true} onClose={() => setShowDeposit(false)} />
     ) : (
       <></>
-    )
-  }, [setShowDeposit, showDeposit])
+    );
+  }, [setShowDeposit, showDeposit]);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const openTypeList = Boolean(anchorEl);
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const typeAndLever = useMemo(() => {
+    return (
+      <Stack
+        spacing={"4px"}
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <Box
+          aria-controls={"orderType-menu"}
+          aria-haspopup="true"
+          aria-expanded={"true"}
+          width={"100%"}
+          component={"button"}
+          onClick={handleClick}
+        >
+          <Stack
+            direction={"row"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+            sx={(theme) => ({
+              paddingX: "16px",
+              height: "36px",
+              width: "100%",
+              borderRadius: "4px",
+              backgroundColor: theme.normal.bg1,
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: "700",
+              lineHeight: "20px",
+              color: theme.normal.text0,
+              "& svg": {
+                display: "block",
+                width: "8px",
+                height: "8px",
+                "& path": {
+                  fill: theme.normal.text2,
+                },
+              },
+            })}
+          >
+            <Box>{tabsValue === 0 ? t`Market` : t`Limit`}</Box>
+            <NetworkDownIcon />
+          </Stack>
+        </Box>
+
+        <SelectListMenu
+          id="orderType-menu"
+          anchorEl={anchorEl}
+          open={openTypeList}
+          onClose={handleClose}
+        >
+          <Stack
+            sx={(theme) => ({
+              fontSize: "14px",
+              fontWeight: "400",
+              lineHeight: "20px",
+              color: theme.normal.text0,
+            })}
+          >
+            <Box
+              sx={(theme) => ({
+                padding: "12px 16px",
+                "&:hover": {
+                  backgroundColor: theme.normal.bg1,
+                },
+                cursor: "pointer",
+                textAlign: "left",
+              })}
+              component={"button"}
+              onClick={() => {
+                changeTabs(0);
+                handleClose();
+              }}
+            >{t`Market`}</Box>
+            <Box
+              sx={(theme) => ({
+                padding: "12px 16px",
+                "&:hover": {
+                  backgroundColor: theme.normal.bg1,
+                },
+                cursor: "pointer",
+                textAlign: "left",
+              })}
+              component={"button"}
+              onClick={() => {
+                changeTabs(1);
+                handleClose();
+              }}
+            >{t`Limit`}</Box>
+          </Stack>
+        </SelectListMenu>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          sx={(theme) => ({
+            paddingX: "16px",
+            height: "36px",
+            width: "100%",
+            borderRadius: "4px",
+            backgroundColor: theme.normal.bg1,
+            cursor: "pointer",
+            fontSize: "14px",
+            fontWeight: "700",
+            lineHeight: "20px",
+            color: theme.normal.text0,
+            "& svg": {
+              display: "block",
+              width: "8px",
+              height: "8px",
+              "& path": {
+                fill: theme.normal.text2,
+              },
+            },
+          })}
+        >
+          <Box>{lever}X</Box>
+          <NetworkDownIcon />
+        </Stack>
+      </Stack>
+    );
+  }, [anchorEl, changeTabs, lever, openTypeList, tabsValue]);
+  const balanceAndDeposit = useMemo(() => {
+    return (
+      <Stack direction={"row"} justifyContent={"space-between"}>
+        <Stack direction={"row"} spacing={"4px"} justifyContent={"flex-start"}>
+          <Box
+            component={"p"}
+            sx={(theme) => ({
+              fontWeight: 400,
+              fontSize: 12,
+              color: theme.normal.text2,
+              "& span": {
+                color: theme.normal.text0,
+              },
+            })}
+          >
+            {t`Balance:`} <span>{showBalance} ATF</span>
+          </Box>
+          <LinkButton onClick={maxCallBack}>
+            <Trans>MAX</Trans>
+          </LinkButton>
+        </Stack>
+
+        <Stack
+          direction={"row"}
+          justifyContent={"flex-end"}
+          alignItems={"center"}
+          spacing={"4px"}
+          sx={{
+            "& svg": {
+              width: 12,
+              height: 12,
+              display: "block",
+            },
+          }}
+          component={"button"}
+          onClick={() => setShowDeposit(true)}
+        >
+          <LinkButton sx={{ fontSize: "12px" }}>
+            <p>{t`Deposit`}</p>
+          </LinkButton>
+          <LinkButton>
+            <SwapExchangeSmall />
+          </LinkButton>
+        </Stack>
+      </Stack>
+    );
+  }, [maxCallBack, setShowDeposit, showBalance]);
+
+  const noATF = useMemo(() => {
+    return (
+      <Stack
+        direction={"row"}
+        spacing={"4px"}
+        justifyContent={"space-between"}
+        sx={(theme) => ({
+          width: "100%",
+          paddingY: "4px",
+          paddingX: "8px",
+          borderRadius: "4px",
+          background: theme.normal.danger_light_hover,
+          color: theme.normal.danger,
+          fontSize: 12,
+          fontWeight: 400,
+          cursor: "pointer",
+          marginBottom: "12px",
+          "& svg": {
+            width: "24px",
+            height: "12px",
+            display: "block",
+            "& path": {
+              fill: theme.normal.danger,
+            },
+          },
+        })}
+        alignItems={"center"}
+        component={"button"}
+        onClick={() => setShowDeposit(true)}
+      >
+        <Box
+          textAlign={"left"}
+        >{t`Insufficient balance. Please deposit to start the lightning trade.`}</Box>
+        <NEXT />
+      </Stack>
+    );
+  }, [setShowDeposit]);
+
+  const stopPrice = useMemo(() => {
+    return (
+      <Stack spacing={"12px"} width={"100%"}>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Stack direction={"row"} alignItems={"center"}>
+            <Agree
+              value={isStop}
+              changeValue={(value: boolean) => {
+                setTp("");
+                setSl("");
+                setIsStop(value);
+              }}
+            />{" "}
+            <Box
+              component={"button"}
+              sx={(theme) => ({
+                fontSize: 14,
+                fontWeight: 400,
+                marginLeft: "4px",
+                color: theme.normal.text0,
+              })}
+              onClick={() => {
+                setTp("");
+                setSl("");
+                setIsStop(!isStop);
+              }}
+            >
+              <Trans>Stop-Limit</Trans>
+            </Box>
+          </Stack>
+          <LinkButton sx={{ fontSize: "12px" }}>{t`Advanced`}</LinkButton>
+        </Stack>
+        {isStop ? (
+          <Stack spacing={"12px"}>
+            <Stack
+              direction={"row"}
+              spacing={"12px"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <InputWithSymbol
+                placeholder={t`Take Profit`}
+                value={tp}
+                symbol={"USDT"}
+                changeValue={(value: string) => {
+                  setTp(value.formatInputNum4());
+                  clearTPSLError();
+                }}
+                isError={isTPError}
+              />
+              <InputWithSymbol
+                placeholder={t`Stop Loss`}
+                value={sl}
+                symbol={"USDT"}
+                changeValue={(value: string) => {
+                  setSl(value.formatInputNum4());
+                  clearTPSLError();
+                }}
+                isError={isSLError}
+              />
+            </Stack>
+            {isTPError || isSLError ? (
+              <ErrorLabel title={stopErrorText} />
+            ) : (
+              <></>
+            )}
+          </Stack>
+        ) : (
+          <></>
+        )}
+      </Stack>
+    );
+  }, [
+    clearTPSLError,
+    isSLError,
+    isStop,
+    isTPError,
+    setIsStop,
+    setSl,
+    setTp,
+    sl,
+    stopErrorText,
+    tp,
+  ]);
+
+  const info = useMemo(() => {
+    return (
+      <Stack spacing={"8px"} width={"100%"}>
+        {tabsValue === 0 ? (
+          <>
+            <NormalInfo
+              title={t`Entry Price`}
+              value={showOpenPrice}
+              symbol={"USDT"}
+            />
+            {/* <NormalInfo
+              title={t`Liq Price`}
+              value={showLiqPrice}
+              symbol={"USDT"}
+              style={{ marginTop: "8px" }}
+            /> */}
+          </>
+        ) : (
+          <></>
+        )}
+        <NormalInfo
+          title={t`Service Fee`}
+          value={showFee}
+          symbol={"ATF"}
+          style={{ marginTop: tabsValue === 0 ? "8px" : "16px" }}
+          help
+          helpInfo={
+            <Stack>
+              {showFeeHoverText.map((item, index) => (
+                <p key={`Help + ${index}`}>{item}</p>
+              ))}
+            </Stack>
+          }
+        />
+
+        <NormalInfo
+          title={t`Total Pay`}
+          value={showTotalPay}
+          symbol={"ATF"}
+          style={{ marginTop: "8px" }}
+        />
+      </Stack>
+    );
+  }, [showFee, showFeeHoverText, showOpenPrice, showTotalPay, tabsValue]);
+  const openButtons = useMemo(() => {
+    return (
+      <Stack
+        direction={"row"}
+        spacing={"12px"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Box
+          sx={(theme) => ({
+            width: "100%",
+            height: "48px",
+            borderRadius: "12px",
+            fontSize: "16px",
+            fontWeight: "700",
+            lineHeight: "22px",
+            color: theme.normal.highLight,
+            backgroundColor: theme.normal.success,
+            cursor: "pointer",
+          })}
+          component={"button"}
+          onClick={() => openCallBack(true)}
+        >{t`Open Long`}</Box>
+        <Box
+          sx={(theme) => ({
+            width: "100%",
+            height: "48px",
+            borderRadius: "12px",
+            fontSize: "16px",
+            fontWeight: "700",
+            lineHeight: "22px",
+            color: theme.normal.highLight,
+            backgroundColor: theme.normal.danger,
+            cursor: "pointer",
+          })}
+          component={"button"}
+          onClick={() => openCallBack(false)}
+        >{t`Open Short`}</Box>
+      </Stack>
+    );
+  }, [openCallBack]);
+
+  const liqPrice = useMemo(() => {
+    return (
+      <Stack
+        direction={"row"}
+        spacing={"12px"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        sx={{
+          fontSize: "14px",
+          fontWeight: "400",
+          lineHeight: "20px",
+        }}
+      >
+        <Stack
+          direction={"row"}
+          spacing={"8px"}
+          justifyContent={"flex-start"}
+          alignItems={"center"}
+        >
+          <Box
+            sx={(theme) => ({ color: theme.normal.text2 })}
+          >{t`Liq Price`}</Box>
+          <Box sx={(theme) => ({ color: theme.normal.text0 })}>
+            {showLiqPrice(true)} USDT
+          </Box>
+        </Stack>
+        <Stack
+          direction={"row"}
+          spacing={"8px"}
+          justifyContent={"flex-end"}
+          alignItems={"center"}
+        >
+          <Box
+            sx={(theme) => ({ color: theme.normal.text2 })}
+          >{t`Liq Price`}</Box>
+          <Box sx={(theme) => ({ color: theme.normal.text0 })}>
+            {showLiqPrice(false)} USDT
+          </Box>
+        </Stack>
+      </Stack>
+    );
+  }, [showLiqPrice]);
   return (
     <Stack
+      spacing={["16px", "16px", "24px"]}
       sx={(theme) => ({
-        border: `${isBigMobile ? "none" : `1px solid ${theme.normal.border}`}`,
-        width: isPC ? "450px" : "100%",
+        border: ["none", "none", `1px solid ${theme.normal.border}`],
+        width: ["100%", "100%", "100%", "100%", "450px"],
         borderRadius: "12px",
-        paddingY: `${isBigMobile ? 0 : 32}px`,
-        paddingX: "20px",
+        paddingY: ["16px", "16px", "32px"],
+        paddingX: ["16px", "16px", "20px"],
       })}
     >
       {modals}
       {depositModal}
-      <LongOrShort
-        value={longOrShort}
-        changeValue={(value: boolean) => setLongOrShort(value)}
-      />
-      <Stack
-        spacing={"16px"}
-        sx={{ paddingX: "4px", paddingTop: "8px", paddingBottom: "16px" }}
-      >
-        {newOrderTabs}
-        {tabsValue === 0 ? (
-          <></>
-        ) : (
-          <Stack spacing={"8px"}>
-            <Box
-              component={"p"}
-              sx={(theme) => ({
-                height: `16px`,
-                fontSize: 12,
-                fontWeight: 400,
-                lineHeight: `16px`,
-                color: theme.normal.text2,
-              })}
-            >
-              <Trans>Price</Trans>
-            </Box>
-            <NormalInputWithLastButton
-              placeHolder={""}
-              rightTitle={"USDT"}
-              value={limitAmount}
-              isShare={isShareLink}
-              changeValue={(value: string) => {
-                setLimitAmount(value.formatInputNum());
-                closeShareLink();
-              }}
-              rightAction={lastPriceButton}
-            />
-          </Stack>
-        )}
-        <Stack spacing={"8px"} width={"100%"}>
-          {inputATFAmount()}
+
+      {typeAndLever}
+
+      <Stack spacing={"24px"} width={"100%"}>
+        <Stack spacing={"12px"} width={"100%"}>
+          {balanceAndDeposit}
+          {showDepositError ? noATF : <></>}
+          <InputWithSymbol
+            placeholder={tabsValue === 0 ? t`Market Price` : t`Limit Price`}
+            value={tabsValue === 1 ? limitAmount : ""}
+            dis={tabsValue === 0}
+            symbol={"USDT"}
+            changeValue={(value: string) => {
+              setLimitAmount(value.formatInputNum4());
+            }}
+          />
+          <InputWithSymbol
+            placeholder={t`Amount`}
+            value={inputAmount}
+            symbol={"ATF"}
+            changeValue={(value: string) => {
+              setInputAmount(value.formatInputNum4());
+              closeShareLink();
+            }}
+            isError={showAmountError !== undefined}
+          />
           {showAmountError ? <ErrorLabel title={showAmountError} /> : <></>}
         </Stack>
-
-        <LeverageSlider
-          value={lever}
-          changeValue={(value: number) => setLever(value)}
-        />
-        {stopPrice()}
-        {info()}
+        {stopPrice}
       </Stack>
-      <MainButton
-        title={mainButtonTitle}
-        disable={mainButtonDis}
-        isLoading={mainButtonLoading}
-        onClick={mainButtonAction}
-        style={{ height: "48px", marginTop: isBigMobile ? "0px" : "24px" }}
-      />
+      {info}
+      <Stack spacing={"12px"} width={"100%"}>
+        {openButtons}
+        {liqPrice}
+      </Stack>
     </Stack>
   );
 };
