@@ -10,6 +10,7 @@ import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
 
 interface SettingTPAndSLProps {
   isLong: boolean;
+  limitPrice: number;
   isFirst?: boolean;
 }
 
@@ -31,7 +32,11 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     showSLError,
     showTPInfoPrice,
     showSLInfoPrice,
-  } = useSettingTPAndSL(props.isLong, props.isFirst);
+    tpError,
+    slError,
+    buttonDis,
+    buttonAction,
+  } = useSettingTPAndSL(props.isLong, props.limitPrice, props.isFirst);
 
   const getInfo = useCallback((isLong: boolean, U?: number, ATF?: number) => {
     return (
@@ -110,7 +115,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               changeValue={(value: string) => {
                 setTp(value.formatInputNum4());
               }}
-              isError={false}
+              isError={tpError}
             />
           </Box>
           <Box width={"30%"}>
@@ -121,12 +126,12 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               changeValue={(value: string) => {
                 setTpPercent(value.formatInputNum4());
               }}
-              isError={false}
+              isError={tpError}
             />
           </Box>
         </Stack>
 
-        <ErrorLabel title={showTPError} />
+        {tpError ? <ErrorLabel title={showTPError} /> : <></>}
 
         {getInfo(props.isLong, showTPInfoPrice, 1)}
       </Stack>
@@ -169,7 +174,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               changeValue={(value: string) => {
                 setSl(value.formatInputNum4());
               }}
-              isError={false}
+              isError={slError}
             />
           </Box>
           <Box width={"30%"}>
@@ -180,19 +185,20 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               changeValue={(value: string) => {
                 setSlPercent(value.formatInputNum4());
               }}
-              isError={false}
+              isError={slError}
             />
           </Box>
         </Stack>
 
-        <ErrorLabel title={showSLError} />
+        {slError ? <ErrorLabel title={showSLError} /> : <></>}
 
         {getInfo(!props.isLong, showSLInfoPrice, 1)}
       </Stack>
 
       <MainButton
         title={"Confirm"}
-        onClick={() => {}}
+        disable={buttonDis}
+        onClick={buttonAction}
         style={{ height: "40px", fontSize: "14px" }}
       />
     </Stack>

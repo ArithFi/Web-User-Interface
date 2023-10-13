@@ -163,8 +163,7 @@ function useFuturesEditPosition(
     if (stopProfitPriceInput === "" && stopLossPriceInput === "") {
       return true;
     } else if (tpError || slError) {
-      // TODO
-      return false;
+      return true;
     }
     return false;
   }, [slError, stopLossPriceInput, stopProfitPriceInput, tpError]);

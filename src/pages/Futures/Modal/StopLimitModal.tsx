@@ -27,7 +27,7 @@ const StopLimitBase: FC = () => {
         />
       </Box>
 
-      <SettingTPAndSL isLong={true} isFirst={true} />
+      <SettingTPAndSL isLong={isLong} isFirst={true} limitPrice={1000} />
     </Stack>
   );
 };
