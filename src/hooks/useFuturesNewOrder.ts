@@ -79,33 +79,6 @@ function useFuturesNewOrder(
       return undefined;
     }
   }, [price, tokenPair]);
-  // const openPrice = useMemo(() => {
-  //   const atfBigNumber = arithFiAmount.stringToBigNumber(18);
-  //   if (openPriceBase && atfBigNumber) {
-  //     const nowPrice = openPriceBase;
-  //     if (parseFloat(arithFiAmount) * lever >= 0) {
-  //       const c0_top = BigNumber.from("55560000")
-  //         .mul(atfBigNumber)
-  //         .mul(BigNumber.from(lever.toString()))
-  //         .add(
-  //           BigNumber.from("444400000000000").mul(BigNumber.from("10").pow(18))
-  //         );
-  //       const c0_long = BigNumber.from("10")
-  //         .pow(36)
-  //         .add(c0_top)
-  //         .mul(nowPrice)
-  //         .div(BigNumber.from("10").pow(36));
-  //       const c0_Short = nowPrice
-  //         .mul(BigNumber.from("10").pow(36))
-  //         .div(c0_top.add(BigNumber.from("10").pow(36)));
-  //       return longOrShort ? c0_long : c0_Short;
-  //     } else {
-  //       return nowPrice;
-  //     }
-  //   } else {
-  //     return undefined;
-  //   }
-  // }, [lever, longOrShort, arithFiAmount, openPriceBase]);
   /**
    * uniswap out amount
    */
@@ -128,7 +101,9 @@ function useFuturesNewOrder(
     const isShow = localStorage.getItem("TriggerRiskModal");
     return isShow === "1" ? false : true;
   }, []);
-  const [showTriggerNotice, setShowTriggerNotice] = useState(false);
+  const [showTriggerNotice, setShowTriggerNotice] = useState<
+    boolean | undefined
+  >(undefined);
   const [showedTriggerNotice, setShowedTriggerNotice] = useState(false);
   /**
    * balance
@@ -317,44 +292,38 @@ function useFuturesNewOrder(
     [limitAmount, sl]
   );
 
-  const baseAction = useCallback(() => {
-    setLoading(true);
-    // open();
-  }, []);
-  const triggerNoticeCallback = useCallback(() => {
-    setShowedTriggerNotice(true);
-    baseAction();
-  }, [baseAction]);
-  // const mainButtonAction = useCallback(() => {
-  //   if (mainButtonTitle === t`Connect Wallet`) {
-  //     setShowConnect(true);
-  //   } else if (!checkBalance || stopDis) {
-  //     return;
-  //   } else {
-  //     if (checkShowTriggerNotice && !showedTriggerNotice) {
-  //       setShowTriggerNotice(true);
-  //       return;
-  //     }
-  //     baseAction();
-  //   }
-  // }, [
-  //   baseAction,
-  //   checkBalance,
-  //   checkShowTriggerNotice,
-  //   setShowConnect,
-  //   showedTriggerNotice,
-  //   stopDis,
-  // ]);
+  const baseAction = useCallback(
+    (isLong: boolean) => {
+      setLoading(true);
+      // open(isLong);
+      alert("下单成功");
+    },
+    [open]
+  );
+  const triggerNoticeCallback = useCallback(
+    (isLong?: boolean) => {
+      if (isLong) {
+        setShowedTriggerNotice(true);
+        baseAction(isLong);
+      }
+    },
+    [baseAction]
+  );
 
   const openCallBack = useCallback(
     (isLong: boolean) => {
       const tpResult = checkTP(isLong);
       const slResult = checkSL(isLong);
       if (checkBalance && !checkMinATF && !tpResult && !slResult) {
-        alert("下单成功");
+        if (checkShowTriggerNotice && !showedTriggerNotice) {
+          setShowTriggerNotice(isLong);
+          return;
+        }
+        
+        baseAction(isLong)
       }
     },
-    [checkBalance, checkMinATF, checkSL, checkTP]
+    [baseAction, checkBalance, checkMinATF, checkSL, checkShowTriggerNotice, checkTP, showedTriggerNotice]
   );
 
   /**
@@ -503,10 +472,10 @@ function useFuturesNewOrder(
 
   const showDepositError = useMemo(() => {
     if (signature && tokenBalance?.eq(BigNumber.from("0"))) {
-      return true
+      return true;
     }
-    return false
-  }, [signature, tokenBalance])
+    return false;
+  }, [signature, tokenBalance]);
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
@@ -607,7 +576,7 @@ function useFuturesNewOrder(
     isSLError,
     openCallBack,
     clearTPSLError,
-    showDepositError
+    showDepositError,
   };
 }
 

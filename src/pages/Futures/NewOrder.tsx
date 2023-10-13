@@ -28,6 +28,8 @@ import {
 } from "../../components/icons";
 import InputWithSymbol from "../../components/NormalInput/InputWidthSymbol";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
+import SettingLeverModal from "./Modal/SettingLeverModal";
+import StopLimitModal from "./Modal/StopLimitModal";
 
 interface FuturesNewOrderProps {
   price: FuturesPrice | undefined;
@@ -37,6 +39,8 @@ interface FuturesNewOrderProps {
 
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
   const { isBigMobile, isPC } = useWindowWidth();
+  const [showLeverModal, setShowLeverModal] = useState(false);
+  const [showStopLimitModal, setShowStopLimitModal] = useState(false);
   const {
     tabsValue,
     changeTabs,
@@ -81,8 +85,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     return (
       <>
         <Modal
-          open={showTriggerNotice}
-          onClose={() => setShowTriggerNotice(false)}
+          open={showTriggerNotice !== undefined}
+          onClose={() => setShowTriggerNotice(undefined)}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
@@ -93,8 +97,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             }}
           >
             <TriggerRiskModal
-              onClose={() => setShowTriggerNotice(false)}
-              callBack={triggerNoticeCallback}
+              onClose={() => setShowTriggerNotice(undefined)}
+              callBack={() => triggerNoticeCallback(showTriggerNotice)}
             />
           </Box>
         </Modal>
@@ -103,12 +107,28 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           open={showSignModal}
           onClose={() => setShowSignModal(false)}
         />
+
+        <SettingLeverModal
+          value={lever}
+          changeValue={(value: number) => setLever(value)}
+          open={showLeverModal}
+          onClose={() => setShowLeverModal(false)}
+        />
+
+        <StopLimitModal
+          open={showStopLimitModal}
+          onClose={() => setShowStopLimitModal(false)}
+        />
       </>
     );
   }, [
+    lever,
+    setLever,
     setShowSignModal,
     setShowTriggerNotice,
+    showLeverModal,
     showSignModal,
+    showStopLimitModal,
     showTriggerNotice,
     triggerNoticeCallback,
   ]);
@@ -243,6 +263,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               },
             },
           })}
+          component={"button"}
+          onClick={() => setShowLeverModal(true)}
         >
           <Box>{lever}X</Box>
           <NetworkDownIcon />
@@ -370,7 +392,10 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               <Trans>Stop-Limit</Trans>
             </Box>
           </Stack>
-          <LinkButton sx={{ fontSize: "12px" }}>{t`Advanced`}</LinkButton>
+          <LinkButton
+            sx={{ fontSize: "12px" }}
+            onClick={() => setShowStopLimitModal(true)}
+          >{t`Advanced`}</LinkButton>
         </Stack>
         {isStop ? (
           <Stack spacing={"12px"}>
@@ -429,19 +454,11 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     return (
       <Stack spacing={"8px"} width={"100%"}>
         {tabsValue === 0 ? (
-          <>
-            <NormalInfo
-              title={t`Entry Price`}
-              value={showOpenPrice}
-              symbol={"USDT"}
-            />
-            {/* <NormalInfo
-              title={t`Liq Price`}
-              value={showLiqPrice}
-              symbol={"USDT"}
-              style={{ marginTop: "8px" }}
-            /> */}
-          </>
+          <NormalInfo
+            title={t`Entry Price`}
+            value={showOpenPrice}
+            symbol={"USDT"}
+          />
         ) : (
           <></>
         )}
@@ -449,7 +466,6 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           title={t`Service Fee`}
           value={showFee}
           symbol={"ATF"}
-          style={{ marginTop: tabsValue === 0 ? "8px" : "16px" }}
           help
           helpInfo={
             <Stack>
@@ -460,12 +476,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           }
         />
 
-        <NormalInfo
-          title={t`Total Pay`}
-          value={showTotalPay}
-          symbol={"ATF"}
-          style={{ marginTop: "8px" }}
-        />
+        <NormalInfo title={t`Total Pay`} value={showTotalPay} symbol={"ATF"} />
       </Stack>
     );
   }, [showFee, showFeeHoverText, showOpenPrice, showTotalPay, tabsValue]);
