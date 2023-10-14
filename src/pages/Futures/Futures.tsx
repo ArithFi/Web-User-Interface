@@ -126,7 +126,7 @@ const Futures: FC = () => {
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
-              copy: item["copy"]
+              copy: item["copy"],
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -152,7 +152,7 @@ const Futures: FC = () => {
         chainsData.chainId,
         account.address,
         { Authorization: signature.signature }
-      )
+      );
       if (Number(baseList["errorCode"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
           (item: { [x: string]: any }) => {
@@ -304,8 +304,10 @@ const Futures: FC = () => {
             paddingX={`${paddingX}px`}
           >
             <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}>
-              {exchangeTvChart()}
-              {newOrder()}
+              <Stack>
+                {exchangeTvChart()}
+                {newOrder()}
+              </Stack>
               {isBigMobile ? <></> : moreInfo()}
               {orderList()}
             </Stack>

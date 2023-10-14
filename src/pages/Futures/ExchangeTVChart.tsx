@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import {FC, useCallback, useEffect, useMemo, useRef, useState} from "react";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   HidePriceTable,
   SelectedTokenDown,
@@ -8,13 +8,13 @@ import {
 } from "../../components/icons";
 import TwoIconWithString from "../../components/IconWithString/TwoIconWithString";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
-import useWindowWidth, {WidthType} from "../../hooks/useWindowWidth";
-import {FuturesPrice, priceToken} from "./Futures";
+import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
+import { FuturesPrice, priceToken } from "./Futures";
 import TVChartContainer from "../../components/TVChartContainer/TVChartContainer";
-import {TVDataProvider} from "../../domain/tradingview/TVDataProvider";
-import {formatAmount, numberWithCommas} from "../../lib/numbers";
-import {styled} from "@mui/material";
-import {get24HrFromBinance} from "../../domain/prices";
+import { TVDataProvider } from "../../domain/tradingview/TVDataProvider";
+import { formatAmount, numberWithCommas } from "../../lib/numbers";
+import { styled } from "@mui/material";
+import { get24HrFromBinance } from "../../domain/prices";
 import { Trans } from "@lingui/macro";
 
 interface ExchangeTVChartProps {
@@ -23,19 +23,94 @@ interface ExchangeTVChartProps {
   changeTokenPair: (value: string) => void;
 }
 
-const ChartDataTitle = styled("div")(({theme}) => ({
+const ChartDataTitle = styled("div")(({ theme }) => ({
   fontSize: "12px",
   color: theme.normal.text2,
 }));
 
-const ChartDataValue = styled("div")(({theme}) => ({
+const ChartDataValue = styled("div")(({ theme }) => ({
   fontSize: "16px",
   color: theme.normal.text0,
 }));
 
-const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
-  const {width, isBigMobile} = useWindowWidth();
-  const [isHide, setIsHide] = useState(false);
+const TokenPairIcon = (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M6 10.5C6 9.39543 6.89543 8.5 8 8.5H40C41.1046 8.5 42 9.39543 42 10.5C42 11.6046 41.1046 12.5 40 12.5H8C6.89543 12.5 6 11.6046 6 10.5Z"
+      fill="#333333"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22 19.5C22 18.3954 22.8954 17.5 24 17.5H40C41.1046 17.5 42 18.3954 42 19.5C42 20.6046 41.1046 21.5 40 21.5H24C22.8954 21.5 22 20.6046 22 19.5Z"
+      fill="#333333"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22 28.5C22 27.3954 22.8954 26.5 24 26.5H40C41.1046 26.5 42 27.3954 42 28.5C42 29.6046 41.1046 30.5 40 30.5H24C22.8954 30.5 22 29.6046 22 28.5Z"
+      fill="#333333"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M6 37.5C6 36.3954 6.89543 35.5 8 35.5H40C41.1046 35.5 42 36.3954 42 37.5C42 38.6046 41.1046 39.5 40 39.5H8C6.89543 39.5 6 38.6046 6 37.5Z"
+      fill="#333333"
+    />
+    <path
+      d="M16.2338 19C17.0111 19 17.4912 19.848 17.0913 20.5145L12.8575 27.5708C12.4691 28.2182 11.5309 28.2182 11.1425 27.5708L6.9087 20.5145C6.50878 19.848 6.9889 19 7.76619 19H16.2338Z"
+      fill="#333333"
+    />
+  </svg>
+);
+
+const UpIcon = (
+  <svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.43118 1.55296C3.69114 1.12764 4.30888 1.12764 4.56884 1.55296L7.07448 5.65241C7.346 6.09664 7.02629 6.66675 6.50565 6.66675H1.49437C0.97373 6.66675 0.654023 6.09664 0.925545 5.65241L3.43118 1.55296Z"
+      fill="#030308"
+      fill-opacity="0.6"
+    />
+  </svg>
+);
+
+const DownIcon = (
+  <svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M4.56882 6.44704C4.30886 6.87236 3.69112 6.87236 3.43116 6.44704L0.925525 2.34759C0.654003 1.90336 0.973712 1.33325 1.49435 1.33325L6.50563 1.33325C7.02627 1.33325 7.34598 1.90336 7.07446 2.34759L4.56882 6.44704Z"
+      fill="#030308"
+      fill-opacity="0.6"
+    />
+  </svg>
+);
+
+const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
+  const { width, isBigMobile } = useWindowWidth();
+  const [isHide, setIsHide] = useState(isBigMobile ? true : false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -59,9 +134,9 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
   const TokenIcon = props.tokenPair.getToken()!.icon;
   const dataProvider = useRef();
   const [hr, setHr] = useState({
-    priceChangePercent: '',
-    highPrice: '',
-    lowPrice: ''
+    priceChangePercent: "",
+    highPrice: "",
+    lowPrice: "",
   });
 
   const tokenPairList = useMemo(() => {
@@ -105,10 +180,14 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
 
   const average = useMemo(() => {
     if (props.tokenPair && props.basePrice) {
-      return formatAmount(props.basePrice?.[props.tokenPair], 18, props.tokenPair.getTokenPriceDecimals())
+      return formatAmount(
+        props.basePrice?.[props.tokenPair],
+        18,
+        props.tokenPair.getTokenPriceDecimals()
+      );
     }
-    return '-'
-  }, [props.tokenPair, props.basePrice])
+    return "-";
+  }, [props.tokenPair, props.basePrice]);
 
   const fetchHr = useCallback(async () => {
     const data = await get24HrFromBinance(props.tokenPair);
@@ -116,10 +195,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
       setHr({
         priceChangePercent: data.priceChangePercent,
         highPrice: data.highPrice,
-        lowPrice: data.lowPrice
-      })
+        lowPrice: data.lowPrice,
+      });
     }
-  }, [props.tokenPair])
+  }, [props.tokenPair]);
 
   useEffect(() => {
     fetchHr();
@@ -127,181 +206,316 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({...props}) => {
       fetchHr();
     }, 1_000);
     return () => clearInterval(interval);
-  }, [fetchHr])
+  }, [fetchHr]);
 
   useEffect(() => {
     // @ts-ignore
     dataProvider.current = new TVDataProvider();
   }, []);
 
-  return (
-    <Stack
-      width={"100%"}
-      sx={(theme) => ({
-        border: isBigMobile ? `0px` : `1px solid ${theme.normal.border}`,
-        borderBottom: `1px solid ${theme.normal.border}`,
-        borderRadius: isBigMobile ? "0px" : "12px",
-      })}
-    >
+  const mobileTop = useMemo(() => {
+    return (
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
         alignItems={"center"}
+        height={"48px"}
+        paddingY={"12px"}
+        paddingX={"16px"}
       >
-        <Stack direction={'row'} alignItems={"center"} spacing={'40px'}>
-          <Stack
-            direction={"row"}
-            justifyContent={"flex-start"}
-            alignItems={"center"}
-            spacing={"12px"}
-            sx={{
-              width: "200px",
-              paddingX: "20px",
-              paddingY: isBigMobile ? "16px" : "24px",
-              "&:hover": {cursor: "pointer"},
-            }}
+        <Stack spacing={"8px"} direction={"row"} alignItems={"center"}>
+          <Box
+            sx={(theme) => ({
+              width: "24px",
+              height: "24px",
+              "& svg": {
+                width: "24px",
+                height: "24px",
+                display: "block",
+                "& path": {
+                  fill: theme.normal.text2,
+                },
+              },
+            })}
             aria-controls={"SelectTokenPair-menu"}
             aria-haspopup="true"
             aria-expanded={"true"}
             onClick={handleClick}
           >
-            <Stack
-              direction={"row"}
-              sx={{
-                "& svg": {
-                  width: "24px",
-                  height: "24px",
-                  display: "block",
-                  position: "relative",
-                  zIndex: 5,
-                },
-                "& svg + svg": {marginLeft: "-8px", zIndex: 4},
-              }}
-            >
-              <TokenIcon/>
-              <USDTLogo/>
-            </Stack>
-            <Stack spacing={0}>
-              <Box
-                component={"p"}
-                sx={(theme) => ({
-                  fontSize: 14,
-                  fontWeight: 700,
-                  color: theme.normal.text1,
-                })}
-              >
-                {props.tokenPair}/USDT
-              </Box>
-              <Box
-                component={"p"}
-                sx={(theme) => ({
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: Number(hr.priceChangePercent) >= 0 ? theme.normal.success : theme.normal.danger,
-                })}
-              >
-                {props.basePrice?.[props.tokenPair] ? average : "-" }
-              </Box>
-            </Stack>
-            <Box
-              sx={(theme) => ({
-                "& svg": {
-                  width: "16px",
-                  height: "16px",
-                  display: "block",
-                  "& path": {
-                    fill: theme.normal.text2,
-                  },
-                },
-              })}
-            >
-              <SelectedTokenDown/>
-            </Box>
-          </Stack>
-          <Box>
-            <ChartDataTitle><Trans>24h Change</Trans></ChartDataTitle>
-            <ChartDataValue sx={(theme) => ({
-              color: Number(hr.priceChangePercent) >= 0 ? theme.normal.success : theme.normal.danger,
-            })}>
-              {hr.priceChangePercent ? `${hr.priceChangePercent}%` : "-"}
-            </ChartDataValue>
+            {TokenPairIcon}
           </Box>
-          {
-            !isBigMobile && (
-              <>
-                <Box>
-                  <ChartDataTitle><Trans>24h High</Trans></ChartDataTitle>
-                  <ChartDataValue>
-                    {hr.highPrice ? numberWithCommas(Number(hr.highPrice).toFixed(props.tokenPair.getTokenPriceDecimals())) : "-"}
-                  </ChartDataValue>
-                </Box>
-                <Box>
-                  <ChartDataTitle><Trans>24h Low</Trans></ChartDataTitle>
-                  <ChartDataValue>
-                    {hr.lowPrice ? numberWithCommas(Number(hr.lowPrice).toFixed(props.tokenPair.getTokenPriceDecimals())) : "-"}
-                  </ChartDataValue>
-                </Box>
-              </>
-            )
-          }
+          <Box
+            component={"p"}
+            sx={(theme) => ({
+              fontSize: 16,
+              fontWeight: 700,
+              color: theme.normal.text1,
+              lineHeight: "22px",
+            })}
+          >
+            {props.tokenPair}/USDT
+          </Box>
+          <Box
+            component={"p"}
+            sx={(theme) => ({
+              fontSize: 16,
+              fontWeight: 700,
+              color:
+                Number(hr.priceChangePercent) >= 0
+                  ? theme.normal.success
+                  : theme.normal.danger,
+            })}
+          >
+            {props.basePrice?.[props.tokenPair] ? average : "-"}
+          </Box>
+          <Box
+            sx={(theme) => ({
+              height: "22px",
+              padding: "4px",
+              borderRadius: "4px",
+              backgroundColor:
+                Number(hr.priceChangePercent) >= 0
+                  ? theme.normal.success_light_hover
+                  : theme.normal.danger_light_hover,
+              color:
+                Number(hr.priceChangePercent) >= 0
+                  ? theme.normal.success
+                  : theme.normal.danger,
+              fontWeight: "400",
+              fontSize: "10px",
+              lineHeight: "14px",
+            })}
+          >
+            {hr.priceChangePercent ? `${hr.priceChangePercent}%` : "-"}
+          </Box>
         </Stack>
-        <Box
+        <Stack
+          spacing={"8px"}
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
           component={"button"}
           onClick={() => setIsHide(!isHide)}
-          sx={(theme) => ({
-            width: "40px",
-            height: "40px",
-            borderRadius: "8px",
-            border: `1px solid ${
-              isHide ? theme.normal.grey : theme.normal.border
-            }`,
-            boxSizing: "border-box",
-            marginRight: "20px",
-            background: isHide ? theme.normal.grey : "transparent",
-            "& svg": {
-              width: "24px",
-              height: "24px",
-              display: "block",
-              margin: "0 auto",
-            },
-            "& svg path": {
-              fill: theme.normal.text2,
-            },
-            "&:hover": {
-              cursor: "pointer",
-              border: 0,
-              background: isHide
-                ? theme.normal.grey_light_hover
-                : theme.normal.grey_hover,
-              "& svg path": {
-                fill: theme.normal.text0,
-              },
-            },
-            "&:active": {
-              border: 0,
-              background: isHide
-                ? theme.normal.grey_light_active
-                : theme.normal.grey_active,
-              "& svg path": {
-                fill: theme.normal.text0,
-              },
-            },
-            "@media (hover:none)": {
-              "&:hover": {
-                border: `1px solid ${
-                  isHide ? theme.normal.grey : theme.normal.border
-                }`,
-                background: isHide ? theme.normal.grey : "transparent",
-                "& svg path": {
+        >
+          <Box
+            sx={(theme) => ({
+              width: "20px",
+              height: "20px",
+              "& svg": {
+                width: "20px",
+                height: "20px",
+                display: "block",
+                "& path": {
                   fill: theme.normal.text2,
                 },
               },
-            },
-          })}
-        >
-          <HidePriceTable/>
-        </Box>
+            })}
+          >
+            <HidePriceTable />
+          </Box>
+          <Box>{isHide ? DownIcon : UpIcon}</Box>
+        </Stack>
       </Stack>
+    );
+  }, [
+    average,
+    hr.priceChangePercent,
+    isHide,
+    props.basePrice,
+    props.tokenPair,
+  ]);
+
+  return (
+    <Stack
+      width={"100%"}
+      sx={(theme) => ({
+        border: isBigMobile ? `0px` : `1px solid ${theme.normal.border}`,
+        borderRadius: isBigMobile ? "0px" : "12px",
+      })}
+    >
+      {isBigMobile ? (
+        mobileTop
+      ) : (
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Stack direction={"row"} alignItems={"center"} spacing={"40px"}>
+            <Stack
+              direction={"row"}
+              justifyContent={"flex-start"}
+              alignItems={"center"}
+              spacing={"12px"}
+              sx={{
+                width: "200px",
+                paddingX: "20px",
+                paddingY: isBigMobile ? "16px" : "24px",
+                "&:hover": { cursor: "pointer" },
+              }}
+              aria-controls={"SelectTokenPair-menu"}
+              aria-haspopup="true"
+              aria-expanded={"true"}
+              onClick={handleClick}
+            >
+              <Stack
+                direction={"row"}
+                sx={{
+                  "& svg": {
+                    width: "24px",
+                    height: "24px",
+                    display: "block",
+                    position: "relative",
+                    zIndex: 5,
+                  },
+                  "& svg + svg": { marginLeft: "-8px", zIndex: 4 },
+                }}
+              >
+                <TokenIcon />
+                <USDTLogo />
+              </Stack>
+              <Stack spacing={0}>
+                <Box
+                  component={"p"}
+                  sx={(theme) => ({
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: theme.normal.text1,
+                  })}
+                >
+                  {props.tokenPair}/USDT
+                </Box>
+                <Box
+                  component={"p"}
+                  sx={(theme) => ({
+                    fontSize: 16,
+                    fontWeight: 700,
+                    color:
+                      Number(hr.priceChangePercent) >= 0
+                        ? theme.normal.success
+                        : theme.normal.danger,
+                  })}
+                >
+                  {props.basePrice?.[props.tokenPair] ? average : "-"}
+                </Box>
+              </Stack>
+              <Box
+                sx={(theme) => ({
+                  "& svg": {
+                    width: "16px",
+                    height: "16px",
+                    display: "block",
+                    "& path": {
+                      fill: theme.normal.text2,
+                    },
+                  },
+                })}
+              >
+                <SelectedTokenDown />
+              </Box>
+            </Stack>
+            <Box>
+              <ChartDataTitle>
+                <Trans>24h Change</Trans>
+              </ChartDataTitle>
+              <ChartDataValue
+                sx={(theme) => ({
+                  color:
+                    Number(hr.priceChangePercent) >= 0
+                      ? theme.normal.success
+                      : theme.normal.danger,
+                })}
+              >
+                {hr.priceChangePercent ? `${hr.priceChangePercent}%` : "-"}
+              </ChartDataValue>
+            </Box>
+            <Box>
+              <ChartDataTitle>
+                <Trans>24h High</Trans>
+              </ChartDataTitle>
+              <ChartDataValue>
+                {hr.highPrice
+                  ? numberWithCommas(
+                      Number(hr.highPrice).toFixed(
+                        props.tokenPair.getTokenPriceDecimals()
+                      )
+                    )
+                  : "-"}
+              </ChartDataValue>
+            </Box>
+            <Box>
+              <ChartDataTitle>
+                <Trans>24h Low</Trans>
+              </ChartDataTitle>
+              <ChartDataValue>
+                {hr.lowPrice
+                  ? numberWithCommas(
+                      Number(hr.lowPrice).toFixed(
+                        props.tokenPair.getTokenPriceDecimals()
+                      )
+                    )
+                  : "-"}
+              </ChartDataValue>
+            </Box>
+          </Stack>
+          <Box
+            component={"button"}
+            onClick={() => setIsHide(!isHide)}
+            sx={(theme) => ({
+              width: "40px",
+              height: "40px",
+              borderRadius: "8px",
+              border: `1px solid ${
+                isHide ? theme.normal.grey : theme.normal.border
+              }`,
+              boxSizing: "border-box",
+              marginRight: "20px",
+              background: isHide ? theme.normal.grey : "transparent",
+              "& svg": {
+                width: "24px",
+                height: "24px",
+                display: "block",
+                margin: "0 auto",
+              },
+              "& svg path": {
+                fill: theme.normal.text2,
+              },
+              "&:hover": {
+                cursor: "pointer",
+                border: 0,
+                background: isHide
+                  ? theme.normal.grey_light_hover
+                  : theme.normal.grey_hover,
+                "& svg path": {
+                  fill: theme.normal.text0,
+                },
+              },
+              "&:active": {
+                border: 0,
+                background: isHide
+                  ? theme.normal.grey_light_active
+                  : theme.normal.grey_active,
+                "& svg path": {
+                  fill: theme.normal.text0,
+                },
+              },
+              "@media (hover:none)": {
+                "&:hover": {
+                  border: `1px solid ${
+                    isHide ? theme.normal.grey : theme.normal.border
+                  }`,
+                  background: isHide ? theme.normal.grey : "transparent",
+                  "& svg path": {
+                    fill: theme.normal.text2,
+                  },
+                },
+              },
+            })}
+          >
+            <HidePriceTable />
+          </Box>
+        </Stack>
+      )}
 
       <SelectListMenu
         id="SelectTokenPair-menu"
