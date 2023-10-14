@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { FC, useCallback, useMemo } from "react";
+import { FC, useCallback } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
 import Agree from "../../../components/Agree/Agree";
 import Box from "@mui/material/Box";
@@ -7,11 +7,19 @@ import { Trans, t } from "@lingui/macro";
 import useSettingTPAndSL from "../hooks/useSettingTPAndSL";
 import InputWithSymbol from "../../../components/NormalInput/InputWidthSymbol";
 import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
+import ArithFiLine from "../../../components/ArithFiLine";
+import NormalInfo from "../../../components/NormalInfo/NormalInfo";
 
 interface SettingTPAndSLProps {
+  token: string;
+  baseAmount: number;
   isLong: boolean;
+  lever: number;
   limitPrice: number;
+  callBack: (tp: number, sl: number) => void;
   isFirst?: boolean;
+  openPrice?: number;
+  append?: number;
 }
 
 const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
@@ -36,7 +44,26 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     slError,
     buttonDis,
     buttonAction,
-  } = useSettingTPAndSL(props.isLong, props.limitPrice, props.isFirst);
+    setTPPercent,
+    setSLPercent,
+    showTPInfoATF,
+    showSLInfoATF,
+    setTPNum,
+    setSLNum,
+    showPosition,
+    showOpenPrice,
+    showLiqPrice,
+  } = useSettingTPAndSL(
+    props.token,
+    props.baseAmount,
+    props.isLong,
+    props.lever,
+    props.limitPrice,
+    props.callBack,
+    props.isFirst,
+    props.openPrice,
+    props.append
+  );
 
   const getInfo = useCallback((isLong: boolean, U?: number, ATF?: number) => {
     return (
@@ -101,39 +128,47 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
           </Box>
         </Stack>
 
-        <Stack
-          direction={"row"}
-          spacing={"10px"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Box width={"70%"}>
-            <InputWithSymbol
-              placeholder={""}
-              value={tp}
-              symbol={"USDT"}
-              changeValue={(value: string) => {
-                setTp(value.formatInputNum4());
-              }}
-              isError={tpError}
-            />
-          </Box>
-          <Box width={"30%"}>
-            <InputWithSymbol
-              placeholder={"Gain"}
-              value={tpPercent}
-              symbol={"%"}
-              changeValue={(value: string) => {
-                setTpPercent(value.formatInputNum4());
-              }}
-              isError={tpError}
-            />
-          </Box>
-        </Stack>
+        {showTP ? (
+          <>
+            <Stack
+              direction={"row"}
+              spacing={"10px"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <Box width={"70%"}>
+                <InputWithSymbol
+                  placeholder={""}
+                  value={tp}
+                  symbol={"USDT"}
+                  changeValue={(value: string) => {
+                    setTp(Number(value.formatInputNum()).floor(6));
+                    setTPPercent(value.formatInputNum4());
+                  }}
+                  isError={tpError}
+                />
+              </Box>
+              <Box width={"30%"}>
+                <InputWithSymbol
+                  placeholder={"Gain"}
+                  value={tpPercent}
+                  symbol={"%"}
+                  changeValue={(value: string) => {
+                    setTpPercent(value.formatInputNum4());
+                    setTPNum(value.formatInputNum4());
+                  }}
+                  isError={tpError}
+                />
+              </Box>
+            </Stack>
 
-        {tpError ? <ErrorLabel title={showTPError} /> : <></>}
+            {tpError ? <ErrorLabel title={showTPError} /> : <></>}
 
-        {getInfo(props.isLong, showTPInfoPrice, 1)}
+            {getInfo(props.isLong, showTPInfoPrice, showTPInfoATF)}
+          </>
+        ) : (
+          <></>
+        )}
       </Stack>
       {/* sl */}
       <Stack spacing={"8px"}>
@@ -160,40 +195,69 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
           </Box>
         </Stack>
 
-        <Stack
-          direction={"row"}
-          spacing={"10px"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Box width={"70%"}>
-            <InputWithSymbol
-              placeholder={""}
-              value={sl}
-              symbol={"USDT"}
-              changeValue={(value: string) => {
-                setSl(value.formatInputNum4());
-              }}
-              isError={slError}
-            />
-          </Box>
-          <Box width={"30%"}>
-            <InputWithSymbol
-              placeholder={"Gain"}
-              value={slPercent}
-              symbol={"%"}
-              changeValue={(value: string) => {
-                setSlPercent(value.formatInputNum4());
-              }}
-              isError={slError}
-            />
-          </Box>
-        </Stack>
+        {showSL ? (
+          <>
+            <Stack
+              direction={"row"}
+              spacing={"10px"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <Box width={"70%"}>
+                <InputWithSymbol
+                  placeholder={""}
+                  value={sl}
+                  symbol={"USDT"}
+                  changeValue={(value: string) => {
+                    setSl(Number(value.formatInputNum()).floor(6));
+                    setSLPercent(value.formatInputNum4());
+                  }}
+                  isError={slError}
+                />
+              </Box>
+              <Box width={"30%"}>
+                <InputWithSymbol
+                  placeholder={"Gain"}
+                  value={slPercent}
+                  symbol={"%"}
+                  changeValue={(value: string) => {
+                    setSlPercent(value.formatInputNum4());
+                    setSLNum(value.formatInputNum4());
+                  }}
+                  isError={slError}
+                />
+              </Box>
+            </Stack>
 
-        {slError ? <ErrorLabel title={showSLError} /> : <></>}
+            {slError ? <ErrorLabel title={showSLError} /> : <></>}
 
-        {getInfo(!props.isLong, showSLInfoPrice, 1)}
+            {getInfo(!props.isLong, showSLInfoPrice, showSLInfoATF)}
+          </>
+        ) : (
+          <></>
+        )}
       </Stack>
+
+      {!props.isFirst ? (
+        <Stack spacing={"24px"}>
+          <ArithFiLine />
+          <Stack spacing={"8px"}>
+            <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
+            <NormalInfo
+              title={t`Open Price`}
+              value={showOpenPrice}
+              symbol={"USDT"}
+            />
+            <NormalInfo
+              title={t`Liq Price`}
+              value={showLiqPrice}
+              symbol={"USDT"}
+            />
+          </Stack>
+        </Stack>
+      ) : (
+        <></>
+      )}
 
       <MainButton
         title={"Confirm"}

@@ -233,13 +233,13 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
         {/* <FuturesOrder /> */}
         <p>
-          <Trans>Positions</Trans>
+          <Trans>Positions</Trans>{`(${props.pOrderListV2.length})`}
         </p>
       </Stack>,
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
         {/* <FuturesLimitOrder /> */}
         <p>
-          <Trans>Orders</Trans>
+          <Trans>Orders</Trans>{`(${props.limitOrderList.length})`}
         </p>
       </Stack>,
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
@@ -260,7 +260,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
         isFull={false}
       />
     );
-  }, [tabsValue]);
+  }, [props.limitOrderList.length, props.pOrderListV2.length, tabsValue]);
 
   const addModal = useMemo(() => {
     if (modalInfo && modalInfo.type === FuturesModalType.close) {

@@ -118,15 +118,35 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         <StopLimitModal
           open={showStopLimitModal}
           onClose={() => setShowStopLimitModal(false)}
+          callBack={(tp: number, sl: number) => {
+            if (!isStop) {
+              setIsStop(true);
+            }
+            setTp(tp.floor(4));
+            setSl(sl.floor(4));
+          }}
+          lever={lever}
+          baseAmount={inputAmount === "" ? 0 : Number(inputAmount)}
+          limitPrice={
+            showOpenPrice === String().placeHolder ? 0 : Number(showOpenPrice)
+          }
+          token={props.tokenPair}
         />
       </>
     );
   }, [
+    inputAmount,
+    isStop,
     lever,
+    props.tokenPair,
+    setIsStop,
     setLever,
     setShowSignModal,
     setShowTriggerNotice,
+    setSl,
+    setTp,
     showLeverModal,
+    showOpenPrice,
     showSignModal,
     showStopLimitModal,
     showTriggerNotice,

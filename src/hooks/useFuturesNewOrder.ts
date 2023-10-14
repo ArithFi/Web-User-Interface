@@ -295,8 +295,8 @@ function useFuturesNewOrder(
   const baseAction = useCallback(
     (isLong: boolean) => {
       setLoading(true);
-      // open(isLong);
-      alert("下单成功");
+      open(isLong);
+      // alert("下单成功");
     },
     [open]
   );
@@ -319,11 +319,19 @@ function useFuturesNewOrder(
           setShowTriggerNotice(isLong);
           return;
         }
-        
-        baseAction(isLong)
+
+        baseAction(isLong);
       }
     },
-    [baseAction, checkBalance, checkMinATF, checkSL, checkShowTriggerNotice, checkTP, showedTriggerNotice]
+    [
+      baseAction,
+      checkBalance,
+      checkMinATF,
+      checkSL,
+      checkShowTriggerNotice,
+      checkTP,
+      showedTriggerNotice,
+    ]
   );
 
   /**
