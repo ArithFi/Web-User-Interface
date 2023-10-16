@@ -56,7 +56,7 @@ const InputWithSymbol: FC<InputWithSymbolProps> = ({ ...props }) => {
         sx={(theme) => ({
           fontSize: 16,
           fontWeight: 400,
-          color: theme.normal.text3,
+          color: theme.normal.text0,
           lineHeight: "22px",
         })}
       >

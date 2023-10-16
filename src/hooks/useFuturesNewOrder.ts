@@ -484,7 +484,7 @@ function useFuturesNewOrder(
   }, [checkBalance, checkMinATF, inputAmount]);
 
   const showDepositError = useMemo(() => {
-    if (signature && tokenBalance?.eq(BigNumber.from("0"))) {
+    if (signature && (!tokenBalance || tokenBalance?.eq(BigNumber.from("0")))) {
       return true;
     }
     return false;

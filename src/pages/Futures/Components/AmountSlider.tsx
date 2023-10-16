@@ -33,7 +33,7 @@ const AmountSlider: FC<AmountSliderProps> = ({ ...props }) => {
       marks={marks}
       value={props.value}
       getAriaValueText={valuetext}
-      valueLabelDisplay="on"
+      valueLabelDisplay="auto"
       valueLabelFormat={(value: number) => `${value}%`}
       onChange={(e: any) => {
         props.changeValue(e.target.value);

@@ -13,7 +13,7 @@ interface LongOrShortProps {
 const Button = styled(Box)(({ theme }) => ({
   width: "100%",
   height: 48,
-  borderRadius: 12,
+  borderRadius: 8,
   backgroundColor: theme.normal.grey,
   color: theme.normal.text0,
   fontSize: 16,
