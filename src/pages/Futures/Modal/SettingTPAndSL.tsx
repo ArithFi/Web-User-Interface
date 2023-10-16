@@ -20,6 +20,8 @@ interface SettingTPAndSLProps {
   isFirst?: boolean;
   openPrice?: number;
   append?: number;
+  tpNow?: number;
+  slNow?: number;
 }
 
 const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
@@ -53,6 +55,8 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     showPosition,
     showOpenPrice,
     showLiqPrice,
+    tlPlaceHolder,
+    slPlaceHolder,
   } = useSettingTPAndSL(
     props.token,
     props.baseAmount,
@@ -62,7 +66,9 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     props.callBack,
     props.isFirst,
     props.openPrice,
-    props.append
+    props.append,
+    props.tpNow,
+    props.slNow
   );
 
   const getInfo = useCallback((isLong: boolean, U?: number, ATF?: number) => {
@@ -138,11 +144,15 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
             >
               <Box width={"70%"}>
                 <InputWithSymbol
-                  placeholder={""}
+                  placeholder={tlPlaceHolder}
                   value={tp}
                   symbol={"USDT"}
                   changeValue={(value: string) => {
-                    setTp(Number(value.formatInputNum()).floor(6));
+                    setTp(
+                      value === ""
+                        ? ""
+                        : Number(value.formatInputNum()).floor(6)
+                    );
                     setTPPercent(value.formatInputNum4());
                   }}
                   isError={tpError}
@@ -205,11 +215,15 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
             >
               <Box width={"70%"}>
                 <InputWithSymbol
-                  placeholder={""}
+                  placeholder={slPlaceHolder}
                   value={sl}
                   symbol={"USDT"}
                   changeValue={(value: string) => {
-                    setSl(Number(value.formatInputNum()).floor(6));
+                    setSl(
+                      value === ""
+                        ? ""
+                        : Number(value.formatInputNum()).floor(6)
+                    );
                     setSLPercent(value.formatInputNum4());
                   }}
                   isError={slError}

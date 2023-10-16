@@ -23,6 +23,8 @@ interface EditPositionModalBaseProps {
   openPrice: number;
   append: number;
   index: number;
+  tpNow: number;
+  slNow: number;
 }
 
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
@@ -45,6 +47,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
     },
     [chainsData.chainId, props.index, signature]
   );
+
   return (
     <Stack spacing={"24px"} sx={{ width: "100%" }}>
       <SettingTPAndSL
@@ -60,6 +63,8 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         }}
         openPrice={props.openPrice}
         append={props.append}
+        tpNow={props.tpNow}
+        slNow={props.slNow}
       />
     </Stack>
   );
@@ -107,6 +112,8 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             openPrice={props.data.orderPrice}
             append={props.data.append}
             index={props.data.id}
+            tpNow={props.data.takeProfitPrice}
+            slNow={props.data.stopLossPrice}
           />
         </BaseDrawer>
       </Drawer>
@@ -134,6 +141,8 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               openPrice={props.data.orderPrice}
               append={props.data.append}
               index={props.data.id}
+              tpNow={props.data.takeProfitPrice}
+              slNow={props.data.stopLossPrice}
             />
           </BaseModal>
         </Box>

@@ -126,6 +126,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             showOpenPrice === String().placeHolder ? 0 : Number(showOpenPrice)
           }
           token={props.tokenPair}
+          tpNow={Number(tp)}
+          slNow={Number(sl)}
         />
       </>
     );
@@ -145,6 +147,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showSignModal,
     showStopLimitModal,
     showTriggerNotice,
+    sl,
+    tp,
     triggerNoticeCallback,
   ]);
   const depositModal = useMemo(() => {

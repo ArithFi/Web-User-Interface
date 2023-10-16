@@ -12,15 +12,12 @@ function useSettingTPAndSL(
   callBack: (tp: number, sl: number) => void,
   isFirst?: boolean,
   openPrice?: number,
-  append?: number
+  append?: number,
+  tpNow?: number,
+  slNow?: number
 ) {
-  const [showTP, setShowTP] = useState(true);
-  const [showSL, setShowSL] = useState(true);
-  const [tp, setTp] = useState<string>("");
-  const [sl, setSl] = useState<string>("");
   const [tpPercent, setTpPercent] = useState<string>("");
   const [slPercent, setSlPercent] = useState<string>("");
-
   const setTPPercent = useCallback(
     (data: string) => {
       if (data === "" || Number(data) === 0) {
@@ -55,6 +52,24 @@ function useSettingTPAndSL(
     },
     [isLong, limitPrice]
   );
+  const defaultTp = useMemo(() => {
+    setTPPercent(tpNow ? tpNow.toString() : "");
+    return tpNow === undefined || Number(tpNow) === 0
+      ? ""
+      : tpNow.floor(token.getTokenPriceDecimals());
+  }, [setTPPercent, token, tpNow]);
+  const defaultSl = useMemo(() => {
+    setSLPercent(slNow ? slNow.toString() : "");
+    return slNow === undefined || Number(slNow) === 0
+      ? ""
+      : slNow.floor(token.getTokenPriceDecimals());
+  }, [setSLPercent, slNow, token]);
+  const [showTP, setShowTP] = useState(true);
+  const [showSL, setShowSL] = useState(true);
+  
+  const [tp, setTp] = useState<string>(defaultTp);
+  const [sl, setSl] = useState<string>(defaultSl);
+
   const setTPNum = useCallback(
     (data: string) => {
       if (data === "") {
@@ -89,9 +104,8 @@ function useSettingTPAndSL(
     },
     [isLong, limitPrice]
   );
-
   const tpError = useMemo(() => {
-    if (tp === "" || Number(tp) === 0) {
+    if (tp === "") {
       return false;
     }
     if (isLong) {
@@ -101,7 +115,7 @@ function useSettingTPAndSL(
     }
   }, [isLong, limitPrice, tp]);
   const slError = useMemo(() => {
-    if (sl === "" || Number(sl) === 0) {
+    if (sl === "") {
       return false;
     }
     if (isLong) {
@@ -113,10 +127,14 @@ function useSettingTPAndSL(
   const buttonDis = useMemo(() => {
     if (tpError || slError) {
       return true;
+    } else if (showTP && tp === "") {
+      return true
+    } else if (showSL && sl === "") {
+      return true
     } else {
       return false;
     }
-  }, [slError, tpError]);
+  }, [showSL, showTP, sl, slError, tp, tpError]);
   const buttonAction = useCallback(() => {
     if (buttonDis) {
       return;
@@ -236,6 +254,14 @@ function useSettingTPAndSL(
     }
   }, [append, baseAmount, isLong, lever, openPrice, token]);
 
+  const tlPlaceHolder = useMemo(() => {
+    return `${isLong ? ">" : "<"} ${limitPrice.floor(2)}`;
+  }, [isLong, limitPrice]);
+
+  const slPlaceHolder = useMemo(() => {
+    return `${isLong ? "<" : ">"} ${limitPrice.floor(2)}`;
+  }, [isLong, limitPrice]);
+
   return {
     showTP,
     setShowTP,
@@ -266,6 +292,8 @@ function useSettingTPAndSL(
     showPosition,
     showOpenPrice,
     showLiqPrice,
+    tlPlaceHolder,
+    slPlaceHolder,
   };
 }
 

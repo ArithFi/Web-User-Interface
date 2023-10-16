@@ -17,6 +17,8 @@ interface StopLimitBaseProps {
   lever: number;
   limitPrice: number;
   token: string;
+  tpNow: number;
+  slNow: number;
 }
 
 const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
@@ -49,6 +51,8 @@ const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
           props.callBack(tp, sl);
           props.onClose();
         }}
+        tpNow={props.tpNow}
+        slNow={props.slNow}
       />
     </Stack>
   );
@@ -62,6 +66,8 @@ interface StopLimitModalProps {
   lever: number;
   limitPrice: number;
   token: string;
+  tpNow: number;
+  slNow: number;
 }
 
 const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
@@ -84,6 +90,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
             lever={props.lever}
             limitPrice={props.limitPrice}
             token={props.token}
+            tpNow={props.tpNow}
+            slNow={props.slNow}
           />
         </BaseDrawer>
       </Drawer>
@@ -103,6 +111,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
               lever={props.lever}
               limitPrice={props.limitPrice}
               token={props.token}
+              tpNow={props.tpNow}
+              slNow={props.slNow}
             />
           </BaseModal>
         </Box>
