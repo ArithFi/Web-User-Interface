@@ -116,15 +116,6 @@ msgstr "7 Günlük Takipçi Kar/Zararı"
 msgid "7D PnL"
 msgstr "7D Kar/Zararı"
 
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve sizin adınıza yürütülecektir."
@@ -180,7 +171,6 @@ msgid "Add Position"
 msgstr "Pozisyon ekle"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "Adres"
 
@@ -356,6 +346,7 @@ msgid "Confirm you are the owner of this wallet"
 msgstr "Bu cüzdanın sahibi olduğunuzu onaylayın"
 
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -390,6 +381,8 @@ msgstr "Emirleri Kopyala"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -412,6 +405,10 @@ msgstr "Kopya Yatırımcıların Kar ve Zararı (ATF)"
 msgid "Copy Trading"
 msgstr "Kopya İşlem"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr ""
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr "Kopya İşlem Toplam Tutarı (ATF)"
@@ -423,6 +420,12 @@ msgstr "Her Emri Kopya İşlem"
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
 msgstr "Zahmetsizce Kopya İşlem"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -447,6 +450,11 @@ msgstr "Toplam Kopya Tüccarları"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Toplam Davet Edilen Kullanıcıların İşlem Hacmi"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -483,6 +491,7 @@ msgstr "Günlük Getiri"
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "Varsayılan"
@@ -722,6 +731,10 @@ msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yatırın."
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr ""
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Davet Edilen Kullanıcıların İşlem Hacmi"
 
@@ -865,6 +878,8 @@ msgstr "Daha Fazla Bilgi"
 msgid "My Balance"
 msgstr "Bakiyem"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -892,6 +907,8 @@ msgstr "Tüccarlarım"
 msgid "News"
 msgstr "Haberler"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -988,6 +1005,8 @@ msgid "Orders"
 msgstr "Siparişler"
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1003,10 +1022,16 @@ msgstr "Pancake"
 msgid "Pending"
 msgstr "Beklemede"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Performans"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1060,6 +1085,11 @@ msgstr "Pozisyonlar"
 msgid "Positions Value"
 msgstr "Pozisyon Değeri"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr ""
+
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1098,6 +1128,7 @@ msgstr "100 ATF deneme jetonu aldı"
 msgid "Recent transactions"
 msgstr "Son işlemler"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1137,6 +1168,7 @@ msgstr "Kaydet"
 msgid "Scan and copy the trade"
 msgstr "İşlemi tarayın ve kopyalayın"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "Arama"
@@ -1170,10 +1202,13 @@ msgstr "Her emir için marjı ve genel kopya işlem miktarını ayarlayın."
 msgid "Settings"
 msgstr "Ayarlar"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Hesaplandı"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1330,6 +1365,9 @@ msgstr "İşlem başarısız oldu ve miktar tamamen iade edildi. Yeniden işlem 
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Zaman"
 
@@ -1379,6 +1417,9 @@ msgstr "Toplam Ödeme"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "Toplam Kar"
 
@@ -1389,6 +1430,8 @@ msgstr "Toplam Kar"
 msgid "Total Profit & Loss"
 msgstr "Toplam Kar ve Zarar"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1445,6 +1488,7 @@ msgstr "Tüccar"
 msgid "Trader Profile"
 msgstr "Tüccar Profili"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "İşlem Hacmi"
@@ -1603,3 +1647,12 @@ msgstr "$ATF'yi borsalardan veya cüzdanlardan doğrudan satın alabilirsiniz. M
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Lider panolarda size uygun olan KOL'u özgürce seçebilirsiniz."
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
+msgstr ""

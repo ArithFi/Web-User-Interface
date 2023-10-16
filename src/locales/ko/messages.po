@@ -116,15 +116,6 @@ msgstr "7일 동안의 팔로워 수익"
 msgid "7D PnL"
 msgstr "7일 수익"
 
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩니다."
@@ -180,7 +171,6 @@ msgid "Add Position"
 msgstr "포지션 추가"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "주소"
 
@@ -356,6 +346,7 @@ msgid "Confirm you are the owner of this wallet"
 msgstr "이 지갑의 소유자임을 확인하십시오."
 
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -390,6 +381,8 @@ msgstr "주문 복사"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -412,6 +405,10 @@ msgstr "트레이더의 수익 및 손실 (ATF)"
 msgid "Copy Trading"
 msgstr "복사 거래"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr ""
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr "복사 거래 자산 (ATF)"
@@ -423,6 +420,12 @@ msgstr "각 주문 복사 거래"
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
 msgstr "편안하게 복사 거래"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -447,6 +450,11 @@ msgstr "누적 복사 트레이더"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "누적 피추천인 거래량"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -483,6 +491,7 @@ msgstr "일일 수익률"
 msgid "Dashboard"
 msgstr "대시보드"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "기본값"
@@ -722,6 +731,10 @@ msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr ""
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "피추천인의 거래량"
 
@@ -865,6 +878,8 @@ msgstr "자세한 정보"
 msgid "My Balance"
 msgstr "내 잔고"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -892,6 +907,8 @@ msgstr "내 거래"
 msgid "News"
 msgstr "뉴스"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -988,6 +1005,8 @@ msgid "Orders"
 msgstr "주문"
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1003,10 +1022,16 @@ msgstr "Pancake"
 msgid "Pending"
 msgstr "Pendente"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "성과"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1058,6 +1083,11 @@ msgstr "포지션"
 msgid "Positions Value"
 msgstr "포지션 가치"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr ""
+
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1096,6 +1126,7 @@ msgstr "100 ATF 테스트 토큰을 받았습니다."
 msgid "Recent transactions"
 msgstr "최근 트랜잭션"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1135,6 +1166,7 @@ msgstr "저장"
 msgid "Scan and copy the trade"
 msgstr "거래 스캔 및 복사"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "검색"
@@ -1168,10 +1200,13 @@ msgstr "각 주문 및 전체 복사 거래 금액에 마진 설정."
 msgid "Settings"
 msgstr "설정"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "해결됨"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1328,6 +1363,9 @@ msgstr "트랜잭션이 실패하고 모든 금액이 환불되었습니다. 재
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "시간"
 
@@ -1377,6 +1415,9 @@ msgstr "총 지불"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "총 이익"
 
@@ -1387,6 +1428,8 @@ msgstr "총 이익"
 msgid "Total Profit & Loss"
 msgstr "총 수익과 손실"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1443,6 +1486,7 @@ msgstr "트레이더"
 msgid "Trader Profile"
 msgstr "트레이더 프로필"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "거래량"
@@ -1601,3 +1645,12 @@ msgstr "$ATF를 거래소나 지갑에서 직접 구매할 수 있습니다. 중
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "리더보드에서 당신에게 맞는 KOL을 자유롭게 선택할 수 있습니다."
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
+msgstr ""

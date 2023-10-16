@@ -116,15 +116,6 @@ msgstr "Lợi nhuận Followers 7 ngày"
 msgid "7D PnL"
 msgstr "Lợi nhuận 7 ngày"
 
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được tự động sao chép và thực hiện cho bạn."
@@ -180,7 +171,6 @@ msgid "Add Position"
 msgstr "Thêm vị thế"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "Địa chỉ"
 
@@ -356,6 +346,7 @@ msgid "Confirm you are the owner of this wallet"
 msgstr "Xác nhận bạn là chủ sở hữu của ví này."
 
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -390,6 +381,8 @@ msgstr "Sao chép các đơn hàng"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -412,6 +405,10 @@ msgstr "PnL của những người copy (ATF)"
 msgid "Copy Trading"
 msgstr "Sao chép giao dịch"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr ""
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr "Các tài sản giao dịch sao chép (ATF)"
@@ -423,6 +420,12 @@ msgstr "Sao chép giao dịch mỗi lệnh"
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
 msgstr "Sao chép giao dịch một cách dễ dàng"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -447,6 +450,11 @@ msgstr "Nhà giao dịch sao chép tích luỹ"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Tổng khối lượng giao dịch của người được mời tích lũy"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -483,6 +491,7 @@ msgstr "Lợi nhuận hàng ngày"
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "Mặc định"
@@ -722,6 +731,10 @@ msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao dịch nhanh."
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr ""
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Khối lượng giao dịch của người được giới thiệu"
 
@@ -865,6 +878,8 @@ msgstr "Thông tin thêm"
 msgid "My Balance"
 msgstr "Số dư của tôi"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -892,6 +907,8 @@ msgstr "Các giao dịch của tôi"
 msgid "News"
 msgstr "Tin tức"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -988,6 +1005,8 @@ msgid "Orders"
 msgstr "Đơn hàng"
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1003,10 +1022,16 @@ msgstr "Pancake"
 msgid "Pending"
 msgstr "Đang chờ"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Hiệu suất"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1058,6 +1083,11 @@ msgstr "Vị thế"
 msgid "Positions Value"
 msgstr "Giá trị vị thế"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr ""
+
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1096,6 +1126,7 @@ msgstr "Nhận được 100 token thử nghiệm ATF"
 msgid "Recent transactions"
 msgstr "Các lệnh giao dịch gần đây"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1135,6 +1166,7 @@ msgstr "Lưu"
 msgid "Scan and copy the trade"
 msgstr "Quét và sao chép giao dịch"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "Tìm kiếm"
@@ -1168,10 +1200,13 @@ msgstr "Đặt biên độ cho mỗi lệnh cũng như tổng số tiền giao d
 msgid "Settings"
 msgstr "Cài đặt"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Đã thanh toán"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1328,6 +1363,9 @@ msgstr "Giao dịch thất bại và số tiền đã được hoàn trả đầ
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Thời gian"
 
@@ -1377,6 +1415,9 @@ msgstr "Tổng số tiền thanh toán"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "Tổng lợi nhuận"
 
@@ -1387,6 +1428,8 @@ msgstr "Tổng lợi nhuận"
 msgid "Total Profit & Loss"
 msgstr "Tổng lợi nhuận & lỗ"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1443,6 +1486,7 @@ msgstr "Người giao dịch"
 msgid "Trader Profile"
 msgstr "Hồ sơ của người giao dịch"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Khối lượng giao dịch"
@@ -1601,3 +1645,12 @@ msgstr "Ứng dụng có thể mua $ATF trực tiếp từ sàn giao dịch ho�
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Bạn có thể tự do chọn KOL phù hợp với bạn trong bảng xếp hạng."
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
+msgstr ""

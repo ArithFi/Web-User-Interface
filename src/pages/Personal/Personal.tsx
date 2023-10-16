@@ -83,6 +83,15 @@ const Personal = () => {
         .then((res: any) => res.value)
   );
 
+  const { data: isCopyKol } = useSWR(
+    address || account.address
+    ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${address ?? account.address}` : undefined,
+    (url: any) =>
+      fetch(url)
+        .then((res) => res.json())
+        .then(res => res.value)
+  )
+
   const isNotice = useMemo(() => {
     if (!address && !account.address) {
       return false;
@@ -192,7 +201,7 @@ const Personal = () => {
     <Stack alignItems={"center"}>
       {shareMyDealModal}
       {addModal}
-      {isKol && (
+      {(isKol || isCopyKol) && (
         <Stack
           direction={"row"}
           width={"100%"}
@@ -221,31 +230,61 @@ const Personal = () => {
                   color: theme.normal.primary,
                 },
               },
+              cursor: "pointer",
             })}
-            width={["100%", "100%", "100%", "auto"]}
+            width={["100%", "100%", "auto"]}
           >
             <a href={`/#/account`}>
               <Trans>Personal</Trans>
             </a>
           </Stack>
-          <Stack
-            sx={(theme) => ({
-              paddingY: "11px",
-              alignItems: "center",
-              a: {
-                color: theme.normal.text0,
-                cursor: "pointer",
-                "&:hover": {
-                  color: theme.normal.primary,
-                },
-              },
-            })}
-            width={["100%", "100%", "100%", "auto"]}
-          >
-            <a href={`/#/referral`}>
-              <Trans>Referral</Trans>
-            </a>
-          </Stack>
+          {
+            isKol && (
+              <Stack
+                sx={(theme) => ({
+                  paddingY: "11px",
+                  alignItems: "center",
+                  a: {
+                    color: theme.normal.text0,
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: theme.normal.primary,
+                    },
+                  },
+                  cursor: "pointer",
+                })}
+                width={["100%", "100%", "auto"]}
+              >
+                <a href={`/#/referral`}>
+                  <Trans>Referral</Trans>
+                </a>
+              </Stack>
+            )
+          }
+          {
+            isCopyKol && (
+              <Stack
+                sx={(theme) => ({
+                  paddingY: "11px",
+                  alignItems: "center",
+                  a: {
+                    color: theme.normal.text0,
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: theme.normal.primary,
+                    },
+                    whiteSpace: 'nowrap',
+                  },
+                  cursor: "pointer",
+                })}
+                width={["100%", "100%", "auto"]}
+              >
+                <a href={`/#/referral-copy`}>
+                  <Trans>Copy Trading Profit</Trans>
+                </a>
+              </Stack>
+            )
+          }
         </Stack>
       )}
       <Stack

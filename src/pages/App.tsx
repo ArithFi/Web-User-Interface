@@ -14,6 +14,7 @@ const OverviewPage = lazy(() => import("./Overview/Overview"));
 const SwapPage = lazy(() => import("./Swap/Swap"));
 const DashboardPage = lazy(() => import("./Dashboard/Dashboard"));
 const ReferralPage = lazy(() => import("./Personal/Referral/Referral"));
+const CopyTradingProfitPage = lazy(() => import('./Personal/CopyTradingProfit/CopyTradingProfit'));
 const PersonalPage = lazy(() => import("./Personal/Personal"));
 const CopyPage = lazy(() => import("./Copy/Copy"));
 const TraderPage = lazy(() => import("./Copy/Trader"));
@@ -121,7 +122,10 @@ const App: FC = () => {
                 <Route path={":address"} element={<ReferralPage />} />
                 <Route path={""} element={<ReferralPage />} />
               </Route>
-
+              <Route path="referral-copy">
+                <Route path={":address"} element={<CopyTradingProfitPage />} />
+                <Route path={""} element={<CopyTradingProfitPage />} />
+              </Route>
               <Route path="copy" element={<CopyPage />} />
               <Route path="trader">
                 <Route path=":address" element={<TraderPage />} />
