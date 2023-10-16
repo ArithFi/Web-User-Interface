@@ -314,7 +314,9 @@ function useFuturesNewOrder(
     (isLong: boolean) => {
       const tpResult = checkTP(isLong);
       const slResult = checkSL(isLong);
-      if (inputAmount === "") {setInputAmount("0")}
+      if (inputAmount === "") {
+        setInputAmount("0");
+      }
       if (checkBalance && !checkMinATF && !tpResult && !slResult) {
         if (checkShowTriggerNotice && !showedTriggerNotice) {
           setShowTriggerNotice(isLong);
@@ -324,7 +326,16 @@ function useFuturesNewOrder(
         baseAction(isLong);
       }
     },
-    [baseAction, checkBalance, checkMinATF, checkSL, checkShowTriggerNotice, checkTP, inputAmount, showedTriggerNotice]
+    [
+      baseAction,
+      checkBalance,
+      checkMinATF,
+      checkSL,
+      checkShowTriggerNotice,
+      checkTP,
+      inputAmount,
+      showedTriggerNotice,
+    ]
   );
 
   /**
@@ -494,6 +505,10 @@ function useFuturesNewOrder(
     }
   }, [tabsValue]);
 
+  const showConnectButton = useMemo(() => {
+    return account.address === undefined;
+  }, [account.address]);
+
   /**
    * update
    */
@@ -567,7 +582,6 @@ function useFuturesNewOrder(
     setInputAmount,
     showAmountError,
     stopErrorText,
-    isShareLink,
     closeShareLink,
     showDeposit,
     setShowDeposit,
@@ -578,6 +592,8 @@ function useFuturesNewOrder(
     openCallBack,
     clearTPSLError,
     showDepositError,
+    setShowConnect,
+    showConnectButton,
   };
 }
 

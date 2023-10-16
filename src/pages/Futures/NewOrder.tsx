@@ -68,7 +68,6 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     setInputAmount,
     showAmountError,
     stopErrorText,
-    isShareLink,
     closeShareLink,
     showDeposit,
     setShowDeposit,
@@ -79,6 +78,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     openCallBack,
     clearTPSLError,
     showDepositError,
+    setShowConnect,
+    showConnectButton,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -542,6 +543,19 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     );
   }, [openCallBack]);
 
+  const connectButton = useMemo(() => {
+    return (
+      <MainButton
+        title={t`Connect Wallet`}
+        onClick={() => setShowConnect(true)}
+        style={{
+          height: "48px",
+          fontSize: "16px"
+        }}
+      />
+    );
+  }, [setShowConnect]);
+
   const liqPrice = useMemo(() => {
     return (
       <Stack
@@ -629,7 +643,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </Stack>
       {info}
       <Stack spacing={"12px"} width={"100%"}>
-        {openButtons}
+        {showConnectButton ? connectButton : openButtons}
         {liqPrice}
       </Stack>
     </Stack>
