@@ -26,30 +26,10 @@ msgstr "* Debido a la complejidad de los datos financieros, puede haber matices 
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi solo admite retiros de ATF."
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< LIMIT PRICE"
-msgstr "< PRECIO LÍMITE"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< MARKET PRICE"
-msgstr "< PRECIO DE MERCADO"
-
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
 msgid "< OPEN PRICE"
 msgstr "< PRECIO DE APERTURA"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> LIMIT PRICE"
-msgstr "＞ PRECIO LÍMITE"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> MARKET PRICE"
-msgstr "＞ PRECIO DE MERCADO"
 
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
@@ -194,13 +174,16 @@ msgstr "Agregar posición"
 msgid "Address"
 msgstr "Dirección"
 
+#: src/pages/Futures/NewOrder.tsx
+msgid "Advanced"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
 msgstr "Ventajas de ArithFi."
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
 msgstr "Después de que la orden límite se ejecute, los precios de TP y SL que estableciste se activarán inmediatamente."
 
@@ -214,6 +197,7 @@ msgstr "Todos los Traders"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Cantidad"
@@ -278,6 +262,7 @@ msgstr "Balance"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Balance:"
 msgstr "Balance"
 
@@ -360,9 +345,8 @@ msgstr "Confirmar"
 msgid "Confirm you are the owner of this wallet"
 msgstr "Confirma que eres el propietario de esta billetera"
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -515,6 +499,7 @@ msgstr "Predeterminado"
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -558,7 +543,6 @@ msgstr "Editar Orden Límite"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Edit Position"
 msgstr "Editar Posición"
 
@@ -742,6 +726,7 @@ msgid "Insufficient balance"
 msgstr "Saldo Insuficiente"
 
 #: src/components/NormalInput/ArithFiInput.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Saldo insuficiente. Por favor, deposita para comenzar el trading rápido."
 
@@ -752,6 +737,10 @@ msgstr ""
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Volumen de Operaciones de Invitados"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "it will trigger Market order, and the estimated PNL will be"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -787,10 +776,7 @@ msgstr "Último Precio"
 msgid "Learn more"
 msgstr "Obtener más información"
 
-#: src/pages/Futures/Components/LeverageSlider.tsx
-msgid "Leverage"
-msgstr "Apalancamiento"
-
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "Límite"
@@ -798,6 +784,7 @@ msgstr "Límite"
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Limit Price"
 msgstr "Precio Límite"
 
@@ -810,7 +797,8 @@ msgstr "Enlazar billetera"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Liq Price"
 msgstr "Precio de Liquidación"
@@ -829,13 +817,13 @@ msgstr "Loading..."
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Long"
 msgstr "Largo"
 
@@ -849,6 +837,7 @@ msgid "Make a profit, you will earn $ATF"
 msgstr "Si obtienes ganancias, ganarás $ATF."
 
 #: src/pages/Futures/NewOrder.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "Mercado"
 
@@ -856,11 +845,13 @@ msgstr "Mercado"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr "Precio de mercado"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "MÁXIMO"
@@ -956,15 +947,15 @@ msgstr "Todavía no hay transacciones"
 msgid "Number of Orders"
 msgstr "Número de Órdenes"
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Open"
-msgstr "Abrir"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Open Interest"
 msgstr "Interés Abierto"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Long"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -987,9 +978,13 @@ msgstr "Abrir posición"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Open Price"
 msgstr "Precio de Apertura"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Short"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1064,7 +1059,7 @@ msgstr "Ratio de PnL"
 
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Position"
 msgstr "Posición"
 
@@ -1079,7 +1074,6 @@ msgstr "Tarifa de posición = Posición * 0.05%"
 msgid "Position*0.05%"
 msgstr "Posición * 0.05%"
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
 msgstr "Posiciones"
@@ -1094,7 +1088,6 @@ msgstr "Valor de Posiciones"
 msgid "Previous Profit"
 msgstr ""
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1227,13 +1220,13 @@ msgstr "Compartir"
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Short"
 msgstr "Corto"
 
@@ -1280,7 +1273,7 @@ msgstr "Detener la Copia"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "límite de pérdida"
@@ -1291,6 +1284,8 @@ msgstr "límite de pérdida"
 msgid "Stop Order"
 msgstr "Orden de Detención"
 
+#: src/pages/Futures/Modal/StopLimitModal.tsx
+#: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "Detener y Limitar "
@@ -1329,7 +1324,7 @@ msgstr "Preferencia de Símbolo"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
 msgstr "Tomar Ganancia"
@@ -1364,8 +1359,11 @@ msgstr "La transacción falló y el monto ha sido reembolsado completamente. Pue
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
@@ -1396,7 +1394,6 @@ msgstr "Valor Total de Activos"
 msgid "Total Burned"
 msgstr "Total Quemado"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1418,6 +1415,7 @@ msgstr "Total Pagado"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
@@ -1498,8 +1496,29 @@ msgid "Trigger"
 msgstr "Disparador"
 
 #: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Trigger Position"
 msgstr "Posición de Disparo"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -1523,7 +1542,6 @@ msgstr "Ganancias y Pérdidas no Realizadas (ATF)"
 msgid "Unsettled"
 msgstr "Sin Liquidar"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1580,6 +1598,10 @@ msgstr "Depósito en la billetera"
 msgid "Wallet Withdraw"
 msgstr "Retiro de la billetera"
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "When Price reaches"
+msgstr ""
+
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
@@ -1623,3 +1645,12 @@ msgstr "Puedes comprar $ATF en intercambios o carteras directamente. Las casas d
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Puede elegir libremente al KOL que le convenga en las clasificaciones."
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
+msgstr ""

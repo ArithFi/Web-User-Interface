@@ -26,30 +26,10 @@ msgstr "Do sự phức tạp của dữ liệu tài chính, do đó có thể b�
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "ArithFi chỉ hỗ trợ rút tiền ATF."
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< LIMIT PRICE"
-msgstr "< GIÁ GIỚI HẠN"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< MARKET PRICE"
-msgstr "< GIÁ THỊ TRƯỜNG"
-
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
 msgid "< OPEN PRICE"
 msgstr "< GIÁ MỞ CỬA"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> LIMIT PRICE"
-msgstr "> GIÁ GIỚI HẠN"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> MARKET PRICE"
-msgstr "> GIÁ THỊ TRƯỜNG"
 
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
@@ -194,13 +174,16 @@ msgstr "Thêm vị thế"
 msgid "Address"
 msgstr "Địa chỉ"
 
+#: src/pages/Futures/NewOrder.tsx
+msgid "Advanced"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Advantages of ArithFi"
 msgstr "Ưu điểm của ArithFi"
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
 msgstr "Sau khi lệnh giới hạn được thực hiện, giá TP (Take Profit) và giá SL (Stop Loss) mà bạn đã đặt sẽ kích hoạt ngay lập tức."
 
@@ -214,6 +197,7 @@ msgstr "Tất cả các nhà giao dịch"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Số lượng"
@@ -278,6 +262,7 @@ msgstr "Số dư"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Balance:"
 msgstr "Số dư:"
 
@@ -360,9 +345,8 @@ msgstr "Xác nhận"
 msgid "Confirm you are the owner of this wallet"
 msgstr "Xác nhận bạn là chủ sở hữu của ví này."
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -515,6 +499,7 @@ msgstr "Mặc định"
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -558,7 +543,6 @@ msgstr "Chỉnh sửa lệnh giới hạn"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Edit Position"
 msgstr "Chỉnh sửa vị thế"
 
@@ -742,6 +726,7 @@ msgid "Insufficient balance"
 msgstr "Số dư không đủ"
 
 #: src/components/NormalInput/ArithFiInput.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao dịch nhanh."
 
@@ -752,6 +737,10 @@ msgstr ""
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Khối lượng giao dịch của người được giới thiệu"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "it will trigger Market order, and the estimated PNL will be"
+msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -787,10 +776,7 @@ msgstr "Giá cuối cùng"
 msgid "Learn more"
 msgstr "Tìm hiểu thêm"
 
-#: src/pages/Futures/Components/LeverageSlider.tsx
-msgid "Leverage"
-msgstr "Đòn bẩy"
-
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "Giới hạn"
@@ -798,6 +784,7 @@ msgstr "Giới hạn"
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Limit Price"
 msgstr "Giá giới hạn"
 
@@ -810,7 +797,8 @@ msgstr "Ví Link"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Liq Price"
 msgstr "Giá thanh lý"
@@ -829,13 +817,13 @@ msgstr "Đang tải..."
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Long"
 msgstr "Mua"
 
@@ -849,6 +837,7 @@ msgid "Make a profit, you will earn $ATF"
 msgstr "Đạt lợi nhuận, bạn sẽ kiếm được $ATF."
 
 #: src/pages/Futures/NewOrder.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "Thị trường"
 
@@ -856,11 +845,13 @@ msgstr "Thị trường"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr "Giá thị trường"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "Tối đa"
@@ -956,15 +947,15 @@ msgstr "Chưa có lệnh giao dịch nào"
 msgid "Number of Orders"
 msgstr "Số lượng đơn hàng"
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Open"
-msgstr "Mở"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Open Interest"
 msgstr "Lãi suất mở cửa"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Long"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -987,9 +978,13 @@ msgstr "Vị thế mở"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Open Price"
 msgstr "Giá mở vị thế"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Short"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1064,7 +1059,7 @@ msgstr "Tỷ lệ Lãi/Lỗ (PnL)"
 
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Position"
 msgstr "Vị thế"
 
@@ -1079,7 +1074,6 @@ msgstr "Phí vị thế = Vị thế * 0,05%"
 msgid "Position*0.05%"
 msgstr "Vị thế * 0,05%"
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
 msgstr "Vị thế"
@@ -1094,7 +1088,6 @@ msgstr "Giá trị vị thế"
 msgid "Previous Profit"
 msgstr ""
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1227,13 +1220,13 @@ msgstr "Chia sẻ"
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Short"
 msgstr "Bán"
 
@@ -1280,7 +1273,7 @@ msgstr "Dừng Sao chép"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "Dừng lỗ"
@@ -1291,6 +1284,8 @@ msgstr "Dừng lỗ"
 msgid "Stop Order"
 msgstr "Lệnh dừng"
 
+#: src/pages/Futures/Modal/StopLimitModal.tsx
+#: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "Dừng-Giới hạn"
@@ -1329,7 +1324,7 @@ msgstr "Ưu tiên biểu tượng"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
 msgstr "Chốt lời"
@@ -1364,8 +1359,11 @@ msgstr "Giao dịch thất bại và số tiền đã được hoàn trả đầ
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
@@ -1396,7 +1394,6 @@ msgstr "Giá trị tài sản tổng cộng"
 msgid "Total Burned"
 msgstr "Tổng số đã đốt cháy"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1418,6 +1415,7 @@ msgstr "Tổng số tiền thanh toán"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
@@ -1498,8 +1496,29 @@ msgid "Trigger"
 msgstr "Kích hoạt"
 
 #: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Trigger Position"
 msgstr "Kích hoạt vị thế"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -1523,7 +1542,6 @@ msgstr "PnL chưa thực hiện(ATF)"
 msgid "Unsettled"
 msgstr "Chưa thanh toán"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1580,6 +1598,10 @@ msgstr "Nạp tiền vào ví"
 msgid "Wallet Withdraw"
 msgstr "Rút tiền từ ví"
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "When Price reaches"
+msgstr ""
+
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
@@ -1623,3 +1645,12 @@ msgstr "Ứng dụng có thể mua $ATF trực tiếp từ sàn giao dịch ho�
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Bạn có thể tự do chọn KOL phù hợp với bạn trong bảng xếp hạng."
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
+msgstr ""

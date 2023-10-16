@@ -31,16 +31,6 @@ msgstr ""
 msgid "< OPEN PRICE"
 msgstr "< オープン価格"
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> LIMIT PRICE"
-msgstr "> リミット価格"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> MARKET PRICE"
-msgstr "> マーケット価格"
-
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
 msgid "> OPEN PRICE"
@@ -124,15 +114,6 @@ msgstr ""
 msgid "7D PnL"
 msgstr ""
 
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
@@ -188,7 +169,6 @@ msgid "Add Position"
 msgstr "ポジションを追加"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr ""
 
@@ -364,6 +344,7 @@ msgid "Confirm you are the owner of this wallet"
 msgstr ""
 
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -893,6 +874,8 @@ msgstr "詳細情報"
 msgid "My Balance"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -1072,7 +1055,7 @@ msgstr ""
 
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Position"
 msgstr "ポジション"
 
@@ -1101,7 +1084,6 @@ msgstr ""
 msgid "Previous Profit"
 msgstr ""
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1140,6 +1122,7 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "最近の取引"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1179,6 +1162,7 @@ msgstr ""
 msgid "Scan and copy the trade"
 msgstr "取引をスキャンしてコピー"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr ""
@@ -1377,6 +1361,7 @@ msgstr "取引に失敗し、金額は全額返金されました。再度取引
 #: src/pages/Overview/Components/TransactionTable.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "時間"
 
@@ -1426,6 +1411,7 @@ msgstr "支払い合計"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
@@ -1552,7 +1538,6 @@ msgstr ""
 msgid "Unsettled"
 msgstr ""
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
@@ -1609,6 +1594,10 @@ msgstr ""
 msgid "Wallet Withdraw"
 msgstr ""
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "When Price reaches"
+msgstr ""
+
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
@@ -1651,4 +1640,13 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "调整杠杆"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
 msgstr ""
