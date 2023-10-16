@@ -70,6 +70,7 @@ function useFuturesNewOrder(
   const { addTransactionNotice } = usePendingTransactionsBase();
   const [showDeposit, setShowDeposit] = useState(false);
   const [showSignModal, setShowSignModal] = useState(false);
+  const [amountPercent, setAmountPercent] = useState(0);
 
   const openPriceBase = useMemo(() => {
     if (price) {
@@ -554,6 +555,20 @@ function useFuturesNewOrder(
   const changeTabs = useCallback((value: number) => {
     setTabsValue(value);
   }, []);
+  const amountPercentCallBack = useCallback(
+    (value: number) => {
+      setAmountPercent(value);
+      if (tokenBalance) {
+        setInputAmount(
+          (
+            (Number(tokenBalance.bigNumberToShowString(18, 4)) * value) /
+            100
+          ).floor(2)
+        );
+      }
+    },
+    [tokenBalance]
+  );
 
   return {
     tabsValue,
@@ -594,6 +609,8 @@ function useFuturesNewOrder(
     showDepositError,
     setShowConnect,
     showConnectButton,
+    amountPercent,
+    amountPercentCallBack,
   };
 }
 

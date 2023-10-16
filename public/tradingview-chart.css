@@ -1,10 +1,10 @@
 :root:not(.theme-dark) {
-  --tv-color-platform-background: #FFFFFF;
-  --tv-color-pane-background: #FFFFFF;
-  --tv-color-pane-background-secondary: #FFFFFF;
-  --tv-color-toolbar-button-background-hover: #FFFFFF;
-  --tv-color-toolbar-button-background-secondary-hover: #FFFFFF;
-  --tv-color-toolbar-button-background-expanded: #FFFFFF;
+  --tv-color-platform-background: transparent;
+  --tv-color-pane-background: transparent;
+  --tv-color-pane-background-secondary: transparent;
+  --tv-color-toolbar-button-background-hover: transparent;
+  --tv-color-toolbar-button-background-secondary-hover: transparent;
+  --tv-color-toolbar-button-background-expanded: transparent;
   --tv-color-toolbar-button-text: rgba(3, 3, 8, 0.6);
   --tv-color-toolbar-button-text-hover: #030308;
   --tv-color-toolbar-button-text-active: #030308;
@@ -12,7 +12,7 @@
   --tv-color-item-active-text: #030308;
   --tv-color-toolbar-toggle-button-background-active: rgba(3, 3, 8, 0.6);
   --tv-color-toolbar-toggle-button-background-active-hover: #030308;
-  --tv-color-toolbar-divider-background: #FFFFFF;
+  --tv-color-toolbar-divider-background: transparent;
 }
 
 .theme-dark:root {

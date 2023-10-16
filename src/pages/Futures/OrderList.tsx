@@ -2,11 +2,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { BigNumber } from "ethers";
 import { FC, useLayoutEffect, useMemo, useRef, useState } from "react";
-import {
-  FuturesOrder,
-  FuturesLimitOrder,
-  HistoryIcon,
-} from "../../components/icons";
 import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import OrderList from "./Components/OrderList";
@@ -233,13 +228,15 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
         {/* <FuturesOrder /> */}
         <p>
-          <Trans>Positions</Trans>{`(${props.pOrderListV2.length})`}
+          <Trans>Positions</Trans>
+          {`(${props.pOrderListV2.length})`}
         </p>
       </Stack>,
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
         {/* <FuturesLimitOrder /> */}
         <p>
-          <Trans>Orders</Trans>{`(${props.limitOrderList.length})`}
+          <Trans>Orders</Trans>
+          {`(${props.limitOrderList.length})`}
         </p>
       </Stack>,
       <Stack direction={"row"} alignItems={"center"} spacing={"4px"}>
@@ -345,7 +342,14 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
     }
   }, [addTransactionNotice, modalInfo, props]);
   return (
-    <Stack spacing={"16px"} width={"100%"} ref={ref}>
+    <Stack
+      spacing={"16px"}
+      width={"100%"}
+      ref={ref}
+      sx={(theme) => ({
+        backgroundColor: theme.normal.bg0,
+      })}
+    >
       {addModal}
       <Stack
         direction={"row"}

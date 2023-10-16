@@ -1,15 +1,8 @@
-import { FC, useCallback, useMemo, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import Stack from "@mui/material/Stack";
-import useWindowWidth from "../../hooks/useWindowWidth";
-import LongOrShort from "../../components/LongOrShort/LongOrShort";
-import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import MainButton from "../../components/MainButton/MainButton";
 import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
-import LeverageSlider from "./Components/LeverageSlider";
-import NormalInput, {
-  NormalInputWithLastButton,
-} from "../../components/NormalInput/NormalInput";
 import Agree from "../../components/Agree/Agree";
 import NormalInfo from "../../components/NormalInfo/NormalInfo";
 import { FuturesPrice } from "./Futures";
@@ -17,7 +10,6 @@ import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
 import { Trans, t } from "@lingui/macro";
-import ArithFiInput from "../../components/NormalInput/ArithFiInput";
 import DepositModal from "../Share/Modal/DepositModal";
 import SignModal from "../Share/Modal/SignModal";
 import LinkButton from "../../components/MainButton/LinkButton";
@@ -30,6 +22,7 @@ import InputWithSymbol from "../../components/NormalInput/InputWidthSymbol";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import SettingLeverModal from "./Modal/SettingLeverModal";
 import StopLimitModal from "./Modal/StopLimitModal";
+import AmountSlider from "./Components/AmountSlider";
 
 interface FuturesNewOrderProps {
   price: FuturesPrice | undefined;
@@ -38,7 +31,6 @@ interface FuturesNewOrderProps {
 }
 
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
-  const { isBigMobile, isPC } = useWindowWidth();
   const [showLeverModal, setShowLeverModal] = useState(false);
   const [showStopLimitModal, setShowStopLimitModal] = useState(false);
   const {
@@ -80,6 +72,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showDepositError,
     setShowConnect,
     showConnectButton,
+    amountPercent,
+    amountPercentCallBack,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -550,7 +544,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         onClick={() => setShowConnect(true)}
         style={{
           height: "48px",
-          fontSize: "16px"
+          fontSize: "16px",
         }}
       />
     );
@@ -607,6 +601,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         borderRadius: "12px",
         paddingY: ["16px", "16px", "32px"],
         paddingX: ["16px", "16px", "20px"],
+        backgroundColor: theme.normal.bg0,
       })}
     >
       {modals}
@@ -638,6 +633,10 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             isError={showAmountError !== undefined}
           />
           {showAmountError ? <ErrorLabel title={showAmountError} /> : <></>}
+          <AmountSlider
+            value={amountPercent}
+            changeValue={amountPercentCallBack}
+          />
         </Stack>
         {stopPrice}
       </Stack>

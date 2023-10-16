@@ -47,7 +47,6 @@ const Futures: FC = () => {
   const [historyList, setHistoryList] = useState<Array<FuturesHistoryService>>(
     []
   );
-  const [showNotice, setShowNotice] = useState<boolean>(true);
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceList();
@@ -303,7 +302,10 @@ const Futures: FC = () => {
             justifyContent={"center"}
             paddingX={`${paddingX}px`}
           >
-            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}>
+            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}
+            sx={(theme) => ({
+              backgroundColor: isBigMobile ? theme.normal.bg1 : theme.normal.bg0
+            })}>
               <Stack>
                 {exchangeTvChart()}
                 {newOrder()}

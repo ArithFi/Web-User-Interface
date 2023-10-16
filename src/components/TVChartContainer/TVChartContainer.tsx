@@ -30,7 +30,7 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
   const {datafeed, resetCache} = useTVDatafeed({dataProvider});
   const symbolRef = useRef(symbol);
   const {nowTheme} = useTheme();
-  const {isMobile} = useWindowWidth()
+  const {isMobile, isBigMobile} = useWindowWidth()
   /* Tradingview charting library only fetches the historical data once so if the tab is inactive or system is in sleep mode
   for a long time, the historical data will be outdated. */
   useEffect(() => {
@@ -90,7 +90,12 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
     tvWidgetRef.current = new window.TradingView.widget(widgetOptions);
     tvWidgetRef.current!.onChartReady(function () {
       setChartReady(true);
-      if (nowTheme.isLight) {
+      if (nowTheme.isLight && isBigMobile) {
+        tvWidgetRef.current!.applyOverrides({
+          "paneProperties.background": "rgba(240, 241, 245, 1)",
+          "paneProperties.backgroundType": "solid",
+        });
+      } else if (nowTheme.isLight && !isBigMobile) {
         tvWidgetRef.current!.applyOverrides({
           "paneProperties.background": "#ffffff",
           "paneProperties.backgroundType": "solid",
@@ -139,7 +144,6 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       <div
         style={{
           visibility: !chartDataLoading ? "visible" : "hidden",
-          borderRadius: '11px',
           overflow: 'hidden',
           position: 'absolute', bottom: 0, left: 0, right: 0, top: 0
         }}
