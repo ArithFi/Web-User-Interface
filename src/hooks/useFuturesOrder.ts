@@ -85,6 +85,10 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       ? String().placeHolder
       : data.stopLossPrice.floor(tokenName.getTokenPriceDecimals());
   }, [data.stopLossPrice, tokenName]);
+  const openTime = useMemo(() => {
+    const time = new Date(data.timestamp * 1000);
+    return [time.toLocaleDateString(), time.toLocaleTimeString()];
+  }, [data.timestamp]);
 
   const shareOrder = useMemo(() => {
     const info: Order = {
@@ -130,6 +134,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     shareOrder,
     tp,
     sl,
+    openTime,
   };
 }
 

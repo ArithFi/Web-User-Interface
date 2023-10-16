@@ -8,7 +8,11 @@ import MainButton from "../../../components/MainButton/MainButton";
 import useFuturesOrder from "../../../hooks/useFuturesOrder";
 
 import ShareNewOrderModal from "../../Dashboard/Modal/ShareNewOrderModal";
-import { FuturesModalInfo, FuturesModalType,FuturesOrderService } from "../OrderList";
+import {
+  FuturesModalInfo,
+  FuturesModalType,
+  FuturesOrderService,
+} from "../OrderList";
 import FuturesOrderShare from "./FuturesOrderShare";
 import OrderTablePosition from "./OrderTablePosition";
 import FuturesTableTitle from "./TableTitle";
@@ -45,6 +49,7 @@ const OrderTable: FC<FuturesOrderListProps> = ({ ...props }) => {
         t`Actual Margin`,
         t`Open Price`,
         t`Stop Order`,
+        t`Time`,
         t`Operate`,
       ]}
       style={props.style}
@@ -77,6 +82,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
     shareOrder,
     tp,
     sl,
+    openTime,
   } = useFuturesOrder(props.data, props.updateList);
   return (
     <TableRow
@@ -151,6 +157,20 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
         </Stack>
       </TableCell>
       <TableCell>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            fontWeight: "400",
+            fontSize: "12px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+          })}
+        >
+          <Box>{openTime[0]}</Box>
+          <Box>{openTime[1]}</Box>
+        </Stack>
+      </TableCell>
+      <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
           <MainButton
             title={t`Edit`}
@@ -167,7 +187,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
               fontSize: 12,
               paddingLeft: `12px`,
               paddingRight: `12px`,
-              borderRadius: `8px`
+              borderRadius: `8px`,
             }}
           />
           <MainButton
@@ -182,7 +202,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
               fontSize: 12,
               paddingLeft: `12px`,
               paddingRight: `12px`,
-              borderRadius: `8px`
+              borderRadius: `8px`,
             }}
           />
           <FuturesOrderShare

@@ -92,6 +92,10 @@ function useFuturesPOrder(
   const isRed = useMemo(() => {
     return showPercent.indexOf("-") === 0;
   }, [showPercent]);
+  const openTime = useMemo(() => {
+    const time = new Date(data.timestamp * 1000);
+    return [time.toLocaleDateString(), time.toLocaleTimeString()];
+  }, [data.timestamp]);
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.walletAddress.toString(),
@@ -145,6 +149,7 @@ function useFuturesPOrder(
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
+    openTime,
   };
 }
 

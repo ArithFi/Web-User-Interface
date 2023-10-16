@@ -31,6 +31,7 @@ declare module "@mui/material/styles" {
       disabled_bg: string;
       disabled_text: string;
       disabled_border: string;
+      disabled_fill: string;
       grey: string;
       grey_hover: string;
       grey_active: string;
@@ -73,6 +74,7 @@ declare module "@mui/material/styles" {
       disabled_bg: string;
       disabled_text: string;
       disabled_border: string;
+      disabled_fill: string;
       grey: string;
       grey_hover: string;
       grey_active: string;
@@ -83,7 +85,7 @@ declare module "@mui/material/styles" {
     isLight: boolean;
   }
   interface BreakpointOverrides {
-    ssm: true,
+    ssm: true;
   }
 }
 

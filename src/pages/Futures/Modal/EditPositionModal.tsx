@@ -2,144 +2,64 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
-import { FC, useMemo } from "react";
-import MainButton from "../../../components/MainButton/MainButton";
-import ArithFiLine from "../../../components/ArithFiLine";
-import NormalInfo from "../../../components/NormalInfo/NormalInfo";
-import NormalInputWithCloseButton from "../../../components/NormalInput/NormalInputWithCloseButton";
-import useFuturesEditPosition from "../../../hooks/useFuturesEditPosition";
+import { FC, useCallback, useMemo } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import BaseDrawer from "../../Share/Modal/BaseDrawer";
 import BaseModal from "../../Share/Modal/BaseModal";
 import { FuturesPrice } from "../Futures";
-import TriggerRiskModal from "./LimitAndPriceModal";
-import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
-import { Trans, t } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { FuturesOrderService } from "../OrderList";
+import SettingTPAndSL from "./SettingTPAndSL";
+import useArithFi from "../../../hooks/useArithFi";
+import { serviceUpdateStopPrice } from "../../../lib/ArithFiRequest";
 
 interface EditPositionModalBaseProps {
-  data: FuturesOrderService;
-  price: FuturesPrice | undefined;
   onClose: (res?: boolean) => void;
+  baseAmount: number;
+  lever: number;
+  limitPrice: number;
+  token: string;
+  isLong: boolean;
+  openPrice: number;
+  append: number;
+  index: number;
 }
 
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
   ...props
 }) => {
-  const {
-    stopProfitPriceInput,
-    setStopProfitPriceInput,
-    stopLossPriceInput,
-    setStopLossPriceInput,
-    showPosition,
-    showOpenPrice,
-    showLiqPrice,
-    mainButtonTitle,
-    mainButtonLoading,
-    mainButtonDis,
-    mainButtonAction,
-    placeHolder,
-    closeTP,
-    closeSL,
-    showTriggerNotice,
-    setShowTriggerNotice,
-    triggerNoticeCallback,
-    tpError,
-    slError,
-  } = useFuturesEditPosition(props.data, props.price, props.onClose);
-  const triggerNoticeModal = useMemo(() => {
-    return (
-      <Modal
-        open={showTriggerNotice}
-        onClose={() => setShowTriggerNotice(false)}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box
-          sx={{
-            "& .ModalLeftButton": { width: "20px !important" },
-            " & .ModalTitle": { textAlign: "center !important" },
-          }}
-        >
-          <TriggerRiskModal
-            onClose={() => setShowTriggerNotice(false)}
-            callBack={triggerNoticeCallback}
-          />
-        </Box>
-      </Modal>
-    );
-  }, [setShowTriggerNotice, showTriggerNotice, triggerNoticeCallback]);
+  const { chainsData, signature } = useArithFi();
+  const update = useCallback(
+    async (tp: number, sl: number) => {
+      if (chainsData.chainId && signature) {
+        const updateBase: { [key: string]: any } = await serviceUpdateStopPrice(
+          props.index.toString(),
+          sl.toString(),
+          tp.toString(),
+          chainsData.chainId,
+          { Authorization: signature.signature }
+        );
+        if (Number(updateBase["errorCode"]) === 0) {
+        }
+      }
+    },
+    [chainsData.chainId, props.index, signature]
+  );
   return (
-    <Stack spacing={"24px"} width={"100%"}>
-      {triggerNoticeModal}
-      <Stack spacing={"16px"} width={"100%"}>
-        <Stack spacing={"8px"} width={"100%"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: 400,
-              fontSize: 12,
-              color: theme.normal.text2,
-            })}
-          >
-            <Trans>Take Profit</Trans>
-          </Box>
-
-          <NormalInputWithCloseButton
-            placeHolder={placeHolder[0]}
-            rightTitle={"USDT"}
-            value={stopProfitPriceInput}
-            changeValue={(value: string) =>
-              setStopProfitPriceInput(value.formatInputNum())
-            }
-            onClose={closeTP}
-            error={tpError}
-          />
-        </Stack>
-        <Stack spacing={"8px"} width={"100%"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: 400,
-              fontSize: 12,
-              color: theme.normal.text2,
-            })}
-          >
-            <Trans>Stop Loss</Trans>
-          </Box>
-          <NormalInputWithCloseButton
-            placeHolder={placeHolder[1]}
-            rightTitle={"USDT"}
-            value={stopLossPriceInput}
-            changeValue={(value: string) =>
-              setStopLossPriceInput(value.formatInputNum())
-            }
-            onClose={closeSL}
-            error={slError}
-          />
-        </Stack>
-        {tpError || slError ? (
-          <ErrorLabel
-            title={t`After the limit order is executed, TP and SL price you set will trigger immediately.`}
-          />
-        ) : (
-          <></>
-        )}
-      </Stack>
-      <ArithFiLine />
-      <Stack spacing={"8px"}>
-        <NormalInfo title={t`Position`} value={""} symbol={showPosition} />
-        <NormalInfo
-          title={t`Open Price`}
-          value={showOpenPrice}
-          symbol={"USDT"}
-        />
-        <NormalInfo title={t`Liq Price`} value={showLiqPrice} symbol={"USDT"} />
-      </Stack>
-      <MainButton
-        title={mainButtonTitle}
-        disable={mainButtonDis}
-        isLoading={mainButtonLoading}
-        onClick={mainButtonAction}
-        style={{ fontSize: 14 }}
+    <Stack spacing={"24px"} sx={{ width: "100%" }}>
+      <SettingTPAndSL
+        token={props.token}
+        baseAmount={props.baseAmount}
+        isLong={props.isLong}
+        lever={props.lever}
+        isFirst={false}
+        limitPrice={props.limitPrice}
+        callBack={(tp: number, sl: number) => {
+          update(tp, sl);
+          props.onClose();
+        }}
+        openPrice={props.openPrice}
+        append={props.append}
       />
     </Stack>
   );
@@ -154,11 +74,11 @@ interface EditPositionModalProps {
 
 const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   const { isMobile } = useWindowWidth();
-  const title = useMemo(() => {
-    return !(props.data.stopLossPrice === 0 && props.data.takeProfitPrice === 0)
-      ? t`Edit Position`
-      : t`Trigger Position`;
-  }, [props.data.stopLossPrice, props.data.takeProfitPrice]);
+  // const title = useMemo(() => {
+  //   return !(props.data.stopLossPrice === 0 && props.data.takeProfitPrice === 0)
+  //     ? t`Edit Position`
+  //     : t`Trigger Position`;
+  // }, [props.data.stopLossPrice, props.data.takeProfitPrice]);
   const view = useMemo(() => {
     return isMobile ? (
       <Drawer
@@ -172,15 +92,21 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
         }}
       >
         <BaseDrawer
-          title={title}
+          title={t`Trigger Position`}
           onClose={() => {
             props.onClose(undefined);
           }}
         >
           <EditPositionModalBase
-            data={props.data}
-            price={props.price}
             onClose={props.onClose}
+            baseAmount={props.data.balance}
+            lever={props.data.leverage}
+            limitPrice={props.data.orderPrice}
+            token={props.data.product.split("/")[0]}
+            isLong={props.data.direction}
+            openPrice={props.data.orderPrice}
+            append={props.data.append}
+            index={props.data.id}
           />
         </BaseDrawer>
       </Drawer>
@@ -193,21 +119,27 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
       >
         <Box>
           <BaseModal
-            title={title}
+            title={t`Trigger Position`}
             onClose={() => {
               props.onClose(undefined);
             }}
           >
             <EditPositionModalBase
-              data={props.data}
-              price={props.price}
               onClose={props.onClose}
+              baseAmount={props.data.balance}
+              lever={props.data.leverage}
+              limitPrice={props.data.orderPrice}
+              token={props.data.product.split("/")[0]}
+              isLong={props.data.direction}
+              openPrice={props.data.orderPrice}
+              append={props.data.append}
+              index={props.data.id}
             />
           </BaseModal>
         </Box>
       </Modal>
     );
-  }, [isMobile, props, title]);
+  }, [isMobile, props]);
 
   return view;
 };
