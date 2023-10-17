@@ -644,10 +644,10 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         </Stack>
         {stopPrice}
       </Stack>
-      {showConnectButton ? info : <></>}
+      {showConnectButton ? <></> : info}
       <Stack spacing={"12px"} width={"100%"}>
         {showConnectButton ? connectButton : openButtons}
-        {showConnectButton ? liqPrice : <></>}
+        {showConnectButton ? <></> : liqPrice}
       </Stack>
     </Stack>
   );

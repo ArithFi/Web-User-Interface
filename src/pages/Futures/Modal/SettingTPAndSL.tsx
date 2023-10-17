@@ -92,7 +92,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >
-          {U ? U.toString() : "--"}USDT
+          {U ? U.toString() : "--"} USDT
         </Box>
         , {t`it will trigger Market order, and the estimated PNL will be` + " "}
         <Box
@@ -148,11 +148,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   value={tp}
                   symbol={"USDT"}
                   changeValue={(value: string) => {
-                    setTp(
-                      value === ""
-                        ? ""
-                        : Number(value.formatInputNum()).floor(6)
-                    );
+                    setTp(value === "" ? "" : value.formatInputNum6());
                     setTPPercent(value.formatInputNum4());
                   }}
                   isError={tpError}
@@ -219,11 +215,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   value={sl}
                   symbol={"USDT"}
                   changeValue={(value: string) => {
-                    setSl(
-                      value === ""
-                        ? ""
-                        : Number(value.formatInputNum()).floor(6)
-                    );
+                    setSl(value === "" ? "" : value.formatInputNum6());
                     setSLPercent(value.formatInputNum4());
                   }}
                   isError={slError}

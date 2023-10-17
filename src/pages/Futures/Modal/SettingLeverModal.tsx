@@ -8,7 +8,6 @@ import BaseModal from "../../Share/Modal/BaseModal";
 import { t } from "@lingui/macro";
 import Stack from "@mui/material/Stack";
 import LeverageSlider from "../Components/LeverageSlider";
-import ArithFiLine from "../../../components/ArithFiLine";
 import MainButton from "../../../components/MainButton/MainButton";
 
 interface SettingLeverBaseProps {
@@ -60,7 +59,7 @@ const addIcon = (
 const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
   const [nowValue, setNowValue] = useState(props.value);
   return (
-    <Stack spacing={"24px"}>
+    <Stack spacing={"24px"} width={"100%"}>
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
@@ -138,22 +137,13 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
         value={nowValue}
         changeValue={(value: number) => setNowValue(value)}
       />
-      <ArithFiLine />
-      <Box
-        sx={(theme) => ({
-          fontSize: "14px",
-          fontWeight: "400",
-          lineHeight: "20px",
-          color: theme.normal.text2,
-        })}
-      >{t`这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等`}</Box>
       <MainButton
         title={"save"}
         onClick={() => {
           props.changeValue(nowValue);
           props.onClose();
         }}
-        style={{ height: "40px", fontSize: "14px" }}
+        style={{ height: "40px", fontSize: "14px", width:"100%" }}
       />
     </Stack>
   );

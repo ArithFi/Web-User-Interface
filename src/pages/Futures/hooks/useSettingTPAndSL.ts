@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import { BigNumber } from "ethers/lib/ethers";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { lipPrice } from "../../../hooks/useFuturesNewOrder";
 
 function useSettingTPAndSL(
@@ -43,32 +43,34 @@ function useSettingTPAndSL(
       }
       const slNum = Number(data);
       if (isLong) {
-        const percent = (((slNum - limitPrice) / limitPrice) * 100).floor(4);
+        const percent = ((-(slNum - limitPrice) / limitPrice) * 100).floor(4);
         setSlPercent(percent);
       } else {
-        const percent = (((limitPrice - slNum) / limitPrice) * 100).floor(4);
+        const percent = ((-(limitPrice - slNum) / limitPrice) * 100).floor(4);
         setSlPercent(percent);
       }
     },
     [isLong, limitPrice]
   );
-  const defaultTp = useMemo(() => {
-    setTPPercent(tpNow ? tpNow.toString() : "");
-    return tpNow === undefined || Number(tpNow) === 0
-      ? ""
-      : tpNow.floor(token.getTokenPriceDecimals());
-  }, [setTPPercent, token, tpNow]);
-  const defaultSl = useMemo(() => {
-    setSLPercent(slNow ? slNow.toString() : "");
-    return slNow === undefined || Number(slNow) === 0
-      ? ""
-      : slNow.floor(token.getTokenPriceDecimals());
-  }, [setSLPercent, slNow, token]);
   const [showTP, setShowTP] = useState(true);
   const [showSL, setShowSL] = useState(true);
-  
-  const [tp, setTp] = useState<string>(defaultTp);
-  const [sl, setSl] = useState<string>(defaultSl);
+  const [tp, setTp] = useState<string>("");
+  const [sl, setSl] = useState<string>("");
+  const [firstShow, setFirstShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!firstShow) {
+      setFirstShow(true);
+      if (tpNow !== undefined && Number(tpNow) !== 0) {
+        setTp(tpNow.floor(token.getTokenPriceDecimals()));
+        setTPPercent(tpNow ? tpNow.toString() : "");
+      }
+      if (slNow !== undefined && Number(slNow) !== 0) {
+        setSl(slNow.floor(token.getTokenPriceDecimals()));
+        setSLPercent(slNow ? slNow.toString() : "");
+      }
+    }
+  }, [firstShow, setSLPercent, setTPPercent, slNow, token, tpNow]);
 
   const setTPNum = useCallback(
     (data: string) => {
@@ -95,10 +97,10 @@ function useSettingTPAndSL(
       }
       const slPercentNum = Number(data);
       if (isLong) {
-        const newSL = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
+        const newSL = (limitPrice - (limitPrice * slPercentNum) / 100).floor(6);
         setSl(newSL);
       } else {
-        const newSL = (limitPrice - (limitPrice * slPercentNum) / 100).floor(6);
+        const newSL = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
         setSl(newSL);
       }
     },
@@ -128,9 +130,9 @@ function useSettingTPAndSL(
     if (tpError || slError) {
       return true;
     } else if (showTP && tp === "") {
-      return true
+      return true;
     } else if (showSL && sl === "") {
-      return true
+      return true;
     } else {
       return false;
     }
@@ -205,20 +207,22 @@ function useSettingTPAndSL(
     if (tpPercent === "") {
       return undefined;
     } else {
-      return Number(
+      const result = Number(
         (baseAmount * ((lever * Number(tpPercent)) / 100)).floor(2)
       );
+      return isLong ? result : -result;
     }
-  }, [baseAmount, lever, tpPercent]);
+  }, [baseAmount, isLong, lever, tpPercent]);
   const showSLInfoATF = useMemo(() => {
     if (slPercent === "") {
       return undefined;
     } else {
-      return Number(
+      const result = Number(
         (baseAmount * ((lever * Number(slPercent)) / 100)).floor(2)
       );
+      return isLong ? -result : result;
     }
-  }, [baseAmount, lever, slPercent]);
+  }, [baseAmount, isLong, lever, slPercent]);
   const showPosition = useMemo(() => {
     const longOrShort = isLong ? t`Long` : t`Short`;
     const balance = baseAmount.floor(2);
