@@ -645,6 +645,10 @@ msgstr "Futures"
 msgid "Futures, Options, Structure Products"
 msgstr "Futures, Options, Structure Products"
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Gain"
+msgstr "Gain"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
@@ -836,6 +840,10 @@ msgstr "Long"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Losing Trades"
 msgstr "Losing Trades"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Loss"
+msgstr "Loss"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1164,6 +1172,7 @@ msgid "ROI"
 msgstr "ROI"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Save"
 msgstr "Save"
 

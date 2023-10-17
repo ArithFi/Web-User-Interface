@@ -645,6 +645,10 @@ msgstr "Vadeli işlemler"
 msgid "Futures, Options, Structure Products"
 msgstr "Futures, Options, Structure Ürünleri"
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Gain"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
@@ -836,6 +840,10 @@ msgstr "Uzun"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Losing Trades"
 msgstr "Zarar Eden İşlemler"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Loss"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1166,6 +1174,7 @@ msgid "ROI"
 msgstr "ROI"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Save"
 msgstr "Kaydet"
 

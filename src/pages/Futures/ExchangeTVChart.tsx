@@ -110,7 +110,7 @@ const DownIcon = (
 
 const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   const { width, isBigMobile } = useWindowWidth();
-  const [isHide, setIsHide] = useState(isBigMobile ? true : false);
+  const [isHide, setIsHide] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {

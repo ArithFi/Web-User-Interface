@@ -645,6 +645,10 @@ msgstr "선물"
 msgid "Futures, Options, Structure Products"
 msgstr "선물, 옵션, 구조 제품"
 
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Gain"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
@@ -836,6 +840,10 @@ msgstr "롱"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Losing Trades"
 msgstr "손실 거래"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Loss"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1164,6 +1172,7 @@ msgid "ROI"
 msgstr "ROI"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Save"
 msgstr "저장"
 
