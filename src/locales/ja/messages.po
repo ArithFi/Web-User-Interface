@@ -172,6 +172,11 @@ msgstr "ポジションを追加"
 msgid "Address"
 msgstr ""
 
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "Adjust Leverage"
+msgstr ""
+
 #: src/pages/Futures/NewOrder.tsx
 msgid "Advanced"
 msgstr ""
@@ -791,6 +796,7 @@ msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1355,7 +1361,9 @@ msgstr "取引に失敗し、金額は全額返金されました。再度取引
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
@@ -1640,13 +1648,4 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
 msgstr ""

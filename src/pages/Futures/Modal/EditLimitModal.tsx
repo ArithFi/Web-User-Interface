@@ -33,7 +33,7 @@ const EditLimitModalBase: FC<EditLimitModalBaseProps> = ({ ...props }) => {
         placeHolder={t`Limit Price`}
         rightTitle={"USDT"}
         value={limitPrice}
-        changeValue={(value: string) => setLimitPrice(value.formatInputNum())}
+        changeValue={(value: string) => setLimitPrice(value.formatInputNum6())}
       />
       <ArithFiLine />
       <MainButton

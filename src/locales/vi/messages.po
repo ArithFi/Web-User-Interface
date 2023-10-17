@@ -174,6 +174,11 @@ msgstr "Thêm vị thế"
 msgid "Address"
 msgstr "Địa chỉ"
 
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "Adjust Leverage"
+msgstr ""
+
 #: src/pages/Futures/NewOrder.tsx
 msgid "Advanced"
 msgstr ""
@@ -795,6 +800,7 @@ msgstr "Ví Link"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1359,7 +1365,9 @@ msgstr "Giao dịch thất bại và số tiền đã được hoàn trả đầ
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
@@ -1645,12 +1653,3 @@ msgstr "Ứng dụng có thể mua $ATF trực tiếp từ sàn giao dịch ho�
 #: src/pages/Copy/Copy.tsx
 msgid "You can freely choose the KOL that suits you in the leaderboards."
 msgstr "Bạn có thể tự do chọn KOL phù hợp với bạn trong bảng xếp hạng."
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "调整杠杆"
-msgstr ""
-
-#: src/pages/Futures/Modal/SettingLeverModal.tsx
-msgid "这里可以搞一个提示说明?比如咱们的模式几本是逐仓保证金模式、高杠杆风险等"
-msgstr ""

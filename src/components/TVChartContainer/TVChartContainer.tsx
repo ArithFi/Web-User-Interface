@@ -144,6 +144,7 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       <div
         style={{
           visibility: !chartDataLoading ? "visible" : "hidden",
+          borderRadius: "11px",
           overflow: 'hidden',
           position: 'absolute', bottom: 0, left: 0, right: 0, top: 0
         }}

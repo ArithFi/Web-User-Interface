@@ -143,7 +143,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
           props.changeValue(nowValue);
           props.onClose();
         }}
-        style={{ height: "40px", fontSize: "14px", width:"100%" }}
+        style={{ height: "40px", fontSize: "14px", width: "100%" }}
       />
     </Stack>
   );
@@ -168,7 +168,7 @@ const SettingLeverModal: FC<SettingLeverModalProps> = ({ ...props }) => {
           "& .MuiPaper-root": { background: "none", backgroundImage: "none" },
         }}
       >
-        <BaseDrawer title={t`调整杠杆`} onClose={props.onClose}>
+        <BaseDrawer title={t`Adjust Leverage`} onClose={props.onClose}>
           <SettingLeverBase
             value={props.value}
             changeValue={props.changeValue}
@@ -184,7 +184,7 @@ const SettingLeverModal: FC<SettingLeverModalProps> = ({ ...props }) => {
         aria-describedby="modal-modal-description"
       >
         <Box>
-          <BaseModal title={t`调整杠杆`} onClose={props.onClose}>
+          <BaseModal title={t`Adjust Leverage`} onClose={props.onClose}>
             <SettingLeverBase
               value={props.value}
               changeValue={props.changeValue}

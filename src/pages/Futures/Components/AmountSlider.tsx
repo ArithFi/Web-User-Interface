@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { FC } from "react";
 
@@ -6,6 +7,10 @@ interface AmountSliderProps {
   changeValue: (value: number) => void;
 }
 const marks = [
+  {
+    value: 0,
+    label: "",
+  },
   {
     value: 25,
     label: "",
@@ -18,13 +23,18 @@ const marks = [
     value: 75,
     label: "",
   },
+  {
+    value: 100,
+    label: "",
+  },
 ];
 const AmountSlider: FC<AmountSliderProps> = ({ ...props }) => {
   function valuetext(value: number) {
     return `${value}`;
   }
   return (
-    <Slider
+    <Box sx={{paddingX: "5px"}}>
+      <Slider
       aria-label="Custom marks"
       defaultValue={0}
       max={100}
@@ -82,6 +92,7 @@ const AmountSlider: FC<AmountSliderProps> = ({ ...props }) => {
           color: theme.normal.text2,
         },
         "& .MuiSlider-valueLabel": {
+          borderRadius: "6px",
           backgroundColor: theme.normal.primary,
         },
         "& .MuiSlider-valueLabelLabel": {
@@ -91,6 +102,7 @@ const AmountSlider: FC<AmountSliderProps> = ({ ...props }) => {
         },
       })}
     />
+    </Box>
   );
 };
 

@@ -223,7 +223,6 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               fontSize: "14px",
               fontWeight: "400",
               lineHeight: "20px",
-              color: theme.normal.text0,
             })}
           >
             <Box
@@ -234,6 +233,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
                 },
                 cursor: "pointer",
                 textAlign: "left",
+                color: theme.normal.text0,
               })}
               component={"button"}
               onClick={() => {
@@ -249,6 +249,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
                 },
                 cursor: "pointer",
                 textAlign: "left",
+                color: theme.normal.text0,
               })}
               component={"button"}
               onClick={() => {
@@ -603,6 +604,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         border: ["none", "none", `1px solid ${theme.normal.border}`],
         width: ["100%", "100%", "100%", "100%", "450px"],
         borderRadius: "12px",
+        borderBottomLeftRadius: ["0px", "0px", "12px"],
+        borderBottomRightRadius: ["0px", "0px", "12px"],
         paddingY: ["16px", "16px", "32px"],
         paddingX: ["16px", "16px", "20px"],
         backgroundColor: theme.normal.bg0,
@@ -623,7 +626,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             dis={tabsValue === 0}
             symbol={"USDT"}
             changeValue={(value: string) => {
-              setLimitAmount(value.formatInputNum4());
+              setLimitAmount(value.formatInputNum6());
             }}
           />
           <InputWithSymbol
