@@ -138,7 +138,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
         changeValue={(value: number) => setNowValue(value)}
       />
       <MainButton
-        title={"save"}
+        title={t`Save`}
         onClick={() => {
           props.changeValue(nowValue);
           props.onClose();

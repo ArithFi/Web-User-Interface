@@ -33,6 +33,7 @@ interface FuturesNewOrderProps {
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
   const [showLeverModal, setShowLeverModal] = useState(false);
   const [showStopLimitModal, setShowStopLimitModal] = useState(false);
+  const [stopIsLong, setStopIsLong] = useState(true);
   const {
     tabsValue,
     changeTabs,
@@ -128,6 +129,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           token={props.tokenPair}
           tpNow={Number(tp)}
           slNow={Number(sl)}
+          isLong={stopIsLong}
+          changeIsLong={(value: boolean) => setStopIsLong(value)}
         />
       </>
     );
@@ -148,6 +151,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showStopLimitModal,
     showTriggerNotice,
     sl,
+    stopIsLong,
     tp,
     triggerNoticeCallback,
   ]);

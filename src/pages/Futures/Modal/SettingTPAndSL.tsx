@@ -71,7 +71,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     props.slNow
   );
 
-  const getInfo = useCallback((isLong: boolean, U?: number, ATF?: number) => {
+  const getInfo = useCallback((isLong: boolean, U?: string, ATF?: number) => {
     return (
       <Box
         sx={(theme) => ({
@@ -156,7 +156,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               </Box>
               <Box width={"30%"}>
                 <InputWithSymbol
-                  placeholder={"Gain"}
+                  placeholder={t`Gain`}
                   value={tpPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {
@@ -223,7 +223,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               </Box>
               <Box width={"30%"}>
                 <InputWithSymbol
-                  placeholder={"Gain"}
+                  placeholder={t`Loss`}
                   value={slPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {

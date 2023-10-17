@@ -193,14 +193,14 @@ function useSettingTPAndSL(
     if (tp === "") {
       return undefined;
     } else {
-      return Number(Number(tp).floor(2));
+      return tp;
     }
   }, [tp]);
   const showSLInfoPrice = useMemo(() => {
     if (sl === "") {
       return undefined;
     } else {
-      return Number(Number(sl).floor(2));
+      return sl;
     }
   }, [sl]);
   const showTPInfoATF = useMemo(() => {

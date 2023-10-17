@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useMemo } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import Drawer from "@mui/material/Drawer";
 import BaseDrawer from "../../Share/Modal/BaseDrawer";
@@ -19,10 +19,11 @@ interface StopLimitBaseProps {
   token: string;
   tpNow: number;
   slNow: number;
+  isLong: boolean;
+  changeIsLong: (isLong: boolean) => void;
 }
 
 const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
-  const [isLong, setIsLong] = useState(true);
   return (
     <Stack spacing={"24px"} sx={{ width: "100%" }}>
       <Box
@@ -34,16 +35,13 @@ const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
           },
         }}
       >
-        <LongOrShort
-          value={isLong}
-          changeValue={(value: boolean) => setIsLong(value)}
-        />
+        <LongOrShort value={props.isLong} changeValue={props.changeIsLong} />
       </Box>
 
       <SettingTPAndSL
         token={props.token}
         baseAmount={props.baseAmount}
-        isLong={isLong}
+        isLong={props.isLong}
         lever={props.lever}
         isFirst={true}
         limitPrice={props.limitPrice}
@@ -68,6 +66,8 @@ interface StopLimitModalProps {
   token: string;
   tpNow: number;
   slNow: number;
+  isLong: boolean;
+  changeIsLong: (isLong: boolean) => void;
 }
 
 const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
@@ -92,6 +92,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
             token={props.token}
             tpNow={props.tpNow}
             slNow={props.slNow}
+            isLong={props.isLong}
+            changeIsLong={props.changeIsLong}
           />
         </BaseDrawer>
       </Drawer>
@@ -113,6 +115,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
               token={props.token}
               tpNow={props.tpNow}
               slNow={props.slNow}
+              isLong={props.isLong}
+              changeIsLong={props.changeIsLong}
             />
           </BaseModal>
         </Box>
