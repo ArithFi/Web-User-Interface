@@ -256,6 +256,30 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           height={"40px"}
           sx={(theme) => ({
             width: "100%",
+            marginTop: "12px",
+            fontWeight: 400,
+            fontSize: 16,
+            color: theme.normal.text1,
+            "&:hover": {
+              cursor: "pointer",
+            },
+          })}
+          component={"button"}
+          onClick={() => {
+            window.open("https://docs.srithfi.com");
+          }}
+        >
+          <p>
+            <Trans>Documentation</Trans>
+          </p>
+        </Stack>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          height={"40px"}
+          sx={(theme) => ({
+            width: "100%",
             fontWeight: 400,
             fontSize: 16,
             color: theme.normal.text1,
@@ -296,6 +320,30 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
             <Trans>White Paper</Trans>
           </p>
         </Stack> */}
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          height={"40px"}
+          sx={(theme) => ({
+            width: "100%",
+            marginTop: "12px",
+            fontWeight: 400,
+            fontSize: 16,
+            color: theme.normal.text1,
+            "&:hover": {
+              cursor: "pointer",
+            },
+          })}
+          component={"button"}
+          onClick={() => {
+            window.open("https://docs.srithfi.com");
+          }}
+        >
+          <p>
+            <Trans>Documentation</Trans>
+          </p>
+        </Stack>
         <Stack
           direction={"row"}
           justifyContent={"space-between"}

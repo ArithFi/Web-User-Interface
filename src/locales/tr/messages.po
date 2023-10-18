@@ -492,7 +492,6 @@ msgstr "Günlük Getiri"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
-#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
@@ -520,6 +519,13 @@ msgstr "Depozito İsteği"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Disconnect"
 msgstr "Bağlantıyı Kes"
+
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/NavMenu.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Documentation"
+msgstr ""
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -592,10 +598,6 @@ msgstr "Başarısız"
 msgid "Fail Request"
 msgstr "Başarısız İstek"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
-msgid "Faucet"
-msgstr "Musluk"
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -636,7 +638,6 @@ msgstr "Depozit yapmak için dondurmak"
 msgid "From"
 msgstr "Gönderen"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Vadeli işlemler"

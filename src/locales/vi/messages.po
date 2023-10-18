@@ -492,7 +492,6 @@ msgstr "Lợi nhuận hàng ngày"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
-#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
@@ -520,6 +519,13 @@ msgstr "Yêu cầu nạp tiền"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Disconnect"
 msgstr "Ngắt kết nối"
+
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/NavMenu.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Documentation"
+msgstr ""
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -592,10 +598,6 @@ msgstr "thất bại"
 msgid "Fail Request"
 msgstr "Yêu cầu thất bại"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
-msgid "Faucet"
-msgstr "Faucet"
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -636,7 +638,6 @@ msgstr "Đóng băng để gửi tiền"
 msgid "From"
 msgstr "Từ"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Tương lai"

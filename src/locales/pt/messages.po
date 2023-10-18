@@ -492,7 +492,6 @@ msgstr "Retorno Diário"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
-#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Painel de controle"
 
@@ -520,6 +519,13 @@ msgstr "Solicitação de Depósito"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Disconnect"
 msgstr "Desligar"
+
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/NavMenu.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Documentation"
+msgstr ""
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -592,10 +598,6 @@ msgstr "falha"
 msgid "Fail Request"
 msgstr "Pedido de reprovação"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
-msgid "Faucet"
-msgstr "Torneira"
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -636,7 +638,6 @@ msgstr "Congelar para depositar"
 msgid "From"
 msgstr "From"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futuros"

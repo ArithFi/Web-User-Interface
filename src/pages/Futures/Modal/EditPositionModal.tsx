@@ -41,18 +41,18 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
           chainsData.chainId,
           { Authorization: signature.signature }
         );
-        if (Number(updateBase["errorCode"]) === 0) {
-        }
+        props.onClose(Number(updateBase["errorCode"]) === 0);
       }
     },
-    [chainsData.chainId, props.index, signature]
+    [chainsData.chainId, props, signature]
   );
 
   const nowPrice = useMemo(() => {
     if (props.price) {
       return Number(
         props.price[props.token].bigNumberToShowPrice(
-          18, props.token.getTokenPriceDecimals()
+          18,
+          props.token.getTokenPriceDecimals()
         )
       );
     } else {
@@ -71,7 +71,6 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         limitPrice={nowPrice}
         callBack={(tp: number, sl: number) => {
           update(tp, sl);
-          props.onClose();
         }}
         openPrice={props.openPrice}
         append={props.append}

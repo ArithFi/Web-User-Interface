@@ -6,6 +6,9 @@ import { MobileListIcon } from "../../../components/icons";
 import Box from "@mui/material/Box";
 import { Link, useLocation } from "react-router-dom";
 import useArithFi from "../../../hooks/useArithFi";
+import ArithFiLine from "../../../components/ArithFiLine";
+import Stack from "@mui/material/Stack";
+import { Trans } from "@lingui/macro";
 
 export const MobileListButton = styled("button")(({ theme }) => ({
   "&:hover": {
@@ -92,7 +95,7 @@ const NavMenu: FC = () => {
       },
     },
   }));
-  const liList = navItems.slice(0, 3).map((item, index) => {
+  const liList = navItems.slice(0, navItems.length-1).map((item, index) => {
     const Icon = item.icon
     return (
       <MenuItem
@@ -132,6 +135,35 @@ const NavMenu: FC = () => {
         onClose={handleClose}
       >
         {liList}
+        <Box sx={{paddingX: "20px"}}>
+        <ArithFiLine sx={{ margin: "15px 0"}} />
+        </Box>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          height={"40px"}
+          paddingX={"20px"}
+          sx={(theme) => ({
+            width: "100%",
+            marginTop: "12px",
+            fontWeight: 400,
+            fontSize: 16,
+            color: theme.normal.text1,
+            "&:hover": {
+              cursor: "pointer",
+            },
+          })}
+          component={"button"}
+          onClick={() => {
+            window.open("https://docs.srithfi.com");
+          }}
+        >
+          <p>
+            <Trans>Documentation</Trans>
+          </p>
+        </Stack>
+
       </StyledMenu>
     </>
   );
