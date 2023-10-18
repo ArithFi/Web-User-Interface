@@ -113,7 +113,10 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
 
         <StopLimitModal
           open={showStopLimitModal}
-          onClose={() => setShowStopLimitModal(false)}
+          onClose={() => {
+            setShowStopLimitModal(false)
+            clearTPSLError()
+          }}
           callBack={(tp: number, sl: number) => {
             if (!isStop) {
               setIsStop(true);
