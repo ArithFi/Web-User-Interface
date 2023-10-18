@@ -24,7 +24,7 @@ const CopyTradingProfit = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [sortItem, setSortItem] = useState({
-    key: "settlementCommissions",
+    key: "pendingProfit",
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
@@ -202,7 +202,7 @@ const CopyTradingProfit = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.profitLoss?.toLocaleString() || "0"}
+            {props.item?.reward?.toLocaleString() || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -214,7 +214,7 @@ const CopyTradingProfit = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.settlementCommissions?.toLocaleString() || "0"}
+            {props.item?.pendingProfit?.toLocaleString() || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -325,7 +325,7 @@ const CopyTradingProfit = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.profitLoss?.toLocaleString() || "0"} ATF
+              {props.item?.reward?.toLocaleString() || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -349,7 +349,7 @@ const CopyTradingProfit = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.settlementCommissions?.toLocaleString() || "0"} ATF
+              {props.item?.pendingProfit?.toLocaleString() || "0"} ATF
             </Box>
           </Stack>
           <Stack direction={"row"} spacing={"4px"} width={"100%"}>
@@ -723,11 +723,11 @@ const CopyTradingProfit = () => {
                       <option value={"copyTransactions"}>
                         <Trans>Trading Volume</Trans>
                       </option>
-                      <option value={"profitLoss"}>
+                      <option value={"reward"}>
                         <Trans>Total Profit</Trans>
                       </option>
-                      <option value={"settlementCommissions"}>
-                        <Trans>Settled Commissions</Trans>
+                      <option value={"pendingProfit"}>
+                        <Trans>Unsettled Commissions</Trans>
                       </option>
                       <option value={"settlementTime"}>
                         <Trans>Time</Trans>
@@ -911,7 +911,7 @@ const CopyTradingProfit = () => {
                           onClick={() => {
                             setCurrentPage(1);
                             if (
-                              sortItem.key === "profitLoss" &&
+                              sortItem.key === "reward" &&
                               sortItem.sort === "asc"
                             ) {
                               setSortItem({
@@ -921,9 +921,9 @@ const CopyTradingProfit = () => {
                               return;
                             }
                             setSortItem({
-                              key: "profitLoss",
+                              key: "reward",
                               sort:
-                                sortItem.key === "profitLoss"
+                                sortItem.key === "reward"
                                   ? sortItem.sort === "asc"
                                     ? "desc"
                                     : "asc"
@@ -935,7 +935,7 @@ const CopyTradingProfit = () => {
                           <div>
                             <Trans>Total Profit</Trans>
                           </div>
-                          {sortItem.key === "profitLoss" ? (
+                          {sortItem.key === "reward" ? (
                             sortItem.sort === "asc" ? (
                               <UpSort/>
                             ) : (
@@ -953,7 +953,7 @@ const CopyTradingProfit = () => {
                           onClick={() => {
                             setCurrentPage(1);
                             if (
-                              sortItem.key === "settlementCommissions" &&
+                              sortItem.key === "pendingProfit" &&
                               sortItem.sort === "asc"
                             ) {
                               setSortItem({
@@ -963,9 +963,9 @@ const CopyTradingProfit = () => {
                               return;
                             }
                             setSortItem({
-                              key: "settlementCommissions",
+                              key: "pendingProfit",
                               sort:
-                                sortItem.key === "settlementCommissions"
+                                sortItem.key === "pendingProfit"
                                   ? sortItem.sort === "asc"
                                     ? "desc"
                                     : "asc"
@@ -975,9 +975,9 @@ const CopyTradingProfit = () => {
                           style={{cursor: "pointer", userSelect: "none"}}
                         >
                           <div>
-                            <Trans>Settled Commissions</Trans>
+                            <Trans>Unsettled Commissions</Trans>
                           </div>
-                          {sortItem.key === "settlementCommissions" ? (
+                          {sortItem.key === "pendingProfit" ? (
                             sortItem.sort === "asc" ? (
                               <UpSort/>
                             ) : (
