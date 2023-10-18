@@ -141,6 +141,7 @@ function useSettingTPAndSL(
     // if (buttonDis) {
     //   return;
     // }
+    console.log(111)
     var resultTP = 0;
     var resultSL = 0;
     if (tp !== "") {

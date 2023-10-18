@@ -267,7 +267,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
 
       <MainButton
         title={"Confirm"}
-        disable={buttonDis}
+        // disable={buttonDis}
         onClick={buttonAction}
         style={{ height: "40px", fontSize: "14px" }}
       />
