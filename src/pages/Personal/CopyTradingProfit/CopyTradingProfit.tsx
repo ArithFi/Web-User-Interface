@@ -202,7 +202,7 @@ const CopyTradingProfit = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.profitLoss?.toLocaleString() || "0"}
+            {props.item?.reward?.toLocaleString() || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -325,7 +325,7 @@ const CopyTradingProfit = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.profitLoss?.toLocaleString() || "0"} ATF
+              {props.item?.reward?.toLocaleString() || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -723,7 +723,7 @@ const CopyTradingProfit = () => {
                       <option value={"copyTransactions"}>
                         <Trans>Trading Volume</Trans>
                       </option>
-                      <option value={"profitLoss"}>
+                      <option value={"reward"}>
                         <Trans>Total Profit</Trans>
                       </option>
                       <option value={"pendingProfit"}>
@@ -911,7 +911,7 @@ const CopyTradingProfit = () => {
                           onClick={() => {
                             setCurrentPage(1);
                             if (
-                              sortItem.key === "profitLoss" &&
+                              sortItem.key === "reward" &&
                               sortItem.sort === "asc"
                             ) {
                               setSortItem({
@@ -921,9 +921,9 @@ const CopyTradingProfit = () => {
                               return;
                             }
                             setSortItem({
-                              key: "profitLoss",
+                              key: "reward",
                               sort:
-                                sortItem.key === "profitLoss"
+                                sortItem.key === "reward"
                                   ? sortItem.sort === "asc"
                                     ? "desc"
                                     : "asc"
@@ -935,7 +935,7 @@ const CopyTradingProfit = () => {
                           <div>
                             <Trans>Total Profit</Trans>
                           </div>
-                          {sortItem.key === "profitLoss" ? (
+                          {sortItem.key === "reward" ? (
                             sortItem.sort === "asc" ? (
                               <UpSort/>
                             ) : (
