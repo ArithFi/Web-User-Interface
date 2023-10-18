@@ -138,9 +138,9 @@ function useSettingTPAndSL(
     }
   }, [showSL, showTP, sl, slError, tp, tpError]);
   const buttonAction = useCallback(() => {
-    if (buttonDis) {
-      return;
-    }
+    // if (buttonDis) {
+    //   return;
+    // }
     var resultTP = 0;
     var resultSL = 0;
     if (tp !== "") {
@@ -158,7 +158,7 @@ function useSettingTPAndSL(
     }
 
     callBack(resultTP, resultSL);
-  }, [buttonDis, callBack, showSL, showTP, sl, tp]);
+  }, [callBack, showSL, showTP, sl, tp]);
   const showTPError = useMemo(() => {
     if (isFirst) {
       if (isLong) {
