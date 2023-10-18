@@ -266,7 +266,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://docs.srithfi.com");
+            window.open("https://docs.arithfi.com");
           }}
         >
           <p>
@@ -337,7 +337,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://docs.srithfi.com");
+            window.open("https://docs.arithfi.com");
           }}
         >
           <p>

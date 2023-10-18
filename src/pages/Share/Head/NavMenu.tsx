@@ -156,7 +156,7 @@ const NavMenu: FC = () => {
           })}
           component={"button"}
           onClick={() => {
-            window.open("https://docs.srithfi.com");
+            window.open("https://docs.arithfi.com");
           }}
         >
           <p>
