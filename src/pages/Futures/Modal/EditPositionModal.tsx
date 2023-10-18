@@ -17,7 +17,6 @@ interface EditPositionModalBaseProps {
   onClose: (res?: boolean) => void;
   baseAmount: number;
   lever: number;
-  limitPrice: number;
   token: string;
   isLong: boolean;
   openPrice: number;
@@ -25,6 +24,7 @@ interface EditPositionModalBaseProps {
   index: number;
   tpNow: number;
   slNow: number;
+  price: FuturesPrice | undefined;
 }
 
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
@@ -48,6 +48,18 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
     [chainsData.chainId, props.index, signature]
   );
 
+  const nowPrice = useMemo(() => {
+    if (props.price) {
+      return Number(
+        props.price[props.token].bigNumberToShowPrice(
+          18, props.token.getTokenPriceDecimals()
+        )
+      );
+    } else {
+      return 0;
+    }
+  }, [props.price, props.token]);
+
   return (
     <Stack spacing={"24px"} sx={{ width: "100%" }}>
       <SettingTPAndSL
@@ -56,7 +68,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         isLong={props.isLong}
         lever={props.lever}
         isFirst={false}
-        limitPrice={props.limitPrice}
+        limitPrice={nowPrice}
         callBack={(tp: number, sl: number) => {
           update(tp, sl);
           props.onClose();
@@ -106,7 +118,6 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             onClose={props.onClose}
             baseAmount={props.data.balance}
             lever={props.data.leverage}
-            limitPrice={props.data.orderPrice}
             token={props.data.product.split("/")[0]}
             isLong={props.data.direction}
             openPrice={props.data.orderPrice}
@@ -114,6 +125,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             index={props.data.id}
             tpNow={props.data.takeProfitPrice}
             slNow={props.data.stopLossPrice}
+            price={props.price}
           />
         </BaseDrawer>
       </Drawer>
@@ -135,7 +147,6 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               onClose={props.onClose}
               baseAmount={props.data.balance}
               lever={props.data.leverage}
-              limitPrice={props.data.orderPrice}
               token={props.data.product.split("/")[0]}
               isLong={props.data.direction}
               openPrice={props.data.orderPrice}
@@ -143,6 +154,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               index={props.data.id}
               tpNow={props.data.takeProfitPrice}
               slNow={props.data.stopLossPrice}
+              price={props.price}
             />
           </BaseModal>
         </Box>

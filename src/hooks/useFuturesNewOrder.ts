@@ -303,7 +303,7 @@ function useFuturesNewOrder(
   );
   const triggerNoticeCallback = useCallback(
     (isLong?: boolean) => {
-      if (isLong) {
+      if (isLong !== undefined) {
         setShowedTriggerNotice(true);
         baseAction(isLong);
       }

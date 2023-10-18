@@ -1520,7 +1520,7 @@ msgstr ""
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
-msgid "Trigger price should be higher than open price"
+msgid "Trigger price should be higher than market price"
 msgstr ""
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1530,7 +1530,7 @@ msgstr ""
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
-msgid "Trigger price should be lower than open price"
+msgid "Trigger price should be lower than market price"
 msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx

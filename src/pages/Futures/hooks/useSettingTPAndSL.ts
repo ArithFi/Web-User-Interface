@@ -138,10 +138,9 @@ function useSettingTPAndSL(
     }
   }, [showSL, showTP, sl, slError, tp, tpError]);
   const buttonAction = useCallback(() => {
-    // if (buttonDis) {
-    //   return;
-    // }
-    console.log(111)
+    if (buttonDis) {
+      return;
+    }
     var resultTP = 0;
     var resultSL = 0;
     if (tp !== "") {
@@ -159,7 +158,7 @@ function useSettingTPAndSL(
     }
 
     callBack(resultTP, resultSL);
-  }, [callBack, showSL, showTP, sl, tp]);
+  }, [buttonDis, callBack, showSL, showTP, sl, tp]);
   const showTPError = useMemo(() => {
     if (isFirst) {
       if (isLong) {
@@ -169,9 +168,9 @@ function useSettingTPAndSL(
       }
     } else {
       if (isLong) {
-        return t`Trigger price should be higher than open price`;
+        return t`Trigger price should be higher than market price`;
       } else {
-        return t`Trigger price should be lower than open price`;
+        return t`Trigger price should be lower than market price`;
       }
     }
   }, [isFirst, isLong]);
@@ -184,9 +183,9 @@ function useSettingTPAndSL(
       }
     } else {
       if (isLong) {
-        return t`Trigger price should be lower than open price`;
+        return t`Trigger price should be lower than market price`;
       } else {
-        return t`Trigger price should be higher than open price`;
+        return t`Trigger price should be higher than market price`;
       }
     }
   }, [isFirst, isLong]);
