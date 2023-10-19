@@ -316,7 +316,7 @@ const CopyTradingProfit = () => {
                 fontWeight: 400,
               })}
             >
-              <Trans>Total Profit</Trans>
+              <Trans>Total Profit Sharing</Trans>
             </Box>
             <Box
               sx={(theme) => ({
@@ -457,8 +457,8 @@ const CopyTradingProfit = () => {
           })}
           width={["100%", "100%", "auto"]}
         >
-          <a href={`/#/referral-copy`}>
-            <Trans>Copy Trading Profit</Trans>
+          <a href={`/#/profit-sharing`}>
+            <Trans>Profit Sharing</Trans>
           </a>
         </Stack>
       </Stack>
@@ -546,7 +546,7 @@ const CopyTradingProfit = () => {
                     unit: "ATF",
                   },
                   {
-                    title: t`Pending Profit`,
+                    title: t`Pending Profit Sharing`,
                     value: overview?.pending_profit || 0,
                     unit: "ATF",
                   },
@@ -669,7 +669,7 @@ const CopyTradingProfit = () => {
                     fontWeight: 400,
                   })}
                 >
-                  <Trans>Pending Profit</Trans>
+                  <Trans>Pending Profit Sharing</Trans>
                 </Box>
                 <Box
                   sx={(theme) => ({
@@ -724,7 +724,7 @@ const CopyTradingProfit = () => {
                 })}
               >
                 <div>
-                  <Trans>My commissions</Trans>
+                  <Trans>My profit sharing</Trans>
                 </div>
               </Stack>
               {listData?.value?.length > 0 && (
@@ -770,10 +770,10 @@ const CopyTradingProfit = () => {
                         <Trans>Trading Volume</Trans>
                       </option>
                       <option value={"reward"}>
-                        <Trans>Total Profit</Trans>
+                        <Trans>Total Profit Sharing</Trans>
                       </option>
                       <option value={"pendingProfit"}>
-                        <Trans>Unsettled Commissions</Trans>
+                        <Trans>Unsettled Profit Sharing</Trans>
                       </option>
                       <option value={"settlementTime"}>
                         <Trans>Time</Trans>
@@ -828,7 +828,7 @@ const CopyTradingProfit = () => {
                       fontWeight: 400,
                     })}
                   >
-                    <Trans>No commissions yet</Trans>
+                    <Trans>No profit sharing yet</Trans>
                   </Stack>
                 )}
               </Stack>
@@ -856,7 +856,7 @@ const CopyTradingProfit = () => {
                   justifyContent={"center"}
                 >
                   <div>
-                    <Trans>My commissions</Trans>
+                    <Trans>My profit sharing</Trans>
                   </div>
                 </Stack>
 
@@ -979,7 +979,7 @@ const CopyTradingProfit = () => {
                           style={{cursor: "pointer", userSelect: "none"}}
                         >
                           <div>
-                            <Trans>Total Profit</Trans>
+                            <Trans>Total Profit Sharing</Trans>
                           </div>
                           {sortItem.key === "reward" ? (
                             sortItem.sort === "asc" ? (
@@ -1021,7 +1021,7 @@ const CopyTradingProfit = () => {
                           style={{cursor: "pointer", userSelect: "none"}}
                         >
                           <div>
-                            <Trans>Unsettled Commissions</Trans>
+                            <Trans>Unsettled Profit Sharing</Trans>
                           </div>
                           {sortItem.key === "pendingProfit" ? (
                             sortItem.sort === "asc" ? (
@@ -1105,7 +1105,7 @@ const CopyTradingProfit = () => {
                             lineHeight: "168px",
                           })}
                         >
-                          <Trans>No commissions yet</Trans>
+                          <Trans>No profit sharing yet</Trans>
                         </TableCell>
                       </TableRow>
                     )}

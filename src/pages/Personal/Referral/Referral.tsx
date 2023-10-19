@@ -647,7 +647,7 @@ const Referral = () => {
               })}
               width={["100%", "100%", "auto"]}
             >
-              <a href={`/#/referral-copy`}>
+              <a href={`/#/profit-sharing`}>
                 <Trans>Copy Trading Profit</Trans>
               </a>
             </Stack>
