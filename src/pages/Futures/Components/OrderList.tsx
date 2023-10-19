@@ -39,6 +39,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
     tp,
     sl,
     openTime,
+    showTriggerTitle
   } = useFuturesOrder(props.data, props.updateList);
   return (
     <Stack
@@ -127,11 +128,21 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
         <MainButton
-          title={t`Edit`}
+          title={t`Limit`}
           onClick={() =>
             props.buttonCallBack({
               data: props.data,
               type: FuturesModalType.editLimit,
+            })
+          }
+          style={{ height: "40px", fontSize: 14 }}
+        />
+        <MainButton
+          title={showTriggerTitle}
+          onClick={() =>
+            props.buttonCallBack({
+              data: props.data,
+              type: FuturesModalType.trigger,
             })
           }
           style={{ height: "40px", fontSize: 14 }}

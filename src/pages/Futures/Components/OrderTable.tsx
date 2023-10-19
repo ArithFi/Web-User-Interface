@@ -228,7 +228,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
       <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
           <MainButton
-            title={t`Edit`}
+            title={t`Limit`}
             onClick={() =>
               props.buttonCallBack({
                 data: props.data,

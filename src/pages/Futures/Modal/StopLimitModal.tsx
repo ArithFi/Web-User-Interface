@@ -45,6 +45,7 @@ const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
         lever={props.lever}
         isFirst={true}
         limitPrice={props.limitPrice}
+        openPrice={props.limitPrice}
         callBack={(tp: number, sl: number) => {
           props.callBack(tp, sl);
           props.onClose();

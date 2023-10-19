@@ -25,6 +25,10 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     return data.margin.toFixed(2);
   }, [data.margin]);
   const { addTransactionNotice } = usePendingTransactionsBase();
+  const showTriggerTitle = useMemo(() => {
+    const isEdit = data.takeProfitPrice === 0 && data.stopLossPrice === 0;
+    return !isEdit ? t`Edit` : t`Trigger`;
+  }, [data.stopLossPrice, data.takeProfitPrice]);
   /**
    * action
    */
@@ -135,6 +139,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     tp,
     sl,
     openTime,
+    showTriggerTitle
   };
 }
 

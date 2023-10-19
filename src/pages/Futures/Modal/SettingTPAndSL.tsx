@@ -22,6 +22,7 @@ interface SettingTPAndSLProps {
   append?: number;
   tpNow?: number;
   slNow?: number;
+  isLimitOrder?: boolean;
 }
 
 const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
@@ -68,7 +69,8 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     props.openPrice,
     props.append,
     props.tpNow,
-    props.slNow
+    props.slNow,
+    props.isLimitOrder
   );
 
   const getInfo = useCallback((isLong: boolean, U?: string, ATF?: number) => {
@@ -98,7 +100,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
         <Box
           component={"span"}
           sx={(theme) => ({
-            color: isLong ? theme.normal.success : theme.normal.danger,
+            color: (ATF ?? 0) >= 0 ? theme.normal.success : theme.normal.danger,
           })}
         >
           {ATF ? ATF.toString() : "--"} ATF

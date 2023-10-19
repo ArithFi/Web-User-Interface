@@ -14,7 +14,8 @@ function useSettingTPAndSL(
   openPrice?: number,
   append?: number,
   tpNow?: number,
-  slNow?: number
+  slNow?: number,
+  isLimitOrder?: boolean
 ) {
   const [tpPercent, setTpPercent] = useState<string>("");
   const [slPercent, setSlPercent] = useState<string>("");
@@ -166,6 +167,12 @@ function useSettingTPAndSL(
       } else {
         return t`Trigger price should be lower than entry price`;
       }
+    } else if (isLimitOrder) {
+      if (isLong) {
+        return t`Trigger price should be higher than open price`;
+      } else {
+        return t`Trigger price should be lower than open price`;
+      }
     } else {
       if (isLong) {
         return t`Trigger price should be higher than market price`;
@@ -173,7 +180,7 @@ function useSettingTPAndSL(
         return t`Trigger price should be lower than market price`;
       }
     }
-  }, [isFirst, isLong]);
+  }, [isFirst, isLimitOrder, isLong]);
   const showSLError = useMemo(() => {
     if (isFirst) {
       if (isLong) {
@@ -181,6 +188,12 @@ function useSettingTPAndSL(
       } else {
         return t`Trigger price should be higher than entry price`;
       }
+    } else if (isLimitOrder) {
+      if (isLong) {
+        return t`Trigger price should be lower than open price`;
+      } else {
+        return t`Trigger price should be higher than open price`;
+      }
     } else {
       if (isLong) {
         return t`Trigger price should be lower than market price`;
@@ -188,7 +201,7 @@ function useSettingTPAndSL(
         return t`Trigger price should be higher than market price`;
       }
     }
-  }, [isFirst, isLong]);
+  }, [isFirst, isLimitOrder, isLong]);
   const showTPInfoPrice = useMemo(() => {
     if (tp === "") {
       return undefined;
@@ -204,25 +217,35 @@ function useSettingTPAndSL(
     }
   }, [sl]);
   const showTPInfoATF = useMemo(() => {
-    if (tpPercent === "") {
+    if (tp === "" || !openPrice) {
       return undefined;
     } else {
-      const result = Number(
-        (baseAmount * ((lever * Number(tpPercent)) / 100)).floor(2)
-      );
-      return isLong ? result : -result;
+      if (isLong) {
+        return Number(
+          (((Number(tp) - openPrice) / openPrice) * lever * baseAmount).floor(2)
+        );
+      } else {
+        return Number(
+          (((openPrice - Number(tp)) / openPrice) * lever * baseAmount).floor(2)
+        );
+      }
     }
-  }, [baseAmount, isLong, lever, tpPercent]);
+  }, [baseAmount, isLong, lever, openPrice, tp]);
   const showSLInfoATF = useMemo(() => {
-    if (slPercent === "") {
+    if (sl === "" || !openPrice) {
       return undefined;
     } else {
-      const result = Number(
-        (baseAmount * ((lever * Number(slPercent)) / 100)).floor(2)
-      );
-      return isLong ? -result : result;
+      if (isLong) {
+        return Number(
+          (((Number(sl) - openPrice) / openPrice) * lever * baseAmount).floor(2)
+        );
+      } else {
+        return Number(
+          (((openPrice - Number(sl)) / openPrice) * lever * baseAmount).floor(2)
+        );
+      }
     }
-  }, [baseAmount, isLong, lever, slPercent]);
+  }, [baseAmount, isLong, lever, openPrice, sl]);
   const showPosition = useMemo(() => {
     const longOrShort = isLong ? t`Long` : t`Short`;
     const balance = baseAmount.floor(2);

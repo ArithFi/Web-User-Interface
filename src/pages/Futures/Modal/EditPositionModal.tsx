@@ -24,7 +24,8 @@ interface EditPositionModalBaseProps {
   index: number;
   tpNow: number;
   slNow: number;
-  price: FuturesPrice | undefined;
+  nowPrice: number;
+  isLimitOrder: boolean;
 }
 
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
@@ -47,19 +48,6 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
     [chainsData.chainId, props, signature]
   );
 
-  const nowPrice = useMemo(() => {
-    if (props.price) {
-      return Number(
-        props.price[props.token].bigNumberToShowPrice(
-          18,
-          props.token.getTokenPriceDecimals()
-        )
-      );
-    } else {
-      return 0;
-    }
-  }, [props.price, props.token]);
-
   return (
     <Stack spacing={"24px"} sx={{ width: "100%" }}>
       <SettingTPAndSL
@@ -68,7 +56,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         isLong={props.isLong}
         lever={props.lever}
         isFirst={false}
-        limitPrice={nowPrice}
+        limitPrice={props.nowPrice}
         callBack={(tp: number, sl: number) => {
           update(tp, sl);
         }}
@@ -76,6 +64,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         append={props.append}
         tpNow={props.tpNow}
         slNow={props.slNow}
+        isLimitOrder={props.isLimitOrder}
       />
     </Stack>
   );
@@ -97,6 +86,22 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   // }, [props.data.stopLossPrice, props.data.takeProfitPrice]);
   const baseAmount =
     props.data.balance === 0 ? props.data.margin : props.data.balance;
+  const token = props.data.product.split("/")[0];
+  const nowPrice = useMemo(() => {
+    if (props.price) {
+      return Number(
+        props.price[token].bigNumberToShowPrice(
+          18,
+          token.getTokenPriceDecimals()
+        )
+      );
+    } else {
+      return 0;
+    }
+  }, [props.price, token]);
+  const limitPrice = useMemo(() => {
+    return props.data.status === 4 ? props.data.orderPrice : nowPrice;
+  }, [nowPrice, props.data.orderPrice, props.data.status]);
   const view = useMemo(() => {
     return isMobile ? (
       <Drawer
@@ -119,14 +124,15 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             onClose={props.onClose}
             baseAmount={baseAmount}
             lever={props.data.leverage}
-            token={props.data.product.split("/")[0]}
+            token={token}
             isLong={props.data.direction}
             openPrice={props.data.orderPrice}
             append={props.data.append}
             index={props.data.id}
             tpNow={props.data.takeProfitPrice}
             slNow={props.data.stopLossPrice}
-            price={props.price}
+            nowPrice={limitPrice}
+            isLimitOrder={props.data.status === 4}
           />
         </BaseDrawer>
       </Drawer>
@@ -148,20 +154,21 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               onClose={props.onClose}
               baseAmount={baseAmount}
               lever={props.data.leverage}
-              token={props.data.product.split("/")[0]}
+              token={token}
               isLong={props.data.direction}
               openPrice={props.data.orderPrice}
               append={props.data.append}
               index={props.data.id}
               tpNow={props.data.takeProfitPrice}
               slNow={props.data.stopLossPrice}
-              price={props.price}
+              nowPrice={limitPrice}
+              isLimitOrder={props.data.status === 4}
             />
           </BaseModal>
         </Box>
       </Modal>
     );
-  }, [baseAmount, isMobile, props]);
+  }, [baseAmount, isMobile, limitPrice, props, token]);
 
   return view;
 };
