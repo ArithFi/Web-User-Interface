@@ -545,9 +545,8 @@ msgstr "Kiếm $ATF"
 msgid "Earnings"
 msgstr "Lợi nhuận"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -786,6 +785,8 @@ msgstr "Giá cuối cùng"
 msgid "Learn more"
 msgstr "Tìm hiểu thêm"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1526,6 +1527,7 @@ msgstr "Luật chia sẻ lợi nhuận của Người Giao Dịch."
 msgid "Trading Volume"
 msgstr "Khối lượng giao dịch"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Kích hoạt"
@@ -1547,6 +1549,11 @@ msgstr "Giá kích hoạt nên cao hơn giá thị trường"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "Giá kích hoạt nên thấp hơn giá nhập"
 
@@ -1554,6 +1561,11 @@ msgstr "Giá kích hoạt nên thấp hơn giá nhập"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "Giá kích hoạt nên thấp hơn giá thị trường"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

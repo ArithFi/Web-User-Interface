@@ -545,9 +545,8 @@ msgstr "$ATF Kazanın"
 msgid "Earnings"
 msgstr "Kazançlar"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -786,6 +785,8 @@ msgstr "Son Fiyat"
 msgid "Learn more"
 msgstr "Daha fazla bilgi edin"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1528,6 +1529,7 @@ msgstr "Tüccar Kar Paylaşım Kuralları."
 msgid "Trading Volume"
 msgstr "İşlem Hacmi"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Tetikleyici"
@@ -1549,6 +1551,11 @@ msgstr "Tetikleme fiyatı, piyasa fiyatından yüksek olmalıdır."
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "Tetikleme fiyatı, giriş fiyatından düşük olmalıdır."
 
@@ -1556,6 +1563,11 @@ msgstr "Tetikleme fiyatı, giriş fiyatından düşük olmalıdır."
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "Tetikleme fiyatı, piyasa fiyatından düşük olmalıdır."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

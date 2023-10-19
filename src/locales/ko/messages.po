@@ -545,9 +545,8 @@ msgstr "$ATF를 획득하세요."
 msgid "Earnings"
 msgstr "수익"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "편집"
 
@@ -786,6 +785,8 @@ msgstr "최종 가격"
 msgid "Learn more"
 msgstr "자세히 알아보기"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1526,6 +1527,7 @@ msgstr "트레이더 수익 공유 규정"
 msgid "Trading Volume"
 msgstr "거래량"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "트리거"
@@ -1547,6 +1549,11 @@ msgstr "트리거 가격은 시장 가격보다 높아야 합니다."
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "트리거 가격은 진입 가격보다 낮아야 합니다."
 
@@ -1554,6 +1561,11 @@ msgstr "트리거 가격은 진입 가격보다 낮아야 합니다."
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "트리거 가격은 시장 가격보다 낮아야 합니다."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

@@ -545,9 +545,8 @@ msgstr "Зарабатывайте $ATF"
 msgid "Earnings"
 msgstr "прибыль"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -786,6 +785,8 @@ msgstr "Последняя цена"
 msgid "Learn more"
 msgstr "Узнать больше"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1526,6 +1527,7 @@ msgstr "Правила деления прибыли трейдера."
 msgid "Trading Volume"
 msgstr "Объем торговли"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Триггер"
@@ -1547,6 +1549,11 @@ msgstr "Цена срабатывания должна быть выше рын�
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "Цена срабатывания должна быть ниже цены входа."
 
@@ -1554,6 +1561,11 @@ msgstr "Цена срабатывания должна быть ниже цен�
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "Цена срабатывания должна быть ниже рыночной цены."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

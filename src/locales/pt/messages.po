@@ -545,9 +545,8 @@ msgstr "Ganhe $ATF"
 msgid "Earnings"
 msgstr "Ganhos"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Editar"
 
@@ -786,6 +785,8 @@ msgstr "Preço Atual"
 msgid "Learn more"
 msgstr "Saiba mais"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1526,6 +1527,7 @@ msgstr "Regras de partilha de lucros para traders."
 msgid "Trading Volume"
 msgstr "Investidos negociados"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Gatilho"
@@ -1547,6 +1549,11 @@ msgstr "O preço de gatilho deve ser superior ao preço de mercado"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "O preço de gatilho deve ser inferior ao preço de entrada"
 
@@ -1554,6 +1561,11 @@ msgstr "O preço de gatilho deve ser inferior ao preço de entrada"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "O preço de gatilho deve ser inferior ao preço de mercado"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

@@ -545,9 +545,8 @@ msgstr "Ganar $ATF"
 msgid "Earnings"
 msgstr "Ganancias"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Editar"
 
@@ -786,6 +785,8 @@ msgstr "Último Precio"
 msgid "Learn more"
 msgstr "Obtener más información"
 
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
@@ -1526,6 +1527,7 @@ msgstr "Yatırımcı Kar Paylaşım Kuralları."
 msgid "Trading Volume"
 msgstr "Volumen de Operaciones"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Disparador"
@@ -1547,6 +1549,11 @@ msgstr "El precio de activación debe ser superior al precio de mercado"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
 msgstr "El precio de activación debe ser inferior al precio de entrada"
 
@@ -1554,6 +1561,11 @@ msgstr "El precio de activación debe ser inferior al precio de entrada"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
 msgstr "El precio de activación debe ser inferior al precio de mercado"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
