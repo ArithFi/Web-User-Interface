@@ -17,6 +17,11 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
+msgstr ""
+
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -646,10 +651,6 @@ msgstr "Vadeli işlemler"
 msgid "Futures, Options, Structure Products"
 msgstr "Futures, Options, Structure Ürünleri"
 
-#: src/pages/Futures/Modal/SettingTPAndSL.tsx
-msgid "Gain"
-msgstr ""
-
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
@@ -842,10 +843,6 @@ msgstr "Uzun"
 msgid "Losing Trades"
 msgstr "Zarar Eden İşlemler"
 
-#: src/pages/Futures/Modal/SettingTPAndSL.tsx
-msgid "Loss"
-msgstr ""
-
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
@@ -961,6 +958,11 @@ msgstr "Henüz İşlem Yok"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Number of Orders"
 msgstr "Sipariş Sayısı"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Offset"
+msgstr ""
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
@@ -1223,8 +1225,6 @@ msgstr "Ayarlar"
 msgid "Settled"
 msgstr "Hesaplandı"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1507,6 +1507,11 @@ msgid "Trader Profile"
 msgstr "Tüccar Profili"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Trader profit sharing rules."
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "İşlem Hacmi"
@@ -1562,6 +1567,8 @@ msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 msgid "Unsettled"
 msgstr "Hesaplanmamış"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"

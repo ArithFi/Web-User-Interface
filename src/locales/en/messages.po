@@ -17,6 +17,11 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
+msgstr "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
+
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -646,10 +651,6 @@ msgstr "Futures"
 msgid "Futures, Options, Structure Products"
 msgstr "Futures, Options, Structure Products"
 
-#: src/pages/Futures/Modal/SettingTPAndSL.tsx
-msgid "Gain"
-msgstr "Gain"
-
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET $ATF"
@@ -842,10 +843,6 @@ msgstr "Long"
 msgid "Losing Trades"
 msgstr "Losing Trades"
 
-#: src/pages/Futures/Modal/SettingTPAndSL.tsx
-msgid "Loss"
-msgstr "Loss"
-
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
@@ -961,6 +958,11 @@ msgstr "No Transactions yet"
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Number of Orders"
 msgstr "Number of Orders"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Offset"
+msgstr "Offset"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
@@ -1221,8 +1223,6 @@ msgstr "Settings"
 msgid "Settled"
 msgstr "Settled"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled Commissions"
@@ -1505,6 +1505,11 @@ msgid "Trader Profile"
 msgstr "Trader Profile"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Trader profit sharing rules."
+msgstr "Trader profit sharing rules."
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Trading Volume"
@@ -1560,6 +1565,8 @@ msgstr "Unrealized PnL(ATF)"
 msgid "Unsettled"
 msgstr "Unsettled"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
