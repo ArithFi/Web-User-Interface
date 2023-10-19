@@ -429,7 +429,6 @@ msgstr ""
 msgid "Copy Trading Effortlessly"
 msgstr ""
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Trading Profit"
@@ -886,8 +885,6 @@ msgstr "詳細情報"
 msgid "My Balance"
 msgstr ""
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -900,6 +897,11 @@ msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "My Positions"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "My profit sharing"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -915,8 +917,6 @@ msgstr ""
 msgid "News"
 msgstr "ニュース"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -941,6 +941,11 @@ msgstr "注文なし"
 #: src/pages/Futures/OrderList.tsx
 #: src/pages/Futures/OrderList.tsx
 msgid "No Orders"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "No profit sharing yet"
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -1037,7 +1042,7 @@ msgstr ""
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-msgid "Pending Profit"
+msgid "Pending Profit Sharing"
 msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -1113,6 +1118,10 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Profit Sharing"
 msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1429,9 +1438,6 @@ msgstr "支払い合計"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "総利益"
 
@@ -1441,6 +1447,12 @@ msgstr "総利益"
 #: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "総損益"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Total Profit Sharing"
+msgstr ""
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
@@ -1561,11 +1573,14 @@ msgstr ""
 msgid "Unsettled"
 msgstr ""
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Unsettled Profit Sharing"
 msgstr ""
 
 #: src/pages/Home/Home.tsx

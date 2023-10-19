@@ -431,7 +431,6 @@ msgstr "Copy Trading Each Order"
 msgid "Copy Trading Effortlessly"
 msgstr "Copy Trading Effortlessly"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Trading Profit"
@@ -890,8 +889,6 @@ msgstr "More Info"
 msgid "My Balance"
 msgstr "My Balance"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -906,6 +903,11 @@ msgstr "My Copies"
 msgid "My Positions"
 msgstr "My Positions"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "My profit sharing"
+msgstr "My profit sharing"
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Traders"
 msgstr "My Traders"
@@ -919,8 +921,6 @@ msgstr "My Trades"
 msgid "News"
 msgstr "News"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -946,6 +946,11 @@ msgstr "No Order"
 #: src/pages/Futures/OrderList.tsx
 msgid "No Orders"
 msgstr "No Orders"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "No profit sharing yet"
+msgstr "No profit sharing yet"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "No Records Found"
@@ -1041,8 +1046,8 @@ msgstr "Pending"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-msgid "Pending Profit"
-msgstr "Pending Profit"
+msgid "Pending Profit Sharing"
+msgstr "Pending Profit Sharing"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
@@ -1118,6 +1123,10 @@ msgstr "Profit"
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Profit (ATF)"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Profit Sharing"
+msgstr "Profit Sharing"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1433,9 +1442,6 @@ msgstr "Total Pay"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "Total Profit"
 
@@ -1445,6 +1451,12 @@ msgstr "Total Profit"
 #: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "Total Profit & Loss"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Total Profit Sharing"
+msgstr "Total Profit Sharing"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
@@ -1565,12 +1577,15 @@ msgstr "Unrealized PnL(ATF)"
 msgid "Unsettled"
 msgstr "Unsettled"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Unsettled Commissions"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Unsettled Profit Sharing"
+msgstr "Unsettled Profit Sharing"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx

@@ -20,7 +20,7 @@ msgstr "{0}"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
-msgstr ""
+msgstr "Devido à complexidade dos dados financeiros, podem ocorrer nuances e atrasos. Os dados apresentados acima são apenas para referência. Pedimos sinceras desculpas por qualquer inconveniente."
 
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -182,11 +182,11 @@ msgstr "Endereço"
 #: src/pages/Futures/Modal/SettingLeverModal.tsx
 #: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Adjust Leverage"
-msgstr ""
+msgstr "Ajustar Alavancagem"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -417,7 +417,7 @@ msgstr "Negociação por Cópia"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Copy Trading Address"
-msgstr ""
+msgstr "Endereço de Copiar Negociação"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -431,11 +431,10 @@ msgstr "Copiar Cada Pedido"
 msgid "Copy Trading Effortlessly"
 msgstr "Negociação por Cópia sem Esforço"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Copy Trading Profit"
-msgstr ""
+msgstr "Lucro da Copiar Negociação"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -464,7 +463,7 @@ msgstr "Volume acumulado de transacções com convidados"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Cumulative Profit"
-msgstr ""
+msgstr "Lucro Cumulativo"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -530,7 +529,7 @@ msgstr "Desligar"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
-msgstr ""
+msgstr "Documentação"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -743,7 +742,7 @@ msgstr "Saldo insuficiente. Por favor, deposite para começar a negociação rel
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Address"
-msgstr ""
+msgstr "Endereço do Convidado"
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
@@ -751,7 +750,7 @@ msgstr "Volume de negociação de convidados"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
-msgstr ""
+msgstr "Isto irá acionar uma ordem de mercado, e o lucro ou prejuízo estimado será"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -890,8 +889,6 @@ msgstr "Mais informações"
 msgid "My Balance"
 msgstr "Meu Saldo"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "My commissions"
@@ -906,6 +903,11 @@ msgstr "Minhas Cópias"
 msgid "My Positions"
 msgstr "Minhas Posições"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "My profit sharing"
+msgstr "Minha partilha de lucros"
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Traders"
 msgstr "Meus Traders"
@@ -919,8 +921,6 @@ msgstr "Minhas Negociações"
 msgid "News"
 msgstr "Notícias"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "No commissions yet"
@@ -947,6 +947,11 @@ msgstr "Nenhum pedido"
 msgid "No Orders"
 msgstr "Sem Ordens"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "No profit sharing yet"
+msgstr "Ainda não há partilha de lucros"
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "No Records Found"
 msgstr "Nenhum Registro Encontrado"
@@ -962,7 +967,7 @@ msgstr "Número de Pedidos"
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Offset"
-msgstr ""
+msgstr "Diferença"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
@@ -972,7 +977,7 @@ msgstr "Interesse Aberto"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Open Long"
-msgstr ""
+msgstr "Abrir Posição Longa"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -1001,7 +1006,7 @@ msgstr "Preço aberto"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Open Short"
-msgstr ""
+msgstr "Abrir Posição Curta"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1041,8 +1046,8 @@ msgstr "Pendente"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-msgid "Pending Profit"
-msgstr ""
+msgid "Pending Profit Sharing"
+msgstr "Partilha de lucros pendente"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
@@ -1103,7 +1108,7 @@ msgstr "Valor das Posições"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Previous Profit"
-msgstr ""
+msgstr "Lucro Anterior"
 
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
@@ -1118,6 +1123,10 @@ msgstr "Lucro"
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Lucro (ATF)"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Profit Sharing"
+msgstr "Partilha de lucros"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1433,9 +1442,6 @@ msgstr "Remuneração total"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Total Profit"
 msgstr "Lucro total"
 
@@ -1445,6 +1451,12 @@ msgstr "Lucro total"
 #: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "Total de lucros e perdas"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Total Profit Sharing"
+msgstr "Partilha total de lucros"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
@@ -1507,7 +1519,7 @@ msgstr "Perfil do Trader"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Trader profit sharing rules."
-msgstr ""
+msgstr "Regras de partilha de lucros para traders."
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1526,22 +1538,22 @@ msgstr "Posição de disparo"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than entry price"
-msgstr ""
+msgstr "O preço de gatilho deve ser superior ao preço de entrada"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than market price"
-msgstr ""
+msgstr "O preço de gatilho deve ser superior ao preço de mercado"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than entry price"
-msgstr ""
+msgstr "O preço de gatilho deve ser inferior ao preço de entrada"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than market price"
-msgstr ""
+msgstr "O preço de gatilho deve ser inferior ao preço de mercado"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -1565,12 +1577,15 @@ msgstr "Lucro/Prejuízo Não Realizado(ATF)"
 msgid "Unsettled"
 msgstr "Inquieto"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Comissões não liquidadas"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Unsettled Profit Sharing"
+msgstr "Partilha de lucros não resolvida"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1625,7 +1640,7 @@ msgstr "Retirada da carteira"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
-msgstr ""
+msgstr "Quando o preço atinge"
 
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
