@@ -18,6 +18,7 @@ import {useAccount} from "wagmi";
 import useArithFi from "../../../hooks/useArithFi";
 import {DownSort, Input, InputPC, NoSort, PaginationButton, Select1, UpSort} from "../Referral/Referral";
 import Divider from "@mui/material/Divider";
+import { i18n } from "@lingui/core";
 
 const CopyTradingProfit = () => {
   const {messageSnackBar} = useArithFiSnackBar();
@@ -316,7 +317,7 @@ const CopyTradingProfit = () => {
                 fontWeight: 400,
               })}
             >
-              <Trans>Total Profit</Trans>
+              <Trans>Total Profit Sharing</Trans>
             </Box>
             <Box
               sx={(theme) => ({
@@ -457,8 +458,8 @@ const CopyTradingProfit = () => {
           })}
           width={["100%", "100%", "auto"]}
         >
-          <a href={`/#/referral-copy`}>
-            <Trans>Copy Trading Profit</Trans>
+          <a href={`/#/profit-sharing`}>
+            <Trans>Profit Sharing</Trans>
           </a>
         </Stack>
       </Stack>
@@ -546,7 +547,7 @@ const CopyTradingProfit = () => {
                     unit: "ATF",
                   },
                   {
-                    title: t`Pending Profit`,
+                    title: t`Pending Profit Sharing`,
                     value: overview?.pending_profit || 0,
                     unit: "ATF",
                   },
@@ -592,7 +593,7 @@ const CopyTradingProfit = () => {
                   * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
                 </Trans>
                 <Stack direction={'row'}>
-                  <Link to={''} target={'_blank'}>
+                  <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing`} target={'_blank'}>
                     <Box sx={(theme) => ({
                       color: theme.normal.primary,
                     })}>
@@ -669,7 +670,7 @@ const CopyTradingProfit = () => {
                     fontWeight: 400,
                   })}
                 >
-                  <Trans>Pending Profit</Trans>
+                  <Trans>Pending Profit Sharing</Trans>
                 </Box>
                 <Box
                   sx={(theme) => ({
@@ -694,7 +695,7 @@ const CopyTradingProfit = () => {
                 <Trans>
                   * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
                 </Trans>
-                <Link to={''} target={'_blank'}>
+                <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing`} target={'_blank'}>
                   <Box sx={(theme) => ({
                     color: theme.normal.primary,
                   })}>
@@ -724,7 +725,7 @@ const CopyTradingProfit = () => {
                 })}
               >
                 <div>
-                  <Trans>My commissions</Trans>
+                  <Trans>My profit sharing</Trans>
                 </div>
               </Stack>
               {listData?.value?.length > 0 && (
@@ -770,10 +771,10 @@ const CopyTradingProfit = () => {
                         <Trans>Trading Volume</Trans>
                       </option>
                       <option value={"reward"}>
-                        <Trans>Total Profit</Trans>
+                        <Trans>Total Profit Sharing</Trans>
                       </option>
                       <option value={"pendingProfit"}>
-                        <Trans>Unsettled Commissions</Trans>
+                        <Trans>Unsettled Profit Sharing</Trans>
                       </option>
                       <option value={"settlementTime"}>
                         <Trans>Time</Trans>
@@ -828,7 +829,7 @@ const CopyTradingProfit = () => {
                       fontWeight: 400,
                     })}
                   >
-                    <Trans>No commissions yet</Trans>
+                    <Trans>No profit sharing yet</Trans>
                   </Stack>
                 )}
               </Stack>
@@ -856,7 +857,7 @@ const CopyTradingProfit = () => {
                   justifyContent={"center"}
                 >
                   <div>
-                    <Trans>My commissions</Trans>
+                    <Trans>My profit sharing</Trans>
                   </div>
                 </Stack>
 
@@ -979,7 +980,7 @@ const CopyTradingProfit = () => {
                           style={{cursor: "pointer", userSelect: "none"}}
                         >
                           <div>
-                            <Trans>Total Profit</Trans>
+                            <Trans>Total Profit Sharing</Trans>
                           </div>
                           {sortItem.key === "reward" ? (
                             sortItem.sort === "asc" ? (
@@ -1021,7 +1022,7 @@ const CopyTradingProfit = () => {
                           style={{cursor: "pointer", userSelect: "none"}}
                         >
                           <div>
-                            <Trans>Unsettled Commissions</Trans>
+                            <Trans>Unsettled Profit Sharing</Trans>
                           </div>
                           {sortItem.key === "pendingProfit" ? (
                             sortItem.sort === "asc" ? (
@@ -1105,7 +1106,7 @@ const CopyTradingProfit = () => {
                             lineHeight: "168px",
                           })}
                         >
-                          <Trans>No commissions yet</Trans>
+                          <Trans>No profit sharing yet</Trans>
                         </TableCell>
                       </TableRow>
                     )}

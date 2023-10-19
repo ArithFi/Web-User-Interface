@@ -122,7 +122,7 @@ const App: FC = () => {
                 <Route path={":address"} element={<ReferralPage />} />
                 <Route path={""} element={<ReferralPage />} />
               </Route>
-              <Route path="referral-copy">
+              <Route path="profit-sharing">
                 <Route path={":address"} element={<CopyTradingProfitPage />} />
                 <Route path={""} element={<CopyTradingProfitPage />} />
               </Route>
