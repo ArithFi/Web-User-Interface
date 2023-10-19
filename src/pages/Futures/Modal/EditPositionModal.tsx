@@ -95,6 +95,8 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   //     ? t`Edit Position`
   //     : t`Trigger Position`;
   // }, [props.data.stopLossPrice, props.data.takeProfitPrice]);
+  const baseAmount =
+    props.data.balance === 0 ? props.data.margin : props.data.balance;
   const view = useMemo(() => {
     return isMobile ? (
       <Drawer
@@ -115,7 +117,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
         >
           <EditPositionModalBase
             onClose={props.onClose}
-            baseAmount={props.data.balance}
+            baseAmount={baseAmount}
             lever={props.data.leverage}
             token={props.data.product.split("/")[0]}
             isLong={props.data.direction}
@@ -144,7 +146,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
           >
             <EditPositionModalBase
               onClose={props.onClose}
-              baseAmount={props.data.balance}
+              baseAmount={baseAmount}
               lever={props.data.leverage}
               token={props.data.product.split("/")[0]}
               isLong={props.data.direction}
@@ -159,7 +161,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
         </Box>
       </Modal>
     );
-  }, [isMobile, props]);
+  }, [baseAmount, isMobile, props]);
 
   return view;
 };

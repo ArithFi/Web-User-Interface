@@ -156,7 +156,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               </Box>
               <Box width={"30%"}>
                 <InputWithSymbol
-                  placeholder={t`Gain`}
+                  placeholder={t`Offset`}
                   value={tpPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {
@@ -223,7 +223,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               </Box>
               <Box width={"30%"}>
                 <InputWithSymbol
-                  placeholder={t`Loss`}
+                  placeholder={t`Offset`}
                   value={slPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {
