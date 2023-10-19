@@ -13,10 +13,11 @@ import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import useSWR from "swr";
 import {Trans, t} from "@lingui/macro";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useAccount} from "wagmi";
 import useArithFi from "../../../hooks/useArithFi";
 import {DownSort, Input, InputPC, NoSort, PaginationButton, Select1, UpSort} from "../Referral/Referral";
+import Divider from "@mui/material/Divider";
 
 const CopyTradingProfit = () => {
   const {messageSnackBar} = useArithFiSnackBar();
@@ -579,6 +580,29 @@ const CopyTradingProfit = () => {
                   </Stack>
                 ))}
               </Stack>
+              <Stack
+                sx={(theme) => ({
+                  color: theme.normal.text2,
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                })}
+              >
+                <Trans>
+                  * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
+                </Trans>
+                <Stack direction={'row'}>
+                  <Link to={''} target={'_blank'}>
+                    <Box sx={(theme) => ({
+                      color: theme.normal.primary,
+                    })}>
+                      <Trans>
+                        Trader profit sharing rules.
+                      </Trans>
+                    </Box>
+                  </Link>
+                </Stack>
+              </Stack>
             </>
           )}
           {isBigMobile && (
@@ -657,6 +681,28 @@ const CopyTradingProfit = () => {
                 >
                   {overview?.pending_profit || 0} ATF
                 </Box>
+              </Stack>
+              <Divider />
+              <Stack
+                sx={(theme) => ({
+                  color: theme.normal.text2,
+                  fontWeight: 400,
+                  fontSize: "10px",
+                  lineHeight: "14px",
+                })}
+              >
+                <Trans>
+                  * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
+                </Trans>
+                <Link to={''} target={'_blank'}>
+                  <Box sx={(theme) => ({
+                    color: theme.normal.primary,
+                  })}>
+                    <Trans>
+                      Trader profit sharing rules.
+                    </Trans>
+                  </Box>
+                </Link>
               </Stack>
             </Stack>
           )}
