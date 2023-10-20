@@ -16,6 +16,7 @@ import {
   walletConnectWallet,
   trustWallet,
   okxWallet,
+  coin98Wallet
 } from "@rainbow-me/rainbowkit/wallets";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
@@ -28,6 +29,7 @@ import {
   WalletConnect,
   TrustWallet,
   OKX,
+  Coin98
 } from "../components/icons";
 import useTheme from "../hooks/useTheme";
 
@@ -90,6 +92,11 @@ export const Wallets = [
     wallet: okxWallet({ projectId: PROJECT_ID, chains: chains }),
     icon: OKX,
     name: "OKX Wallet",
+  },
+  {
+    wallet: coin98Wallet({ projectId: PROJECT_ID, chains: chains }),
+    icon: Coin98,
+    name: "Coin98",
   },
 ];
 

@@ -25,6 +25,10 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     return data.margin.toFixed(2);
   }, [data.margin]);
   const { addTransactionNotice } = usePendingTransactionsBase();
+  const showTriggerTitle = useMemo(() => {
+    const isEdit = data.takeProfitPrice === 0 && data.stopLossPrice === 0;
+    return !isEdit ? t`Edit` : t`Trigger`;
+  }, [data.stopLossPrice, data.takeProfitPrice]);
   /**
    * action
    */
@@ -85,6 +89,10 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       ? String().placeHolder
       : data.stopLossPrice.floor(tokenName.getTokenPriceDecimals());
   }, [data.stopLossPrice, tokenName]);
+  const openTime = useMemo(() => {
+    const time = new Date(data.timestamp * 1000);
+    return [time.toLocaleDateString(), time.toLocaleTimeString()];
+  }, [data.timestamp]);
 
   const shareOrder = useMemo(() => {
     const info: Order = {
@@ -130,6 +138,8 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     shareOrder,
     tp,
     sl,
+    openTime,
+    showTriggerTitle
   };
 }
 

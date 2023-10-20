@@ -40,6 +40,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
+    openTime,
   } = useFuturesPOrder(props.data, props.price);
 
   return (
@@ -129,7 +130,9 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               alignItems={"center"}
               component={"p"}
             >
-              <Box component={"p"}>Liq Price</Box>
+              <Box component={"p"}>
+                <Trans>Liq Price</Trans>
+              </Box>
               <ArithFiTooltipFC
                 title={
                   <p>
@@ -144,6 +147,28 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               />
             </Stack>
             <Box component={"p"}>{showLiqPrice}USDT</Box>
+          </FuturesOrderListInfo>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-around"}>
+          <FuturesOrderListInfo
+            direction={"row"}
+            spacing={"4px"}
+            width={"100%"}
+          >
+            <Stack
+              direction={"row"}
+              spacing={"4px"}
+              alignItems={"center"}
+              component={"p"}
+            >
+              <Box component={"p"}>
+                <Trans>Time</Trans>
+              </Box>
+            </Stack>
+            <Box component={"p"}>
+              {openTime[0]} {openTime[1]}
+            </Box>
           </FuturesOrderListInfo>
         </Stack>
       </Stack>

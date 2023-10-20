@@ -14,6 +14,7 @@ declare global {
     getTokenAddress(chainId: number | undefined): string | undefined;
     formatInputNum(): string;
     formatInputNum4(): string;
+    formatInputNum6(): string;
     stringToBigNumber(decimals: number | undefined): BigNumber | undefined;
   }
 }
@@ -100,6 +101,16 @@ String.prototype.formatInputNum4 = function () {
     .replace(/\./g, "")
     .replace("$#$", ".")
     .replace(/^(\-)*(\d+)\.(\d\d\d\d).*$/, "$1$2.$3")
+    .replace(/^\./g, "");
+};
+
+String.prototype.formatInputNum6 = function () {
+  return this.replace(/[^\d.]/g, "")
+    .replace(/\.{2,}/g, ".")
+    .replace(".", "$#$")
+    .replace(/\./g, "")
+    .replace("$#$", ".")
+    .replace(/^(\-)*(\d+)\.(\d\d\d\d\d\d).*$/, "$1$2.$3")
     .replace(/^\./g, "");
 };
 

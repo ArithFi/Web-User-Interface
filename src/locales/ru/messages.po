@@ -17,6 +17,11 @@ msgstr ""
 msgid "{0}"
 msgstr "{0}"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
+msgstr "* Из-за сложности финансовых данных могут возникать нюансы и задержки. Представленные выше данные предназначены только для справки. Мы искренне извиняемся за возможные неудобства."
+
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -26,30 +31,10 @@ msgstr "* Из-за сложности финансовых данных воз�
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi поддерживает только вывод ATF."
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< LIMIT PRICE"
-msgstr "< ЛИМИТНАЯ ЦЕНА"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< MARKET PRICE"
-msgstr "< РЫНОЧНАЯ ЦЕНА"
-
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
 msgid "< OPEN PRICE"
 msgstr "< ЦЕНА ОТКРЫТИЯ"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> LIMIT PRICE"
-msgstr "> ЛИМИТНАЯ ЦЕНА"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> MARKET PRICE"
-msgstr "> РЫНОЧНАЯ ЦЕНА"
 
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
@@ -191,9 +176,17 @@ msgid "Add Position"
 msgstr "Добавить позицию"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
 msgstr "Адрес"
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "Adjust Leverage"
+msgstr "Настроить плечо"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Advanced"
+msgstr "Продвинутый"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -201,7 +194,6 @@ msgid "Advantages of ArithFi"
 msgstr "Преимущества ArithFi"
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
 msgstr "После выполнения лимитного ордера, установленные вами цены TP и SL будут срабатывать немедленно."
 
@@ -215,6 +207,7 @@ msgstr "Все трейдеры"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Количество"
@@ -279,6 +272,7 @@ msgstr "баланс"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Balance:"
 msgstr "Баланс:"
 
@@ -361,9 +355,8 @@ msgstr "Подтвердить"
 msgid "Confirm you are the owner of this wallet"
 msgstr "Подтвердите, что вы владелец этого кошелька"
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -398,6 +391,8 @@ msgstr "Копировать заказы"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -420,6 +415,10 @@ msgstr "Копировать прибыль и убытки трейдеров (
 msgid "Copy Trading"
 msgstr "Копирование сделок"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr "Адрес для копирования сделок"
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr "Копировать активы для торговли (ATF)"
@@ -431,6 +430,11 @@ msgstr "Копировать каждый ордер"
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
 msgstr "Копирование сделок без усилий"
+
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
+msgstr "Прибыль от копирования сделок"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
@@ -455,6 +459,11 @@ msgstr "Накопительные копирующие трейдеры"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Накопительный объем торговли приглашенных пользователей"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
+msgstr "Накопленная прибыль"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -487,10 +496,10 @@ msgstr "Дневной доход"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
-#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "Панель управления"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr "По умолчанию"
@@ -498,6 +507,7 @@ msgstr "По умолчанию"
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -514,6 +524,13 @@ msgstr "Запрос на депозит"
 msgid "Disconnect"
 msgstr "Отключить"
 
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/NavMenu.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Documentation"
+msgstr "Документация"
+
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
@@ -528,9 +545,8 @@ msgstr "Зарабатывайте $ATF"
 msgid "Earnings"
 msgstr "прибыль"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -541,7 +557,6 @@ msgstr "Редактировать лимитный ордер"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Edit Position"
 msgstr "Редактировать позицию"
 
@@ -586,10 +601,6 @@ msgstr "Неудача"
 msgid "Fail Request"
 msgstr "Не удалось выполнить запрос"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
-msgid "Faucet"
-msgstr "Кран"
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -630,7 +641,6 @@ msgstr "Замораживать для депозита"
 msgid "From"
 msgstr "От"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Фьючерсы"
@@ -725,12 +735,21 @@ msgid "Insufficient balance"
 msgstr "Недостаточный баланс"
 
 #: src/components/NormalInput/ArithFiInput.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Недостаточный баланс. Пожалуйста, пополните счет, чтобы начать моментальную торговлю."
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr "Адрес приглашенного"
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Объем торговли приглашенных пользователей"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "it will trigger Market order, and the estimated PNL will be"
+msgstr "Это вызовет рыночный ордер, и ожидаемая прибыль/убыток будет"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -766,10 +785,9 @@ msgstr "Последняя цена"
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: src/pages/Futures/Components/LeverageSlider.tsx
-msgid "Leverage"
-msgstr "Маржинальное плечо"
-
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "Лимит"
@@ -777,6 +795,7 @@ msgstr "Лимит"
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Limit Price"
 msgstr "Цена лимита"
 
@@ -787,9 +806,11 @@ msgstr "Связать кошелек"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Liq Price"
 msgstr "Цена ликвидации"
@@ -808,13 +829,13 @@ msgstr "Загрузка..."
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Long"
 msgstr "Лонг"
 
@@ -828,6 +849,7 @@ msgid "Make a profit, you will earn $ATF"
 msgstr "Получите прибыль, и вы заработаете $ATF."
 
 #: src/pages/Futures/NewOrder.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "Рынок"
 
@@ -835,11 +857,13 @@ msgstr "Рынок"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr "Рыночная цена"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "МАКС"
@@ -880,6 +904,11 @@ msgstr "Мои копии"
 msgid "My Positions"
 msgstr "Мои позиции"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "My profit sharing"
+msgstr "Моя прибыльная доля"
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Traders"
 msgstr "Мои трейдеры"
@@ -919,6 +948,11 @@ msgstr "Нет ордеров"
 msgid "No Orders"
 msgstr "Нет ордеров"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "No profit sharing yet"
+msgstr "Пока нет прибыльного участия"
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "No Records Found"
 msgstr "Нет найденных записей"
@@ -931,15 +965,20 @@ msgstr "Сделок пока нет"
 msgid "Number of Orders"
 msgstr "Количество заказов"
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Open"
-msgstr "Открыть"
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Offset"
+msgstr "Offset"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Open Interest"
 msgstr "Открытый интерес"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Long"
+msgstr "Открыть длинную позицию"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
@@ -962,9 +1001,13 @@ msgstr "Открыть позицию"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Open Price"
 msgstr "Цена открытия"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Short"
+msgstr "Открыть короткую позицию"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -985,6 +1028,8 @@ msgid "Orders"
 msgstr "Ордера"
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -1000,10 +1045,16 @@ msgstr "Pancake"
 msgid "Pending"
 msgstr "В ожидании"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit Sharing"
+msgstr "В ожидании прибыльного участия"
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Результативность"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1031,7 +1082,7 @@ msgstr "Коэффициент PNL"
 
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Position"
 msgstr "Позиция"
 
@@ -1046,7 +1097,6 @@ msgstr "Плата за позицию = Позиция * 0,05%"
 msgid "Position*0.05%"
 msgstr "Позиция*0,05%"
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
 msgstr "Позиции"
@@ -1056,7 +1106,11 @@ msgstr "Позиции"
 msgid "Positions Value"
 msgstr "Стоимость позиций"
 
-#: src/pages/Futures/NewOrder.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr "Предыдущая прибыль"
+
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1070,6 +1124,10 @@ msgstr "Прибыль"
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Прибыль (ATF)"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Profit Sharing"
+msgstr "Прибыльное участие"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1095,6 +1153,7 @@ msgstr "Получены 100 тестовых токенов ATF"
 msgid "Recent transactions"
 msgstr "Последние сделки"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1126,6 +1185,7 @@ msgid "ROI"
 msgstr "ROI"
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Save"
 msgstr "Сохранить"
 
@@ -1134,6 +1194,7 @@ msgstr "Сохранить"
 msgid "Scan and copy the trade"
 msgstr "Сканировать и копировать сделку"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr "Поиск"
@@ -1167,6 +1228,7 @@ msgstr "Установите маржу для каждого ордера, а �
 msgid "Settings"
 msgstr "Настройки"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Урегулировано"
@@ -1184,13 +1246,13 @@ msgstr "Поделиться"
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Short"
 msgstr "Шорт"
 
@@ -1237,7 +1299,7 @@ msgstr "Прекратить копирование"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "Стоп-лосс"
@@ -1248,6 +1310,8 @@ msgstr "Стоп-лосс"
 msgid "Stop Order"
 msgstr "Стоп-ордер"
 
+#: src/pages/Futures/Modal/StopLimitModal.tsx
+#: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "Стоп-лимит"
@@ -1286,7 +1350,7 @@ msgstr "Предпочтение символа"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
 msgstr "Прибыль"
@@ -1321,8 +1385,15 @@ msgstr "Транзакция не удалась, и сумма была пол�
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Время"
 
@@ -1382,6 +1453,14 @@ msgstr "Общая прибыль"
 msgid "Total Profit & Loss"
 msgstr "Общий доход и убыток"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Total Profit Sharing"
+msgstr "Общая прибыльная доля"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1438,17 +1517,55 @@ msgstr "Трейдер"
 msgid "Trader Profile"
 msgstr "Профиль трейдера"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Trader profit sharing rules."
+msgstr "Правила деления прибыли трейдера."
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Объем торговли"
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "Триггер"
 
 #: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Trigger Position"
 msgstr "Триггер-позиция"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than entry price"
+msgstr "Цена срабатывания должна быть выше цены входа."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than market price"
+msgstr "Цена срабатывания должна быть выше рыночной цены."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr "Цена срабатывания должна быть выше цены открытия"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than entry price"
+msgstr "Цена срабатывания должна быть ниже цены входа."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than market price"
+msgstr "Цена срабатывания должна быть ниже рыночной цены."
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr "Цена срабатывания должна быть ниже цены открытия"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -1476,6 +1593,11 @@ msgstr "Неурегулировано"
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Неурегулированные комиссии"
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Unsettled Profit Sharing"
+msgstr "Не урегулированное прибыльное участие"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1527,6 +1649,10 @@ msgstr "Пополнение кошелька"
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
 msgstr "Вывод средств из кошелька"
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "When Price reaches"
+msgstr "Когда цена достигнет"
 
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx

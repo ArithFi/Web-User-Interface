@@ -10,6 +10,7 @@ import {
   ArithFiLogo,
   ATFLogo,
   SwapExchangeSmall,
+  Copy,
 } from "../../../components/icons";
 import Box from "@mui/material/Box";
 import useWindowWidth, { WidthType } from "../../../hooks/useWindowWidth";
@@ -46,29 +47,8 @@ export const NavItems = [
   {
     path: "/copy",
     content: `Copy`,
-    icon: AccountIcon,
+    icon: Copy,
     l: <Trans>Copy</Trans>,
-  },
-  {
-    path: "/dashboard",
-    content: `Dashboard`,
-    icon: Dashboard,
-    l: <Trans>Dashboard</Trans>,
-  },
-];
-
-export const NavItemsForScroll = [
-  {
-    path: "/futures",
-    content: `Futures`,
-    icon: FuturesIcon,
-    l: <Trans>Futures</Trans>,
-  },
-  {
-    path: "/faucet",
-    content: `Faucet`,
-    icon: SwapExchangeSmall,
-    l: <Trans>Faucet</Trans>,
   },
   {
     path: "/dashboard",
@@ -285,6 +265,14 @@ const ArithFiHead: FC = () => {
         height={headHeight}
       >
         {liList}
+        <Box
+          component={"a"}
+          sx={{ cursor: "pointer" }}
+          href="https://docs.arithfi.com"
+          target={"blank"}
+        >
+          <Trans>Documentation</Trans>
+        </Box>
       </NavStack>
     );
   };

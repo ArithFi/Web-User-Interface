@@ -17,6 +17,11 @@ msgstr ""
 msgid "{0}"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
+msgstr ""
+
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
@@ -26,30 +31,10 @@ msgstr ""
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr ""
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< LIMIT PRICE"
-msgstr "< リミット価格"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "< MARKET PRICE"
-msgstr "< マーケット価格"
-
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
 msgid "< OPEN PRICE"
 msgstr "< オープン価格"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> LIMIT PRICE"
-msgstr "> リミット価格"
-
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-msgid "> MARKET PRICE"
-msgstr "> マーケット価格"
 
 #: src/hooks/useFuturesEditPosition.ts
 #: src/hooks/useFuturesEditPosition.ts
@@ -189,8 +174,16 @@ msgid "Add Position"
 msgstr "ポジションを追加"
 
 #: src/pages/Copy/Components/TraderFollowers.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 msgid "Address"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
+msgid "Adjust Leverage"
+msgstr ""
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Advanced"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -199,7 +192,6 @@ msgid "Advantages of ArithFi"
 msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "After the limit order is executed, TP and SL price you set will trigger immediately."
 msgstr "指値注文が実行されると、設定したTP価格とSL価格がすぐにトリガーされます。"
 
@@ -213,6 +205,7 @@ msgstr ""
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "金額"
@@ -277,6 +270,7 @@ msgstr "残高"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Balance:"
 msgstr "残高:"
 
@@ -359,9 +353,8 @@ msgstr "確認"
 msgid "Confirm you are the owner of this wallet"
 msgstr ""
 
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/hooks/useSwap.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -396,6 +389,8 @@ msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -418,6 +413,10 @@ msgstr ""
 msgid "Copy Trading"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Copy Trading Address"
+msgstr ""
+
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
 msgstr ""
@@ -428,6 +427,11 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Effortlessly"
+msgstr ""
+
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
+msgid "Copy Trading Profit"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
@@ -452,6 +456,11 @@ msgstr ""
 
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Cumulative Profit"
 msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -485,10 +494,10 @@ msgstr ""
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
-#: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Default"
 msgstr ""
@@ -496,6 +505,7 @@ msgstr ""
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -512,6 +522,13 @@ msgstr ""
 msgid "Disconnect"
 msgstr "ディスコネクト"
 
+#: src/pages/Share/Head/ArithFiHead.tsx
+#: src/pages/Share/Head/NavMenu.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Documentation"
+msgstr ""
+
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
@@ -526,9 +543,8 @@ msgstr ""
 msgid "Earnings"
 msgstr ""
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 msgid "Edit"
 msgstr "編集"
 
@@ -539,7 +555,6 @@ msgstr "リミットオーダーを編集"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useTransactionReceipt.ts
-#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Edit Position"
 msgstr "ポジションを編集"
 
@@ -584,10 +599,6 @@ msgstr ""
 msgid "Fail Request"
 msgstr "リクエストに失敗しました"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
-msgid "Faucet"
-msgstr ""
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -626,7 +637,6 @@ msgstr ""
 msgid "From"
 msgstr "送信元"
 
-#: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr ""
@@ -721,11 +731,20 @@ msgid "Insufficient balance"
 msgstr ""
 
 #: src/components/NormalInput/ArithFiInput.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr ""
 
 #: src/pages/Personal/Referral/Referral.tsx
+msgid "Invitee Address"
+msgstr ""
+
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "it will trigger Market order, and the estimated PNL will be"
 msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
@@ -762,10 +781,9 @@ msgstr "最終価格"
 msgid "Learn more"
 msgstr "もっと詳しく"
 
-#: src/pages/Futures/Components/LeverageSlider.tsx
-msgid "Leverage"
-msgstr "レバレッジ"
-
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "リミット"
@@ -773,6 +791,7 @@ msgstr "リミット"
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Limit Price"
 msgstr "リミット価格"
 
@@ -783,9 +802,11 @@ msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Liq Price"
 msgstr "清算価格"
@@ -804,13 +825,13 @@ msgstr "読み込み中..."
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Long"
 msgstr "ロング"
 
@@ -824,6 +845,7 @@ msgid "Make a profit, you will earn $ATF"
 msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "マーケット"
 
@@ -831,11 +853,13 @@ msgstr "マーケット"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr ""
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "MAX"
 msgstr "最大"
@@ -874,6 +898,11 @@ msgstr ""
 
 #: src/pages/Personal/Personal.tsx
 msgid "My Positions"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "My profit sharing"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -915,6 +944,11 @@ msgstr "注文なし"
 msgid "No Orders"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "No profit sharing yet"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "No Records Found"
 msgstr ""
@@ -927,14 +961,19 @@ msgstr "まだ取引はありません"
 msgid "Number of Orders"
 msgstr ""
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Open"
-msgstr "オープン"
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "Offset"
+msgstr ""
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Open Interest"
+msgstr ""
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Long"
 msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
@@ -958,9 +997,13 @@ msgstr "オープンポジション"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Open Price"
 msgstr "オープン価格"
+
+#: src/pages/Futures/NewOrder.tsx
+msgid "Open Short"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -981,6 +1024,8 @@ msgid "Orders"
 msgstr ""
 
 #: src/pages/Overview/Overview.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
@@ -996,10 +1041,16 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Pending Profit Sharing"
+msgstr ""
+
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Personal"
@@ -1027,7 +1078,7 @@ msgstr ""
 
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "Position"
 msgstr "ポジション"
 
@@ -1042,7 +1093,6 @@ msgstr "ポジション料金 = ポジション * 0.05"
 msgid "Position*0.05%"
 msgstr "ポジション*0.05％"
 
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
 msgstr "ポジション"
@@ -1052,7 +1102,11 @@ msgstr "ポジション"
 msgid "Positions Value"
 msgstr ""
 
-#: src/pages/Futures/NewOrder.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Previous Profit"
+msgstr ""
+
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Price"
@@ -1065,6 +1119,10 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Profit Sharing"
 msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1091,6 +1149,7 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "最近の取引"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Personal.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Referral"
@@ -1122,6 +1181,7 @@ msgid "ROI"
 msgstr ""
 
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
+#: src/pages/Futures/Modal/SettingLeverModal.tsx
 msgid "Save"
 msgstr ""
 
@@ -1130,6 +1190,7 @@ msgstr ""
 msgid "Scan and copy the trade"
 msgstr "取引をスキャンしてコピー"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Search"
 msgstr ""
@@ -1163,6 +1224,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Settled"
 msgstr ""
@@ -1180,13 +1242,13 @@ msgstr "シェア"
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesNewOrder.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
 #: src/pages/Dashboard/Components/ShareOrderPosition.tsx
 #: src/pages/Futures/Components/OrderListPosition.tsx
 #: src/pages/Futures/Components/OrderTablePosition.tsx
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Short"
 msgstr "ショート"
 
@@ -1233,7 +1295,7 @@ msgstr ""
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "ストップロス"
@@ -1244,6 +1306,8 @@ msgstr "ストップロス"
 msgid "Stop Order"
 msgstr "ストップオーダー"
 
+#: src/pages/Futures/Modal/StopLimitModal.tsx
+#: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop-Limit"
 msgstr "ストップ・リミット"
@@ -1282,7 +1346,7 @@ msgstr ""
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
 msgstr "利益確定"
@@ -1317,8 +1381,15 @@ msgstr "取引に失敗し、金額は全額返金されました。再度取引
 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Overview/Components/MoneyTable.tsx
 #: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "時間"
 
@@ -1378,6 +1449,14 @@ msgstr "総利益"
 msgid "Total Profit & Loss"
 msgstr "総損益"
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Total Profit Sharing"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Total Trading Volume"
@@ -1434,17 +1513,55 @@ msgstr ""
 msgid "Trader Profile"
 msgstr ""
 
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Trader profit sharing rules."
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr ""
 
+#: src/hooks/useFuturesOrder.ts
 #: src/hooks/useFuturesPOrder.ts
 msgid "Trigger"
 msgstr "トリガー"
 
 #: src/pages/Futures/Modal/EditPositionModal.tsx
+#: src/pages/Futures/Modal/EditPositionModal.tsx
 msgid "Trigger Position"
 msgstr "トリガーポジション"
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than market price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be higher than open price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than entry price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than market price"
+msgstr ""
+
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+#: src/pages/Futures/hooks/useSettingTPAndSL.ts
+msgid "Trigger price should be lower than open price"
+msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -1471,6 +1588,11 @@ msgstr ""
 #: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Personal/Referral/Referral.tsx
 msgid "Unsettled Commissions"
+msgstr ""
+
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+msgid "Unsettled Profit Sharing"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -1522,6 +1644,10 @@ msgstr ""
 
 #: src/hooks/useAccount.ts
 msgid "Wallet Withdraw"
+msgstr ""
+
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+msgid "When Price reaches"
 msgstr ""
 
 #: src/pages/Token/Token.tsx

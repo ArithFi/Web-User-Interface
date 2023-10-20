@@ -47,7 +47,6 @@ const Futures: FC = () => {
   const [historyList, setHistoryList] = useState<Array<FuturesHistoryService>>(
     []
   );
-  const [showNotice, setShowNotice] = useState<boolean>(true);
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceList();
@@ -126,7 +125,7 @@ const Futures: FC = () => {
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
-              copy: item["copy"]
+              copy: item["copy"],
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -152,7 +151,7 @@ const Futures: FC = () => {
         chainsData.chainId,
         account.address,
         { Authorization: signature.signature }
-      )
+      );
       if (Number(baseList["errorCode"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
           (item: { [x: string]: any }) => {
@@ -303,9 +302,14 @@ const Futures: FC = () => {
             justifyContent={"center"}
             paddingX={`${paddingX}px`}
           >
-            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}>
-              {exchangeTvChart()}
-              {newOrder()}
+            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}
+            sx={(theme) => ({
+              backgroundColor: isBigMobile ? theme.normal.bg1 : theme.normal.bg0
+            })}>
+              <Stack>
+                {exchangeTvChart()}
+                {newOrder()}
+              </Stack>
               {isBigMobile ? <></> : moreInfo()}
               {orderList()}
             </Stack>

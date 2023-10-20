@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/macro";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Stack from "@mui/material/Stack";
@@ -43,7 +42,7 @@ const LeverageSlider: FC<LeverageSliderProps> = ({ ...props }) => {
   }
   return (
     <Stack width={"100%"} style={props.style}>
-      <Stack direction={"row"} justifyContent={"space-between"}>
+      {/* <Stack direction={"row"} justifyContent={"space-between"}>
         <Box
           component={"p"}
           sx={(theme) => ({
@@ -62,34 +61,8 @@ const LeverageSlider: FC<LeverageSliderProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >{`${props.value}X`}</Box>
-      </Stack>
+      </Stack> */}
       <Box sx={{ display: "block", position: "relative" }}>
-        {/* <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          sx={{
-            position: "absolute",
-            top: '13px',
-            width: "100%",
-            height: "4px",
-          }}
-        >
-          <Box
-            sx={(theme) => ({
-              background: theme.normal.primary,
-              width: "100%",
-              height: "4px",
-            })}
-          ></Box>
-          <Box
-            sx={(theme) => ({
-              background: theme.normal.bg1,
-              width: "100%",
-              height: "4px",
-            })}
-          ></Box>
-        </Stack> */}
         <Box sx={{ paddingLeft: "5px", paddingRight: "8px" }}>
           <Slider
             aria-label="Custom marks"

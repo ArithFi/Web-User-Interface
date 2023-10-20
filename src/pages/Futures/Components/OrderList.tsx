@@ -5,7 +5,11 @@ import MainButton from "../../../components/MainButton/MainButton";
 import useFuturesOrder from "../../../hooks/useFuturesOrder";
 
 import ShareNewOrderModal from "../../Dashboard/Modal/ShareNewOrderModal";
-import { FuturesModalInfo, FuturesModalType, FuturesOrderService } from "../OrderList";
+import {
+  FuturesModalInfo,
+  FuturesModalType,
+  FuturesOrderService,
+} from "../OrderList";
 import FuturesOrderListInfo, {
   FuturesOrderListInfoMain,
 } from "./FuturesOrderListInfo";
@@ -34,6 +38,8 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
     shareOrder,
     tp,
     sl,
+    openTime,
+    showTriggerTitle
   } = useFuturesOrder(props.data, props.updateList);
   return (
     <Stack
@@ -107,13 +113,36 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
       ) : (
         <></>
       )}
+      <Stack direction={"row"} justifyContent={"space-around"}>
+        <FuturesOrderListInfo direction={"row"} spacing={"4px"} width={"100%"}>
+          <Box component={"p"}>
+            <Trans>Time</Trans>
+          </Box>
+          <Box component={"p"}>
+            {openTime[0]} {openTime[1]}
+          </Box>
+        </FuturesOrderListInfo>
+        <FuturesOrderListInfo direction={"row"} spacing={"4px"} width={"100%"}>
+          <Box component={"p"}></Box>
+        </FuturesOrderListInfo>
+      </Stack>
       <Stack direction={"row"} spacing={"8px"}>
         <MainButton
-          title={t`Edit`}
+          title={t`Limit`}
           onClick={() =>
             props.buttonCallBack({
               data: props.data,
               type: FuturesModalType.editLimit,
+            })
+          }
+          style={{ height: "40px", fontSize: 14 }}
+        />
+        <MainButton
+          title={showTriggerTitle}
+          onClick={() =>
+            props.buttonCallBack({
+              data: props.data,
+              type: FuturesModalType.trigger,
             })
           }
           style={{ height: "40px", fontSize: 14 }}

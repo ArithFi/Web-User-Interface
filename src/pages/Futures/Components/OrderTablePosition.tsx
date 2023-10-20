@@ -17,7 +17,6 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
       ? props.tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
   }, [props.tokenName]);
-  const BaseToken = "USDT".getToken()!.icon;
   return (
     <Stack
       direction={"row"}
@@ -32,8 +31,7 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
         direction={"row"}
         sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
       >
-        <TokenIcon style={{ marginRight: "-8px", position: "relative" }} />
-        <BaseToken />
+        <TokenIcon/>
       </Stack>
       <Stack spacing={"2px"}>
         <Box

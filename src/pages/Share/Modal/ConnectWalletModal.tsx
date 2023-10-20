@@ -249,6 +249,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
       })}
     </Stack>
   );
+  console.log(wallets.slice(3, 6))
   const Row2 = (
     <Stack
       direction={"row"}
@@ -257,7 +258,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
       alignItems={"center"}
       marginTop={"16px"}
     >
-      {wallets.slice(3, 5).map((item, index) => {
+      {wallets.slice(3, 6).map((item, index) => {
         const Icon = Wallets.filter((item2) => item2.wallet.id === item.id)[0]
           .icon;
         return (
@@ -340,10 +341,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
           </ItemBox>
         );
       })}
-      <Box width={"100%"}>
-        <div className="WalletIcon"></div>
-        <p></p>
-      </Box>
+      
     </Stack>
   );
   return (
