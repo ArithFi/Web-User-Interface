@@ -37,6 +37,8 @@ function useAccount() {
         return t`Freeze Deposit`;
       case 'Freeze to Deposit':
         return t`Freeze to Deposit`;
+        case 'SETTLE':
+          return t`Wallet Deposit`;
       default:
         return orderType;
     }
