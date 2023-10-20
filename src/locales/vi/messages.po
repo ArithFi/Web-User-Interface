@@ -431,11 +431,6 @@ msgstr "Sao chép giao dịch mỗi lệnh"
 msgid "Copy Trading Effortlessly"
 msgstr "Sao chép giao dịch một cách dễ dàng"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Copy Trading Profit"
-msgstr "Lợi nhuận từ copy trading"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Tổng số tiền giao dịch sao chép (ATF)"
@@ -1126,6 +1121,8 @@ msgid "Profit (ATF)"
 msgstr "Lợi nhuận (ATF)"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Profit Sharing"
 msgstr "Chia sẻ lợi nhuận"
 
@@ -1642,6 +1639,7 @@ msgstr "Ví"
 msgid "Wallet Balance"
 msgstr "Số dư ví"
 
+#: src/hooks/useAccount.ts
 #: src/hooks/useAccount.ts
 msgid "Wallet Deposit"
 msgstr "Nạp tiền vào ví"

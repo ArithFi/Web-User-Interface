@@ -12,7 +12,7 @@ import useArithFi from "../../hooks/useArithFi";
 import { useLocalStorage } from "react-use";
 import { useSearchParams } from "react-router-dom";
 
-const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', 'BLOCK_TO_AVAILABLE', "Freeze Deposit"]
+const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', 'BLOCK_TO_AVAILABLE', "Freeze Deposit", "SETTLE"]
 const WITHDRAW_TYPES = ['WITHDRAW', 'AVAILABLE_TO_COPY']
 
 const Overview: FC = () => {

@@ -431,11 +431,6 @@ msgstr "Copiar Cada Pedido"
 msgid "Copy Trading Effortlessly"
 msgstr "Negociação por Cópia sem Esforço"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Copy Trading Profit"
-msgstr "Lucro da Copiar Negociação"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Valor Total de Copiar Negociações (ATF)"
@@ -1126,6 +1121,8 @@ msgid "Profit (ATF)"
 msgstr "Lucro (ATF)"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Profit Sharing"
 msgstr "Partilha de lucros"
 
@@ -1642,6 +1639,7 @@ msgstr "Carteira"
 msgid "Wallet Balance"
 msgstr "Saldo da Carteira"
 
+#: src/hooks/useAccount.ts
 #: src/hooks/useAccount.ts
 msgid "Wallet Deposit"
 msgstr "Depósito na carteira"
