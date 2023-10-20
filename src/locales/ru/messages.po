@@ -431,11 +431,6 @@ msgstr "Копировать каждый ордер"
 msgid "Copy Trading Effortlessly"
 msgstr "Копирование сделок без усилий"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Copy Trading Profit"
-msgstr "Прибыль от копирования сделок"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Общая сумма для копирования (ATF)"
@@ -1126,6 +1121,8 @@ msgid "Profit (ATF)"
 msgstr "Прибыль (ATF)"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Profit Sharing"
 msgstr "Прибыльное участие"
 
@@ -1642,6 +1639,7 @@ msgstr "Кошелек"
 msgid "Wallet Balance"
 msgstr "Баланс кошелька"
 
+#: src/hooks/useAccount.ts
 #: src/hooks/useAccount.ts
 msgid "Wallet Deposit"
 msgstr "Пополнение кошелька"

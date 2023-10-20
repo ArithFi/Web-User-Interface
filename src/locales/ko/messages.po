@@ -431,11 +431,6 @@ msgstr "각 주문 복사 거래"
 msgid "Copy Trading Effortlessly"
 msgstr "편안하게 복사 거래"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Copy Trading Profit"
-msgstr "거래 복사 수익"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "복사 거래 총액 (ATF)"
@@ -1126,6 +1121,8 @@ msgid "Profit (ATF)"
 msgstr "이익 (ATF)"
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Personal/Personal.tsx
+#: src/pages/Personal/Referral/Referral.tsx
 msgid "Profit Sharing"
 msgstr "이익 공유"
 
@@ -1642,6 +1639,7 @@ msgstr "지갑"
 msgid "Wallet Balance"
 msgstr "지갑 잔고"
 
+#: src/hooks/useAccount.ts
 #: src/hooks/useAccount.ts
 msgid "Wallet Deposit"
 msgstr "지갑 입금"
