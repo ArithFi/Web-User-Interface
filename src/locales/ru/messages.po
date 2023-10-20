@@ -1550,7 +1550,7 @@ msgstr "Цена срабатывания должна быть выше рын�
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than open price"
-msgstr ""
+msgstr "Цена срабатывания должна быть выше цены открытия"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1565,7 +1565,7 @@ msgstr "Цена срабатывания должна быть ниже рын�
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than open price"
-msgstr ""
+msgstr "Цена срабатывания должна быть ниже цены открытия"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

@@ -1550,7 +1550,7 @@ msgstr "El precio de activación debe ser superior al precio de mercado"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than open price"
-msgstr ""
+msgstr "El precio de activación debe ser mayor que el precio de apertura"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1565,7 +1565,7 @@ msgstr "El precio de activación debe ser inferior al precio de mercado"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than open price"
-msgstr ""
+msgstr "El precio de activación debe ser menor que el precio de apertur"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

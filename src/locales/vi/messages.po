@@ -1550,7 +1550,7 @@ msgstr "Giá kích hoạt nên cao hơn giá thị trường"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than open price"
-msgstr ""
+msgstr "Giá kích hoạt phải cao hơn giá mở cửa"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1565,7 +1565,7 @@ msgstr "Giá kích hoạt nên thấp hơn giá thị trường"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than open price"
-msgstr ""
+msgstr "Giá kích hoạt phải thấp hơn giá mở cửa"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

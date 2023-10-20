@@ -1550,7 +1550,7 @@ msgstr "O preço de gatilho deve ser superior ao preço de mercado"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than open price"
-msgstr ""
+msgstr "O preço de acionamento deve ser superior ao preço de abertura"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1565,7 +1565,7 @@ msgstr "O preço de gatilho deve ser inferior ao preço de mercado"
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than open price"
-msgstr ""
+msgstr "O preço de acionamento deve ser inferior ao preço de abertura"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx

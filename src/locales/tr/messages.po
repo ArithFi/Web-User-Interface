@@ -1552,7 +1552,7 @@ msgstr "Tetikleme fiyatı, piyasa fiyatından yüksek olmalıdır."
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be higher than open price"
-msgstr ""
+msgstr "Tetikleme fiyatı, açılış fiyatından yüksek olmalıdır"
 
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
@@ -1567,7 +1567,7 @@ msgstr "Tetikleme fiyatı, piyasa fiyatından düşük olmalıdır."
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 #: src/pages/Futures/hooks/useSettingTPAndSL.ts
 msgid "Trigger price should be lower than open price"
-msgstr ""
+msgstr "Tetikleme fiyatı, açılış fiyatından düşük olmalıdır"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
