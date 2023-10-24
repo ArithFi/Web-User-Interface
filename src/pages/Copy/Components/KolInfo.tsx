@@ -83,6 +83,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const { isBigMobile } = useWindowWidth();
   const { chainsData, signature } = useArithFi();
   const [openCopyModal, setOpenCopyModal] = useState(false);
+  const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openStopModal, setOpenStopModal] = useState(false);
   const { addTransactionNotice } = usePendingTransactionsBase();
   const [myCopiesMyTradersList, setMyCopiesMyTradersList] =
@@ -181,17 +182,35 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
       return <></>;
     } else if (isFollow) {
       return (
-        <GreyButton
-          title={t`Stop Copying`}
-          onClick={() => setOpenStopModal(true)}
-          style={{
-            fontSize: "14px",
-            lineHeight: "20px",
-            borderRadius: "8px",
-            padding: "10px 16px",
-            width: "fit-content",
-          }}
-        />
+        <Stack
+          spacing={"12px"}
+          direction={"row"}
+          justifyContent={"flex-end"}
+          alignItems={"center"}
+        >
+          <GreyButton
+            title={t`Setting`}
+            onClick={() => setOpenSettingModal(true)}
+            style={{
+              fontSize: "14px",
+              lineHeight: "20px",
+              borderRadius: "8px",
+              padding: "10px 16px",
+              width: "fit-content",
+            }}
+          />
+          <GreyButton
+            title={t`Stop Copying`}
+            onClick={() => setOpenStopModal(true)}
+            style={{
+              fontSize: "14px",
+              lineHeight: "20px",
+              borderRadius: "8px",
+              padding: "10px 16px",
+              width: "fit-content",
+            }}
+          />
+        </Stack>
       );
     } else {
       return (
@@ -575,6 +594,22 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
           }
           getMyCopiesMyTraderList();
           setOpenCopyModal(false);
+        }}
+      />
+      <CopySettingModal
+        open={openSettingModal}
+        name={props.data ? props.data.nickName : ""}
+        address={props.data ? props.data.walletAddress : ""}
+        onClose={(res?: boolean) => {
+          if (res !== undefined) {
+            addTransactionNotice({
+              type: TransactionType.editCopy,
+              info: "",
+              result: res ? SnackBarType.success : SnackBarType.fail,
+            });
+          }
+          getMyCopiesMyTraderList();
+          setOpenSettingModal(false);
         }}
       />
       <CopyStopModal
