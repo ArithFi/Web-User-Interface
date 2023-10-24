@@ -1,6 +1,9 @@
 export async function getChartPricesFromBinance(symbol: string, period: string, limit: number) {
   try {
-    const response = await fetch(`https://db.arithfi.com/api/oracle/price/klines?symbol=${symbol}USDT&limit=${limit}&interval=${period}`);
+    const response = await Promise.race([
+      fetch(`https://db.arithfi.com/api/oracle/price/klines?symbol=${symbol}USDT&limit=${limit}&interval=${period}`),
+      fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}USDT&interval=${period}&limit=${limit}`),
+    ]);
     const prices = await response.json();
     return prices.map((price: any) => {
       return {
@@ -18,9 +21,12 @@ export async function getChartPricesFromBinance(symbol: string, period: string, 
 
 export async function getCurrentPriceOfToken(symbol: string) {
   try {
-    const response = await fetch(`https://db.arithfi.com/api/oracle/price/${symbol.toLowerCase()}usdt`);
+    const response = await Promise.race([
+      fetch(`https://db.arithfi.com/api/oracle/price/${symbol.toLowerCase()}usdt`),
+      fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}USDT`),
+    ]);
     const data = await response.json();
-    return data.value;
+    return data.price;
   } catch (e) {
     console.log(`Error fetching data: ${e}`);
   }
@@ -28,7 +34,10 @@ export async function getCurrentPriceOfToken(symbol: string) {
 
 export async function get24HrFromBinance(symbol: string) {
   try {
-    const res = await fetch(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbol}USDT`);
+    const res = await Promise.race([
+      fetch(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbol}USDT`),
+      fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}USDT`),
+    ]);
     const data = await res.json();
     if (data) {
       return {
