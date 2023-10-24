@@ -9,6 +9,9 @@ import {
   ATFLogo,
   USDTLogo,
   XRPTokenLogo,
+  SOLTokenLogo,
+  LTCTokenLogo,
+  AVAXTokenLogo,
 } from "../components/icons";
 
 
@@ -173,5 +176,26 @@ export const TokenList: Array<TokenType> = [
     decimals: All18,
     address: ATFToken,
     priceDecimals: 4,
+  },
+  {
+    symbol: "SOL",
+    icon: SOLTokenLogo,
+    decimals: All18,
+    address: ATFToken,
+    priceDecimals: 2,
+  },
+  {
+    symbol: "LTC",
+    icon: LTCTokenLogo,
+    decimals: All18,
+    address: ATFToken,
+    priceDecimals: 2,
+  },
+  {
+    symbol: "AVAX",
+    icon: AVAXTokenLogo,
+    decimals: All18,
+    address: ATFToken,
+    priceDecimals: 3,
   },
 ];

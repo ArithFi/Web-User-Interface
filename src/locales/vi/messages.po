@@ -1220,6 +1220,10 @@ msgstr "Phí dịch vụ"
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Đặt biên độ cho mỗi lệnh cũng như tổng số tiền giao dịch sao chép."
 
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr ""
+
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"

@@ -1220,6 +1220,10 @@ msgstr "서비스 수수료"
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "각 주문 및 전체 복사 거래 금액에 마진 설정."
 
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr ""
+
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"

@@ -19,7 +19,18 @@ export interface FuturesPrice {
   [key: string]: BigNumber;
 }
 const UPDATE_PRICE = 15;
-export const priceToken = ["ETH", "BTC", "BNB", "MATIC", "ADA", "DOGE", "XRP"];
+export const priceToken = [
+  "ETH",
+  "BTC",
+  "BNB",
+  "MATIC",
+  "ADA",
+  "DOGE",
+  "XRP",
+  "SOL",
+  "LTC",
+  "AVAX",
+];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
   const { account, chainsData, signature } = useArithFi();
@@ -302,10 +313,16 @@ const Futures: FC = () => {
             justifyContent={"center"}
             paddingX={`${paddingX}px`}
           >
-            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}
-            sx={(theme) => ({
-              backgroundColor: isBigMobile ? theme.normal.bg1 : theme.normal.bg0
-            })}>
+            <Stack
+              spacing={"16px"}
+              width={"100%"}
+              paddingY={`${paddingY}px`}
+              sx={(theme) => ({
+                backgroundColor: isBigMobile
+                  ? theme.normal.bg1
+                  : theme.normal.bg0,
+              })}
+            >
               <Stack>
                 {exchangeTvChart()}
                 {newOrder()}

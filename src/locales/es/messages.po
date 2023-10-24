@@ -1220,6 +1220,10 @@ msgstr "Tarifa de servicio"
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Establezca el margen para cada orden, así como el monto total de la copia de trading."
 
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr ""
+
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
