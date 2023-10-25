@@ -274,7 +274,28 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const mobile = useMemo(() => {
     return (
       <Stack spacing={"12px"} alignItems={"center"} paddingX={"20px"}>
-        {kolIcon}
+        <Stack alignItems={"center"} sx={{ width: "80px", height: "88px" }}>
+          {kolIcon}
+          {isFollow ? (
+            <Box
+              sx={(theme) => ({
+                padding: "3px 4px",
+                borderRadius: "4px",
+                backgroundColor: theme.normal.success,
+                fontWeight: "700",
+                fontSize: "10px",
+                lineHeight: "14px",
+                color: theme.normal.highLight,
+                marginTop: "-12px",
+              })}
+            >
+              <Trans>Following</Trans>
+            </Box>
+          ) : (
+            <></>
+          )}
+        </Stack>
+
         <Stack spacing={"16px"} alignItems={"center"}>
           <Stack spacing={"8"} alignItems={"center"}>
             <Box
@@ -412,6 +433,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
     currentFollowers,
     followersAssets,
     introduction,
+    isFollow,
     kolBaseInfo,
     kolIcon,
     kolProfitLossRate,
@@ -430,7 +452,27 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
         paddingX={["20px", "20px", "20px", "20px", "0"]}
         paddingBottom={"48px"}
       >
-        {kolIcon}
+        <Stack alignItems={"center"} sx={{ width: "80px", height: "88px" }}>
+          {kolIcon}
+          {isFollow ? (
+            <Box
+              sx={(theme) => ({
+                padding: "3px 4px",
+                borderRadius: "4px",
+                backgroundColor: theme.normal.success,
+                fontWeight: "700",
+                fontSize: "10px",
+                lineHeight: "14px",
+                color: theme.normal.highLight,
+                marginTop: "-12px",
+              })}
+            >
+              <Trans>Following</Trans>
+            </Box>
+          ) : (
+            <></>
+          )}
+        </Stack>
         <Stack spacing={"24px"} width={"100%"}>
           <Stack
             direction={"row"}
@@ -570,6 +612,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
     currentFollowers,
     followersAssets,
     introduction,
+    isFollow,
     kolBaseInfo,
     kolIcon,
     kolProfitLossRate,

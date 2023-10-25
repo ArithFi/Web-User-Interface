@@ -55,7 +55,7 @@ export interface TraderFollowerList {
 }
 
 function useTrader(address: string | undefined) {
-  const { chainsData } = useArithFi();
+  const { chainsData, account } = useArithFi();
   const [kolInfo, setKolInfo] = useState<AllKOLModel>();
   const [earningsData, setEarningsData] = useState<Array<EarningsListModel>>(
     []
@@ -69,9 +69,6 @@ function useTrader(address: string | undefined) {
   >([]);
   const [traderOrderHistoryList, setTraderOrderHistoryList] = useState<
     Array<TraderOrderList>
-  >([]);
-  const [traderFollowerList, setTraderFollowerList] = useState<
-    Array<TraderFollowerList>
   >([]);
 
   const [tabsValue, setTabsValue] = useState(0);
@@ -241,7 +238,9 @@ function useTrader(address: string | undefined) {
               copy: item["copy"],
             };
           })
-          .filter((item: any) => item.leverage.toString() !== "0" && !item.copy);
+          .filter(
+            (item: any) => item.leverage.toString() !== "0" && !item.copy
+          );
         const pOrderList = list.filter((item) => {
           return item.status === 2;
         });
@@ -287,32 +286,6 @@ function useTrader(address: string | undefined) {
     }
   }, [address, chainsData.chainId]);
 
-  const getFollowerList = useCallback(async () => {
-    try {
-      if (!address) {
-        return;
-      }
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
-      const baseList = await copyTraderFollowers(chainId, address, {
-        Authorization: "",
-      });
-      if (Number(baseList["errorCode"]) === 0) {
-        const list: Array<TraderFollowerList> = baseList["value"].map(
-          (item: { [x: string]: any }) => {
-            return {
-              walletAddress: item["walletAddress"],
-              followerProfitLoss: item["followerProfitLoss"],
-            };
-          }
-        );
-
-        setTraderFollowerList(list);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [address, chainsData.chainId]);
-
   useEffect(() => {
     getEarnings();
     getPerformance();
@@ -321,15 +294,13 @@ function useTrader(address: string | undefined) {
 
   useEffect(() => {
     getKOLInfo();
-    getFollowerList();
     const time = setInterval(() => {
       getKOLInfo();
-      getFollowerList();
     }, 30 * 1000);
     return () => {
       clearInterval(time);
     };
-  }, [getKOLInfo, getFollowerList]);
+  }, [getKOLInfo]);
 
   useEffect(() => {
     getList();
@@ -358,7 +329,6 @@ function useTrader(address: string | undefined) {
     performanceSymbolData,
     traderOrderList,
     traderOrderHistoryList,
-    traderFollowerList,
   };
 }
 
