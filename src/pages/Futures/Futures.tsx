@@ -83,6 +83,15 @@ const Futures: FC = () => {
     const XRPPrice = listPriceBase
       ? listPriceBase["value"]["XRPUSDT"].toString().stringToBigNumber(18)
       : undefined;
+    const SOLPrice = listPriceBase
+      ? listPriceBase["value"]["SOLUSDT"].toString().stringToBigNumber(18)
+      : undefined;
+    const LTCPrice = listPriceBase
+      ? listPriceBase["value"]["LTCUSDT"].toString().stringToBigNumber(18)
+      : undefined;
+    const AVAXPrice = listPriceBase
+      ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
+      : undefined;
 
     if (
       ETHPrice &&
@@ -91,7 +100,10 @@ const Futures: FC = () => {
       MATICPrice &&
       ADAPrice &&
       DOGEPrice &&
-      XRPPrice
+      XRPPrice &&
+      SOLPrice &&
+      LTCPrice &&
+      AVAXPrice
     ) {
       const newPrice: FuturesPrice = {
         ETH: ETHPrice,
@@ -101,6 +113,9 @@ const Futures: FC = () => {
         ADA: ADAPrice,
         DOGE: DOGEPrice,
         XRP: XRPPrice,
+        SOL: SOLPrice,
+        LTC: LTCPrice,
+        AVAX: AVAXPrice,
       };
       return newPrice;
     } else {
