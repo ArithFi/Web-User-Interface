@@ -14,6 +14,7 @@ import {
 import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
+import ExchangeTVChart2 from "./ExchangeTVChart2";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
@@ -259,11 +260,18 @@ const Futures: FC = () => {
 
   const exchangeTvChart = useCallback(() => {
     return (
-      <ExchangeTVChart
-        tokenPair={tokenPair}
-        basePrice={basePrice}
-        changeTokenPair={(value: string) => setTokenPair(value)}
-      />
+      <>
+        <ExchangeTVChart
+          tokenPair={tokenPair}
+          basePrice={basePrice}
+          changeTokenPair={(value: string) => setTokenPair(value)}
+        />
+        <ExchangeTVChart2
+          tokenPair={tokenPair}
+          basePrice={basePrice}
+          changeTokenPair={(value: string) => setTokenPair(value)}
+        />
+      </>
     );
   }, [tokenPair, basePrice]);
 
