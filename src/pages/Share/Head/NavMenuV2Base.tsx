@@ -249,7 +249,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           />
         </Stack>
         <ArithFiLine sx={{ margin: "15px 0" }} />
-        <Stack
+        {/* <Stack
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -272,7 +272,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           <p>
             <Trans>Documentation</Trans>
           </p>
-        </Stack>
+        </Stack> */}
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
