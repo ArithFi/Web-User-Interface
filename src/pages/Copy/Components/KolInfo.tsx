@@ -230,7 +230,11 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   }, [isFollow]);
 
   const kolIcon = useMemo(() => {
-    if (props.data?.avatar !== "-" && props.data?.avatar !== "") {
+    if (
+      props.data?.avatar !== "-" &&
+      props.data?.avatar !== "" &&
+      props.data?.avatar !== undefined
+    ) {
       return (
         <Box
           sx={(theme) => ({

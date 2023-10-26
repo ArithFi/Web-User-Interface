@@ -617,6 +617,7 @@ msgstr "Followers"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
 msgid "Following"
 msgstr "Following"
 

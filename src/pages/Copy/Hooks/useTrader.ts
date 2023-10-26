@@ -5,7 +5,6 @@ import {
   copyKOLInfo,
   copyPerformance,
   copyPerformanceSymbol,
-  copyTraderFollowers,
   copyTraderHistory,
   serviceList,
 } from "../../../lib/ArithFiRequest";
@@ -55,7 +54,7 @@ export interface TraderFollowerList {
 }
 
 function useTrader(address: string | undefined) {
-  const { chainsData, account } = useArithFi();
+  const { chainsData } = useArithFi();
   const [kolInfo, setKolInfo] = useState<AllKOLModel>();
   const [earningsData, setEarningsData] = useState<Array<EarningsListModel>>(
     []
@@ -107,6 +106,7 @@ function useTrader(address: string | undefined) {
           kolProfitLoss: value["kolProfitLoss"],
           kolProfitLossRate: value["kolProfitLossRate"],
           roiList: value["roiList"],
+          follow: value["follow"],
         };
         setKolInfo(info);
       }
