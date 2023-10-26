@@ -527,6 +527,12 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             color: theme.normal.highLight,
             backgroundColor: theme.normal.success,
             cursor: "pointer",
+            "&:hover": {
+              backgroundColor: theme.normal.success_hover,
+            },
+            "&:active": {
+              backgroundColor: theme.normal.success_active,
+            },
           })}
           component={"button"}
           onClick={() => openCallBack(true)}
@@ -542,6 +548,12 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             color: theme.normal.highLight,
             backgroundColor: theme.normal.danger,
             cursor: "pointer",
+            "&:hover": {
+              backgroundColor: theme.normal.danger_hover,
+            },
+            "&:active": {
+              backgroundColor: theme.normal.danger_active,
+            },
           })}
           component={"button"}
           onClick={() => openCallBack(false)}
