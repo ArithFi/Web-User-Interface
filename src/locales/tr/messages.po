@@ -522,7 +522,6 @@ msgstr "Bağlantıyı Kes"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Dökümantasyon"
 
@@ -619,7 +618,7 @@ msgstr "Takipçiler"
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/kolItem.tsx
 msgid "Following"
-msgstr ""
+msgstr "Takip"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1230,7 +1229,7 @@ msgstr "Her emir için marjı ve genel kopya işlem miktarını ayarlayın."
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Setting"
-msgstr ""
+msgstr "Ayar"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx

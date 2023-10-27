@@ -520,7 +520,6 @@ msgstr "ディスコネクト"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr ""
 

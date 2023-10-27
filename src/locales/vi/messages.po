@@ -522,7 +522,6 @@ msgstr "Ngắt kết nối"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Tài liệu"
 
@@ -619,7 +618,7 @@ msgstr "Người theo dõi"
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/kolItem.tsx
 msgid "Following"
-msgstr ""
+msgstr "Theo sau"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1228,7 +1227,7 @@ msgstr "Đặt biên độ cho mỗi lệnh cũng như tổng số tiền giao d
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Setting"
-msgstr ""
+msgstr "Thiết lập"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
