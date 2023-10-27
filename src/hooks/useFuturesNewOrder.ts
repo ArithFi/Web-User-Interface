@@ -295,11 +295,12 @@ function useFuturesNewOrder(
 
   const baseAction = useCallback(
     (isLong: boolean) => {
-      setLoading(true);
-      open(isLong);
-      // alert("下单成功");
+      if (!loading) {
+        setLoading(true);
+        open(isLong);
+      }
     },
-    [open]
+    [loading, open]
   );
   const triggerNoticeCallback = useCallback(
     (isLong?: boolean) => {
@@ -611,6 +612,7 @@ function useFuturesNewOrder(
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
+    loading
   };
 }
 

@@ -20,6 +20,7 @@ export interface AllKOLModel {
   kolProfitLoss: number;
   kolProfitLossRate: number;
   roiList: [number];
+  follow: boolean;
 }
 
 export interface MyTradeInfoModel {
@@ -30,7 +31,7 @@ export interface MyTradeInfoModel {
 }
 
 function useCopy() {
-  const { chainsData, signature } = useArithFi();
+  const { chainsData, account, signature } = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [page, setPage] = useState<number>(1);
@@ -40,9 +41,15 @@ function useCopy() {
   const getAllKOL = useCallback(async () => {
     const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
     const pageAmount = isBigMobile ? 5 : 12;
-    const req = await copyAllKOL(chainId, page, pageAmount, {
-      Authorization: "",
-    });
+    const req = await copyAllKOL(
+      chainId,
+      page,
+      pageAmount,
+      account.address ?? "",
+      {
+        Authorization: "",
+      }
+    );
     if (Number(req["errorCode"]) === 0) {
       const value = req["value"]["records"];
       const allItem = req["value"]["total"];
@@ -64,12 +71,13 @@ function useCopy() {
           kolProfitLoss: item["kolProfitLoss"],
           kolProfitLossRate: item["kolProfitLossRate"],
           roiList: item["roiList"],
+          follow: item["follow"],
         };
         return one;
       });
       setKolList(list);
     }
-  }, [chainsData.chainId, isBigMobile, page]);
+  }, [account.address, chainsData.chainId, isBigMobile, page]);
 
   const getMyTradeInfo = useCallback(async () => {
     if (chainsData.chainId && signature) {

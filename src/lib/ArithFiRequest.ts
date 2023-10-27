@@ -88,11 +88,17 @@ async function baseRequestGetWithHeader(
 }
 
 export function KOLClick(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/click", info);
+  baseRequestPOSTWithBody(
+    "https://db.arithfi.com/dashboardapi/kol/click",
+    info
+  );
 }
 
 export function KOLWallet(info: RequestBodyInterface) {
-  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/wallet", info);
+  baseRequestPOSTWithBody(
+    "https://db.arithfi.com/dashboardapi/kol/wallet",
+    info
+  );
 }
 
 export function KOLTx(info: RequestBodyInterface) {
@@ -102,7 +108,6 @@ export function KOLTx(info: RequestBodyInterface) {
 export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
 }
-
 
 /**
  * service
@@ -337,21 +342,20 @@ export function copyAllKOL(
   chainId: number,
   pageNum: number,
   pageSize: number,
+  address: string,
   info: RequestBodyInterface
 ) {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/copy/kol/list?chainId=${chainId}&pageNumber=${pageNum}&pageSize=${pageSize}`,
+    )}/copy/kol/list?chainId=${chainId}&walletAddress=${address}&pageNumber=${pageNum}&pageSize=${pageSize}`,
     info
   );
 }
 
 export function copyMyTradeInfo(chainId: number, info: RequestBodyInterface) {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/copy/follower/position/info?chainId=${chainId}`,
+    `${serviceBaseURL(chainId)}/copy/follower/position/info?chainId=${chainId}`,
     info
   );
 }
@@ -426,9 +430,7 @@ export function copyTraderFollowers(
 
 export function copyMyCopiesList(chainId: number, info: RequestBodyInterface) {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/copy/follower/future/list?chainId=${chainId}`,
+    `${serviceBaseURL(chainId)}/copy/follower/future/list?chainId=${chainId}`,
     info
   );
 }
@@ -450,9 +452,7 @@ export function copyMyCopiesMyTradersList(
   info: RequestBodyInterface
 ) {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/copy/follower/kolList?chainId=${chainId}`,
+    `${serviceBaseURL(chainId)}/copy/follower/kolList?chainId=${chainId}`,
     info
   );
 }

@@ -522,7 +522,6 @@ msgstr "연결 해제"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "문서화"
 
@@ -614,6 +613,12 @@ msgstr "ArithFi에서 최고의 거래 전략을 따르세요."
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Followers"
 msgstr "팔로워"
+
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Following"
+msgstr "다음"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1219,6 +1224,10 @@ msgstr "서비스 수수료"
 #: src/pages/Copy/Copy.tsx
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "각 주문 및 전체 복사 거래 금액에 마진 설정."
+
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr "설정"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx

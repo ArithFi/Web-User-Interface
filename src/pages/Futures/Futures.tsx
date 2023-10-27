@@ -19,7 +19,18 @@ export interface FuturesPrice {
   [key: string]: BigNumber;
 }
 const UPDATE_PRICE = 15;
-export const priceToken = ["ETH", "BTC", "BNB", "MATIC", "ADA", "DOGE", "XRP"];
+export const priceToken = [
+  "ETH",
+  "BTC",
+  "BNB",
+  "MATIC",
+  "ADA",
+  "DOGE",
+  "XRP",
+  "SOL",
+  "LTC",
+  "AVAX",
+];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
   const { account, chainsData, signature } = useArithFi();
@@ -72,6 +83,15 @@ const Futures: FC = () => {
     const XRPPrice = listPriceBase
       ? listPriceBase["value"]["XRPUSDT"].toString().stringToBigNumber(18)
       : undefined;
+    const SOLPrice = listPriceBase
+      ? listPriceBase["value"]["SOLUSDT"].toString().stringToBigNumber(18)
+      : undefined;
+    const LTCPrice = listPriceBase
+      ? listPriceBase["value"]["LTCUSDT"].toString().stringToBigNumber(18)
+      : undefined;
+    const AVAXPrice = listPriceBase
+      ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
+      : undefined;
 
     if (
       ETHPrice &&
@@ -80,7 +100,10 @@ const Futures: FC = () => {
       MATICPrice &&
       ADAPrice &&
       DOGEPrice &&
-      XRPPrice
+      XRPPrice &&
+      SOLPrice &&
+      LTCPrice &&
+      AVAXPrice
     ) {
       const newPrice: FuturesPrice = {
         ETH: ETHPrice,
@@ -90,6 +113,9 @@ const Futures: FC = () => {
         ADA: ADAPrice,
         DOGE: DOGEPrice,
         XRP: XRPPrice,
+        SOL: SOLPrice,
+        LTC: LTCPrice,
+        AVAX: AVAXPrice,
       };
       return newPrice;
     } else {
@@ -302,10 +328,16 @@ const Futures: FC = () => {
             justifyContent={"center"}
             paddingX={`${paddingX}px`}
           >
-            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}
-            sx={(theme) => ({
-              backgroundColor: isBigMobile ? theme.normal.bg1 : theme.normal.bg0
-            })}>
+            <Stack
+              spacing={"16px"}
+              width={"100%"}
+              paddingY={`${paddingY}px`}
+              sx={(theme) => ({
+                backgroundColor: isBigMobile
+                  ? theme.normal.bg1
+                  : theme.normal.bg0,
+              })}
+            >
               <Stack>
                 {exchangeTvChart()}
                 {newOrder()}

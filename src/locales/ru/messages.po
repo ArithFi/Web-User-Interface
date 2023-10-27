@@ -522,7 +522,6 @@ msgstr "Отключить"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Документация"
 
@@ -614,6 +613,12 @@ msgstr "Следуйте за лучшими торговыми стратеги
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Followers"
 msgstr "Подписчики"
+
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Following"
+msgstr "Следующий"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1219,6 +1224,10 @@ msgstr "Сервисный сбор"
 #: src/pages/Copy/Copy.tsx
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Установите маржу для каждого ордера, а также общую сумму копирования сделок."
+
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr "Настройка"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx

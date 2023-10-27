@@ -29,8 +29,7 @@ const Trader: FC = () => {
     setPerformanceSymbolDay,
     performanceSymbolData,
     traderOrderList,
-    traderOrderHistoryList,
-    traderFollowerList,
+    traderOrderHistoryList
   } = useTrader(address ?? "");
 
   useEffect(() => {

@@ -92,6 +92,23 @@ const NUM = (
   </svg>
 );
 
+const Follow = (
+  <svg
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M2 10C2 7.79086 3.79086 6 6 6H42C44.2092 6 46 7.79088 46 10V16C46 17.1046 45.1046 18 44 18C42.8954 18 42 17.1046 42 16V10H6V38H16C17.1046 38 18 38.8954 18 40C18 41.1046 17.1046 42 16 42H6C3.79088 42 2 40.2092 2 38V10ZM22 26C22 23.7908 23.7908 22 26 22H42C44.2092 22 46 23.7908 46 26V38C46 40.2092 44.2092 42 42 42H26C23.7908 42 22 40.2092 22 38V26ZM42 26H26V38H42V26Z"
+      fill="#333333"
+    />
+  </svg>
+);
+
 // const testData = [
 //   {
 //     name: "1",
@@ -460,13 +477,59 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
             </Box>
           </Stack>
         </Stack>
-        <MainButton
-          title={"Copy"}
-          onClick={() => {
-            window.location.href = `/#/trader/${props.data.walletAddress}`;
-          }}
-          style={{ height: "40px", width: "100%", fontSize: "14px" }}
-        />
+        {props.data.follow ? (
+          <Stack
+          direction={"row"}
+            sx={(theme) => ({
+              backgroundColor: theme.normal.success,
+              "&:hover": {
+                backgroundColor: theme.normal.success_hover,
+              },
+              "&:active": {
+                backgroundColor: theme.normal.success_active,
+              },
+              color: theme.normal.highLight,
+              fontSize: "14px",
+              fontWeight: "700",
+              width: "100%",
+              height: "40px",
+              borderRadius: "8px",
+              "& svg": {
+                width: "16px",
+                height: "16px",
+                "& path": {
+                  fill: theme.normal.highLight,
+                },
+              },
+              cursor: "pointer"
+            })}
+            justifyContent={"center"}
+            alignItems={"center"}
+            component={"button"}
+            onClick={() => {
+              window.location.href = `/#/trader/${props.data.walletAddress}`;
+            }}
+          >
+            <Stack
+              spacing={"8px"}
+              direction={"row"}
+              alignItems={"center"}
+            >
+              {Follow}
+              <Box>
+                <Trans>Following</Trans>
+              </Box>
+            </Stack>
+          </Stack>
+        ) : (
+          <MainButton
+            title={"Copy"}
+            onClick={() => {
+              window.location.href = `/#/trader/${props.data.walletAddress}`;
+            }}
+            style={{ height: "40px", width: "100%", fontSize: "14px" }}
+          />
+        )}
       </Stack>
     </Grid>
   );

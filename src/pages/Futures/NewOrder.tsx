@@ -75,6 +75,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
+    loading
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -527,8 +528,19 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             color: theme.normal.highLight,
             backgroundColor: theme.normal.success,
             cursor: "pointer",
+            "&:hover": {
+              backgroundColor: theme.normal.success_hover,
+            },
+            "&:active": {
+              backgroundColor: theme.normal.success_active,
+            },
+            "&:disabled": {
+              backgroundColor: theme.normal.disabled_bg,
+              color: theme.normal.disabled_text
+            }
           })}
           component={"button"}
+          disabled={loading}
           onClick={() => openCallBack(true)}
         >{t`Open Long`}</Box>
         <Box
@@ -542,13 +554,24 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             color: theme.normal.highLight,
             backgroundColor: theme.normal.danger,
             cursor: "pointer",
+            "&:hover": {
+              backgroundColor: theme.normal.danger_hover,
+            },
+            "&:active": {
+              backgroundColor: theme.normal.danger_active,
+            },
+            "&:disabled": {
+              backgroundColor: theme.normal.disabled_bg,
+              color: theme.normal.disabled_text
+            }
           })}
           component={"button"}
+          disabled={loading}
           onClick={() => openCallBack(false)}
         >{t`Open Short`}</Box>
       </Stack>
     );
-  }, [openCallBack]);
+  }, [loading, openCallBack]);
 
   const connectButton = useMemo(() => {
     return (

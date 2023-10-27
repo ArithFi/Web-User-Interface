@@ -522,7 +522,6 @@ msgstr "Desconectar"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Documentación"
 
@@ -614,6 +613,12 @@ msgstr "Seguir las mejores estrategias de trading en ArithFi"
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Followers"
 msgstr "Seguidores"
+
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Following"
+msgstr "Siguiendo"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1219,6 +1224,10 @@ msgstr "Tarifa de servicio"
 #: src/pages/Copy/Copy.tsx
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Establezca el margen para cada orden, así como el monto total de la copia de trading."
+
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr "Configuración"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx

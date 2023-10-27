@@ -73,3 +73,6 @@ export { ReactComponent as LJ1 } from "./svg/LJ1.svg";
 export { ReactComponent as LJ2 } from "./svg/LJ2.svg";
 export { ReactComponent as ATFIconDark } from "./svg/ATFIconDark.svg";
 export { ReactComponent as Coin98 } from "./svg/Coin98.svg";
+export { ReactComponent as SOLTokenLogo } from "./svg/SOLTokenLogo.svg";
+export { ReactComponent as LTCTokenLogo } from "./svg/LTCTokenLogo.svg";
+export { ReactComponent as AVAXTokenLogo } from "./svg/AVAXTokenLogo.svg";

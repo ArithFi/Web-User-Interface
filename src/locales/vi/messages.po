@@ -522,7 +522,6 @@ msgstr "Ngắt kết nối"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Tài liệu"
 
@@ -614,6 +613,12 @@ msgstr "Thụ động theo các chiến lược giao dịch hàng đầu trên A
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Followers"
 msgstr "Người theo dõi"
+
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Following"
+msgstr "Theo sau"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1219,6 +1224,10 @@ msgstr "Phí dịch vụ"
 #: src/pages/Copy/Copy.tsx
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Đặt biên độ cho mỗi lệnh cũng như tổng số tiền giao dịch sao chép."
+
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr "Thiết lập"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx

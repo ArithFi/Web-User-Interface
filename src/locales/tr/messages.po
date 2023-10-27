@@ -522,7 +522,6 @@ msgstr "Bağlantıyı Kes"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-#: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Documentation"
 msgstr "Dökümantasyon"
 
@@ -614,6 +613,12 @@ msgstr "ArithFi'de en iyi ticaret stratejilerini takip edin."
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Followers"
 msgstr "Takipçiler"
+
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Following"
+msgstr "Takip"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1221,6 +1226,10 @@ msgstr "Hizmet Ücreti"
 #: src/pages/Copy/Copy.tsx
 msgid "Set the margin for each order as well as the overall copy trading amount."
 msgstr "Her emir için marjı ve genel kopya işlem miktarını ayarlayın."
+
+#: src/pages/Copy/Components/KolInfo.tsx
+msgid "Setting"
+msgstr "Ayar"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
