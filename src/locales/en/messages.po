@@ -489,6 +489,10 @@ msgstr "Custom Copy Trading"
 msgid "Daily Return"
 msgstr "Daily Return"
 
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Dark mode"
+msgstr "Dark mode"
+
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -1183,6 +1187,8 @@ msgstr "Roadmap of ArithFi"
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "ROI"
 msgstr "ROI"
 

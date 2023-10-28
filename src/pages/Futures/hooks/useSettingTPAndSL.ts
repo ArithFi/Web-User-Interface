@@ -10,8 +10,8 @@ function useSettingTPAndSL(
   lever: number,
   limitPrice: number,
   callBack: (tp: number, sl: number) => void,
+  openPrice: number,
   isFirst?: boolean,
-  openPrice?: number,
   append?: number,
   tpNow?: number,
   slNow?: number,
@@ -19,6 +19,8 @@ function useSettingTPAndSL(
 ) {
   const [tpPercent, setTpPercent] = useState<string>("");
   const [slPercent, setSlPercent] = useState<string>("");
+  const [tpPercentType, setTpPercentType] = useState(0);
+  const [slPercentType, setSlPercentType] = useState(0);
   const setTPPercent = useCallback(
     (data: string) => {
       if (data === "" || Number(data) === 0) {
@@ -27,14 +29,20 @@ function useSettingTPAndSL(
       }
       const tpNum = Number(data);
       if (isLong) {
-        const percent = (((tpNum - limitPrice) / limitPrice) * 100).floor(4);
-        setTpPercent(percent);
+        var percentLong = (((tpNum - limitPrice) / limitPrice) * 100).floor(4);
+        if (tpPercentType === 0) {
+          percentLong = (((tpNum - openPrice) / openPrice) * lever).floor(4);
+        }
+        setTpPercent(percentLong);
       } else {
-        const percent = (((limitPrice - tpNum) / limitPrice) * 100).floor(4);
-        setTpPercent(percent);
+        var percentShort = (((limitPrice - tpNum) / limitPrice) * 100).floor(4);
+        if (tpPercentType === 0) {
+          percentShort = (((openPrice - tpNum) / openPrice) * lever).floor(4);
+        }
+        setTpPercent(percentShort);
       }
     },
-    [isLong, limitPrice]
+    [isLong, lever, limitPrice, openPrice, tpPercentType]
   );
   const setSLPercent = useCallback(
     (data: string) => {
@@ -44,14 +52,22 @@ function useSettingTPAndSL(
       }
       const slNum = Number(data);
       if (isLong) {
-        const percent = ((-(slNum - limitPrice) / limitPrice) * 100).floor(4);
-        setSlPercent(percent);
+        var percentLong = ((-(slNum - limitPrice) / limitPrice) * 100).floor(4);
+        if (slPercentType === 0) {
+          percentLong = ((-(slNum - openPrice) / openPrice) * lever).floor(4);
+        }
+        setSlPercent(percentLong);
       } else {
-        const percent = ((-(limitPrice - slNum) / limitPrice) * 100).floor(4);
-        setSlPercent(percent);
+        var percentShort = ((-(limitPrice - slNum) / limitPrice) * 100).floor(
+          4
+        );
+        if (slPercentType === 0) {
+          percentShort = ((-(openPrice - slNum) / openPrice) * lever).floor(4);
+        }
+        setSlPercent(percentShort);
       }
     },
-    [isLong, limitPrice]
+    [isLong, lever, limitPrice, openPrice, slPercentType]
   );
   const [showTP, setShowTP] = useState(true);
   const [showSL, setShowSL] = useState(true);
@@ -81,14 +97,20 @@ function useSettingTPAndSL(
       }
       const tpPercentNum = Number(data);
       if (isLong) {
-        const newTP = (limitPrice + (limitPrice * tpPercentNum) / 100).floor(6);
-        setTp(newTP);
+        var newTPLong = (limitPrice + (limitPrice * tpPercentNum) / 100).floor(6);
+        if (tpPercentType === 0) {
+          newTPLong = ((1 + tpPercentNum / 100 / lever) * openPrice).floor(6)
+        }
+        setTp(newTPLong);
       } else {
-        const newTP = (limitPrice - (limitPrice * tpPercentNum) / 100).floor(6);
-        setTp(newTP);
+        var newTPShort = (limitPrice - (limitPrice * tpPercentNum) / 100).floor(6);
+        if (tpPercentType === 0) {
+          newTPShort = ((1 - tpPercentNum / 100 / lever) * openPrice).floor(6)
+        }
+        setTp(newTPShort);
       }
     },
-    [isLong, limitPrice]
+    [isLong, lever, limitPrice, openPrice, tpPercentType]
   );
   const setSLNum = useCallback(
     (data: string) => {
@@ -98,14 +120,20 @@ function useSettingTPAndSL(
       }
       const slPercentNum = Number(data);
       if (isLong) {
-        const newSL = (limitPrice - (limitPrice * slPercentNum) / 100).floor(6);
-        setSl(newSL);
+        var newSLLong = (limitPrice - (limitPrice * slPercentNum) / 100).floor(6);
+        if (slPercentType === 0) {
+          newSLLong = ((1 - slPercentNum / 100 / lever) * openPrice).floor(6)
+        }
+        setSl(newSLLong);
       } else {
-        const newSL = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
-        setSl(newSL);
+        var newSLShort = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
+        if (slPercentType === 0) {
+          newSLLong = ((1 + slPercentNum / 100 / lever) * openPrice).floor(6)
+        }
+        setSl(newSLShort);
       }
     },
-    [isLong, limitPrice]
+    [isLong, lever, limitPrice, openPrice, slPercentType]
   );
   const tpError = useMemo(() => {
     if (tp === "") {
@@ -321,6 +349,10 @@ function useSettingTPAndSL(
     showLiqPrice,
     tlPlaceHolder,
     slPlaceHolder,
+    tpPercentType,
+    slPercentType,
+    setTpPercentType,
+    setSlPercentType,
   };
 }
 

@@ -487,6 +487,10 @@ msgstr ""
 msgid "Daily Return"
 msgstr ""
 
+#: src/pages/Share/Head/NavMenuV2Base.tsx
+msgid "Dark mode"
+msgstr ""
+
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -1179,6 +1183,8 @@ msgstr ""
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
+#: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "ROI"
 msgstr ""
 

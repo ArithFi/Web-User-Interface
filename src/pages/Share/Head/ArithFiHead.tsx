@@ -351,7 +351,7 @@ const ArithFiHead: FC = () => {
         >
           {isBigMobile ? <></> : <LanguageMenu />}
 
-          {/* {!isBigMobile ? (
+          {!isBigMobile ? (
             <>
               <ThemeBox onClick={changeTheme}>
                 {nowTheme.isLight ? <Dark /> : <Light />}
@@ -359,7 +359,7 @@ const ArithFiHead: FC = () => {
             </>
           ) : (
             <></>
-          )} */}
+          )}
           {navMenu}
         </Stack>
       </Stack>

@@ -5,7 +5,9 @@ import Agree from "../../../components/Agree/Agree";
 import Box from "@mui/material/Box";
 import { Trans, t } from "@lingui/macro";
 import useSettingTPAndSL from "../hooks/useSettingTPAndSL";
-import InputWithSymbol from "../../../components/NormalInput/InputWidthSymbol";
+import InputWithSymbol, {
+  InputWithSymbolWithSelect,
+} from "../../../components/NormalInput/InputWidthSymbol";
 import ErrorLabel from "../../../components/ErrorLabel/ErrorLabel";
 import ArithFiLine from "../../../components/ArithFiLine";
 import NormalInfo from "../../../components/NormalInfo/NormalInfo";
@@ -17,8 +19,8 @@ interface SettingTPAndSLProps {
   lever: number;
   limitPrice: number;
   callBack: (tp: number, sl: number) => void;
+  openPrice: number;
   isFirst?: boolean;
-  openPrice?: number;
   append?: number;
   tpNow?: number;
   slNow?: number;
@@ -58,6 +60,10 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     showLiqPrice,
     tlPlaceHolder,
     slPlaceHolder,
+    tpPercentType,
+    slPercentType,
+    setTpPercentType,
+    setSlPercentType,
   } = useSettingTPAndSL(
     props.token,
     props.baseAmount,
@@ -65,8 +71,8 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     props.lever,
     props.limitPrice,
     props.callBack,
-    props.isFirst,
     props.openPrice,
+    props.isFirst,
     props.append,
     props.tpNow,
     props.slNow,
@@ -157,13 +163,19 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                 />
               </Box>
               <Box width={"30%"}>
-                <InputWithSymbol
-                  placeholder={t`Offset`}
+                <InputWithSymbolWithSelect
+                  placeholder={[t`ROI`, t`Offset`]}
+                  selected={tpPercentType}
                   value={tpPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {
                     setTpPercent(value.formatInputNum4());
                     setTPNum(value.formatInputNum4());
+                  }}
+                  changeSelected={(value: number) => {
+                    setTpPercentType(value);
+                    setTp("");
+                    setTpPercent("");
                   }}
                   isError={tpError}
                 />
@@ -224,13 +236,19 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                 />
               </Box>
               <Box width={"30%"}>
-                <InputWithSymbol
-                  placeholder={t`Offset`}
+                <InputWithSymbolWithSelect
+                  placeholder={[t`ROI`, t`Offset`]}
+                  selected={slPercentType}
                   value={slPercent}
                   symbol={"%"}
                   changeValue={(value: string) => {
                     setSlPercent(value.formatInputNum4());
                     setSLNum(value.formatInputNum4());
+                  }}
+                  changeSelected={(value: number) => {
+                    setSlPercentType(value);
+                    setSl("");
+                    setSlPercent("");
                   }}
                   isError={slError}
                 />
