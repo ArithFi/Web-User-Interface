@@ -8,6 +8,7 @@ import {
   FuturesIcon,
   Light,
   ArithFiLogo,
+  ArithFiLogoDark,
   ATFLogo,
   SwapExchangeSmall,
   Copy,
@@ -323,7 +324,19 @@ const ArithFiHead: FC = () => {
                 <ATFLogo />
               </Box>
             ) : (
-              <ArithFiLogo />
+              <Box
+                sx={{
+                  width: "140px",
+                  height: "36px",
+                  "& svg": {
+                    width: "140px",
+                    height: "36px",
+                    display: "block",
+                  },
+                }}
+              >
+                {!nowTheme.isLight ? <ArithFiLogoDark /> : <ArithFiLogo />}
+              </Box>
             )}
           </Link>
         </LogoBox>

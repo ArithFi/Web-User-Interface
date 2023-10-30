@@ -1,4 +1,5 @@
 export { ReactComponent as ArithFiLogo } from "./svg/ArithFiLogo.svg";
+export { ReactComponent as ArithFiLogoDark } from "./svg/ArithFiLogoDark.svg";
 export { ReactComponent as Dark } from "./svg/dark.svg";
 export { ReactComponent as Light } from "./svg/light.svg";
 export { ReactComponent as Language } from "./svg/language.svg";

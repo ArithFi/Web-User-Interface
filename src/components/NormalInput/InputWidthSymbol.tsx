@@ -11,6 +11,7 @@ interface InputWithSymbolProps {
   changeValue: (value: string) => void;
   isError?: boolean;
   dis?: boolean;
+  border?: boolean;
 }
 
 const InputWithSymbol: FC<InputWithSymbolProps> = ({ ...props }) => {
@@ -21,7 +22,7 @@ const InputWithSymbol: FC<InputWithSymbolProps> = ({ ...props }) => {
       alignItems={"center"}
       sx={(theme) => ({
         border: `${props.dis ? "0px" : "1px"} solid ${
-          props.isError ? theme.normal.danger : theme.normal.bg1
+          props.isError ? theme.normal.danger : theme.normal.border
         }`,
         borderRadius: "8px",
         backgroundColor: props.dis
@@ -102,7 +103,7 @@ export const InputWithSymbolWithSelect: FC<InputWithSymbolWithSelectProps> = ({
         alignItems={"center"}
         sx={(theme) => ({
           border: `${props.dis ? "0px" : "1px"} solid ${
-            props.isError ? theme.normal.danger : theme.normal.bg1
+            props.isError ? theme.normal.danger : theme.normal.border
           }`,
           borderRadius: "8px",
           backgroundColor: props.dis

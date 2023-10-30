@@ -31,13 +31,13 @@ function useSettingTPAndSL(
       if (isLong) {
         var percentLong = (((tpNum - limitPrice) / limitPrice) * 100).floor(4);
         if (tpPercentType === 0) {
-          percentLong = (((tpNum - openPrice) / openPrice) * lever).floor(4);
+          percentLong = (((tpNum - openPrice) / openPrice) * lever * 100).floor(4);
         }
         setTpPercent(percentLong);
       } else {
         var percentShort = (((limitPrice - tpNum) / limitPrice) * 100).floor(4);
         if (tpPercentType === 0) {
-          percentShort = (((openPrice - tpNum) / openPrice) * lever).floor(4);
+          percentShort = (((openPrice - tpNum) / openPrice) * lever * 100).floor(4);
         }
         setTpPercent(percentShort);
       }

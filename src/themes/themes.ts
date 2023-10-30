@@ -92,7 +92,7 @@ export const darkTheme = createTheme({
     disabled_bg: "#2E2E38",
     disabled_text: "rgba(249, 249, 249, 0.35)",
     disabled_border: "#2E2E38",
-    disabled_fill: "rgba(46, 46, 56, 0.04)",
+    disabled_fill: "rgba(230, 231, 234, 0.04)",
     grey: "#1F2329",
     grey_hover: "#35373D",
     grey_active: "#484A52",

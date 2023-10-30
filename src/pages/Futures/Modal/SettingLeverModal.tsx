@@ -70,6 +70,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
           height: "48px",
           backgroundColor: theme.normal.bg1,
           width: "100%",
+          border: `1px solid ${theme.normal.border}`
         })}
       >
         <Box
