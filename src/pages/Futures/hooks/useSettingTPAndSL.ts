@@ -54,7 +54,7 @@ function useSettingTPAndSL(
       if (isLong) {
         var percentLong = ((-(slNum - limitPrice) / limitPrice) * 100).floor(4);
         if (slPercentType === 0) {
-          percentLong = ((-(slNum - openPrice) / openPrice) * lever).floor(4);
+          percentLong = ((-(slNum - openPrice) / openPrice) * lever * 100).floor(4);
         }
         setSlPercent(percentLong);
       } else {
@@ -62,7 +62,7 @@ function useSettingTPAndSL(
           4
         );
         if (slPercentType === 0) {
-          percentShort = ((-(openPrice - slNum) / openPrice) * lever).floor(4);
+          percentShort = ((-(openPrice - slNum) / openPrice) * lever * 100).floor(4);
         }
         setSlPercent(percentShort);
       }
