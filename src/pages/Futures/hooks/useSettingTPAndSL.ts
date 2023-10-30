@@ -128,7 +128,7 @@ function useSettingTPAndSL(
       } else {
         var newSLShort = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
         if (slPercentType === 0) {
-          newSLLong = ((1 + slPercentNum / 100 / lever) * openPrice).floor(6)
+          newSLShort = ((1 + slPercentNum / 100 / lever) * openPrice).floor(6)
         }
         setSl(newSLShort);
       }
