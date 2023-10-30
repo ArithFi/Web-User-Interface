@@ -17,7 +17,9 @@ const Home = () => {
 
   if (isBigMobile) {
     return (
-      <Stack>
+      <Stack sx={{
+        bgcolor: 'white',
+      }}>
         <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
                position={'relative'}>
           <Stack position={'absolute'} zIndex={5} top={0} height={'400px'} width={'100%'}
@@ -300,7 +302,8 @@ const Home = () => {
 
   return (
     <Stack sx={{
-      overflowX: 'hidden'
+      overflowX: 'hidden',
+      bgcolor: 'white',
     }}>
       <Stack position={'relative'} sx={{
         width: '100%',
