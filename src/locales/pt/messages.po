@@ -491,7 +491,7 @@ msgstr "Retorno Diário"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Dark mode"
-msgstr ""
+msgstr "Modo escuro"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx

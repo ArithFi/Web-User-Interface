@@ -491,7 +491,7 @@ msgstr "Lợi nhuận hàng ngày"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Dark mode"
-msgstr ""
+msgstr "Chế độ tối"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx

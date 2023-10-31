@@ -491,7 +491,7 @@ msgstr "Günlük Getiri"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Dark mode"
-msgstr ""
+msgstr "Karanlık Mod"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx

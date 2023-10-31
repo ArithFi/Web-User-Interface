@@ -491,7 +491,7 @@ msgstr "Дневной доход"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Dark mode"
-msgstr ""
+msgstr "Тёмный режим"
 
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
