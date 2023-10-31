@@ -313,7 +313,11 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           >
             <HidePriceTable />
           </Box>
-          <Box>{isHide ? DownIcon : UpIcon}</Box>
+          <Box sx={(theme) => ({
+            "& svg path": {
+              fill: theme.normal.text3
+            }
+          })}>{isHide ? DownIcon : UpIcon}</Box>
         </Stack>
       </Stack>
     );

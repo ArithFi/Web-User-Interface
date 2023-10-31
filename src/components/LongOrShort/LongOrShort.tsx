@@ -14,7 +14,7 @@ const Button = styled(Box)(({ theme }) => ({
   width: "100%",
   height: 48,
   borderRadius: 8,
-  backgroundColor: theme.normal.grey,
+  backgroundColor: theme.normal.grey_hover,
   color: theme.normal.text0,
   fontSize: 16,
   fontWeight: 700,
