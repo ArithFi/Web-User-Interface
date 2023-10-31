@@ -161,7 +161,7 @@ function useFuturesNewOrder(
   const open = useCallback(
     async (isLong: boolean) => {
       if (chainsData.chainId && account.address && basePrice && signature) {
-        const orderPrice = basePrice.bigNumberToShowString(18, 5);
+        const orderPrice = addPricePoint(basePrice, isLong).bigNumberToShowString(18, 5);
         const openBase: { [key: string]: any } = await serviceOpen(
           chainsData.chainId,
           account.address,
@@ -324,7 +324,6 @@ function useFuturesNewOrder(
           setShowTriggerNotice(isLong);
           return;
         }
-
         baseAction(isLong);
       }
     },
