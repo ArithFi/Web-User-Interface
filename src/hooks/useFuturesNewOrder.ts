@@ -161,7 +161,10 @@ function useFuturesNewOrder(
   const open = useCallback(
     async (isLong: boolean) => {
       if (chainsData.chainId && account.address && basePrice && signature) {
-        const orderPrice = addPricePoint(basePrice, isLong).bigNumberToShowString(18, 5);
+        const orderPrice =
+          tabsValue === 1
+            ? basePrice.bigNumberToShowString(18, 5)
+            : addPricePoint(basePrice, isLong).bigNumberToShowString(18, 5);
         const openBase: { [key: string]: any } = await serviceOpen(
           chainsData.chainId,
           account.address,
@@ -611,7 +614,7 @@ function useFuturesNewOrder(
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
-    loading
+    loading,
   };
 }
 

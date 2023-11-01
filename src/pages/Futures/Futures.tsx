@@ -311,6 +311,7 @@ const Futures: FC = () => {
               >
                 <Stack spacing={"16px"} width={"100%"}>
                   {exchangeTvChart()}
+                  {/* {exchangeTvChart()} */}
                   {orderList()}
                 </Stack>
                 <Stack spacing={"16px"} width={"450px"}>
