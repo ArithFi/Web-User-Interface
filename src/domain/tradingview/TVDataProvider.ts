@@ -148,7 +148,7 @@ export class TVDataProvider {
       return null
     }
     const currentPrice = await this.getCurrentPriceOfToken(ticker);
-    if (!currentPrice) return null;
+    if (!currentPrice || currentPrice > this.lastBar.close * 10 || currentPrice < this.lastBar.close * 0.1) return null;
     if (this.lastBar.time && currentCandleTime === this.lastBar.time) {
       return {
         ...this.lastBar,
