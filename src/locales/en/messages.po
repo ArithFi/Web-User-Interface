@@ -877,9 +877,12 @@ msgid "Minimum 200 ATF"
 msgstr "Minimum 200 ATF"
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 50 ATF"
 msgstr "Minimum 50 ATF"
+
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
+msgid "Minimum 60 ATF"
+msgstr "Minimum 60 ATF"
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -1372,8 +1375,8 @@ msgid "Test BNB"
 msgstr "Test BNB"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
-msgid "The fixed amount you invested for each order when copy trading."
-msgstr "The fixed amount you invested for each order when copy trading."
+msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading each order when it is initiated."
+msgstr "The fixed amount you invested for each order. The service fee will be deducted from the copy trading each order when it is initiated."
 
 #: src/pages/Personal/Personal.tsx
 msgid "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."

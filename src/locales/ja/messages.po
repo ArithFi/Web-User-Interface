@@ -873,8 +873,11 @@ msgid "Minimum 200 ATF"
 msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 50 ATF"
+msgstr ""
+
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
+msgid "Minimum 60 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
@@ -1368,7 +1371,7 @@ msgid "Test BNB"
 msgstr "テスト BNB"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
-msgid "The fixed amount you invested for each order when copy trading."
+msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading each order when it is initiated."
 msgstr ""
 
 #: src/pages/Personal/Personal.tsx

@@ -112,7 +112,7 @@ function useCopySettingModal(
   const checkLimit2 = useMemo(() => {
     const followingValueNumber =
       followingValue === "" ? 0 : parseFloat(followingValue);
-    if (followingValueNumber >= 50) {
+    if (followingValueNumber >= 60) {
       return true;
     }
     return false;
@@ -165,7 +165,7 @@ function useCopySettingModal(
 
   const errorLabel2 = useMemo(() => {
     if (!checkLimit2 && followingValue !== "") {
-      return t`Minimum 50 ATF`;
+      return t`Minimum 60 ATF`;
     }
   }, [checkLimit2, followingValue]);
 
