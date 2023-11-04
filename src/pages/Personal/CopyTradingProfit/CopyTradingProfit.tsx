@@ -593,7 +593,7 @@ const CopyTradingProfit = () => {
                   * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
                 </Trans>
                 <Stack direction={'row'}>
-                  <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing`} target={'_blank'}>
+                  <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing-Rules`} target={'_blank'}>
                     <Box sx={(theme) => ({
                       color: theme.normal.primary,
                     })}>
@@ -695,7 +695,7 @@ const CopyTradingProfit = () => {
                 <Trans>
                   * Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience.
                 </Trans>
-                <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing`} target={'_blank'}>
+                <Link to={`https://docs.arithfi.com${i18n.locale === 'en' ? '' : `/${i18n.locale}` }/blog/ArithFi-copy-trading-profit-sharing-Rules`} target={'_blank'}>
                   <Box sx={(theme) => ({
                     color: theme.normal.primary,
                   })}>
