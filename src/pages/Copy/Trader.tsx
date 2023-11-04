@@ -27,9 +27,9 @@ const Trader: FC = () => {
     setPerformanceDay,
     performanceSymbolDay,
     setPerformanceSymbolDay,
-    performanceSymbolData,
     traderOrderList,
-    traderOrderHistoryList
+    traderOrderHistoryList,
+    showPerformanceSymbolData
   } = useTrader(address ?? "");
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const Trader: FC = () => {
           setTime3={(num: number) => {
             setPerformanceSymbolDay(num);
           }}
-          performanceSymbolData={performanceSymbolData}
+          performanceSymbolData={showPerformanceSymbolData()}
         />
       );
     } else if (tabsValue === 1) {
@@ -94,7 +94,7 @@ const Trader: FC = () => {
     } else {
       return <></>;
     }
-  }, [earningsData, earningsDay, performanceData, performanceDay, performanceSymbolData, performanceSymbolDay, setEarningsDay, setPerformanceDay, setPerformanceSymbolDay, tabsValue, traderOrderHistoryList, traderOrderList]);
+  }, [earningsData, earningsDay, performanceData, performanceDay, showPerformanceSymbolData, performanceSymbolDay, setEarningsDay, setPerformanceDay, setPerformanceSymbolDay, tabsValue, traderOrderHistoryList, traderOrderList]);
   return (
     <Stack
       direction={"row"}
