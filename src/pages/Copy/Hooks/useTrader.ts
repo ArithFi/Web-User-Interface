@@ -286,6 +286,18 @@ function useTrader(address: string | undefined) {
     }
   }, [address, chainsData.chainId]);
 
+  const showPerformanceSymbolData = useCallback(() => {
+    if (performanceSymbolData.length === 0) {return []}
+    const otherValue = performanceSymbolData.map((item) => item.value).slice(-3).reduce((all ,now) => {
+      return all + now
+    })
+    const one :PerformanceSymbolModel = {
+      name: "Other",
+      value: otherValue
+    }
+    return [...performanceSymbolData.slice(0,7)].concat(one)
+  }, [performanceSymbolData])
+
   useEffect(() => {
     getEarnings();
     getPerformance();
@@ -326,9 +338,9 @@ function useTrader(address: string | undefined) {
     setPerformanceDay,
     performanceSymbolDay,
     setPerformanceSymbolDay,
-    performanceSymbolData,
     traderOrderList,
     traderOrderHistoryList,
+    showPerformanceSymbolData
   };
 }
 

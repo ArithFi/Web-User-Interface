@@ -29,6 +29,7 @@ const COLORS = [
   "#36C56E",
   "#EF8839",
   "#00B2EA",
+  "#6F6F6F"
 ];
 
 interface TraderChartViewProps {
@@ -613,6 +614,10 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                       {TokenPercent(
                         6,
                         props.performanceSymbolData[6].value.floor(2)
+                      )}
+                      {TokenPercent(
+                        7,
+                        props.performanceSymbolData[7].value.floor(2)
                       )}
                     </Stack>
                   </>
