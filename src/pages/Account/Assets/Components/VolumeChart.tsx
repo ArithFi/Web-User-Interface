@@ -10,16 +10,17 @@ import {
 } from 'recharts';
 import {FC} from "react";
 import useSWR from "swr";
-import useTheme from "../../../hooks/useTheme";
+import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/material";
 import numeral from 'numeral';
-import useArithFi from '../../../hooks/useArithFi';
+import useArithFi from '../../../../hooks/useArithFi';
 
 type ChartsProps = {
   address: string | undefined
   from?: string
   to?: string
   simple?: boolean
+  show?: boolean
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
@@ -57,19 +58,31 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               <CartesianGrid strokeDasharray="3 3" stroke={nowTheme.normal.border}/>
             )
           }
-          <XAxis dataKey="date" scale="auto" axisLine={false} hide={props.simple} tickLine={false} tick={{fontSize: '10px'}}/>
-          <YAxis yAxisId={'left'} orientation={'left'} width={30} hide={props.simple} axisLine={false} tickLine={false}
-                 tickFormatter={(value, index) => {
-                   return numeral(value).format('0a').toUpperCase()
-                 }}
-                 tick={{fontSize: '10px'}}/>
-          <YAxis domain={['dataMin', 'dataMax']} width={30} hide={props.simple} yAxisId={'right'} orientation={'right'} axisLine={false}
-                 tickFormatter={(value, index) => {
-                   return numeral(value).format('0a').toUpperCase()
-                 }}
-                 tickLine={false} tick={{fontSize: '10px'}}/>
           {
-            !props.simple && (
+            !!props.show && (
+              <XAxis dataKey="date" scale="auto" axisLine={false} hide={props.simple} tickLine={false} tick={{fontSize: '10px'}}/>
+            )
+          }
+          {
+            !!props.show && (
+              <YAxis yAxisId={'left'} orientation={'left'} width={30} hide={props.simple} axisLine={false} tickLine={false}
+                     tickFormatter={(value, index) => {
+                       return numeral(value).format('0a').toUpperCase()
+                     }}
+                     tick={{fontSize: '10px'}}/>
+            )
+          }
+          {
+            !!props.show && (
+              <YAxis domain={['dataMin', 'dataMax']} width={30} hide={props.simple} yAxisId={'right'} orientation={'right'} axisLine={false}
+                     tickFormatter={(value, index) => {
+                       return numeral(value).format('0a').toUpperCase()
+                     }}
+                     tickLine={false} tick={{fontSize: '10px'}}/>
+            )
+          }
+          {
+            !props.simple && !!props.show && (
               <Tooltip
                 itemStyle={{
                   fontSize: '12px',
@@ -94,7 +107,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             )
           }
           {
-            !props.simple && (
+            !props.simple && !!props.show && (
               <Legend
                 wrapperStyle={{
                   fontSize: '14px',

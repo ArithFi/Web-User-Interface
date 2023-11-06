@@ -8,16 +8,17 @@ import {
 } from 'recharts';
 import {FC} from "react";
 import useSWR from "swr";
-import useTheme from "../../../hooks/useTheme";
+import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/material";
 import numeral from "numeral";
-import useArithFi from '../../../hooks/useArithFi';
+import useArithFi from '../../../../hooks/useArithFi';
 
 type ChartsProps = {
   address: string | undefined
   from?: string
   to?: string
   simple?: boolean
+  show?: boolean
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
@@ -55,14 +56,22 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               <CartesianGrid strokeDasharray="3 3" stroke={nowTheme.normal.border}/>
             )
           }
-          <XAxis dataKey="date" scale="auto" axisLine={false} hide={props.simple} tickLine={false} tick={{fontSize: '10px'}}/>
-          <YAxis axisLine={false} tickLine={false} hide={props.simple} width={30}
-                 tickFormatter={(value, index) => {
-                   return numeral(value).format('0a').toUpperCase()
-                 }}
-                 tick={{fontSize: '10px'}}/>
           {
-            !props.simple && (
+            !!props.show && (
+              <XAxis dataKey="date" scale="auto" axisLine={false} hide={props.simple} tickLine={false} tick={{fontSize: '10px'}}/>
+            )
+          }
+          {
+            !!props.show && (
+              <YAxis axisLine={false} tickLine={false} hide={props.simple} width={30}
+                     tickFormatter={(value, index) => {
+                       return numeral(value).format('0a').toUpperCase()
+                     }}
+                     tick={{fontSize: '10px'}}/>
+            )
+          }
+          {
+            !props.simple && !!props.show && (
               <Tooltip
                 itemStyle={{
                   fontSize: '12px',
