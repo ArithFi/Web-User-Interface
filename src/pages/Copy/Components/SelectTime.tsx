@@ -24,7 +24,6 @@ const DOWN = (
 const TimeData = [
   t`Last 24 hours`,
   t`Last 7 days`,
-  t`Last 3 weeks`,
   t`Last month`,
 ];
 
