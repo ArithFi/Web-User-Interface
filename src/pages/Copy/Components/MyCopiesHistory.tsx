@@ -11,6 +11,7 @@ import CopyListPosition from "./CopyListPosition";
 import ArithFiLine from "../../../components/ArithFiLine";
 import { MyCopiesList } from "../Hooks/useMyCopies";
 import { DefaultKolIcon } from "../../../components/icons";
+import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 
 interface MyCopiesHistoryProps {
   list: MyCopiesList[];
@@ -47,6 +48,10 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
       const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
       const closeTime = new Date(item.closeTime * 1000);
       const closeTimeString = `${closeTime.toLocaleDateString()} ${closeTime.toLocaleTimeString()}`;
+      const pnl =
+        item.profitLoss > 0
+          ? item.profitLoss - (item.profitLoss * 10) / 100
+          : item.profitLoss;
 
       const kolIcon = () => {
         if (item.avatar !== "-" && item.avatar !== "") {
@@ -109,25 +114,42 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
               alignItems={"center"}
             >
               <Stack spacing={"4px"} width={"100%"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Open Price</Trans>
-                </Box>
+                <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+                  <Box
+                    sx={(theme) => ({
+                      fontSize: "12px",
+                      fontWeight: "400",
+                      lineHeight: "16px",
+                      color: theme.normal.text2,
+                    })}
+                  >
+                    <Trans>Realized Pnl</Trans>
+                  </Box>
+                  <ArithFiTooltipFC
+                    title={
+                      <p>
+                        <Trans>
+                          According to the given information, if the profit is
+                          10%, it will be deducted as the commission for the
+                          trader. The realized profit is the actual amount
+                          received after deducting the commission. Any excess
+                          commission deducted during the settlement period will
+                          be refunded after the settlement.
+                        </Trans>
+                      </p>
+                    }
+                  />
+                </Stack>
                 <Box
                   sx={(theme) => ({
                     fontSize: "14px",
                     fontWeight: "700",
                     lineHeight: "20px",
-                    color: theme.normal.text2,
+                    color:
+                      pnl >= 0 ? theme.normal.success : theme.normal.danger,
                   })}
                 >
-                  {orderPrice}USDT
+                  {pnl.floor(2)}ATF
                 </Box>
               </Stack>
               <Stack spacing={"4px"} width={"100%"}>
@@ -184,6 +206,29 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
                       color: theme.normal.text2,
                     })}
                   >
+                    <Trans>Open Price</Trans>
+                  </Box>
+                  <Box
+                    sx={(theme) => ({
+                      fontSize: "12px",
+                      fontWeight: "400",
+                      lineHeight: "16px",
+                      color: theme.normal.text2,
+                    })}
+                  >
+                    {orderPrice}USDT
+                  </Box>
+                </Stack>
+
+                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+                  <Box
+                    sx={(theme) => ({
+                      fontSize: "12px",
+                      fontWeight: "400",
+                      lineHeight: "16px",
+                      color: theme.normal.text2,
+                    })}
+                  >
                     <Trans>Close Price</Trans>
                   </Box>
                   <Box
@@ -200,49 +245,52 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
               </Stack>
 
               <Stack spacing={"8px"}>
-                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Open Time</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    {openTimeString}
-                  </Box>
-                </Stack>
-                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Close Time</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    {closeTimeString}
-                  </Box>
+                <Stack direction={"row"}>
+                  <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+                    <Box
+                      sx={(theme) => ({
+                        fontSize: "12px",
+                        fontWeight: "400",
+                        lineHeight: "16px",
+                        color: theme.normal.text2,
+                      })}
+                    >
+                      <Trans>Open Time</Trans>
+                    </Box>
+                    <Box
+                      sx={(theme) => ({
+                        fontSize: "12px",
+                        fontWeight: "400",
+                        lineHeight: "16px",
+                        color: theme.normal.text2,
+                      })}
+                    >
+                      {openTimeString}
+                    </Box>
+                  </Stack>
+
+                  <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+                    <Box
+                      sx={(theme) => ({
+                        fontSize: "12px",
+                        fontWeight: "400",
+                        lineHeight: "16px",
+                        color: theme.normal.text2,
+                      })}
+                    >
+                      <Trans>Close Time</Trans>
+                    </Box>
+                    <Box
+                      sx={(theme) => ({
+                        fontSize: "12px",
+                        fontWeight: "400",
+                        lineHeight: "16px",
+                        color: theme.normal.text2,
+                      })}
+                    >
+                      {closeTimeString}
+                    </Box>
+                  </Stack>
                 </Stack>
               </Stack>
             </Stack>
@@ -297,9 +345,25 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
           t`Actual Margin`,
           t`Open Price`,
           t`Close Price`,
+          t`Realized Pnl`,
         ]}
         noOrder={noOrder}
-        helps={[]}
+        helps={[
+          {
+            index: 5,
+            helpInfo: (
+              <p>
+                <Trans>
+                  According to the given information, if the profit is 10%, it
+                  will be deducted as the commission for the trader. The
+                  realized profit is the actual amount received after deducting
+                  the commission. Any excess commission deducted during the
+                  settlement period will be refunded after the settlement.
+                </Trans>
+              </p>
+            ),
+          },
+        ]}
         noNeedPadding
         freeRight
       >
@@ -337,6 +401,10 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
   const closeTime = new Date(props.data.closeTime * 1000);
   const closeTimeString = `${closeTime.toLocaleDateString()} ${closeTime.toLocaleTimeString()}`;
+  const pnl =
+    props.data.profitLoss > 0
+      ? props.data.profitLoss - (props.data.profitLoss * 10) / 100
+      : props.data.profitLoss;
 
   const kolIcon = () => {
     if (props.data.avatar !== "-" && props.data.avatar !== "") {
@@ -469,7 +537,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
           </Box>
         </Stack>
       </TableCell>
-      <TableCell>
+      <TableCell sx={tdNoPadding}>
         <Stack spacing={"4px"}>
           <Box
             sx={(theme) => ({
@@ -490,6 +558,20 @@ const Row: FC<RowProps> = ({ ...props }) => {
             })}
           >
             {closeTimeString}
+          </Box>
+        </Stack>
+      </TableCell>
+      <TableCell>
+        <Stack>
+          <Box
+            sx={(theme) => ({
+              fontWeight: "700",
+              fontSize: "12px",
+              lineHeight: "16px",
+              color: pnl >= 0 ? theme.normal.success : theme.normal.danger,
+            })}
+          >
+            {pnl.floor(2)}ATF
           </Box>
         </Stack>
       </TableCell>

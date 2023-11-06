@@ -127,6 +127,11 @@ msgstr ""
 msgid "about connecting wallets"
 msgstr "コネクティングウォレットについて"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "According to the given information, if the profit is 10%, it will be deducted as the commission for the trader. The realized profit is the actual amount received after deducting the commission. Any excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -1146,6 +1151,11 @@ msgstr ""
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Realized Pnl"
 msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts

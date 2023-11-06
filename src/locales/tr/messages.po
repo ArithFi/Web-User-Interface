@@ -129,6 +129,11 @@ msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve siz
 msgid "about connecting wallets"
 msgstr "cüzdanları bağlamak hakkında"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "According to the given information, if the profit is 10%, it will be deducted as the commission for the trader. The realized profit is the actual amount received after deducting the commission. Any excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -1153,6 +1158,11 @@ msgstr "Kar Paylaşımı"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "Kar (ATF)"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Realized Pnl"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"

@@ -129,6 +129,11 @@ msgstr "A posição de um trader profissional será automaticamente copiada e ex
 msgid "about connecting wallets"
 msgstr "sobre as carteiras digitais"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "According to the given information, if the profit is 10%, it will be deducted as the commission for the trader. The realized profit is the actual amount received after deducting the commission. Any excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -1151,6 +1156,11 @@ msgstr "Compartilhamento de Lucros:"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "Lucro(ATF)"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Realized Pnl"
+msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
