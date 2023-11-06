@@ -66,6 +66,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}
+        isCopy={props.data.copy}
       />
       <Stack spacing={"8px"}>
         <Stack direction={"row"} justifyContent={"space-around"}>

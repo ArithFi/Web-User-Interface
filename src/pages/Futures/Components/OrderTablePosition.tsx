@@ -9,6 +9,7 @@ interface OrderTablePositionProps {
   lever: number;
   isLong: boolean;
   style?: React.CSSProperties;
+  isCopy?: boolean;
 }
 
 const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
@@ -17,6 +18,20 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
       ? props.tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
   }, [props.tokenName]);
+  const showCopy = useMemo(() => {
+    return props.isCopy ? <Box component={"button"} sx={(theme) => ({
+      backgroundColor: theme.normal.primary_light_hover,
+      borderRadius: "4px",
+      height: "20px",
+      paddingX: "4px",
+      textAlign: "center",
+      color: theme.normal.primary,
+      fontWeight: 700,
+      fontSize: 10,
+    })}>
+      <Trans>Copy</Trans>
+    </Box> : <></>
+  }, [props.isCopy])
   return (
     <Stack
       direction={"row"}
@@ -43,6 +58,7 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
           })}
         >{`${props.tokenName}/USDT`}</Box>
         <Stack direction={"row"} spacing={"4px"}>
+          {showCopy}
           <Stack
             direction={"row"}
             justifyContent={"center"}

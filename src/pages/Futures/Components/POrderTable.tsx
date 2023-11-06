@@ -146,6 +146,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
           tokenName={tokenName}
           isLong={isLong}
           lever={lever}
+          isCopy={props.data.copy}
         />
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -221,36 +222,40 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
               {sl}USDT
             </Box>
           </Stack>
-          <Box
-            sx={(theme) => ({
-              width: "12px",
-              height: "12px",
-              cursor: "pointer",
-              "& svg": {
+          {props.data.copy ? (
+            <></>
+          ) : (
+            <Box
+              sx={(theme) => ({
                 width: "12px",
                 height: "12px",
-                display: "block",
-                "& path": {
-                  fill: theme.normal.text2,
+                cursor: "pointer",
+                "& svg": {
+                  width: "12px",
+                  height: "12px",
+                  display: "block",
+                  "& path": {
+                    fill: theme.normal.text2,
+                  },
                 },
-              },
-              "&:hover svg path": {
-                fill: theme.normal.text0,
-              },
-              "&:active svg path": {
-                fill: theme.normal.text0,
-              },
-            })}
-            component={"button"}
-            onClick={() =>
-              props.buttonCallBack({
-                data: props.data,
-                type: FuturesModalType.trigger,
-              })
-            }
-          >
-            {EditIcon}
-          </Box>
+                "&:hover svg path": {
+                  fill: theme.normal.text0,
+                },
+                "&:active svg path": {
+                  fill: theme.normal.text0,
+                },
+              })}
+              component={"button"}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.trigger,
+                })
+              }
+            >
+              {EditIcon}
+            </Box>
+          )}
         </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>

@@ -364,6 +364,8 @@ msgstr "ウォレットに接続"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr ""

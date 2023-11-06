@@ -10,6 +10,7 @@ interface OrderListPositionProps {
   isLong: boolean;
   shareCallBack: () => void;
   style?: React.CSSProperties;
+  isCopy?: boolean;
 }
 
 const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
@@ -19,6 +20,27 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
       : "ETH".getToken()!.icon;
   }, [props.tokenName]);
   const BaseToken = "USDT".getToken()!.icon;
+  const showCopy = useMemo(() => {
+    return props.isCopy ? (
+      <Box
+        component={"button"}
+        sx={(theme) => ({
+          backgroundColor: theme.normal.primary_light_hover,
+          borderRadius: "4px",
+          height: "20px",
+          paddingX: "4px",
+          textAlign: "center",
+          color: theme.normal.primary,
+          fontWeight: 700,
+          fontSize: 10,
+        })}
+      >
+        <Trans>Copy</Trans>
+      </Box>
+    ) : (
+      <></>
+    );
+  }, [props.isCopy]);
   return (
     <Stack
       direction={"row"}
@@ -50,7 +72,7 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
             marginLeft: "8px !important",
           })}
         >{`${props.tokenName}/USDT`}</Box>
-
+        {showCopy}
         <Stack
           direction={"row"}
           justifyContent={"center"}
