@@ -121,6 +121,11 @@ msgstr "7 Günlük Takipçi Kar/Zararı"
 msgid "7D PnL"
 msgstr "7D Kar/Zararı"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve sizin adınıza yürütülecektir."
@@ -128,11 +133,6 @@ msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve siz
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "about connecting wallets"
 msgstr "cüzdanları bağlamak hakkında"
-
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-msgid "According to the given information, if the profit is 10%, it will be deducted as the commission for the trader. The realized profit is the actual amount received after deducting the commission. Any excess commission deducted during the settlement period will be refunded after the settlement."
-msgstr ""
 
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx

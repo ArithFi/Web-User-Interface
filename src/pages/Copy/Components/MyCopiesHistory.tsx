@@ -129,12 +129,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
                     title={
                       <p>
                         <Trans>
-                          According to the given information, if the profit is
-                          10%, it will be deducted as the commission for the
-                          trader. The realized profit is the actual amount
-                          received after deducting the commission. Any excess
-                          commission deducted during the settlement period will
-                          be refunded after the settlement.
+                        A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement.
                         </Trans>
                       </p>
                     }
@@ -354,11 +349,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
             helpInfo: (
               <p>
                 <Trans>
-                  According to the given information, if the profit is 10%, it
-                  will be deducted as the commission for the trader. The
-                  realized profit is the actual amount received after deducting
-                  the commission. Any excess commission deducted during the
-                  settlement period will be refunded after the settlement.
+                A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement.
                 </Trans>
               </p>
             ),
