@@ -124,7 +124,7 @@ msgstr "7D PnL"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr ""
+msgstr "Será feito um desconto de 10% antes da partilha de lucros em cada ordem de cópia de negociação lucrativa. Este PnL = Lucro total - 10% de Lucro pré-deduzido. O seu excedente pré-partilha de lucros será reembolsado na liquidação"
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -777,10 +777,6 @@ msgid "Last 24 hours"
 msgstr "Últimas 24 horas"
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr "Últimas 3 semanas"
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr "Últimos 7 dias"
 
@@ -1160,7 +1156,7 @@ msgstr "Lucro(ATF)"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "Realized Pnl"
-msgstr ""
+msgstr "Lucro/Perda Realizado"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"

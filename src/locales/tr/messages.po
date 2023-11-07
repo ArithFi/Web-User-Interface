@@ -124,7 +124,7 @@ msgstr "7D Kar/Zararı"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr ""
+msgstr "Her karlı kopya işlem emri üzerinden %10 kar öncesi paylaşım kesintisi yapılacaktır. Bu Kâr ve Zarar = Toplam Kar - %10 Önceden Kesilen Kar şeklinde hesaplanır. Kar öncesi fazla olan miktar, hesaplaşma sırasında iade edilecektir."
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -777,10 +777,6 @@ msgid "Last 24 hours"
 msgstr "Son 24 saat"
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr "Son 3 hafta"
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr "Son 7 gün"
 
@@ -1162,7 +1158,7 @@ msgstr "Kar (ATF)"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "Realized Pnl"
-msgstr ""
+msgstr "Gerçekleşen Kar/Zarar"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"

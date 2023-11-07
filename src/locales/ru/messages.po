@@ -124,7 +124,7 @@ msgstr "Прибыль/Убыток за 7 дней"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr ""
+msgstr "На каждом прибыльном ордере по копированию торгов будет удерживаться 10% предварительного учета прибыли. Этот PnL = Общая прибыль - 10% Предварительно удержанной прибыли. Ваш избыток до предоставления прибыли будет возвращен при расчете."
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -777,10 +777,6 @@ msgid "Last 24 hours"
 msgstr "Последние 24 часа"
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr "Последние 3 недели"
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr "Последние 7 дней"
 
@@ -1160,7 +1156,7 @@ msgstr "Прибыль(ATF)"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "Realized Pnl"
-msgstr ""
+msgstr "Realizovannaya pribyl'/ubytok"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"

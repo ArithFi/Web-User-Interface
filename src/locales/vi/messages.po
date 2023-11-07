@@ -124,7 +124,7 @@ msgstr "Lợi nhuận 7 ngày"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr ""
+msgstr "Mỗi lệnh sao chép có lợi nhuận sẽ bị khấu trừ 10% lợi nhuận trước thuộc về mỗi lệnh. Công thức tính Lợi và Lỗ = Tổng Lợi Nhuận - 10% Lợi Nhuận đã khấu trừ trước. Số dư trước khi chia sẻ lợi nhuận của bạn sẽ được hoàn lại khi thanh toán."
 
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
@@ -777,10 +777,6 @@ msgid "Last 24 hours"
 msgstr "24 giờ qua"
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr "3 tuần qua"
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr "7 ngày qua"
 
@@ -1160,7 +1156,7 @@ msgstr "Lợi nhuận(ATF)"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 msgid "Realized Pnl"
-msgstr ""
+msgstr "Lãi/Lỗ Thực Tế"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"

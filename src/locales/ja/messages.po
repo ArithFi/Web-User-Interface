@@ -773,10 +773,6 @@ msgid "Last 24 hours"
 msgstr ""
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr ""
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr ""
 
