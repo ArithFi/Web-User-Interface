@@ -21,6 +21,7 @@ export interface MyCopiesList {
   marketPrice: number;
   lipPrice: number;
   profitLossRate: number;
+  profitLoss: number;
   kolAddress: string;
   nickName: string;
   avatar: string;
@@ -126,6 +127,7 @@ function useMyCopies() {
               marketPrice: item["closePrice"],
               lipPrice: item["lipPrice"],
               profitLossRate: item["profitLossRate"],
+              profitLoss:item["profitLoss"],
               kolAddress: item["kolAddress"],
               nickName: item["nickName"],
               avatar: item["avatar"],

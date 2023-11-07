@@ -119,6 +119,11 @@ msgstr ""
 msgid "7D PnL"
 msgstr ""
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
@@ -364,6 +369,8 @@ msgstr "ウォレットに接続"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr ""
@@ -766,10 +773,6 @@ msgid "Last 24 hours"
 msgstr ""
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr ""
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr ""
 
@@ -1144,6 +1147,11 @@ msgstr ""
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Realized Pnl"
 msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts

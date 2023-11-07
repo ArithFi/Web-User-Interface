@@ -32,9 +32,9 @@ function useCopySettingModal(
         },
         {
           chainId: chainsData.chainId.toString(),
-          copyAccountBalance: (copyAccountBalanceNumber + oldTotalValueNumber).floor(
-            2
-          ),
+          copyAccountBalance: (
+            copyAccountBalanceNumber + oldTotalValueNumber
+          ).floor(2),
           copyKolAddress: address,
           follow: "true",
           followingMethod: "FIEXD",
@@ -46,7 +46,15 @@ function useCopySettingModal(
       setIsLoading(false);
       onClose(Number(req["errorCode"]) === 0);
     }
-  }, [address, chainsData.chainId, copyAccountBalance, followingValue, oldTotalValue, onClose, signature]);
+  }, [
+    address,
+    chainsData.chainId,
+    copyAccountBalance,
+    followingValue,
+    oldTotalValue,
+    onClose,
+    signature,
+  ]);
   /**
    * balance
    */
@@ -125,6 +133,7 @@ function useCopySettingModal(
   const mainButtonLoading = useMemo(() => {
     return isLoading;
   }, [isLoading]);
+
   const mainButtonDis = useMemo(() => {
     return !checkBalance || !checkLimit || !agree || !checkLimit2;
   }, [agree, checkBalance, checkLimit, checkLimit2]);

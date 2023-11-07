@@ -121,6 +121,11 @@ msgstr "7일 동안의 팔로워 수익"
 msgid "7D PnL"
 msgstr "7일 수익"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
+msgstr "수익이 발생하는 각 복사 거래 주문에 10% 사전 수익 공유 공제가 이루어집니다. 이 PnL = 총 이익 - 10% 사전 공제된 이익으로 계산됩니다. 수익 공유 전잉여액은 결제 시 환불됩니다."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩니다."
@@ -366,6 +371,8 @@ msgstr "지갑 연결"
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Copy"
 msgstr "복사"
@@ -770,10 +777,6 @@ msgid "Last 24 hours"
 msgstr "지난 24시간"
 
 #: src/pages/Copy/Components/SelectTime.tsx
-msgid "Last 3 weeks"
-msgstr "지난 3주"
-
-#: src/pages/Copy/Components/SelectTime.tsx
 msgid "Last 7 days"
 msgstr "지난 7일"
 
@@ -1149,6 +1152,11 @@ msgstr "이익 공유"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "이익 (ATF)"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Realized Pnl"
+msgstr "실현 PnL"
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
