@@ -61,7 +61,7 @@ const CopyTrading = () => {
         <ArithFiTooltipFC title={<Stack alignItems={'center'}>
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
             <Trans>
-              The unrealized profit position of the copy trading has not been deducted by 10% yet.
+              This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit.
             </Trans>
           </Stack>
         </Stack>}/>
@@ -75,7 +75,7 @@ const CopyTrading = () => {
         <ArithFiTooltipFC title={<Stack alignItems={'center'}>
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
             <Trans>
-              The profit position has been calculated after deducting 10%, and any excess commission deducted will be returned after settlement.
+              This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement.
             </Trans>
           </Stack>
         </Stack>}/>
