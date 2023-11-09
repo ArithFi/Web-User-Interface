@@ -375,7 +375,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.volume?.toLocaleString() || "0"}
+            {props.item?.volume?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -387,7 +387,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.reward?.toLocaleString() || "0"}
+            {props.item?.reward?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -399,7 +399,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.settled?.toLocaleString() || "0"}
+            {props.item?.settled?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -411,7 +411,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.noSettled?.toLocaleString() || "0"}
+            {props.item?.noSettled?.toFixed(2) || "0"}
           </Box>
         </TableCell>
       </TableRow>
@@ -424,7 +424,7 @@ const Futures = () => {
         spacing={"4px"}
         p={"20px 16px"}
         sx={(theme) => ({
-          background: theme.normal.bg1,
+          border: `1px solid ${theme.normal.border}`,
           borderRadius: "12px",
         })}
       >
@@ -488,7 +488,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.volume?.toLocaleString() || "0"} ATF
+              {props.item?.volume?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack spacing={"4px"} width={"100%"}>
@@ -510,7 +510,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.reward?.toLocaleString() || "0"} ATF
+              {props.item?.reward?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -534,7 +534,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.settled?.toLocaleString() || "0"} ATF
+              {props.item?.settled?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack direction={"row"} spacing={"4px"} width={"100%"}>
@@ -556,7 +556,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.noSettled?.toLocaleString() || "0"} ATF
+              {props.item?.noSettled?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -779,13 +779,13 @@ const Futures = () => {
                           fontSize: "14px",
                           lineHeight: "20px",
                         },
-                        padding: "40px",
-                        background: theme.normal.bg1,
+                        padding: "40px 20px",
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                       })}
                     >
                       <div>
-                        {item.value.toLocaleString("en-US")} {item.unit}
+                        {item.value.toFixed(2)} {item.unit}
                       </div>
                       <span>{item.title}</span>
                     </Stack>
@@ -810,7 +810,7 @@ const Futures = () => {
             {isBigMobile && (
               <Stack
                 sx={(theme) => ({
-                  background: theme.normal.bg1,
+                  border: `1px solid ${theme.normal.border}`,
                   borderRadius: "12px",
                   padding: "20px 12px",
                 })}
@@ -832,7 +832,7 @@ const Futures = () => {
                       lineHeight: "32px",
                     })}
                   >
-                    {overview?.value?.tradingVolume || 0} ATF
+                    {overview?.value?.tradingVolume?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Box
@@ -859,7 +859,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.reward || 0} ATF
+                    {overview?.value?.reward.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
@@ -1038,7 +1038,7 @@ const Futures = () => {
                       height={"60px"}
                       sx={(theme) => ({
                         color: theme.normal.text2,
-                        background: theme.normal.bg1,
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                         fontSize: "14px",
                         lineHeight: "20px",
