@@ -36,7 +36,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {data} = useSWR(
     `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/return?address=${
       props.address
-    }&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}`,
+    }&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}&copy=1`,
     (url: string) =>
       fetch(url)
         .then((res) => res.json())
