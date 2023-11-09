@@ -143,11 +143,10 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
                   title={
                     <p>
                       <Trans>
-                        According to the updated information, the commission is
-                        only deducted from the realized profit, and no
-                        commission is charged on losses. The excess commission
-                        deducted during the settlement period will be refunded
-                        after the settlement.
+                        This indicates your copy trading total profit for
+                        copying this trader. Profit&Loss = Total Profit - Total
+                        Pre-Deducted Profit Sharing . Your surplus pre-deducted
+                        profit will be refunded at settlement.
                       </Trans>
                     </p>
                   }
@@ -184,9 +183,9 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
                   title={
                     <p>
                       <Trans>
-                        The unrealized profit or loss of an open position.The
-                        Threalized profit or loss of an open position, without
-                        deducting the 10% commission.
+                        This indicates the actual profit of your current
+                        position. Please note that this data does not
+                        pre-deducted profit.
                       </Trans>
                     </p>
                   }
@@ -330,10 +329,10 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
             helpInfo: (
               <p>
                 <Trans>
-                  According to the updated information, the commission is only
-                  deducted from the realized profit, and no commission is
-                  charged on losses. The excess commission deducted during the
-                  settlement period will be refunded after the settlement.
+                  This indicates your copy trading total profit for copying this
+                  trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit
+                  Sharing . Your surplus pre-deducted profit will be refunded at
+                  settlement.
                 </Trans>
               </p>
             ),
@@ -343,9 +342,8 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
             helpInfo: (
               <p>
                 <Trans>
-                  The unrealized profit or loss of an open position.The
-                  Threalized profit or loss of an open position, without
-                  deducting the 10% commission.
+                  This indicates the actual profit of your current position.
+                  Please note that this data does not pre-deducted profit.
                 </Trans>
               </p>
             ),
