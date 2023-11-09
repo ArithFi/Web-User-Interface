@@ -4,8 +4,7 @@ import {styled} from "@mui/material/styles";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
-import {useParams} from "react-router-dom";
-import {useAccount} from "wagmi";
+import {useSearchParams} from "react-router-dom";
 import useArithFi from "../../../hooks/useArithFi";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
@@ -236,9 +235,9 @@ const Futures = () => {
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
-  const {address} = useParams();
-  const {address: user} = useAccount();
-  const {chainsData} = useArithFi();
+  let [searchParams] = useSearchParams();
+  const q = searchParams.get('address');
+  const {chainsData, account} = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({length: totalPage}, (v, k) => k + 1);
@@ -265,30 +264,21 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/dashboardapi/invite/overview/${
-        address || user
+        q || account.address
       }?chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
   const {data: listData} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/dashboardapi/invite/list-invitee/${
-        address || user
+        q || account.address
       }?chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
-
-  const {data: isCopyKol} = useSWR(
-    address || user
-      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${address ?? user}` : undefined,
-    (url: any) =>
-      fetch(url)
-        .then((res) => res.json())
-        .then(res => res.value)
-  )
 
   const inviteeList = useMemo(() => {
     if (!listData) {
@@ -385,7 +375,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.volume?.toLocaleString() || "0"}
+            {props.item?.volume?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -397,7 +387,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.reward?.toLocaleString() || "0"}
+            {props.item?.reward?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -409,7 +399,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.settled?.toLocaleString() || "0"}
+            {props.item?.settled?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -421,7 +411,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.noSettled?.toLocaleString() || "0"}
+            {props.item?.noSettled?.toFixed(2) || "0"}
           </Box>
         </TableCell>
       </TableRow>
@@ -434,7 +424,7 @@ const Futures = () => {
         spacing={"4px"}
         p={"20px 16px"}
         sx={(theme) => ({
-          background: theme.normal.bg1,
+          border: `1px solid ${theme.normal.border}`,
           borderRadius: "12px",
         })}
       >
@@ -498,7 +488,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.volume?.toLocaleString() || "0"} ATF
+              {props.item?.volume?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack spacing={"4px"} width={"100%"}>
@@ -520,7 +510,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.reward?.toLocaleString() || "0"} ATF
+              {props.item?.reward?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -544,7 +534,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.settled?.toLocaleString() || "0"} ATF
+              {props.item?.settled?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack direction={"row"} spacing={"4px"} width={"100%"}>
@@ -566,7 +556,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.noSettled?.toLocaleString() || "0"} ATF
+              {props.item?.noSettled?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -614,7 +604,10 @@ const Futures = () => {
         sx={(theme) => ({
           marginTop: '40px',
           paddingX: "16px",
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
           },
           [theme.breakpoints.down("sm")]: {
@@ -664,7 +657,7 @@ const Futures = () => {
                   <Box width={"145px"}>
                     <MainButton
                       title={t`Copy Invitation Link`}
-                      disable={!address && !user}
+                      disable={!q && !account.address}
                       style={{
                         height: "36px",
                         fontSize: "12px",
@@ -672,16 +665,16 @@ const Futures = () => {
                         fontWeight: 700,
                       }}
                       onClick={() => {
-                        if (!user && !address) return;
+                        if (!account.address && !q) return;
                         let link = "https://arithfi.com/";
-                        if (address) {
+                        if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
-                        } else if (user) {
+                            q.slice(-8).toLowerCase();
+                        } else if (account.address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            user.slice(-8).toLowerCase();
+                            account.address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar(t`Copy Successfully`);
@@ -724,18 +717,18 @@ const Futures = () => {
                         borderRadius: "8px",
                       }}
                       title={t`Copy Invitation Link`}
-                      disable={!address && !user}
+                      disable={!q && !account.address}
                       onClick={() => {
-                        if (!address && !user) return;
+                        if (!q && !account.address) return;
                         let link = "https://arithfi.com/";
-                        if (address) {
+                        if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
-                        } else if (user) {
+                            q.slice(-8).toLowerCase();
+                        } else if (account.address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            user.slice(-8).toLowerCase();
+                            account.address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar("Copy Successfully");
@@ -789,13 +782,13 @@ const Futures = () => {
                           fontSize: "14px",
                           lineHeight: "20px",
                         },
-                        padding: "40px",
-                        background: theme.normal.bg1,
+                        padding: "40px 20px",
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                       })}
                     >
                       <div>
-                        {item.value.toLocaleString("en-US")} {item.unit}
+                        {item.value.toFixed(2)} {item.unit}
                       </div>
                       <span>{item.title}</span>
                     </Stack>
@@ -820,7 +813,7 @@ const Futures = () => {
             {isBigMobile && (
               <Stack
                 sx={(theme) => ({
-                  background: theme.normal.bg1,
+                  border: `1px solid ${theme.normal.border}`,
                   borderRadius: "12px",
                   padding: "20px 12px",
                 })}
@@ -842,7 +835,7 @@ const Futures = () => {
                       lineHeight: "32px",
                     })}
                   >
-                    {overview?.value?.tradingVolume || 0} ATF
+                    {overview?.value?.tradingVolume?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Box
@@ -869,7 +862,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.reward || 0} ATF
+                    {overview?.value?.reward.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
@@ -1048,7 +1041,7 @@ const Futures = () => {
                       height={"60px"}
                       sx={(theme) => ({
                         color: theme.normal.text2,
-                        background: theme.normal.bg1,
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                         fontSize: "14px",
                         lineHeight: "20px",

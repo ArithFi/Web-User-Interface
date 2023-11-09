@@ -167,7 +167,10 @@ const Assets = () => {
           marginTop: '40px',
           paddingX: "16px",
           gap: "40px",
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
           },
           [theme.breakpoints.down("md")]: {
@@ -262,7 +265,7 @@ const Assets = () => {
                 </Trans>
               </Stack>
               <Stack sx={(theme) => ({color: data?.roi > 0 ? theme.normal.success : theme.normal.danger})}>
-                {showNumber ? data?.pnl_total.toFixed(2) || 0 : '******'} ATF ({showNumber ? `${data?.roi_total > 0 ? '+' : ''}${data?.roi_total.toFixed(2)}` : '******'}%)
+                {showNumber ? data?.pnl_total.toFixed(2) || 0 : '******'} ATF ({showNumber ? `${data?.roi_total > 0 ? '+' : ''}${data?.roi_total?.toFixed(2) || 0}` : '******'}%)
               </Stack>
             </Stack>
           </Stack>

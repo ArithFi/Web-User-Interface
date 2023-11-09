@@ -169,9 +169,12 @@ const Overview = () => {
       </Stack>
       <Stack
         sx={(theme) => ({
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
-          }
+          },
         })}
         width={'100%'}
         mt={'40px'}

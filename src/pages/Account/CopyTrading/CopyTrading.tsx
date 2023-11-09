@@ -16,12 +16,13 @@ import {Link, useSearchParams} from "react-router-dom";
 import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
 import useSWR from "swr";
+import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
 
 const CopyTrading = () => {
   const [showrdr, setShowrdr] = useState(false);
   let [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get('address');
-  const [ showNumber, setShowNumber ] = useState(searchParams.get("mode") === "public");
+  const [showNumber, setShowNumber] = useState(searchParams.get("mode") === "public");
   const {account, checkSigned, chainsData} = useArithFi();
   const {nowTheme} = useTheme();
   const [range, setRange] = useState<Range[]>([
@@ -39,7 +40,7 @@ const CopyTrading = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const { data } = useSWR((account || q) ? `https://db.arithfi.com/arithfi/op/user/account/copyTrading?walletAddress=${q || account.address}&chainId=56` : undefined,
+  const {data} = useSWR((account || q) ? `https://db.arithfi.com/arithfi/op/user/account/copyTrading?walletAddress=${q || account.address}&chainId=56` : undefined,
     (url: any) => fetch(url)
       .then(res => res.json())
       .then(res => res.value));
@@ -56,11 +57,29 @@ const CopyTrading = () => {
       name: t`Unrealized PNL`,
       value: data?.unrealized_pnl || 0,
       roi: data?.unrealized_roi || 0,
+      tooltips: (
+        <ArithFiTooltipFC title={<Stack alignItems={'center'}>
+          <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
+            <Trans>
+              This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit.
+            </Trans>
+          </Stack>
+        </Stack>}/>
+      )
     },
     {
       name: t`Total Profit & Loss`,
       value: data?.pnl_total || 0,
       roi: data?.roi_total || 0,
+      tooltips: (
+        <ArithFiTooltipFC title={<Stack alignItems={'center'}>
+          <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
+            <Trans>
+              This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement.
+            </Trans>
+          </Stack>
+        </Stack>}/>
+      )
     },
   ]
 
@@ -101,7 +120,7 @@ const CopyTrading = () => {
           display: "none",
         }
       })}>
-        <MobileMenu />
+        <MobileMenu/>
       </Stack>
       <Stack
         sx={(theme) => ({
@@ -125,7 +144,10 @@ const CopyTrading = () => {
           marginTop: '40px',
           paddingX: "16px",
           gap: "40px",
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
           },
           [theme.breakpoints.down("md")]: {
@@ -140,6 +162,7 @@ const CopyTrading = () => {
           fontSize: '20px',
           lineHeight: '28px',
           fontWeight: 700,
+          color: theme.normal.text0,
           [theme.breakpoints.down("md")]: {
             display: 'none',
           }
@@ -215,9 +238,9 @@ const CopyTrading = () => {
               </Stack>
             </Stack>
             <Stack fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}
-                   sx={(theme) => ({color: theme.normal.text0})}>{ showNumber ? total_balance_atf.toFixed(2) : '******'} ATF</Stack>
+                   sx={(theme) => ({color: theme.normal.text0})}>{showNumber ? total_balance_atf.toFixed(2) : '******'} ATF</Stack>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
-                   sx={(theme) => ({color: theme.normal.text0})}>≈ { showNumber ? total_balance_usd.toFixed(5) : '******'} USDT</Stack>
+                   sx={(theme) => ({color: theme.normal.text0})}>≈ {showNumber ? total_balance_usd.toFixed(5) : '******'} USDT</Stack>
           </Stack>
           <Stack direction={'row'} gap={'16px'}>
             <Link to={'/myCopies'}>
@@ -325,7 +348,7 @@ const CopyTrading = () => {
               fontWeight: '700',
               lineHeight: '32px',
               color: theme.normal.text0,
-            })}>{data?.position_value?.toFixed(2) || 0} ATF</Stack>
+            })}>{showNumber ? (data?.position_value?.toFixed(2) || 0) : '******'} ATF</Stack>
           </Stack>
           <Stack sx={(theme) => ({
             height: '1px',
@@ -336,24 +359,30 @@ const CopyTrading = () => {
               showData.slice(1).map((item) => (
                 <Stack key={item.name} direction={'row'} justifyContent={'space-between'}>
                   <Stack sx={(theme) => ({
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: '8px',
                     fontSize: '14px',
                     fontWeight: '400',
                     lineHeight: '20px',
                     color: theme.normal.text2,
-                  })}>{item.name}</Stack>
+                  })}>
+                    {item.name}
+                    {item?.tooltips}
+                  </Stack>
                   <Stack direction={'row'} alignItems={'center'} gap={'4px'}>
                     <Stack sx={(theme) => ({
                       fontSize: '16px',
                       fontWeight: '700',
                       lineHeight: '22px',
                       color: theme.normal.text0,
-                    })}>{item.value.toFixed(2)} ATF</Stack>
+                    })}>{showNumber ? item.value.toFixed(2) : '******'} ATF</Stack>
                     <Stack sx={(theme) => ({
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '16px',
                       color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{item.roi > 0 ? '+' : ''}{item.roi.toFixed(2)}%</Stack>
+                    })}>{item.roi > 0 ? '+' : ''}{showNumber ? item.roi.toFixed(2) : '******'}%</Stack>
                   </Stack>
                 </Stack>
               ))
@@ -374,12 +403,16 @@ const CopyTrading = () => {
                     borderRadius: '12px'
                   })}>
                     <Stack sx={(theme) => ({
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      gap: '8px',
                       fontSize: '16px',
                       fontWeight: '400',
                       lineHeight: '22px',
                       color: theme.normal.text2,
                     })}>
                       {item.name}
+                      {item.tooltips}
                     </Stack>
                     <Stack sx={(theme) => ({
                       fontSize: '28px',
@@ -395,7 +428,7 @@ const CopyTrading = () => {
                           fontSize: '16px',
                           fontWeight: '700',
                           lineHeight: '22px',
-                          color: item.roi >=0 ? theme.normal.success : theme.normal.danger,
+                          color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
                         })}>
                           {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}` : '******'}%
                         </Stack>
@@ -647,7 +680,7 @@ const CopyTrading = () => {
             ))}
           </Grid>
         </Stack>
-        <Stack height={'80px'} />
+        <Stack height={'80px'}/>
       </Stack>
     </Stack>
   )

@@ -8,11 +8,12 @@ import useArithFi from "../../../hooks/useArithFi";
 const Menu = () => {
   const location = useLocation();
   let [searchParams, setSearchParams] = useSearchParams();
+  const q = searchParams.get('address');
   const {account} = useArithFi()
   const {data: isKol} = useSWR(
-    account.address
+    (q || account.address)
       ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
-        account.address
+        q || account.address
       }`
       : undefined,
     (url: any) =>
@@ -22,8 +23,8 @@ const Menu = () => {
   );
 
   const {data: isCopyKol} = useSWR(
-    account.address
-      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${account.address}` : undefined,
+    (q || account.address)
+      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || account.address}` : undefined,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())

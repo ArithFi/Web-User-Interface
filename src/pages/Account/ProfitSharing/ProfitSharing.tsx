@@ -3,8 +3,7 @@ import Menu from "../Share/Menu";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import {useAccount} from "wagmi";
+import {Link, useSearchParams} from "react-router-dom";
 import useArithFi from "../../../hooks/useArithFi";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
@@ -32,9 +31,9 @@ const Futures = () => {
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
-  const {address} = useParams();
-  const {address: user} = useAccount();
-  const {chainsData} = useArithFi();
+  let [searchParams] = useSearchParams();
+  const q = searchParams.get('address');
+  const {chainsData, account} = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({length: totalPage}, (v, k) => k + 1);
@@ -61,9 +60,9 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/overview?copyKolAddress=${
-        address || user
+        q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url)
@@ -72,9 +71,9 @@ const Futures = () => {
   );
 
   const {data: listData} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/list?copyKolAddress=${
-        address || user
+        q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url)
@@ -182,7 +181,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.copyTransactions?.toLocaleString() || "0"}
+            {props.item?.copyTransactions?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -194,7 +193,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.reward?.toLocaleString() || "0"}
+            {props.item?.reward?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -206,7 +205,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.pendingProfit?.toLocaleString() || "0"}
+            {props.item?.pendingProfit?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -231,7 +230,7 @@ const Futures = () => {
         spacing={"4px"}
         p={"20px 16px"}
         sx={(theme) => ({
-          background: theme.normal.bg1,
+          border: `1px solid ${theme.normal.border}`,
           borderRadius: "12px",
         })}
       >
@@ -295,7 +294,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.copyTransactions?.toLocaleString() || "0"} ATF
+              {props.item?.copyTransactions?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack spacing={"4px"} width={"100%"}>
@@ -317,7 +316,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.reward?.toLocaleString() || "0"} ATF
+              {props.item?.reward?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
         </Stack>
@@ -341,7 +340,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.pendingProfit?.toLocaleString() || "0"} ATF
+              {props.item?.pendingProfit?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack direction={"row"} spacing={"4px"} width={"100%"}>
@@ -411,7 +410,10 @@ const Futures = () => {
         sx={(theme) => ({
           marginTop: '40px',
           paddingX: "16px",
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
           },
           [theme.breakpoints.down("sm")]: {
@@ -525,12 +527,12 @@ const Futures = () => {
                           lineHeight: "20px",
                         },
                         padding: "40px",
-                        background: theme.normal.bg1,
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                       })}
                     >
                       <div>
-                        {item.value.toLocaleString("en-US")} {item.unit}
+                        {item.value.toFixed(2)} {item.unit}
                       </div>
                       <span>{item.title}</span>
                     </Stack>
@@ -564,7 +566,7 @@ const Futures = () => {
             {isBigMobile && (
               <Stack
                 sx={(theme) => ({
-                  background: theme.normal.bg1,
+                  border: `1px solid ${theme.normal.border}`,
                   borderRadius: "12px",
                   padding: "20px 12px",
                 })}
@@ -586,7 +588,7 @@ const Futures = () => {
                       lineHeight: "32px",
                     })}
                   >
-                    {overview?.cumulative_profit || 0} ATF
+                    {overview?.cumulative_profit?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Box
@@ -613,7 +615,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.previous_profit || 0} ATF
+                    {overview?.previous_profit?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
@@ -635,7 +637,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.pending_profit || 0} ATF
+                    {overview?.pending_profit?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Divider />
@@ -777,7 +779,7 @@ const Futures = () => {
                       height={"60px"}
                       sx={(theme) => ({
                         color: theme.normal.text2,
-                        background: theme.normal.bg1,
+                        border: `1px solid ${theme.normal.border}`,
                         borderRadius: "12px",
                         fontSize: "14px",
                         lineHeight: "20px",
