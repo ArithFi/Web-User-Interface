@@ -4,10 +4,9 @@ import {Trans, t} from "@lingui/macro";
 import Box from "@mui/material/Box";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useSearchParams} from "react-router-dom";
-import {useCallback, useEffect, useMemo, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import useArithFi from "../../../hooks/useArithFi";
 import useAccount from "../../../hooks/useAccount";
-import {useLocalStorage} from "react-use";
 import ArithFiTabs from "../../../components/ArithFiTabs/ArithFiTabs";
 import MobileList, {AccountListType} from "./Components/MobileList";
 import {NoOrderMobile} from "../../Futures/OrderList";
@@ -52,7 +51,7 @@ const Overview = () => {
   const [tabsValue, setTabsValue] = useState(
     searchParams.get("type") === "withdraw" ? 1 : 0
   );
-  const {account, checkSigned} = useArithFi();
+  const {checkSigned} = useArithFi();
   const {moneyList} = useAccount();
 
   useEffect(() => {
