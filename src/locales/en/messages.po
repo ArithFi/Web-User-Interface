@@ -13,17 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
 msgstr "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
 
@@ -89,10 +89,12 @@ msgstr "24h Low"
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
 msgstr "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "30 Day's PNL"
+msgstr "30 Day's PNL"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "30 Days' PNL"
 msgstr "30 Days' PNL"
 
@@ -106,10 +108,12 @@ msgstr "4. External oracle risk: Arith protocol's perpetual contract price comes
 msgid "5. Smart contract risk: There may be fatal unknown risks in the smart contract that may cause your principal to be damaged. Please evaluate the risk yourself before deciding whether to participate."
 msgstr "5. Smart contract risk: There may be fatal unknown risks in the smart contract that may cause your principal to be damaged. Please evaluate the risk yourself before deciding whether to participate."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "7 Day's PNL"
+msgstr "7 Day's PNL"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "7 Days' PNL"
 msgstr "7 Days' PNL"
 
@@ -134,18 +138,17 @@ msgstr "A professional trader's position will be automatically copied and execut
 msgid "about connecting wallets"
 msgstr "about connecting wallets"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
-msgstr "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
-
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "Account"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Accounts"
+msgstr "Accounts"
+
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "Action"
 
@@ -217,8 +220,8 @@ msgstr "All Traders"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Amount"
 
@@ -261,6 +264,11 @@ msgstr "ArithFi Swap"
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
+msgid "Assets"
+msgstr "Assets"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
@@ -279,6 +287,10 @@ msgstr "AUM(ATF)"
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "balance"
 msgstr "balance"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Balance"
+msgstr "Balance"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
@@ -351,6 +363,10 @@ msgstr "Close Time"
 msgid "Closed"
 msgstr "Closed"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Commission"
+msgstr "Commission"
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -382,8 +398,8 @@ msgstr "Connect Wallet"
 msgid "Copy"
 msgstr "Copy"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Copy Invitation Link"
 msgstr "Copy Invitation Link"
 
@@ -401,14 +417,17 @@ msgstr "Copy Now"
 msgid "Copy Orders"
 msgstr "Copy Orders"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Settle"
+msgstr "Copy Settle"
+
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Copy Successfully"
@@ -421,13 +440,16 @@ msgstr "Copy Trader Service Agreement"
 msgid "Copy Traders’ PnL (ATF)"
 msgstr "Copy Traders’ PnL (ATF)"
 
-#: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Copy/Components/CopyRoute.tsx
 msgid "Copy Trading"
 msgstr "Copy Trading"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Copy Trading Address"
 msgstr "Copy Trading Address"
 
@@ -435,6 +457,10 @@ msgstr "Copy Trading Address"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Copy trading assets"
 msgstr "Copy trading assets"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Copy Trading Assets"
+msgstr "Copy Trading Assets"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -452,15 +478,19 @@ msgstr "Copy Trading Effortlessly"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Copy Trading Total Amount (ATF)"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Transfer"
+msgstr "Copy Transfer"
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Cumulative Commission"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "Cumulative Commissions"
 
@@ -468,18 +498,20 @@ msgstr "Cumulative Commissions"
 msgid "Cumulative Copy Traders"
 msgstr "Cumulative Copy Traders"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Cumulative Invitee Trading Volume"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Cumulative Profit"
 msgstr "Cumulative Profit"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Cumulative Return"
 msgstr "Cumulative Return"
 
@@ -500,9 +532,11 @@ msgstr "Current:"
 msgid "Custom Copy Trading"
 msgstr "Custom Copy Trading"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Daily Return"
 msgstr "Daily Return"
 
@@ -515,17 +549,18 @@ msgstr "Dark mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Default"
 msgstr "Default"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Deposit"
@@ -584,8 +619,8 @@ msgid "Eliminate market makers and LPs in trading"
 msgstr "Eliminate market makers and LPs in trading"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
-msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
-msgstr "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
+msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
+msgstr "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
@@ -607,8 +642,8 @@ msgstr "Expand more assets:"
 msgid "Expand more products:"
 msgstr "Expand more products:"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Fail"
 msgstr "Fail"
 
@@ -646,25 +681,20 @@ msgstr "Following"
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 
-#: src/pages/Personal/Personal.tsx
-msgid "Freeze Accounts"
-msgstr "Freeze Accounts"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze Deposit"
-msgstr "Freeze Deposit"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze to Deposit"
-msgstr "Freeze to Deposit"
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "From"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futures"
+
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Futures Assets"
+msgstr "Futures Assets"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
@@ -760,11 +790,11 @@ msgstr "Insufficient balance"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Insufficient balance. Please deposit to start the lightning trade."
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
 msgstr "Invitee Address"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Invitee Trading Volume"
 
@@ -906,26 +936,19 @@ msgstr "More"
 msgid "More Info"
 msgstr "More Info"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Balance"
-msgstr "My Balance"
-
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "My commissions"
 msgstr "My commissions"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Copies"
 msgstr "My Copies"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Positions"
-msgstr "My Positions"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "My profit sharing"
 msgstr "My profit sharing"
 
@@ -942,8 +965,8 @@ msgstr "My Trades"
 msgid "News"
 msgstr "News"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "No commissions yet"
 
@@ -957,10 +980,11 @@ msgstr "No LPs"
 msgid "No Market Makers"
 msgstr "No Market Makers"
 
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 msgid "No Order"
 msgstr "No Order"
 
+#: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Futures/Components/TableTitle.tsx
 #: src/pages/Futures/OrderList.tsx
 #: src/pages/Futures/OrderList.tsx
@@ -968,8 +992,8 @@ msgstr "No Order"
 msgid "No Orders"
 msgstr "No Orders"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "No profit sharing yet"
 msgstr "No profit sharing yet"
 
@@ -1047,12 +1071,12 @@ msgstr "Operate"
 msgid "Orders"
 msgstr "Orders"
 
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Overview"
 msgstr "Overview"
 
@@ -1060,25 +1084,19 @@ msgstr "Overview"
 msgid "Pancake"
 msgstr "Pancake"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Pending"
 msgstr "Pending"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Pending Profit Sharing"
 msgstr "Pending Profit Sharing"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Performance"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Personal"
-msgstr "Personal"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1100,6 +1118,7 @@ msgstr "Please note that due to price fluctuation during settlement, the PNL, pr
 msgid "PnL Ratio"
 msgstr "PnL Ratio"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1113,6 +1132,11 @@ msgstr "Position"
 msgid "Position fee = Position * 0.05%"
 msgstr "Position fee = Position * 0.05%"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Position Value"
+msgstr "Position Value"
+
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
 msgstr "Position*0.05%"
@@ -1121,13 +1145,8 @@ msgstr "Position*0.05%"
 msgid "Positions"
 msgstr "Positions"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
-msgid "Positions Value"
-msgstr "Positions Value"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Previous Profit"
 msgstr "Previous Profit"
 
@@ -1140,9 +1159,9 @@ msgstr "Price"
 msgid "Profit (ATF)"
 msgstr "Profit (ATF)"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Profit Sharing"
 msgstr "Profit Sharing"
 
@@ -1180,9 +1199,8 @@ msgstr "Received 100 ATF test tokens"
 msgid "Recent transactions"
 msgstr "Recent transactions"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "Referral"
 
@@ -1194,6 +1212,10 @@ msgstr "Remaining Copy Amount"
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "Remember me"
 msgstr "Remember me"
+
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Return"
+msgstr "Return"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1223,8 +1245,8 @@ msgstr "Save"
 msgid "Scan and copy the trade"
 msgstr "Scan and copy the trade"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Search"
 msgstr "Search"
 
@@ -1261,16 +1283,17 @@ msgstr "Setting"
 msgid "Settings"
 msgstr "Settings"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Settled"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled Commissions"
 msgstr "Settled Commissions"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Share"
 msgstr "Share"
@@ -1315,7 +1338,7 @@ msgstr "Slippage Tolerance Setting"
 msgid "Start Trading"
 msgstr "Start Trading"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "Status"
 
@@ -1349,8 +1372,8 @@ msgstr "Stop Order"
 msgid "Stop-Limit"
 msgstr "Stop-Limit"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Success"
 msgstr "Success"
 
@@ -1396,10 +1419,6 @@ msgstr "Test BNB"
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 
-#: src/pages/Personal/Personal.tsx
-msgid "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."
-msgstr "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
 msgstr "The maximum deposit amount is"
@@ -1416,22 +1435,32 @@ msgstr "The total amount you invested in copying this trader’s signals."
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "The transaction failed and the amount has been fully refunded. You can re-trade"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
-msgstr "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+msgid "This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit."
+msgstr "This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit."
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "This indicates your copy trading total profit for copying this trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "This indicates your copy trading total profit for copying this trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
-#: src/pages/Overview/Components/TransactionTable.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Time"
 
@@ -1439,10 +1468,9 @@ msgstr "Time"
 msgid "To(Estimated)"
 msgstr "To(Estimated)"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Today's PNL"
 msgstr "Today's PNL"
 
@@ -1450,19 +1478,25 @@ msgstr "Today's PNL"
 msgid "Total"
 msgstr "Total"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Asset Value"
 msgstr "Total Asset Value"
+
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Total Assets"
+msgstr "Total Assets"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total Burned"
 msgstr "Total Burned"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Commissions"
 msgstr "Total Commissions"
 
@@ -1470,8 +1504,8 @@ msgstr "Total Commissions"
 msgid "Total Copy Amount"
 msgstr "Total Copy Amount"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr "Total Invitees"
 
@@ -1484,23 +1518,24 @@ msgstr "Total Pay"
 msgid "Total Profit"
 msgstr "Total Profit"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "Total Profit & Loss"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Total Profit Sharing"
 msgstr "Total Profit Sharing"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "Total Trading Volume"
 
@@ -1527,6 +1562,10 @@ msgstr "TP and SL price you set will trigger immediately."
 msgid "TP Executed"
 msgstr "TP Executed"
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Trade"
+msgstr "Trade"
+
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "Trade tokens in instant"
@@ -1540,8 +1579,8 @@ msgstr "Trade With $ATF"
 msgid "Trade with me on ArithFi"
 msgstr "Trade with me on ArithFi"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Traded Invitees"
 msgstr "Traded Invitees"
 
@@ -1555,13 +1594,13 @@ msgstr "Trader"
 msgid "Trader Profile"
 msgstr "Trader Profile"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trader profit sharing rules."
 msgstr "Trader profit sharing rules."
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Trading Volume"
 
@@ -1611,7 +1650,7 @@ msgstr "Trigger price should be lower than open price"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Type"
 
@@ -1619,6 +1658,11 @@ msgstr "Type"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Unrealized PnL"
 msgstr "Unrealized PnL"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Unrealized PNL"
+msgstr "Unrealized PNL"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
@@ -1628,17 +1672,17 @@ msgstr "Unrealized PnL (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Unrealized PnL(ATF)"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Unsettled"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Unsettled Commissions"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled Profit Sharing"
 msgstr "Unsettled Profit Sharing"
 
@@ -1668,10 +1712,12 @@ msgstr "Verify ownership, Confirm you are the owner of this wallet."
 msgid "View"
 msgstr "View"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Volume"
 msgstr "Volume"
 
@@ -1684,15 +1730,6 @@ msgstr "Wallet"
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "Wallet Balance"
 msgstr "Wallet Balance"
-
-#: src/hooks/useAccount.ts
-#: src/hooks/useAccount.ts
-msgid "Wallet Deposit"
-msgstr "Wallet Deposit"
-
-#: src/hooks/useAccount.ts
-msgid "Wallet Withdraw"
-msgstr "Wallet Withdraw"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
@@ -1727,8 +1764,9 @@ msgstr "with 1 click"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useWithDrawModal.ts
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Withdraw"

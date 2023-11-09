@@ -13,17 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Do vấn đề phức tạp của dữ liệu tài chính, có thể có sự tinh tế và trễ. Dữ liệu được hiển thị ở trên chỉ mang tính chất tham khảo. Chúng tôi thành thật xin lỗi về mọi sự bất tiện."
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
 msgstr "* Do sự phức tạp của dữ liệu tài chính, do đó có thể bị sai số̉ và chậm trễ. Dữ liệu được hiển thị ở trên chỉ mang tính chất tham khảo. Chúng tôi thành thật xin lỗi nếu có bất kỳ sự bất tiện không đáng có nào xảy ra."
 
@@ -89,10 +89,12 @@ msgstr "Giá thấp nhất trong 24 giờ"
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
 msgstr "3. Rủi ro biến động giá trị token ATF: Cả việc ký quỹ và lợi nhuận cuối cùng và lỗ hổng sử dụng token ATF, và ATF chính nó cũng là một tài sản biến động mạnh. Trong trường hợp cực đoan, ngay cả khi vị thế hợp đồng vĩnh viễn của bạn có lợi nhuận, tuy nhiên, do biến động của giá trị token ATF chính nó, nó có thể khiến bạn mất tiền theo loại tiền tệ fiat."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "30 Day's PNL"
+msgstr "PNL 30 Ngày"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "30 Days' PNL"
 msgstr "PNL 30 Ngày"
 
@@ -106,10 +108,12 @@ msgstr "4. Rủi ro nguồn thông tin ngoại vi: Giá của hợp đồng vĩn
 msgid "5. Smart contract risk: There may be fatal unknown risks in the smart contract that may cause your principal to be damaged. Please evaluate the risk yourself before deciding whether to participate."
 msgstr "5. Rủi ro từ hợp đồng thông minh (smart contract): Có thể có những rủi ro chết người không xác định trong hợp đồng thông minh có thể gây thiệt hại cho số tiền của bạn. Vui lòng tự đánh giá rủi ro trước khi quyết định có tham gia hay không."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "7 Day's PNL"
+msgstr "PNL 7 Ngày"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "7 Days' PNL"
 msgstr "PNL 7 Ngày"
 
@@ -134,18 +138,17 @@ msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được t�
 msgid "about connecting wallets"
 msgstr "về việc kết nối ví"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
-msgstr ""
-
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "tài khoản"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Accounts"
+msgstr "Tài khoản"
+
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "hành động"
 
@@ -217,8 +220,8 @@ msgstr "Tất cả các nhà giao dịch"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Số lượng"
 
@@ -261,6 +264,11 @@ msgstr "Sàn giao dịch ArithFi"
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, Một Sàn Giao Dịch Tài Chính Phi Tập Trung Loại Bỏ Các Nhà Tạo Lập Thị Trường và LPs."
 
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
+msgid "Assets"
+msgstr "Tài sản"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
@@ -278,6 +286,10 @@ msgstr "AUM(ATF)"
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "balance"
+msgstr "Số dư"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Balance"
 msgstr "Số dư"
 
 #: src/components/NormalInput/ArithFiInput.tsx
@@ -351,6 +363,10 @@ msgstr "Thời gian đóng cửa"
 msgid "Closed"
 msgstr "Đóng"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Commission"
+msgstr "Hoa hồng"
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -382,8 +398,8 @@ msgstr "Kết nối ví"
 msgid "Copy"
 msgstr "sao chép"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Copy Invitation Link"
 msgstr "Sao chép liên kết mời"
 
@@ -401,14 +417,17 @@ msgstr "Sao chép ngay"
 msgid "Copy Orders"
 msgstr "Sao chép các đơn hàng"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Settle"
+msgstr "Chốt lời Copy"
+
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Sao chép thành công"
@@ -421,20 +440,27 @@ msgstr "Thỏa thuận Dịch vụ Sao chép Trader"
 msgid "Copy Traders’ PnL (ATF)"
 msgstr "PnL của những người copy (ATF)"
 
-#: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Copy/Components/CopyRoute.tsx
 msgid "Copy Trading"
 msgstr "Sao chép giao dịch"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Copy Trading Address"
 msgstr "Địa chỉ copy trading"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Copy trading assets"
-msgstr ""
+msgstr "Tài sản Copy trading"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Copy Trading Assets"
+msgstr "Tài sản Copy Trading"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -452,15 +478,19 @@ msgstr "Sao chép giao dịch một cách dễ dàng"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Tổng số tiền giao dịch sao chép (ATF)"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Transfer"
+msgstr "Chuyển nhượng Copy"
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Tiền điện tử, Ngoại hối, Kim loại quý, Hàng hóa, Cổ phiếu"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Hoa hồng tích lũy"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "Hoa hồng tích lũy"
 
@@ -468,18 +498,20 @@ msgstr "Hoa hồng tích lũy"
 msgid "Cumulative Copy Traders"
 msgstr "Nhà giao dịch sao chép tích luỹ"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Tổng khối lượng giao dịch của người được mời tích lũy"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Cumulative Profit"
 msgstr "Tổng lợi nhuận"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Cumulative Return"
 msgstr "Lợi nhuận tích lũy"
 
@@ -500,9 +532,11 @@ msgstr "Hiện tại:"
 msgid "Custom Copy Trading"
 msgstr "Sao chép giao dịch tùy chỉnh"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Daily Return"
 msgstr "Lợi nhuận hàng ngày"
 
@@ -515,17 +549,18 @@ msgstr "Chế độ tối"
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Default"
 msgstr "Mặc định"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Deposit"
@@ -584,8 +619,8 @@ msgid "Eliminate market makers and LPs in trading"
 msgstr "Loại bỏ thợ làm thị trường và LP trong giao dịch"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
-msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
-msgstr "Kết thúc sao chép sẽ thanh lý vị trí của bạn bằng các lệnh thị trường và tự động trả lại tài sản vào tài khoản của bạn sau khi trừ đi lợi nhuận chia sẻ."
+msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
+msgstr "Kết thúc sao chép sẽ thanh lý vị thế của bạn bằng lệnh thị trường và tự động hoàn lại tài sản vào tài khoản của bạn sau khi đã khấu trừ phần chia lợi nhuận trong thời gian thanh toán."
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
@@ -607,8 +642,8 @@ msgstr "Mở rộng thêm tài sản:"
 msgid "Expand more products:"
 msgstr "Mở rộng thêm sản phẩm:"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Fail"
 msgstr "thất bại"
 
@@ -646,25 +681,20 @@ msgstr "Theo sau"
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Đối với người dùng/hợp đồng thông minh sử dụng hợp đồng vĩnh viễn Arith Protocol, hãy hiểu rõ các quy tắc và sự khác biệt so với các sản phẩm tương tự trên thị trường khi thực hiện các vị thế, thanh lý, thanh lý và các hoạt động liên quan khác. Sau khi hiểu đầy đủ về các rủi ro có thể xảy ra sau đây và có thể chịu đựng, tham gia vào tình huống rủi ro:"
 
-#: src/pages/Personal/Personal.tsx
-msgid "Freeze Accounts"
-msgstr "Đóng băng tài khoản"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze Deposit"
-msgstr "Đóng băng tiền gửi"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze to Deposit"
-msgstr "Đóng băng để gửi tiền"
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "Từ"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Tương lai"
+
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Futures Assets"
+msgstr "Tài sản Hợp đồng Tương lai "
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
@@ -760,11 +790,11 @@ msgstr "Số dư không đủ"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao dịch nhanh."
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
 msgstr "Địa chỉ người được mời"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Khối lượng giao dịch của người được giới thiệu"
 
@@ -906,26 +936,19 @@ msgstr "Thêm"
 msgid "More Info"
 msgstr "Thông tin thêm"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Balance"
-msgstr "Số dư của tôi"
-
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "My commissions"
 msgstr "Hoa hồng của tôi"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Copies"
 msgstr "Các bản sao của tôi"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Positions"
-msgstr "Vị thế của tôi"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "My profit sharing"
 msgstr "Lợi nhuận chia sẻ của tôi"
 
@@ -942,8 +965,8 @@ msgstr "Các giao dịch của tôi"
 msgid "News"
 msgstr "Tin tức"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Chưa có hoa hồng nào"
 
@@ -957,10 +980,11 @@ msgstr "Không có LPs"
 msgid "No Market Makers"
 msgstr "Không có thợ làm thị trường"
 
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 msgid "No Order"
 msgstr "Không có lệnh nào"
 
+#: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Futures/Components/TableTitle.tsx
 #: src/pages/Futures/OrderList.tsx
 #: src/pages/Futures/OrderList.tsx
@@ -968,8 +992,8 @@ msgstr "Không có lệnh nào"
 msgid "No Orders"
 msgstr "Không có đơn hàng"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "No profit sharing yet"
 msgstr "Chưa có chia sẻ lợi nhuận"
 
@@ -1047,12 +1071,12 @@ msgstr "Hoạt động"
 msgid "Orders"
 msgstr "Đơn hàng"
 
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Overview"
 msgstr "Tổng quan"
 
@@ -1060,25 +1084,19 @@ msgstr "Tổng quan"
 msgid "Pancake"
 msgstr "Pancake"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Pending Profit Sharing"
 msgstr "Chia sẻ lợi nhuận đang chờ"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Hiệu suất"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Personal"
-msgstr "Cá nhân"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1100,6 +1118,7 @@ msgstr "Xin lưu ý rằng do biến động giá trong quá trình thanh toán,
 msgid "PnL Ratio"
 msgstr "Tỷ lệ Lãi/Lỗ (PnL)"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1113,6 +1132,11 @@ msgstr "Vị thế"
 msgid "Position fee = Position * 0.05%"
 msgstr "Phí vị thế = Vị thế * 0.05%"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Position Value"
+msgstr "Giá trị Vị thế"
+
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
 msgstr "Position*0.05%\""
@@ -1121,13 +1145,8 @@ msgstr "Position*0.05%\""
 msgid "Positions"
 msgstr "Vị thế"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
-msgid "Positions Value"
-msgstr "Giá trị vị thế"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Previous Profit"
 msgstr "Lợi nhuận trước đó"
 
@@ -1140,9 +1159,9 @@ msgstr "Giá"
 msgid "Profit (ATF)"
 msgstr "Lợi nhuận (ATF)"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Profit Sharing"
 msgstr "Chia sẻ lợi nhuận"
 
@@ -1161,7 +1180,7 @@ msgstr "Lợi nhuận(ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
-msgstr ""
+msgstr "Lãi & Lỗ"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1180,9 +1199,8 @@ msgstr "Nhận được 100 token thử nghiệm ATF"
 msgid "Recent transactions"
 msgstr "Các lệnh giao dịch gần đây"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "Giới thiệu"
 
@@ -1194,6 +1212,10 @@ msgstr "Số tiền sao chép còn lại"
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "Remember me"
 msgstr "nhớ tôi"
+
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Return"
+msgstr "Lợi nhuận"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1223,8 +1245,8 @@ msgstr "Lưu"
 msgid "Scan and copy the trade"
 msgstr "Quét và sao chép giao dịch"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Search"
 msgstr "Tìm kiếm"
 
@@ -1261,16 +1283,17 @@ msgstr "Thiết lập"
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Đã thanh toán"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled Commissions"
 msgstr "Hoa hồng đã thanh toán"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Share"
 msgstr "Chia sẻ"
@@ -1315,7 +1338,7 @@ msgstr "Cài đặt ngưỡng độ trượt giá"
 msgid "Start Trading"
 msgstr "Bắt đầu giao dịch"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "Trạng thái"
 
@@ -1349,8 +1372,8 @@ msgstr "Lệnh dừng"
 msgid "Stop-Limit"
 msgstr "Dừng-Giới hạn"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Success"
 msgstr "Thành công"
 
@@ -1396,10 +1419,6 @@ msgstr "Thử nghiệm BNB"
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "Số tiền cố định bạn đã đầu tư cho mỗi lệnh. Phí dịch vụ sẽ được khấu trừ từ lệnh giao dịch sao chép mỗi khi nó được khởi tạo."
 
-#: src/pages/Personal/Personal.tsx
-msgid "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."
-msgstr "Số tiền bị đóng băng hiện không thể rút. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với bộ phận hỗ trợ quản trị."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
 msgstr "Số tiền nạp tối đa là"
@@ -1416,22 +1435,32 @@ msgstr "Tổng số tiền bạn đã đầu tư để sao chép các tín hiệ
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "Giao dịch thất bại và số tiền đã được hoàn trả đầy đủ. Bạn có thể giao dịch lại."
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
-msgstr ""
+msgid "This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit."
+msgstr "Điều này chỉ ra lợi nhuận thực tế của vị thế hiện tại của bạn. Lưu ý rằng dữ liệu này không bao gồm lợi nhuận được trừ trước."
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "This indicates your copy trading total profit for copying this trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "Điều này chỉ ra tổng lợi nhuận giao dịch sao chép của bạn cho việc sao chép nhà giao dịch này. Lãi & Lỗ = Tổng Lợi nhuận - Tổng Lợi nhuận Chia sẻ Trừ trước. Lợi nhuận trừ trước dư sẽ được hoàn trả vào thời điểm thanh toán."
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "Điều này chỉ ra tổng lợi nhuận giao dịch sao chép của bạn. Lãi & Lỗ = Tổng Lợi nhuận - Tổng Lợi nhuận Chia sẻ Đã Trừ trước. Lợi nhuận dư thừa đã trừ trước sẽ được hoàn trả khi thanh toán."
+
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
-#: src/pages/Overview/Components/TransactionTable.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Thời gian"
 
@@ -1439,10 +1468,9 @@ msgstr "Thời gian"
 msgid "To(Estimated)"
 msgstr "Đến (Ước tính)"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Today's PNL"
 msgstr "PNL hôm nay"
 
@@ -1450,19 +1478,25 @@ msgstr "PNL hôm nay"
 msgid "Total"
 msgstr "Tổng cộng"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Asset Value"
 msgstr "Giá trị tài sản tổng cộng"
+
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Total Assets"
+msgstr "Tổng Tài sản"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total Burned"
 msgstr "Tổng số đã đốt cháy"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Commissions"
 msgstr "Tổng hoa hồng"
 
@@ -1470,8 +1504,8 @@ msgstr "Tổng hoa hồng"
 msgid "Total Copy Amount"
 msgstr "Tổng số tiền sao chép"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr "Tổng số người mời được"
 
@@ -1484,23 +1518,24 @@ msgstr "Tổng số tiền thanh toán"
 msgid "Total Profit"
 msgstr "Tổng lợi nhuận"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "Tổng lợi nhuận & lỗ"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Total Profit Sharing"
 msgstr "Tổng lợi nhuận chia sẻ"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "Tổng khối lượng giao dịch"
 
@@ -1527,6 +1562,10 @@ msgstr "Giá TP và SL bạn đặt sẽ kích hoạt ngay lập tức."
 msgid "TP Executed"
 msgstr "TP Executed"
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Trade"
+msgstr "Giao dịch"
+
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "Giao dịch token ngay lập tức"
@@ -1540,8 +1579,8 @@ msgstr "Giao dịch với $ATF"
 msgid "Trade with me on ArithFi"
 msgstr "Giao dịch cùng tôi trên ArithFi"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Traded Invitees"
 msgstr "Người được mời đã giao dịch"
 
@@ -1555,13 +1594,13 @@ msgstr "Người giao dịch"
 msgid "Trader Profile"
 msgstr "Hồ sơ của người giao dịch"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trader profit sharing rules."
 msgstr "Luật chia sẻ lợi nhuận của Người Giao Dịch."
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "Khối lượng giao dịch"
 
@@ -1611,14 +1650,19 @@ msgstr "Giá kích hoạt phải thấp hơn giá mở cửa"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Loại"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Unrealized PnL"
-msgstr ""
+msgstr "Lãi & Lỗ Chưa Thực hiện"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Unrealized PNL"
+msgstr "Lãi & Lỗ Chưa Thực hiện"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
@@ -1628,17 +1672,17 @@ msgstr "PnL chưa thực hiện (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "PnL chưa thực hiện(ATF)"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Chưa thanh toán"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Hoa hồng chưa được thanh toán"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled Profit Sharing"
 msgstr "Chưa giải quyết lợi nhuận chia sẻ"
 
@@ -1668,10 +1712,12 @@ msgstr "Xác nhận bạn là chủ sở hữu của ví này. Việc ký là mi
 msgid "View"
 msgstr "Xem"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Volume"
 msgstr "Khối lượng"
 
@@ -1684,15 +1730,6 @@ msgstr "Ví"
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "Wallet Balance"
 msgstr "Số dư ví"
-
-#: src/hooks/useAccount.ts
-#: src/hooks/useAccount.ts
-msgid "Wallet Deposit"
-msgstr "Nạp tiền vào ví"
-
-#: src/hooks/useAccount.ts
-msgid "Wallet Withdraw"
-msgstr "Rút tiền từ ví"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
@@ -1727,8 +1764,9 @@ msgstr "chỉ với 1 cú nhấp chuột"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useWithDrawModal.ts
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Withdraw"

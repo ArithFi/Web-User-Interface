@@ -13,17 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Finansal verilerin karmaşıklığı nedeniyle bazı ince detaylar ve gecikmeler olabilir. Yukarıda sunulan veriler sadece referans içindir. Herhangi bir rahatsızlık için içtenlikle özür dileriz."
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
 msgstr "* Finansal verilerin karmaşıklığı nedeniyle nüanslar ve gecikmeler olabilir. Yukarıda gösterilen veriler sadece referans içindir. Herhangi bir rahatsızlık için içtenlikle özür dileriz."
 
@@ -89,10 +89,12 @@ msgstr "24 saatlik Düşük"
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
 msgstr "3.ATF Token fiyat dalgalanma riski: Hem teminat hem de nihai kar ve zarar ATF Tokeni kullanır ve ATF kendisi de oldukça volatil bir varlıktır. Aşırı durumlarda, sürekli sözleşme pozisyonunuz karlı olsa bile, ATF fiyatının dalgalanması nedeniyle fiat para cinsinden kayıp yaşamanıza neden olabilir."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "30 Day's PNL"
+msgstr "30 Gün Kar/Zarar"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "30 Days' PNL"
 msgstr "30 Gün Kar/Zarar"
 
@@ -106,10 +108,12 @@ msgstr "Harici oracle riski: Arith protokolünün sürekli sözleşme fiyatı, A
 msgid "5. Smart contract risk: There may be fatal unknown risks in the smart contract that may cause your principal to be damaged. Please evaluate the risk yourself before deciding whether to participate."
 msgstr "5. Akıllı sözleşme riski: Akıllı sözleşmede ölümcül bilinmeyen riskler olabilir ve ana paranızın zarar görmesine yol açabilir. Lütfen katılmaya karar vermeden önce riski kendiniz değerlendirin."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "7 Day's PNL"
+msgstr "7 Day's PNL"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "7 Days' PNL"
 msgstr "7 Gün Kar/Zarar"
 
@@ -134,18 +138,17 @@ msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve siz
 msgid "about connecting wallets"
 msgstr "cüzdanları bağlamak hakkında"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
-msgstr ""
-
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "Hesap"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Accounts"
+msgstr "Hesaplar"
+
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "İşlem"
 
@@ -217,8 +220,8 @@ msgstr "Tüm Tüccarlar"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "Miktar"
 
@@ -261,6 +264,11 @@ msgstr "ArithFi Swap"
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi, Piyasa Yapıcılarını ve LP'leri Ortadan Kaldıran Merkezi Olmayan Bir Türev Borsasıdır."
 
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
+msgid "Assets"
+msgstr "Varlıklar"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
@@ -279,6 +287,10 @@ msgstr "AUM (ATF)"
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "balance"
 msgstr "bakiye"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Balance"
+msgstr "Bakiye"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
@@ -351,6 +363,10 @@ msgstr "Kapanış Saati"
 msgid "Closed"
 msgstr "Closed"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Commission"
+msgstr "Komisyon"
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -382,8 +398,8 @@ msgstr "Cüzdanı Bağla"
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Copy Invitation Link"
 msgstr "Davet Bağlantısını Kopyala"
 
@@ -401,14 +417,17 @@ msgstr "Şimdi Kopyala"
 msgid "Copy Orders"
 msgstr "Emirleri Kopyala"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Settle"
+msgstr "Kopyala Uyuş"
+
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Başarıyla Kopyalandı"
@@ -421,20 +440,27 @@ msgstr "Kopya Tüccar Hizmet Sözleşmesi"
 msgid "Copy Traders’ PnL (ATF)"
 msgstr "Kopya Yatırımcıların Kar ve Zararı (ATF)"
 
-#: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Copy/Components/CopyRoute.tsx
 msgid "Copy Trading"
 msgstr "Kopya İşlem"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Copy Trading Address"
 msgstr "Kopya İşlem Adresi"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Copy trading assets"
-msgstr ""
+msgstr "Kopyalama işlem varlıkları"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Copy Trading Assets"
+msgstr "Kopyalama İşlem Varlıkları"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -452,15 +478,19 @@ msgstr "Zahmetsizce Kopya İşlem"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "Kopya İşlem Varlıkları (ATF)"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Transfer"
+msgstr "Kopya Transferi"
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Kripto Paralar, Forex, Değerli Maden, Emtia, Hisse Senedi"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "Toplam Komisyon"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "Toplam Komisyon"
 
@@ -468,18 +498,20 @@ msgstr "Toplam Komisyon"
 msgid "Cumulative Copy Traders"
 msgstr "Toplam Kopya Tüccarları"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "Toplam Davet Edilen Kullanıcıların İşlem Hacmi"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Cumulative Profit"
 msgstr "Toplam Kar"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Cumulative Return"
 msgstr "Birikmiş Getiri"
 
@@ -500,9 +532,11 @@ msgstr "Mevcut:"
 msgid "Custom Copy Trading"
 msgstr "Özel Kopya İşlem"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Daily Return"
 msgstr "Günlük Getiri"
 
@@ -515,17 +549,18 @@ msgstr "Karanlık Mod"
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Default"
 msgstr "Varsayılan"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Deposit"
@@ -584,8 +619,8 @@ msgid "Eliminate market makers and LPs in trading"
 msgstr "Ticarette piyasa yapıcıları ve LP'leri ortadan kaldırın"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
-msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
-msgstr "Kopyayı sonlandırmak, pozisyonunuzu piyasa emirleri ile likide edecek ve kar payı kesildikten sonra varlıkları otomatik olarak hesabınıza iade edecektir."
+msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
+msgstr "Kopya transferi ise, pozisyonunuzu piyasa emirleriyle likide edecek ve yerleşim dönemi boyunca kar payı kesintisi yapıldıktan sonra varlıkları otomatik olarak hesabınıza iade edecektir."
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
@@ -607,8 +642,8 @@ msgstr "Daha fazla varlık genişletin:"
 msgid "Expand more products:"
 msgstr "Daha fazla ürün genişletin:"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Fail"
 msgstr "Başarısız"
 
@@ -646,25 +681,20 @@ msgstr "Takip"
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Arith Protokolü sürekli sözleşmelerini kullanan kullanıcılar/smart sözleşmeler, pozisyon, hesaplaşma, likidasyon ve diğer ilgili işlemleri gerçekleştirirken lütfen kurallarını ve benzer ürünlerin piyasada farklarını anlayın. Aşağıda belirtilen olası riskleri tamamen anladıktan ve bu risk durumuna katlanabileceğinizden emin olduktan sonra katılın:"
 
-#: src/pages/Personal/Personal.tsx
-msgid "Freeze Accounts"
-msgstr "Hesapları dondurmak"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze Deposit"
-msgstr "Depozitoyu dondurmak"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze to Deposit"
-msgstr "Depozit yapmak için dondurmak"
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "Gönderen"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Vadeli işlemler"
+
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Futures Assets"
+msgstr "Vadeliler Varlıklar"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
@@ -760,11 +790,11 @@ msgstr "Yetersiz bakiye"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yatırın."
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
 msgstr "Davet Edilen Adres"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "Davet Edilen Kullanıcıların İşlem Hacmi"
 
@@ -906,26 +936,19 @@ msgstr "Daha Fazla"
 msgid "More Info"
 msgstr "Daha Fazla Bilgi"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Balance"
-msgstr "Bakiyem"
-
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "My commissions"
 msgstr "Komisyonlarım"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Copies"
 msgstr "Kopyalarım"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Positions"
-msgstr "Pozisyonlarım"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "My profit sharing"
 msgstr "Kâr Paylaşımım"
 
@@ -942,8 +965,8 @@ msgstr "Tüccarlarım"
 msgid "News"
 msgstr "Haberler"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Henüz komisyon yok"
 
@@ -957,10 +980,11 @@ msgstr "Likidite Sağlayıcıları Yok"
 msgid "No Market Makers"
 msgstr "Piyasa Yapıcıları Yok"
 
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 msgid "No Order"
 msgstr "Sipariş Yok"
 
+#: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Futures/Components/TableTitle.tsx
 #: src/pages/Futures/OrderList.tsx
 #: src/pages/Futures/OrderList.tsx
@@ -968,8 +992,8 @@ msgstr "Sipariş Yok"
 msgid "No Orders"
 msgstr "Sipariş Yok"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "No profit sharing yet"
 msgstr "Henüz Kâr Paylaşımı Yok"
 
@@ -1047,12 +1071,12 @@ msgstr "İşlem Yap"
 msgid "Orders"
 msgstr "Siparişler"
 
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Overview"
 msgstr "Genel Bakış"
 
@@ -1060,25 +1084,19 @@ msgstr "Genel Bakış"
 msgid "Pancake"
 msgstr "Pancake"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Pending"
 msgstr "Beklemede"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Pending Profit Sharing"
 msgstr "Bekleyen Kâr Paylaşımı"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "Performans"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Personal"
-msgstr "Kişisel"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1102,6 +1120,7 @@ msgstr "Lütfen dikkat edin, uzlaşma sırasında fiyat dalgalanmaları nedeniyl
 msgid "PnL Ratio"
 msgstr "Kar/Zarar Oranı"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1115,6 +1134,11 @@ msgstr "Pozisyon"
 msgid "Position fee = Position * 0.05%"
 msgstr "Pozisyon ücreti = Pozisyon * 0.05%"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Position Value"
+msgstr "Pozisyon Değeri"
+
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
 msgstr "Pozisyon*0.05%"
@@ -1123,13 +1147,8 @@ msgstr "Pozisyon*0.05%"
 msgid "Positions"
 msgstr "Pozisyonlar"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
-msgid "Positions Value"
-msgstr "Pozisyon Değeri"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Previous Profit"
 msgstr "Önceki Kar"
 
@@ -1142,9 +1161,9 @@ msgstr "Fiyat"
 msgid "Profit (ATF)"
 msgstr "Kar (ATF)"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Profit Sharing"
 msgstr "Kâr Paylaşımı"
 
@@ -1163,7 +1182,7 @@ msgstr "Kar (ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
-msgstr ""
+msgstr "Kar ve Zarar"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1182,9 +1201,8 @@ msgstr "100 ATF deneme jetonu aldı"
 msgid "Recent transactions"
 msgstr "Son işlemler"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "Yönlendirme"
 
@@ -1196,6 +1214,10 @@ msgstr "Kalan Kopya Miktarı"
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "Remember me"
 msgstr "beni hatırla"
+
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Return"
+msgstr "Getiri"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1225,8 +1247,8 @@ msgstr "Kaydet"
 msgid "Scan and copy the trade"
 msgstr "İşlemi tarayın ve kopyalayın"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Search"
 msgstr "Arama"
 
@@ -1263,16 +1285,17 @@ msgstr "Ayar"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Hesaplandı"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled Commissions"
 msgstr "Hesaplanan Komisyonlar"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Share"
 msgstr "Paylaş"
@@ -1317,7 +1340,7 @@ msgstr "Kayma Toleransı Ayarı"
 msgid "Start Trading"
 msgstr "Ticaret'e Başla"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "Durum"
 
@@ -1351,8 +1374,8 @@ msgstr "Stop Emri"
 msgid "Stop-Limit"
 msgstr "Stop-Limit"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Success"
 msgstr "Başarı"
 
@@ -1398,10 +1421,6 @@ msgstr "Test BNB"
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "Her bir emir için yatırdığınız sabit miktar. Hizmet ücreti, her emir açıldığında kopya işlem yapılacak olan gerçek marjinden düşülecektir."
 
-#: src/pages/Personal/Personal.tsx
-msgid "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."
-msgstr "Donmuş miktar şu anda çekilemez durumda. Herhangi bir sorunuz varsa lütfen yönetici destek ile iletişime geçmekten çekinmeyin."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
 msgstr "Maksimum depozito tutarı"
@@ -1418,22 +1437,32 @@ msgstr "Bu tüccarın sinyallerini kopyalamak için yatırdığınız toplam mik
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "İşlem başarısız oldu ve miktar tamamen iade edildi. Yeniden işlem yapabilirsiniz."
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
-msgstr ""
+msgid "This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit."
+msgstr "Bu, mevcut pozisyonunuzun gerçek karını gösterir. Lütfen bu verinin önceden düşülmüş karı içermediğini unutmayın."
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "This indicates your copy trading total profit for copying this trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "Bu, bu tüccarı kopyalayarak elde ettiğiniz kopyalama işlemleri toplam karınızı gösterir. Kar ve Zarar = Toplam Kar - Toplam Önceden Kesinti Yapılmış Kar Payı. Fazla kesinti yapılmış karınız yerleşimde iade edilecektir."
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "Bu, kopyalama işlemleriyle elde ettiğiniz toplam karınızı gösterir. Kar ve Zarar = Toplam Kar - Toplam Önceden Kesinti Yapılmış Kar Payı. Fazla kesinti yapılmış karınız yerleşimde iade edilecektir."
+
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
-#: src/pages/Overview/Components/TransactionTable.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "Zaman"
 
@@ -1441,10 +1470,9 @@ msgstr "Zaman"
 msgid "To(Estimated)"
 msgstr "Hedeflenen (Tahmini) Zaman"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Today's PNL"
 msgstr "Bugünkü Kar/Zarar"
 
@@ -1452,19 +1480,25 @@ msgstr "Bugünkü Kar/Zarar"
 msgid "Total"
 msgstr "Toplam"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Asset Value"
 msgstr "Toplam Varlık Değeri"
+
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Total Assets"
+msgstr "Toplam Varlıklar"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total Burned"
 msgstr "Toplam Yakılan"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Commissions"
 msgstr "Toplam Komisyonlar"
 
@@ -1472,8 +1506,8 @@ msgstr "Toplam Komisyonlar"
 msgid "Total Copy Amount"
 msgstr "Toplam Kopya Miktarı"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr "Toplam Davet Edilenler"
 
@@ -1486,23 +1520,24 @@ msgstr "Toplam Ödeme"
 msgid "Total Profit"
 msgstr "Toplam Kar"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "Toplam Kar ve Zarar"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Total Profit Sharing"
 msgstr "Toplam Kâr Paylaşımı"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "Toplam Kar ve Zarar"
 
@@ -1529,6 +1564,10 @@ msgstr "Belirlediğiniz TP ve SL fiyatları hemen tetiklenecektir."
 msgid "TP Executed"
 msgstr "TP Yürütüldü"
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Trade"
+msgstr "İşlem"
+
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "Anında jetonlarla işlem yapın"
@@ -1542,8 +1581,8 @@ msgstr "$ATF ile Ticaret Yap"
 msgid "Trade with me on ArithFi"
 msgstr "ArithFi'de benimle ticaret yap"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Traded Invitees"
 msgstr "İşlem Yapan Davetliler"
 
@@ -1557,13 +1596,13 @@ msgstr "Tüccar"
 msgid "Trader Profile"
 msgstr "Tüccar Profili"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trader profit sharing rules."
 msgstr "Tüccar Kar Paylaşım Kuralları."
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "İşlem Hacmi"
 
@@ -1613,14 +1652,19 @@ msgstr "Tetikleme fiyatı, açılış fiyatından düşük olmalıdır"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Tür"
 
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Unrealized PnL"
-msgstr ""
+msgstr "Gerçekleşmemiş Kar/Zarar"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Unrealized PNL"
+msgstr "Gerçekleşmemiş Kar/Zarar"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
@@ -1630,17 +1674,17 @@ msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Hesaplanmamış"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "Hesaplanmamış Komisyonlar"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled Profit Sharing"
 msgstr "Çözülmeyen Kâr Paylaşımı"
 
@@ -1670,10 +1714,12 @@ msgstr "Sahipliği doğrulayın, Bu cüzdanın sahibi olduğunuzu onaylayın."
 msgid "View"
 msgstr "Görüntüle"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Volume"
 msgstr "Hacim"
 
@@ -1686,15 +1732,6 @@ msgstr "Cüzdan"
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "Wallet Balance"
 msgstr "Cüzdan Bakiyesi"
-
-#: src/hooks/useAccount.ts
-#: src/hooks/useAccount.ts
-msgid "Wallet Deposit"
-msgstr "Cüzdan Yatırımı"
-
-#: src/hooks/useAccount.ts
-msgid "Wallet Withdraw"
-msgstr "Cüzdan Çekme"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
@@ -1729,8 +1766,9 @@ msgstr "1 tıklamayla"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useWithDrawModal.ts
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Withdraw"
