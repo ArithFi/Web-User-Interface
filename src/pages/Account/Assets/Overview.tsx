@@ -14,7 +14,7 @@ import {NoOrderMobile} from "../../Futures/OrderList";
 import MoneyTable from "./Components/MoneyTable";
 import MobileMenu from "../Share/MobileMenu";
 
-export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', 'BLOCK_TO_AVAILABLE', "Freeze Deposit", "SETTLE", 'REFERRAL', 'MARKING', 'SALARY', 'AIRDROP', 'WALLET_DEPOSIT'];
+export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', "SETTLE", 'REFERRAL', 'MARKING', 'SALARY', 'AIRDROP', 'WALLET_DEPOSIT', 'PROFIT_SHARING', 'RETURN'];
 export const WITHDRAW_TYPES = ['WITHDRAW', 'AVAILABLE_TO_COPY', 'WALLET_WITHDRAW'];
 
 export const parseOrderType = (type: string | undefined) => {
@@ -34,7 +34,7 @@ export const parseOrderType = (type: string | undefined) => {
       return t`Return`;
     case "COPY_TO_AVAILABLE":
       return t`Copy Settle`;
-    case "Wallet Withdraw":
+    case "WALLET_WITHDRAW":
     case "WITHDRAW":
       return t`Withdraw`;
     case "AVAILABLE_TO_COPY":
