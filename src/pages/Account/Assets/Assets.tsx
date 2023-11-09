@@ -261,8 +261,8 @@ const Assets = () => {
                   Total Profit & Loss
                 </Trans>
               </Stack>
-              <Stack sx={(theme) => ({color: theme.normal.success})}>
-                {showNumber ? '888888' : '******'} ATF ({showNumber ? '+88' : '******'}%)
+              <Stack sx={(theme) => ({color: data?.roi > 0 ? theme.normal.success : theme.normal.danger})}>
+                {showNumber ? data?.pnl_total.toFixed(2) || 0 : '******'} ATF ({showNumber ? `${data?.roi_total > 0 ? '+' : ''}${data?.roi_total.toFixed(2)}` : '******'}%)
               </Stack>
             </Stack>
           </Stack>

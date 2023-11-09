@@ -436,7 +436,7 @@ const Futures = () => {
                       fontWeight: '400',
                       lineHeight: '16px',
                       color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{ showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(3)}`: '******'}%</Stack>
+                    })}>{ showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}`: '******'}%</Stack>
                   </Stack>
                 </Stack>
               ))
@@ -480,7 +480,7 @@ const Futures = () => {
                           lineHeight: '22px',
                           color: item.roi >=0 ? theme.normal.success : theme.normal.danger,
                         })}>
-                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(3)}` : '******'}%
+                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}` : '******'}%
                         </Stack>
                       )
                     }
