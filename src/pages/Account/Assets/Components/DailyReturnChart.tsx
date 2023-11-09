@@ -7,24 +7,25 @@ import {
   ResponsiveContainer,
   ComposedChart,
 } from "recharts";
-import { FC } from "react";
+import {FC} from "react";
 import useSWR from "swr";
-import useTheme from "../../../hooks/useTheme";
-import { CustomTooltip } from "./CustomTooltip";
+import useTheme from "../../../../hooks/useTheme";
+import {CustomTooltip} from "./CustomTooltip";
 import numeral from "numeral";
-import { Stack } from "@mui/system";
-import useArithFi from "../../../hooks/useArithFi";
+import {Stack} from "@mui/system";
+import useArithFi from "../../../../hooks/useArithFi";
 
 type ChartsProps = {
   address: string | undefined;
   from?: string;
   to?: string;
   simple?: boolean;
+  show?: boolean;
 };
 
-const ReCharts: FC<ChartsProps> = ({ ...props }) => {
-  const { nowTheme } = useTheme();
-  const { chainsData } = useArithFi();
+const ReCharts: FC<ChartsProps> = ({...props}) => {
+  const {nowTheme} = useTheme();
+  const {chainsData} = useArithFi();
   const to = props.to ?? new Date().toLocaleDateString().replaceAll("/", "-");
   const from =
     props.from ??
@@ -32,7 +33,7 @@ const ReCharts: FC<ChartsProps> = ({ ...props }) => {
       .toLocaleDateString()
       .replaceAll("/", "-");
 
-  const { data } = useSWR(
+  const {data} = useSWR(
     `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/return?address=${
       props.address
     }&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}`,
@@ -77,25 +78,31 @@ const ReCharts: FC<ChartsProps> = ({ ...props }) => {
               stroke={nowTheme.normal.border}
             />
           )}
-          <XAxis
-            dataKey="date"
-            scale="auto"
-            axisLine={false}
-            hide={props.simple}
-            tickLine={false}
-            tick={{ fontSize: "10px" }}
-          />
-          <YAxis
-            axisLine={false}
-            tickLine={false}
-            hide={props.simple}
-            width={30}
-            tickFormatter={(value, index) => {
-              return numeral(value).format("0a").toUpperCase();
-            }}
-            tick={{ fontSize: "10px" }}
-          />
-          {!props.simple && <Tooltip content={<CustomTooltip />} />}
+          {
+            !!props.show && (
+              <XAxis
+                dataKey="date"
+                scale="auto"
+                axisLine={false}
+                hide={props.simple}
+                tickLine={false}
+                tick={{fontSize: "10px"}}
+              />
+            )}
+          {
+            !!props.show && (
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                hide={props.simple}
+                width={30}
+                tickFormatter={(value, index) => {
+                  return numeral(value).format("0a").toUpperCase();
+                }}
+                tick={{fontSize: "10px"}}
+              />
+            )}
+          {!props.simple && !!props.show && <Tooltip content={<CustomTooltip/>}/>}
           <Bar
             dataKey="get"
             barSize={20}
