@@ -3,8 +3,7 @@ import Menu from "../Share/Menu";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import {useAccount} from "wagmi";
+import {Link, useSearchParams} from "react-router-dom";
 import useArithFi from "../../../hooks/useArithFi";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
@@ -32,9 +31,9 @@ const Futures = () => {
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
-  const {address} = useParams();
-  const {address: user} = useAccount();
-  const {chainsData} = useArithFi();
+  let [searchParams] = useSearchParams();
+  const q = searchParams.get('address');
+  const {chainsData, account} = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({length: totalPage}, (v, k) => k + 1);
@@ -61,9 +60,9 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/overview?copyKolAddress=${
-        address || user
+        q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url)
@@ -72,9 +71,9 @@ const Futures = () => {
   );
 
   const {data: listData} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/list?copyKolAddress=${
-        address || user
+        q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url)

@@ -4,8 +4,7 @@ import {styled} from "@mui/material/styles";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
-import {useParams} from "react-router-dom";
-import {useAccount} from "wagmi";
+import {useSearchParams} from "react-router-dom";
 import useArithFi from "../../../hooks/useArithFi";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
@@ -236,9 +235,9 @@ const Futures = () => {
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
-  const {address} = useParams();
-  const {address: user} = useAccount();
-  const {chainsData} = useArithFi();
+  let [searchParams] = useSearchParams();
+  const q = searchParams.get('address');
+  const {chainsData, account} = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({length: totalPage}, (v, k) => k + 1);
@@ -265,30 +264,21 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/dashboardapi/invite/overview/${
-        address || user
+        q || account.address
       }?chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
   const {data: listData} = useSWR(
-    address || user
+    q || account.address
       ? `https://db.arithfi.com/dashboardapi/invite/list-invitee/${
-        address || user
+        q || account.address
       }?chainId=${chainsData.chainId ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
-
-  const {data: isCopyKol} = useSWR(
-    address || user
-      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${address ?? user}` : undefined,
-    (url: any) =>
-      fetch(url)
-        .then((res) => res.json())
-        .then(res => res.value)
-  )
 
   const inviteeList = useMemo(() => {
     if (!listData) {
@@ -664,7 +654,7 @@ const Futures = () => {
                   <Box width={"145px"}>
                     <MainButton
                       title={t`Copy Invitation Link`}
-                      disable={!address && !user}
+                      disable={!q && !account.address}
                       style={{
                         height: "36px",
                         fontSize: "12px",
@@ -672,16 +662,16 @@ const Futures = () => {
                         fontWeight: 700,
                       }}
                       onClick={() => {
-                        if (!user && !address) return;
+                        if (!account.address && !q) return;
                         let link = "https://arithfi.com/";
-                        if (address) {
+                        if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
-                        } else if (user) {
+                            q.slice(-8).toLowerCase();
+                        } else if (account.address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            user.slice(-8).toLowerCase();
+                            account.address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar(t`Copy Successfully`);
@@ -724,18 +714,18 @@ const Futures = () => {
                         borderRadius: "8px",
                       }}
                       title={t`Copy Invitation Link`}
-                      disable={!address && !user}
+                      disable={!q && !account.address}
                       onClick={() => {
-                        if (!address && !user) return;
+                        if (!q && !account.address) return;
                         let link = "https://arithfi.com/";
-                        if (address) {
+                        if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
-                        } else if (user) {
+                            q.slice(-8).toLowerCase();
+                        } else if (account.address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            user.slice(-8).toLowerCase();
+                            account.address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar("Copy Successfully");
