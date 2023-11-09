@@ -326,7 +326,7 @@ const CopyTrading = () => {
               fontWeight: '700',
               lineHeight: '32px',
               color: theme.normal.text0,
-            })}>{data?.position_value?.toFixed(2) || 0} ATF</Stack>
+            })}>{showNumber ? (data?.position_value?.toFixed(2) || 0) : '******'} ATF</Stack>
           </Stack>
           <Stack sx={(theme) => ({
             height: '1px',
@@ -348,13 +348,13 @@ const CopyTrading = () => {
                       fontWeight: '700',
                       lineHeight: '22px',
                       color: theme.normal.text0,
-                    })}>{item.value.toFixed(2)} ATF</Stack>
+                    })}>{showNumber ? item.value.toFixed(2) : '******'} ATF</Stack>
                     <Stack sx={(theme) => ({
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '16px',
                       color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{item.roi > 0 ? '+' : ''}{item.roi.toFixed(2)}%</Stack>
+                    })}>{item.roi > 0 ? '+' : ''}{showNumber ? item.roi.toFixed(2) : '******'}%</Stack>
                   </Stack>
                 </Stack>
               ))
