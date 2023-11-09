@@ -41,6 +41,7 @@ function useCopy() {
   const getAllKOL = useCallback(async () => {
     const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
     const pageAmount = isBigMobile ? 5 : 12;
+    setKolList([])
     const req = await copyAllKOL(
       chainId,
       page,
