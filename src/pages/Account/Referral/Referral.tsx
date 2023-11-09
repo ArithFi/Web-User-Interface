@@ -604,7 +604,10 @@ const Futures = () => {
         sx={(theme) => ({
           marginTop: '40px',
           paddingX: "16px",
-          [theme.breakpoints.up(1440)]: {
+          [theme.breakpoints.up(1640)]: {
+            maxWidth: '1200px',
+          },
+          [theme.breakpoints.between(1440, 1640)]: {
             maxWidth: '984px',
           },
           [theme.breakpoints.down("sm")]: {
