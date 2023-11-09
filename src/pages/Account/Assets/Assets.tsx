@@ -737,6 +737,7 @@ const Assets = () => {
                         }
                       })}
                       onClick={() => {
+                        if (item?.hash?.includes('-')) return;
                         window.open(item?.hash?.hashToChainScan(item.chainId), '_blank')
                       }}
                     >
