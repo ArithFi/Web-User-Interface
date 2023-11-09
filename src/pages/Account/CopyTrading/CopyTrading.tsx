@@ -140,6 +140,7 @@ const CopyTrading = () => {
           fontSize: '20px',
           lineHeight: '28px',
           fontWeight: 700,
+          color: theme.normal.text0,
           [theme.breakpoints.down("md")]: {
             display: 'none',
           }
