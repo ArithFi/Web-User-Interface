@@ -44,7 +44,7 @@ const CopyTrading = () => {
       .then(res => res.json())
       .then(res => res.value));
 
-  const total_balance_atf = data ? data.copy_balance + data?.copy_order_balance + data?.available_balance + data?.copy_limit_balance : 0
+  const total_balance_atf = data ? data.copy_balance + data?.copy_order_balance + data?.copy_limit_balance : 0
   const total_balance_usd = total_balance_atf * price
 
   const showData = [
@@ -270,8 +270,8 @@ const CopyTrading = () => {
               },
               {
                 name: t`Position`,
-                value: data?.position || 0,
-                usdValue: (data?.position || 0) * price,
+                value: (data?.copy_order_balance + data?.copy_limit_balance) || 0,
+                usdValue: ((data?.copy_order_balance + data?.copy_limit_balance) || 0) * price,
               },
             ].map((item) => (
               <Grid item key={item.name} xs={6} sm={6}>
