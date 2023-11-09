@@ -134,6 +134,11 @@ msgstr "Позиция профессионального трейдера бу�
 msgid "about connecting wallets"
 msgstr "о подключении кошельков"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -425,6 +430,11 @@ msgstr "Копирование сделок"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Copy Trading Address"
 msgstr "Адрес для копирования сделок"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Copy trading assets"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -1126,11 +1136,6 @@ msgstr "Предыдущая прибыль"
 msgid "Price"
 msgstr "Цена"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "Profit"
-msgstr "Прибыль"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Прибыль (ATF)"
@@ -1152,6 +1157,11 @@ msgstr "Деление прибыли"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "Прибыль(ATF)"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Profit&Loss"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1406,6 +1416,11 @@ msgstr "Общая сумма, которую вы инвестировали в
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "Транзакция не удалась, и сумма была полностью возмещена. Вы можете повторно торговать"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+msgstr ""
+
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1599,6 +1614,11 @@ msgstr "Twitter"
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Тип"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Unrealized PnL"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"

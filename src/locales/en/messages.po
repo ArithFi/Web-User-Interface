@@ -134,6 +134,11 @@ msgstr "A professional trader's position will be automatically copied and execut
 msgid "about connecting wallets"
 msgstr "about connecting wallets"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -425,6 +430,11 @@ msgstr "Copy Trading"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Copy Trading Address"
 msgstr "Copy Trading Address"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Copy trading assets"
+msgstr "Copy trading assets"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -1126,11 +1136,6 @@ msgstr "Previous Profit"
 msgid "Price"
 msgstr "Price"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "Profit"
-msgstr "Profit"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Profit (ATF)"
@@ -1152,6 +1157,11 @@ msgstr "Profit Sharing:"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "Profit(ATF)"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Profit&Loss"
+msgstr "Profit&Loss"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1406,6 +1416,11 @@ msgstr "The total amount you invested in copying this trader’s signals."
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "The transaction failed and the amount has been fully refunded. You can re-trade"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+msgstr "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1599,6 +1614,11 @@ msgstr "Twitter"
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Type"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Unrealized PnL"
+msgstr "Unrealized PnL"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"

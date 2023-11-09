@@ -132,6 +132,11 @@ msgstr ""
 msgid "about connecting wallets"
 msgstr "コネクティングウォレットについて"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -422,6 +427,11 @@ msgstr ""
 
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Copy Trading Address"
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Copy trading assets"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -1122,11 +1132,6 @@ msgstr ""
 msgid "Price"
 msgstr "価格"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "Profit"
-msgstr ""
-
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr ""
@@ -1147,6 +1152,11 @@ msgstr ""
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Profit&Loss"
 msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1402,6 +1412,11 @@ msgstr ""
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "取引に失敗し、金額は全額返金されました。再度取引できます"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+msgstr ""
+
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1594,6 +1609,11 @@ msgstr "Twitter"
 
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Type"
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Unrealized PnL"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx

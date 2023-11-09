@@ -134,6 +134,11 @@ msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve siz
 msgid "about connecting wallets"
 msgstr "cüzdanları bağlamak hakkında"
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "According to the updated information, the commission is only deducted from the realized profit, and no commission is charged on losses. The excess commission deducted during the settlement period will be refunded after the settlement."
+msgstr ""
+
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Overview/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
@@ -425,6 +430,11 @@ msgstr "Kopya İşlem"
 #: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Copy Trading Address"
 msgstr "Kopya İşlem Adresi"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Copy trading assets"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -1128,11 +1138,6 @@ msgstr "Önceki Kar"
 msgid "Price"
 msgstr "Fiyat"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "Profit"
-msgstr "Kâr"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Kar (ATF)"
@@ -1154,6 +1159,11 @@ msgstr "Kar Paylaşımı"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "Kar (ATF)"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Profit&Loss"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1408,6 +1418,11 @@ msgstr "Bu tüccarın sinyallerini kopyalamak için yatırdığınız toplam mik
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "İşlem başarısız oldu ve miktar tamamen iade edildi. Yeniden işlem yapabilirsiniz."
 
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "The unrealized profit or loss of an open position.The Threalized profit or loss of an open position, without deducting the 10% commission."
+msgstr ""
+
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1601,6 +1616,11 @@ msgstr "Twitter"
 #: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "Tür"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Unrealized PnL"
+msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
