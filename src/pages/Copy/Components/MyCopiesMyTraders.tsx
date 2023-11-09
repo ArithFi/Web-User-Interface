@@ -43,7 +43,7 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
       const nickName = item.nickName;
       const kolAddress = item.kolAddress.showAddress();
       const copyAccountBalance = item.copyAccountBalance.floor(2);
-      const profit = item.profit.floor(2);
+      const profit = item.profit?.floor(2);
 
       const kolIcon = () => {
         if (item.avatar !== "-" && item.avatar !== "") {
@@ -250,7 +250,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const nickName = props.data.nickName;
   const kolAddress = props.data.kolAddress.showAddress();
   const copyAccountBalance = props.data.copyAccountBalance.floor(2);
-  const profit = props.data.profit.floor(2);
+  const profit = props.data.profit?.floor(2);
 
   const kolIcon = () => {
     if (props.data.avatar !== "-" && props.data.avatar !== "") {
