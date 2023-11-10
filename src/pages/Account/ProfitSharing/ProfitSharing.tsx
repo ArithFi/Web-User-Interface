@@ -125,6 +125,8 @@ const Futures = () => {
                 lineHeight: "22px",
                 color: theme.normal.text0,
                 fontWeight: 700,
+                maxWidth: '208px',
+                wordWrap: "break-word",
               })}
             >
               {props.item?.walletAddress || "0"}

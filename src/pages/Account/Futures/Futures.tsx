@@ -412,7 +412,7 @@ const Futures = () => {
               fontWeight: '700',
               lineHeight: '32px',
               color: theme.normal.text0,
-            })}>{data?.position_value?.toFixed(2) || 0} ATF</Stack>
+            })}>{showNumber ? data?.position_value?.toFixed(2) || 0 : '******'} ATF</Stack>
           </Stack>
           <Stack sx={(theme) => ({
             height: '1px',
