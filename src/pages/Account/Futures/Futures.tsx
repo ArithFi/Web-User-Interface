@@ -285,7 +285,7 @@ const Futures = () => {
               </Stack>
             </Stack>
             <Stack fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}
-                   sx={(theme) => ({color: theme.normal.text0})}>{ showNumber ? futures_balance_atf.toFixed(2) : '******'} ATF</Stack>
+                   sx={(theme) => ({color: theme.normal.text0})}>{ showNumber ? futures_balance_atf?.toFixed(2) : '******'} ATF</Stack>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
                    sx={(theme) => ({color: theme.normal.text0})}>≈ { showNumber ? futures_balance_usd.toFixed(5) : '******'} USDT</Stack>
           </Stack>
@@ -347,17 +347,17 @@ const Futures = () => {
             [
               {
                 name: 'Balance',
-                value: available_balance_atf.toFixed(2),
+                value: available_balance_atf?.toFixed(2),
                 usdValue: available_balance_usd.toFixed(5),
               },
               {
                 name: 'Position',
-                value: position_balance_atf.toFixed(2),
+                value: position_balance_atf?.toFixed(2),
                 usdValue: position_balance_usd.toFixed(5),
               },
               {
                 name: 'Order',
-                value: frozen_balance_atf.toFixed(2),
+                value: frozen_balance_atf?.toFixed(2),
                 usdValue: frozen_balance_usd.toFixed(5),
               },
             ].map((item) => (
@@ -412,7 +412,7 @@ const Futures = () => {
               fontWeight: '700',
               lineHeight: '32px',
               color: theme.normal.text0,
-            })}>{data?.position_value.toFixed(2) || 0} ATF</Stack>
+            })}>{data?.position_value?.toFixed(2) || 0} ATF</Stack>
           </Stack>
           <Stack sx={(theme) => ({
             height: '1px',
@@ -434,13 +434,13 @@ const Futures = () => {
                       fontWeight: '700',
                       lineHeight: '22px',
                       color: theme.normal.text0,
-                    })}>{showNumber ? item.value.toFixed(2) : '******'} ATF</Stack>
+                    })}>{showNumber ? item.value?.toFixed(2) : '******'} ATF</Stack>
                     <Stack sx={(theme) => ({
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '16px',
                       color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{ showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}`: '******'}%</Stack>
+                    })}>{ showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi?.toFixed(2)}`: '******'}%</Stack>
                   </Stack>
                 </Stack>
               ))
@@ -474,7 +474,7 @@ const Futures = () => {
                       lineHeight: '40px',
                       color: theme.normal.text0,
                     })}>
-                      {showNumber ? item.value.toFixed(2) : '******'} ATF
+                      {showNumber ? item.value?.toFixed(2) : '******'} ATF
                     </Stack>
                     {
                       item?.roi !== undefined && (
@@ -484,7 +484,7 @@ const Futures = () => {
                           lineHeight: '22px',
                           color: item.roi >=0 ? theme.normal.success : theme.normal.danger,
                         })}>
-                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}` : '******'}%
+                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi?.toFixed(2)}` : '******'}%
                         </Stack>
                       )
                     }

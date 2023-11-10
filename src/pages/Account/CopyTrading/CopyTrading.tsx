@@ -238,7 +238,7 @@ const CopyTrading = () => {
               </Stack>
             </Stack>
             <Stack fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}
-                   sx={(theme) => ({color: theme.normal.text0})}>{showNumber ? total_balance_atf.toFixed(2) : '******'} ATF</Stack>
+                   sx={(theme) => ({color: theme.normal.text0})}>{showNumber ? total_balance_atf?.toFixed(2) : '******'} ATF</Stack>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
                    sx={(theme) => ({color: theme.normal.text0})}>≈ {showNumber ? total_balance_usd.toFixed(5) : '******'} USDT</Stack>
           </Stack>
@@ -313,7 +313,7 @@ const CopyTrading = () => {
                     fontSize: '24px',
                     fontWeight: '700',
                     lineHeight: '32px',
-                  })}>{showNumber ? item.value.toFixed(2) : '******'} ATF</Stack>
+                  })}>{showNumber ? item.value?.toFixed(2) : '******'} ATF</Stack>
                   <Stack sx={(theme) => ({
                     color: theme.normal.text0,
                     fontSize: '14px',
@@ -376,13 +376,13 @@ const CopyTrading = () => {
                       fontWeight: '700',
                       lineHeight: '22px',
                       color: theme.normal.text0,
-                    })}>{showNumber ? item.value.toFixed(2) : '******'} ATF</Stack>
+                    })}>{showNumber ? item.value?.toFixed(2) : '******'} ATF</Stack>
                     <Stack sx={(theme) => ({
                       fontSize: '12px',
                       fontWeight: '400',
                       lineHeight: '16px',
                       color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{item.roi > 0 ? '+' : ''}{showNumber ? item.roi.toFixed(2) : '******'}%</Stack>
+                    })}>{item.roi > 0 ? '+' : ''}{showNumber ? item.roi?.toFixed(2) : '******'}%</Stack>
                   </Stack>
                 </Stack>
               ))
@@ -420,7 +420,7 @@ const CopyTrading = () => {
                       lineHeight: '40px',
                       color: theme.normal.text0,
                     })}>
-                      {showNumber ? item.value.toFixed(2) : '******'} ATF
+                      {showNumber ? item.value?.toFixed(2) : '******'} ATF
                     </Stack>
                     {
                       item?.roi !== undefined && (
@@ -430,7 +430,7 @@ const CopyTrading = () => {
                           lineHeight: '22px',
                           color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
                         })}>
-                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi.toFixed(2)}` : '******'}%
+                          {showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi?.toFixed(2)}` : '******'}%
                         </Stack>
                       )
                     }

@@ -532,7 +532,7 @@ const Futures = () => {
                       })}
                     >
                       <div>
-                        {item.value.toFixed(2)} {item.unit}
+                        {item.value?.toFixed(2)} {item.unit}
                       </div>
                       <span>{item.title}</span>
                     </Stack>

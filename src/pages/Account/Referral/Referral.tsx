@@ -788,7 +788,7 @@ const Futures = () => {
                       })}
                     >
                       <div>
-                        {item.value.toFixed(2)} {item.unit}
+                        {item.value?.toFixed(2)} {item.unit}
                       </div>
                       <span>{item.title}</span>
                     </Stack>
@@ -862,7 +862,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.reward.toFixed(2) || 0} ATF
+                    {overview?.value?.reward?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>

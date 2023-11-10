@@ -252,7 +252,7 @@ const Assets = () => {
               </Stack>
             </Stack>
             <Stack fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}
-                   sx={(theme) => ({color: theme.normal.text0})}>{showNumber ? total_balance_atf.toFixed(2) : '******'} ATF</Stack>
+                   sx={(theme) => ({color: theme.normal.text0})}>{showNumber ? total_balance_atf?.toFixed(2) : '******'} ATF</Stack>
             <Stack fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
                    sx={(theme) => ({color: theme.normal.text0})}>
               ≈ {showNumber ? total_balance_usd.toFixed(5) : '******'} USDT
@@ -265,7 +265,7 @@ const Assets = () => {
                 </Trans>
               </Stack>
               <Stack sx={(theme) => ({color: data?.roi > 0 ? theme.normal.success : theme.normal.danger})}>
-                {showNumber ? data?.pnl_total.toFixed(2) || 0 : '******'} ATF ({showNumber ? `${data?.roi_total > 0 ? '+' : ''}${data?.roi_total?.toFixed(2) || 0}` : '******'}%)
+                {showNumber ? data?.pnl_total?.toFixed(2) || 0 : '******'} ATF ({showNumber ? `${data?.roi_total > 0 ? '+' : ''}${data?.roi_total?.toFixed(2) || 0}` : '******'}%)
               </Stack>
             </Stack>
           </Stack>
@@ -461,7 +461,7 @@ const Assets = () => {
                         color: theme.normal.text0,
                       })}
                     >
-                      {showNumber ? futures_balance_atf.toFixed(2) : '******'} ATF
+                      {showNumber ? futures_balance_atf?.toFixed(2) : '******'} ATF
                     </Stack>
                     <Stack
                       sx={(theme) => ({
@@ -622,7 +622,7 @@ const Assets = () => {
                         color: theme.normal.text0,
                       })}
                     >
-                      {showNumber ? copy_balance_atf.toFixed(2) : '******'} ATF
+                      {showNumber ? copy_balance_atf?.toFixed(2) : '******'} ATF
                     </Stack>
                     <Stack
                       sx={(theme) => ({
