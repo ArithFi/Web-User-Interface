@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import { MyCopiesMyTradersList } from "../Hooks/useMyCopies";
 import { DefaultKolIcon } from "../../../components/icons";
 import GreyButton from "../../../components/MainButton/GreyButton";
+import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
 
 interface MyCopiesMyTradersProps {
   copyCallBack: (name: string, address: string) => void;
@@ -44,6 +45,8 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
       const kolAddress = item.kolAddress.showAddress();
       const copyAccountBalance = item.copyAccountBalance.floor(2);
       const profit = item.profit?.floor(2);
+      const copyTradingAssets = item.copyTradingAssets.floor(2);
+      const unrealizedPnL = item.unrealizedPnL.floor(2);
 
       const kolIcon = () => {
         if (item.avatar !== "-" && item.avatar !== "") {
@@ -125,6 +128,117 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
             alignItems={"center"}
           >
             <Stack spacing={"4px"} width={"100%"}>
+              <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+                <Box
+                  sx={(theme) => ({
+                    fontSize: "12px",
+                    fontWeight: "400",
+                    lineHeight: "16px",
+                    color: theme.normal.text2,
+                  })}
+                >
+                  <Trans>Profit&Loss</Trans>
+                </Box>
+                <ArithFiTooltipFC
+                  title={
+                    <p>
+                      <Trans>
+                        This indicates your copy trading total profit for
+                        copying this trader. Profit&Loss = Total Profit - Total
+                        Pre-Deducted Profit Sharing . Your surplus pre-deducted
+                        profit will be refunded at settlement.
+                      </Trans>
+                    </p>
+                  }
+                />
+              </Stack>
+
+              <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
+                <Box
+                  sx={(theme) => ({
+                    fontSize: "14px",
+                    fontWeight: "700",
+                    lineHeight: "20px",
+                    color: theme.normal.text0,
+                  })}
+                >
+                  {profit}ATF
+                </Box>
+              </Stack>
+            </Stack>
+
+            <Stack spacing={"4px"} width={"100%"}>
+              <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+                <Box
+                  sx={(theme) => ({
+                    fontSize: "12px",
+                    fontWeight: "400",
+                    lineHeight: "16px",
+                    color: theme.normal.text2,
+                  })}
+                >
+                  <Trans>Unrealized PnL</Trans>
+                </Box>
+                <ArithFiTooltipFC
+                  title={
+                    <p>
+                      <Trans>
+                        This indicates the actual profit of your current
+                        position. Please note that this data does not
+                        pre-deducted profit.
+                      </Trans>
+                    </p>
+                  }
+                />
+              </Stack>
+
+              <Box
+                sx={(theme) => ({
+                  fontSize: "14px",
+                  fontWeight: "700",
+                  lineHeight: "20px",
+                  color:
+                    item.unrealizedPnL >= 0
+                      ? theme.normal.success
+                      : theme.normal.danger,
+                })}
+              >
+                {unrealizedPnL}
+              </Box>
+            </Stack>
+          </Stack>
+
+          <Stack
+            direction={"row"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Stack spacing={"4px"} width={"100%"}>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text2,
+                })}
+              >
+                <Trans>Copy trading assets</Trans>
+              </Box>
+              <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
+                <Box
+                  sx={(theme) => ({
+                    fontSize: "14px",
+                    fontWeight: "700",
+                    lineHeight: "20px",
+                    color: theme.normal.text0,
+                  })}
+                >
+                  {copyTradingAssets}ATF
+                </Box>
+              </Stack>
+            </Stack>
+
+            <Stack spacing={"4px"} width={"100%"}>
               <Box
                 sx={(theme) => ({
                   fontSize: "12px",
@@ -146,32 +260,8 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
                 {copyAccountBalance}
               </Box>
             </Stack>
-
-            <Stack spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Profit</Trans>
-              </Box>
-              <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    lineHeight: "20px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {profit}ATF
-                </Box>
-              </Stack>
-            </Stack>
           </Stack>
+
           <Stack
             direction={"row"}
             spacing={"8px"}
@@ -224,9 +314,41 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
   const pc = useMemo(() => {
     return (
       <FuturesTableTitle
-        dataArray={[t`Trader`, t`Remaining Copy Amount`, t`Profit`, t`Operate`]}
+        dataArray={[
+          t`Trader`,
+          t`Copy trading assets`,
+          t`Remaining Copy Amount`,
+          t`Profit&Loss`,
+          t`Unrealized PnL`,
+          t`Operate`,
+        ]}
         noOrder={noOrder}
-        helps={[]}
+        helps={[
+          {
+            index: 3,
+            helpInfo: (
+              <p>
+                <Trans>
+                  This indicates your copy trading total profit for copying this
+                  trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit
+                  Sharing . Your surplus pre-deducted profit will be refunded at
+                  settlement.
+                </Trans>
+              </p>
+            ),
+          },
+          {
+            index: 4,
+            helpInfo: (
+              <p>
+                <Trans>
+                  This indicates the actual profit of your current position.
+                  Please note that this data does not pre-deducted profit.
+                </Trans>
+              </p>
+            ),
+          },
+        ]}
         noNeedPadding
       >
         {rows}
@@ -251,6 +373,8 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const kolAddress = props.data.kolAddress.showAddress();
   const copyAccountBalance = props.data.copyAccountBalance.floor(2);
   const profit = props.data.profit?.floor(2);
+  const copyTradingAssets = props.data.copyTradingAssets.floor(2);
+  const unrealizedPnL = props.data.unrealizedPnL.floor(2);
 
   const kolIcon = () => {
     if (props.data.avatar !== "-" && props.data.avatar !== "") {
@@ -332,6 +456,19 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
+          {copyTradingAssets}ATF
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "12px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
           {copyAccountBalance}ATF
         </Box>
       </TableCell>
@@ -346,6 +483,22 @@ const Row: FC<RowProps> = ({ ...props }) => {
           })}
         >
           {profit}ATF
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "12px",
+            lineHeight: "16px",
+            color:
+              props.data.unrealizedPnL >= 0
+                ? theme.normal.success
+                : theme.normal.danger,
+            paddingRight: "20px",
+          })}
+        >
+          {unrealizedPnL}ATF
         </Box>
       </TableCell>
       <TableCell>

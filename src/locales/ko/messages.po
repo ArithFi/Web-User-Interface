@@ -13,17 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "{0}"
 msgstr "{0}"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* 금융 데이터의 복잡성으로 인해 세부 사항과 지연이 발생할 수 있습니다. 위에 표시된 데이터는 참고용입니다. 불편을 드려 진심으로 사과합니다."
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
 msgstr "*금융 데이터의 복잡성으로 인해 미묘한 차이와 지연이 있을 수 있습니다. 위에 표시된 데이터는 참고용일 뿐이며, 불편을 드려 죄송합니다."
 
@@ -89,10 +89,12 @@ msgstr "24시간 저가"
 msgid "3. ATF Token price fluctuation risk: Both the margin and the final profit and loss use ATF Token, and ATF itself is also a highly volatile asset. In extreme cases, even if your perpetual contract position is profitable, However, due to the fluctuation of the ATF price itself, it may cause you to lose money in terms of fiat currency."
 msgstr "3. ATF 토큰 가격 변동 리스크: 마진과 최종 손익 모두 ATF 토큰을 사용하며, ATF 자체도 고도로 변동성 있는 자산입니다. 극단적인 경우에는 영구 계속 계약 포지션이 수익을 내더라도, ATF 가격 자체의 변동으로 인해 피아트 화폐 기준으로 손해를 볼 수 있습니다."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "30 Day's PNL"
+msgstr "30 일 손익"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "30 Days' PNL"
 msgstr "30 일 손익"
 
@@ -106,10 +108,12 @@ msgstr "4. 외부 오라클 리스크: Arith 프로토콜의 영구 계속 계�
 msgid "5. Smart contract risk: There may be fatal unknown risks in the smart contract that may cause your principal to be damaged. Please evaluate the risk yourself before deciding whether to participate."
 msgstr "5. 스마트 계약 위험: 스마트 계약에 치명적인 알 수 없는 위험이 있을 수 있으며, 참여 여부를 결정하기 전에 위험을 스스로 평가하십시오."
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "7 Day's PNL"
+msgstr "7 일 손익"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "7 Days' PNL"
 msgstr "7 일 손익"
 
@@ -134,13 +138,17 @@ msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩�
 msgid "about connecting wallets"
 msgstr "지갑 연결 정보"
 
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Account"
 msgstr "계정"
 
-#: src/pages/Overview/Components/TransactionTable.tsx
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Accounts"
+msgstr "계정"
+
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "행동"
 
@@ -212,8 +220,8 @@ msgstr "모든 트레이더"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
 msgid "Amount"
 msgstr "수량"
 
@@ -256,6 +264,11 @@ msgstr "ArithFi Swap"
 msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
 msgstr "ArithFi는 시장 메이커와 LP를 제거하는 분산형 파생상품 거래소입니다."
 
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
+msgid "Assets"
+msgstr "자산"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
@@ -274,6 +287,10 @@ msgstr "AUM (ATF)"
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "balance"
 msgstr "잔고"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Balance"
+msgstr "잔액"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/components/NormalInput/ArithFiInputSelect.tsx
@@ -346,6 +363,10 @@ msgstr "종료 시간"
 msgid "Closed"
 msgstr "닫힘"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Commission"
+msgstr "수수료"
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -377,8 +398,8 @@ msgstr "지갑 연결"
 msgid "Copy"
 msgstr "복사"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Copy Invitation Link"
 msgstr "초대 링크 복사"
 
@@ -396,14 +417,17 @@ msgstr "지금 복사"
 msgid "Copy Orders"
 msgstr "주문 복사"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Settle"
+msgstr "복사 결산"
+
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "복사 완료"
@@ -416,15 +440,27 @@ msgstr "트레이더 복사 서비스 계약"
 msgid "Copy Traders’ PnL (ATF)"
 msgstr "트레이더의 수익 및 손실 (ATF)"
 
-#: src/hooks/useAccount.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Copy/Components/CopyRoute.tsx
 msgid "Copy Trading"
 msgstr "복사 거래"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Copy Trading Address"
 msgstr "거래 복사 주소"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Copy trading assets"
+msgstr "복사 트레이딩 자산"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "Copy Trading Assets"
+msgstr "복사 트레이딩 자산"
 
 #: src/pages/Copy/MyCopies.tsx
 msgid "Copy Trading Assets(ATF)"
@@ -442,15 +478,19 @@ msgstr "편안하게 복사 거래"
 msgid "Copy Trading Total Amount (ATF)"
 msgstr "복사 거래 총액 (ATF)"
 
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Copy Transfer"
+msgstr "복사 전송"
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "암호화폐, 외환, 귀금속, 상품, 주식"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commission"
 msgstr "누적 수수료"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Commissions"
 msgstr "누적 수수료"
 
@@ -458,18 +498,20 @@ msgstr "누적 수수료"
 msgid "Cumulative Copy Traders"
 msgstr "누적 복사 트레이더"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Cumulative Invitee Trading Volume"
 msgstr "누적 피추천인 거래량"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Cumulative Profit"
 msgstr "누적 수익"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Cumulative Return"
 msgstr "누적 수익률"
 
@@ -490,9 +532,11 @@ msgstr "현재:"
 msgid "Custom Copy Trading"
 msgstr "맞춤 복사 거래"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Daily Return"
 msgstr "일일 수익률"
 
@@ -505,17 +549,18 @@ msgstr "다크 모드"
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Default"
 msgstr "기본값"
 
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "Deposit"
@@ -574,8 +619,8 @@ msgid "Eliminate market makers and LPs in trading"
 msgstr "거래에서 시장 메이커와 LP를 제거하세요."
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
-msgid "End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing."
-msgstr "마지막 복사는 시장 주문으로 포지션을 정리하고 수익 공유를 공제한 후 자산을 자동으로 계정으로 반환합니다."
+msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
+msgstr "복사 종료는 시장 주문으로 포지션을 청산하고, 결산 기간 동안의 이익 분배를 공제한 후 자산을 계정으로 자동 환불합니다."
 
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 slippage trading on ArithFi"
@@ -597,8 +642,8 @@ msgstr "더 많은 자산을 확장하세요."
 msgid "Expand more products:"
 msgstr "더 많은 제품을 확장하세요."
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Fail"
 msgstr "실패"
 
@@ -636,25 +681,20 @@ msgstr "다음"
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Arith Protocol 영속적인 계약을 사용하는 사용자/스마트 계약은 포지션, 결제, 청산 및 기타 관련 작업 수행 시 시장 내 유사한 제품과의 규칙 및 차이를 이해하십시오. 다음의 가능한 리스크를 완전히 이해하고 리스크 상황을 감당할 수 있다면 참여하세요."
 
-#: src/pages/Personal/Personal.tsx
-msgid "Freeze Accounts"
-msgstr "계정 동결"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze Deposit"
-msgstr "입금 얼리기"
-
-#: src/hooks/useAccount.ts
-msgid "Freeze to Deposit"
-msgstr "입금을 얼리다"
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "교환할 토큰"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "선물"
+
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Futures Assets"
+msgstr "선물 자산"
 
 #: src/pages/Home/Home.tsx
 msgid "Futures, Options, Structure Products"
@@ -750,11 +790,11 @@ msgstr "잔액 부족"
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
 msgstr "초청자 주소"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Trading Volume"
 msgstr "피추천인의 거래량"
 
@@ -896,26 +936,19 @@ msgstr "자세히 보기"
 msgid "More Info"
 msgstr "자세한 정보"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Balance"
-msgstr "내 잔고"
-
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "My commissions"
 msgstr "내 수수료"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Copy/MyCopies.tsx
 msgid "My Copies"
 msgstr "내 복사본"
 
-#: src/pages/Personal/Personal.tsx
-msgid "My Positions"
-msgstr "내 포지션"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "My profit sharing"
 msgstr "나의 이익 공유"
 
@@ -932,8 +965,8 @@ msgstr "내 거래"
 msgid "News"
 msgstr "뉴스"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "아직 수수료 없음"
 
@@ -947,10 +980,11 @@ msgstr "LP 없음"
 msgid "No Market Makers"
 msgstr "시장 메이커 없음"
 
-#: src/pages/Overview/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 msgid "No Order"
 msgstr "주문 없음"
 
+#: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Futures/Components/TableTitle.tsx
 #: src/pages/Futures/OrderList.tsx
 #: src/pages/Futures/OrderList.tsx
@@ -958,8 +992,8 @@ msgstr "주문 없음"
 msgid "No Orders"
 msgstr "주문 없음"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "No profit sharing yet"
 msgstr "아직 이익 공유 없음"
 
@@ -1037,12 +1071,12 @@ msgstr "주문"
 msgid "Orders"
 msgstr "주문"
 
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Overview"
 msgstr "개요"
 
@@ -1050,25 +1084,19 @@ msgstr "개요"
 msgid "Pancake"
 msgstr "Pancake"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Pending Profit Sharing"
 msgstr "보류 중인 이익 공유"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Performance"
 msgstr "성과"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-msgid "Personal"
-msgstr "개인"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Please click Approve for authorization and then you can open the position, this process will consume some GAS."
@@ -1090,6 +1118,7 @@ msgstr "결제 중 가격 변동으로 인해 PNL, 공유된 이익 및 정산�
 msgid "PnL Ratio"
 msgstr "PNL 비율"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
 #: src/pages/Futures/Modal/CloseModal.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1103,6 +1132,11 @@ msgstr "포지션"
 msgid "Position fee = Position * 0.05%"
 msgstr "포지션 수수료 = 포지션 * 0.05%"
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Position Value"
+msgstr "포지션 가치"
+
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
 msgstr "포지션 * 0.05%"
@@ -1111,13 +1145,8 @@ msgstr "포지션 * 0.05%"
 msgid "Positions"
 msgstr "포지션"
 
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
-msgid "Positions Value"
-msgstr "포지션 가치"
-
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Previous Profit"
 msgstr "이전 수익"
 
@@ -1126,18 +1155,13 @@ msgstr "이전 수익"
 msgid "Price"
 msgstr "가격"
 
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
-msgid "Profit"
-msgstr "이익"
-
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "이익 (ATF)"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Profit Sharing"
 msgstr "이익 공유"
 
@@ -1152,6 +1176,11 @@ msgstr "이익 공유"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Profit(ATF)"
 msgstr "이익 (ATF)"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Profit&Loss"
+msgstr "손익"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1170,9 +1199,8 @@ msgstr "100 ATF 테스트 토큰을 받았습니다."
 msgid "Recent transactions"
 msgstr "최근 트랜잭션"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Share/Menu.tsx
+#: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "추천"
 
@@ -1184,6 +1212,10 @@ msgstr "남은 복사 금액"
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "Remember me"
 msgstr "나를 기억해주세요"
+
+#: src/pages/Account/Assets/Overview.tsx
+msgid "Return"
+msgstr "수익"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
@@ -1213,8 +1245,8 @@ msgstr "저장"
 msgid "Scan and copy the trade"
 msgstr "거래 스캔 및 복사"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Search"
 msgstr "검색"
 
@@ -1251,16 +1283,17 @@ msgstr "설정"
 msgid "Settings"
 msgstr "설정"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "해결됨"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Settled Commissions"
 msgstr "정산 수수료"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Share"
 msgstr "공유"
@@ -1305,7 +1338,7 @@ msgstr "슬리피지 허용 범위 설정"
 msgid "Start Trading"
 msgstr "거래 시작"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Status"
 msgstr "상태"
 
@@ -1339,8 +1372,8 @@ msgstr "스탑 오더"
 msgid "Stop-Limit"
 msgstr "예약 지정가"
 
-#: src/pages/Overview/Components/MobileList.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MobileList.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Success"
 msgstr "성공"
 
@@ -1386,10 +1419,6 @@ msgstr "테스트 BNB"
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "각 주문에 투자한 고정 금액입니다. 서비스 수수료는 각 주문의 실제 마진에서 공제됩니다."
 
-#: src/pages/Personal/Personal.tsx
-msgid "The frozen amount is currently unavailable for withdrawal. If you have any inquiries, please feel free to reach out to contact admin support."
-msgstr "현재 얼어붙은 금액은 인출할 수 없습니다. 문의 사항이 있으면 관리자 지원에 연락하십시오."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
 msgstr "최대 예금 금액은"
@@ -1406,17 +1435,32 @@ msgstr "이 트레이더의 신호를 복사하는 데 투자한 총 금액."
 msgid "The transaction failed and the amount has been fully refunded. You can re-trade"
 msgstr "트랜잭션이 실패하고 모든 금액이 환불되었습니다. 재거래할 수 있습니다."
 
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "This indicates the actual profit of your current position. Please note that this data does not pre-deducted profit."
+msgstr "이것은 현재 포지션의 실제 이익을 나타냅니다. 이 데이터는 이익을 선제공제하지 않았음을 유의해 주십시오."
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "This indicates your copy trading total profit for copying this trader. Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "이것은 이 트레이더를 복사함으로써 얻은 귀하의 복사 거래 총 수익을 나타냅니다. 손익 = 총 수익 - 총 선공제 이익 분배. 귀하의 초과 선공제 이익은 결제 시 환불됩니다."
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+msgid "This indicates your copy trading total profit.Profit&Loss = Total Profit - Total Pre-Deducted Profit Sharing . Your surplus pre-deducted profit will be refunded at settlement."
+msgstr "이것은 당신의 복사 거래 총 이익을 나타냅니다. 손익 = 총 이익 - 총 선공제 이익 분배. 당신의 초과 선공제 이익은 결제 시 환불됩니다."
+
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/TransactionTable.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-#: src/pages/Overview/Components/MoneyTable.tsx
-#: src/pages/Overview/Components/TransactionTable.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
 msgid "Time"
 msgstr "시간"
 
@@ -1424,10 +1468,9 @@ msgstr "시간"
 msgid "To(Estimated)"
 msgstr "받을 토큰(예상)"
 
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Today's PNL"
 msgstr "오늘의 손익"
 
@@ -1435,19 +1478,25 @@ msgstr "오늘의 손익"
 msgid "Total"
 msgstr "총액"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Asset Value"
 msgstr "총 자산 가치"
+
+#: src/pages/Account/Assets/Assets.tsx
+msgid "Total Assets"
+msgstr "총 자산"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Total Burned"
 msgstr "총 소각된"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Commissions"
 msgstr "총 수수료"
 
@@ -1455,8 +1504,8 @@ msgstr "총 수수료"
 msgid "Total Copy Amount"
 msgstr "총 복사 금액"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr "총 피추천인"
 
@@ -1469,23 +1518,24 @@ msgstr "총 지불"
 msgid "Total Profit"
 msgstr "총 이익"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Total Profit & Loss"
 msgstr "총 수익과 손실"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Total Profit Sharing"
 msgstr "총 이익 공유"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr "총 거래량"
 
@@ -1512,6 +1562,10 @@ msgstr "설정한 TP 및 SL 가격이 즉시 트리거됩니다."
 msgid "TP Executed"
 msgstr "TP 실행됨"
 
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Trade"
+msgstr "거래"
+
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "즉시 토큰 거래"
@@ -1525,8 +1579,8 @@ msgstr "$ATF로 거래하기"
 msgid "Trade with me on ArithFi"
 msgstr "ArithFi에서 저와 함께 거래하세요."
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Traded Invitees"
 msgstr "트레이딩을 완료한 피추천인"
 
@@ -1540,13 +1594,13 @@ msgstr "트레이더"
 msgid "Trader Profile"
 msgstr "트레이더 프로필"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trader profit sharing rules."
 msgstr "트레이더 수익 공유 규정"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr "거래량"
 
@@ -1596,9 +1650,19 @@ msgstr "트리거 가격은 개시 가격보다 낮아야 합니다"
 msgid "Twitter"
 msgstr "트위터"
 
-#: src/pages/Overview/Components/MoneyTable.tsx
+#: src/pages/Account/Assets/Components/MoneyTable.tsx
 msgid "Type"
 msgstr "유형"
+
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+msgid "Unrealized PnL"
+msgstr "미실현 손익"
+
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
+msgid "Unrealized PNL"
+msgstr "미실현 손익"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Unrealized PnL (ATF)"
@@ -1608,17 +1672,17 @@ msgstr "미실현 이익 및 손실 (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "미실현 이익 및 손실 (ATF)"
 
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "미정"
 
-#: src/pages/Personal/Referral/Referral.tsx
-#: src/pages/Personal/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled Commissions"
 msgstr "미정산 수수료"
 
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
-#: src/pages/Personal/CopyTradingProfit/CopyTradingProfit.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled Profit Sharing"
 msgstr "미해결 이익 공유"
 
@@ -1648,10 +1712,12 @@ msgstr "이 지갑의 소유자임을 확인하십시오. 서명은 무료이며
 msgid "View"
 msgstr "보기"
 
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/CopyTrading/CopyTrading.tsx
+#: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#: src/pages/Personal/Personal.tsx
 msgid "Volume"
 msgstr "거래량"
 
@@ -1664,15 +1730,6 @@ msgstr "지갑"
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "Wallet Balance"
 msgstr "지갑 잔고"
-
-#: src/hooks/useAccount.ts
-#: src/hooks/useAccount.ts
-msgid "Wallet Deposit"
-msgstr "지갑 입금"
-
-#: src/hooks/useAccount.ts
-msgid "Wallet Withdraw"
-msgstr "지갑 출금"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
@@ -1707,8 +1764,9 @@ msgstr "1 클릭으로"
 
 #: src/hooks/useTransactionReceipt.ts
 #: src/hooks/useWithDrawModal.ts
-#: src/pages/Overview/Overview.tsx
-#: src/pages/Personal/Personal.tsx
+#: src/pages/Account/Assets/Assets.tsx
+#: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Withdraw"

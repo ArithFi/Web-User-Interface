@@ -88,7 +88,7 @@ const CopyStopBaseModal: FC<CopyStopBaseModalProps> = ({ ...props }) => {
 
       <Stack spacing={"12px"}>
         {information(
-          t`End copy will liquidate your position with market orders, and automatically return the assets to your Account after deducting the profits sharing.`
+          t`End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period.`
         )}
         {information(
           t`Please note that due to price fluctuation during settlement, the PNL, profit shared and settled value may vary from displayed above.`

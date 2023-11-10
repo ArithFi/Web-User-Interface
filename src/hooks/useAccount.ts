@@ -8,7 +8,6 @@ export interface AccountListData {
   text: string;
   time: number;
   status: number;
-  orderTypeString: string;
   applyTime?: number;
   chainId?: number;
   hash?: string;
@@ -24,26 +23,6 @@ function useAccount() {
   const [tokenBlockBalance, setTokenBlockBalance] = useState<number>();
   const [moneyList, setMoneyList] = useState<Array<AccountListData>>([]);
   const [historyList, setHistoryList] = useState<Array<AccountListData>>([]);
-
-  const localeOrderType = (orderType: string) => {
-    switch (orderType) {
-      case 'Wallet Deposit':
-        return t`Wallet Deposit`;
-      case 'Wallet Withdraw':
-        return t`Wallet Withdraw`;
-      case 'Copy Trading':
-        return t`Copy Trading`;
-      case 'Freeze Deposit':
-        return t`Freeze Deposit`;
-      case 'Freeze to Deposit':
-        return t`Freeze to Deposit`;
-        case 'SETTLE':
-          return t`Wallet Deposit`;
-      default:
-        return orderType;
-    }
-  }
-
   /**
    * List
    */
@@ -65,7 +44,6 @@ function useAccount() {
             chainId: item["chainId"],
             hash: item["hash"],
             ordertype: item["ordertype"],
-            orderTypeString: localeOrderType(item["type"]),
           };
           return one;
         });

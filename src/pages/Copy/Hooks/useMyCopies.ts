@@ -35,6 +35,8 @@ export interface MyCopiesMyTradersList {
   copyAccountBalance: number;
   profit: number;
   follow: boolean;
+  copyTradingAssets:number;
+  unrealizedPnL:number;
 }
 
 function useMyCopies() {
@@ -160,6 +162,8 @@ function useMyCopies() {
               nickName: item["nickName"],
               avatar: item["avatar"],
               follow: item["follow"] === "true",
+              unrealizedPnL: item["unrealizedPnL"],
+              copyTradingAssets: item["copyTradingAssets"]
             };
           }
         );

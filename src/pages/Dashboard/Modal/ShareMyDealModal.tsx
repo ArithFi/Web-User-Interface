@@ -9,10 +9,10 @@ import BaseModal from "../Components/DashboardBaseModal";
 import {QRCodeCanvas} from "qrcode.react";
 import BaseDrawer from "../Components/DashboardBaseDrawer";
 import {Trans, t} from "@lingui/macro";
-import VolumeChart from "../../Personal/ReChart/VolumeChart";
-import CumulativeReturnChart from "../../Personal/ReChart/CumulativeReturnChart";
-import TotalAssetValueChart from "../../Personal/ReChart/TotalAssetValueChart";
-import DailyReturnChart from "../../Personal/ReChart/DailyReturnChart";
+import VolumeChart from "../../Account/Futures/Components/VolumeChart";
+import TotalAssetValueChart from "../../Account/Futures/Components/TotalAssetValueChart";
+import DailyReturnChart from "../../Account/Futures/Components/DailyReturnChart";
+import CumulativeReturnChart from "../../Account/Futures/Components/CumulativeReturnChart";
 
 const Title1 = styled('div')(({theme}) => ({
   fontWeight: "400",

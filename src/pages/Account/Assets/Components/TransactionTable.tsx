@@ -1,12 +1,12 @@
 import { FC } from "react";
-import FuturesTableTitle from "../../Futures/Components/TableTitle";
+import FuturesTableTitle from "../../../Futures/Components/TableTitle";
 import { t } from "@lingui/macro";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import { Fail, Success } from "../../../components/icons";
-import { AccountListData } from "../../../hooks/useAccount";
+import { Fail, Success } from "../../../../components/icons";
+import { AccountListData } from "../../../../hooks/useAccount";
 
 interface TransactionTableProps {
   list: Array<AccountListData>;

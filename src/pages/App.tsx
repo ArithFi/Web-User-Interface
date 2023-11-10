@@ -10,12 +10,14 @@ import { KOLClick, KOLWallet } from "../lib/ArithFiRequest";
 
 const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
-const OverviewPage = lazy(() => import("./Overview/Overview"));
 const SwapPage = lazy(() => import("./Swap/Swap"));
 const DashboardPage = lazy(() => import("./Dashboard/Dashboard"));
-const ReferralPage = lazy(() => import("./Personal/Referral/Referral"));
-const CopyTradingProfitPage = lazy(() => import('./Personal/CopyTradingProfit/CopyTradingProfit'));
-const PersonalPage = lazy(() => import("./Personal/Personal"));
+const AccountReferralPage = lazy(() => import("./Account/Referral/Referral"));
+const AccountProfitSharingPage = lazy(() => import('./Account/ProfitSharing/ProfitSharing'));
+const AccountAssetsPage = lazy(() => import("./Account/Assets/Assets"));
+const AccountAssetsOverviewPage = lazy(() => import("./Account/Assets/Overview"));
+const AccountCopyTradingPage = lazy(() => import("./Account/CopyTrading/CopyTrading"));
+const AccountFuturesPage = lazy(() => import("./Account/Futures/Futures"));
 const CopyPage = lazy(() => import("./Copy/Copy"));
 const TraderPage = lazy(() => import("./Copy/Trader"));
 const MyCopiesPage = lazy(() => import("./Copy/MyCopies"));
@@ -114,17 +116,15 @@ const App: FC = () => {
               {swap}
               <Route path="dashboard" element={<DashboardPage />} />
               <Route path="account">
-                <Route path=":address" element={<PersonalPage />} />
-                <Route path="" element={<PersonalPage />} />
-              </Route>
-              <Route path="overview" element={<OverviewPage />} />
-              <Route path="referral">
-                <Route path={":address"} element={<ReferralPage />} />
-                <Route path={""} element={<ReferralPage />} />
-              </Route>
-              <Route path="profit-sharing">
-                <Route path={":address"} element={<CopyTradingProfitPage />} />
-                <Route path={""} element={<CopyTradingProfitPage />} />
+                <Route path="assets" >
+                  <Route path="overview" element={<AccountAssetsOverviewPage />} />
+                  <Route path="" element={<AccountAssetsPage />} />
+                </Route>
+                <Route path="futures" element={<AccountFuturesPage />} />
+                <Route path="copy" element={<AccountCopyTradingPage />} />
+                <Route path="referral" element={<AccountReferralPage />} />
+                <Route path="profitsharing" element={<AccountProfitSharingPage />} />
+                <Route path="" element={<AccountAssetsPage />} />
               </Route>
               <Route path="copy" element={<CopyPage />} />
               <Route path="trader">
@@ -134,7 +134,6 @@ const App: FC = () => {
               <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
           </Suspense>
-
           {/* <TestTheme /> */}
         </MainContent>
         <ArithFiFoot />
