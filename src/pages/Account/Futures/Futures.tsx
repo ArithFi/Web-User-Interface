@@ -55,27 +55,27 @@ const Futures = () => {
     {
       name: t`Unrealized PNL`,
       value: data?.unrealized_pnl || 0,
-      roi: data?.unrealized_roi || 0,
+      roi: (data?.unrealized_roi * 100) || 0,
     },
     {
       name: t`Today's PNL`,
       value: data?.pnl_1d || 0,
-      roi: data?.roi_1d || 0,
+      roi: (data?.roi_1d * 100) || 0,
     },
     {
       name: t`7 Day's PNL`,
       value: data?.pnl_7d || 0,
-      roi: data?.roi_7d || 0,
+      roi: (data?.roi_7d * 100) || 0,
     },
     {
       name: t`30 Day's PNL`,
       value: data?.pnl_30d || 0,
-      roi: data?.roi_30d || 0,
+      roi: (data?.roi_30d * 100) || 0,
     },
     {
       name: t`Total Profit & Loss`,
       value: data?.pnl_total || 0,
-      roi: data?.roi_total || 0,
+      roi: (data?.roi_total * 100) || 0,
     },
   ]
 
@@ -116,13 +116,13 @@ const Futures = () => {
         value={{
           address: q || account.address,
           totalProfitLoss: data?.pnl_total ?? 0,
-          totalRate: data?.roi_total ?? 0,
+          totalRate: (data?.roi_total * 100) ?? 0,
           todayPNL: data?.pnl_1d ?? 0,
-          todayRate: data?.roi_1d ?? 0,
+          todayRate: (data?.roi_1d * 100) ?? 0,
           _7daysPNL: data?.pnl_7d ?? 0,
-          _7daysRate: data?.roi_7d ?? 0,
+          _7daysRate: (data?.roi_7d * 100) ?? 0,
           _30daysPNL: data?.pnl_30d ?? 0,
-          _30daysRate: data?.roi_30d ?? 0,
+          _30daysRate: (data?.roi_30d * 100) ?? 0,
           from: range?.[0]?.startDate?.toISOString().slice(0, 10),
           to: range?.[0]?.endDate?.toISOString().slice(0, 10),
         }}
@@ -435,12 +435,16 @@ const Futures = () => {
                       lineHeight: '22px',
                       color: theme.normal.text0,
                     })}>{showNumber ? item.value?.toFixed(2) : '******'} ATF</Stack>
-                    <Stack sx={(theme) => ({
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      lineHeight: '16px',
-                      color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{ showNumber ? `${item.roi > 0 ? '+' : ''}${item.roi?.toFixed(2)}`: '******'}%</Stack>
+                    {
+                      item.roi !== undefined && (
+                        <Stack sx={(theme) => ({
+                          fontSize: '12px',
+                          fontWeight: '400',
+                          lineHeight: '16px',
+                          color: item?.roi >= 0 ? theme.normal.success : theme.normal.danger,
+                        })}>{ showNumber ? `${item?.roi > 0 ? '+' : ''}${item.roi?.toFixed(2)}`: '******'}%</Stack>
+                      )
+                    }
                   </Stack>
                 </Stack>
               ))

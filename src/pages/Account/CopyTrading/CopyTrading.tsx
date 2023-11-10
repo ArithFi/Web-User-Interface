@@ -56,7 +56,7 @@ const CopyTrading = () => {
     {
       name: t`Unrealized PNL`,
       value: data?.unrealized_pnl || 0,
-      roi: data?.unrealized_roi || 0,
+      roi: (data?.unrealized_roi * 100) || 0,
       tooltips: (
         <ArithFiTooltipFC title={<Stack alignItems={'center'}>
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
@@ -70,7 +70,7 @@ const CopyTrading = () => {
     {
       name: t`Total Profit & Loss`,
       value: data?.pnl_total || 0,
-      roi: data?.roi_total || 0,
+      roi: (data?.roi_total * 100) || 0,
       tooltips: (
         <ArithFiTooltipFC title={<Stack alignItems={'center'}>
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
@@ -377,12 +377,16 @@ const CopyTrading = () => {
                       lineHeight: '22px',
                       color: theme.normal.text0,
                     })}>{showNumber ? item.value?.toFixed(2) : '******'} ATF</Stack>
-                    <Stack sx={(theme) => ({
-                      fontSize: '12px',
-                      fontWeight: '400',
-                      lineHeight: '16px',
-                      color: item.roi >= 0 ? theme.normal.success : theme.normal.danger,
-                    })}>{item.roi > 0 ? '+' : ''}{showNumber ? item.roi?.toFixed(2) : '******'}%</Stack>
+                    {
+                      item.roi !== undefined && (
+                        <Stack sx={(theme) => ({
+                          fontSize: '12px',
+                          fontWeight: '400',
+                          lineHeight: '16px',
+                          color: item?.roi >= 0 ? theme.normal.success : theme.normal.danger,
+                        })}>{item?.roi > 0 ? '+' : ''}{showNumber ? item?.roi?.toFixed(2) : '******'}%</Stack>
+                      )
+                    }
                   </Stack>
                 </Stack>
               ))
