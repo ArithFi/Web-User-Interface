@@ -112,7 +112,7 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
     ? props.data.hash.hashToChainScan(props.data.chainId)
     : "";
   const showLink = useMemo(() => {
-    return !props.data.hash?.includes('-');
+    return (!props.data.hash?.includes('-') && !props.data.hash?.includes(':'));
   }, [props.data.ordertype, props.data.hash]);
   return (
     <Stack
@@ -175,7 +175,7 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {parseOrderType(props.data.ordertype)}
+              {parseOrderType(props.data.ordertype, props.data.info)}
             </Box>
           </Stack>
 

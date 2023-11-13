@@ -731,7 +731,7 @@ const Assets = () => {
                     <Stack
                       key={index}
                       sx={(theme) => ({
-                        cursor: item?.hash?.includes('-') ? '' : 'pointer',
+                        cursor: item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
                         gap: '12px',
                         borderBottom: `1px solid ${theme.normal.border}`,
                         [theme.breakpoints.down("md")]: {
@@ -740,7 +740,7 @@ const Assets = () => {
                         }
                       })}
                       onClick={() => {
-                        if (item?.hash?.includes('-')) return;
+                        if (item?.hash?.includes('-') || item?.hash?.includes(':')) return;
                         window.open(item?.hash?.hashToChainScan(item.chainId), '_blank')
                       }}
                     >
@@ -801,7 +801,7 @@ const Assets = () => {
                                 fontWeight: '400',
                                 lineHeight: '14px',
                                 color: theme.normal.text0,
-                              })}>{parseOrderType(item.ordertype || '')}</Stack>
+                              })}>{parseOrderType(item?.ordertype || '', item?.info)}</Stack>
                             </Stack>
                             <Stack sx={(theme) => ({
                               fontSize: '10px',
@@ -827,7 +827,7 @@ const Assets = () => {
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}
                                sx={(theme) => ({
-                                 opacity: item?.hash?.includes('-') ? 0 : 1,
+                                 opacity: (item?.hash?.includes('-') || item?.hash?.includes(':')) ? 0 : 1,
                                  svg: {
                                    path: {
                                      fill: theme.normal.text2,

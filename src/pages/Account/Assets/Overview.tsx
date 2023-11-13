@@ -13,35 +13,30 @@ import {NoOrderMobile} from "../../Futures/OrderList";
 import MoneyTable from "./Components/MoneyTable";
 import MobileMenu from "../Share/MobileMenu";
 
-export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', "SETTLE", 'REFERRAL', 'MARKING', 'SALARY', 'AIRDROP', 'WALLET_DEPOSIT', 'PROFIT_SHARING', 'RETURN'];
-export const WITHDRAW_TYPES = ['WITHDRAW', 'AVAILABLE_TO_COPY', 'WALLET_WITHDRAW'];
+export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', "SETTLE", 'WALLET_DEPOSIT'];
+export const WITHDRAW_TYPES = ['WITHDRAW', 'AVAILABLE_TO_COPY'];
 
-export const parseOrderType = (type: string | undefined) => {
+export const parseOrderType = (type: string | undefined, info: string | undefined) => {
   switch (type) {
-    case "DEPOSIT":
     case "SETTLE":
+      if (info === 'copy return') {
+        return t`Return`;
+      } else if (info === 'copy reward') {
+        return t`Profit Sharing`;
+      } else if (info === 'future') {
+        return t`Commission`;
+      } else return t`Deposit`;
+    case "DEPOSIT":
     case "WALLET_DEPOSIT":
-    case "AIRDROP":
-    case "SALARY":
-    case "MARKING":
       return t`Deposit`;
-    case "REFERRAL":
-      return t`Commission`;
-    case "PROFIT_SHARING":
-      return t`Profit Sharing`;
-    case "RETURN":
-      return t`Return`;
     case "COPY_TO_AVAILABLE":
       return t`Copy Settle`;
-    case "WALLET_WITHDRAW":
     case "WITHDRAW":
       return t`Withdraw`;
     case "AVAILABLE_TO_COPY":
       return t`Copy Transfer`;
-    case undefined:
-      return "";
     default:
-      return type;
+      return type ?? "";
   }
 }
 
