@@ -183,7 +183,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.copyTransactions?.toFixed(2) || "0"}
+            {(props.item?.totalMargin + props.item?.totalSellValue)?.toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -296,7 +296,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.copyTransactions?.toFixed(2) || "0"} ATF
+              {(props.item?.totalMargin + props.item?.totalSellValue)?.toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack spacing={"4px"} width={"100%"}>
