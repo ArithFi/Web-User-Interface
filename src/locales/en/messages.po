@@ -214,6 +214,10 @@ msgstr "After the limit order is executed, TP and SL price you set will trigger 
 msgid "Align With Traders"
 msgstr "Align With Traders"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr "All"
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "All Traders"
@@ -314,6 +318,10 @@ msgstr "Burn $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Burned"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr "Choose Token Pair"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -481,6 +489,10 @@ msgstr "Copy Trading Total Amount (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Copy Transfer"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr "Crypto"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -651,6 +663,10 @@ msgstr "Fail"
 msgid "Fail Request"
 msgstr "Fail Request"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr "Favorites"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +696,10 @@ msgstr "Following"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr "Fores"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"

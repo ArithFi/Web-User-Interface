@@ -214,6 +214,10 @@ msgstr "Após a execução da ordem limite, o preço TP e SL que você definiu s
 msgid "Align With Traders"
 msgstr "Alinhar com Traders"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Todos os Traders"
@@ -314,6 +318,10 @@ msgstr "Queimar $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Queimado"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -481,6 +489,10 @@ msgstr "Valor Total de Copiar Negociações (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Transferência de Cópia"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -651,6 +663,10 @@ msgstr "falha"
 msgid "Fail Request"
 msgstr "Pedido de reprovação"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +696,10 @@ msgstr "Seguindo"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Para os usuários/contratos inteligentes que utilizam contratos perpétuos do Protocolo Arith, por favor, compreendam suas regras e as diferenças de produtos semelhantes no mercado ao realizar posições, liquidação, encerramento e outras operações relacionadas. Após entender completamente os possíveis riscos a seguir e estar disposto a participar de situações de risco:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"

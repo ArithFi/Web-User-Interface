@@ -214,6 +214,10 @@ msgstr "После выполнения лимитного ордера, уст�
 msgid "Align With Traders"
 msgstr "Синхронизироваться с трейдерами"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Все трейдеры"
@@ -314,6 +318,10 @@ msgstr "Сжечь $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Сожжено"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -481,6 +489,10 @@ msgstr "Общая сумма для копирования (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Копировать Перевод"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -651,6 +663,10 @@ msgstr "Неудача"
 msgid "Fail Request"
 msgstr "Не удалось выполнить запрос"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +696,10 @@ msgstr "Следующий"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Для пользователей/смарт-контрактов, использующих вечные контракты протокола Arith, пожалуйста, понимайте его правила и различия с аналогичными продуктами на рынке при выполнении позиций, расчетов, ликвидации и других связанных операций. После полного понимания следующих возможных рисков и способности их переносить, участвуйте в рискованных ситуациях:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"

@@ -214,6 +214,10 @@ msgstr "Sau khi lệnh giới hạn được thực hiện, giá TP (Take Profit
 msgid "Align With Traders"
 msgstr "Căn chỉnh với các nhà giao dịch"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Tất cả các nhà giao dịch"
@@ -314,6 +318,10 @@ msgstr "Tiêu hủy $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Đã đốt cháy"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -481,6 +489,10 @@ msgstr "Tổng số tiền giao dịch sao chép (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Chuyển nhượng Copy"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -651,6 +663,10 @@ msgstr "thất bại"
 msgid "Fail Request"
 msgstr "Yêu cầu thất bại"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +696,10 @@ msgstr "Theo sau"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Đối với người dùng/hợp đồng thông minh sử dụng hợp đồng vĩnh viễn Arith Protocol, hãy hiểu rõ các quy tắc và sự khác biệt so với các sản phẩm tương tự trên thị trường khi thực hiện các vị thế, thanh lý, thanh lý và các hoạt động liên quan khác. Sau khi hiểu đầy đủ về các rủi ro có thể xảy ra sau đây và có thể chịu đựng, tham gia vào tình huống rủi ro:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"

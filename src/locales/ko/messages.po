@@ -214,6 +214,10 @@ msgstr "지정가 주문이 실행된 후 설정한 TP 및 SL 가격이 즉시 �
 msgid "Align With Traders"
 msgstr "트레이더와 조율"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "모든 트레이더"
@@ -314,6 +318,10 @@ msgstr "$ATF 소각"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "소각된"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -481,6 +489,10 @@ msgstr "복사 거래 총액 (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "복사 전송"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -651,6 +663,10 @@ msgstr "실패"
 msgid "Fail Request"
 msgstr "요청 실패"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +696,10 @@ msgstr "다음"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Arith Protocol 영속적인 계약을 사용하는 사용자/스마트 계약은 포지션, 결제, 청산 및 기타 관련 작업 수행 시 시장 내 유사한 제품과의 규칙 및 차이를 이해하십시오. 다음의 가능한 리스크를 완전히 이해하고 리스크 상황을 감당할 수 있다면 참여하세요."
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"

@@ -212,6 +212,10 @@ msgstr "指値注文が実行されると、設定したTP価格とSL価格が�
 msgid "Align With Traders"
 msgstr ""
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr ""
@@ -311,6 +315,10 @@ msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
+msgstr ""
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
 msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -478,6 +486,10 @@ msgstr ""
 
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
+msgstr ""
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -649,6 +661,10 @@ msgstr ""
 msgid "Fail Request"
 msgstr "リクエストに失敗しました"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -675,6 +691,10 @@ msgstr ""
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
 msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx

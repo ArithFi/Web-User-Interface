@@ -13,9 +13,11 @@ import { FuturesPrice, priceToken } from "./Futures";
 import TVChartContainer from "../../components/TVChartContainer/TVChartContainer";
 import { TVDataProvider } from "../../domain/tradingview/TVDataProvider";
 import { formatAmount, numberWithCommas } from "../../lib/numbers";
-import { styled } from "@mui/material";
+import { fabClasses, styled } from "@mui/material";
 import { get24HrFromBinance } from "../../domain/prices";
 import { Trans } from "@lingui/macro";
+import TokenListBaseView from "./TokenList/TokenListBaseView";
+import TokenListModal from "./TokenList/TokenListModal";
 
 interface ExchangeTVChartProps {
   tokenPair: string;
@@ -111,6 +113,7 @@ const DownIcon = (
 const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   const { width, isBigMobile } = useWindowWidth();
   const [isHide, setIsHide] = useState(false);
+  const [openTokenListModal, setOpenTokenListModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
@@ -223,6 +226,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         paddingY={"12px"}
         paddingX={"16px"}
       >
+        <TokenListModal
+          open={openTokenListModal}
+          onClose={() => setOpenTokenListModal(false)}
+        />
         <Stack spacing={"8px"} direction={"row"} alignItems={"center"}>
           <Box
             sx={(theme) => ({
@@ -237,10 +244,8 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 },
               },
             })}
-            aria-controls={"SelectTokenPair-menu"}
-            aria-haspopup="true"
-            aria-expanded={"true"}
-            onClick={handleClick}
+            component={"button"}
+            onClick={() => setOpenTokenListModal(true)}
           >
             {TokenPairIcon}
           </Box>
@@ -313,11 +318,15 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           >
             <HidePriceTable />
           </Box>
-          <Box sx={(theme) => ({
-            "& svg path": {
-              fill: theme.normal.text3
-            }
-          })}>{isHide ? DownIcon : UpIcon}</Box>
+          <Box
+            sx={(theme) => ({
+              "& svg path": {
+                fill: theme.normal.text3,
+              },
+            })}
+          >
+            {isHide ? DownIcon : UpIcon}
+          </Box>
         </Stack>
       </Stack>
     );
@@ -325,6 +334,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     average,
     hr.priceChangePercent,
     isHide,
+    openTokenListModal,
     props.basePrice,
     props.tokenPair,
   ]);
@@ -526,8 +536,14 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        sx={(theme) => ({
+          "& .MuiPaper-root": {
+            paddingX: "16px",
+          },
+        })}
       >
-        <Stack>{tokenPairList}</Stack>
+        <TokenListBaseView />
+        {/* <Stack>{tokenPairList}</Stack> */}
       </SelectListMenu>
 
       {isHide ? (
