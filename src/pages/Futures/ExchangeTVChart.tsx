@@ -542,8 +542,8 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           },
         })}
       >
-        <TokenListBaseView />
-        {/* <Stack>{tokenPairList}</Stack> */}
+        {/* <TokenListBaseView /> */}
+        <Stack>{tokenPairList}</Stack>
       </SelectListMenu>
 
       {isHide ? (
