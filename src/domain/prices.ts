@@ -1,6 +1,22 @@
+async function fetchWithTimeout(resource: string, options: any = {}) {
+  const { timeout = 8000 } = options;
+
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal
+  });
+  clearTimeout(id);
+  return response;
+}
+
 export async function getChartPricesFromBinance(symbol: string, period: string, limit: number) {
   try {
-    const response = await fetch(`https://db.arithfi.com/api/oracle/price/klines?symbol=${symbol}USDT&limit=${limit}&interval=${period}`);
+    const response = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/klines?symbol=${symbol}USDT&limit=${limit}&interval=${period}`, {
+      method: "GET",
+      timeout: 1000,
+    });
     const prices = await response.json();
     return prices.map((price: any) => {
       return {
@@ -18,7 +34,10 @@ export async function getChartPricesFromBinance(symbol: string, period: string, 
 
 export async function getCurrentPriceOfToken(symbol: string) {
   try {
-    const response = await fetch(`https://db.arithfi.com/api/oracle/price/${symbol.toLowerCase()}usdt`);
+    const response = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/${symbol.toLowerCase()}usdt`, {
+      method: "GET",
+      timeout: 1000,
+    });
     const data = await response.json();
     return data.value;
   } catch (e) {
@@ -28,7 +47,10 @@ export async function getCurrentPriceOfToken(symbol: string) {
 
 export async function get24HrFromBinance(symbol: string) {
   try {
-    const res = await fetch(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbol}USDT`);
+    const res = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbol}USDT`, {
+      method: "GET",
+      timeout: 1000,
+    });
     const data = await res.json();
     if (data) {
       return {
