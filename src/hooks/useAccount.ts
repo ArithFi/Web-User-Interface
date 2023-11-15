@@ -12,6 +12,7 @@ export interface AccountListData {
   chainId?: number;
   hash?: string;
   ordertype?: string;
+  info?: string | undefined;
 }
 
 function useAccount() {
@@ -44,6 +45,7 @@ function useAccount() {
             chainId: item["chainId"],
             hash: item["hash"],
             ordertype: item["ordertype"],
+            info: item['info'] || undefined,
           };
           return one;
         });

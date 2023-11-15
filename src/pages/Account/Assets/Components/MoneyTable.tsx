@@ -23,7 +23,7 @@ const MoneyTable: FC<MoneyTableProps> = ({ ...props }) => {
         ? new Date((item.applyTime ?? 0) * 1000)
         : new Date(item.time * 1000);
         const showLink = () => {
-    return !item.hash?.includes('-')
+    return !item.hash?.includes('-') && !item.hash?.includes(':');
   };
     return (
       <MoneyTableRow
@@ -33,7 +33,7 @@ const MoneyTable: FC<MoneyTableProps> = ({ ...props }) => {
         state={item.status}
         link={item.hash && showLink() ? item.hash.hashToChainScan(item.chainId) : undefined}
         type={props.type}
-        orderType={parseOrderType(item.ordertype)}
+        orderType={parseOrderType(item.ordertype, item?.info)}
       />
     );
   });
