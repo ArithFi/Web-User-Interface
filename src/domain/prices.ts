@@ -15,7 +15,7 @@ export async function getChartPricesFromBinance(symbol: string, period: string, 
   try {
     const response = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/klines?symbol=${symbol}USDT&limit=${limit}&interval=${period}`, {
       method: "GET",
-      timeout: 2000,
+      timeout: 1000,
     });
     const prices = await response.json();
     return prices.map((price: any) => {
@@ -36,7 +36,7 @@ export async function getCurrentPriceOfToken(symbol: string) {
   try {
     const response = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/${symbol.toLowerCase()}usdt`, {
       method: "GET",
-      timeout: 2000,
+      timeout: 1000,
     });
     const data = await response.json();
     return data.value;
@@ -49,7 +49,7 @@ export async function get24HrFromBinance(symbol: string) {
   try {
     const res = await fetchWithTimeout(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbol}USDT`, {
       method: "GET",
-      timeout: 2000,
+      timeout: 1000,
     });
     const data = await res.json();
     if (data) {
