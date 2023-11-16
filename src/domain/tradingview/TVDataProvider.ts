@@ -39,6 +39,8 @@ export class TVDataProvider {
   ): Promise<Bar[]> {
     const barsInfo = this.barsInfo;
     if (!barsInfo.data.length || barsInfo.ticker !== ticker || barsInfo.period !== period || shouldRefetchBars) {
+      this.barsInfo.ticker = ticker;
+      this.barsInfo.period = period;
       try {
         const bars = await getChartPricesFromBinance(ticker, period, 500);
         // @ts-ignore
@@ -51,12 +53,8 @@ export class TVDataProvider {
           this.lastBar = { ...lastBar, ticker };
         }
         this.barsInfo.data = filledBars;
-        this.barsInfo.ticker = ticker;
-        this.barsInfo.period = period;
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
-        this.barsInfo = initialHistoryBarsInfo;
+        this.barsInfo.data = [];
       }
     }
 
@@ -148,7 +146,7 @@ export class TVDataProvider {
       return null
     }
     const currentPrice = await this.getCurrentPriceOfToken(ticker);
-    if (!currentPrice || currentPrice > this.lastBar.close * 10 || currentPrice < this.lastBar.close * 0.1) return null;
+    if (!currentPrice) return null;
     if (this.lastBar.time && currentCandleTime === this.lastBar.time) {
       return {
         ...this.lastBar,
