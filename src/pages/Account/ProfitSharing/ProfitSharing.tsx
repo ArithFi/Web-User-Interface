@@ -208,7 +208,7 @@ const Futures = () => {
               fontWeight: 700,
             })}
           >
-            {props.item?.pendingProfit?.toFixed(2) || "0"}
+            {Math.max((props.item?.pendingProfit || 0), 0).toFixed(2) || "0"}
           </Box>
         </TableCell>
         <TableCell>
@@ -343,7 +343,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              {props.item?.pendingProfit?.toFixed(2) || "0"} ATF
+              {Math.max((props.item?.pendingProfit || 0), 0).toFixed(2) || "0"} ATF
             </Box>
           </Stack>
           <Stack direction={"row"} spacing={"4px"} width={"100%"}>
