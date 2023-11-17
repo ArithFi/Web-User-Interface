@@ -130,6 +130,11 @@ msgstr "7D Pnl"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Se realizará una deducción del 10% antes de compartir las ganancias en cada orden de copia de trading rentable. Este PnL = Ganancia total - 10% de ganancia previamente deducida. Su exceso de ganancias antes del reparto se reembolsará en el momento de la liquidación."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "En cada orden de copy trading con ganancias se hará una deducción del 10% para la distribución previa de beneficios. El cálculo del PNL total se realizará en el momento de la liquidación final, prevaleciendo el monto del asentamiento final."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "La posición de un trader profesional se copiará y ejecutará automáticamente para usted."
@@ -281,6 +286,10 @@ msgstr "ATF es un token deflacionario y sirve como token de liquidación para el
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1304,7 +1313,6 @@ msgstr "Configuración"
 msgid "Settings"
 msgstr "Configuraciones"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Liquidado"
@@ -1693,6 +1701,7 @@ msgstr "Ganancias y Pérdidas no Realizadas (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Ganancias y Pérdidas no Realizadas (ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Sin Liquidar"

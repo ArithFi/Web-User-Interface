@@ -130,6 +130,11 @@ msgstr "Lợi nhuận 7 ngày"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Mỗi lệnh sao chép có lợi nhuận sẽ bị khấu trừ 10% lợi nhuận trước thuộc về mỗi lệnh. Công thức tính Lợi và Lỗ = Tổng Lợi Nhuận - 10% Lợi Nhuận đã khấu trừ trước. Số dư trước khi chia sẻ lợi nhuận của bạn sẽ được hoàn lại khi thanh toán."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Mỗi lệnh copy trading có lợi nhuận sẽ được khấu trừ 10% lợi nhuận chia sẻ trước. Việc thanh toán cuối cùng sẽ tính toán tổng PNL, và số tiền thanh toán cuối cùng sẽ được ưu tiên."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được tự động sao chép và thực hiện cho bạn."
@@ -281,6 +286,10 @@ msgstr "ATF là một token phòng thao hóa và đóng vai trò là token thanh
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1304,7 +1313,6 @@ msgstr "Thiết lập"
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Đã thanh toán"
@@ -1693,6 +1701,7 @@ msgstr "PnL chưa thực hiện (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "PnL chưa thực hiện(ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Chưa thanh toán"

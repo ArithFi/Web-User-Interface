@@ -130,6 +130,11 @@ msgstr "7D PnL"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Será feito um desconto de 10% antes da partilha de lucros em cada ordem de cópia de negociação lucrativa. Este PnL = Lucro total - 10% de Lucro pré-deduzido. O seu excedente pré-partilha de lucros será reembolsado na liquidação"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Uma dedução de 10% de partilha de lucros prévia será feita em cada ordem de copy trading rentável. O cálculo do PNL total será realizado no momento do acerto final, prevalecendo o montante do assentamento final."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "A posição de um trader profissional será automaticamente copiada e executada para você."
@@ -281,6 +286,10 @@ msgstr "O ATF é um token deflacionário e serve como token de liquidação para
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1304,7 +1313,6 @@ msgstr "Configuração"
 msgid "Settings"
 msgstr "Configurações"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Liquidado"
@@ -1693,6 +1701,7 @@ msgstr "Lucro/Prejuízo Não Realizado (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Lucro/Prejuízo Não Realizado(ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Inquieto"

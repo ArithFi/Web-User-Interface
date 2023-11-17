@@ -130,6 +130,11 @@ msgstr "7일 수익"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "수익이 발생하는 각 복사 거래 주문에 10% 사전 수익 공유 공제가 이루어집니다. 이 PnL = 총 이익 - 10% 사전 공제된 이익으로 계산됩니다. 수익 공유 전잉여액은 결제 시 환불됩니다."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "이익이 발생하는 각 복사 거래 주문에 대하여 수익 분배 전 10%가 차감됩니다. 실제 정산 시 총 PNL을 계산하며, 최종 정산 금액이 우선합니다."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "전문 트레이더의 포지션이 자동으로 복사되어 실행됩니다."
@@ -281,6 +286,10 @@ msgstr "ATF는 소멸적인 토큰으로 작용하며 ArithFi의 산술 거래 �
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1304,7 +1313,6 @@ msgstr "설정"
 msgid "Settings"
 msgstr "설정"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "해결됨"
@@ -1693,6 +1701,7 @@ msgstr "미실현 이익 및 손실 (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "미실현 이익 및 손실 (ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "미정"

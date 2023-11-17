@@ -128,6 +128,11 @@ msgstr ""
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr ""
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
@@ -278,6 +283,10 @@ msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
+msgstr ""
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
 msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1300,7 +1309,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr ""
@@ -1689,6 +1697,7 @@ msgstr ""
 msgid "Unrealized PnL(ATF)"
 msgstr ""
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr ""

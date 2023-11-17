@@ -130,6 +130,11 @@ msgstr "Прибыль/Убыток за 7 дней"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "На каждом прибыльном ордере по копированию торгов будет удерживаться 10% предварительного учета прибыли. Этот PnL = Общая прибыль - 10% Предварительно удержанной прибыли. Ваш избыток до предоставления прибыли будет возвращен при расчете."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "С каждого прибыльного ордера копи-трейдинга будет удержано 10% предварительного распределения прибыли. Итоговый расчет будет произведен на основе общего PNL, и окончательная сумма расчета будет иметь приоритет."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Позиция профессионального трейдера будет автоматически скопирована и выполнена для вас."
@@ -281,6 +286,10 @@ msgstr "ATF — это дефляционный токен, который сл�
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1304,7 +1313,6 @@ msgstr "Настройка"
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Урегулировано"
@@ -1693,6 +1701,7 @@ msgstr "Не реализованный PnL (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Не реализованный PnL(ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Неурегулировано"

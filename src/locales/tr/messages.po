@@ -130,6 +130,11 @@ msgstr "7D Kar/Zararı"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Her karlı kopya işlem emri üzerinden %10 kar öncesi paylaşım kesintisi yapılacaktır. Bu Kâr ve Zarar = Toplam Kar - %10 Önceden Kesilen Kar şeklinde hesaplanır. Kar öncesi fazla olan miktar, hesaplaşma sırasında iade edilecektir."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Karlı her kopya işlem siparişinde, kar payı öncesi %10'luk bir kesinti yapılacaktır. Toplam PNL, gerçek hesaplamada dikkate alınacak ve son ödeme miktarı esas alınacaktır."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve sizin adınıza yürütülecektir."
@@ -281,6 +286,10 @@ msgstr "ATF, bir deflasyonaryon jetonudur ve ArithFi aritmetik ticaret modelinin
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
+
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1306,7 +1315,6 @@ msgstr "Ayar"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Hesaplandı"
@@ -1695,6 +1703,7 @@ msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Hesaplanmamış"
