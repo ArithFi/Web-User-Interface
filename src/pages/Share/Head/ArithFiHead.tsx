@@ -272,7 +272,7 @@ const ArithFiHead: FC = () => {
           href="https://docs.arithfi.com"
           target={"blank"}
         >
-          <Trans>Documentation</Trans>
+          <Trans>Doc</Trans>
         </Box>
       </NavStack>
     );

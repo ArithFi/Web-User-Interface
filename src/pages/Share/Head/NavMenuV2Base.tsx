@@ -270,7 +270,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           }}
         >
           <p>
-            <Trans>Documentation</Trans>
+            <Trans>Doc</Trans>
           </p>
         </Stack> */}
         <Stack
@@ -341,7 +341,7 @@ const NavMenuV2Base: FC<NavMenuV2BaseProps> = ({ ...props }) => {
           }}
         >
           <p>
-            <Trans>Documentation</Trans>
+            <Trans>Doc</Trans>
           </p>
         </Stack>
         <Stack

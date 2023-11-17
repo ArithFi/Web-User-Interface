@@ -454,7 +454,7 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
             </Box>
           </Stack>
 
-          <Stack spacing={"4px"} alignItems={"flex-end"}>
+          <Stack spacing={"4px"} alignItems={"center"}>
             <Box
               sx={(theme) => ({
                 fontSize: "14px",
@@ -474,6 +474,29 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
               })}
             >
               <Trans>7D Followers PnL</Trans>
+            </Box>
+          </Stack>
+
+          <Stack spacing={"4px"} alignItems={"flex-end"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "14px",
+                fontWeight: "700",
+                lineHeight: "20px",
+                color: theme.normal.text0,
+              })}
+            >
+              {parseFloat(props.data.followersAssets.floor(2))}
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontSize: "12px",
+                fontWeight: "400",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              <Trans>Aum(ATF)</Trans>
             </Box>
           </Stack>
         </Stack>

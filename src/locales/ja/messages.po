@@ -570,6 +570,7 @@ msgstr ""
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -588,8 +589,8 @@ msgstr "ディスコネクト"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Documentation"
-msgstr ""
+msgid "Doc"
+msgstr "Doc"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
