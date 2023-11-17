@@ -332,7 +332,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              <Trans>Settled</Trans>
+              <Trans>Unsettled</Trans>
             </Box>
             <Box
               sx={(theme) => ({
