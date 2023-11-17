@@ -106,7 +106,7 @@ export function KOLTx(info: RequestBodyInterface) {
 }
 
 export function getPriceList(): Promise<any> {
-  return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
+  return baseRequestGet(`https://cms.nestfi.net/api/oracle/price/list`);
 }
 
 /**
