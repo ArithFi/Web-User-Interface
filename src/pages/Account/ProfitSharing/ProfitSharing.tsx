@@ -20,6 +20,7 @@ import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import {DownSort, Input, InputPC, NoSort, PaginationButton, Select1, UpSort} from "../Referral/Referral";
 import MobileMenu from "../Share/MobileMenu";
+import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
 
 const Futures = () => {
   const {messageSnackBar} = useArithFiSnackBar();
@@ -509,6 +510,15 @@ const Futures = () => {
                       title: t`Pending Profit Sharing`,
                       value: overview?.pending_profit || 0,
                       unit: "ATF",
+                      tooltips: (
+                        <ArithFiTooltipFC title={<Stack alignItems={'center'}>
+                          <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
+                            <Trans>
+                              A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail.
+                            </Trans>
+                          </Stack>
+                        </Stack>}/>
+                      ),
                     },
                   ].map((item, index) => (
                     <Stack
@@ -536,7 +546,10 @@ const Futures = () => {
                       <div>
                         {item.value?.toFixed(2)} {item.unit}
                       </div>
-                      <span>{item.title}</span>
+                      <Stack gap={'8px'} flexDirection={'row'} alignItems={'center'}>
+                        <span>{item.title}</span>
+                        {item?.tooltips}
+                      </Stack>
                     </Stack>
                   ))}
                 </Stack>
@@ -621,7 +634,10 @@ const Futures = () => {
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
-                  <Box
+                  <Stack
+                    flexDirection={'row'}
+                    alignItems={'center'}
+                    gap={'8px'}
                     sx={(theme) => ({
                       color: theme.normal.text2,
                       fontSize: "14px",
@@ -629,8 +645,17 @@ const Futures = () => {
                       fontWeight: 400,
                     })}
                   >
-                    <Trans>Pending Profit Sharing</Trans>
-                  </Box>
+                    <div>
+                      <Trans>Pending Profit Sharing</Trans>
+                    </div>
+                    <ArithFiTooltipFC title={<Stack alignItems={'center'}>
+                      <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>
+                        <Trans>
+                          A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail.
+                        </Trans>
+                      </Stack>
+                    </Stack>}/>
+                  </Stack>
                   <Box
                     sx={(theme) => ({
                       color: theme.normal.text0,
