@@ -130,6 +130,11 @@ msgstr "Lợi nhuận 7 ngày"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Mỗi lệnh sao chép có lợi nhuận sẽ bị khấu trừ 10% lợi nhuận trước thuộc về mỗi lệnh. Công thức tính Lợi và Lỗ = Tổng Lợi Nhuận - 10% Lợi Nhuận đã khấu trừ trước. Số dư trước khi chia sẻ lợi nhuận của bạn sẽ được hoàn lại khi thanh toán."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Mỗi lệnh copy trading có lợi nhuận sẽ được khấu trừ 10% lợi nhuận chia sẻ trước. Việc thanh toán cuối cùng sẽ tính toán tổng PNL, và số tiền thanh toán cuối cùng sẽ được ưu tiên."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Vị trí của một nhà giao dịch chuyên nghiệp sẽ được tự động sao chép và thực hiện cho bạn."
@@ -214,6 +219,10 @@ msgstr "Sau khi lệnh giới hạn được thực hiện, giá TP (Take Profit
 msgid "Align With Traders"
 msgstr "Căn chỉnh với các nhà giao dịch"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Tất cả các nhà giao dịch"
@@ -278,6 +287,10 @@ msgstr "ATF là một token phòng thao hóa và đóng vai trò là token thanh
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
@@ -314,6 +327,10 @@ msgstr "Tiêu hủy $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Đã đốt cháy"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -482,6 +499,10 @@ msgstr "Tổng số tiền giao dịch sao chép (ATF)"
 msgid "Copy Transfer"
 msgstr "Chuyển nhượng Copy"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Tiền điện tử, Ngoại hối, Kim loại quý, Hàng hóa, Cổ phiếu"
@@ -560,6 +581,7 @@ msgstr "Mặc định"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -578,8 +600,8 @@ msgstr "Ngắt kết nối"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Documentation"
-msgstr "Tài liệu"
+msgid "Doc"
+msgstr "Doc"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -651,6 +673,10 @@ msgstr "thất bại"
 msgid "Fail Request"
 msgstr "Yêu cầu thất bại"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +706,10 @@ msgstr "Theo sau"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Đối với người dùng/hợp đồng thông minh sử dụng hợp đồng vĩnh viễn Arith Protocol, hãy hiểu rõ các quy tắc và sự khác biệt so với các sản phẩm tương tự trên thị trường khi thực hiện các vị thế, thanh lý, thanh lý và các hoạt động liên quan khác. Sau khi hiểu đầy đủ về các rủi ro có thể xảy ra sau đây và có thể chịu đựng, tham gia vào tình huống rủi ro:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -1283,7 +1313,6 @@ msgstr "Thiết lập"
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Đã thanh toán"
@@ -1672,6 +1701,7 @@ msgstr "PnL chưa thực hiện (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "PnL chưa thực hiện(ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Chưa thanh toán"

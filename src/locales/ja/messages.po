@@ -128,6 +128,11 @@ msgstr ""
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr ""
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr ""
@@ -212,6 +217,10 @@ msgstr "指値注文が実行されると、設定したTP価格とSL価格が�
 msgid "Align With Traders"
 msgstr ""
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr ""
@@ -276,6 +285,10 @@ msgstr ""
 msgid "AUM (ATF)"
 msgstr ""
 
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr ""
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
@@ -311,6 +324,10 @@ msgstr ""
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
+msgstr ""
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
 msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -480,6 +497,10 @@ msgstr ""
 msgid "Copy Transfer"
 msgstr ""
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr ""
@@ -558,6 +579,7 @@ msgstr ""
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -576,8 +598,8 @@ msgstr "ディスコネクト"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Documentation"
-msgstr ""
+msgid "Doc"
+msgstr "Doc"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -649,6 +671,10 @@ msgstr ""
 msgid "Fail Request"
 msgstr "リクエストに失敗しました"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -675,6 +701,10 @@ msgstr ""
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
+msgstr ""
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
 msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
@@ -1279,7 +1309,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr ""
@@ -1668,6 +1697,7 @@ msgstr ""
 msgid "Unrealized PnL(ATF)"
 msgstr ""
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr ""

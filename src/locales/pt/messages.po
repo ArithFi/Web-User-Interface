@@ -130,6 +130,11 @@ msgstr "7D PnL"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Será feito um desconto de 10% antes da partilha de lucros em cada ordem de cópia de negociação lucrativa. Este PnL = Lucro total - 10% de Lucro pré-deduzido. O seu excedente pré-partilha de lucros será reembolsado na liquidação"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Uma dedução de 10% de partilha de lucros prévia será feita em cada ordem de copy trading rentável. O cálculo do PNL total será realizado no momento do acerto final, prevalecendo o montante do assentamento final."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "A posição de um trader profissional será automaticamente copiada e executada para você."
@@ -214,6 +219,10 @@ msgstr "Após a execução da ordem limite, o preço TP e SL que você definiu s
 msgid "Align With Traders"
 msgstr "Alinhar com Traders"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Todos os Traders"
@@ -278,6 +287,10 @@ msgstr "O ATF é um token deflacionário e serve como token de liquidação para
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
@@ -314,6 +327,10 @@ msgstr "Queimar $ATF"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Queimado"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -482,6 +499,10 @@ msgstr "Valor Total de Copiar Negociações (ATF)"
 msgid "Copy Transfer"
 msgstr "Transferência de Cópia"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Criptomoedas, Forex, Metais Preciosos, Commodities, Ações"
@@ -560,6 +581,7 @@ msgstr "Predefinição"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -578,8 +600,8 @@ msgstr "Desligar"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Documentation"
-msgstr "Documentação"
+msgid "Doc"
+msgstr "Doc"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -651,6 +673,10 @@ msgstr "falha"
 msgid "Fail Request"
 msgstr "Pedido de reprovação"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +706,10 @@ msgstr "Seguindo"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Para os usuários/contratos inteligentes que utilizam contratos perpétuos do Protocolo Arith, por favor, compreendam suas regras e as diferenças de produtos semelhantes no mercado ao realizar posições, liquidação, encerramento e outras operações relacionadas. Após entender completamente os possíveis riscos a seguir e estar disposto a participar de situações de risco:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -1283,7 +1313,6 @@ msgstr "Configuração"
 msgid "Settings"
 msgstr "Configurações"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Liquidado"
@@ -1672,6 +1701,7 @@ msgstr "Lucro/Prejuízo Não Realizado (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Lucro/Prejuízo Não Realizado(ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Inquieto"

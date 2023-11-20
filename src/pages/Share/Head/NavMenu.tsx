@@ -160,7 +160,7 @@ const NavMenu: FC = () => {
           }}
         >
           <p>
-            <Trans>Documentation</Trans>
+            <Trans>Doc</Trans>
           </p>
         </Stack>
 

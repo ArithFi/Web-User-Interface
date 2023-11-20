@@ -130,6 +130,11 @@ msgstr "7D Kar/Zararı"
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
 msgstr "Her karlı kopya işlem emri üzerinden %10 kar öncesi paylaşım kesintisi yapılacaktır. Bu Kâr ve Zarar = Toplam Kar - %10 Önceden Kesilen Kar şeklinde hesaplanır. Kar öncesi fazla olan miktar, hesaplaşma sırasında iade edilecektir."
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
+msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
+msgstr "Karlı her kopya işlem siparişinde, kar payı öncesi %10'luk bir kesinti yapılacaktır. Toplam PNL, gerçek hesaplamada dikkate alınacak ve son ödeme miktarı esas alınacaktır."
+
 #: src/pages/Copy/Copy.tsx
 msgid "A professional trader's position will be automatically copied and executed for you."
 msgstr "Bir profesyonel tüccarın pozisyonu otomatik olarak kopyalanacak ve sizin adınıza yürütülecektir."
@@ -214,6 +219,10 @@ msgstr "Limit emir gerçekleştikten sonra, belirlediğiniz TP ve SL fiyatları 
 msgid "Align With Traders"
 msgstr "Diğer Tüccarlarla Uyum Sağlayın"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Tüm Tüccarlar"
@@ -278,6 +287,10 @@ msgstr "ATF, bir deflasyonaryon jetonudur ve ArithFi aritmetik ticaret modelinin
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/kolItem.tsx
+msgid "Aum(ATF)"
+msgstr "Aum(ATF)"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
@@ -314,6 +327,10 @@ msgstr "$ATF Yakma"
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "Burned"
 msgstr "Yakıldı"
+
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr ""
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -482,6 +499,10 @@ msgstr "Kopya İşlem Varlıkları (ATF)"
 msgid "Copy Transfer"
 msgstr "Kopya Transferi"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Kripto Paralar, Forex, Değerli Maden, Emtia, Hisse Senedi"
@@ -560,6 +581,7 @@ msgstr "Varsayılan"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
+#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -578,8 +600,8 @@ msgstr "Bağlantıyı Kes"
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/NavMenu.tsx
 #: src/pages/Share/Head/NavMenuV2Base.tsx
-msgid "Documentation"
-msgstr "Dökümantasyon"
+msgid "Doc"
+msgstr "Doc"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -651,6 +673,10 @@ msgstr "Başarısız"
 msgid "Fail Request"
 msgstr "Başarısız İstek"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr ""
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -680,6 +706,10 @@ msgstr "Takip"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Arith Protokolü sürekli sözleşmelerini kullanan kullanıcılar/smart sözleşmeler, pozisyon, hesaplaşma, likidasyon ve diğer ilgili işlemleri gerçekleştirirken lütfen kurallarını ve benzer ürünlerin piyasada farklarını anlayın. Aşağıda belirtilen olası riskleri tamamen anladıktan ve bu risk durumuna katlanabileceğinizden emin olduktan sonra katılın:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Fores"
+msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -1285,7 +1315,6 @@ msgstr "Ayar"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Settled"
 msgstr "Hesaplandı"
@@ -1674,6 +1703,7 @@ msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 msgid "Unrealized PnL(ATF)"
 msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 
+#: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr "Hesaplanmamış"
