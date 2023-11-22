@@ -200,7 +200,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     const data = await get24HrFromBinance(props.tokenPair);
     if (data) {
       setHr({
-        priceChangePercent: data.priceChangePercent,
+        priceChangePercent: data.priceChangePercent.floor(4),
         highPrice: data.highPrice,
         lowPrice: data.lowPrice,
       });

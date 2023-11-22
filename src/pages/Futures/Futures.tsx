@@ -95,6 +95,15 @@ const Futures: FC = () => {
     const AVAXPrice = listPriceBase
       ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
       : undefined;
+    const USDJPYPrice = listPriceBase
+      ? listPriceBase["value"]["USDJPY"].toString().stringToBigNumber(18)
+      : undefined;
+    const USDCADPrice = listPriceBase
+      ? listPriceBase["value"]["USDCAD"].toString().stringToBigNumber(18)
+      : undefined;
+    const GBPUSDPrice = listPriceBase
+      ? listPriceBase["value"]["GBPUSD"].toString().stringToBigNumber(18)
+      : undefined;
 
     if (
       ETHPrice &&
@@ -106,7 +115,10 @@ const Futures: FC = () => {
       XRPPrice &&
       SOLPrice &&
       LTCPrice &&
-      AVAXPrice
+      AVAXPrice &&
+      USDJPYPrice &&
+      USDCADPrice &&
+      GBPUSDPrice
     ) {
       const newPrice: FuturesPrice = {
         "ETH/USDT": ETHPrice,
@@ -119,9 +131,9 @@ const Futures: FC = () => {
         "SOL/USDT": SOLPrice,
         "LTC/USDT": LTCPrice,
         "AVAX/USDT": AVAXPrice,
-        "USD/JPY": ETHPrice,
-        "USD/CAD": AVAXPrice,
-        "GBP/USD": AVAXPrice,
+        "USD/JPY": USDJPYPrice,
+        "USD/CAD": USDCADPrice,
+        "GBP/USD": GBPUSDPrice,
       };
       return newPrice;
     } else {
