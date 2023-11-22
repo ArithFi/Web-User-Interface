@@ -3,10 +3,17 @@ import { FC, useMemo, useState } from "react";
 import ArithFiLine from "../../../components/ArithFiLine";
 import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
-import OneIconWithString from "../../../components/IconWithString/OneIconWithString";
+import { priceToken } from "../Futures";
 
-const TokenListBaseView: FC = () => {
-  const [tabsValue, setTabsValue] = useState(0);
+interface TokenListBaseViewProps {
+  changeTokenPair: (value: string) => void;
+}
+
+const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
+  const [tabsValue, setTabsValue] = useState(2);
+  const allPrice = priceToken;
+  const cryptoPrice = priceToken.slice(0, 10);
+  const foresPrice = priceToken.slice(-3);
   const TabsView = useMemo(() => {
     return (
       <Stack direction={"row"} spacing={"8px"}>
@@ -18,74 +25,57 @@ const TokenListBaseView: FC = () => {
         />
         <TokenListBaseViewTabItem
           text={t`All`}
-          num={10}
+          num={allPrice.length}
           callBack={() => setTabsValue(1)}
           isSelected={tabsValue === 1}
         />
         <TokenListBaseViewTabItem
           text={t`Crypto`}
-          num={5}
+          num={cryptoPrice.length}
           callBack={() => setTabsValue(2)}
           isSelected={tabsValue === 2}
         />
         <TokenListBaseViewTabItem
           text={t`Fores`}
-          num={8}
+          num={foresPrice.length}
           callBack={() => setTabsValue(3)}
           isSelected={tabsValue === 3}
         />
       </Stack>
     );
-  }, [tabsValue]);
+  }, [allPrice.length, cryptoPrice.length, foresPrice.length, tabsValue]);
+  const priceList = useMemo(() => {
+    if (tabsValue === 0) {
+      return [];
+    } else if (tabsValue === 1) {
+      return allPrice;
+    } else if (tabsValue === 2) {
+      return cryptoPrice;
+    } else if (tabsValue === 3) {
+      return foresPrice;
+    } else {
+      return [];
+    }
+  }, [allPrice, cryptoPrice, foresPrice, tabsValue]);
   const ListView = useMemo(() => {
-    return (
-      <Stack>
+    const list = priceList.map((item, index) => {
+      return (
         <TokenListBaseViewListItem
-          tokenName={"BTC"}
+          key={`PriceListItem+${index}`}
+          tokenName={item}
           price={34567.56}
           percent={-10.45}
-          onClick={() => {}}
+          onClick={() => {
+            props.changeTokenPair(item);
+          }}
           isSelected
         />
-        <TokenListBaseViewListItem
-          tokenName={"ETH"}
-          price={1567.56}
-          percent={10.45}
-          onClick={() => {}}
-        />
-        <TokenListBaseViewListItem
-          tokenName={"BTC"}
-          price={34567.56}
-          percent={-10.45}
-          onClick={() => {}}
-          isSelected
-        />
-        <TokenListBaseViewListItem
-          tokenName={"BTC"}
-          price={34567.56}
-          percent={-10.45}
-          onClick={() => {}}
-          isSelected
-        />
-        <TokenListBaseViewListItem
-          tokenName={"BTC"}
-          price={34567.56}
-          percent={-10.45}
-          onClick={() => {}}
-          isSelected
-        />
-        <TokenListBaseViewListItem
-          tokenName={"BTC"}
-          price={34567.56}
-          percent={-10.45}
-          onClick={() => {}}
-          isSelected
-        />
-      </Stack>
-    );
-  }, []);
+      );
+    });
+    return <Stack>{list}</Stack>;
+  }, [priceList, props]);
   return (
-    <Stack spacing={"8px"} width={"100%"}>
+    <Stack spacing={"8px"} width={"100%"} height={"350px"}>
       {TabsView}
       <ArithFiLine />
       {ListView}
@@ -106,7 +96,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
 }) => {
   const Icon = props.isSelected ? FavIcon1 : FavIcon0;
   const TokenIcon = useMemo(() => {
-    const token = props.tokenName.getToken();
+    const token = props.tokenName.split("/")[0].getToken();
     if (token) {
       return token.icon;
     } else {
@@ -115,6 +105,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
   }, [props.tokenName]);
   return (
     <Stack>
+
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
@@ -122,12 +113,14 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
         width={"100%"}
         height={"62px"}
         sx={(theme) => ({
-            cursor: "pointer",
-            paddingX: "20px",
-            "&:hover": {
-                backgroundColor: theme.normal.bg1
-            }
-          })}
+          cursor: "pointer",
+          paddingX: "20px",
+          "&:hover": {
+            backgroundColor: theme.normal.bg1,
+          },
+        })}
+        component={"button"}
+        onClick={props.onClick}
       >
         <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
           <Box
@@ -165,7 +158,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
                 color: theme.normal.text0,
               })}
             >
-              {props.tokenName}/USDT
+              {props.tokenName}
             </Box>
           </Stack>
         </Stack>
@@ -226,7 +219,7 @@ const TokenListBaseViewTabItem: FC<TokenListBaseViewTabItemProps> = ({
         cursor: "pointer",
       })}
       component={"button"}
-      onClick={() => props.callBack()}
+      onClick={props.callBack}
     >
       {props.text}
       {props.num === 0 ? "" : `(${props.num})`}

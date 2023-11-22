@@ -134,59 +134,63 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         return 420;
     }
   }, [width]);
-  const TokenIcon = props.tokenPair.getToken()!.icon;
+  const TokenIcon = props.tokenPair.split("/")[0].getToken()!.icon;
   const dataProvider = useRef();
   const [hr, setHr] = useState({
     priceChangePercent: "",
     highPrice: "",
     lowPrice: "",
   });
+  // const defaultPriceListTab = useMemo(() => {
+  //   const index = priceToken.indexOf(props.tokenPair)
+    
+  // }, [])
 
-  const tokenPairList = useMemo(() => {
-    return priceToken
-      .map((item) => {
-        const token = item.getToken();
-        return {
-          icon1: token!.icon,
-          icon2: USDTLogo,
-          title: `${token!.symbol}/USDT`,
-        };
-      })
-      .map((item, index) => {
-        return (
-          <Stack
-            key={`SelectTokenList + ${index}`}
-            direction={"row"}
-            alignItems={"center"}
-            sx={(theme) => ({
-              height: "40px",
-              paddingX: "20px",
-              "&:hover": {
-                background: theme.normal.bg1,
-              },
-            })}
-          >
-            <TwoIconWithString
-              icon1={item.icon1}
-              icon2={item.icon2}
-              title={item.title}
-              selected={item.title.split("/")[0] === props.tokenPair}
-              onClick={() => {
-                props.changeTokenPair(item.title.split("/")[0]);
-                handleClose();
-              }}
-            />
-          </Stack>
-        );
-      });
-  }, [props]);
+  // const tokenPairList = useMemo(() => {
+  //   return priceToken
+  //     .map((item) => {
+  //       const token = item.getToken();
+  //       return {
+  //         icon1: token!.icon,
+  //         icon2: USDTLogo,
+  //         title: `${token!.symbol}/USDT`,
+  //       };
+  //     })
+  //     .map((item, index) => {
+  //       return (
+  //         <Stack
+  //           key={`SelectTokenList + ${index}`}
+  //           direction={"row"}
+  //           alignItems={"center"}
+  //           sx={(theme) => ({
+  //             height: "40px",
+  //             paddingX: "20px",
+  //             "&:hover": {
+  //               background: theme.normal.bg1,
+  //             },
+  //           })}
+  //         >
+  //           <TwoIconWithString
+  //             icon1={item.icon1}
+  //             icon2={item.icon2}
+  //             title={item.title.split("/")[0]}
+  //             selected={item.title === props.tokenPair}
+  //             onClick={() => {
+  //               props.changeTokenPair(item.title);
+  //               handleClose();
+  //             }}
+  //           />
+  //         </Stack>
+  //       );
+  //     });
+  // }, [props]);
 
   const average = useMemo(() => {
     if (props.tokenPair && props.basePrice) {
       return formatAmount(
         props.basePrice?.[props.tokenPair],
         18,
-        props.tokenPair.getTokenPriceDecimals()
+        props.tokenPair.split("/")[0].getTokenPriceDecimals()
       );
     }
     return "-";
@@ -229,6 +233,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         <TokenListModal
           open={openTokenListModal}
           onClose={() => setOpenTokenListModal(false)}
+          changeTokenPair={(value: string) => {
+            props.changeTokenPair(value);
+            setOpenTokenListModal(false);
+          }}
         />
         <Stack spacing={"8px"} direction={"row"} alignItems={"center"}>
           <Box
@@ -258,7 +266,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
               lineHeight: "22px",
             })}
           >
-            {props.tokenPair}/USDT
+            {props.tokenPair}
           </Box>
           <Box
             component={"p"}
@@ -330,14 +338,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         </Stack>
       </Stack>
     );
-  }, [
-    average,
-    hr.priceChangePercent,
-    isHide,
-    openTokenListModal,
-    props.basePrice,
-    props.tokenPair,
-  ]);
+  }, [average, hr.priceChangePercent, isHide, openTokenListModal, props]);
 
   return (
     <Stack
@@ -397,7 +398,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                     color: theme.normal.text1,
                   })}
                 >
-                  {props.tokenPair}/USDT
+                  {props.tokenPair}
                 </Box>
                 <Box
                   component={"p"}
@@ -451,7 +452,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 {hr.highPrice
                   ? numberWithCommas(
                       Number(hr.highPrice).toFixed(
-                        props.tokenPair.getTokenPriceDecimals()
+                        props.tokenPair.split("/")[0].getTokenPriceDecimals()
                       )
                     )
                   : "-"}
@@ -465,7 +466,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 {hr.lowPrice
                   ? numberWithCommas(
                       Number(hr.lowPrice).toFixed(
-                        props.tokenPair.getTokenPriceDecimals()
+                        props.tokenPair.split("/")[0].getTokenPriceDecimals()
                       )
                     )
                   : "-"}
@@ -542,8 +543,13 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           },
         })}
       >
-        {/* <TokenListBaseView /> */}
-        <Stack>{tokenPairList}</Stack>
+        <TokenListBaseView
+          changeTokenPair={(value: string) => {
+            props.changeTokenPair(value);
+            handleClose();
+          }}
+        />
+        {/* <Stack>{tokenPairList}</Stack> */}
       </SelectListMenu>
 
       {isHide ? (

@@ -132,7 +132,7 @@ function useFuturesEditPosition(
         balance,
         append,
         BigNumber.from(data.leverage.toString()),
-        price[tokenPair],
+        price[data.product.toLocaleUpperCase()],
         orderPrice,
         data.direction
       );
@@ -141,12 +141,13 @@ function useFuturesEditPosition(
       return String().placeHolder;
     }
   }, [
-    data.append,
-    data.margin,
-    data.direction,
-    data.leverage,
-    data.orderPrice,
     price,
+    data.margin,
+    data.orderPrice,
+    data.append,
+    data.leverage,
+    data.product,
+    data.direction,
     tokenPair,
   ]);
 

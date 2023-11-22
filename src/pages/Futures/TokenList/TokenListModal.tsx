@@ -7,6 +7,7 @@ import TokenListBaseView from "./TokenListBaseView";
 interface TokenListModalProps {
   open: boolean;
   onClose: () => void;
+  changeTokenPair: (value: string) => void;
 }
 
 const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
@@ -28,7 +29,7 @@ const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
           props.onClose();
         }}
       >
-        <TokenListBaseView/>
+        <TokenListBaseView changeTokenPair={props.changeTokenPair} />
       </BaseDrawer>
     </Drawer>
   );

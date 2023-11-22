@@ -90,15 +90,14 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   const nowPrice = useMemo(() => {
     if (props.price) {
       return Number(
-        props.price[token].bigNumberToShowPrice(
-          18,
-          token.getTokenPriceDecimals()
-        )
+        props.price[
+          props.data.product.toLocaleUpperCase()
+        ].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
       );
     } else {
       return 0;
     }
-  }, [props.price, token]);
+  }, [props.data.product, props.price, token]);
   const limitPrice = useMemo(() => {
     return props.data.status === 4 ? props.data.orderPrice : nowPrice;
   }, [nowPrice, props.data.orderPrice, props.data.status]);

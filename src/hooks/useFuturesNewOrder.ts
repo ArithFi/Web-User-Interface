@@ -173,7 +173,7 @@ function useFuturesNewOrder(
           tabsValue === 1,
           Number(inputAmount),
           Number(orderPrice),
-          `${tokenPair}/USDT`,
+          `${tokenPair}`,
           Number(sl),
           Number(tp),
           { Authorization: signature.signature }
@@ -373,7 +373,7 @@ function useFuturesNewOrder(
       sl_info &&
       !hasShowShareLink
     ) {
-      const tokenPriceDecimals = tokenPair.getTokenPriceDecimals();
+      const tokenPriceDecimals = tokenPair.split("/")[0].getTokenPriceDecimals();
       setTabsValue(1);
       setLever(parseInt(lever_info));
       setLimitAmount(
@@ -434,7 +434,7 @@ function useFuturesNewOrder(
     if (openPriceBase) {
       return openPriceBase.bigNumberToShowPrice(
         18,
-        tokenPair.getTokenPriceDecimals()
+        tokenPair.split("/")[0].getTokenPriceDecimals()
       );
     } else {
       return String().placeHolder;
@@ -458,7 +458,7 @@ function useFuturesNewOrder(
         isLong
       );
       return (
-        result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
+        result.bigNumberToShowPrice(18, tokenPair.split("/")[0].getTokenPriceDecimals()) ??
         String().placeHolder
       );
     },
@@ -532,7 +532,7 @@ function useFuturesNewOrder(
       setLimitAmount(
         openPriceBase.bigNumberToShowString(
           18,
-          tokenPair.getTokenPriceDecimals()
+          tokenPair.split("/")[0].getTokenPriceDecimals()
         )
       );
       setHadSetLimit(true);

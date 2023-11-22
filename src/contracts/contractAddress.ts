@@ -150,6 +150,13 @@ export const TokenList: Array<TokenType> = [
     priceDecimals: 2,
   },
   {
+    symbol: "USD",
+    icon: USDTLogo,
+    decimals: USDTDecimals,
+    address: USDTToken,
+    priceDecimals: 2,
+  },
+  {
     symbol: "MATIC",
     icon: MATICTokenLogo,
     decimals: All18,
@@ -196,6 +203,27 @@ export const TokenList: Array<TokenType> = [
     icon: AVAXTokenLogo,
     decimals: All18,
     address: ATFToken,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "JPY",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "CAD",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "GBP",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
     priceDecimals: 3,
   },
 ];

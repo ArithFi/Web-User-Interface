@@ -6,6 +6,7 @@ import { FuturesOrderService } from "../pages/Futures/OrderList";
 import { t } from "@lingui/macro";
 import { serviceClose } from "../lib/ArithFiRequest";
 import useArithFi from "./useArithFi";
+import { da } from "date-fns/locale";
 
 function useFuturesClose(
   data: FuturesOrderService,
@@ -27,7 +28,7 @@ function useFuturesClose(
   const closePrice = useMemo(() => {
     const atfBigNumber = data.balance.toString().stringToBigNumber(18);
     const orderPrice = data.orderPrice.toString().stringToBigNumber(18);
-    const token = tokenPair;
+    const token = data.product.toLocaleUpperCase();
     if (price && atfBigNumber && orderPrice) {
       const nowPrice = price[token];
       if (atfBigNumber.gte("100000".stringToBigNumber(18)!)) {
@@ -69,8 +70,8 @@ function useFuturesClose(
     data.direction,
     data.leverage,
     data.orderPrice,
+    data.product,
     price,
-    tokenPair,
   ]);
   const showClosePrice = useMemo(() => {
     if (!closePrice) {
@@ -86,7 +87,7 @@ function useFuturesClose(
     if (!price) {
       return String().placeHolder;
     }
-    const token = tokenPair;
+    const token = data.product.toLocaleUpperCase();
     const nowPrice = parseFloat(
       price[token].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
     );
@@ -94,7 +95,7 @@ function useFuturesClose(
       (((data.leverage * data.balance * 5) / 10000) * nowPrice) /
       data.orderPrice;
     return fee.floor(2);
-  }, [data.balance, data.leverage, data.orderPrice, price, tokenPair]);
+  }, [data.balance, data.leverage, data.orderPrice, data.product, price]);
   const feeTip = useMemo(() => {
     return t`Position*0.05%`;
   }, []);

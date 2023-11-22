@@ -20,16 +20,19 @@ export interface FuturesPrice {
 }
 const UPDATE_PRICE = 15;
 export const priceToken = [
-  "ETH",
-  "BTC",
-  "BNB",
-  "MATIC",
-  "ADA",
-  "DOGE",
-  "XRP",
-  "SOL",
-  "LTC",
-  "AVAX",
+  "ETH/USDT",
+  "BTC/USDT",
+  "BNB/USDT",
+  "MATIC/USDT",
+  "ADA/USDT",
+  "DOGE/USDT",
+  "XRP/USDT",
+  "SOL/USDT",
+  "LTC/USDT",
+  "AVAX/USDT",
+  "USD/JPY",
+  "USD/CAD",
+  "GBP/USD",
 ];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
@@ -38,13 +41,13 @@ const Futures: FC = () => {
     let code = getQueryVariable("pt");
     if (code) {
       const num = priceToken.filter(
-        (item) => item.toLocaleLowerCase() === code!.toLocaleLowerCase()
+        (item) => item === code!.toLocaleLowerCase()
       );
       if (num && num.length > 0) {
         return code.toLocaleUpperCase();
       }
     }
-    return "ETH";
+    return "ETH/USDT";
   }, []);
   const [tokenPair, setTokenPair] = useState(defaultTokenPair);
   const [basePrice, setBasePrice] = useState<FuturesPrice>();
@@ -106,16 +109,19 @@ const Futures: FC = () => {
       AVAXPrice
     ) {
       const newPrice: FuturesPrice = {
-        ETH: ETHPrice,
-        BTC: BTCPrice,
-        BNB: BNBPrice,
-        MATIC: MATICPrice,
-        ADA: ADAPrice,
-        DOGE: DOGEPrice,
-        XRP: XRPPrice,
-        SOL: SOLPrice,
-        LTC: LTCPrice,
-        AVAX: AVAXPrice,
+        "ETH/USDT": ETHPrice,
+        "BTC/USDT": BTCPrice,
+        "BNB/USDT": BNBPrice,
+        "MATIC/USDT": MATICPrice,
+        "ADA/USDT": ADAPrice,
+        "DOGE/USDT": DOGEPrice,
+        "XRP/USDT": XRPPrice,
+        "SOL/USDT": SOLPrice,
+        "LTC/USDT": LTCPrice,
+        "AVAX/USDT": AVAXPrice,
+        "USD/JPY": ETHPrice,
+        "USD/CAD": AVAXPrice,
+        "GBP/USD": AVAXPrice,
       };
       return newPrice;
     } else {
