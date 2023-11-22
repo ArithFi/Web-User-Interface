@@ -13,7 +13,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   const [tabsValue, setTabsValue] = useState(2);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
-  const foresPrice = priceToken.slice(-3);
+  const foresPrice = priceToken.slice(-5);
   const TabsView = useMemo(() => {
     return (
       <Stack direction={"row"} spacing={"8px"}>

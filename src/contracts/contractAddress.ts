@@ -14,7 +14,6 @@ import {
   AVAXTokenLogo,
 } from "../components/icons";
 
-
 export type TokenType = {
   symbol: string;
   icon: typeof ETHLogo;
@@ -206,14 +205,7 @@ export const TokenList: Array<TokenType> = [
     priceDecimals: 3,
   },
   {
-    symbol: "JPY",
-    icon: ETHTokenLogo,
-    decimals: All18,
-    address: ETH,
-    priceDecimals: 3,
-  },
-  {
-    symbol: "CAD",
+    symbol: "EUR",
     icon: ETHTokenLogo,
     decimals: All18,
     address: ETH,
@@ -221,6 +213,27 @@ export const TokenList: Array<TokenType> = [
   },
   {
     symbol: "GBP",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "NZD",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "VND",
+    icon: ETHTokenLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 3,
+  },
+  {
+    symbol: "KRW",
     icon: ETHTokenLogo,
     decimals: All18,
     address: ETH,

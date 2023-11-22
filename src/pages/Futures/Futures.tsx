@@ -30,9 +30,11 @@ export const priceToken = [
   "SOL/USDT",
   "LTC/USDT",
   "AVAX/USDT",
-  "USD/JPY",
-  "USD/CAD",
+  "EUR/USD",
   "GBP/USD",
+  "NZD/USD",
+  "VND/USD",
+  "KRW/USD",
 ];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
@@ -95,14 +97,20 @@ const Futures: FC = () => {
     const AVAXPrice = listPriceBase
       ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
       : undefined;
-    const USDJPYPrice = listPriceBase
-      ? listPriceBase["value"]["USDJPY"].toString().stringToBigNumber(18)
-      : undefined;
-    const USDCADPrice = listPriceBase
-      ? listPriceBase["value"]["USDCAD"].toString().stringToBigNumber(18)
+    const EURUSDPrice = listPriceBase
+      ? listPriceBase["value"]["EURUSD"].toString().stringToBigNumber(18)
       : undefined;
     const GBPUSDPrice = listPriceBase
       ? listPriceBase["value"]["GBPUSD"].toString().stringToBigNumber(18)
+      : undefined;
+    const NZDUSDPrice = listPriceBase
+      ? listPriceBase["value"]["NZDUSD"].toString().stringToBigNumber(18)
+      : undefined;
+    const VNDUSDPrice = listPriceBase
+      ? listPriceBase["value"]["VNDUSD"].toString().stringToBigNumber(18)
+      : undefined;
+    const KRWUSDPrice = listPriceBase
+      ? listPriceBase["value"]["KRWUSD"].toString().stringToBigNumber(18)
       : undefined;
 
     if (
@@ -116,9 +124,11 @@ const Futures: FC = () => {
       SOLPrice &&
       LTCPrice &&
       AVAXPrice &&
-      USDJPYPrice &&
-      USDCADPrice &&
-      GBPUSDPrice
+      EURUSDPrice &&
+      GBPUSDPrice &&
+      NZDUSDPrice &&
+      VNDUSDPrice &&
+      KRWUSDPrice
     ) {
       const newPrice: FuturesPrice = {
         "ETH/USDT": ETHPrice,
@@ -131,9 +141,11 @@ const Futures: FC = () => {
         "SOL/USDT": SOLPrice,
         "LTC/USDT": LTCPrice,
         "AVAX/USDT": AVAXPrice,
-        "USD/JPY": USDJPYPrice,
-        "USD/CAD": USDCADPrice,
+        "EUR/USD": EURUSDPrice,
         "GBP/USD": GBPUSDPrice,
+        "NZD/USD": NZDUSDPrice,
+        "VND/USD": VNDUSDPrice,
+        "KRW/USD": KRWUSDPrice,
       };
       return newPrice;
     } else {
