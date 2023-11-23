@@ -75,9 +75,14 @@ async function baseRequestGetWithHeader(
   header: { [key: string]: string }
 ) {
   try {
+    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
     const res = await fetch(url, {
       method: "GET",
-      headers: { ...header, "Content-Type": "application/json" },
+      headers: {
+        ...header,
+        "Content-Type": "application/json",
+        token: currentTimestampInSeconds.toString(),
+      },
     });
     const resJson = await res.json();
     return resJson;
@@ -105,8 +110,12 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
+// deprecated
 export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
+}
+export function getPriceListV2(): Promise<any> {
+  return baseRequestGet(`https://cms.nestfi.net/api/oracle/pair/list`);
 }
 
 /**
@@ -240,6 +249,20 @@ export function serviceClose(
     `${serviceBaseURL(chainId)}/op/future/close?id=${id}`,
     header,
     {}
+  );
+}
+
+export function serviceSetFavorites(
+  chainId: number,
+  walletAddress: string,
+  favorites: string,
+  info: RequestBodyInterface
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/op/user/setFavorites?walletAddress=${walletAddress}&chainId=${chainId}&favorites=${favorites}`,
+    info
   );
 }
 

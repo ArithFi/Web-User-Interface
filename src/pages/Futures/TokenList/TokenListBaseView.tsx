@@ -1,25 +1,63 @@
 import Stack from "@mui/material/Stack";
-import { FC, useMemo, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import ArithFiLine from "../../../components/ArithFiLine";
 import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
-import { priceToken } from "../Futures";
+import { FuturesPrice, FuturesPricePercent, priceToken } from "../Futures";
+import useService from "../../../contracts/useService";
+import useArithFi from "../../../hooks/useArithFi";
+import { serviceSetFavorites } from "../../../lib/ArithFiRequest";
 
 interface TokenListBaseViewProps {
   changeTokenPair: (value: string) => void;
+  basePrice?: FuturesPrice;
+  basePricePercent?: FuturesPricePercent;
 }
 
 const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
+  const { chainsData, signature, account } = useArithFi();
+  const { favorites } = useService();
   const [tabsValue, setTabsValue] = useState(2);
+  const [favPairs, setFavPairs] = useState<Array<string>>([]);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
   const foresPrice = priceToken.slice(-5);
+
+  const getFavPairs = useCallback(async () => {
+    favorites((result: Array<string>) => {
+      setFavPairs(result);
+    });
+  }, [favorites]);
+
+  const setFav = useCallback(
+    async (pairs: Array<String>) => {
+      if (chainsData.chainId && signature && account.address) {
+        const pairsData = pairs.map(
+          (item) => item.split("/")[0] + item.split("/")[1]
+        );
+        const closeBase: { [key: string]: any } = await serviceSetFavorites(
+          chainsData.chainId,
+          account.address,
+          pairsData.join(";"),
+          {Authorization: signature.signature}
+        );
+        if (Number(closeBase["errorCode"]) === 0) {
+        }
+      }
+    },
+    [account.address, chainsData.chainId, signature]
+  );
+
+  useEffect(() => {
+    getFavPairs();
+  }, [getFavPairs]);
+
   const TabsView = useMemo(() => {
     return (
       <Stack direction={"row"} spacing={"8px"}>
         <TokenListBaseViewTabItem
           text={t`Favorites`}
-          num={0}
+          num={favPairs.length}
           callBack={() => setTabsValue(0)}
           isSelected={tabsValue === 0}
         />
@@ -43,10 +81,10 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
         />
       </Stack>
     );
-  }, [allPrice.length, cryptoPrice.length, foresPrice.length, tabsValue]);
+  }, [allPrice.length, cryptoPrice.length, favPairs.length, foresPrice.length, tabsValue]);
   const priceList = useMemo(() => {
     if (tabsValue === 0) {
-      return [];
+      return favPairs;
     } else if (tabsValue === 1) {
       return allPrice;
     } else if (tabsValue === 2) {
@@ -56,26 +94,54 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     } else {
       return [];
     }
-  }, [allPrice, cryptoPrice, foresPrice, tabsValue]);
+  }, [allPrice, cryptoPrice, favPairs, foresPrice, tabsValue]);
   const ListView = useMemo(() => {
     const list = priceList.map((item, index) => {
+      const token = item.split("/")[0];
+      const price = props.basePrice
+        ? Number(
+            props.basePrice[item].bigNumberToShowPrice(
+              18,
+              token.getTokenPriceDecimals()
+            )
+          )
+        : undefined;
+      const percent = props.basePricePercent
+        ? Number(props.basePricePercent[item].floor(4))
+        : undefined;
       return (
         <TokenListBaseViewListItem
           key={`PriceListItem+${index}`}
           tokenName={item}
-          price={34567.56}
-          percent={-10.45}
+          price={price}
+          percent={percent}
           onClick={() => {
             props.changeTokenPair(item);
           }}
-          isSelected
+          changeFav={(tokenName: string) => {
+            var newArray = [...favPairs];
+            const index = favPairs.indexOf(tokenName);
+            if (index !== -1) {
+              newArray = newArray.filter((item) => item !== tokenName)
+            } else {
+              newArray = [...newArray, tokenName];
+            }
+            setFavPairs(newArray);
+            setFav(newArray);
+          }}
+          isSelected={favPairs.indexOf(item) !== -1}
         />
       );
     });
-    return <Stack>{list}</Stack>;
-  }, [priceList, props]);
+    return <Stack sx={{ overflow: "auto" }}>{list}</Stack>;
+  }, [favPairs, priceList, props, setFav]);
   return (
-    <Stack spacing={"8px"} width={"100%"} height={"350px"}>
+    <Stack
+      spacing={"8px"}
+      width={"100%"}
+      sx={{ overflowY: "hidden" }}
+      height={"350px"}
+    >
       {TabsView}
       <ArithFiLine />
       {ListView}
@@ -85,9 +151,10 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
 
 interface TokenListBaseViewListItemProps {
   tokenName: string;
-  price: number;
-  percent: number;
+  price: number | undefined;
+  percent: number | undefined;
   onClick: () => void;
+  changeFav: (tokenName: string) => void;
   isSelected?: boolean;
 }
 
@@ -103,39 +170,48 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
       return "ETH".getToken()!.icon;
     }
   }, [props.tokenName]);
+
   return (
     <Stack>
-
       <Stack
         direction={"row"}
-        justifyContent={"space-between"}
         alignItems={"center"}
         width={"100%"}
         height={"62px"}
+        spacing={"16px"}
         sx={(theme) => ({
-          cursor: "pointer",
           paddingX: "20px",
           "&:hover": {
             backgroundColor: theme.normal.bg1,
           },
         })}
-        component={"button"}
-        onClick={props.onClick}
       >
-        <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
-          <Box
-            sx={{
+        <Box
+          sx={{
+            cursor: "pointer",
+            width: "16px",
+            height: "16px",
+            "& svg": {
               width: "16px",
               height: "16px",
-              "& svg": {
-                width: "16px",
-                height: "16px",
-                display: "block",
-              },
-            }}
-          >
-            {Icon}
-          </Box>
+              display: "block",
+            },
+          }}
+          component={"button"}
+          onClick={() => {
+            props.changeFav(props.tokenName);
+          }}
+        >
+          {Icon}
+        </Box>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          sx={{ width: "100%", height: "100%", cursor: "pointer" }}
+          component={"button"}
+          onClick={props.onClick}
+        >
           <Stack spacing={"8px"} direction={"row"} alignItems={"center"}>
             <Box
               sx={{
@@ -161,31 +237,37 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
               {props.tokenName}
             </Box>
           </Stack>
-        </Stack>
-        <Stack spacing={"4px"} alignItems={"right"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "700",
-              fontSize: "14px",
-              lineHeight: "20px",
-              color:
-                props.percent >= 0 ? theme.normal.success : theme.normal.danger,
-            })}
-          >
-            {props.price}
-          </Box>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "400",
-              fontSize: "10px",
-              lineHeight: "14px",
-              textAlign: "right",
-              color:
-                props.percent >= 0 ? theme.normal.success : theme.normal.danger,
-            })}
-          >
-            {props.percent}%
-          </Box>
+          <Stack spacing={"4px"} alignItems={"right"}>
+            <Box
+              sx={(theme) => ({
+                fontWeight: "700",
+                fontSize: "14px",
+                lineHeight: "20px",
+                color:
+                  (props.percent ?? 0) >= 0
+                    ? theme.normal.success
+                    : theme.normal.danger,
+              })}
+            >
+              {props.price ? props.price : String().placeHolder}
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontWeight: "400",
+                fontSize: "10px",
+                lineHeight: "14px",
+                textAlign: "right",
+                color:
+                  (props.percent ?? 0) >= 0
+                    ? theme.normal.success
+                    : theme.normal.danger,
+              })}
+            >
+              {props.percent
+                ? `${(props.percent ?? 0) >= 0 ? "+" : "-"}${props.percent}%`
+                : String().placeHolder}
+            </Box>
+          </Stack>
         </Stack>
       </Stack>
       <ArithFiLine />

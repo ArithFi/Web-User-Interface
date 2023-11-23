@@ -7,7 +7,7 @@ import FuturesNewOrder from "./NewOrder";
 import FuturesOrderList, { FuturesOrderService } from "./OrderList";
 import ExchangeTVChart from "./ExchangeTVChart";
 import {
-  getPriceList,
+  getPriceListV2,
   serviceFutureHistory,
   serviceList,
 } from "../../lib/ArithFiRequest";
@@ -17,6 +17,9 @@ import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
+}
+export interface FuturesPricePercent {
+  [key: string]: number;
 }
 const UPDATE_PRICE = 15;
 export const priceToken = [
@@ -53,6 +56,8 @@ const Futures: FC = () => {
   }, []);
   const [tokenPair, setTokenPair] = useState(defaultTokenPair);
   const [basePrice, setBasePrice] = useState<FuturesPrice>();
+  const [basePricePercent, setBasePricePercent] =
+    useState<FuturesPricePercent>();
   const [orderPrice, setOrderPrice] = useState<FuturesPrice>();
   const [pOrderListV2, setPOrderListV2] = useState<Array<FuturesOrderService>>(
     []
@@ -65,53 +70,172 @@ const Futures: FC = () => {
   );
 
   const getPrice = useCallback(async () => {
-    const listPriceBase: { [key: string]: any } = await getPriceList();
+    const listPriceBase: { [key: string]: any } = await getPriceListV2();
+
+    const percent = () => {
+      const ETHPricePercent = listPriceBase
+        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"]
+        : undefined;
+      const BTCPricePercent = listPriceBase
+        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"]
+        : undefined;
+      const BNBPricePercent = listPriceBase
+        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"]
+        : undefined;
+      const MATICPricePercent = listPriceBase
+        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"]
+        : undefined;
+      const ADAPricePercent = listPriceBase
+        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"]
+        : undefined;
+      const DOGEPricePercent = listPriceBase
+        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"]
+        : undefined;
+      const XRPPricePercent = listPriceBase
+        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"]
+        : undefined;
+      const SOLPricePercent = listPriceBase
+        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"]
+        : undefined;
+      const LTCPricePercent = listPriceBase
+        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"]
+        : undefined;
+      const AVAXPricePercent = listPriceBase
+        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"]
+        : undefined;
+      const EURUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"]
+        : undefined;
+      const GBPUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"]
+        : undefined;
+      const NZDUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["NZDUSD"]["priceChangePercent"]
+        : undefined;
+      const VNDUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["VNDUSD"]["priceChangePercent"]
+        : undefined;
+      const KRWUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["KRWUSD"]["priceChangePercent"]
+        : undefined;
+      
+      if (
+        ETHPricePercent &&
+        BTCPricePercent &&
+        BNBPricePercent &&
+        MATICPricePercent &&
+        ADAPricePercent &&
+        DOGEPricePercent &&
+        XRPPricePercent &&
+        SOLPricePercent &&
+        LTCPricePercent &&
+        AVAXPricePercent &&
+        EURUSDPricePercent &&
+        GBPUSDPricePercent &&
+        NZDUSDPricePercent &&
+        VNDUSDPricePercent &&
+        KRWUSDPricePercent
+      ) {
+        const newPrice: FuturesPricePercent = {
+          "ETH/USDT": Number(ETHPricePercent),
+          "BTC/USDT": Number(BTCPricePercent),
+          "BNB/USDT": Number(BNBPricePercent),
+          "MATIC/USDT": Number(MATICPricePercent),
+          "ADA/USDT": Number(ADAPricePercent),
+          "DOGE/USDT": Number(DOGEPricePercent),
+          "XRP/USDT": Number(XRPPricePercent),
+          "SOL/USDT": Number(SOLPricePercent),
+          "LTC/USDT": Number(LTCPricePercent),
+          "AVAX/USDT": Number(AVAXPricePercent),
+          "EUR/USD": Number(EURUSDPricePercent),
+          "GBP/USD": Number(GBPUSDPricePercent),
+          "NZD/USD": Number(NZDUSDPricePercent),
+          "VND/USD": Number(VNDUSDPricePercent),
+          "KRW/USD": Number(KRWUSDPricePercent),
+        };
+        return newPrice;
+      } else {
+        return undefined;
+      }
+    };
 
     const ETHPrice = listPriceBase
-      ? listPriceBase["value"]["ETHUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["ETHUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const BTCPrice = listPriceBase
-      ? listPriceBase["value"]["BTCUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["BTCUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const BNBPrice = listPriceBase
-      ? listPriceBase["value"]["BNBUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["BNBUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const MATICPrice = listPriceBase
-      ? listPriceBase["value"]["MATICUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["MATICUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const ADAPrice = listPriceBase
-      ? listPriceBase["value"]["ADAUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["ADAUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const DOGEPrice = listPriceBase
-      ? listPriceBase["value"]["DOGEUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["DOGEUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const XRPPrice = listPriceBase
-      ? listPriceBase["value"]["XRPUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["XRPUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const SOLPrice = listPriceBase
-      ? listPriceBase["value"]["SOLUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["SOLUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const LTCPrice = listPriceBase
-      ? listPriceBase["value"]["LTCUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["LTCUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const AVAXPrice = listPriceBase
-      ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["AVAXUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const EURUSDPrice = listPriceBase
-      ? listPriceBase["value"]["EURUSD"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["EURUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const GBPUSDPrice = listPriceBase
-      ? listPriceBase["value"]["GBPUSD"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["GBPUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const NZDUSDPrice = listPriceBase
-      ? listPriceBase["value"]["NZDUSD"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["NZDUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const VNDUSDPrice = listPriceBase
-      ? listPriceBase["value"]["VNDUSD"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["VNDUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const KRWUSDPrice = listPriceBase
-      ? listPriceBase["value"]["KRWUSD"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["KRWUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
+
+    const newPricePercent = percent();
 
     if (
       ETHPrice &&
@@ -147,7 +271,7 @@ const Futures: FC = () => {
         "VND/USD": VNDUSDPrice,
         "KRW/USD": KRWUSDPrice,
       };
-      return newPrice;
+      return [newPrice, newPricePercent];
     } else {
       return undefined;
     }
@@ -246,7 +370,10 @@ const Futures: FC = () => {
     const time = setInterval(() => {
       (async () => {
         const newPrice = await getPrice();
-        setBasePrice(newPrice);
+        setBasePrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
+        setBasePricePercent(
+          newPrice ? (newPrice[1] as FuturesPricePercent) : undefined
+        );
       })();
     }, 1000);
     return () => {
@@ -257,7 +384,7 @@ const Futures: FC = () => {
   useEffect(() => {
     const getOrderPrice = async () => {
       const newPrice = await getPrice();
-      setOrderPrice(newPrice);
+      setOrderPrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
     };
     getOrderPrice();
     const time = setInterval(() => {
@@ -292,10 +419,11 @@ const Futures: FC = () => {
       <ExchangeTVChart
         tokenPair={tokenPair}
         basePrice={basePrice}
+        basePricePercent={basePricePercent}
         changeTokenPair={(value: string) => setTokenPair(value)}
       />
     );
-  }, [tokenPair, basePrice]);
+  }, [tokenPair, basePrice, basePricePercent]);
 
   const orderList = useCallback(() => {
     return (

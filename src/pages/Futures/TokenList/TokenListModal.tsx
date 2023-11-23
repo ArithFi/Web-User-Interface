@@ -3,11 +3,14 @@ import { FC } from "react";
 import BaseDrawer from "../../Share/Modal/BaseDrawer";
 import { t } from "@lingui/macro";
 import TokenListBaseView from "./TokenListBaseView";
+import { FuturesPrice, FuturesPricePercent } from "../Futures";
 
 interface TokenListModalProps {
   open: boolean;
   onClose: () => void;
   changeTokenPair: (value: string) => void;
+  basePrice?: FuturesPrice;
+  basePricePercent?: FuturesPricePercent;
 }
 
 const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
@@ -29,7 +32,11 @@ const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
           props.onClose();
         }}
       >
-        <TokenListBaseView changeTokenPair={props.changeTokenPair} />
+        <TokenListBaseView
+          changeTokenPair={props.changeTokenPair}
+          basePrice={props.basePrice}
+          basePricePercent={props.basePricePercent}
+        />
       </BaseDrawer>
     </Drawer>
   );
