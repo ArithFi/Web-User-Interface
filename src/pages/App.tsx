@@ -7,6 +7,7 @@ import { styled } from "@mui/material/styles";
 import useWindowWidth from "../hooks/useWindowWidth";
 import useArithFi from "../hooks/useArithFi";
 import { KOLClick, KOLWallet } from "../lib/ArithFiRequest";
+import {getQueryVariable} from "../lib/queryVaribale";
 
 const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
@@ -25,20 +26,6 @@ const TokenPage = lazy(() => import("./Token/Token"));
 const App: FC = () => {
   const { headHeight, isBigMobile } = useWindowWidth();
   const { account, chainsData } = useArithFi();
-
-  const getQueryVariable = (variable: string) => {
-    const query = window.location.search.substring(1);
-    if (query) {
-      const vars = query.split("&");
-      for (let i = 0; i < vars.length; i++) {
-        const pair = vars[i].split("=");
-        if (decodeURIComponent(pair[0]) === variable) {
-          return decodeURIComponent(pair[1]);
-        }
-      }
-    }
-    return null;
-  };
 
   const handleInviteCode = useCallback(async () => {
     let inviteCode = getQueryVariable("a");

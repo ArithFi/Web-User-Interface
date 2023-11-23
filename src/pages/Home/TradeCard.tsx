@@ -26,7 +26,7 @@ export const TradeCard: FC<{
 
   if (mobile) {
     return (
-      <Link to={`/futures?symbol=${pair1}/${pair2}`}>
+      <Link to={`/futures?pt=${pair1}%2F${pair2}`}>
         <Stack direction={'row'} alignItems={'center'} py={'20px'} sx={{
           cursor: 'pointer',
           '&:hover': {
@@ -90,7 +90,7 @@ export const TradeCard: FC<{
     )
   } else {
     return (
-      <Link to={`/futures?symbol=${pair1}/${pair2}`}>
+      <Link to={`/futures?pt=${pair1}%2F${pair2}`}>
         <Stack direction={'row'} alignItems={'center'} p={'20px'} sx={{
           cursor: 'pointer',
           color: '#030308',
