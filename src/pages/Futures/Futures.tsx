@@ -1,19 +1,20 @@
 import Stack from "@mui/material/Stack";
-import { BigNumber } from "ethers/lib/ethers";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
-import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
+import {BigNumber} from "ethers/lib/ethers";
+import {FC, useCallback, useEffect, useMemo, useState} from "react";
+import useWindowWidth, {WidthType} from "../../hooks/useWindowWidth";
 import FuturesMoreInfo from "./MoreInfo";
 import FuturesNewOrder from "./NewOrder";
-import FuturesOrderList, { FuturesOrderService } from "./OrderList";
+import FuturesOrderList, {FuturesOrderService} from "./OrderList";
 import ExchangeTVChart from "./ExchangeTVChart";
 import {
   getPriceListV2,
   serviceFutureHistory,
   serviceList,
 } from "../../lib/ArithFiRequest";
-import { getQueryVariable } from "../../lib/queryVaribale";
+import {getQueryVariable} from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
-import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
+import {FuturesHistoryService} from "../../hooks/useFuturesHistory";
+import {useSearchParams} from "react-router-dom";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
@@ -40,9 +41,14 @@ export const priceToken = [
   "KRW/USD",
 ];
 const Futures: FC = () => {
-  const { width, isBigMobile } = useWindowWidth();
-  const { account, chainsData, signature } = useArithFi();
+  const {width, isBigMobile} = useWindowWidth();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pt = searchParams.get('pt');
+  const {account, chainsData, signature} = useArithFi();
   const defaultTokenPair = useMemo(() => {
+    if (pt) {
+      return pt;
+    }
     let code = getQueryVariable("pt");
     if (code) {
       const num = priceToken.filter(
@@ -53,7 +59,7 @@ const Futures: FC = () => {
       }
     }
     return "ETH/USDT";
-  }, []);
+  }, [pt]);
   const [tokenPair, setTokenPair] = useState(defaultTokenPair);
   const [basePrice, setBasePrice] = useState<FuturesPrice>();
   const [basePricePercent, setBasePricePercent] =
@@ -330,7 +336,7 @@ const Futures: FC = () => {
       const baseList = await serviceFutureHistory(
         chainsData.chainId,
         account.address,
-        { Authorization: signature.signature }
+        {Authorization: signature.signature}
       );
       if (Number(baseList["errorCode"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
@@ -420,10 +426,16 @@ const Futures: FC = () => {
         tokenPair={tokenPair}
         basePrice={basePrice}
         basePricePercent={basePricePercent}
-        changeTokenPair={(value: string) => setTokenPair(value)}
+        changeTokenPair={(value: string) => {
+          setSearchParams({
+            pt: value,
+          })
+          setTokenPair(value)
+        }}
+
       />
     );
-  }, [tokenPair, basePrice, basePricePercent]);
+  }, [tokenPair, basePrice, basePricePercent, setSearchParams]);
 
   const orderList = useCallback(() => {
     return (
@@ -446,7 +458,7 @@ const Futures: FC = () => {
     );
   }, [basePrice, handleUpdateList, tokenPair]);
   const moreInfo = useCallback(() => {
-    return <FuturesMoreInfo />;
+    return <FuturesMoreInfo/>;
   }, []);
 
   const mainView = useMemo(() => {

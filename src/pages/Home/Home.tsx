@@ -3,10 +3,29 @@ import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import Divider from "@mui/material/Divider";
+import {TradeCard} from "./TradeCard";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
-  const [lang, setLang] = useState('en')
+  const [lang, setLang] = useState('en');
+  const [type, setType] = useState(0);
+
+  const cryptoList: any[] = [
+    { pair1: 'ETH',pair2: 'USDT' },
+    { pair1: 'BTC',pair2: 'USDT' },
+    { pair1: 'BNB',pair2: 'USDT' },
+    { pair1: 'MATIC',pair2: 'USDT' },
+    { pair1: 'ADA',pair2: 'USDT' },
+  ]
+
+  const forexList: any[] = [
+    { pair1: 'EUR',pair2: 'USD' },
+    { pair1: 'GBP',pair2: 'USD' },
+    { pair1: 'NZD',pair2: 'USD' },
+    { pair1: 'VND',pair2: 'USD' },
+    { pair1: 'KRW',pair2: 'USD' },
+  ]
 
   useEffect(() => {
     const cache = localStorage.getItem("Language");
@@ -18,7 +37,7 @@ const Home = () => {
   if (isBigMobile) {
     return (
       <Stack sx={{
-        bgcolor: 'white',
+        backgroundColor: 'white',
       }}>
         <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
                position={'relative'}>
@@ -37,7 +56,8 @@ const Home = () => {
           </Stack>
           <Stack zIndex={10}>
             <Link to={'/futures'}>
-              <Stack height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'} color={'#030308'}
+              <Stack height={'48px'} bgcolor={'rgba(246, 156, 0, 1)'} fontSize={'16px'} fontWeight={'700'}
+                     color={'#030308'}
                      justifyContent={'center'} alignItems={'center'} borderRadius={'12px'}
                      lineHeight={'24px'} width={'200px'}>
                 <Trans>Start Trading</Trans>
@@ -45,7 +65,9 @@ const Home = () => {
             </Link>
           </Stack>
         </Stack>
-        <Stack alignItems={'center'} py={'40px'} px={'20px'}>
+        <Stack alignItems={'center'} py={'40px'} px={'20px'} sx={{
+          boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',
+        }}>
           <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} color={'#030308'}>
             <Trans>How to Trade on ArithFi?</Trans>
           </Stack>
@@ -100,6 +122,65 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
+        <Stack py={'40px'} px={'20px'} alignItems={'center'} sx={{
+          boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',
+        }}>
+          <Stack sx={{
+            fontSize: '24px',
+            fontWeight: '700',
+            lineHeight: '32px',
+            maxWidth: '280px',
+            textAlign: 'center',
+          }}>
+            Catch Your Next
+            Trading Opportunity
+          </Stack>
+          <Stack mt={'40px'} width={'100%'}>
+            <Stack direction={'row'} width={'100%'}>
+              <Stack sx={{
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '700',
+                lineHeight: '22px',
+                padding: '8px 20px',
+                color: type === 0 ? 'rgba(246, 156, 0, 1)' : 'rgba(3, 3, 8, 1)',
+                borderBottom: type === 0 ? '2px solid rgba(246, 156, 0, 1)' : '1px solid rgba(28, 28, 35, 0.08)',
+                width: '50%',
+                textAlign: 'center',
+              }} onClick={() => setType(0)}>
+                Popular Crypto
+              </Stack>
+              <Stack sx={{
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '700',
+                lineHeight: '22px',
+                padding: '8px 20px',
+                color: type === 0 ? 'rgba(3, 3, 8, 1)' : 'rgba(246, 156, 0, 1)',
+                borderBottom: type === 0 ? '1px solid rgba(28, 28, 35, 0.08)' : '2px solid rgba(246, 156, 0, 1)',
+                width: '50%',
+                textAlign: 'center',
+              }} onClick={() => setType(1)}>
+                Popular Forex
+              </Stack>
+            </Stack>
+            <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+              borderBottom: '1px solid rgba(28, 28, 35, 0.08)',
+            }}>
+              {
+                type === 0 ? cryptoList.map((item, index) => {
+                  return (
+                    <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>
+                  )
+                }) : forexList.map((item, index) => {
+                  return (
+                    <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>
+                  )
+                })
+              }
+            </Stack>
+          </Stack>
+        </Stack>
         <Stack pt={'60px'} pb={'80px'} alignItems={'center'} zIndex={10} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
         }}>
@@ -122,7 +203,12 @@ const Home = () => {
                 opacity: 0.8
               }}>
                 <Trans>
-                  ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future.
+                  ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading
+                  model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe
+                  that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit
+                  from the appreciation of the token due to losses incurred by traders. With ongoing product iterations
+                  and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess
+                  governance functions, providing more rights to ATF holders in the future.
                 </Trans>
               </Stack>
               <Link to={'/token'}>
@@ -237,6 +323,67 @@ const Home = () => {
             <img src={`/images/home_icon1_${lang}.svg`} alt={''} width={'100%'}/>
           </Stack>
         </Stack>
+        <Stack pt={'40px'} pb={'80px'} alignItems={'center'} bgcolor={'rgba(247, 251, 255, 1)'}>
+          <Stack sx={{
+            fontSize: '24px',
+            lineHeight: '32px',
+            fontWeight: '700',
+            color: 'rgba(3, 3, 8, 1)',
+          }}>Integrations & Partners</Stack>
+          <Stack mt={'40px'} gap={'12px'}>
+            <Stack direction={'row'} gap={'12px'}>
+              <Link to={'https://coin98.com/'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/coin98.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+              <Link to={'https://www.bnbchain.org/en'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/binancechain.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+            </Stack>
+            <Stack direction={'row'} gap={'12px'}>
+              <Link to={'https://www.coingecko.com/'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/coingecko.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+              <Link to={'https://followin.io/'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/followin.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+            </Stack>
+            <Stack direction={'row'} gap={'12px'} justifyContent={'center'}>
+              <Link to={'https://nabox.io'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/nabox.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+            </Stack>
+          </Stack>
+        </Stack>
         <Stack px={'20px'} py={'20px'} sx={{
           background: 'linear-gradient(358deg, #3D404D 1.38%, #222529 98.62%)'
         }}>
@@ -286,7 +433,8 @@ const Home = () => {
             </Trans>
           </Stack>
           <Link to={'/futures'}>
-            <Stack direction={'row'} fontSize={'16px'} fontWeight={'700'} gap={'12px'} bgcolor={'#F69C00'} width={'200px'}
+            <Stack direction={'row'} fontSize={'16px'} fontWeight={'700'} gap={'12px'} bgcolor={'#F69C00'}
+                   width={'200px'}
                    height={'48px'} alignItems={'center'} justifyContent={'center'} borderRadius={'12px'} mt={'12px'}
                    color={'rgba(3, 3, 8, 1)'}>
               <Trans>
@@ -316,7 +464,7 @@ const Home = () => {
           backgroundSize: 'cover',
         }}>
         </Stack>
-        <Stack position={'absolute'} zIndex={0} bottom={0} width={'100%'} height={'1000px'} sx={{
+        <Stack position={'absolute'} zIndex={0} bottom={0} width={'100%'} height={'100%'} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)'
         }}>
         </Stack>
@@ -508,6 +656,78 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
+        <Stack sx={{
+          zIndex: 10,
+          marginTop: '120px',
+          width: '100%',
+          maxWidth: '1200px',
+          alignItems: 'center',
+        }}>
+          <Stack sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '44px',
+            color: '#030308',
+          }}>Catch Your Next Trading Opportunity</Stack>
+          <Stack mt={'48px'} width={'100%'} spacing={'16px'} direction={'row'}>
+            <Stack sx={{
+              padding: '20px',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              width: '50%',
+            }} spacing={'12px'}>
+              <Stack sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                lineHeight: '32px',
+                color: '#030308',
+              }}>
+                Popular Cryptocurrencies
+              </Stack>
+              <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+                color: '#030308',
+                fontSize: '14px',
+                fontWeight: '700',
+                lineHeight: '20px',
+              }}>
+                {
+                  cryptoList.map((item, index) => {
+                    return (
+                      <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>
+                    )
+                  })
+                }
+              </Stack>
+            </Stack>
+            <Stack sx={{
+              padding: '20px',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              width: '50%',
+            }} spacing={'12px'}>
+              <Stack sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                lineHeight: '32px',
+                color: '#030308',
+              }}>Popular Forex</Stack>
+              <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+                color: '#030308',
+                fontSize: '14px',
+                fontWeight: '700',
+                lineHeight: '20px',
+              }}>
+                {
+                  forexList.map((item, index) => {
+                    return (
+                      <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>
+                    )
+                  })
+                }
+              </Stack>
+            </Stack>
+          </Stack>
+        </Stack>
         <Stack zIndex={10} direction={'row'} alignItems={'center'} sx={{
           marginTop: '120px',
           height: '500px',
@@ -525,7 +745,12 @@ const Home = () => {
             </Stack>
             <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
               <Trans>
-                ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future.
+                ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model.
+                Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that
+                traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the
+                appreciation of the token due to losses incurred by traders. With ongoing product iterations and
+                community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess
+                governance functions, providing more rights to ATF holders in the future.
               </Trans>
             </Stack>
             <Link to={'/token'}>
@@ -667,6 +892,75 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
+        <Stack zIndex={10} height={'350px'} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
+               py={'120px'}>
+          <Stack sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '44px',
+            textAlign: 'center',
+            color: 'rgba(3, 3, 8, 1)',
+          }}>Integrations & Partners</Stack>
+          <Stack mt={'48px'} spacing={'40px'} direction={'row'}>
+            {
+              [
+                {
+                  name: 'Coin98',
+                  img: '/images/coin98.svg',
+                  black: '/images/coin98_black.svg',
+                  href: 'https://www.coin98.com/',
+                },
+                {
+                  name: 'Binance Chain',
+                  img: '/images/binancechain.svg',
+                  black: '/images/binancechain_black.svg',
+                  href: 'https://www.bnbchain.org/',
+                },
+                {
+                  name: 'CoinGecko',
+                  img: '/images/coingecko.svg',
+                  black: '/images/coingecko_black.svg',
+                  href: 'https://www.coingecko.com/'
+                },
+                {
+                  name: 'Followin',
+                  img: '/images/followin.svg',
+                  black: '/images/followin_black.svg',
+                  href: 'https://followin.io/',
+                },
+                {
+                  name: 'Nabox',
+                  img: '/images/nabox.svg',
+                  black: '/images/nabox_black.svg',
+                  href: 'https://nabox.io/',
+                },
+              ].map((item, index) => (
+                <Link to={item.href} key={index}>
+                  <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                    cursor: 'pointer',
+                    '#color': {
+                      display: 'none',
+                    },
+                    '&:hover': {
+                      boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
+                      '#black': {
+                        display: 'none',
+                      },
+                      '#color': {
+                        display: 'block',
+                      },
+                    },
+                  }}>
+                    <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                      <img src={item.black} alt={''} id={'black'}/>
+                      <img src={item.img} alt={''} id={'color'}/>
+                    </Stack>
+                  </Stack>
+                </Link>
+              ))
+            }
+          </Stack>
+        </Stack>
         <Stack maxWidth={'1200px'} marginTop={'40px'} bgcolor={'white'} width={'100%'}
                zIndex={10} borderRadius={'8px'} padding={'20px'}
                sx={{
@@ -675,13 +969,14 @@ const Home = () => {
         >
           <img src={`/images/home_icon2_${lang}.svg`} alt={''}/>
         </Stack>
+        <Stack position={'absolute'} bottom={0} left={0} width={'100%'} height={'1400px'}
+               bgcolor={'rgba(247, 251, 255, 1)'}/>
         <Stack position={'absolute'} bottom={0} left={0} width={'100%'} height={'640px'} sx={{
           backgroundImage: `url('/images/home_bg2.svg')`,
           backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-        }}>
-        </Stack>
+        }}/>
         <Stack width={'100%'} marginTop={'80px'} fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'}
                height={'128px'} justifyContent={'center'} zIndex={10}
                sx={{
