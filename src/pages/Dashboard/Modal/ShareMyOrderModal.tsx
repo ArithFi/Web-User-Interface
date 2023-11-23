@@ -215,30 +215,119 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 <Close />
               </button>
             </TopStack>
-            {dataUrl ? (
-              <img src={dataUrl} style={{ width: "100%" }} alt={"share"} />
-            ) : (
+            {
+              dataUrl && (
+                <Stack position={'absolute'} zIndex={-1}>
+                  <img src={dataUrl} style={{ width: "100%" }} alt={"share"} />
+                </Stack>
+              )
+            }
+            <Stack
+              alignItems={"center"}
+              width={'100%'}
+              justifyContent={"center"}
+              sx={(theme) => ({
+                color: "#F9F9F9",
+                fontSize: "16px",
+                lineHeight: "22px",
+                fontWeight: "700",
+                "& svg": {
+                  display: "block",
+                  color: theme.normal.primary,
+                },
+              })}
+            >
               <Stack
-                minHeight={"400px"}
-                height={"calc(min(100vw - 40px, 450px) * 1.46222)"}
-                alignItems={"center"}
-                spacing={"18px"}
-                justifyContent={"center"}
-                sx={(theme) => ({
-                  color: "#F9F9F9",
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  fontWeight: "700",
-                  "& svg": {
-                    display: "block",
-                    color: theme.normal.primary,
-                  },
-                })}
+                pt={"50px"}
+                px={"24px"}
+                width={'100%'}
+                bgcolor={"#0B0C0D"}
+                minHeight={"558px"}
+                style={{
+                  backgroundImage: `url('/images/share_order.png')`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "contain",
+                }}
               >
-                <CircularProgress size={"44px"} />
-                <span>{t`Loading...`}</span>
+                <ATFIconDark />
+                <Stack direction={"row"} pt={"60px"}>
+                  <ShareOrderPosition
+                    tokenPair={props.value.tokenPair}
+                    isLong={props.value.orientation === "Long"}
+                    lever={props.value.leverage}
+                  />
+                </Stack>
+                <Stack pt={"20px"} spacing={"14px"}>
+                  <Caption2>{t`Total Profit`}</Caption2>
+                  <Caption4
+                    sx={(theme) => ({
+                      color:
+                        props.value.actualRate >= 0
+                          ? theme.normal.success
+                          : theme.normal.danger,
+                    })}
+                  >
+                    {props.value.actualRate}%
+                  </Caption4>
+                </Stack>
+                <Stack direction={"row"} pt={"54px"}>
+                  <Stack spacing={"7px"} width={"50%"}>
+                    <Caption5>{t`Open Price`}</Caption5>
+                    <Caption8>
+                      {props.value.openPrice?.toLocaleString("en-US", {
+                        maximumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                        minimumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                      })}
+                    </Caption8>
+                  </Stack>
+                  <Stack spacing={"7px"} width={"50%"}>
+                    <Caption5>
+                      {props.isClosed ? t`Close Price` : t`Last Price`}
+                    </Caption5>
+                    <Caption8>
+                      {props.value.lastPrice?.toLocaleString("en-US", {
+                        maximumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                        minimumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                      })}
+                    </Caption8>
+                  </Stack>
+                </Stack>
+                <Stack height={"110px"} />
               </Stack>
-            )}
+              <Stack
+                px={"20px"}
+                direction={"row"}
+                width={"100%"}
+                paddingRight={"36px"}
+                justifyContent={"space-between"}
+                bgcolor={"rgba(29, 30, 34, 1)"}
+                alignItems={"center"}
+                py={"18px"}
+              >
+                <Stack direction={"row"} spacing={"12px"}>
+                  <ATFLogo />
+                  <Stack>
+                    <Caption7>{t`Scan and copy the trade`}</Caption7>
+                    <Caption7>{t`with 1 click`}</Caption7>
+                  </Stack>
+                </Stack>
+                <Box
+                  style={{
+                    width: "64px",
+                    height: "64px",
+                    background: "white",
+                    padding: "3px",
+                  }}
+                >
+                  <QRCodeCanvas value={shareLink} size={58} />
+                </Box>
+              </Stack>
+            </Stack>
             <Stack ref={myShareRef} position={"absolute"} zIndex={-1}>
               <Stack
                 pt={"50px"}
