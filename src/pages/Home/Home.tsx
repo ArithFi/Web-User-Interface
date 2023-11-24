@@ -329,7 +329,11 @@ const Home = () => {
             lineHeight: '32px',
             fontWeight: '700',
             color: 'rgba(3, 3, 8, 1)',
-          }}>Integrations & Partners</Stack>
+          }}>
+            <Trans>
+              Integrations & Partners
+            </Trans>
+          </Stack>
           <Stack mt={'40px'} gap={'12px'}>
             <Stack direction={'row'} gap={'12px'}>
               <Link to={'https://coin98.com/'}>
@@ -900,7 +904,11 @@ const Home = () => {
             lineHeight: '44px',
             textAlign: 'center',
             color: 'rgba(3, 3, 8, 1)',
-          }}>Integrations & Partners</Stack>
+          }}>
+            <Trans>
+              Integrations & Partners
+            </Trans>
+          </Stack>
           <Stack mt={'48px'} spacing={'40px'} direction={'row'}>
             {
               [
