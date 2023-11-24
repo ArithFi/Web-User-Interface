@@ -6,18 +6,18 @@ import {
   SelectedTokenDown,
   USDTLogo,
 } from "../../components/icons";
-import TwoIconWithString from "../../components/IconWithString/TwoIconWithString";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
-import { FuturesPrice, FuturesPricePercent, priceToken } from "./Futures";
+import { FuturesPrice, FuturesPricePercent } from "./Futures";
 import TVChartContainer from "../../components/TVChartContainer/TVChartContainer";
 import { TVDataProvider } from "../../domain/tradingview/TVDataProvider";
 import { formatAmount, numberWithCommas } from "../../lib/numbers";
-import { fabClasses, styled } from "@mui/material";
+import { styled } from "@mui/material";
 import { get24HrFromBinance } from "../../domain/prices";
 import { Trans } from "@lingui/macro";
 import TokenListBaseView from "./TokenList/TokenListBaseView";
 import TokenListModal from "./TokenList/TokenListModal";
+import useService from "../../contracts/useService";
 
 interface ExchangeTVChartProps {
   tokenPair: string;
@@ -116,12 +116,24 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   const [isHide, setIsHide] = useState(false);
   const [openTokenListModal, setOpenTokenListModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [favPairs, setFavPairs] = useState<Array<string>>([]);
+  const { favorites } = useService();
+  const getFavPairs = useCallback(async () => {
+    favorites((result: Array<string>) => {
+      setFavPairs(result);
+    });
+  }, [favorites]);
+
+  useEffect(() => {
+    getFavPairs();
+  }, [getFavPairs]);
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+    getFavPairs();
   };
   const height = useMemo(() => {
     switch (width) {
@@ -233,11 +245,15 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
       >
         <TokenListModal
           open={openTokenListModal}
-          onClose={() => setOpenTokenListModal(false)}
+          onClose={() => {
+            setOpenTokenListModal(false);
+            getFavPairs();
+          }}
           changeTokenPair={(value: string) => {
             props.changeTokenPair(value);
             setOpenTokenListModal(false);
           }}
+          favList={favPairs}
           basePrice={props.basePrice}
           basePricePercent={props.basePricePercent}
         />
@@ -343,7 +359,15 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         </Stack>
       </Stack>
     );
-  }, [average, hr.priceChangePercent, isHide, openTokenListModal, props]);
+  }, [
+    average,
+    favPairs,
+    getFavPairs,
+    hr.priceChangePercent,
+    isHide,
+    openTokenListModal,
+    props,
+  ]);
 
   const topPair = useMemo(() => {
     if (isBigMobile) {
@@ -371,7 +395,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
               props.changeTokenPair(tokenPair);
             }}
             sx={{
-              cursor:"pointer"
+              cursor: "pointer",
             }}
           >
             <Box
@@ -451,7 +475,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         </Stack>
       );
     }
-  }, [isBigMobile, props.basePrice, props.basePricePercent]);
+  }, [isBigMobile, props]);
 
   return (
     <Stack width={"100%"} spacing={"16px"}>
@@ -666,6 +690,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
               props.changeTokenPair(value);
               handleClose();
             }}
+            favList={favPairs}
             basePrice={props.basePrice}
             basePricePercent={props.basePricePercent}
           />

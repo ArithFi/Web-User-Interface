@@ -9,6 +9,7 @@ interface TokenListModalProps {
   open: boolean;
   onClose: () => void;
   changeTokenPair: (value: string) => void;
+  favList: Array<string>;
   basePrice?: FuturesPrice;
   basePricePercent?: FuturesPricePercent;
 }
@@ -34,6 +35,7 @@ const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
       >
         <TokenListBaseView
           changeTokenPair={props.changeTokenPair}
+          favList={props.favList}
           basePrice={props.basePrice}
           basePricePercent={props.basePricePercent}
         />

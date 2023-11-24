@@ -1,33 +1,26 @@
 import Stack from "@mui/material/Stack";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import { FC, useCallback, useMemo, useState } from "react";
 import ArithFiLine from "../../../components/ArithFiLine";
 import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
 import { FuturesPrice, FuturesPricePercent, priceToken } from "../Futures";
-import useService from "../../../contracts/useService";
 import useArithFi from "../../../hooks/useArithFi";
 import { serviceSetFavorites } from "../../../lib/ArithFiRequest";
 
 interface TokenListBaseViewProps {
   changeTokenPair: (value: string) => void;
+  favList: Array<string>;
   basePrice?: FuturesPrice;
   basePricePercent?: FuturesPricePercent;
 }
 
 const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   const { chainsData, signature, account } = useArithFi();
-  const { favorites } = useService();
   const [tabsValue, setTabsValue] = useState(2);
-  const [favPairs, setFavPairs] = useState<Array<string>>([]);
+  const [favPairs, setFavPairs] = useState<Array<string>>(props.favList);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
   const foresPrice = priceToken.slice(-5);
-
-  const getFavPairs = useCallback(async () => {
-    favorites((result: Array<string>) => {
-      setFavPairs(result);
-    });
-  }, [favorites]);
 
   const setFav = useCallback(
     async (pairs: Array<String>) => {
@@ -39,7 +32,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
           chainsData.chainId,
           account.address,
           pairsData.join(";"),
-          {Authorization: signature.signature}
+          { Authorization: signature.signature }
         );
         if (Number(closeBase["errorCode"]) === 0) {
         }
@@ -47,10 +40,6 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     },
     [account.address, chainsData.chainId, signature]
   );
-
-  useEffect(() => {
-    getFavPairs();
-  }, [getFavPairs]);
 
   const TabsView = useMemo(() => {
     return (
@@ -81,7 +70,13 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
         />
       </Stack>
     );
-  }, [allPrice.length, cryptoPrice.length, favPairs.length, foresPrice.length, tabsValue]);
+  }, [
+    allPrice.length,
+    cryptoPrice.length,
+    favPairs.length,
+    foresPrice.length,
+    tabsValue,
+  ]);
   const priceList = useMemo(() => {
     if (tabsValue === 0) {
       return favPairs;
@@ -122,7 +117,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
             var newArray = [...favPairs];
             const index = favPairs.indexOf(tokenName);
             if (index !== -1) {
-              newArray = newArray.filter((item) => item !== tokenName)
+              newArray = newArray.filter((item) => item !== tokenName);
             } else {
               newArray = [...newArray, tokenName];
             }
