@@ -336,7 +336,7 @@ const Home = () => {
           </Stack>
           <Stack mt={'40px'} gap={'12px'}>
             <Stack direction={'row'} gap={'12px'}>
-              <Link to={'https://coin98.com/'}>
+              <Link to={'https://coin98.com/'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -345,7 +345,7 @@ const Home = () => {
                   </Stack>
                 </Stack>
               </Link>
-              <Link to={'https://www.bnbchain.org/en'}>
+              <Link to={'https://www.bnbchain.org/en'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -356,7 +356,7 @@ const Home = () => {
               </Link>
             </Stack>
             <Stack direction={'row'} gap={'12px'}>
-              <Link to={'https://www.coingecko.com/'}>
+              <Link to={'https://www.coingecko.com/'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -365,7 +365,7 @@ const Home = () => {
                   </Stack>
                 </Stack>
               </Link>
-              <Link to={'https://followin.io/'}>
+              <Link to={'https://followin.io/'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -376,7 +376,7 @@ const Home = () => {
               </Link>
             </Stack>
             <Stack direction={'row'} gap={'12px'} justifyContent={'center'}>
-              <Link to={'https://nabox.io'}>
+              <Link to={'https://nabox.io'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -385,7 +385,7 @@ const Home = () => {
                   </Stack>
                 </Stack>
               </Link>
-              <Link to={'https://kyber.network/'}>
+              <Link to={'https://kyber.network/'} target={'_blank'}>
                 <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
@@ -464,7 +464,7 @@ const Home = () => {
   return (
     <Stack sx={{
       overflowX: 'hidden',
-      bgcolor: 'white',
+      backgroundColor: 'white',
     }}>
       <Stack position={'relative'} sx={{
         width: '100%',
@@ -940,7 +940,7 @@ const Home = () => {
                   href: 'https://www.coingecko.com/'
                 },
               ].map((item, index) => (
-                <Link to={item.href} key={index}>
+                <Link to={item.href} key={index} target={'_blank'}>
                   <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                     cursor: 'pointer',
                     '#color': {
@@ -987,7 +987,7 @@ const Home = () => {
                   href: 'https://kyber.network/',
                 },
               ].map((item, index) => (
-                <Link to={item.href} key={index}>
+                <Link to={item.href} key={index} target={'_blank'}>
                   <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                     cursor: 'pointer',
                     '#color': {
