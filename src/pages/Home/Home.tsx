@@ -12,19 +12,19 @@ const Home = () => {
   const [type, setType] = useState(0);
 
   const cryptoList: any[] = [
-    { pair1: 'ETH',pair2: 'USDT' },
-    { pair1: 'BTC',pair2: 'USDT' },
-    { pair1: 'BNB',pair2: 'USDT' },
-    { pair1: 'MATIC',pair2: 'USDT' },
-    { pair1: 'ADA',pair2: 'USDT' },
+    {pair1: 'ETH', pair2: 'USDT'},
+    {pair1: 'BTC', pair2: 'USDT'},
+    {pair1: 'BNB', pair2: 'USDT'},
+    {pair1: 'MATIC', pair2: 'USDT'},
+    {pair1: 'ADA', pair2: 'USDT'},
   ]
 
   const forexList: any[] = [
-    { pair1: 'EUR',pair2: 'USD' },
-    { pair1: 'GBP',pair2: 'USD' },
-    { pair1: 'NZD',pair2: 'USD' },
-    { pair1: 'VND',pair2: 'USD' },
-    { pair1: 'KRW',pair2: 'USD' },
+    {pair1: 'EUR', pair2: 'USD'},
+    {pair1: 'GBP', pair2: 'USD'},
+    {pair1: 'NZD', pair2: 'USD'},
+    {pair1: 'VND', pair2: 'USD'},
+    {pair1: 'KRW', pair2: 'USD'},
   ]
 
   useEffect(() => {
@@ -382,6 +382,15 @@ const Home = () => {
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
                     <img src={'/images/nabox.svg'} alt={''}/>
+                  </Stack>
+                </Stack>
+              </Link>
+              <Link to={'https://kyber.network/'}>
+                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                  cursor: 'pointer',
+                }}>
+                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                    <img src={'/images/kybernetwork.svg'} alt={''}/>
                   </Stack>
                 </Stack>
               </Link>
@@ -896,7 +905,7 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack zIndex={10} height={'350px'} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
+        <Stack zIndex={10} height={'420px'} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
                py={'120px'}>
           <Stack sx={{
             fontSize: '32px',
@@ -930,6 +939,35 @@ const Home = () => {
                   black: '/images/coingecko_black.svg',
                   href: 'https://www.coingecko.com/'
                 },
+              ].map((item, index) => (
+                <Link to={item.href} key={index}>
+                  <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                    cursor: 'pointer',
+                    '#color': {
+                      display: 'none',
+                    },
+                    '&:hover': {
+                      boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
+                      '#black': {
+                        display: 'none',
+                      },
+                      '#color': {
+                        display: 'block',
+                      },
+                    },
+                  }}>
+                    <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                      <img src={item.black} alt={''} id={'black'}/>
+                      <img src={item.img} alt={''} id={'color'}/>
+                    </Stack>
+                  </Stack>
+                </Link>
+              ))
+            }
+          </Stack>
+          <Stack mt={'48px'} spacing={'40px'} direction={'row'}>
+            {
+              [
                 {
                   name: 'Followin',
                   img: '/images/followin.svg',
@@ -941,6 +979,12 @@ const Home = () => {
                   img: '/images/nabox.svg',
                   black: '/images/nabox_black.svg',
                   href: 'https://nabox.io/',
+                },
+                {
+                  name: 'Kyber Network',
+                  img: '/images/kybernetwork.svg',
+                  black: '/images/kybernetwork_black.svg',
+                  href: 'https://kyber.network/',
                 },
               ].map((item, index) => (
                 <Link to={item.href} key={index}>
