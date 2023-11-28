@@ -1,20 +1,20 @@
 import Stack from "@mui/material/Stack";
-import {BigNumber} from "ethers/lib/ethers";
-import {FC, useCallback, useEffect, useMemo, useState} from "react";
-import useWindowWidth, {WidthType} from "../../hooks/useWindowWidth";
+import { BigNumber } from "ethers/lib/ethers";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
 import FuturesMoreInfo from "./MoreInfo";
 import FuturesNewOrder from "./NewOrder";
-import FuturesOrderList, {FuturesOrderService} from "./OrderList";
+import FuturesOrderList, { FuturesOrderService } from "./OrderList";
 import ExchangeTVChart from "./ExchangeTVChart";
 import {
   getPriceListV2,
   serviceFutureHistory,
   serviceList,
 } from "../../lib/ArithFiRequest";
-import {getQueryVariable} from "../../lib/queryVaribale";
+import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
-import {FuturesHistoryService} from "../../hooks/useFuturesHistory";
-import {useSearchParams} from "react-router-dom";
+import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
+import { useSearchParams } from "react-router-dom";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
@@ -41,10 +41,10 @@ export const priceToken = [
   "KRW/USD",
 ];
 const Futures: FC = () => {
-  const {width, isBigMobile} = useWindowWidth();
+  const { width, isBigMobile } = useWindowWidth();
   const [searchParams, setSearchParams] = useSearchParams();
-  const pt = searchParams.get('pt');
-  const {account, chainsData, signature} = useArithFi();
+  const pt = searchParams.get("pt");
+  const { account, chainsData, signature } = useArithFi();
   const defaultTokenPair = useMemo(() => {
     if (pt) {
       return pt;
@@ -80,51 +80,50 @@ const Futures: FC = () => {
 
     const percent = () => {
       const ETHPricePercent = listPriceBase
-        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"].toString()
         : undefined;
       const BTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"].toString()
         : undefined;
       const BNBPricePercent = listPriceBase
-        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"].toString()
         : undefined;
       const MATICPricePercent = listPriceBase
-        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"].toString()
         : undefined;
       const ADAPricePercent = listPriceBase
-        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"].toString()
         : undefined;
       const DOGEPricePercent = listPriceBase
-        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"].toString()
         : undefined;
       const XRPPricePercent = listPriceBase
-        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"].toString()
         : undefined;
       const SOLPricePercent = listPriceBase
-        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"].toString()
         : undefined;
       const LTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"].toString()
         : undefined;
       const AVAXPricePercent = listPriceBase
-        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"]
+        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"].toString()
         : undefined;
       const EURUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"]
+        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"].toString()
         : undefined;
       const GBPUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"]
+        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"].toString()
         : undefined;
       const NZDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["NZDUSD"]["priceChangePercent"]
+        ? listPriceBase["value"]["NZDUSD"]["priceChangePercent"].toString()
         : undefined;
       const VNDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["VNDUSD"]["priceChangePercent"]
+        ? listPriceBase["value"]["VNDUSD"]["priceChangePercent"].toString()
         : undefined;
       const KRWUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["KRWUSD"]["priceChangePercent"]
+        ? listPriceBase["value"]["KRWUSD"]["priceChangePercent"].toString()
         : undefined;
-      
       if (
         ETHPricePercent &&
         BTCPricePercent &&
@@ -242,7 +241,6 @@ const Futures: FC = () => {
       : undefined;
 
     const newPricePercent = percent();
-
     if (
       ETHPrice &&
       BTCPrice &&
@@ -336,7 +334,7 @@ const Futures: FC = () => {
       const baseList = await serviceFutureHistory(
         chainsData.chainId,
         account.address,
-        {Authorization: signature.signature}
+        { Authorization: signature.signature }
       );
       if (Number(baseList["errorCode"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
@@ -429,10 +427,9 @@ const Futures: FC = () => {
         changeTokenPair={(value: string) => {
           setSearchParams({
             pt: value,
-          })
-          setTokenPair(value)
+          });
+          setTokenPair(value);
         }}
-
       />
     );
   }, [tokenPair, basePrice, basePricePercent, setSearchParams]);
@@ -458,7 +455,7 @@ const Futures: FC = () => {
     );
   }, [basePrice, handleUpdateList, tokenPair]);
   const moreInfo = useCallback(() => {
-    return <FuturesMoreInfo/>;
+    return <FuturesMoreInfo />;
   }, []);
 
   const mainView = useMemo(() => {

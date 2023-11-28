@@ -230,13 +230,13 @@ export const TokenList: Array<TokenType> = [
     icon: ETHTokenLogo,
     decimals: All18,
     address: ETH,
-    priceDecimals: 3,
+    priceDecimals: 5,
   },
   {
     symbol: "KRW",
     icon: ETHTokenLogo,
     decimals: All18,
     address: ETH,
-    priceDecimals: 3,
+    priceDecimals: 5,
   },
 ];
