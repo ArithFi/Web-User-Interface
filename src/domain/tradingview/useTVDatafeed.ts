@@ -50,7 +50,7 @@ export default function useTVDatafeed({ dataProvider }: Props) {
           const symbolInfo = {
             name: symbolName,
             type: "crypto",
-            description: symbolName + " / USDT",
+            description: symbolName,
             ticker: symbolName,
             session: "24x7",
             minmov: 1,
