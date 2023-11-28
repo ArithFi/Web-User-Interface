@@ -259,7 +259,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
               })}
             >
               {props.percent
-                ? `${(props.percent ?? 0) >= 0 ? "+" : "-"}${props.percent}%`
+                ? `${(props.percent ?? 0) >= 0 ? "+" : ""}${props.percent}%`
                 : String().placeHolder}
             </Box>
           </Stack>

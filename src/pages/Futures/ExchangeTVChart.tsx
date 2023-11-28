@@ -447,7 +447,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 })}
               >
                 {percent
-                  ? `${(percent ?? 0) >= 0 ? "+" : "-"}${percent}%`
+                  ? `${(percent ?? 0) >= 0 ? "+" : ""}${percent}%`
                   : String().placeHolder}
               </Box>
             </Stack>
