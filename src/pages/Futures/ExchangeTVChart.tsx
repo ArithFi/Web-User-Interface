@@ -376,12 +376,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
       const topPairItem = (tokenPair: string) => {
         const token = tokenPair.split("/")[0];
         const TokenIcon = token.getToken()!.icon;
-        const price = props.basePrice
-          ? props.basePrice[tokenPair].bigNumberToShowPrice(
-              18,
-              token.getTokenPriceDecimals()
-            )
-          : String().placeHolder;
         const percent = props.basePricePercent
           ? Number(props.basePricePercent[tokenPair].floor(4))
           : undefined;
@@ -421,19 +415,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 })}
               >
                 {tokenPair}
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  color:
-                    (percent ?? 0) >= 0
-                      ? theme.normal.success
-                      : theme.normal.danger,
-                  fontWeight: "700",
-                  fontSize: "12px",
-                  lineHeight: "16px",
-                })}
-              >
-                {price}
               </Box>
               <Box
                 sx={(theme) => ({
