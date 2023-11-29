@@ -52,7 +52,7 @@ export default function useTVDatafeed({ dataProvider }: Props) {
             type: "crypto",
             description: symbolName,
             ticker: symbolName,
-            session: "24x7",
+            session: symbolName.includes('/USDT') ? "24x7" : "2200-2200",
             minmov: 1,
             pricescale: 10 ** (symbolName.split('/')[0]).getTokenPriceDecimals(),
             timezone: "Etc/UTC",
