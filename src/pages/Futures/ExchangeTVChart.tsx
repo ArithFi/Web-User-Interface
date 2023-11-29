@@ -148,6 +148,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     }
   }, [width]);
   const TokenIcon = props.tokenPair.split("/")[0].getToken()!.icon;
+  const RightTokenIcon = props.tokenPair.split("/")[1].getToken()!.icon;
   const dataProvider = useRef();
   const [hr, setHr] = useState({
     priceChangePercent: "",
@@ -508,7 +509,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   }}
                 >
                   <TokenIcon />
-                  <USDTLogo />
+                  <RightTokenIcon/>
                 </Stack>
                 <Stack spacing={0}>
                   <Box

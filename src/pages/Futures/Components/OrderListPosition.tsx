@@ -5,7 +5,7 @@ import { Long, Share, Short } from "../../../components/icons";
 import { Trans } from "@lingui/macro";
 
 interface OrderListPositionProps {
-  tokenName: string;
+  tokenPair: string;
   lever: number;
   isLong: boolean;
   shareCallBack: () => void;
@@ -14,12 +14,14 @@ interface OrderListPositionProps {
 }
 
 const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
+  const tokenName = props.tokenPair.split("/")[0]
+  const rightTokenName = props.tokenPair.split("/")[1]
   const TokenIcon = useMemo(() => {
-    return props.tokenName.getToken()
-      ? props.tokenName.getToken()!.icon
+    return tokenName.getToken()
+      ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [props.tokenName]);
-  const BaseToken = "USDT".getToken()!.icon;
+  }, [tokenName]);
+  const BaseToken = rightTokenName.getToken()!.icon;
   const showCopy = useMemo(() => {
     return props.isCopy ? (
       <Box
@@ -71,7 +73,7 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
             color: theme.normal.text0,
             marginLeft: "8px !important",
           })}
-        >{`${props.tokenName}/USDT`}</Box>
+        >{`${props.tokenPair}`}</Box>
         {showCopy}
         <Stack
           direction={"row"}

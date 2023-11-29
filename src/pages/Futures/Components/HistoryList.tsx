@@ -20,7 +20,6 @@ interface HistoryListProps {
 
 const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     tp,
@@ -55,7 +54,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
         isClosed={true}
       />
       <OrderListPosition
-        tokenName={tokenName}
+        tokenPair={props.data.tokenPair}
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}

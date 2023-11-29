@@ -62,7 +62,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         isClosed={false}
       />
       <OrderListPosition
-        tokenName={tokenName}
+        tokenPair={props.data.product}
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}
