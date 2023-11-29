@@ -115,7 +115,7 @@ export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
 }
 export function getPriceListV2(): Promise<any> {
-  return baseRequestGet(`https://cms.nestfi.net/api/oracle/pair/list`);
+  return baseRequestGet(`https://db.arithfi.com//api/oracle/pair/list`);
 }
 
 /**

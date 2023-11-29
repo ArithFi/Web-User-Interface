@@ -34,11 +34,11 @@ export const priceToken = [
   "SOL/USDT",
   "LTC/USDT",
   "AVAX/USDT",
+  "AUD/USD",
   "EUR/USD",
+  "JPY/USD",
+  "CAD/USD",
   "GBP/USD",
-  "NZD/USD",
-  "VND/USD",
-  "KRW/USD",
 ];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
@@ -115,14 +115,14 @@ const Futures: FC = () => {
       const GBPUSDPricePercent = listPriceBase
         ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"].toString()
         : undefined;
-      const NZDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["NZDUSD"]["priceChangePercent"].toString()
+      const AUDUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"].toString()
         : undefined;
-      const VNDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["VNDUSD"]["priceChangePercent"].toString()
+      const JPYUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["JPYUSD"]["priceChangePercent"].toString()
         : undefined;
-      const KRWUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["KRWUSD"]["priceChangePercent"].toString()
+      const CADUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["CADUSD"]["priceChangePercent"].toString()
         : undefined;
       if (
         ETHPricePercent &&
@@ -137,9 +137,9 @@ const Futures: FC = () => {
         AVAXPricePercent &&
         EURUSDPricePercent &&
         GBPUSDPricePercent &&
-        NZDUSDPricePercent &&
-        VNDUSDPricePercent &&
-        KRWUSDPricePercent
+        AUDUSDPricePercent &&
+        JPYUSDPricePercent &&
+        CADUSDPricePercent
       ) {
         const newPrice: FuturesPricePercent = {
           "ETH/USDT": Number(ETHPricePercent),
@@ -154,9 +154,9 @@ const Futures: FC = () => {
           "AVAX/USDT": Number(AVAXPricePercent),
           "EUR/USD": Number(EURUSDPricePercent),
           "GBP/USD": Number(GBPUSDPricePercent),
-          "NZD/USD": Number(NZDUSDPricePercent),
-          "VND/USD": Number(VNDUSDPricePercent),
-          "KRW/USD": Number(KRWUSDPricePercent),
+          "AUD/USD": Number(AUDUSDPricePercent),
+          "JPY/USD": Number(JPYUSDPricePercent),
+          "CAD/USD": Number(CADUSDPricePercent),
         };
         return newPrice;
       } else {
@@ -224,21 +224,22 @@ const Futures: FC = () => {
           .toString()
           .stringToBigNumber(18)
       : undefined;
-    const NZDUSDPrice = listPriceBase
-      ? listPriceBase["value"]["NZDUSD"]["price"]
+    const AUDUSDPrice = listPriceBase
+      ? listPriceBase["value"]["AUDUSD"]["price"]
           .toString()
           .stringToBigNumber(18)
       : undefined;
-    const VNDUSDPrice = listPriceBase
-      ? listPriceBase["value"]["VNDUSD"]["price"]
+    const JPYUSDPrice = listPriceBase
+      ? listPriceBase["value"]["JPYUSD"]["price"]
           .toString()
           .stringToBigNumber(18)
       : undefined;
-    const KRWUSDPrice = listPriceBase
-      ? listPriceBase["value"]["KRWUSD"]["price"]
+    const CADUSDPrice = listPriceBase
+      ? listPriceBase["value"]["CADUSD"]["price"]
           .toString()
           .stringToBigNumber(18)
       : undefined;
+
 
     const newPricePercent = percent();
     if (
@@ -254,9 +255,9 @@ const Futures: FC = () => {
       AVAXPrice &&
       EURUSDPrice &&
       GBPUSDPrice &&
-      NZDUSDPrice &&
-      VNDUSDPrice &&
-      KRWUSDPrice
+      AUDUSDPrice &&
+      JPYUSDPrice &&
+      CADUSDPrice
     ) {
       const newPrice: FuturesPrice = {
         "ETH/USDT": ETHPrice,
@@ -271,9 +272,9 @@ const Futures: FC = () => {
         "AVAX/USDT": AVAXPrice,
         "EUR/USD": EURUSDPrice,
         "GBP/USD": GBPUSDPrice,
-        "NZD/USD": NZDUSDPrice,
-        "VND/USD": VNDUSDPrice,
-        "KRW/USD": KRWUSDPrice,
+        "AUD/USD": AUDUSDPrice,
+        "JPY/USD": JPYUSDPrice,
+        "CAD/USD": CADUSDPrice,
       };
       return [newPrice, newPricePercent];
     } else {
