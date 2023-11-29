@@ -55,10 +55,17 @@ function useFuturesNewOrder(
   tokenPair: string,
   updateList: () => void
 ) {
+  const fLever = useMemo(() => {
+    if (tokenPair.substring(tokenPair.length - 3) === "USD") {
+      return 100
+    } else {
+      return 1
+    }
+  }, [tokenPair])
   const { account, chainsData, setShowConnect, signature } = useArithFi();
   const [tabsValue, setTabsValue] = useState(0);
   const [arithFiAmount, setArithFiAmount] = useState("");
-  const [lever, setLever] = useState(1);
+  const [lever, setLever] = useState(fLever);
   const [limitAmount, setLimitAmount] = useState("");
   const [isStop, setIsStop] = useState(false);
   const [tp, setTp] = useState("");
