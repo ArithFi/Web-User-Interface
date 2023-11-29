@@ -39,7 +39,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
     tp,
     sl,
     openTime,
-    showTriggerTitle
+    showTriggerTitle,
   } = useFuturesOrder(props.data, props.updateList);
   return (
     <Stack
@@ -70,7 +70,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Open Price</Trans>
             </Box>
-            <Box component={"p"}>{showLimitPrice}USDT</Box>
+            <Box component={"p"}>{showLimitPrice}</Box>
           </FuturesOrderListInfoMain>
           <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
             <Box component={"p"}>
@@ -97,7 +97,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Take Profit</Trans>
             </Box>
-            <Box component={"p"}>{tp}USDT</Box>
+            <Box component={"p"}>{tp}</Box>
           </FuturesOrderListInfo>
           <FuturesOrderListInfo
             direction={"row"}
@@ -107,7 +107,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Stop Loss</Trans>
             </Box>
-            <Box component={"p"}>{sl}USDT</Box>
+            <Box component={"p"}>{sl}</Box>
           </FuturesOrderListInfo>
         </Stack>
       ) : (

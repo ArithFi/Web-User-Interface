@@ -66,7 +66,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Open Price</Trans>
             </Box>
-            <Box component={"p"}>{showOpenPrice}USDT</Box>
+            <Box component={"p"}>{showOpenPrice}</Box>
           </FuturesOrderListInfoMain>
           <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
             <Box component={"p"}>
@@ -94,7 +94,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
               <Box component={"p"}>
                 <Trans>Take Profit</Trans>
               </Box>
-              <Box component={"p"}>{tp}USDT</Box>
+              <Box component={"p"}>{tp}</Box>
             </FuturesOrderListInfo>
             <FuturesOrderListInfo
               direction={"row"}
@@ -104,7 +104,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
               <Box component={"p"}>
                 <Trans>Stop Loss</Trans>
               </Box>
-              <Box component={"p"}>{sl}USDT</Box>
+              <Box component={"p"}>{sl}</Box>
             </FuturesOrderListInfo>
           </Stack>
         ) : (
@@ -127,7 +127,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
                 <Trans>Close Price</Trans>
               </Box>
             </Stack>
-            <Box component={"p"}>{showClosePrice}USDT</Box>
+            <Box component={"p"}>{showClosePrice}</Box>
           </FuturesOrderListInfo>
           <FuturesOrderListInfo
             direction={"row"}

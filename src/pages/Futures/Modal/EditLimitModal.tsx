@@ -31,7 +31,7 @@ const EditLimitModalBase: FC<EditLimitModalBaseProps> = ({ ...props }) => {
     <Stack spacing={"24px"} width={"100%"}>
       <NormalInput
         placeHolder={t`Limit Price`}
-        rightTitle={"USDT"}
+        rightTitle={""}
         value={limitPrice}
         changeValue={(value: string) => setLimitPrice(value.formatInputNum6())}
       />

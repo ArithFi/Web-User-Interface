@@ -132,7 +132,7 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >
-          {showOpenPrice}USDT
+          {showOpenPrice}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -151,13 +151,13 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
             <span>
               <Trans>TP</Trans>
             </span>
-            {tp}USDT
+            {tp}
           </Box>
           <Box component={"p"}>
             <span>
               <Trans>SL</Trans>
             </span>
-            {sl}USDT
+            {sl}
           </Box>
         </Stack>
       </TableCell>
@@ -172,10 +172,10 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {showClosePrice}USDT
+              {showClosePrice}
             </Box>
             <Box
-            component={"p"}
+              component={"p"}
               sx={(theme) => ({
                 fontWeight: 700,
                 fontSize: "10px",

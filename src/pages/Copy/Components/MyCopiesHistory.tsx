@@ -211,7 +211,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
                       color: theme.normal.text2,
                     })}
                   >
-                    {orderPrice}USDT
+                    {orderPrice}
                   </Box>
                 </Stack>
 
@@ -234,7 +234,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
                       color: theme.normal.text2,
                     })}
                   >
-                    {marketPrice}USDT
+                    {marketPrice}
                   </Box>
                 </Stack>
               </Stack>
@@ -514,7 +514,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {orderPrice}USDT
+            {orderPrice}
           </Box>
           <Box
             sx={(theme) => ({
@@ -538,7 +538,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {marketPrice}USDT
+            {marketPrice}
           </Box>
           <Box
             sx={(theme) => ({

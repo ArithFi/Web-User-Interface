@@ -88,7 +88,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     color: props.history ? theme.normal.text2 : theme.normal.text0,
                   })}
                 >
-                  {openPrice}USDT
+                  {openPrice}
                 </Box>
               </Stack>
               <Stack spacing={"4px"}>
@@ -114,7 +114,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     color: props.history ? theme.normal.text2 : theme.normal.text0,
                   })}
                 >
-                  {marketPrice}USDT
+                  {marketPrice}
                 </Box>
               </Stack>
               <Stack spacing={"4px"}>
@@ -276,7 +276,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {openPrice}USDT
+            {openPrice}
           </Box>
           <Box
             sx={(theme) => ({
@@ -300,7 +300,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {marketPrice}USDT
+            {marketPrice}
           </Box>
           <Box
             sx={(theme) => ({

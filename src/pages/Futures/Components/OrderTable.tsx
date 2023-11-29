@@ -150,7 +150,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >
-          {showLimitPrice}USDT
+          {showLimitPrice}
         </Box>
       </TableCell>
       <TableCell>
@@ -170,13 +170,13 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
               <span>
                 <Trans>TP</Trans>
               </span>
-              {tp}USDT
+              {tp}
             </Box>
             <Box component={"p"}>
               <span>
                 <Trans>SL</Trans>
               </span>
-              {sl}USDT
+              {sl}
             </Box>
           </Stack>
           <Box

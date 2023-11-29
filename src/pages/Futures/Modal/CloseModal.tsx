@@ -39,7 +39,7 @@ const CloseModalBase: FC<CloseModalBaseProps> = ({ ...props }) => {
         <NormalInfo
           title={t`Close Price`}
           value={showClosePrice}
-          symbol={"USDT"}
+          symbol={""}
         />
         <NormalInfo
           title={t`Service Fee`}

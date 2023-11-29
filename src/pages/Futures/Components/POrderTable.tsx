@@ -181,7 +181,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >
-          {showBasePrice}USDT
+          {showBasePrice}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -193,7 +193,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
             color: theme.normal.text0,
           })}
         >
-          {showLiqPrice}USDT
+          {showLiqPrice}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -213,13 +213,13 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
               <span>
                 <Trans>TP</Trans>
               </span>
-              {tp}USDT
+              {tp}
             </Box>
             <Box component={"p"}>
               <span>
                 <Trans>SL</Trans>
               </span>
-              {sl}USDT
+              {sl}
             </Box>
           </Stack>
           {props.data.copy ? (

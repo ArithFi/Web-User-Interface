@@ -136,7 +136,7 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
                     color: theme.normal.text0,
                   })}
                 >
-                  {orderPrice}USDT
+                  {orderPrice}
                 </Box>
               </Stack>
 
@@ -204,7 +204,7 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
                       color: theme.normal.text0,
                     })}
                   >
-                    {marketPrice}USDT
+                    {marketPrice}
                   </Box>
                 </Stack>
                 <Stack direction={"row"} spacing={"4px"} width={"100%"}>
@@ -226,7 +226,7 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
                       color: theme.normal.text0,
                     })}
                   >
-                    {lipPrice}USDT
+                    {lipPrice}
                   </Box>
                 </Stack>
               </Stack>
@@ -490,7 +490,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {orderPrice}USDT
+            {orderPrice}
           </Box>
           <Box
             sx={(theme) => ({
@@ -514,7 +514,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {marketPrice}USDT
+            {marketPrice}
           </Box>
           <Box
             sx={(theme) => ({
@@ -538,7 +538,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {lipPrice}USDT
+          {lipPrice}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>

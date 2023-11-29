@@ -75,7 +75,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
-    loading
+    loading,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -437,7 +437,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               <InputWithSymbol
                 placeholder={t`Take Profit`}
                 value={tp}
-                symbol={"USDT"}
+                symbol={""}
                 changeValue={(value: string) => {
                   setTp(value.formatInputNum4());
                   clearTPSLError();
@@ -447,7 +447,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               <InputWithSymbol
                 placeholder={t`Stop Loss`}
                 value={sl}
-                symbol={"USDT"}
+                symbol={""}
                 changeValue={(value: string) => {
                   setSl(value.formatInputNum4());
                   clearTPSLError();
@@ -486,7 +486,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           <NormalInfo
             title={t`Entry Price`}
             value={showOpenPrice}
-            symbol={"USDT"}
+            symbol={""}
           />
         ) : (
           <></>
@@ -536,8 +536,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
             "&:disabled": {
               backgroundColor: theme.normal.disabled_bg,
-              color: theme.normal.disabled_text
-            }
+              color: theme.normal.disabled_text,
+            },
           })}
           component={"button"}
           disabled={loading}
@@ -562,8 +562,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
             "&:disabled": {
               backgroundColor: theme.normal.disabled_bg,
-              color: theme.normal.disabled_text
-            }
+              color: theme.normal.disabled_text,
+            },
           })}
           component={"button"}
           disabled={loading}
@@ -609,7 +609,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             sx={(theme) => ({ color: theme.normal.text2 })}
           >{t`Liq Price`}</Box>
           <Box sx={(theme) => ({ color: theme.normal.text0 })}>
-            {showLiqPrice(true)} USDT
+            {showLiqPrice(true)}
           </Box>
         </Stack>
         <Stack
@@ -622,7 +622,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             sx={(theme) => ({ color: theme.normal.text2 })}
           >{t`Liq Price`}</Box>
           <Box sx={(theme) => ({ color: theme.normal.text0 })}>
-            {showLiqPrice(false)} USDT
+            {showLiqPrice(false)}
           </Box>
         </Stack>
       </Stack>
@@ -655,7 +655,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             placeholder={tabsValue === 0 ? t`Market Price` : t`Limit Price`}
             value={tabsValue === 1 ? limitAmount : ""}
             dis={tabsValue === 0}
-            symbol={"USDT"}
+            symbol={""}
             changeValue={(value: string) => {
               setLimitAmount(value.formatInputNum6());
             }}

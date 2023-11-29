@@ -1,55 +1,55 @@
-import {Box, Modal, Stack} from "@mui/material";
-import {FC, useEffect, useMemo, useRef, useState} from "react";
+import { Box, Modal, Stack } from "@mui/material";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import BaseModal from "../Components/DashboardBaseModal";
-import {Order} from "../Dashboard";
-import {styled} from "@mui/material/styles";
-import {ATFIconDark, Close, ATFLogo} from "../../../components/icons";
-import {QRCodeCanvas} from "qrcode.react";
-import {useAccount} from "wagmi";
+import { Order } from "../Dashboard";
+import { styled } from "@mui/material/styles";
+import { ATFIconDark, Close, ATFLogo } from "../../../components/icons";
+import { QRCodeCanvas } from "qrcode.react";
+import { useAccount } from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
 import MainButton from "../../../components/MainButton/MainButton";
 import domtoimage from "../../../lib/dom-to-image";
 import copy from "copy-to-clipboard";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
-import {parseUnits} from "ethers/lib/utils.js";
+import { parseUnits } from "ethers/lib/utils.js";
 import CircularProgress from "@mui/material/CircularProgress";
-import {t} from "@lingui/macro";
+import { t } from "@lingui/macro";
 
-const Caption2 = styled("div")(({theme}) => ({
+const Caption2 = styled("div")(({ theme }) => ({
   fontWeight: "700",
   fontSize: "14px",
   lineHeight: "20px",
   color: "rgba(249, 249, 249, 0.6)",
 }));
 
-const Caption4 = styled("div")(({theme}) => ({
+const Caption4 = styled("div")(({ theme }) => ({
   fontWeight: "700",
   fontSize: "48px",
   lineHeight: "55px",
 }));
 
-const Caption5 = styled("div")(({theme}) => ({
+const Caption5 = styled("div")(({ theme }) => ({
   fontWeight: "400",
   fontSize: "14px",
   lineHeight: "20px",
   color: "rgba(249, 249, 249, 0.6)",
 }));
 
-const Caption7 = styled("div")(({theme}) => ({
+const Caption7 = styled("div")(({ theme }) => ({
   fontWeight: "400",
   fontSize: "16px",
   lineHeight: "22px",
   color: "#F9F9F9",
 }));
 
-const Caption8 = styled("div")(({theme}) => ({
+const Caption8 = styled("div")(({ theme }) => ({
   fontWeight: "700",
   fontSize: "24px",
   lineHeight: "32px",
   color: "#F9F9F9",
 }));
 
-const TopStack = styled(Stack)(({theme}) => {
+const TopStack = styled(Stack)(({ theme }) => {
   return {
     position: "absolute",
     top: 0,
@@ -80,71 +80,85 @@ interface ShareMyOrderModalProps {
   isClosed: boolean;
 }
 
-const ShareMyOrderModal: FC<ShareMyOrderModalProps> = ({...props}) => {
-  const {address} = useAccount();
-  const {messageSnackBar} = useArithFiSnackBar();
+const ShareMyOrderModal: FC<ShareMyOrderModalProps> = ({ ...props }) => {
+  const { address } = useAccount();
+  const { messageSnackBar } = useArithFiSnackBar();
   const myShareRef = useRef(null);
-  const [dataUrl, setDataUrl] = useState<string | null>(null)
+  const [dataUrl, setDataUrl] = useState<string | null>(null);
 
   const buildDataUrl = async () => {
     if (!myShareRef.current) {
       setTimeout(() => {
-        buildDataUrl()
-      }, 300)
-      return
+        buildDataUrl();
+      }, 300);
+      return;
     }
     const node = myShareRef.current;
     try {
       // @ts-ignore
-      node.style.width = '450px'
+      node.style.width = "450px";
       if (node) {
-        domtoimage.toPng(node, {
-          bgcolor: '#1D1E22',
-          // @ts-ignore
-          width: node.offsetWidth,
-          // @ts-ignore
-          height: node.offsetHeight,
-          quality: 1,
-          scale: 2,
-        })
-          .then(function (dataUrl) {
-            setDataUrl(dataUrl)
+        domtoimage
+          .toPng(node, {
+            bgcolor: "#1D1E22",
             // @ts-ignore
-            node.style.width = '100%'
+            width: node.offsetWidth,
+            // @ts-ignore
+            height: node.offsetHeight,
+            quality: 1,
+            scale: 2,
           })
+          .then(function (dataUrl) {
+            setDataUrl(dataUrl);
+            // @ts-ignore
+            node.style.width = "100%";
+          });
       }
     } catch (e) {
-      console.log('buildDataUrl: error', e)
+      console.log("buildDataUrl: error", e);
       // @ts-ignore
-      node.style.width = '100%'
+      node.style.width = "100%";
     }
-  }
+  };
 
   useEffect(() => {
     if (!dataUrl) {
-      buildDataUrl()
+      buildDataUrl();
     }
-  }, [props])
+  }, [props]);
 
   const download = async () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.download = `${address}.png`;
     if (!dataUrl) {
-      await buildDataUrl()
+      await buildDataUrl();
     }
     if (typeof dataUrl === "string") {
       link.href = dataUrl;
       link.click();
     }
-  }
+  };
   const tokenName = props.value.tokenPair.split("/")[0];
   const shareLink = useMemo(() => {
     const order = props.value;
-    const basePrice = parseUnits(order.openPrice.toString(), tokenName.getTokenPriceDecimals()).toString();
+    const basePrice = parseUnits(
+      order.openPrice.toString(),
+      tokenName.getTokenPriceDecimals()
+    ).toString();
     const lever = order.leverage.split("X")[0];
     const orientation = order.orientation === "Long" ? "1" : "0";
-    const sp = order.sp ? parseUnits(order.sp!.toString(), tokenName.getTokenPriceDecimals()).toString() : "0";
-    const sl = order.sl ? parseUnits(order.sl!.toString(), tokenName.getTokenPriceDecimals()).toString() : "0";
+    const sp = order.sp
+      ? parseUnits(
+          order.sp!.toString(),
+          tokenName.getTokenPriceDecimals()
+        ).toString()
+      : "0";
+    const sl = order.sl
+      ? parseUnits(
+          order.sl!.toString(),
+          tokenName.getTokenPriceDecimals()
+        ).toString()
+      : "0";
     const orderString = `&pt=${tokenName}&po=${orientation}&pl=${lever}&pp=${basePrice}&pst=${sp}&psl=${sl}`;
     return `https://arithfi.com/?a=${address
       ?.slice(-8)
@@ -166,8 +180,8 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
     <Modal
       open={props.open}
       onClose={() => {
-        setDataUrl(null)
-        props.onClose()
+        setDataUrl(null);
+        props.onClose();
       }}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -179,7 +193,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
             bgcolor={"rgba(29, 30, 34, 1)"}
             borderRadius={"12px"}
             overflow={"hidden"}
-            position={'relative'}
+            position={"relative"}
           >
             <TopStack
               sx={{
@@ -192,36 +206,40 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 },
               }}
             >
-              <button onClick={() => {
-                setDataUrl(null)
-                props.onClose()
-              }}>
-                <Close/>
+              <button
+                onClick={() => {
+                  setDataUrl(null);
+                  props.onClose();
+                }}
+              >
+                <Close />
               </button>
             </TopStack>
-            {
-              dataUrl ? (
-                <img src={dataUrl} style={{width: '100%'}} alt={'share'}/>
-              ) : (
-                <Stack minHeight={'400px'} height={'calc(min(100vw - 40px, 450px) * 1.46222)'} alignItems={'center'} spacing={'18px'} justifyContent={'center'}
-                       sx={(theme) => ({
-                         color: '#F9F9F9',
-                         fontSize: '16px',
-                         lineHeight: '22px',
-                         fontWeight: '700',
-                         "& svg": {
-                           display: "block",
-                           color: theme.normal.primary,
-                         }
-                       })}>
-                  <CircularProgress size={'44px'}/>
-                  <span>
-                    {t`Loading...`}
-              </span>
-                </Stack>
-              )
-            }
-            <Stack ref={myShareRef} position={'absolute'} zIndex={-1}>
+            {dataUrl ? (
+              <img src={dataUrl} style={{ width: "100%" }} alt={"share"} />
+            ) : (
+              <Stack
+                minHeight={"400px"}
+                height={"calc(min(100vw - 40px, 450px) * 1.46222)"}
+                alignItems={"center"}
+                spacing={"18px"}
+                justifyContent={"center"}
+                sx={(theme) => ({
+                  color: "#F9F9F9",
+                  fontSize: "16px",
+                  lineHeight: "22px",
+                  fontWeight: "700",
+                  "& svg": {
+                    display: "block",
+                    color: theme.normal.primary,
+                  },
+                })}
+              >
+                <CircularProgress size={"44px"} />
+                <span>{t`Loading...`}</span>
+              </Stack>
+            )}
+            <Stack ref={myShareRef} position={"absolute"} zIndex={-1}>
               <Stack
                 pt={"50px"}
                 px={"24px"}
@@ -234,7 +252,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   backgroundSize: "contain",
                 }}
               >
-                <ATFIconDark/>
+                <ATFIconDark />
                 <Stack direction={"row"} pt={"60px"}>
                   <ShareOrderPosition
                     tokenName={props.value.tokenPair.split("/")[0]}
@@ -260,24 +278,28 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     <Caption5>{t`Open Price`}</Caption5>
                     <Caption8>
                       {props.value.openPrice?.toLocaleString("en-US", {
-                        maximumFractionDigits: tokenName.getTokenPriceDecimals(),
-                        minimumFractionDigits: tokenName.getTokenPriceDecimals(),
-                      })}{" "}
-                      USDT
+                        maximumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                        minimumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                      })}
                     </Caption8>
                   </Stack>
                   <Stack spacing={"7px"} width={"50%"}>
-                    <Caption5>{props.isClosed ? t`Close Price` : t`Last Price`}</Caption5>
+                    <Caption5>
+                      {props.isClosed ? t`Close Price` : t`Last Price`}
+                    </Caption5>
                     <Caption8>
                       {props.value.lastPrice?.toLocaleString("en-US", {
-                        maximumFractionDigits: tokenName.getTokenPriceDecimals(),
-                        minimumFractionDigits: tokenName.getTokenPriceDecimals(),
-                      })}{" "}
-                      USDT
+                        maximumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                        minimumFractionDigits:
+                          tokenName.getTokenPriceDecimals(),
+                      })}
                     </Caption8>
                   </Stack>
                 </Stack>
-                <Stack height={"110px"}/>
+                <Stack height={"110px"} />
               </Stack>
               <Stack
                 px={"20px"}
@@ -290,7 +312,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 py={"18px"}
               >
                 <Stack direction={"row"} spacing={"12px"}>
-                  <ATFLogo/>
+                  <ATFLogo />
                   <Stack>
                     <Caption7>{t`Scan and copy the trade`}</Caption7>
                     <Caption7>{t`with 1 click`}</Caption7>
@@ -304,7 +326,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     padding: "3px",
                   }}
                 >
-                  <QRCodeCanvas value={shareLink} size={58}/>
+                  <QRCodeCanvas value={shareLink} size={58} />
                 </Box>
               </Stack>
             </Stack>
