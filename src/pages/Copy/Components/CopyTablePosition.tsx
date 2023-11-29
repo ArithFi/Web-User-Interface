@@ -5,18 +5,19 @@ import { Long, Short } from "../../../components/icons";
 import { Trans } from "@lingui/macro";
 
 interface CopyTablePositionProps {
-  tokenName: string;
+  tokenPair: string;
   lever: number;
   isLong: boolean;
   style?: React.CSSProperties;
 }
 
 const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
+  const tokenName = props.tokenPair.split("/")[0];
   const TokenIcon = useMemo(() => {
-    return props.tokenName.getToken()
-      ? props.tokenName.getToken()!.icon
+    return tokenName.getToken()
+      ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [props.tokenName]);
+  }, [tokenName]);
   return (
     <Stack
       direction={"row"}
@@ -44,7 +45,9 @@ const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
             fontSize: 14,
             color: theme.normal.text0,
           })}
-        >{`${props.tokenName}/USDT`}</Box>
+        >
+          {props.tokenPair}
+        </Box>
         <Stack direction={"row"} spacing={"4px"}>
           <Stack
             direction={"row"}

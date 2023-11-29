@@ -255,7 +255,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 <ATFIconDark />
                 <Stack direction={"row"} pt={"60px"}>
                   <ShareOrderPosition
-                    tokenName={props.value.tokenPair.split("/")[0]}
+                    tokenPair={props.value.tokenPair}
                     isLong={props.value.orientation === "Long"}
                     lever={props.value.leverage}
                   />

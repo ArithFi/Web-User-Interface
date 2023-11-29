@@ -5,18 +5,19 @@ import {Long, Short} from "../../../components/icons";
 import {t} from "@lingui/macro";
 
 interface ShareOrderPositionProps {
-  tokenName: string;
+  tokenPair: string;
   lever: string;
   isLong: boolean;
   style?: CSSProperties;
 }
 
 const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
+  const tokenName = props.tokenPair.split("/")[0]
   const TokenIcon = useMemo(() => {
-    return props.tokenName.getToken()
-      ? props.tokenName.getToken()!.icon
+    return tokenName.getToken()
+      ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [props.tokenName]);
+  }, [tokenName]);
   const BaseToken = "USDT".getToken()!.icon;
   return (
     <Stack
@@ -44,7 +45,7 @@ const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
           color: "#F9F9F9",
         })}
       >
-        {`${props.tokenName}/USDT`}
+        {props.tokenPair}
       </Box>
       <Stack px={'6px'}>
         <Box sx={{

@@ -107,7 +107,7 @@ function useFuturesPOrder(
       openPrice: parseFloat(
         data.orderPrice.toFixed(tokenName.getTokenPriceDecimals())
       ),
-      tokenPair: `${tokenName}/USDT`,
+      tokenPair: data.product,
       actualMargin: parseFloat(data.balance.toFixed(2)),
       initialMargin: parseFloat(data.balance.toFixed(2)),
       lastPrice: parseFloat(

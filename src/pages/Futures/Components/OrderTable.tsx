@@ -91,7 +91,6 @@ interface OrderTableRowProps {
 
 const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     showLimitPrice,
@@ -120,7 +119,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
       />
       <TableCell>
         <OrderTablePosition
-          tokenName={tokenName}
+          tokenPair={props.data.product}
           isLong={isLong}
           lever={lever}
         />

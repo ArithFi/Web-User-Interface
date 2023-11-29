@@ -65,7 +65,6 @@ interface HistoryTableRowProps {
 }
 const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     tp,
@@ -95,7 +94,7 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
       />
       <TableCell>
         <OrderTablePosition
-          tokenName={tokenName}
+          tokenPair={props.data.tokenPair}
           isLong={isLong}
           lever={lever}
         />

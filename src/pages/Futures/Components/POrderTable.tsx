@@ -143,7 +143,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
       />
       <TableCell>
         <OrderTablePosition
-          tokenName={tokenName}
+          tokenPair={props.data.product}
           isLong={isLong}
           lever={lever}
           isCopy={props.data.copy}

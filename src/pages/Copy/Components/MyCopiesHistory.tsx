@@ -103,7 +103,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
           })}
         >
           <CopyListPosition
-            tokenName={tokenName}
+            tokenPair={item.product}
             lever={lever}
             isLong={isLong}
           />
@@ -442,7 +442,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
     >
       <TableCell>
         <CopyTablePosition
-          tokenName={tokenName}
+          tokenPair={props.data.product}
           isLong={isLong}
           lever={lever}
         />
