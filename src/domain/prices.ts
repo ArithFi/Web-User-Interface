@@ -11,7 +11,7 @@ export async function getChartPricesFromBinance(
     const prices = await response.json();
     return prices.map((price: any) => {
       return {
-        time: price[0] / 1000,
+        time: Number(price[0]) / 1000,
         open: Number(price[1]),
         close: Number(price[4]),
         high: Number(price[2]),
@@ -26,7 +26,7 @@ export async function getChartPricesFromBinance(
     const prices = await response.json();
     return prices.map((price: any) => {
       return {
-        time: price[0] / 1000,
+        time: Number(price[0]) / 1000,
         open: Number(price[1]),
         close: Number(price[4]),
         high: Number(price[2]),
