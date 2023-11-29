@@ -20,19 +20,22 @@ export async function getChartPricesFromBinance(
     });
   } catch (error) {
     console.log(`Error fetching data: ${error}`);
-    const response = await fetch(
-      `https://api.binance.com/api/v3/klines?symbol=${symbolList[0]}${symbolList[1]}&interval=${period}&limit=${limit}`
-    );
-    const prices = await response.json();
-    return prices.map((price: any) => {
-      return {
-        time: Number(price[0]) / 1000,
-        open: Number(price[1]),
-        close: Number(price[4]),
-        high: Number(price[2]),
-        low: Number(price[3]),
-      };
-    });
+    if (symbol.includes('/USDT')) {
+      const response = await fetch(
+        `https://api.binance.com/api/v3/klines?symbol=${symbolList[0]}${symbolList[1]}&interval=${period}&limit=${limit}`
+      );
+      const prices = await response.json();
+      return prices.map((price: any) => {
+        return {
+          time: Number(price[0]) / 1000,
+          open: Number(price[1]),
+          close: Number(price[4]),
+          high: Number(price[2]),
+          low: Number(price[3]),
+        };
+      });
+    }
+    return null;
   }
 }
 
@@ -46,11 +49,14 @@ export async function getCurrentPriceOfToken(symbol: string) {
     return data.value;
   } catch (e) {
     console.log(`Error fetching data: ${e}`);
-    const response = await fetch(
-      `https://api.binance.com/api/v3/ticker/price?symbol=${symbolList[0]}${symbolList[1]}`
-    );
-    const data = await response.json();
-    return data.price;
+    if (symbol.includes('/USDT')) {
+      const response = await fetch(
+        `https://api.binance.com/api/v3/ticker/price?symbol=${symbolList[0]}${symbolList[1]}`
+      );
+      const data = await response.json();
+      return data.price;
+    }
+    return null;
   }
 }
 
@@ -71,16 +77,18 @@ export async function get24HrFromBinance(symbol: string) {
     return null;
   } catch (e) {
     console.log(`Error fetching data: ${e}`);
-    const res = await fetch(
-      `https://api.binance.com/api/v3/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
-    );
-    const data = await res.json();
-    if (data) {
-      return {
-        priceChangePercent: data.priceChangePercent,
-        highPrice: data.highPrice,
-        lowPrice: data.lowPrice,
-      };
+    if (symbol.includes('/USDT')) {
+      const res = await fetch(
+        `https://api.binance.com/api/v3/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
+      );
+      const data = await res.json();
+      if (data) {
+        return {
+          priceChangePercent: data.priceChangePercent,
+          highPrice: data.highPrice,
+          lowPrice: data.lowPrice,
+        };
+      }
     }
     return null;
   }
