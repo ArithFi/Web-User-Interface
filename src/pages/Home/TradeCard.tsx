@@ -64,8 +64,8 @@ export const TradeCard: FC<{
               /{pair2}
             </Stack>
           </Stack>
-          <Stack width={'106px'} flexShrink={0} sx={{
-            textAlign: 'center',
+          <Stack pr={'12px'} flexShrink={0} sx={{
+            textAlign: 'end',
             color: 'rgba(3, 3, 8, 1)',
             fontSize: '14px',
             lineHeight: '20px',
@@ -82,6 +82,7 @@ export const TradeCard: FC<{
             lineHeight: '16px',
             fontWeight: '700',
             borderRadius: '4px',
+            minWidth: '88px',
           }}>
             {price24h && price24h > 0 ? '+' : ''}{price24h?.toFixed(2)}%
           </Stack>
@@ -113,10 +114,10 @@ export const TradeCard: FC<{
               {pair1}/{pair2}
             </Stack>
           </Stack>
-          <Stack width={'106px'} flexShrink={0}>
+          <Stack textAlign={'end'} pr={'4px'} flexShrink={0}>
             {price || '-'}
           </Stack>
-          <Stack width={'106px'} flexShrink={0} sx={(theme) => ({
+          <Stack width={'106px'} textAlign={'end'} pr={'40px'} flexShrink={0} sx={(theme) => ({
             color: price24h && price24h > 0 ? 'rgba(43, 181, 90, 1)' : 'rgba(232, 66, 98, 1)',
           })}>
             {price24h && price24h > 0 ? '+' : ''}{price24h?.toFixed(2)}%
