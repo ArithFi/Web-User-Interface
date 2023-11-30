@@ -708,8 +708,8 @@ msgid "For users/smart contracts using Arith Protocol perpetual contracts, pleas
 msgstr "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
-msgid "Fores"
-msgstr "Fores"
+msgid "Forex"
+msgstr "Forex"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -819,6 +819,11 @@ msgstr "Insufficient balance"
 #: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "Insufficient balance. Please deposit to start the lightning trade."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Integrations & Partners"
+msgstr "Integrations & Partners"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"

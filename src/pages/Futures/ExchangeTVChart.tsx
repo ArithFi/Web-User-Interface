@@ -426,6 +426,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   fontWeight: "700",
                   fontSize: "12px",
                   lineHeight: "16px",
+                  width: "47px"
                 })}
               >
                 {percent

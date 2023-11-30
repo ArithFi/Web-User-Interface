@@ -18,7 +18,7 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
       ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
   }, [tokenName]);
-  const BaseToken = "USDT".getToken()!.icon;
+  const BaseToken = props.tokenPair.split("/")[1].getToken()!.icon;
   return (
     <Stack
       direction={"row"}

@@ -704,7 +704,7 @@ msgid "For users/smart contracts using Arith Protocol perpetual contracts, pleas
 msgstr ""
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
-msgid "Fores"
+msgid "Forex"
 msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
@@ -814,6 +814,11 @@ msgstr ""
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Integrations & Partners"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx

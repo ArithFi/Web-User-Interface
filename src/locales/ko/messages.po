@@ -708,7 +708,7 @@ msgid "For users/smart contracts using Arith Protocol perpetual contracts, pleas
 msgstr "Arith Protocol 영속적인 계약을 사용하는 사용자/스마트 계약은 포지션, 결제, 청산 및 기타 관련 작업 수행 시 시장 내 유사한 제품과의 규칙 및 차이를 이해하십시오. 다음의 가능한 리스크를 완전히 이해하고 리스크 상황을 감당할 수 있다면 참여하세요."
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
-msgid "Fores"
+msgid "Forex"
 msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
@@ -819,6 +819,11 @@ msgstr "잔액 부족"
 #: src/pages/Futures/NewOrder.tsx
 msgid "Insufficient balance. Please deposit to start the lightning trade."
 msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세요."
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Integrations & Partners"
+msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"

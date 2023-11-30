@@ -20,7 +20,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   const [favPairs, setFavPairs] = useState<Array<string>>(props.favList);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
-  const foresPrice = priceToken.slice(-5);
+  const forexPrice = priceToken.slice(-5);
 
   const setFav = useCallback(
     async (pairs: Array<String>) => {
@@ -63,8 +63,8 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
           isSelected={tabsValue === 2}
         />
         <TokenListBaseViewTabItem
-          text={t`Fores`}
-          num={foresPrice.length}
+          text={t`Forex`}
+          num={forexPrice.length}
           callBack={() => setTabsValue(3)}
           isSelected={tabsValue === 3}
         />
@@ -74,7 +74,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     allPrice.length,
     cryptoPrice.length,
     favPairs.length,
-    foresPrice.length,
+    forexPrice.length,
     tabsValue,
   ]);
   const priceList = useMemo(() => {
@@ -85,11 +85,11 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     } else if (tabsValue === 2) {
       return cryptoPrice;
     } else if (tabsValue === 3) {
-      return foresPrice;
+      return forexPrice;
     } else {
       return [];
     }
-  }, [allPrice, cryptoPrice, favPairs, foresPrice, tabsValue]);
+  }, [allPrice, cryptoPrice, favPairs, forexPrice, tabsValue]);
   const ListView = useMemo(() => {
     const list = priceList.map((item, index) => {
       const token = item.split("/")[0];
@@ -182,7 +182,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
         })}
       >
         <Box
-          sx={{
+          sx={(theme) => ({
             cursor: "pointer",
             width: "16px",
             height: "16px",
@@ -190,8 +190,13 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
               width: "16px",
               height: "16px",
               display: "block",
+              "& path": {
+                fill: props.isSelected
+                    ? theme.normal.primary
+                    : theme.normal.text3,
+              },
             },
-          }}
+          })}
           component={"button"}
           onClick={() => {
             props.changeFav(props.tokenName);
@@ -238,6 +243,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
                 fontWeight: "700",
                 fontSize: "14px",
                 lineHeight: "20px",
+                textAlign: "right",
                 color:
                   (props.percent ?? 0) >= 0
                     ? theme.normal.success

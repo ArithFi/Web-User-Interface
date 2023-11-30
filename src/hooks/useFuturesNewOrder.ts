@@ -101,6 +101,13 @@ function useFuturesNewOrder(
   useEffect(() => {
     setArithFiAmount(inputAmount);
   }, [inputAmount]);
+  useEffect(() => {
+    if (tokenPair.substring(tokenPair.length - 3) === "USD") {
+      setLever(100)
+    } else {
+      setLever(1)
+    }
+  }, [tokenPair])
 
   /**
    * futures modal
