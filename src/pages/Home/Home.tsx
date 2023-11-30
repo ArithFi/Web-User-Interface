@@ -20,11 +20,11 @@ const Home = () => {
   ]
 
   const forexList: any[] = [
+    {pair1: 'AUD', pair2: 'USD'},
     {pair1: 'EUR', pair2: 'USD'},
+    {pair1: 'JPY', pair2: 'USD'},
+    {pair1: 'CAD', pair2: 'USD'},
     {pair1: 'GBP', pair2: 'USD'},
-    {pair1: 'NZD', pair2: 'USD'},
-    {pair1: 'VND', pair2: 'USD'},
-    {pair1: 'KRW', pair2: 'USD'},
   ]
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Home = () => {
 
   if (isBigMobile) {
     return (
-      <Stack sx={{
+      <Stack width={'100vw'} overflow={'hidden'} sx={{
         backgroundColor: 'white',
       }}>
         <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
@@ -337,7 +337,7 @@ const Home = () => {
           <Stack mt={'40px'} gap={'12px'}>
             <Stack direction={'row'} gap={'12px'}>
               <Link to={'https://coin98.com/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -346,7 +346,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://www.bnbchain.org/en'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -357,7 +357,7 @@ const Home = () => {
             </Stack>
             <Stack direction={'row'} gap={'12px'}>
               <Link to={'https://www.coingecko.com/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -366,7 +366,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://followin.io/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -377,7 +377,7 @@ const Home = () => {
             </Stack>
             <Stack direction={'row'} gap={'12px'} justifyContent={'center'}>
               <Link to={'https://nabox.io'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -386,7 +386,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://kyber.network/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
