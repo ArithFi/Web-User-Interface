@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
 import { FuturesPrice, FuturesPricePercent, priceToken } from "../Futures";
 import useArithFi from "../../../hooks/useArithFi";
-import { serviceSetFavorites } from "../../../lib/ArithFiRequest";
+import { serviceSetFavorites } from "../../../lib/ArithFiRequest"
+import useWindowWidth from "../../../hooks/useWindowWidth";
 
 interface TokenListBaseViewProps {
   changeTokenPair: (value: string) => void;
@@ -15,12 +16,22 @@ interface TokenListBaseViewProps {
 }
 
 const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
+  const {isBigMobile} = useWindowWidth()
+  const defaultTabs = useMemo(() => {
+    const tab = sessionStorage.getItem("TokenListBaseViewLatestTab");
+    return tab ? Number(tab) : 2;
+  }, []);
   const { chainsData, signature, account } = useArithFi();
-  const [tabsValue, setTabsValue] = useState(2);
+  const [tabsValue, setTabsValue] = useState(defaultTabs);
   const [favPairs, setFavPairs] = useState<Array<string>>(props.favList);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
   const forexPrice = priceToken.slice(-5);
+
+  const latestTabs = (num: number) => {
+    sessionStorage.setItem("TokenListBaseViewLatestTab", num.toString());
+    setTabsValue(num);
+  };
 
   const setFav = useCallback(
     async (pairs: Array<String>) => {
@@ -43,40 +54,34 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
 
   const TabsView = useMemo(() => {
     return (
-      <Stack direction={"row"} spacing={"8px"}>
+      <Stack direction={"row"} spacing={"8px"} paddingX={isBigMobile ? "20px" : "0px"}>
         <TokenListBaseViewTabItem
           text={t`Favorites`}
           num={favPairs.length}
-          callBack={() => setTabsValue(0)}
+          callBack={() => latestTabs(0)}
           isSelected={tabsValue === 0}
         />
         <TokenListBaseViewTabItem
           text={t`All`}
           num={allPrice.length}
-          callBack={() => setTabsValue(1)}
+          callBack={() => latestTabs(1)}
           isSelected={tabsValue === 1}
         />
         <TokenListBaseViewTabItem
           text={t`Crypto`}
           num={cryptoPrice.length}
-          callBack={() => setTabsValue(2)}
+          callBack={() => latestTabs(2)}
           isSelected={tabsValue === 2}
         />
         <TokenListBaseViewTabItem
           text={t`Forex`}
           num={forexPrice.length}
-          callBack={() => setTabsValue(3)}
+          callBack={() => latestTabs(3)}
           isSelected={tabsValue === 3}
         />
       </Stack>
     );
-  }, [
-    allPrice.length,
-    cryptoPrice.length,
-    favPairs.length,
-    forexPrice.length,
-    tabsValue,
-  ]);
+  }, [allPrice.length, cryptoPrice.length, favPairs.length, forexPrice.length, isBigMobile, tabsValue]);
   const priceList = useMemo(() => {
     if (tabsValue === 0) {
       return favPairs;
@@ -130,12 +135,13 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     });
     return <Stack sx={{ overflow: "auto" }}>{list}</Stack>;
   }, [favPairs, priceList, props, setFav]);
+  const mobileHeight = window.screen.height * 0.6
   return (
     <Stack
       spacing={"8px"}
       width={"100%"}
       sx={{ overflowY: "hidden" }}
-      height={"350px"}
+      height={isBigMobile ? `${mobileHeight}px` : "350px"}
     >
       {TabsView}
       <ArithFiLine />
@@ -192,8 +198,8 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
               display: "block",
               "& path": {
                 fill: props.isSelected
-                    ? theme.normal.primary
-                    : theme.normal.text3,
+                  ? theme.normal.primary
+                  : theme.normal.text3,
               },
             },
           })}
