@@ -4,7 +4,6 @@ import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   HidePriceTable,
   SelectedTokenDown,
-  USDTLogo,
 } from "../../components/icons";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
@@ -127,6 +126,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   useEffect(() => {
     getFavPairs();
   }, [getFavPairs]);
+
   const open = Boolean(anchorEl);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -382,6 +382,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           : undefined;
         return (
           <Stack
+            key={`TopPairItem+${tokenPair}`}
             direction={"row"}
             spacing={"8px"}
             alignItems={"center"}
@@ -426,7 +427,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   fontWeight: "700",
                   fontSize: "12px",
                   lineHeight: "16px",
-                  width: "47px"
+                  width: "47px",
                 })}
               >
                 {percent
@@ -437,6 +438,13 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           </Stack>
         );
       };
+      const topPairsAddFav = [
+        ...favPairs,
+        ...["ETH/USDT", "BTC/USDT", "BNB/USDT", "MATIC/USDT", "AUD/USD"],
+      ];
+      const topPairs = topPairsAddFav.filter(
+        (item, index) => topPairsAddFav.indexOf(item) === index
+      );
       return (
         <Stack
           direction={"row"}
@@ -450,15 +458,13 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
             border: `1px solid ${theme.normal.border}`,
           })}
         >
-          {topPairItem("BTC/USDT")}
-          {topPairItem("ETH/USDT")}
-          {topPairItem("BNB/USDT")}
-          {topPairItem("SOL/USDT")}
-          {topPairItem("AVAX/USDT")}
+          {topPairs.map((item) => {
+            return topPairItem(item);
+          })}
         </Stack>
       );
     }
-  }, [isBigMobile, props]);
+  }, [favPairs, isBigMobile, props]);
 
   return (
     <Stack width={"100%"} spacing={"16px"}>
@@ -510,7 +516,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   }}
                 >
                   <TokenIcon />
-                  <RightTokenIcon/>
+                  <RightTokenIcon />
                 </Stack>
                 <Stack spacing={0}>
                   <Box

@@ -288,14 +288,15 @@ function useTrader(address: string | undefined) {
 
   const showPerformanceSymbolData = useCallback(() => {
     if (performanceSymbolData.length === 0) {return []}
-    const otherValue = performanceSymbolData.map((item) => item.value).slice(-3).reduce((all ,now) => {
+    const sortPerformanceSymbolData = performanceSymbolData.sort((a,b) => b.value - a.value)
+    const otherValue = sortPerformanceSymbolData.map((item) => item.value).slice(-3).reduce((all ,now) => {
       return all + now
     })
     const one :PerformanceSymbolModel = {
       name: "Other",
       value: otherValue
     }
-    return [...performanceSymbolData.slice(0,7)].concat(one)
+    return [...sortPerformanceSymbolData.slice(0,7)].concat(one)
   }, [performanceSymbolData])
 
   useEffect(() => {
