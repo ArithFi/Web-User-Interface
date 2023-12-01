@@ -1,10 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  HidePriceTable,
-  SelectedTokenDown,
-} from "../../components/icons";
+import { HidePriceTable, SelectedTokenDown } from "../../components/icons";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
 import { FuturesPrice, FuturesPricePercent } from "./Futures";
@@ -442,9 +439,9 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         ...favPairs,
         ...["ETH/USDT", "BTC/USDT", "BNB/USDT", "MATIC/USDT", "AUD/USD"],
       ];
-      const topPairs = topPairsAddFav.filter(
-        (item, index) => topPairsAddFav.indexOf(item) === index
-      );
+      const topPairs = topPairsAddFav
+        .slice(0, 5)
+        .filter((item, index) => topPairsAddFav.indexOf(item) === index);
       return (
         <Stack
           direction={"row"}

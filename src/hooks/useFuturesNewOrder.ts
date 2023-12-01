@@ -15,6 +15,7 @@ import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
 export const lipPrice = (
+  tokenPair: string,
   balance: BigNumber,
   appends: BigNumber,
   lever: BigNumber,
@@ -28,15 +29,26 @@ export const lipPrice = (
   ) {
     return BigNumber.from("0");
   }
-  const i = BigNumber.from("5")
-    .mul(balance)
-    .mul(lever)
-    .div(BigNumber.from("1000"));
-  const top = BigNumber.from(balance.toString()).add(appends).sub(i).mul(price);
-  const bottom = BigNumber.from(balance.toString()).mul(lever);
-  const subPrice = top.div(bottom);
-  const result = orientation ? price.sub(subPrice) : price.add(subPrice);
-  return BigNumber.from("0").gt(result) ? BigNumber.from("0") : result;
+  const isForex = tokenPair.substring(tokenPair.length - 3) === "USD";
+  if (isForex) {
+    const subPrice = price
+      .mul(BigNumber.from("95"))
+      .div(BigNumber.from("10000"));
+    return orientation ? price.sub(subPrice) : price.add(subPrice);
+  } else {
+    const i = BigNumber.from("5")
+      .mul(balance)
+      .mul(lever)
+      .div(BigNumber.from("1000"));
+    const top = BigNumber.from(balance.toString())
+      .add(appends)
+      .sub(i)
+      .mul(price);
+    const bottom = BigNumber.from(balance.toString()).mul(lever);
+    const subPrice = top.div(bottom);
+    const result = orientation ? price.sub(subPrice) : price.add(subPrice);
+    return BigNumber.from("0").gt(result) ? BigNumber.from("0") : result;
+  }
 };
 
 export const INPUT_TOKENS = ["ATF"];
@@ -57,11 +69,11 @@ function useFuturesNewOrder(
 ) {
   const fLever = useMemo(() => {
     if (tokenPair.substring(tokenPair.length - 3) === "USD") {
-      return 100
+      return 100;
     } else {
-      return 1
+      return 1;
     }
-  }, [tokenPair])
+  }, [tokenPair]);
   const { account, chainsData, setShowConnect, signature } = useArithFi();
   const [tabsValue, setTabsValue] = useState(0);
   const [arithFiAmount, setArithFiAmount] = useState("");
@@ -103,11 +115,11 @@ function useFuturesNewOrder(
   }, [inputAmount]);
   useEffect(() => {
     if (tokenPair.substring(tokenPair.length - 3) === "USD") {
-      setLever(100)
+      setLever(100);
     } else {
-      setLever(1)
+      setLever(1);
     }
-  }, [tokenPair])
+  }, [tokenPair]);
 
   /**
    * futures modal
@@ -387,7 +399,9 @@ function useFuturesNewOrder(
       sl_info &&
       !hasShowShareLink
     ) {
-      const tokenPriceDecimals = tokenPair.split("/")[0].getTokenPriceDecimals();
+      const tokenPriceDecimals = tokenPair
+        .split("/")[0]
+        .getTokenPriceDecimals();
       setTabsValue(1);
       setLever(parseInt(lever_info));
       setLimitAmount(
@@ -464,6 +478,7 @@ function useFuturesNewOrder(
       }
       const nowPrice = openPriceBase;
       const result = lipPrice(
+        tokenPair,
         arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
         BigNumber.from("0"),
         BigNumber.from(lever.toString()),
@@ -472,8 +487,10 @@ function useFuturesNewOrder(
         isLong
       );
       return (
-        result.bigNumberToShowPrice(18, tokenPair.split("/")[0].getTokenPriceDecimals()) ??
-        String().placeHolder
+        result.bigNumberToShowPrice(
+          18,
+          tokenPair.split("/")[0].getTokenPriceDecimals()
+        ) ?? String().placeHolder
       );
     },
     [openPriceBase, arithFiAmount, lever, tokenPair]

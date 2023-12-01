@@ -123,7 +123,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             onClose={props.onClose}
             baseAmount={baseAmount}
             lever={props.data.leverage}
-            token={token}
+            token={props.data.product}
             isLong={props.data.direction}
             openPrice={props.data.orderPrice}
             append={props.data.append}

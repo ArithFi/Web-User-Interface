@@ -130,7 +130,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           limitPrice={
             showOpenPrice === String().placeHolder ? 0 : Number(showOpenPrice)
           }
-          token={props.tokenPair.split("/")[0]}
+          token={props.tokenPair}
           tpNow={Number(tp)}
           slNow={Number(sl)}
           isLong={stopIsLong}

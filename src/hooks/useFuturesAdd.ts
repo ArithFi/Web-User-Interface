@@ -115,6 +115,7 @@ function useFuturesAdd(
       const orderPrice =
         data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        data.product,
         balance,
         arithFiAmount === ""
           ? BigNumber.from("0")

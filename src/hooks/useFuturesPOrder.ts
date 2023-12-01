@@ -43,6 +43,7 @@ function useFuturesPOrder(
       const append =
         data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        data.product,
         balance,
         append,
         BigNumber.from(data.leverage.toString()),
