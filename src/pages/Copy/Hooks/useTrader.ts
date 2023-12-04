@@ -10,6 +10,7 @@ import {
 } from "../../../lib/ArithFiRequest";
 import { AllKOLModel } from "./useCopy";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
+import {useNetwork} from "wagmi";
 
 export interface EarningsListModel {
   date: string;
@@ -54,7 +55,7 @@ export interface TraderFollowerList {
 }
 
 function useTrader(address: string | undefined) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const [kolInfo, setKolInfo] = useState<AllKOLModel>();
   const [earningsData, setEarningsData] = useState<Array<EarningsListModel>>(
     []
@@ -77,7 +78,7 @@ function useTrader(address: string | undefined) {
 
   const getKOLInfo = useCallback(async () => {
     if (address) {
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const req = await copyKOLInfo(chainId, address, {
         Authorization: "",
       });
@@ -111,7 +112,7 @@ function useTrader(address: string | undefined) {
         setKolInfo(info);
       }
     }
-  }, [address, chainsData.chainId]);
+  }, [address, chain?.id]);
 
   const getEarnings = useCallback(async () => {
     const days = () => {
@@ -124,7 +125,7 @@ function useTrader(address: string | undefined) {
       }
     };
     if (address) {
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const req = await copyEarningsList(chainId, address, days(), {
         Authorization: "",
       });
@@ -142,7 +143,7 @@ function useTrader(address: string | undefined) {
         setEarningsData(list);
       }
     }
-  }, [address, chainsData.chainId, earningsDay]);
+  }, [address, chain?.id, earningsDay]);
 
   const getPerformance = useCallback(async () => {
     const days = () => {
@@ -157,7 +158,7 @@ function useTrader(address: string | undefined) {
       }
     };
     if (address) {
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const req = await copyPerformance(chainId, address, days(), {
         Authorization: "",
       });
@@ -178,7 +179,7 @@ function useTrader(address: string | undefined) {
         setPerformanceData(info);
       }
     }
-  }, [address, chainsData.chainId, performanceDay]);
+  }, [address, chain?.id, performanceDay]);
 
   const getPerformanceSymbol = useCallback(async () => {
     const days = () => {
@@ -193,7 +194,7 @@ function useTrader(address: string | undefined) {
       }
     };
     if (address) {
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const req = await copyPerformanceSymbol(chainId, address, days(), {
         Authorization: "",
       });
@@ -209,14 +210,14 @@ function useTrader(address: string | undefined) {
         setPerformanceSymbolData(list);
       }
     }
-  }, [address, chainsData.chainId, performanceSymbolDay]);
+  }, [address, chain?.id, performanceSymbolDay]);
 
   const getList = useCallback(async () => {
     try {
       if (!address) {
         return;
       }
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const baseList = await serviceList(chainId, address, {
         Authorization: "",
       });
@@ -249,14 +250,14 @@ function useTrader(address: string | undefined) {
     } catch (error) {
       console.log(error);
     }
-  }, [address, chainsData.chainId]);
+  }, [address, chain?.id]);
 
   const getHistoryList = useCallback(async () => {
     try {
       if (!address) {
         return;
       }
-      const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
       const baseList = await copyTraderHistory(chainId, address, {
         Authorization: "",
       });
@@ -284,7 +285,7 @@ function useTrader(address: string | undefined) {
     } catch (error) {
       console.log(error);
     }
-  }, [address, chainsData.chainId]);
+  }, [address, chain?.id]);
 
   const showPerformanceSymbolData = useCallback(() => {
     if (performanceSymbolData.length === 0) {return []}

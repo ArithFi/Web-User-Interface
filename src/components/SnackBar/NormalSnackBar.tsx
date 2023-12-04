@@ -3,10 +3,10 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { SnackbarContent, SnackbarKey, SnackbarMessage } from "notistack";
 import React, { useMemo } from "react";
-import useArithFi from "../../hooks/useArithFi";
 import { Close, Fail, Success } from "../icons";
 import MainButton from "../MainButton/MainButton";
 import { t } from "@lingui/macro";
+import {useNetwork} from "wagmi";
 
 export enum SnackBarType {
   success,
@@ -72,7 +72,7 @@ const NormalSnackBarStack = styled(Stack)(({ theme }) => ({
 
 const NormalSnackBar = React.forwardRef<HTMLDivElement, NormalSnackBarProps>(
   (props, ref) => {
-    const { chainsData } = useArithFi();
+    const { chain } = useNetwork();
     const Icon = useMemo(() => {
       if (props.type === SnackBarType.success) {
         return <Success />;
@@ -122,7 +122,7 @@ const NormalSnackBar = React.forwardRef<HTMLDivElement, NormalSnackBarProps>(
                 title={t`View`}
                 onClick={() => {
                   window.open(
-                    (props.hash ?? "").hashToChainScan(chainsData.chainId)
+                    (props.hash ?? "").hashToChainScan(chain?.id)
                   );
                 }}
                 style={{

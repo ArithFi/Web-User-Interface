@@ -1,5 +1,4 @@
-import { usePrepareSendTransaction, useSendTransaction } from "wagmi";
-import useArithFi from "../hooks/useArithFi";
+import {useNetwork, usePrepareSendTransaction, useSendTransaction} from "wagmi";
 import {
   TransactionType,
   usePendingTransactions,
@@ -9,13 +8,13 @@ import { BigNumber } from "ethers/lib/ethers";
 import { useEffect, useMemo } from "react";
 
 export function useTransferValue(amount: BigNumber) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const value = useMemo(() => {
-    return chainsData.chainId ? amount : BigNumber.from("0");
-  }, [amount, chainsData.chainId]);
+    return chain?.id ? amount : BigNumber.from("0");
+  }, [amount, chain?.id]);
   const { addPendingList } = usePendingTransactions();
   const { config } = usePrepareSendTransaction({
-    to: ATFServiceOther[chainsData.chainId ?? 97],
+    to: ATFServiceOther[chain?.id ?? 97],
     value: value.toBigInt(),
   });
   const { data, isLoading, isSuccess, sendTransaction, reset } =

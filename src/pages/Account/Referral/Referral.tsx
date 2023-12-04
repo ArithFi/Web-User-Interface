@@ -5,7 +5,6 @@ import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
 import {useSearchParams} from "react-router-dom";
-import useArithFi from "../../../hooks/useArithFi";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
@@ -20,6 +19,7 @@ import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import MobileMenu from "../Share/MobileMenu";
+import {useAccount, useNetwork} from "wagmi";
 
 export const Select1 = styled("select")(({theme}) => ({
   width: "100%",
@@ -237,7 +237,8 @@ const Futures = () => {
   const [searchText, setSearchText] = useState("");
   let [searchParams] = useSearchParams();
   const q = searchParams.get('address');
-  const {chainsData, account} = useArithFi();
+  const { chain } = useNetwork();
+  const { address } = useAccount();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
       return Array.from({length: totalPage}, (v, k) => k + 1);
@@ -264,18 +265,18 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    q || account.address
+    q || address
       ? `https://db.arithfi.com/dashboardapi/invite/overview/${
-        q || account.address
-      }?chainId=${chainsData.chainId ?? 56}`
+        q || address
+      }?chainId=${chain?.id ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
   const {data: listData} = useSWR(
-    q || account.address
+    q || address
       ? `https://db.arithfi.com/dashboardapi/invite/list-invitee/${
-        q || account.address
-      }?chainId=${chainsData.chainId ?? 56}`
+        q || address
+      }?chainId=${chain?.id ?? 56}`
       : undefined,
     (url) => fetch(url).then((res) => res.json())
   );
@@ -659,7 +660,7 @@ const Futures = () => {
                   <Box width={"145px"}>
                     <MainButton
                       title={t`Copy Invitation Link`}
-                      disable={!q && !account.address}
+                      disable={!q && !address}
                       style={{
                         height: "36px",
                         fontSize: "12px",
@@ -667,16 +668,16 @@ const Futures = () => {
                         fontWeight: 700,
                       }}
                       onClick={() => {
-                        if (!account.address && !q) return;
+                        if (!address && !q) return;
                         let link = "https://arithfi.com/";
                         if (q) {
                           link =
                             "https://arithfi.com/?a=" +
                             q.slice(-8).toLowerCase();
-                        } else if (account.address) {
+                        } else if (address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            account.address.slice(-8).toLowerCase();
+                            address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar(t`Copy Successfully`);
@@ -719,18 +720,18 @@ const Futures = () => {
                         borderRadius: "8px",
                       }}
                       title={t`Copy Invitation Link`}
-                      disable={!q && !account.address}
+                      disable={!q && !address}
                       onClick={() => {
-                        if (!q && !account.address) return;
+                        if (!q && !address) return;
                         let link = "https://arithfi.com/";
                         if (q) {
                           link =
                             "https://arithfi.com/?a=" +
                             q.slice(-8).toLowerCase();
-                        } else if (account.address) {
+                        } else if (address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            account.address.slice(-8).toLowerCase();
+                            address.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar("Copy Successfully");

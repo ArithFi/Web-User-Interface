@@ -1,14 +1,12 @@
 import { useEffect, useMemo } from "react";
 import { BigNumber } from "ethers";
-import { useContractWrite, usePrepareContractWrite } from "wagmi";
+import {useContractWrite, useNetwork, usePrepareContractWrite} from "wagmi";
 import ERC20ABI from "./ABI/ERC20.json";
 import {
   TransactionType,
   usePendingTransactions,
 } from "../hooks/useTransactionReceipt";
-import useArithFi from "../hooks/useArithFi";
 import { ATFService, ATFServiceOther, USDTToken } from "./contractAddress";
-import useAddGasLimit from "./useAddGasLimit";
 
 function useTokenApprove(
   tokenAddress: `0x${string}`,
@@ -43,19 +41,19 @@ export function useTokenTransfer(
   tokenAddress: `0x${string}`,
   amount: BigNumber
 ) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const { addPendingList } = usePendingTransactions();
   const toAddress = useMemo(() => {
-    if (chainsData.chainId) {
+    if (chain?.id) {
       if (
         tokenAddress.toLocaleLowerCase() ===
-        USDTToken[chainsData.chainId].toLocaleLowerCase()
+        USDTToken[chain?.id].toLocaleLowerCase()
       ) {
-        return ATFServiceOther[chainsData.chainId] as `0x${string}`;
+        return ATFServiceOther[chain?.id] as `0x${string}`;
       }
-      return ATFService[chainsData.chainId] as `0x${string}`;
+      return ATFService[chain?.id] as `0x${string}`;
     }
-  }, [chainsData.chainId, tokenAddress]);
+  }, [chain?.id, tokenAddress]);
   const token = useMemo(() => {
     if (toAddress) {
       return tokenAddress;
@@ -69,9 +67,9 @@ export function useTokenTransfer(
     args: [toAddress, BigInt(amount.toString())],
     enabled: true,
   });
-  
+
   // const gasLimit = useAddGasLimit(config, 10)
-  
+
   const transaction = useContractWrite({
     ...config,
     request: { ...config.request, value: BigInt(0)},

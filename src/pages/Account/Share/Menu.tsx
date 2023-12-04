@@ -2,18 +2,18 @@ import Stack from "@mui/material/Stack";
 import {Link, useLocation, useSearchParams} from "react-router-dom";
 import {t} from "@lingui/macro";
 import useSWR from "swr";
-import useArithFi from "../../../hooks/useArithFi";
+import {useAccount} from "wagmi";
 
 const Menu = () => {
   const location = useLocation();
   let [searchParams] = useSearchParams();
   const q = searchParams.get('address');
-  const {account} = useArithFi();
+  const { address } = useAccount();
 
   const {data: isKol} = useSWR(
-    (q || account.address)
+    (q || address)
       ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
-        q || account.address
+        q || address
       }`
       : undefined,
     (url: any) =>
@@ -23,8 +23,8 @@ const Menu = () => {
   );
 
   const {data: isCopyKol} = useSWR(
-    (q || account.address)
-      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || account.address}` : undefined,
+    (q || address)
+      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || address}` : undefined,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())
