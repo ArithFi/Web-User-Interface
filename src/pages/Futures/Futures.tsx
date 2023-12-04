@@ -52,7 +52,7 @@ const Futures: FC = () => {
     let code = getQueryVariable("pt");
     if (code) {
       const num = priceToken.filter(
-        (item) => item === code!.toLocaleLowerCase()
+        (item) => item.toLowerCase() === code!.toLowerCase()
       );
       if (num && num.length > 0) {
         return code.toLocaleUpperCase();

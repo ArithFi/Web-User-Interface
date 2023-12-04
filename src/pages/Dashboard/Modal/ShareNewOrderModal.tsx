@@ -154,7 +154,7 @@ const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({ ...props }) => {
           tokenName.getTokenPriceDecimals()
         ).toString()
       : "0";
-    const orderString = `&pt=${tokenName}&po=${orientation}&pl=${lever}&pp=${basePrice}&pst=${sp}&psl=${sl}`;
+    const orderString = `&pt=${props.value.tokenPair}&po=${orientation}&pl=${lever}&pp=${basePrice}&pst=${sp}&psl=${sl}`;
     return `https://arithfi.com/?a=${address
       ?.slice(-8)
       .toLowerCase()}${orderString}/#/futures`;
