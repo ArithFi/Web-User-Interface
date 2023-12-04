@@ -5,8 +5,9 @@ import ArithFiFoot from "./Share/Foot/ArithFiFoot";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import useWindowWidth from "../hooks/useWindowWidth";
-import useArithFi from "../hooks/useArithFi";
 import { KOLClick, KOLWallet } from "../lib/ArithFiRequest";
+import {getQueryVariable} from "../lib/queryVaribale";
+import {useAccount, useNetwork} from "wagmi";
 
 const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
@@ -24,21 +25,8 @@ const MyCopiesPage = lazy(() => import("./Copy/MyCopies"));
 const TokenPage = lazy(() => import("./Token/Token"));
 const App: FC = () => {
   const { headHeight, isBigMobile } = useWindowWidth();
-  const { account, chainsData } = useArithFi();
-
-  const getQueryVariable = (variable: string) => {
-    const query = window.location.search.substring(1);
-    if (query) {
-      const vars = query.split("&");
-      for (let i = 0; i < vars.length; i++) {
-        const pair = vars[i].split("=");
-        if (decodeURIComponent(pair[0]) === variable) {
-          return decodeURIComponent(pair[1]);
-        }
-      }
-    }
-    return null;
-  };
+  const { address } = useAccount();
+  const { chain } = useNetwork();
 
   const handleInviteCode = useCallback(async () => {
     let inviteCode = getQueryVariable("a");
@@ -51,9 +39,9 @@ const App: FC = () => {
       }
     }
 
-    if (inviteCode && account.address) {
+    if (inviteCode && address) {
       if (
-        inviteCode.toLowerCase() === account.address.toLowerCase().slice(-8)
+        inviteCode.toLowerCase() === address.toLowerCase().slice(-8)
       ) {
         return;
       }
@@ -63,7 +51,7 @@ const App: FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          address: account.address,
+          address: address,
           code: inviteCode.toLowerCase(),
           timestamp: new Date().getTime() / 1000,
         }),
@@ -71,7 +59,7 @@ const App: FC = () => {
         console.log(e);
       });
     }
-  }, [account]);
+  }, [address]);
 
   useEffect(() => {
     handleInviteCode();
@@ -86,10 +74,10 @@ const App: FC = () => {
   // count KOL Link with address
   useEffect(() => {
     let code = getQueryVariable("pt");
-    if (code && account.address && chainsData.chainId !== 97) {
-      KOLWallet({ kolLink: window.location.href, wallet: account.address });
+    if (code && address && chain?.id !== 97) {
+      KOLWallet({ kolLink: window.location.href, wallet: address });
     }
-  }, [account.address, chainsData.chainId]);
+  }, [address, chain?.id]);
 
   const MainContent = styled("div")(({ theme }) => {
     return {
