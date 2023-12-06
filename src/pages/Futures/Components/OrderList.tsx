@@ -15,11 +15,13 @@ import FuturesOrderListInfo, {
 } from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
 import { Trans, t } from "@lingui/macro";
+import { isForex } from "../Futures";
 
 interface OrderListProps {
   data: FuturesOrderService;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 const OrderList: FC<OrderListProps> = ({ ...props }) => {
@@ -127,33 +129,46 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
         </FuturesOrderListInfo>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
-        <MainButton
-          title={t`Limit`}
-          onClick={() =>
-            props.buttonCallBack({
-              data: props.data,
-              type: FuturesModalType.editLimit,
-            })
-          }
-          style={{ height: "40px", fontSize: 14 }}
-        />
-        <MainButton
-          title={showTriggerTitle}
-          onClick={() =>
-            props.buttonCallBack({
-              data: props.data,
-              type: FuturesModalType.trigger,
-            })
-          }
-          style={{ height: "40px", fontSize: 14 }}
-        />
-        <MainButton
-          title={mainButtonTitle}
-          isLoading={mainButtonLoading}
-          disable={mainButtonDis}
-          onClick={mainButtonAction}
-          style={{ height: "40px", fontSize: 14 }}
-        />
+        {isForex(lever) && !props.forexOpen ? (
+          <>
+            <MainButton
+              title={t`Market Closed`}
+              onClick={() => {}}
+              style={{ height: "40px", fontSize: 14 }}
+              disable
+            />
+          </>
+        ) : (
+          <>
+            <MainButton
+              title={t`Limit`}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.editLimit,
+                })
+              }
+              style={{ height: "40px", fontSize: 14 }}
+            />
+            <MainButton
+              title={showTriggerTitle}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.trigger,
+                })
+              }
+              style={{ height: "40px", fontSize: 14 }}
+            />
+            <MainButton
+              title={mainButtonTitle}
+              isLoading={mainButtonLoading}
+              disable={mainButtonDis}
+              onClick={mainButtonAction}
+              style={{ height: "40px", fontSize: 14 }}
+            />
+          </>
+        )}
       </Stack>
     </Stack>
   );

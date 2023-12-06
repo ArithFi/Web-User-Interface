@@ -17,11 +17,13 @@ import FuturesOrderShare from "./FuturesOrderShare";
 import OrderTablePosition from "./OrderTablePosition";
 import FuturesTableTitle from "./TableTitle";
 import { Trans, t } from "@lingui/macro";
+import { isForex } from "../Futures";
 
 interface FuturesOrderListProps {
   dataArray: Array<FuturesOrderService>;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
+  forexOpen: boolean;
   style?: React.CSSProperties;
 }
 
@@ -56,6 +58,7 @@ const OrderTable: FC<FuturesOrderListProps> = ({ ...props }) => {
         data={item}
         buttonCallBack={props.buttonCallBack}
         updateList={props.updateList}
+        forexOpen={props.forexOpen}
       />
     );
   });
@@ -87,6 +90,7 @@ interface OrderTableRowProps {
   data: FuturesOrderService;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
@@ -178,36 +182,40 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
               {sl}
             </Box>
           </Stack>
-          <Box
-            sx={(theme) => ({
-              width: "12px",
-              height: "12px",
-              cursor: "pointer",
-              "& svg": {
+          {isForex(lever) && !props.forexOpen ? (
+            <></>
+          ) : (
+            <Box
+              sx={(theme) => ({
                 width: "12px",
                 height: "12px",
-                display: "block",
-                "& path": {
-                  fill: theme.normal.text2,
+                cursor: "pointer",
+                "& svg": {
+                  width: "12px",
+                  height: "12px",
+                  display: "block",
+                  "& path": {
+                    fill: theme.normal.text2,
+                  },
                 },
-              },
-              "&:hover svg path": {
-                fill: theme.normal.text0,
-              },
-              "&:active svg path": {
-                fill: theme.normal.text0,
-              },
-            })}
-            component={"button"}
-            onClick={() =>
-              props.buttonCallBack({
-                data: props.data,
-                type: FuturesModalType.trigger,
-              })
-            }
-          >
-            {EditIcon}
-          </Box>
+                "&:hover svg path": {
+                  fill: theme.normal.text0,
+                },
+                "&:active svg path": {
+                  fill: theme.normal.text0,
+                },
+              })}
+              component={"button"}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.trigger,
+                })
+              }
+            >
+              {EditIcon}
+            </Box>
+          )}
         </Stack>
       </TableCell>
       <TableCell>
@@ -226,39 +234,59 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
       </TableCell>
       <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
-          <MainButton
-            title={t`Limit`}
-            onClick={() =>
-              props.buttonCallBack({
-                data: props.data,
-                type: FuturesModalType.editLimit,
-              })
-            }
-            style={{
-              width: "auto",
-              height: "36px",
-              minWidth: "65px",
-              fontSize: 12,
-              paddingLeft: `12px`,
-              paddingRight: `12px`,
-              borderRadius: `8px`,
-            }}
-          />
-          <MainButton
-            title={mainButtonTitle}
-            isLoading={mainButtonLoading}
-            disable={mainButtonDis}
-            onClick={mainButtonAction}
-            style={{
-              width: "auto",
-              height: "36px",
-              minWidth: "65px",
-              fontSize: 12,
-              paddingLeft: `12px`,
-              paddingRight: `12px`,
-              borderRadius: `8px`,
-            }}
-          />
+          {isForex(lever) && !props.forexOpen ? (
+            <MainButton
+              title={t`Market Closed`}
+              onClick={() => {}}
+              style={{
+                width: "auto",
+                height: "36px",
+                minWidth: "65px",
+                fontSize: 12,
+                paddingLeft: `12px`,
+                paddingRight: `12px`,
+                borderRadius: `8px`,
+              }}
+              disable
+            />
+          ) : (
+            <>
+              <MainButton
+                title={t`Limit`}
+                onClick={() =>
+                  props.buttonCallBack({
+                    data: props.data,
+                    type: FuturesModalType.editLimit,
+                  })
+                }
+                style={{
+                  width: "auto",
+                  height: "36px",
+                  minWidth: "65px",
+                  fontSize: 12,
+                  paddingLeft: `12px`,
+                  paddingRight: `12px`,
+                  borderRadius: `8px`,
+                }}
+              />
+              <MainButton
+                title={mainButtonTitle}
+                isLoading={mainButtonLoading}
+                disable={mainButtonDis}
+                onClick={mainButtonAction}
+                style={{
+                  width: "auto",
+                  height: "36px",
+                  minWidth: "65px",
+                  fontSize: 12,
+                  paddingLeft: `12px`,
+                  paddingRight: `12px`,
+                  borderRadius: `8px`,
+                }}
+              />
+            </>
+          )}
+
           <FuturesOrderShare
             component={"button"}
             onClick={() => setShowShareOrderModal(true)}

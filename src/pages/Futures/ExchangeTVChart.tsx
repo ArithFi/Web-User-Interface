@@ -20,6 +20,7 @@ interface ExchangeTVChartProps {
   basePrice?: FuturesPrice;
   basePricePercent?: FuturesPricePercent;
   changeTokenPair: (value: string) => void;
+  forexOpen: boolean;
 }
 
 const ChartDataTitle = styled("div")(({ theme }) => ({
@@ -254,6 +255,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           favList={favPairs}
           basePrice={props.basePrice}
           basePricePercent={props.basePricePercent}
+          forexOpen={props.forexOpen}
         />
         <Stack spacing={"8px"} direction={"row"} alignItems={"center"}>
           <Box
@@ -679,6 +681,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
             favList={favPairs}
             basePrice={props.basePrice}
             basePricePercent={props.basePricePercent}
+            forexOpen={props.forexOpen}
           />
           {/* <Stack>{tokenPairList}</Stack> */}
         </SelectListMenu>

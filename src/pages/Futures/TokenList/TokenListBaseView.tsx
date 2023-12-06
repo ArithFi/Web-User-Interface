@@ -5,18 +5,19 @@ import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
 import { FuturesPrice, FuturesPricePercent, priceToken } from "../Futures";
 import useArithFi from "../../../hooks/useArithFi";
-import { serviceSetFavorites } from "../../../lib/ArithFiRequest"
+import { serviceSetFavorites } from "../../../lib/ArithFiRequest";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 
 interface TokenListBaseViewProps {
   changeTokenPair: (value: string) => void;
   favList: Array<string>;
+  forexOpen: boolean;
   basePrice?: FuturesPrice;
   basePricePercent?: FuturesPricePercent;
 }
 
 const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
-  const {isBigMobile} = useWindowWidth()
+  const { isBigMobile } = useWindowWidth();
   const defaultTabs = useMemo(() => {
     const tab = sessionStorage.getItem("TokenListBaseViewLatestTab");
     return tab ? Number(tab) : 2;
@@ -54,7 +55,11 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
 
   const TabsView = useMemo(() => {
     return (
-      <Stack direction={"row"} spacing={"8px"} paddingX={isBigMobile ? "20px" : "0px"}>
+      <Stack
+        direction={"row"}
+        spacing={"8px"}
+        paddingX={isBigMobile ? "20px" : "0px"}
+      >
         <TokenListBaseViewTabItem
           text={t`Favorites`}
           num={favPairs.length}
@@ -81,7 +86,14 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
         />
       </Stack>
     );
-  }, [allPrice.length, cryptoPrice.length, favPairs.length, forexPrice.length, isBigMobile, tabsValue]);
+  }, [
+    allPrice.length,
+    cryptoPrice.length,
+    favPairs.length,
+    forexPrice.length,
+    isBigMobile,
+    tabsValue,
+  ]);
   const priceList = useMemo(() => {
     if (tabsValue === 0) {
       return favPairs;
@@ -130,12 +142,14 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
             setFav(newArray);
           }}
           isSelected={favPairs.indexOf(item) !== -1}
+          forexPrice={forexPrice}
+          forexOpen={props.forexOpen}
         />
       );
     });
     return <Stack sx={{ overflow: "auto" }}>{list}</Stack>;
-  }, [favPairs, priceList, props, setFav]);
-  const mobileHeight = window.screen.height * 0.6
+  }, [favPairs, forexPrice, priceList, props, setFav]);
+  const mobileHeight = window.screen.height * 0.6;
   return (
     <Stack
       spacing={"8px"}
@@ -156,6 +170,8 @@ interface TokenListBaseViewListItemProps {
   percent: number | undefined;
   onClick: () => void;
   changeFav: (tokenName: string) => void;
+  forexPrice: string[];
+  forexOpen: boolean;
   isSelected?: boolean;
 }
 
@@ -242,6 +258,28 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
             >
               {props.tokenName}
             </Box>
+
+            {props.forexPrice.indexOf(props.tokenName) !== -1 &&
+            !props.forexOpen ? (
+              <Box
+                sx={(theme) => ({
+                  width: "8px",
+                  height: "8px",
+                  "& svg": {
+                    width: "8px",
+                    height: "8px",
+                    display: "block",
+                    "& path": {
+                      path: theme.normal.text3,
+                    },
+                  },
+                })}
+              >
+                {MarketClosed}
+              </Box>
+            ) : (
+              <></>
+            )}
           </Stack>
           <Stack spacing={"4px"} alignItems={"right"}>
             <Box
@@ -351,6 +389,18 @@ const FavIcon1 = (
       d="M23.9935 3.00001C24.755 2.99805 25.4516 3.42873 25.7902 4.11087L31.517 15.6497L44.2886 17.512C45.0409 17.6217 45.666 18.1485 45.9016 18.8713C46.1372 19.5941 45.9426 20.388 45.3994 20.92L36.1098 30.0178L38.3157 42.6561C38.4471 43.4091 38.1378 44.1712 37.5188 44.6196C36.8998 45.0681 36.0793 45.1245 35.4047 44.765L23.9988 38.6856L12.5953 44.7649C11.9204 45.1247 11.0993 45.0681 10.4802 44.619C9.86101 44.1699 9.55222 43.407 9.68468 42.6536L11.9065 30.0177L2.60192 20.9212C2.05787 20.3893 1.86273 19.5948 2.09849 18.8714C2.33425 18.148 2.96006 17.621 3.71305 17.5118L16.554 15.6498L22.2026 4.12009C22.5377 3.43622 23.232 3.00196 23.9935 3.00001ZM24.0103 9.5222L19.6817 18.3575C19.3911 18.9507 18.8264 19.3621 18.1727 19.4569L8.29161 20.8897L15.4571 27.895C15.9292 28.3565 16.1431 29.0212 16.0287 29.6715L14.3349 39.3046L23.0578 34.6543C23.6458 34.3409 24.3513 34.3408 24.9394 34.6542L33.6708 39.3081L31.9884 29.669C31.8752 29.0201 32.0887 28.3571 32.5593 27.8962L39.7158 20.8875L29.9028 19.4567C29.2533 19.362 28.6916 18.9546 28.3999 18.3667L24.0103 9.5222Z"
       fill="#EAAA00"
     />
+  </svg>
+);
+
+const MarketClosed = (
+  <svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="4" cy="4" r="4" fill="#F9F9F9" fill-opacity="0.35" />
   </svg>
 );
 

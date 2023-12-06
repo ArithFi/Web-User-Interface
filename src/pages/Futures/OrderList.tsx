@@ -50,6 +50,7 @@ interface FuturesOrderListProps {
   limitOrderList: FuturesOrderService[];
   historyList: FuturesHistoryService[];
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 export enum FuturesModalType {
@@ -108,6 +109,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           closeOrder={[]}
           price={props.price}
           buttonCallBack={setModalInfoValue}
+          forexOpen={props.forexOpen}
         />
       );
     } else if (tabsValue === 1 && width > 890) {
@@ -116,6 +118,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           dataArray={props.limitOrderList}
           buttonCallBack={setModalInfoValue}
           updateList={props.updateList}
+          forexOpen={props.forexOpen}
         />
       );
     } else if (tabsValue === 2 && width > 890) {
@@ -140,6 +143,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
                 data={item}
                 price={props.price}
                 buttonCallBack={setModalInfoValue}
+                forexOpen={props.forexOpen}
               />
             );
           })}
@@ -170,6 +174,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
                 data={item}
                 buttonCallBack={setModalInfoValue}
                 updateList={props.updateList}
+                forexOpen={props.forexOpen}
               />
             );
           })}
@@ -214,6 +219,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
     }
   }, [
     isBigMobile,
+    props.forexOpen,
     props.historyList,
     props.limitOrderList,
     props.pOrderListV2,

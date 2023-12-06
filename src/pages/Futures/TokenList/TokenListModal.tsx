@@ -13,6 +13,7 @@ interface TokenListModalProps {
   onClose: () => void;
   changeTokenPair: (value: string) => void;
   favList: Array<string>;
+  forexOpen: boolean;
   basePrice?: FuturesPrice;
   basePricePercent?: FuturesPricePercent;
 }
@@ -39,6 +40,7 @@ const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
         <TokenListBaseView
           changeTokenPair={props.changeTokenPair}
           favList={props.favList}
+          forexOpen={props.forexOpen}
           basePrice={props.basePrice}
           basePricePercent={props.basePricePercent}
         />
@@ -46,7 +48,6 @@ const TokenListModal: FC<TokenListModalProps> = ({ ...props }) => {
     </Drawer>
   );
 };
-
 
 interface TokenListModalBaseDrawerProps {
   title: string;
@@ -98,10 +99,17 @@ const TokenListModalTopStack = styled(Stack)(({ theme }) => {
   };
 });
 
-const TokenListModalBaseDrawer: FC<TokenListModalBaseDrawerProps> = ({ children, ...props }) => {
+const TokenListModalBaseDrawer: FC<TokenListModalBaseDrawerProps> = ({
+  children,
+  ...props
+}) => {
   return (
     <TokenListModalBaseBox>
-      <TokenListModalBaseModalStack justifyContent="center" alignItems="center" spacing={0}>
+      <TokenListModalBaseModalStack
+        justifyContent="center"
+        alignItems="center"
+        spacing={0}
+      >
         <TokenListModalTopStack
           direction={"row"}
           justifyContent="space-between"

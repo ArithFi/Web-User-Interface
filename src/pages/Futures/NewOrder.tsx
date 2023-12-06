@@ -5,7 +5,7 @@ import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
 import Agree from "../../components/Agree/Agree";
 import NormalInfo from "../../components/NormalInfo/NormalInfo";
-import { FuturesPrice } from "./Futures";
+import { FuturesPrice, isForex } from "./Futures";
 import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
@@ -28,6 +28,7 @@ interface FuturesNewOrderProps {
   price: FuturesPrice | undefined;
   tokenPair: string;
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
@@ -293,10 +294,14 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
           })}
           component={"button"}
-          onClick={() => setShowLeverModal(true)}
+          onClick={() => {
+            if (!isForex(lever)) {
+              setShowLeverModal(true);
+            }
+          }}
         >
           <Box>{lever}X</Box>
-          <NetworkDownIcon />
+          {!isForex(lever) ? <NetworkDownIcon /> : <></>}
         </Stack>
       </Stack>
     );
@@ -509,6 +514,21 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </Stack>
     );
   }, [showFee, showFeeHoverText, showOpenPrice, showTotalPay, tabsValue]);
+
+  const marketClosedButton = useMemo(() => {
+    return (
+      <MainButton
+        title={t`Market Closed`}
+        onClick={() => {}}
+        style={{
+          height: "48px",
+          fontSize: "16px",
+        }}
+        disable={true}
+      />
+    );
+  }, []);
+
   const openButtons = useMemo(() => {
     return (
       <Stack
@@ -680,7 +700,11 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </Stack>
       {showConnectButton ? <></> : info}
       <Stack spacing={"12px"} width={"100%"}>
-        {showConnectButton ? connectButton : openButtons}
+        {showConnectButton
+          ? connectButton
+          : !isForex(lever) && !props.forexOpen
+          ? openButtons
+          : marketClosedButton}
         {showConnectButton ? <></> : liqPrice}
       </Stack>
     </Stack>

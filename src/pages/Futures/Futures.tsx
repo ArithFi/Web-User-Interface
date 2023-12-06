@@ -23,6 +23,9 @@ export interface FuturesPricePercent {
   [key: string]: number;
 }
 const UPDATE_PRICE = 15;
+export const isForex = (lever: number) => {
+  return lever === 100;
+};
 export const priceToken = [
   "ETH/USDT",
   "BTC/USDT",
@@ -74,6 +77,7 @@ const Futures: FC = () => {
   const [historyList, setHistoryList] = useState<Array<FuturesHistoryService>>(
     []
   );
+  const [forexOpen, setForexOpen] = useState(false);
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
@@ -239,7 +243,6 @@ const Futures: FC = () => {
           .toString()
           .stringToBigNumber(18)
       : undefined;
-
 
     const newPricePercent = percent();
     if (
@@ -431,9 +434,10 @@ const Futures: FC = () => {
           });
           setTokenPair(value);
         }}
+        forexOpen={forexOpen}
       />
     );
-  }, [tokenPair, basePrice, basePricePercent, setSearchParams]);
+  }, [tokenPair, basePrice, basePricePercent, forexOpen, setSearchParams]);
 
   const orderList = useCallback(() => {
     return (
@@ -443,18 +447,27 @@ const Futures: FC = () => {
         limitOrderList={limitOrderList}
         historyList={historyList}
         updateList={handleUpdateList}
+        forexOpen={forexOpen}
       />
     );
-  }, [handleUpdateList, historyList, limitOrderList, orderPrice, pOrderListV2]);
+  }, [
+    forexOpen,
+    handleUpdateList,
+    historyList,
+    limitOrderList,
+    orderPrice,
+    pOrderListV2,
+  ]);
   const newOrder = useCallback(() => {
     return (
       <FuturesNewOrder
         price={basePrice}
         tokenPair={tokenPair}
         updateList={handleUpdateList}
+        forexOpen={forexOpen}
       />
     );
-  }, [basePrice, handleUpdateList, tokenPair]);
+  }, [basePrice, forexOpen, handleUpdateList, tokenPair]);
   const moreInfo = useCallback(() => {
     return <FuturesMoreInfo />;
   }, []);

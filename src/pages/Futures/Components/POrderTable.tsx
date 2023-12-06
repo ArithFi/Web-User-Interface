@@ -9,7 +9,7 @@ import MainButton from "../../../components/MainButton/MainButton";
 import useFuturesPOrder from "../../../hooks/useFuturesPOrder";
 
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
-import { FuturesPrice } from "../Futures";
+import { FuturesPrice, isForex } from "../Futures";
 import {
   FuturesModalInfo,
   FuturesModalType,
@@ -25,6 +25,7 @@ interface FuturesPOrderListProps {
   closeOrder: Array<FuturesOrderService>;
   price: FuturesPrice | undefined;
   buttonCallBack: (value: FuturesModalInfo) => void;
+  forexOpen: boolean;
   style?: React.CSSProperties;
 }
 
@@ -36,6 +37,7 @@ const POrderTable: FC<FuturesPOrderListProps> = ({ ...props }) => {
         data={item}
         price={props.price}
         buttonCallBack={props.buttonCallBack}
+        forexOpen={props.forexOpen}
       />
     );
   });
@@ -88,6 +90,7 @@ interface POrderTableRowProps {
   data: FuturesOrderService;
   price: FuturesPrice | undefined;
   buttonCallBack: (value: FuturesModalInfo) => void;
+  forexOpen: boolean;
 }
 const EditIcon = (
   <svg
@@ -222,7 +225,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
               {sl}
             </Box>
           </Stack>
-          {props.data.copy ? (
+          {props.data.copy || (isForex(lever) && !props.forexOpen) ? (
             <></>
           ) : (
             <Box
@@ -274,16 +277,56 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
       </TableCell>
       <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
-          {props.data.copy ? (
-            <></>
-          ) : (
+          {isForex(lever) && !props.forexOpen ? (
             <>
               <MainButton
-                title={t`Add`}
+                title={t`Market Closed`}
+                onClick={() => {}}
+                style={{
+                  width: "auto",
+                  height: "36px",
+                  minWidth: "65px",
+                  fontSize: 12,
+                  paddingLeft: `12px`,
+                  paddingRight: `12px`,
+                  borderRadius: `8px`,
+                }}
+                disable
+              />
+            </>
+          ) : (
+            <>
+              {props.data.copy ? (
+                <></>
+              ) : (
+                <>
+                  <MainButton
+                    title={t`Add`}
+                    onClick={() =>
+                      props.buttonCallBack({
+                        data: props.data,
+                        type: FuturesModalType.add,
+                      })
+                    }
+                    style={{
+                      width: "auto",
+                      height: "36px",
+                      minWidth: "65px",
+                      fontSize: 12,
+                      paddingLeft: `12px`,
+                      paddingRight: `12px`,
+                      borderRadius: `8px`,
+                    }}
+                  />
+                </>
+              )}
+
+              <MainButton
+                title={t`Close`}
                 onClick={() =>
                   props.buttonCallBack({
                     data: props.data,
-                    type: FuturesModalType.add,
+                    type: FuturesModalType.close,
                   })
                 }
                 style={{
@@ -296,45 +339,9 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
                   borderRadius: `8px`,
                 }}
               />
-              {/* <MainButton
-                title={showTriggerTitle}
-                onClick={() =>
-                  props.buttonCallBack({
-                    data: props.data,
-                    type: FuturesModalType.trigger,
-                  })
-                }
-                style={{
-                  width: "auto",
-                  height: "36px",
-                  minWidth: "65px",
-                  fontSize: 12,
-                  paddingLeft: `12px`,
-                  paddingRight: `12px`,
-                  borderRadius: `8px`,
-                }}
-              /> */}
             </>
           )}
 
-          <MainButton
-            title={t`Close`}
-            onClick={() =>
-              props.buttonCallBack({
-                data: props.data,
-                type: FuturesModalType.close,
-              })
-            }
-            style={{
-              width: "auto",
-              height: "36px",
-              minWidth: "65px",
-              fontSize: 12,
-              paddingLeft: `12px`,
-              paddingRight: `12px`,
-              borderRadius: `8px`,
-            }}
-          />
           <FuturesOrderShare
             component={"button"}
             onClick={() => setShowShareOrderModal(true)}
