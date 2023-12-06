@@ -41,26 +41,26 @@ const TokenPairIcon = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M6 10.5C6 9.39543 6.89543 8.5 8 8.5H40C41.1046 8.5 42 9.39543 42 10.5C42 11.6046 41.1046 12.5 40 12.5H8C6.89543 12.5 6 11.6046 6 10.5Z"
       fill="#333333"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M22 19.5C22 18.3954 22.8954 17.5 24 17.5H40C41.1046 17.5 42 18.3954 42 19.5C42 20.6046 41.1046 21.5 40 21.5H24C22.8954 21.5 22 20.6046 22 19.5Z"
       fill="#333333"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M22 28.5C22 27.3954 22.8954 26.5 24 26.5H40C41.1046 26.5 42 27.3954 42 28.5C42 29.6046 41.1046 30.5 40 30.5H24C22.8954 30.5 22 29.6046 22 28.5Z"
       fill="#333333"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M6 37.5C6 36.3954 6.89543 35.5 8 35.5H40C41.1046 35.5 42 36.3954 42 37.5C42 38.6046 41.1046 39.5 40 39.5H8C6.89543 39.5 6 38.6046 6 37.5Z"
       fill="#333333"
     />
@@ -80,11 +80,11 @@ const UpIcon = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M3.43118 1.55296C3.69114 1.12764 4.30888 1.12764 4.56884 1.55296L7.07448 5.65241C7.346 6.09664 7.02629 6.66675 6.50565 6.66675H1.49437C0.97373 6.66675 0.654023 6.09664 0.925545 5.65241L3.43118 1.55296Z"
       fill="#030308"
-      fill-opacity="0.6"
+      fillOpacity="0.6"
     />
   </svg>
 );
@@ -98,11 +98,11 @@ const DownIcon = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M4.56882 6.44704C4.30886 6.87236 3.69112 6.87236 3.43116 6.44704L0.925525 2.34759C0.654003 1.90336 0.973712 1.33325 1.49435 1.33325L6.50563 1.33325C7.02627 1.33325 7.34598 1.90336 7.07446 2.34759L4.56882 6.44704Z"
       fill="#030308"
-      fill-opacity="0.6"
+      fillOpacity="0.6"
     />
   </svg>
 );
@@ -211,9 +211,9 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     const data = await get24HrFromBinance(props.tokenPair);
     if (data) {
       setHr({
-        priceChangePercent: data.priceChangePercent,
-        highPrice: data.highPrice,
-        lowPrice: data.lowPrice,
+        priceChangePercent: String(data.priceChangePercent),
+        highPrice: String(data.highPrice),
+        lowPrice: String(data.lowPrice),
       });
     }
   }, [props.tokenPair]);
