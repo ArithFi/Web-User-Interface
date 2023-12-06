@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { copyAllKOL, copyMyTradeInfo } from "../../../lib/ArithFiRequest";
+import {useEffect, useMemo, useState} from "react";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
-import { DEFAULT_CHAIN_ID } from "../../../lib/client";
+import {DEFAULT_CHAIN_ID} from "../../../lib/client";
 import {useSearchParams} from "react-router-dom";
+import useSWR from "swr";
 
 export interface AllKOLModel {
   id: string;
@@ -32,30 +33,31 @@ export interface MyTradeInfoModel {
 }
 
 function useCopy() {
-  const { chainsData, account, signature } = useArithFi();
+  const {chainsData, account, signature} = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState<number>(Number(searchParams.get('page')) || 1);
   const [allPage, setAllPage] = useState<number>(1);
-  const { isBigMobile } = useWindowWidth();
+  const {isBigMobile} = useWindowWidth();
+  const pageAmount = isBigMobile ? 5 : 12;
+  const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+  const {data: kolListData, isLoading: isKOLListLoading} = useSWR(`${serviceBaseURL(chainId)}/copy/kol/list?chainId=56&walletAddress=${account.address}&pageNumber=${page}&pageSize=${pageAmount}`, (url: string) => fetch(url).then((res) => res.json()), {
+    refreshInterval: 3_000,
+  });
+  const {data: myTradeData} = useSWR(signature?.signature ? `${serviceBaseURL(chainId)}/copy/follower/position/info?chainId=${chainId}` : undefined, (url) => fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': signature?.signature!,
+    }
+  }).then((res) => res.json()), {
+    refreshInterval: 3_000,
+  });
 
-  const getAllKOL = useCallback(async () => {
-    const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
-    const pageAmount = isBigMobile ? 5 : 12;
-    setKolList([])
-    const req = await copyAllKOL(
-      chainId,
-      page,
-      pageAmount,
-      account.address ?? "",
-      {
-        Authorization: "",
-      }
-    );
-    if (Number(req["errorCode"]) === 0) {
-      const value = req["value"]["records"];
-      const allItem = req["value"]["total"];
+  useEffect(() => {
+    if (kolListData && Number(kolListData?.["errorCode"]) === 0) {
+      const value = kolListData["value"]["records"];
+      const allItem = kolListData["value"]["total"];
       setAllPage(Math.ceil(allItem / pageAmount));
       const list: Array<AllKOLModel> = value.map((item: any) => {
         const one: AllKOLModel = {
@@ -80,35 +82,26 @@ function useCopy() {
       });
       setKolList(list);
     }
-  }, [account.address, chainsData.chainId, isBigMobile, page]);
+  }, [kolListData]);
 
-  const getMyTradeInfo = useCallback(async () => {
-    if (chainsData.chainId && signature) {
-      const req = await copyMyTradeInfo(chainsData.chainId, {
-        Authorization: signature.signature,
-      });
-      if (Number(req["errorCode"]) === 0) {
-        const value = req["value"];
-        const info: MyTradeInfoModel = {
-          assets: value["assets"],
-          copyOrders: value["copyOrders"],
-          unRealizedPnl: value["unRealizedPnl"],
-          profit: value["profit"],
-        };
-        setMyTradeInfo(info);
-      }
+  useEffect(() => {
+    if (myTradeData && Number(myTradeData?.["errorCode"]) === 0) {
+      const value = myTradeData["value"];
+      const info: MyTradeInfoModel = {
+        assets: value["assets"],
+        copyOrders: value["copyOrders"],
+        unRealizedPnl: value["unRealizedPnl"],
+        profit: value["profit"],
+      };
+      setMyTradeInfo(info);
     }
-  }, [chainsData.chainId, signature]);
+  }, [myTradeData]);
 
   const hideMyTrade = useMemo(() => {
     return !signature;
   }, [signature]);
 
-  useEffect(() => {
-    getAllKOL();
-    getMyTradeInfo();
-  }, [getAllKOL, getMyTradeInfo]);
-  return { kolList, myTradeInfo, setPage, allPage, hideMyTrade, page };
+  return {kolList, myTradeInfo, setPage, allPage, hideMyTrade, page, isKOLListLoading};
 }
 
 export default useCopy;
