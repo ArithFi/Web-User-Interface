@@ -23,7 +23,6 @@ const BACK = (
 
 interface CopyRouteProps {
   title: string;
-  link: string;
 }
 
 const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
@@ -44,7 +43,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
           alignItems={"center"}
           spacing={"4px"}
           onClick={() => {
-            window.location.href = props.link;
+            window.history.go(-1);
           }}
           paddingY={"16px"}
           paddingX={"20px"}
@@ -78,7 +77,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
         </Stack>
       </Stack>
     );
-  }, [props.link]);
+  }, []);
 
   const pc = useMemo(() => {
     return (
@@ -109,7 +108,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
             },
           })}
           onClick={() => {
-            window.location.href = props.link;
+            window.history.go(-1);
           }}
         >
           <Trans>Copy Trading</Trans>
@@ -123,7 +122,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
         </Box>
       </Stack>
     );
-  }, [props.link, props.title]);
+  }, [props.title]);
   return <>{isBigMobile ? mobile : pc}</>;
 };
 

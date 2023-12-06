@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import { Trans, t } from "@lingui/macro";
 import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import TraderCurrent from "./Components/TraderCurrent";
-import TraderFollowers from "./Components/TraderFollowers";
 import CopyRoute from "./Components/CopyRoute";
 import TraderChartView from "./Components/TraderChartView";
 import KolInfo from "./Components/KolInfo";
@@ -118,7 +117,7 @@ const Trader: FC = () => {
           }}
         >
           <Stack spacing={"24px"} maxWidth={"1200px"} width={"100%"}>
-            <CopyRoute title={t`Trader Profile`} link={"/#/copy"} />
+            <CopyRoute title={t`Trader Profile`} />
             <KolInfo data={kolInfo} />
           </Stack>
         </Stack>

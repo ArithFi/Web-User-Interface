@@ -197,7 +197,7 @@ const MyCopies: FC = () => {
         address={openStopModal}
       />
       <Stack maxWidth={"1200px"} spacing={"24px"} width={"100%"}>
-        <CopyRoute title={t`My Copies`} link={"/#/copy"} />
+        <CopyRoute title={t`My Copies`}/>
         <Stack paddingX={["20px", "20px", "0px"]}>
           <Stack
             direction={["column", "column", "row"]}

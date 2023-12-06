@@ -11,6 +11,7 @@ import Pagination from "@mui/material/Pagination";
 import useTheme from "../../hooks/useTheme";
 import { LJ1, LJ2 } from "../../components/icons";
 import { useLanguageWithCopyDoc } from "../../hooks/useLanguageWithDoc";
+import {useSearchParams} from "react-router-dom";
 
 const MY_COPY_ICON = (
   <svg
@@ -193,7 +194,9 @@ const Copy: FC = () => {
     setPage,
     allPage,
     hideMyTrade,
+    page,
   } = useCopy();
+  const [_, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -550,10 +553,14 @@ const Copy: FC = () => {
           })}
         >
           <Pagination
+            page={page}
             count={allPage}
             variant="outlined"
             shape="rounded"
             onChange={(event: React.ChangeEvent<unknown>, value: number) => {
+              setSearchParams({
+                page: value.toString(),
+              })
               setPage(value);
             }}
           />

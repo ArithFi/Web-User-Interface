@@ -3,6 +3,7 @@ import { copyAllKOL, copyMyTradeInfo } from "../../../lib/ArithFiRequest";
 import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
+import {useSearchParams} from "react-router-dom";
 
 export interface AllKOLModel {
   id: string;
@@ -34,7 +35,8 @@ function useCopy() {
   const { chainsData, account, signature } = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
-  const [page, setPage] = useState<number>(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState<number>(Number(searchParams.get('page')) || 1);
   const [allPage, setAllPage] = useState<number>(1);
   const { isBigMobile } = useWindowWidth();
 
@@ -106,7 +108,7 @@ function useCopy() {
     getAllKOL();
     getMyTradeInfo();
   }, [getAllKOL, getMyTradeInfo]);
-  return { kolList, myTradeInfo, setPage, allPage, hideMyTrade };
+  return { kolList, myTradeInfo, setPage, allPage, hideMyTrade, page };
 }
 
 export default useCopy;
