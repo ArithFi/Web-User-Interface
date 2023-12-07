@@ -9,6 +9,7 @@ import ExchangeTVChart from "./ExchangeTVChart";
 import {
   getPriceListV2,
   serviceFutureHistory,
+  serviceIsOpen,
   serviceList,
 } from "../../lib/ArithFiRequest";
 import { getQueryVariable } from "../../lib/queryVaribale";
@@ -368,6 +369,21 @@ const Futures: FC = () => {
       console.log(error);
     }
   }, [account.address, chainsData.chainId, signature]);
+
+  const getForexOpen = useCallback(async () => {
+    try {
+      if (!account.address || !signature) {
+        return;
+      }
+      const base = await serviceIsOpen({ Authorization: signature.signature });
+      if (base) {
+        setForexOpen(base);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [account.address, signature]);
+
   const handleUpdateList = useCallback(() => {
     getList();
     getHistoryList();
@@ -395,8 +411,10 @@ const Futures: FC = () => {
       setOrderPrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
     };
     getOrderPrice();
+    getForexOpen();
     const time = setInterval(() => {
       getOrderPrice();
+      getForexOpen();
     }, UPDATE_PRICE * 1000);
     return () => {
       clearInterval(time);

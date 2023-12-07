@@ -87,7 +87,6 @@ async function baseRequestGetWithHeader(
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    console.log(error);
     return undefined;
   }
 }
@@ -115,7 +114,7 @@ export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
 }
 export function getPriceListV2(): Promise<any> {
-  return baseRequestGet(`https://db.arithfi.com//api/oracle/pair/list`);
+  return baseRequestGet(`https://db.arithfi.com/api/oracle/pair/list`);
 }
 
 /**
@@ -327,6 +326,13 @@ export function serviceFutureHistory(
     `${serviceBaseURL(
       chainId
     )}/op/history/list?chainId=${chainId}&address=${address}`,
+    info
+  );
+}
+
+export function serviceIsOpen(info: RequestBodyInterface) {
+  return baseRequestGetWithHeader(
+    `https://db.arithfi.com/api/oracle/price/forex/isopen`,
     info
   );
 }
