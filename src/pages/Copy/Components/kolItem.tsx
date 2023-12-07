@@ -599,17 +599,17 @@ export const KolItemSkeleton = () => {
             <Skeleton variant={'text'} width={80} height={16} />
           </Stack>
         </Stack>
-        <Skeleton variant={'rectangular'} width={'100%'} height={48} />
+        <Skeleton variant={'rounded'} width={'100%'} height={48} />
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Skeleton variant={'rectangular'} width={80} height={40} />
-          <Skeleton variant={'rectangular'} width={80} height={40} />
-          <Skeleton variant={'rectangular'} width={80} height={40} />
+          <Skeleton variant={'rounded'} width={80} height={40} />
+          <Skeleton variant={'rounded'} width={80} height={40} />
+          <Skeleton variant={'rounded'} width={80} height={40} />
         </Stack>
-        <Skeleton variant={'rectangular'} width={'100%'} height={40} />
+        <Skeleton variant={'rounded'} width={'100%'} height={40} />
       </Stack>
     </Grid>
   );
