@@ -702,7 +702,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       <Stack spacing={"12px"} width={"100%"}>
         {showConnectButton
           ? connectButton
-          : !isForex(lever) && !props.forexOpen
+          : !isForex(lever) || (isForex(lever) && props.forexOpen)
           ? openButtons
           : marketClosedButton}
         {showConnectButton ? <></> : liqPrice}
