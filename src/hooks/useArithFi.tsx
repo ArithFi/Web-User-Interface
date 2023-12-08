@@ -160,8 +160,7 @@ function useMainReact() {
     return (
       (/Chrome/i.test(userAgent) && /Mobile/i.test(userAgent)) ||
       (/iPad|iPhone|iPod/.test(userAgent) &&
-        !/CriOS/.test(userAgent) &&
-        !/FxiOS/.test(userAgent))
+        !/CriOS/.test(userAgent))
     );
   }
 
