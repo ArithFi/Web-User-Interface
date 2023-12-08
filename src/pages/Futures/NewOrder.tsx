@@ -72,7 +72,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     openCallBack,
     clearTPSLError,
     showDepositError,
-    setShowConnect,
+    showConnectModal,
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
@@ -597,14 +597,14 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     return (
       <MainButton
         title={t`Connect Wallet`}
-        onClick={() => setShowConnect(true)}
+        onClick={showConnectModal}
         style={{
           height: "48px",
           fontSize: "16px",
         }}
       />
     );
-  }, [setShowConnect]);
+  }, [showConnectModal]);
 
   const liqPrice = useMemo(() => {
     return (
