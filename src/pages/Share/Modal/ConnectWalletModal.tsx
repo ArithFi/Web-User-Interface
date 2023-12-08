@@ -249,7 +249,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
       })}
     </Stack>
   );
-  console.log(wallets.slice(3, 6))
+  console.log(wallets)
   const Row2 = (
     <Stack
       direction={"row"}

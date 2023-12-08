@@ -11,7 +11,7 @@ function useThemeBase() {
     return localStorage.getItem("themeIsWhite") === "1";
   }, []);
   const defaultTheme = useMemo(() => {
-    return localThemeIsBlack ? darkTheme : whiteTheme;
+    return localThemeIsBlack ? whiteTheme : darkTheme;
   }, [localThemeIsBlack]);
   /**
    * Theme

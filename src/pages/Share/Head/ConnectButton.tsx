@@ -17,6 +17,8 @@ import {
 } from "../../../components/icons";
 import SelectListMenu from "../../../components/SelectListMemu/SelectListMenu";
 import Divider from "@mui/material/Divider";
+import { useWalletConnectors } from "../../../lib/RainbowOptions/useWalletConnectors";
+import { setWalletConnectDeepLink } from "../../../lib/RainbowOptions/walletConnectDeepLink";
 
 const AddressStack = styled(Stack)(({ theme }) => ({
   height: 36,
@@ -87,11 +89,12 @@ interface ConnectButtonProps {
 }
 
 const ConnectButton: FC<ConnectButtonProps> = ({ ...props }) => {
-  const { account, setShowConnect, checkSigned, disconnect } = useArithFi();
+  const { account, setShowConnect, checkSigned, disconnect, isMobileBrowser } = useArithFi();
   const [openModal, setOpenModal] = useState(false);
   const walletIcon = useWalletIcon();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const wallets = useWalletConnectors();
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -256,7 +259,31 @@ const ConnectButton: FC<ConnectButtonProps> = ({ ...props }) => {
         <MainButton
           title={t`Connect Wallet`}
           onClick={() => {
-            setShowConnect(true);
+            if (isMobileBrowser()) {
+              wallets[1].connect?.()
+              wallets[1].onConnecting?.(async () => {
+                const getMobileUri = wallets[1].mobile?.getUri;
+                if (getMobileUri) {
+                  const mobileUri = await getMobileUri();
+                    setWalletConnectDeepLink({
+                      mobileUri: mobileUri,
+                      name: wallets[1].name,
+                    });
+      
+                  if (mobileUri.startsWith("http")) {
+                    const link = document.createElement("a");
+                    link.href = mobileUri;
+                    link.target = "_blank";
+                    link.rel = "noreferrer noopener";
+                    link.click();
+                  } else {
+                    window.location.href = mobileUri;
+                  }
+                }
+              });
+            } else {
+              setShowConnect(true);
+            }
           }}
           style={{
             height: "36px",

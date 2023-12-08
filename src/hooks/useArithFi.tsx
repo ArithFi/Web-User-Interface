@@ -148,6 +148,14 @@ function useMainReact() {
     }
   }, [account.address, checkSigned]);
 
+  function isMobileBrowser() {
+    const userAgent = navigator.userAgent;
+    return (
+      (/Chrome/i.test(userAgent) && /Mobile/i.test(userAgent)) ||
+      (/Safari/i.test(userAgent) && /Mobile/i.test(userAgent))
+    );
+  }
+
   return {
     showConnect,
     setShowConnect,
@@ -160,6 +168,7 @@ function useMainReact() {
     checkSigned,
     signature,
     setSignature,
+    isMobileBrowser,
   };
 }
 const ArithFi = createContainer(useMainReact);
