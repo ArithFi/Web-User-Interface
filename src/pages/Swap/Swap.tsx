@@ -220,6 +220,7 @@ const Swap: FC = () => {
           selectToken={selectToken}
         >
           <input
+            type="number"
             placeholder={"0.0"}
             value={inputAmount}
             maxLength={32}

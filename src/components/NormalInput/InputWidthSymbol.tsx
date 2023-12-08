@@ -51,6 +51,7 @@ const InputWithSymbol: FC<InputWithSymbolProps> = ({ ...props }) => {
         })}
         disabled={props.dis}
         component={"input"}
+        type={"number"}
         placeholder={props.placeholder}
         value={props.value}
         maxLength={32}
@@ -136,6 +137,7 @@ export const InputWithSymbolWithSelect: FC<InputWithSymbolWithSelectProps> = ({
           })}
           disabled={props.dis}
           component={"input"}
+          type={"number"}
           placeholder={props.placeholder[props.selected]}
           value={props.value}
           maxLength={32}

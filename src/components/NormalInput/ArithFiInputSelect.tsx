@@ -164,6 +164,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
           onChange={(e) =>
             props.changeArithFiAmount(e.target.value.formatInputNum())
           }
+          type={"number"}
         />
         <SelectToken
           direction={"row"}

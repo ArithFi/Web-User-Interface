@@ -180,6 +180,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
               onChange={(e) => {
                 setFollowingValue(e.target.value.formatInputNum4());
               }}
+              type="number"
             ></Box>
             <Box
               sx={(theme) => ({
