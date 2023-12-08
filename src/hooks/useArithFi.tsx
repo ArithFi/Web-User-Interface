@@ -152,6 +152,7 @@ function useMainReact() {
 
   function isMobileBrowser() {
     const userAgent = navigator.userAgent;
+    alert(userAgent)
     return (
       (/Chrome/i.test(userAgent) && /Mobile/i.test(userAgent)) ||
       (/Safari/i.test(userAgent) && /Mobile/i.test(userAgent))
