@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import useArithFi, { ArithFiProvider } from "../hooks/useArithFi";
 import useTheme, { SetThemeProvider } from "../hooks/useTheme";
 import { PendingTransactionsProvider } from "../hooks/useTransactionReceipt";
@@ -9,7 +9,8 @@ import WalletProvider from "./client";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { defaultLocale, dynamicActivate } from "../locales/i18n";
-import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { setWalletConnectDeepLink } from "./RainbowOptions/walletConnectDeepLink";
+import { useWalletConnectors } from "./RainbowOptions/useWalletConnectors";
 
 export interface ProviderProps {
   children?: React.ReactNode;
@@ -37,19 +38,47 @@ const MainProvider: FC<ProviderProps> = ({ children }) => {
 };
 
 const ConnectWallet: FC = () => {
-  const { showConnect, setShowConnect } = useArithFi();
-  // const { openConnectModal } = useConnectModal();
-  // useEffect(() => {
-  //   if (showConnect) {
-  //     openConnectModal?.();
-  //   }
-  // }, [openConnectModal, showConnect]);
-  return (
-    <ConnectWalletModal
-      open={showConnect}
-      onClose={() => setShowConnect(false)}
-    />
-  );
+  const { showConnect, setShowConnect, isMobileBrowser } = useArithFi();
+  const wallets = useWalletConnectors();
+  useEffect(() => {
+    if (isMobileBrowser()) {
+      wallets[1].connect?.();
+      wallets[1].onConnecting?.(async () => {
+        const getMobileUri = wallets[1].mobile?.getUri;
+        if (getMobileUri) {
+          const mobileUri = await getMobileUri();
+          setWalletConnectDeepLink({
+            mobileUri: mobileUri,
+            name: wallets[1].name,
+          });
+
+          if (mobileUri.startsWith("http")) {
+            const link = document.createElement("a");
+            link.href = mobileUri;
+            link.target = "_blank";
+            link.rel = "noreferrer noopener";
+            link.click();
+          } else {
+            window.location.href = mobileUri;
+          }
+        }
+      });
+    }
+  }, [isMobileBrowser, wallets]);
+
+  const modal = useMemo(() => {
+    if (isMobileBrowser()) {
+      return <></>;
+    } else {
+      return (
+        <ConnectWalletModal
+          open={showConnect}
+          onClose={() => setShowConnect(false)}
+        />
+      );
+    }
+  }, [isMobileBrowser, setShowConnect, showConnect]);
+  return modal;
 };
 
 const ArithFiThemeProvider: FC<ProviderProps> = ({ children }) => {
