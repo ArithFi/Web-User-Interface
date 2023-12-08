@@ -151,11 +151,17 @@ function useMainReact() {
   }, [account.address, checkSigned]);
 
   function isMobileBrowser() {
+    const hasEthereum = !!(window as any).ethereum;
+    const hasWeb3 = !!(window as any).web3;
+    if (hasEthereum || hasWeb3) {
+      return false;
+    }
     const userAgent = navigator.userAgent;
-    alert(userAgent)
     return (
       (/Chrome/i.test(userAgent) && /Mobile/i.test(userAgent)) ||
-      (/Safari/i.test(userAgent) && /Mobile/i.test(userAgent))
+      (/iPad|iPhone|iPod/.test(userAgent) &&
+        !/CriOS/.test(userAgent) &&
+        !/FxiOS/.test(userAgent))
     );
   }
 
