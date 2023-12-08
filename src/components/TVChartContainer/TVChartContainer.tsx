@@ -112,6 +112,13 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
             setPeriod(period);
           }
         });
+      // @ts-ignore
+      tvWidgetRef.current?.activeChart().createStudy("Volume", false, false, tvWidgetRef.current?.activeChart().resolution()
+        , {
+          "length": 5,
+          "showLabelsOnPriceScale": false,
+          "Plot.color": "rgba(210,137,52,0.7)",
+        }, {})
       tvWidgetRef.current?.activeChart().dataReady(() => {
         setChartDataLoading(false);
       });
@@ -124,7 +131,7 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
         setChartDataLoading(true);
       }
     };
-  }, [nowTheme, tvWidgetRef.current, isMobile]);
+  }, [nowTheme, tvWidgetRef.current, isMobile, symbolRef]);
 
   return (
     <Box sx={(theme) => ({
