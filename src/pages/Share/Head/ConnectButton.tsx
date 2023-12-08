@@ -8,13 +8,7 @@ import useArithFi from "../../../hooks/useArithFi";
 import useWalletIcon from "../../../hooks/uswWalletIcon";
 import MyWalletModal from "../Modal/MyWalletModal";
 import { Trans, t } from "@lingui/macro";
-import { Link } from "react-router-dom";
-import {
-  AccountDashboard,
-  AccountIcon,
-  AccountOut,
-  NetworkDownIcon,
-} from "../../../components/icons";
+import { AccountOut, NetworkDownIcon } from "../../../components/icons";
 import SelectListMenu from "../../../components/SelectListMemu/SelectListMenu";
 import Divider from "@mui/material/Divider";
 
@@ -87,8 +81,7 @@ interface ConnectButtonProps {
 }
 
 const ConnectButton: FC<ConnectButtonProps> = ({ ...props }) => {
-  const { account, setShowConnect, checkSigned, disconnect, isMobileBrowser } =
-    useArithFi();
+  const { account, showConnectModal, checkSigned, disconnect } = useArithFi();
   const [openModal, setOpenModal] = useState(false);
   const walletIcon = useWalletIcon();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -256,9 +249,7 @@ const ConnectButton: FC<ConnectButtonProps> = ({ ...props }) => {
       ) : (
         <MainButton
           title={t`Connect Wallet`}
-          onClick={() => {
-            setShowConnect(true);
-          }}
+          onClick={showConnectModal}
           style={{
             height: "36px",
             fontSize: 12,

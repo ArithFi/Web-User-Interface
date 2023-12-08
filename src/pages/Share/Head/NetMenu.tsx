@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { FC, useMemo, useState } from "react";
-import { BNBLogo, NetworkDownIcon, ScrollIcon } from "../../../components/icons";
+import { BNBLogo, NetworkDownIcon } from "../../../components/icons";
 import OneIconWithString from "../../../components/IconWithString/OneIconWithString";
 import SelectListMenu from "../../../components/SelectListMemu/SelectListMenu";
 import useArithFi from "../../../hooks/useArithFi";
@@ -43,7 +43,7 @@ const networkArray = [
 ];
 
 const NetMenu: FC = () => {
-  const { chainsData, setShowConnect } = useArithFi();
+  const { chainsData, showConnectModal } = useArithFi();
   const { width: widthLv } = useWindowWidth();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -108,7 +108,7 @@ const NetMenu: FC = () => {
               if (chainsData && chainsData.switchNetwork) {
                 chainsData.switchNetwork(item.chainId);
               } else {
-                setShowConnect(true);
+                showConnectModal();
               }
               handleClose();
             }}
@@ -116,7 +116,7 @@ const NetMenu: FC = () => {
         </Stack>
       );
     });
-  }, [chainsData, nowChainName, setShowConnect]);
+  }, [chainsData, nowChainName, showConnectModal]);
   return (
     <>
       <NetButton

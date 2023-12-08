@@ -24,7 +24,7 @@ interface SwapToken {
 const SWAP_UPDATE = 30;
 
 function useSwap() {
-  const { chainsData, account, setShowConnect } = useArithFi();
+  const { chainsData, account, showConnectModal } = useArithFi();
   const swapTokenOfChain = useCallback(() => {
     return {
       src: "USDT",
@@ -333,7 +333,7 @@ function useSwap() {
   }, [account.address, checkBalance]);
   const mainButtonAction = useCallback(() => {
     if (!account.address) {
-      setShowConnect(true);
+      showConnectModal();
     } else if (mainButtonLoading || !checkBalance) {
       return;
     } else if (!checkAllowance) {
@@ -347,7 +347,7 @@ function useSwap() {
     checkAllowance,
     checkBalance,
     mainButtonLoading,
-    setShowConnect,
+    showConnectModal,
     swapTTT,
     tokenApprove,
   ]);

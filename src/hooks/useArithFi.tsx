@@ -8,6 +8,8 @@ import {
   useSwitchNetwork,
 } from "wagmi";
 import { NavItems } from "../pages/Share/Head/ArithFiHead";
+import { setWalletConnectDeepLink } from "../lib/RainbowOptions/walletConnectDeepLink";
+import { useWalletConnectors } from "../lib/RainbowOptions/useWalletConnectors";
 
 export interface signatureData {
   address: string;
@@ -18,7 +20,7 @@ export interface signatureData {
 
 function useMainReact() {
   const [showConnect, setShowConnect] = useState(false);
-
+  const wallets = useWalletConnectors();
   /**
    * wallet
    */
@@ -156,8 +158,37 @@ function useMainReact() {
     );
   }
 
+  const showConnectModal = () => {
+    if (isMobileBrowser()) {
+      wallets[1].connect?.();
+      wallets[1].onConnecting?.(async () => {
+        const getMobileUri = wallets[1].mobile?.getUri;
+        if (getMobileUri) {
+          const mobileUri = await getMobileUri();
+          setWalletConnectDeepLink({
+            mobileUri: mobileUri,
+            name: wallets[1].name,
+          });
+
+          if (mobileUri.startsWith("http")) {
+            const link = document.createElement("a");
+            link.href = mobileUri;
+            link.target = "_blank";
+            link.rel = "noreferrer noopener";
+            link.click();
+          } else {
+            window.location.href = mobileUri;
+          }
+        }
+      });
+    } else {
+      setShowConnect(true);
+    }
+  };
+
   return {
     showConnect,
+    showConnectModal,
     setShowConnect,
     account,
     connectData,
