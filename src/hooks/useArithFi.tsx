@@ -159,8 +159,7 @@ function useMainReact() {
     const userAgent = navigator.userAgent;
     return (
       (/Chrome/i.test(userAgent) && /Mobile/i.test(userAgent)) ||
-      (/iPad|iPhone|iPod/.test(userAgent) &&
-        !/CriOS/.test(userAgent))
+      (/iPad|iPhone|iPod/.test(userAgent) && /CriOS|Safari/.test(userAgent))
     );
   }
 
