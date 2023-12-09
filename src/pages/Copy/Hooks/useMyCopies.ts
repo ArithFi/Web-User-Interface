@@ -6,7 +6,9 @@ import {
   copyMyCopiesList,
   copyMyCopiesMyTradersList,
   copyMyTradeInfo,
+  serviceIsOpen,
 } from "../../../lib/ArithFiRequest";
+import { isForex } from "../../Futures/Futures";
 
 export interface MyCopiesList {
   id: number;
@@ -35,12 +37,12 @@ export interface MyCopiesMyTradersList {
   copyAccountBalance: number;
   profit: number;
   follow: boolean;
-  copyTradingAssets:number;
-  unrealizedPnL:number;
+  copyTradingAssets: number;
+  unrealizedPnL: number;
 }
 
 function useMyCopies() {
-  const { chainsData, signature } = useArithFi();
+  const { account, chainsData, signature } = useArithFi();
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [myCopiesList, setMyCopiesList] = useState<Array<MyCopiesList>>([]);
   const [myCopiesHistoryList, setMyCopiesHistoryList] = useState<
@@ -49,6 +51,7 @@ function useMyCopies() {
   const [myCopiesMyTradersList, setMyCopiesMyTradersList] = useState<
     Array<MyCopiesMyTradersList>
   >([]);
+  const [forexOpen, setForexOpen] = useState(false);
 
   const getMyTradeInfo = useCallback(async () => {
     if (chainsData.chainId && signature) {
@@ -129,7 +132,7 @@ function useMyCopies() {
               marketPrice: item["closePrice"],
               lipPrice: item["lipPrice"],
               profitLossRate: item["profitLossRate"],
-              profitLoss:item["profitLoss"],
+              profitLoss: item["profitLoss"],
               kolAddress: item["kolAddress"],
               nickName: item["nickName"],
               avatar: item["avatar"],
@@ -163,7 +166,7 @@ function useMyCopies() {
               avatar: item["avatar"],
               follow: item["follow"] === "true",
               unrealizedPnL: item["unrealizedPnL"],
-              copyTradingAssets: item["copyTradingAssets"]
+              copyTradingAssets: item["copyTradingAssets"],
             };
           }
         );
@@ -174,21 +177,53 @@ function useMyCopies() {
     }
   }, [chainsData.chainId, signature]);
 
+  const getForexOpen = useCallback(async () => {
+    try {
+      if (!account.address || !signature) {
+        return;
+      }
+      const base = await serviceIsOpen({ Authorization: signature.signature });
+      if (base) {
+        setForexOpen(base);
+      }
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+  }, [account.address, signature]);
+
+  const checkCopyNoStop = useCallback(
+    (normal: () => void, no: () => void) => {
+      const hasForexOrder = myCopiesList.filter((item) =>
+        isForex(item.leverage)
+      );
+      if (!forexOpen && hasForexOrder.length > 0) {
+        no();
+      } else {
+        normal();
+      }
+    },
+    [forexOpen, myCopiesList]
+  );
+
   useEffect(() => {
     getMyTradeInfo();
     getMyCopiesList();
     getMyCopiesHistoryList();
     getMyCopiesMyTraderList();
+    getForexOpen();
     const time = setInterval(() => {
       getMyTradeInfo();
       getMyCopiesList();
       getMyCopiesHistoryList();
       getMyCopiesMyTraderList();
+      getForexOpen();
     }, 10 * 1000);
     return () => {
       clearInterval(time);
     };
   }, [
+    getForexOpen,
     getMyCopiesHistoryList,
     getMyCopiesList,
     getMyCopiesMyTraderList,
@@ -206,6 +241,7 @@ function useMyCopies() {
     myCopiesMyTradersList,
     getMyCopiesMyTraderList,
     updateCurrent,
+    checkCopyNoStop,
   };
 }
 

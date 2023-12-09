@@ -767,6 +767,7 @@ msgstr "ArithFi'de Nasıl İşlem Yapılır?"
 msgid "I have read and agreed to the"
 msgstr "Okudum ve kabul ettim"
 
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "I understand"
 msgstr "Anladım"
@@ -1388,6 +1389,8 @@ msgid "Status"
 msgstr "Durum"
 
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1465,6 +1468,10 @@ msgstr "Test BNB"
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "Her bir emir için yatırdığınız sabit miktar. Hizmet ücreti, her emir açıldığında kopya işlem yapılacak olan gerçek marjinden düşülecektir."
+
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
+msgstr ""
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"

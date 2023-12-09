@@ -199,7 +199,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
         sx={(theme) => ({
           paddingX: "20px",
           "&:hover": {
-            backgroundColor: theme.normal.bg1,
+            backgroundColor: theme.normal.text3,
           },
         })}
       >

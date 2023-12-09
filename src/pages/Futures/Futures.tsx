@@ -419,7 +419,7 @@ const Futures: FC = () => {
     return () => {
       clearInterval(time);
     };
-  }, [getPrice]);
+  }, [getForexOpen, getPrice]);
   // update list
   useEffect(() => {
     getList();

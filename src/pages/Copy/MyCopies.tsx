@@ -16,6 +16,7 @@ import {
 } from "../../hooks/useTransactionReceipt";
 import { SnackBarType } from "../../components/SnackBar/NormalSnackBar";
 import { useSearchParams } from "react-router-dom";
+import CopyNoStopModal from "./Components/CopyNoStopModal";
 
 const WALLET = (
   <svg
@@ -56,6 +57,7 @@ const MyCopies: FC = () => {
   const [tabsValue, setTabsValue] = useState(0);
   const [openCopyModal, setOpenCopyModal] = useState<Array<string>>([]);
   const [openStopModal, setOpenStopModal] = useState<string>();
+  const [openNoStopModal, setOpenNoStopModal] = useState(false);
   const { addTransactionNotice } = usePendingTransactionsBase();
   const [searchParams] = useSearchParams();
 
@@ -75,6 +77,7 @@ const MyCopies: FC = () => {
     myCopiesMyTradersList,
     getMyCopiesMyTraderList,
     updateCurrent,
+    checkCopyNoStop,
   } = useMyCopies();
   const profit = (myTradeInfo ? myTradeInfo.profit : 0).floor(2);
   const assets = (myTradeInfo ? myTradeInfo.assets : 0).floor(2);
@@ -117,7 +120,12 @@ const MyCopies: FC = () => {
           copyCallBack={(name: string, address: string) =>
             setOpenCopyModal([name, address])
           }
-          stopCallBack={(address: string) => setOpenStopModal(address)}
+          stopCallBack={(address: string) => {
+            checkCopyNoStop(
+              () => setOpenStopModal(address),
+              () => setOpenNoStopModal(true)
+            );
+          }}
           list={myCopiesMyTradersList}
         />
       );
@@ -125,6 +133,7 @@ const MyCopies: FC = () => {
       return <></>;
     }
   }, [
+    checkCopyNoStop,
     myCopiesHistoryList,
     myCopiesList,
     myCopiesMyTradersList,
@@ -196,8 +205,12 @@ const MyCopies: FC = () => {
         }}
         address={openStopModal}
       />
+      <CopyNoStopModal
+        open={openNoStopModal}
+        onClose={() => setOpenNoStopModal(false)}
+      />
       <Stack maxWidth={"1200px"} spacing={"24px"} width={"100%"}>
-        <CopyRoute title={t`My Copies`}/>
+        <CopyRoute title={t`My Copies`} />
         <Stack paddingX={["20px", "20px", "0px"]}>
           <Stack
             direction={["column", "column", "row"]}
