@@ -14,10 +14,10 @@ import {
   usePendingTransactionsBase,
 } from "../../../hooks/useTransactionReceipt";
 import { SnackBarType } from "../../../components/SnackBar/NormalSnackBar";
-import { DefaultKolIcon } from "../../../components/icons";
-import { MyCopiesMyTradersList } from "../Hooks/useMyCopies";
+import useMyCopies, { MyCopiesMyTradersList } from "../Hooks/useMyCopies";
 import GreyButton from "../../../components/MainButton/GreyButton";
-import {Skeleton} from "@mui/material";
+import { Skeleton } from "@mui/material";
+import CopyNoStopModal from "./CopyNoStopModal";
 
 const WALLET = (
   <svg
@@ -89,6 +89,8 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const { addTransactionNotice } = usePendingTransactionsBase();
   const [myCopiesMyTradersList, setMyCopiesMyTradersList] =
     useState<Array<MyCopiesMyTradersList>>();
+  const [openNoStopModal, setOpenNoStopModal] = useState(false);
+  const { checkCopyNoStop } = useMyCopies();
 
   const nickName = props.data ? props.data.nickName : String().placeHolder;
   const walletAddress = props.data
@@ -202,7 +204,12 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
           />
           <GreyButton
             title={t`Stop Copying`}
-            onClick={() => setOpenStopModal(true)}
+            onClick={() => {
+              checkCopyNoStop(
+                () => setOpenStopModal(true),
+                () => setOpenNoStopModal(true)
+              );
+            }}
             style={{
               fontSize: "14px",
               lineHeight: "20px",
@@ -228,7 +235,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
         />
       );
     }
-  }, [isFollow]);
+  }, [checkCopyNoStop, isFollow]);
 
   const kolIcon = useMemo(() => {
     if (
@@ -255,9 +262,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
         </Box>
       );
     } else {
-      return (
-        <Skeleton variant={'circular'} height={80} width={80} />
-      );
+      return <Skeleton variant={"circular"} height={80} width={80} />;
     }
   }, [props.data?.avatar]);
 
@@ -286,150 +291,148 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
           )}
         </Stack>
 
-        {
-          props.data ? (
-            <Stack spacing={"16px"} alignItems={"center"}>
-              <Stack spacing={"8"} alignItems={"center"}>
-                <Box
-                  sx={(theme) => ({
-                    fontWeight: "700",
-                    fontSize: "24px",
-                    lineHeight: "32px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {nickName}
-                </Box>
-
-                <Stack direction={"row"} spacing={"12px"} alignItems={"center"}>
-                  <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                    <Box
-                      width={"20px"}
-                      height={"20px"}
-                      padding={"4px"}
-                      sx={(theme) => ({
-                        "& svg": {
-                          width: "12px",
-                          height: "12px",
-                          display: "block",
-                          "& path": {
-                            fill: theme.normal.text1,
-                          },
-                        },
-                      })}
-                    >
-                      {WALLET}
-                    </Box>
-                    <Box
-                      sx={(theme) => ({
-                        fontWeight: "400",
-                        fontSize: "12px",
-                        lineHeight: "16px",
-                        color: theme.normal.text1,
-                      })}
-                    >
-                      {walletAddress}
-                    </Box>
-                  </Stack>
-                  <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                    <Box
-                      width={"20px"}
-                      height={"20px"}
-                      padding={"4px"}
-                      sx={(theme) => ({
-                        "& svg": {
-                          width: "12px",
-                          height: "12px",
-                          display: "block",
-                          "& path": {
-                            fill: theme.normal.text1,
-                          },
-                        },
-                      })}
-                    >
-                      {PERCENT}
-                    </Box>
-                    <Box
-                      sx={(theme) => ({
-                        fontWeight: "400",
-                        fontSize: "12px",
-                        lineHeight: "16px",
-                        color: theme.normal.text1,
-                      })}
-                    >
-                      <Trans>Profit Sharing:</Trans>
-                      {rewardRatio}
-                    </Box>
-                  </Stack>
-                </Stack>
-
-                <Stack direction={"row"} spacing={"8px"} alignItems={"center"}>
-                  {props.data && props.data.tags.length > 0 ? (
-                    props.data.tags.map((item) => {
-                      return (
-                        <Box
-                          padding={"3px 4px"}
-                          sx={(theme) => ({
-                            fontWeight: "400",
-                            fontSize: "10px",
-                            lineHeight: "14px",
-                            color: theme.normal.primary,
-                            borderRadius: "4px",
-                            background: theme.normal.bg3,
-                            height: "fit-content",
-                          })}
-                        >
-                          {item}
-                        </Box>
-                      );
-                    })
-                  ) : (
-                    <></>
-                  )}
-                </Stack>
-              </Stack>
-
-              <Stack
-                spacing={"64px"}
-                direction={"row"}
-                alignItems={"center"}
-                sx={{
-                  "& div": {
-                    textAlign: "center",
-                  },
-                }}
-              >
-                {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
-                {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
-                {kolBaseInfo(t`Followers`, currentFollowers)}
-              </Stack>
-
+        {props.data ? (
+          <Stack spacing={"16px"} alignItems={"center"}>
+            <Stack spacing={"8"} alignItems={"center"}>
               <Box
                 sx={(theme) => ({
-                  fontWeight: "400",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: theme.normal.text2,
-                  textAlign: "center",
+                  fontWeight: "700",
+                  fontSize: "24px",
+                  lineHeight: "32px",
+                  color: theme.normal.text0,
                 })}
               >
-                {introduction}
+                {nickName}
               </Box>
 
-              {button}
-            </Stack>
-          ) : (
-            <Stack spacing={"16px"} alignItems={"center"} width={'100%'}>
-              <Skeleton variant={'rounded'} height={32} width={120} />
-              <Skeleton variant={'rounded'} height={42} width={300} />
-              <Stack width={'100%'}>
-                <Skeleton variant={'text'} width={'100%'} height={14} />
-                <Skeleton variant={'text'} width={'100%'} height={14} />
+              <Stack direction={"row"} spacing={"12px"} alignItems={"center"}>
+                <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+                  <Box
+                    width={"20px"}
+                    height={"20px"}
+                    padding={"4px"}
+                    sx={(theme) => ({
+                      "& svg": {
+                        width: "12px",
+                        height: "12px",
+                        display: "block",
+                        "& path": {
+                          fill: theme.normal.text1,
+                        },
+                      },
+                    })}
+                  >
+                    {WALLET}
+                  </Box>
+                  <Box
+                    sx={(theme) => ({
+                      fontWeight: "400",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      color: theme.normal.text1,
+                    })}
+                  >
+                    {walletAddress}
+                  </Box>
+                </Stack>
+                <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+                  <Box
+                    width={"20px"}
+                    height={"20px"}
+                    padding={"4px"}
+                    sx={(theme) => ({
+                      "& svg": {
+                        width: "12px",
+                        height: "12px",
+                        display: "block",
+                        "& path": {
+                          fill: theme.normal.text1,
+                        },
+                      },
+                    })}
+                  >
+                    {PERCENT}
+                  </Box>
+                  <Box
+                    sx={(theme) => ({
+                      fontWeight: "400",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      color: theme.normal.text1,
+                    })}
+                  >
+                    <Trans>Profit Sharing:</Trans>
+                    {rewardRatio}
+                  </Box>
+                </Stack>
               </Stack>
-              <Skeleton variant={'rounded'} width={100} height={40} />
+
+              <Stack direction={"row"} spacing={"8px"} alignItems={"center"}>
+                {props.data && props.data.tags.length > 0 ? (
+                  props.data.tags.map((item) => {
+                    return (
+                      <Box
+                        padding={"3px 4px"}
+                        sx={(theme) => ({
+                          fontWeight: "400",
+                          fontSize: "10px",
+                          lineHeight: "14px",
+                          color: theme.normal.primary,
+                          borderRadius: "4px",
+                          background: theme.normal.bg3,
+                          height: "fit-content",
+                        })}
+                      >
+                        {item}
+                      </Box>
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
+              </Stack>
             </Stack>
-          )
-        }
+
+            <Stack
+              spacing={"64px"}
+              direction={"row"}
+              alignItems={"center"}
+              sx={{
+                "& div": {
+                  textAlign: "center",
+                },
+              }}
+            >
+              {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
+              {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
+              {kolBaseInfo(t`Followers`, currentFollowers)}
+            </Stack>
+
+            <Box
+              sx={(theme) => ({
+                fontWeight: "400",
+                fontSize: "14px",
+                lineHeight: "20px",
+                color: theme.normal.text2,
+                textAlign: "center",
+              })}
+            >
+              {introduction}
+            </Box>
+
+            {button}
+          </Stack>
+        ) : (
+          <Stack spacing={"16px"} alignItems={"center"} width={"100%"}>
+            <Skeleton variant={"rounded"} height={32} width={120} />
+            <Skeleton variant={"rounded"} height={42} width={300} />
+            <Stack width={"100%"}>
+              <Skeleton variant={"text"} width={"100%"} height={14} />
+              <Skeleton variant={"text"} width={"100%"} height={14} />
+            </Stack>
+            <Skeleton variant={"rounded"} width={100} height={40} />
+          </Stack>
+        )}
       </Stack>
     );
   }, [
@@ -477,162 +480,172 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
             <></>
           )}
         </Stack>
-        {
-          props.data ? (
-            <Stack spacing={"24px"} width={"100%"}>
-              <Stack
-                direction={"row"}
-                justifyContent={"space-between"}
-                alignItems={"center"}
-                width={"100%"}
-              >
-                <Stack spacing={"8px"}>
-                  <Stack direction={"row"} spacing={"12px"}>
+        {props.data ? (
+          <Stack spacing={"24px"} width={"100%"}>
+            <Stack
+              direction={"row"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              width={"100%"}
+            >
+              <Stack spacing={"8px"}>
+                <Stack direction={"row"} spacing={"12px"}>
+                  <Box
+                    sx={(theme) => ({
+                      fontWeight: "700",
+                      fontSize: "24px",
+                      lineHeight: "32px",
+                      color: theme.normal.text0,
+                    })}
+                  >
+                    {nickName}
+                  </Box>
+
+                  <Stack
+                    direction={"row"}
+                    spacing={"8px"}
+                    alignItems={"center"}
+                  >
+                    {props.data && props.data.tags.length > 0 ? (
+                      props.data.tags.map((item) => {
+                        return (
+                          <Box
+                            padding={"3px 4px"}
+                            sx={(theme) => ({
+                              fontWeight: "400",
+                              fontSize: "10px",
+                              lineHeight: "14px",
+                              color: theme.normal.primary,
+                              borderRadius: "4px",
+                              background: theme.normal.bg3,
+                              height: "fit-content",
+                            })}
+                          >
+                            {item}
+                          </Box>
+                        );
+                      })
+                    ) : (
+                      <></>
+                    )}
+                  </Stack>
+                </Stack>
+                <Stack direction={"row"} spacing={"12px"} alignItems={"center"}>
+                  <Stack
+                    direction={"row"}
+                    spacing={"4px"}
+                    alignItems={"center"}
+                  >
                     <Box
+                      width={"20px"}
+                      height={"20px"}
+                      padding={"4px"}
                       sx={(theme) => ({
-                        fontWeight: "700",
-                        fontSize: "24px",
-                        lineHeight: "32px",
-                        color: theme.normal.text0,
+                        "& svg": {
+                          width: "12px",
+                          height: "12px",
+                          display: "block",
+                          "& path": {
+                            fill: theme.normal.text1,
+                          },
+                        },
                       })}
                     >
-                      {nickName}
+                      {WALLET}
                     </Box>
-
-                    <Stack direction={"row"} spacing={"8px"} alignItems={"center"}>
-                      {props.data && props.data.tags.length > 0 ? (
-                        props.data.tags.map((item) => {
-                          return (
-                            <Box
-                              padding={"3px 4px"}
-                              sx={(theme) => ({
-                                fontWeight: "400",
-                                fontSize: "10px",
-                                lineHeight: "14px",
-                                color: theme.normal.primary,
-                                borderRadius: "4px",
-                                background: theme.normal.bg3,
-                                height: "fit-content",
-                              })}
-                            >
-                              {item}
-                            </Box>
-                          );
-                        })
-                      ) : (
-                        <></>
-                      )}
-                    </Stack>
+                    <Box
+                      sx={(theme) => ({
+                        fontWeight: "400",
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                        color: theme.normal.text1,
+                      })}
+                    >
+                      {walletAddress}
+                    </Box>
                   </Stack>
-                  <Stack direction={"row"} spacing={"12px"} alignItems={"center"}>
-                    <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                      <Box
-                        width={"20px"}
-                        height={"20px"}
-                        padding={"4px"}
-                        sx={(theme) => ({
-                          "& svg": {
-                            width: "12px",
-                            height: "12px",
-                            display: "block",
-                            "& path": {
-                              fill: theme.normal.text1,
-                            },
+                  <Stack
+                    direction={"row"}
+                    spacing={"4px"}
+                    alignItems={"center"}
+                  >
+                    <Box
+                      width={"20px"}
+                      height={"20px"}
+                      padding={"4px"}
+                      sx={(theme) => ({
+                        "& svg": {
+                          width: "12px",
+                          height: "12px",
+                          display: "block",
+                          "& path": {
+                            fill: theme.normal.text1,
                           },
-                        })}
-                      >
-                        {WALLET}
-                      </Box>
-                      <Box
-                        sx={(theme) => ({
-                          fontWeight: "400",
-                          fontSize: "12px",
-                          lineHeight: "16px",
-                          color: theme.normal.text1,
-                        })}
-                      >
-                        {walletAddress}
-                      </Box>
-                    </Stack>
-                    <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                      <Box
-                        width={"20px"}
-                        height={"20px"}
-                        padding={"4px"}
-                        sx={(theme) => ({
-                          "& svg": {
-                            width: "12px",
-                            height: "12px",
-                            display: "block",
-                            "& path": {
-                              fill: theme.normal.text1,
-                            },
-                          },
-                        })}
-                      >
-                        {PERCENT}
-                      </Box>
-                      <Box
-                        sx={(theme) => ({
-                          fontWeight: "400",
-                          fontSize: "12px",
-                          lineHeight: "16px",
-                          color: theme.normal.text1,
-                        })}
-                      >
-                        <Trans>Profit Sharing:</Trans>
-                        {rewardRatio}
-                      </Box>
-                    </Stack>
-                  </Stack>
-                  <Stack spacing={"64px"} direction={"row"} alignItems={"center"}>
-                    {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
-                    {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
-                    {kolBaseInfo(t`Followers`, currentFollowers)}
+                        },
+                      })}
+                    >
+                      {PERCENT}
+                    </Box>
+                    <Box
+                      sx={(theme) => ({
+                        fontWeight: "400",
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                        color: theme.normal.text1,
+                      })}
+                    >
+                      <Trans>Profit Sharing:</Trans>
+                      {rewardRatio}
+                    </Box>
                   </Stack>
                 </Stack>
-
-                <Stack
-                  direction={"row"}
-                  justifyContent={"flex-end"}
-                  alignItems={"center"}
-                >
-                  {button}
+                <Stack spacing={"64px"} direction={"row"} alignItems={"center"}>
+                  {kolBaseInfo(t`ROI`, kolProfitLossRate + "%")}
+                  {kolBaseInfo(t`AUM(ATF)`, followersAssets)}
+                  {kolBaseInfo(t`Followers`, currentFollowers)}
                 </Stack>
               </Stack>
-              <Box
-                sx={(theme) => ({
-                  fontWeight: "400",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: theme.normal.text2,
-                })}
-              >
-                {introduction}
-              </Box>
-            </Stack>
-          ) : (
-            <Stack spacing={"24px"} width={"100%"}>
+
               <Stack
                 direction={"row"}
-                justifyContent={"space-between"}
+                justifyContent={"flex-end"}
                 alignItems={"center"}
-                width={"100%"}
               >
-                <Stack spacing={"8px"}>
-                  <Skeleton variant={'rounded'} height={32} width={160} />
-                  <Skeleton variant={'rounded'} height={20} width={200} />
-                  <Skeleton variant={'rounded'} height={52} width={320} />
-                </Stack>
-                <Skeleton variant={'rounded'} height={40} width={100} />
-              </Stack>
-              <Stack>
-                <Skeleton variant={'text'} width={'100%'} />
-                <Skeleton variant={'text'} width={200} />
+                {button}
               </Stack>
             </Stack>
-          )
-        }
+            <Box
+              sx={(theme) => ({
+                fontWeight: "400",
+                fontSize: "14px",
+                lineHeight: "20px",
+                color: theme.normal.text2,
+              })}
+            >
+              {introduction}
+            </Box>
+          </Stack>
+        ) : (
+          <Stack spacing={"24px"} width={"100%"}>
+            <Stack
+              direction={"row"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              width={"100%"}
+            >
+              <Stack spacing={"8px"}>
+                <Skeleton variant={"rounded"} height={32} width={160} />
+                <Skeleton variant={"rounded"} height={20} width={200} />
+                <Skeleton variant={"rounded"} height={52} width={320} />
+              </Stack>
+              <Skeleton variant={"rounded"} height={40} width={100} />
+            </Stack>
+            <Stack>
+              <Skeleton variant={"text"} width={"100%"} />
+              <Skeleton variant={"text"} width={200} />
+            </Stack>
+          </Stack>
+        )}
       </Stack>
     );
   }, [
@@ -697,6 +710,10 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
           setOpenStopModal(false);
         }}
         address={props.data ? props.data.walletAddress : ""}
+      />
+      <CopyNoStopModal
+        open={openNoStopModal}
+        onClose={() => setOpenNoStopModal(false)}
       />
       {isBigMobile ? mobile : pc}
     </>

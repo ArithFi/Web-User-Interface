@@ -199,7 +199,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
         sx={(theme) => ({
           paddingX: "20px",
           "&:hover": {
-            backgroundColor: theme.normal.text3,
+            backgroundColor: theme.normal.bg1,
           },
         })}
       >
@@ -269,8 +269,8 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
                     width: "8px",
                     height: "8px",
                     display: "block",
-                    "& path": {
-                      path: theme.normal.text3,
+                    "& circle": {
+                      fill: theme.normal.text3,
                     },
                   },
                 })}
