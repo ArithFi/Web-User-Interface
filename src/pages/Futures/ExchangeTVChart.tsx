@@ -437,13 +437,14 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           </Stack>
         );
       };
+      const topPairsDefault = ["ETH/USDT", "BTC/USDT", "BNB/USDT", "MATIC/USDT", "AUD/USD"]
       const topPairsAddFav = [
         ...favPairs,
-        ...["ETH/USDT", "BTC/USDT", "BNB/USDT", "MATIC/USDT", "AUD/USD"],
+        ...topPairsDefault.filter((item) => favPairs.indexOf(item) === -1),
       ];
       const topPairs = topPairsAddFav
-        .slice(0, 5)
-        .filter((item, index) => topPairsAddFav.indexOf(item) === index);
+        .slice(0, 5);
+
       return (
         <Stack
           direction={"row"}

@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { FC, useCallback, useMemo, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import ArithFiLine from "../../../components/ArithFiLine";
 import Box from "@mui/material/Box";
 import { t } from "@lingui/macro";
@@ -24,7 +24,10 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   }, []);
   const { chainsData, signature, account } = useArithFi();
   const [tabsValue, setTabsValue] = useState(defaultTabs);
-  const [favPairs, setFavPairs] = useState<Array<string>>(props.favList);
+  useEffect(() => {
+    setFavPairs(props.favList)
+  }, [props.favList])
+  const [favPairs, setFavPairs] = useState<Array<string>>([]);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
   const forexPrice = priceToken.slice(-5);
