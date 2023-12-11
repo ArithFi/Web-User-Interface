@@ -268,7 +268,7 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
 msgstr ""
 
 #: src/pages/Account/Share/Menu.tsx
@@ -770,7 +770,7 @@ msgstr "理解しました"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
 msgstr ""
 
 #: src/pages/Share/Modal/SignModal.tsx

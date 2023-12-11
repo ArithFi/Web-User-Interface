@@ -221,7 +221,7 @@ msgstr "Alinéese con los Traders"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "All"
-msgstr ""
+msgstr "TODO"
 
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
@@ -270,8 +270,8 @@ msgstr "Intercambio ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi, un Intercambio Descentralizado de Derivados, Elimina a los Creadores de Mercado y LPs."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi, un Protocolo de Derivados descentralizado que elimina a los Creadores de Mercado y a los Proveedores de Liquidez."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -330,7 +330,7 @@ msgstr "Quemado"
 
 #: src/pages/Futures/TokenList/TokenListModal.tsx
 msgid "Choose Token Pair"
-msgstr ""
+msgstr "Elija el Par de Tokens"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -502,7 +502,7 @@ msgstr "Transferencia de Copia"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Crypto"
-msgstr ""
+msgstr "Cripto"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -676,7 +676,7 @@ msgstr "Solicitud Fallida"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Favorites"
-msgstr ""
+msgstr "Favoritos"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -710,7 +710,7 @@ msgstr "Para los usuarios/contratos inteligentes que utilizan contratos perpetuo
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Forex"
-msgstr ""
+msgstr "Forex"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -774,8 +774,8 @@ msgstr "Entiendo"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Si una Bolsa Centralizada (CEX) quiere introducir nuevos pares de activos, como futuros de oro, para la negociación de futuros, normalmente requieren que los creadores de mercado proporcionen liquidez; de lo contrario, puede haber un alto deslizamiento durante la negociación. Sin embargo, si solo 10 usuarios están interesados en negociar este nuevo activo, las ganancias pueden no cubrir los costos de crear mercado."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "Si un Protocolo Centralizado (CEX) desea introducir nuevos pares de activos, como futuros de ORO, para el comercio de futuros, generalmente requiere que los creadores de mercado proporcionen liquidez; de lo contrario, puede ocurrir un alto deslizamiento durante la negociación. Sin embargo, si solo 10 usuarios están interesados en negociar este nuevo activo, las ganancias pueden no cubrir los costos de la creación de mercado."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -825,7 +825,7 @@ msgstr "Saldo insuficiente. Por favor, deposita para comenzar el trading rápido
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr ""
+msgstr "Integraciones y Socios"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -939,7 +939,7 @@ msgstr "Mercado"
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Closed"
-msgstr ""
+msgstr "Mercado Cerrado"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1469,7 +1469,7 @@ msgstr "La cantidad fija que invertiste para cada orden. La tarifa de servicio s
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
-msgstr ""
+msgstr "El mercado de divisas está cerrado. Por favor, espere a que el mercado abra antes de tomar cualquier acción."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"

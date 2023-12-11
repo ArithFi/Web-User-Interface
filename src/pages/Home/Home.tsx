@@ -52,7 +52,7 @@ const Home = () => {
           </Stack>
           <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'}
                  color={'rgba(249, 249, 249, 1)'}>
-            <Trans>ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.</Trans>
+            <Trans>ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.</Trans>
           </Stack>
           <Stack zIndex={10}>
             <Link to={'/futures'}>
@@ -296,7 +296,7 @@ const Home = () => {
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} mt={'24px'} color={'rgba(3, 3, 8, 0.8)'}>
             <div>
               <Trans>
-                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
                 trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
                 during trading. However, if only 10 users are interested in trading this new asset, the profits may not
                 cover the costs of market making.
@@ -492,7 +492,7 @@ const Home = () => {
           padding: '0 20px',
         }}>
           <Trans>
-            ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
+            ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
         <Stack zIndex={10}>
@@ -881,7 +881,7 @@ const Home = () => {
               </Stack>
               <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.80)'}>
                 <Trans>
-                  If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                  If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
                   trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
                   during trading. However, if only 10 users are interested in trading this new asset, the profits may
                   not cover the costs of market making.

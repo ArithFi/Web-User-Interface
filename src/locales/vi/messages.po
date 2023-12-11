@@ -221,7 +221,7 @@ msgstr "Căn chỉnh với các nhà giao dịch"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
@@ -270,8 +270,8 @@ msgstr "Sàn giao dịch ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi, Một Sàn Giao Dịch Tài Chính Phi Tập Trung Loại Bỏ Các Nhà Tạo Lập Thị Trường và LPs."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi là một giao thức phái sinh phi tập trung (decentralized derivatives protocol) loại bỏ nhà tạo lập thị trường (market makers) và nhà cung cấp thanh khoản (liquidity providers)."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -330,7 +330,7 @@ msgstr "Đã đốt cháy"
 
 #: src/pages/Futures/TokenList/TokenListModal.tsx
 msgid "Choose Token Pair"
-msgstr ""
+msgstr "Chọn Cặp Token"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -502,7 +502,7 @@ msgstr "Chuyển nhượng Copy"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Crypto"
-msgstr ""
+msgstr "Tiền điện tử"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -676,7 +676,7 @@ msgstr "Yêu cầu thất bại"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Favorites"
-msgstr ""
+msgstr "Yêu thích"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -710,7 +710,7 @@ msgstr "Đối với người dùng/hợp đồng thông minh sử dụng hợp 
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Forex"
-msgstr ""
+msgstr "Ngoại hối"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -774,8 +774,8 @@ msgstr "Tôi hiểu"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Nếu một Sàn Giao dịch Tập trung (CEX) muốn giới thiệu các cặp tài sản mới, như hợp đồng tương lai VÀNG, cho giao dịch tương lai, họ thường yêu cầu thợ làm thị trường cung cấp tính thanh khoản; nếu không, có thể xảy ra hiện tượng trượt giá cao trong quá trình giao dịch. Tuy nhiên, nếu chỉ có 10 người dùng quan tâm đến việc giao dịch tài sản mới này, lợi nhuận có thể không đủ để đối phó với chi phí của việc làm thị trường."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "Nếu một giao thức tập trung (CEX) muốn giới thiệu các cặp tài sản mới, chẳng hạn như hợp đồng tương lai vàng, cho giao dịch tương lai, thì thông thường họ yêu cầu nhà tạo lập thị trường cung cấp thanh khoản; nếu không, có thể xảy ra slippage cao trong quá trình giao dịch. Tuy nhiên, nếu chỉ có 10 người dùng quan tâm đến giao dịch tài sản mới này, lợi nhuận có thể không đủ để bù đắp chi phí của việc tạo lập thị trường."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -825,7 +825,7 @@ msgstr "Số dư không đủ. Vui lòng nạp tiền để bắt đầu giao d�
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr ""
+msgstr "Интеграции и партнеры"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -939,7 +939,7 @@ msgstr "Thị trường"
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Closed"
-msgstr ""
+msgstr "Рынок закрыт"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1469,7 +1469,7 @@ msgstr "Số tiền cố định bạn đã đầu tư cho mỗi lệnh. Phí d�
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
-msgstr ""
+msgstr "Рынок валют закрыт. Пожалуйста, дождитесь открытия рынка, прежде чем принимать какие-либо действия."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"

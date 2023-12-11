@@ -221,7 +221,7 @@ msgstr "트레이더와 조율"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "All"
-msgstr ""
+msgstr "모두"
 
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
@@ -270,8 +270,8 @@ msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi는 시장 메이커와 LP를 제거하는 분산형 파생상품 거래소입니다."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi, 분산형 파생상품 프로토콜은 마켓 메이커와 LP를 제거합니다."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -330,7 +330,7 @@ msgstr "소각된"
 
 #: src/pages/Futures/TokenList/TokenListModal.tsx
 msgid "Choose Token Pair"
-msgstr ""
+msgstr "토큰 쌍을 선택하세요"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -502,7 +502,7 @@ msgstr "복사 전송"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Crypto"
-msgstr ""
+msgstr "암호화폐"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -676,7 +676,7 @@ msgstr "요청 실패"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Favorites"
-msgstr ""
+msgstr "즐겨찾기"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -710,7 +710,7 @@ msgstr "Arith Protocol 영속적인 계약을 사용하는 사용자/스마트 �
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Forex"
-msgstr ""
+msgstr "외환"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -774,8 +774,8 @@ msgstr "이해했습니다"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "중앙 집중식 거래소 (CEX)가 금 선물과 같은 새로운 자산 페어를 선물 거래에 도입하려면 일반적으로 시장 메이커가 유동성을 제공하도록 요구합니다. 그렇지 않으면 거래 중에 높은 슬리피지가 발생할 수 있습니다. 그러나 이 새로운 자산을 거래하려는 사용자가 10명뿐이라면, 수익은 시장 메이킹 비용을 커버하지 못할 수 있습니다."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "중앙집중식 프로토콜(Centralized Exchange, CEX)이 선물 거래를 위해 GOLD 선물과 같은 새로운 자산 쌍을 도입하고자 할 때, 일반적으로 시장 메이커들이 유동성을 제공해야 합니다. 그렇지 않으면 거래 중에 높은 슬리피지(slippage)가 발생할 수 있습니다. 그러나 이 새로운 자산에 대해 거래에 관심이 있는 사용자가 단 10명뿐이라면, 수익이 시장 메이킹 비용을 커버하지 못할 수 있습니다."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -825,7 +825,7 @@ msgstr "잔액이 부족합니다. 번개 거래를 시작하려면 입금하세
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr ""
+msgstr "통합 및 파트너"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -939,7 +939,7 @@ msgstr "시장가"
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Closed"
-msgstr ""
+msgstr "시장 폐쇄"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1469,7 +1469,7 @@ msgstr "각 주문에 투자한 고정 금액입니다. 서비스 수수료는 �
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
-msgstr ""
+msgstr "외환 시장이 닫혔습니다. 어떤 조치를 취하기 전에 시장이 열릴 때까지 기다려 주십시오."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"

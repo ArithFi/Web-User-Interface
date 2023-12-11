@@ -221,7 +221,7 @@ msgstr "Diğer Tüccarlarla Uyum Sağlayın"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "All"
-msgstr ""
+msgstr "Tüm"
 
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
@@ -270,8 +270,8 @@ msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi, Piyasa Yapıcılarını ve LP'leri Ortadan Kaldıran Merkezi Olmayan Bir Türev Borsasıdır."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi, Merkezileştirilmemiş Türev Protokolü Piyasa Yapıcılarını ve LP'leri Ortadan Kaldırıyor."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -330,7 +330,7 @@ msgstr "Yakıldı"
 
 #: src/pages/Futures/TokenList/TokenListModal.tsx
 msgid "Choose Token Pair"
-msgstr ""
+msgstr "Token Çifti Seçin"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
@@ -502,7 +502,7 @@ msgstr "Kopya Transferi"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Crypto"
-msgstr ""
+msgstr "Kripto"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -676,7 +676,7 @@ msgstr "Başarısız İstek"
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Favorites"
-msgstr ""
+msgstr "Favoriler"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -710,7 +710,7 @@ msgstr "Arith Protokolü sürekli sözleşmelerini kullanan kullanıcılar/smart
 
 #: src/pages/Futures/TokenList/TokenListBaseView.tsx
 msgid "Forex"
-msgstr ""
+msgstr "Forex"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -774,8 +774,8 @@ msgstr "Anladım"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Eğer Merkezi Olmayan Bir Borsa (CEX), yeni varlık çiftleri eklemek istiyorsa, örneğin ALTIN vadeli işlemleri gibi, vadeli işlem için genellikle piyasa yapıcılarının likidite sağlamaları gerekir; aksi takdirde ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, yalnızca 10 kullanıcının bu yeni varlığı ticaret yapmaya ilgi gösterdiği durumda, karlar piyasa yapma maliyetlerini karşılamayabilir."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "Eğer bir Merkezileştirilmiş Protokol (CEX), örneğin GOLD vadeli işlemleri gibi yeni varlık çiftlerini vadeli işlem ticareti için tanıtmak istiyorsa, genellikle piyasa yapıcıların likidite sağlaması gerekmektedir; aksi takdirde, ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, bu yeni varlıkla ticaret yapmakla ilgilenen sadece 10 kullanıcı varsa, piyasa yapıcılığının maliyetleri kar etmeyebilir."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -825,7 +825,7 @@ msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yat
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr ""
+msgstr "Entegrasyonlar ve Ortaklar"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -939,7 +939,7 @@ msgstr "Piyasa"
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Closed"
-msgstr ""
+msgstr "Piyasa Kapalı"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1471,7 +1471,7 @@ msgstr "Her bir emir için yatırdığınız sabit miktar. Hizmet ücreti, her e
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
-msgstr ""
+msgstr "Döviz piyasası kapalıdır. Herhangi bir işlem yapmadan önce piyasanın açılmasını bekleyiniz."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
