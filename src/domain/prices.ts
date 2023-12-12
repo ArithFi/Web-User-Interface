@@ -41,6 +41,27 @@ export async function getChartPricesFromBinance(
   }
 }
 
+export async function getCurrentPriceOfToken(symbol: string) {
+  const symbolList = symbol.split("/");
+  try {
+    const response = await fetch(
+      `https://db.arithfi.com/api/oracle/price/${symbolList[0]}${symbolList[1]}`
+    );
+    const data = await response.json();
+    return data.value;
+  } catch (e) {
+    console.log(`Error fetching data: ${e}`);
+    if (symbol.includes('/USDT')) {
+      const response = await fetch(
+        `https://api.binance.com/api/v3/ticker/price?symbol=${symbolList[0]}${symbolList[1]}`
+      );
+      const data = await response.json();
+      return data.price;
+    }
+    return null;
+  }
+}
+
 export async function get24HrFromBinance(symbol: string) {
   const symbolList = symbol.split("/");
   try {

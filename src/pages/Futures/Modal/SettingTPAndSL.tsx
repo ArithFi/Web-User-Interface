@@ -156,7 +156,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   value={tp}
                   symbol={""}
                   changeValue={(value: string) => {
-                    setTp(value === "" ? "" : value.formatInputNum6());
+                    setTp(value === "" ? "" : value.formatInputNum7());
                     setTPPercent(value.formatInputNum4());
                   }}
                   isError={tpError}
@@ -170,7 +170,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   symbol={"%"}
                   changeValue={(value: string) => {
                     setTpPercent(value.formatInputNum4());
-                    setTPNum(value.formatInputNum4());
+                    setTPNum(value.formatInputNum7());
                   }}
                   changeSelected={(value: number) => {
                     setTpPercentType(value);
@@ -229,7 +229,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   value={sl}
                   symbol={""}
                   changeValue={(value: string) => {
-                    setSl(value === "" ? "" : value.formatInputNum6());
+                    setSl(value === "" ? "" : value.formatInputNum7());
                     setSLPercent(value.formatInputNum4());
                   }}
                   isError={slError}
@@ -243,7 +243,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
                   symbol={"%"}
                   changeValue={(value: string) => {
                     setSlPercent(value.formatInputNum4());
-                    setSLNum(value.formatInputNum4());
+                    setSLNum(value.formatInputNum7());
                   }}
                   changeSelected={(value: number) => {
                     setSlPercentType(value);
@@ -274,11 +274,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
               value={showOpenPrice}
               symbol={""}
             />
-            <NormalInfo
-              title={t`Liq Price`}
-              value={showLiqPrice}
-              symbol={""}
-            />
+            <NormalInfo title={t`Liq Price`} value={showLiqPrice} symbol={""} />
           </Stack>
         </Stack>
       ) : (

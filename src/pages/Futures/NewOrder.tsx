@@ -123,8 +123,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             if (!isStop) {
               setIsStop(true);
             }
-            setTp(tp.floor(4));
-            setSl(sl.floor(4));
+            setTp(tp.floor(7));
+            setSl(sl.floor(7));
           }}
           lever={lever}
           baseAmount={inputAmount === "" ? 0 : Number(inputAmount)}
@@ -444,7 +444,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
                 value={tp}
                 symbol={""}
                 changeValue={(value: string) => {
-                  setTp(value.formatInputNum4());
+                  setTp(value.formatInputNum7());
                   clearTPSLError();
                 }}
                 isError={isTPError}
@@ -454,7 +454,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
                 value={sl}
                 symbol={""}
                 changeValue={(value: string) => {
-                  setSl(value.formatInputNum4());
+                  setSl(value.formatInputNum7());
                   clearTPSLError();
                 }}
                 isError={isSLError}
@@ -677,7 +677,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             dis={tabsValue === 0}
             symbol={""}
             changeValue={(value: string) => {
-              setLimitAmount(value.formatInputNum6());
+              setLimitAmount(value.formatInputNum7());
             }}
           />
           <InputWithSymbol

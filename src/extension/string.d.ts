@@ -15,6 +15,7 @@ declare global {
     formatInputNum(): string;
     formatInputNum4(): string;
     formatInputNum6(): string;
+    formatInputNum7(): string;
     stringToBigNumber(decimals: number | undefined): BigNumber | undefined;
   }
 }
@@ -111,6 +112,16 @@ String.prototype.formatInputNum6 = function () {
     .replace(/\./g, "")
     .replace("$#$", ".")
     .replace(/^(\-)*(\d+)\.(\d\d\d\d\d\d).*$/, "$1$2.$3")
+    .replace(/^\./g, "");
+};
+
+String.prototype.formatInputNum7 = function () {
+  return this.replace(/[^\d.]/g, "")
+    .replace(/\.{2,}/g, ".")
+    .replace(".", "$#$")
+    .replace(/\./g, "")
+    .replace("$#$", ".")
+    .replace(/^(\-)*(\d+)\.(\d\d\d\d\d\d\d).*$/, "$1$2.$3")
     .replace(/^\./g, "");
 };
 

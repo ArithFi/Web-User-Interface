@@ -1,12 +1,11 @@
 import { BigNumber } from "ethers";
 import { useCallback, useMemo, useState } from "react";
-import { FuturesPrice } from "../pages/Futures/Futures";
+import { FuturesPrice, isForex } from "../pages/Futures/Futures";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 
 import { t } from "@lingui/macro";
 import { serviceClose } from "../lib/ArithFiRequest";
 import useArithFi from "./useArithFi";
-import { da } from "date-fns/locale";
 
 function useFuturesClose(
   data: FuturesOrderService,
@@ -32,47 +31,41 @@ function useFuturesClose(
     if (price && atfBigNumber && orderPrice) {
       const nowPrice = price[token];
       if (atfBigNumber.gte("100000".stringToBigNumber(18)!)) {
-        const cc_top = BigNumber.from("55560000")
-          .mul(atfBigNumber)
-          .mul(BigNumber.from(data.leverage.toString()))
-          .mul(nowPrice)
-          .add(
-            BigNumber.from("444400000000000")
-              .mul(BigNumber.from("10").pow(18))
-              .mul(orderPrice)
-          );
-        const cc_long = BigNumber.from(orderPrice.toString())
-          .mul(nowPrice)
-          .mul(BigNumber.from("10").pow(36))
-          .div(
-            BigNumber.from(orderPrice.toString())
-              .mul(BigNumber.from("10").pow(36))
-              .add(cc_top)
-          );
-        const cc_Short = BigNumber.from(nowPrice)
-          .mul(BigNumber.from(orderPrice.toString()))
-          .mul(BigNumber.from("10").pow(36))
-          .add(cc_top.mul(nowPrice))
-          .div(
-            BigNumber.from(orderPrice.toString()).mul(
-              BigNumber.from("10").pow(36)
-            )
-          );
-        return data.direction ? cc_long : cc_Short;
+        // const cc_top = BigNumber.from("55560000")
+        //   .mul(atfBigNumber)
+        //   .mul(BigNumber.from(data.leverage.toString()))
+        //   .mul(nowPrice)
+        //   .add(
+        //     BigNumber.from("444400000000000")
+        //       .mul(BigNumber.from("10").pow(18))
+        //       .mul(orderPrice)
+        //   );
+        // const cc_long = BigNumber.from(orderPrice.toString())
+        //   .mul(nowPrice)
+        //   .mul(BigNumber.from("10").pow(36))
+        //   .div(
+        //     BigNumber.from(orderPrice.toString())
+        //       .mul(BigNumber.from("10").pow(36))
+        //       .add(cc_top)
+        //   );
+        // const cc_Short = BigNumber.from(nowPrice)
+        //   .mul(BigNumber.from(orderPrice.toString()))
+        //   .mul(BigNumber.from("10").pow(36))
+        //   .add(cc_top.mul(nowPrice))
+        //   .div(
+        //     BigNumber.from(orderPrice.toString()).mul(
+        //       BigNumber.from("10").pow(36)
+        //     )
+        //   );
+        // return data.direction ? cc_long : cc_Short;
+        return nowPrice;
       } else {
         return nowPrice;
       }
     } else {
       return undefined;
     }
-  }, [
-    data.balance,
-    data.direction,
-    data.leverage,
-    data.orderPrice,
-    data.product,
-    price,
-  ]);
+  }, [data.balance, data.orderPrice, data.product, price]);
   const showClosePrice = useMemo(() => {
     if (!closePrice) {
       return String().placeHolder;
@@ -89,16 +82,28 @@ function useFuturesClose(
     }
     const token = data.product.toLocaleUpperCase();
     const nowPrice = parseFloat(
-      price[token].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
+      price[token].bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals())
     );
+    const feeNum = isForex(data.leverage) ? 2 : 5;
     const fee =
-      (((data.leverage * data.balance * 5) / 10000) * nowPrice) /
+      (((data.leverage * data.balance * feeNum) / 10000) * nowPrice) /
       data.orderPrice;
-    return fee.floor(2);
-  }, [data.balance, data.leverage, data.orderPrice, data.product, price]);
+    return fee.floor(4);
+  }, [
+    data.balance,
+    data.leverage,
+    data.orderPrice,
+    data.product,
+    price,
+    tokenPair,
+  ]);
   const feeTip = useMemo(() => {
-    return t`Position*0.05%`;
-  }, []);
+    if (isForex(data.leverage)) {
+      return t`Position*0.02%`;
+    } else {
+      return t`Position*0.05%`;
+    }
+  }, [data.leverage]);
   /**
    * action
    */

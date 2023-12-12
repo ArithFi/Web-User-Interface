@@ -1169,8 +1169,9 @@ msgid "Position"
 msgstr "Posição"
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
+msgid "Position fee = Position * 0.02%"
+msgstr "Taxa de posição = Posição * 0,02%"
+
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.05%"
 msgstr "Taxa de posição = Posição * 0,05%"
@@ -1179,6 +1180,10 @@ msgstr "Taxa de posição = Posição * 0,05%"
 #: src/pages/Account/Futures/Futures.tsx
 msgid "Position Value"
 msgstr "Valor da Posição"
+
+#: src/hooks/useFuturesClose.ts
+msgid "Position*0.02%"
+msgstr "Posição * 0,02%"
 
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"

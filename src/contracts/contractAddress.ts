@@ -229,7 +229,7 @@ export const TokenList: Array<TokenType> = [
     icon: JPYLogo,
     decimals: All18,
     address: ETH,
-    priceDecimals: 5,
+    priceDecimals: 7,
   },
   {
     symbol: "CAD",

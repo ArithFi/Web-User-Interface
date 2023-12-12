@@ -1,5 +1,5 @@
 import {SUPPORTED_RESOLUTIONS} from "../../config/tradingview";
-import {getChartPricesFromBinance} from "../prices";
+import {getChartPricesFromBinance, getCurrentPriceOfToken} from "../prices";
 import {CHART_PERIODS} from "../../lib/legacy";
 import {Bar} from "./types";
 import {formatTimeInBarToMs, getCurrentCandleTime} from "./utils";
@@ -141,25 +141,26 @@ export class TVDataProvider {
     if (ticker !== this.lastBar.ticker) {
       return null
     }
-    const prices = await this.getTokenLastBars(ticker, period, 1);
-    if (!prices.length) return null;
+    const bars = await this.getTokenLastBars(ticker, period, 1);
+    const close_price = await getCurrentPriceOfToken(ticker);
+    if (!bars.length) return null;
     if (this.lastBar.time && currentCandleTime === this.lastBar.time) {
       return {
         ...this.lastBar,
-        close: Number(prices[0].close),
-        high: Number(prices[0].high),
-        low: Number(prices[0].low),
-        volume: Number(prices[0].volume),
+        close: Number(close_price),
+        high: Number(bars[0].high),
+        low: Number(bars[0].low),
+        volume: Number(bars[0].volume),
         ticker,
       };
     } else {
       this.lastBar = {
         time: currentCandleTime,
         open: Number(this.lastBar.close),
-        close: Number(prices[0].close),
-        high: Number(prices[0].high),
-        low: Number(prices[0].low),
-        volume: Number(prices[0].volume),
+        close: Number(close_price),
+        high: Number(bars[0].high),
+        low: Number(bars[0].low),
+        volume: Number(bars[0].volume),
         ticker,
       };
       return this.lastBar;
