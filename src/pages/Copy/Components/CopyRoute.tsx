@@ -13,8 +13,8 @@ const BACK = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M14.2929 24.7071C13.9024 24.3166 13.9024 23.6834 14.2929 23.2929L31.2635 6.32231C31.654 5.93179 32.2871 5.93179 32.6777 6.32231L34.1335 7.77812C34.524 8.16864 34.524 8.80181 34.1335 9.19233L19.3258 24L34.1335 38.8076C34.524 39.1982 34.524 39.8313 34.1335 40.2218L32.6777 41.6777C32.2871 42.0682 31.654 42.0682 31.2635 41.6777L14.2929 24.7071Z"
       fill="#131212"
     />
@@ -23,7 +23,6 @@ const BACK = (
 
 interface CopyRouteProps {
   title: string;
-  link: string;
 }
 
 const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
@@ -44,7 +43,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
           alignItems={"center"}
           spacing={"4px"}
           onClick={() => {
-            window.location.href = props.link;
+            window.history.go(-1);
           }}
           paddingY={"16px"}
           paddingX={"20px"}
@@ -78,7 +77,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
         </Stack>
       </Stack>
     );
-  }, [props.link]);
+  }, []);
 
   const pc = useMemo(() => {
     return (
@@ -109,7 +108,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
             },
           })}
           onClick={() => {
-            window.location.href = props.link;
+            window.history.go(-1);
           }}
         >
           <Trans>Copy Trading</Trans>
@@ -123,7 +122,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
         </Box>
       </Stack>
     );
-  }, [props.link, props.title]);
+  }, [props.title]);
   return <>{isBigMobile ? mobile : pc}</>;
 };
 

@@ -1,7 +1,6 @@
 import { BigNumber } from "ethers";
 import { useMemo } from "react";
-import { useContractRead } from "wagmi";
-import useArithFi from "../../hooks/useArithFi";
+import {useContractRead, useNetwork} from "wagmi";
 import UNISwapABI from "../ABI/UNISwapV2.json";
 import { SwapContract } from "../contractAddress";
 
@@ -9,17 +8,17 @@ function useReadSwapAmountOut(
   amountIn: BigNumber | undefined,
   path?: Array<string>
 ) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const address = useMemo(() => {
     if (
-      chainsData.chainId &&
+      chain?.id &&
       path &&
       amountIn &&
       !BigNumber.from("0").eq(amountIn)
     ) {
-      return SwapContract[chainsData.chainId] as `0x${string}`;
+      return SwapContract[chain?.id] as `0x${string}`;
     }
-  }, [amountIn, chainsData.chainId, path]);
+  }, [amountIn, chain?.id, path]);
   const {
     data: uniSwapAmountOutData,
     isRefetching: uniSwapAmountOutIsRefetching,

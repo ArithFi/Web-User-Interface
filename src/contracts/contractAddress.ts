@@ -12,8 +12,13 @@ import {
   SOLTokenLogo,
   LTCTokenLogo,
   AVAXTokenLogo,
+  USDLogo,
+  AUDLogo,
+  EURLogo,
+  JPYLogo,
+  CADLogo,
+  GBPLogo,
 } from "../components/icons";
-
 
 export type TokenType = {
   symbol: string;
@@ -150,6 +155,13 @@ export const TokenList: Array<TokenType> = [
     priceDecimals: 2,
   },
   {
+    symbol: "USD",
+    icon: USDLogo,
+    decimals: USDTDecimals,
+    address: USDTToken,
+    priceDecimals: 2,
+  },
+  {
     symbol: "MATIC",
     icon: MATICTokenLogo,
     decimals: All18,
@@ -197,5 +209,40 @@ export const TokenList: Array<TokenType> = [
     decimals: All18,
     address: ATFToken,
     priceDecimals: 3,
+  },
+  {
+    symbol: "AUD",
+    icon: AUDLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 5,
+  },
+  {
+    symbol: "EUR",
+    icon: EURLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 5,
+  },
+  {
+    symbol: "JPY",
+    icon: JPYLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 5,
+  },
+  {
+    symbol: "CAD",
+    icon: CADLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 5,
+  },
+  {
+    symbol: "GBP",
+    icon: GBPLogo,
+    decimals: All18,
+    address: ETH,
+    priceDecimals: 5,
   },
 ];

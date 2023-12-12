@@ -43,10 +43,11 @@ function useFuturesPOrder(
       const append =
         data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        data.product,
         balance,
         append,
         BigNumber.from(data.leverage.toString()),
-        price[tokenName],
+        price[data.product.toLocaleUpperCase()],
         orderPrice,
         data.direction
       );
@@ -55,12 +56,13 @@ function useFuturesPOrder(
       return String().placeHolder;
     }
   }, [
+    price,
     data.margin,
-    data.direction,
-    data.leverage,
     data.orderPrice,
     data.append,
-    price,
+    data.leverage,
+    data.product,
+    data.direction,
     tokenName,
   ]);
   const showMarginAssets = useMemo(() => {
@@ -106,12 +108,12 @@ function useFuturesPOrder(
       openPrice: parseFloat(
         data.orderPrice.toFixed(tokenName.getTokenPriceDecimals())
       ),
-      tokenPair: `${tokenName}/USDT`,
+      tokenPair: data.product,
       actualMargin: parseFloat(data.balance.toFixed(2)),
       initialMargin: parseFloat(data.balance.toFixed(2)),
       lastPrice: parseFloat(
         price
-          ? price[tokenName].bigNumberToShowPrice(
+          ? price[data.product.toLocaleUpperCase()].bigNumberToShowPrice(
               18,
               tokenName.getTokenPriceDecimals()
             )
@@ -127,6 +129,7 @@ function useFuturesPOrder(
     data.id,
     data.leverage,
     data.orderPrice,
+    data.product,
     data.walletAddress,
     price,
     showPercentNum,

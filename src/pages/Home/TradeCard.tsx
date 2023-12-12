@@ -26,7 +26,7 @@ export const TradeCard: FC<{
 
   if (mobile) {
     return (
-      <Link to={`/futures?symbol=${pair1}/${pair2}`}>
+      <Link to={`/futures?pt=${pair1}%2F${pair2}`}>
         <Stack direction={'row'} alignItems={'center'} py={'20px'} sx={{
           cursor: 'pointer',
           '&:hover': {
@@ -64,14 +64,14 @@ export const TradeCard: FC<{
               /{pair2}
             </Stack>
           </Stack>
-          <Stack width={'106px'} flexShrink={0} sx={{
-            textAlign: 'center',
+          <Stack pr={'12px'} flexShrink={0} sx={{
+            textAlign: 'end',
             color: 'rgba(3, 3, 8, 1)',
             fontSize: '14px',
             lineHeight: '20px',
             fontWeight: '700',
           }}>
-            {price || '-'}
+            {price ? price.toFixed(pair1.getTokenPriceDecimals()) : '-'}
           </Stack>
           <Stack flexShrink={0} sx={{
             backgroundColor: price24h && price24h > 0 ? 'rgba(43, 181, 90, 1)' : 'rgba(232, 66, 98, 1)',
@@ -82,6 +82,7 @@ export const TradeCard: FC<{
             lineHeight: '16px',
             fontWeight: '700',
             borderRadius: '4px',
+            minWidth: '88px',
           }}>
             {price24h && price24h > 0 ? '+' : ''}{price24h?.toFixed(2)}%
           </Stack>
@@ -90,7 +91,7 @@ export const TradeCard: FC<{
     )
   } else {
     return (
-      <Link to={`/futures?symbol=${pair1}/${pair2}`}>
+      <Link to={`/futures?pt=${pair1}%2F${pair2}`}>
         <Stack direction={'row'} alignItems={'center'} p={'20px'} sx={{
           cursor: 'pointer',
           color: '#030308',
@@ -113,10 +114,10 @@ export const TradeCard: FC<{
               {pair1}/{pair2}
             </Stack>
           </Stack>
-          <Stack width={'106px'} flexShrink={0}>
-            {price || '-'}
+          <Stack textAlign={'end'} pr={'4px'} flexShrink={0}>
+            {price ? price.toFixed(pair1.getTokenPriceDecimals()) : '-'}
           </Stack>
-          <Stack width={'106px'} flexShrink={0} sx={(theme) => ({
+          <Stack width={'106px'} textAlign={'end'} pr={'40px'} flexShrink={0} sx={(theme) => ({
             color: price24h && price24h > 0 ? 'rgba(43, 181, 90, 1)' : 'rgba(232, 66, 98, 1)',
           })}>
             {price24h && price24h > 0 ? '+' : ''}{price24h?.toFixed(2)}%

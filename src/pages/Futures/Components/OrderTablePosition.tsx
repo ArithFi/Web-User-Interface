@@ -5,7 +5,7 @@ import { Long, Short } from "../../../components/icons";
 import { Trans } from "@lingui/macro";
 
 interface OrderTablePositionProps {
-  tokenName: string;
+  tokenPair: string;
   lever: number;
   isLong: boolean;
   style?: React.CSSProperties;
@@ -13,11 +13,12 @@ interface OrderTablePositionProps {
 }
 
 const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
+  const tokenName = props.tokenPair.split("/")[0]
   const TokenIcon = useMemo(() => {
-    return props.tokenName.getToken()
-      ? props.tokenName.getToken()!.icon
+    return tokenName.getToken()
+      ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [props.tokenName]);
+  }, [tokenName]);
   const showCopy = useMemo(() => {
     return props.isCopy ? <Box component={"button"} sx={(theme) => ({
       backgroundColor: theme.normal.primary_light_hover,
@@ -56,7 +57,7 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
             fontSize: 14,
             color: theme.normal.text0,
           })}
-        >{`${props.tokenName}/USDT`}</Box>
+        >{props.tokenPair}</Box>
         <Stack direction={"row"} spacing={"4px"}>
           {showCopy}
           <Stack

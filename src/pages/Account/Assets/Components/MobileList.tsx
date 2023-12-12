@@ -4,8 +4,8 @@ import {Fail, NEXT, Success} from "../../../../components/icons";
 import Box from "@mui/material/Box";
 import {t} from "@lingui/macro";
 import {AccountListData} from "../../../../hooks/useAccount";
-import useArithFi from "../../../../hooks/useArithFi";
 import {parseOrderType} from "../Overview";
+import {useNetwork} from "wagmi";
 
 export enum AccountListType {
   deposit,
@@ -19,7 +19,7 @@ interface MobileListProps {
 }
 
 const MobileList: FC<MobileListProps> = ({ ...props }) => {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const icon = useMemo(() => {
     switch (props.type) {
       case AccountListType.deposit:
@@ -246,9 +246,9 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
                 },
               })}
               onClick={() => {
-                if (props.data.hash && chainsData.chainId) {
+                if (props.data.hash && chain?.id) {
                   window.open(
-                    props.data.hash.hashToChainScan(chainsData.chainId)
+                    props.data.hash.hashToChainScan(chain?.id)
                   );
                 }
               }}

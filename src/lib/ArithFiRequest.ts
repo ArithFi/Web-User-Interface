@@ -75,14 +75,18 @@ async function baseRequestGetWithHeader(
   header: { [key: string]: string }
 ) {
   try {
+    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
     const res = await fetch(url, {
       method: "GET",
-      headers: { ...header, "Content-Type": "application/json" },
+      headers: {
+        ...header,
+        "Content-Type": "application/json",
+        token: currentTimestampInSeconds.toString(),
+      },
     });
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    console.log(error);
     return undefined;
   }
 }
@@ -105,14 +109,17 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
+// deprecated
 export function getPriceList(): Promise<any> {
   return baseRequestGet(`https://db.arithfi.com/api/oracle/price/list`);
+}
+export function getPriceListV2(): Promise<any> {
+  return baseRequestGet(`https://db.arithfi.com/api/oracle/pair/list`);
 }
 
 /**
  * service
  */
-
 export function serviceBaseURL(chainId: number) {
   if (chainId === 56) {
     return "https://db.arithfi.com/arithfi";
@@ -244,6 +251,20 @@ export function serviceClose(
   );
 }
 
+export function serviceSetFavorites(
+  chainId: number,
+  walletAddress: string,
+  favorites: string,
+  info: RequestBodyInterface
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/op/user/setFavorites?walletAddress=${walletAddress}&chainId=${chainId}&favorites=${favorites}`,
+    info
+  );
+}
+
 export function serviceAsset(
   chainId: number,
   address: string,
@@ -305,6 +326,13 @@ export function serviceFutureHistory(
     `${serviceBaseURL(
       chainId
     )}/op/history/list?chainId=${chainId}&address=${address}`,
+    info
+  );
+}
+
+export function serviceIsOpen(info: RequestBodyInterface) {
+  return baseRequestGetWithHeader(
+    `https://db.arithfi.com/api/oracle/price/forex/isopen`,
     info
   );
 }

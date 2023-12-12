@@ -30,6 +30,7 @@ const NormalInputWithCloseButton: FC<NormalInputWithCloseButtonProps> = ({
       className={props.error ? "error" : ""}
     >
       <input
+        type="number"
         placeholder={props.placeHolder}
         value={props.value}
         maxLength={32}

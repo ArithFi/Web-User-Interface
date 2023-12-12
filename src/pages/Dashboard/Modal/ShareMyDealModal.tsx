@@ -198,10 +198,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                 {t`Total Profit & Loss`}
               </Title1>
               <Stack direction={'row'} spacing={'8px'} alignItems={"center"}>
-                <Caption1>{props.value.totalProfitLoss.toLocaleString('en-US', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })} ATF</Caption1>
+                <Caption1>{props.value.totalProfitLoss.toFixed(2)} ATF</Caption1>
                 <Box
                   sx={(theme) => ({
                     transform: props.value.totalRate >= 0 ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -238,10 +235,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                 {t`Today's PNL`}
               </Title1>
               <Stack direction={'row'} spacing={'8px'} alignItems={"center"}>
-                <Caption1>{props.value.todayPNL.toLocaleString('en-US', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })} ATF</Caption1>
+                <Caption1>{props.value.todayPNL.toFixed(2)} ATF</Caption1>
                 <Box
                   sx={(theme) => ({
                     transform: props.value.todayRate >= 0 ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -278,10 +272,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                 {t`7 Days' PNL`}
               </Title1>
               <Stack direction={'row'} spacing={'8px'} alignItems={"center"}>
-                <Caption1>{props.value._7daysPNL.toLocaleString('en-US', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })}</Caption1>
+                <Caption1>{props.value._7daysPNL.toFixed(2)}</Caption1>
                 <Box
                   sx={(theme) => ({
                     transform: props.value._7daysRate >= 0 ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -318,10 +309,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                 {t`30 Days' PNL`}
               </Title1>
               <Stack direction={'row'} spacing={'8px'} alignItems={"center"}>
-                <Caption1>{props.value._30daysPNL.toLocaleString('en-US', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })} ATF</Caption1>
+                <Caption1>{props.value._30daysPNL.toFixed(2)} ATF</Caption1>
                 <Box
                   sx={(theme) => ({
                     transform: props.value._30daysRate >= 0 ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -503,18 +491,13 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                         lineHeight: '40px'
                       },
                     }}>
-                      {showList?.[0].value.toLocaleString('en-US', {
-                        maximumFractionDigits: 2,
-                        minimumFractionDigits: 2,
-                      })} <span>{showList?.[0].unit}</span></Box>
+                      {showList?.[0].value.toFixed(2)} <span>{showList?.[0].unit}</span></Box>
                     <Box sx={(theme) => ({
                       fontSize: '64px',
                       fontWeight: '700',
                       color: showList?.[0]?.rate >= 0 ? theme.normal.success : theme.normal.danger,
                     })}>
-                      {showList?.[0]?.rate > 0 ? '+' : ''}{Number(showList[0]?.rate ?? 0).toLocaleString('en-US', {
-                      maximumFractionDigits: 2
-                    })}%
+                      {showList?.[0]?.rate > 0 ? '+' : ''}{showList[0]?.rate.toFixed(2)}%
                     </Box>
                   </Stack>
                 )
@@ -540,10 +523,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                               span: {
                                 color: showList?.[1].rate >= 0 ? theme.normal.success : theme.normal.danger,
                               }
-                            })}>{showList?.[1].value.toLocaleString('en-US', {
-                              maximumFractionDigits: 2,
-                              minimumFractionDigits: 2,
-                            })} {showList?.[1].unit} <span>{showList?.[1].rate}%</span>
+                            })}>{showList?.[1].value.toFixed(2)} {showList?.[1].unit} <span>{showList?.[1].rate.toFixed(2)}%</span>
                             </Box>
                           </Stack>
                         )
@@ -565,10 +545,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                               span: {
                                 color: showList?.[2].rate >= 0 ? theme.normal.success : theme.normal.danger,
                               }
-                            })}>{showList?.[2].value.toLocaleString('en-US', {
-                              maximumFractionDigits: 2,
-                              minimumFractionDigits: 2,
-                            })} {showList?.[2].unit} <span>{showList?.[2].rate}%</span>
+                            })}>{showList?.[2].value.toFixed(2)} {showList?.[2].unit} <span>{showList?.[2].rate.toFixed(2)}%</span>
                             </Box>
                           </Stack>
                         )
@@ -592,10 +569,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                               span: {
                                 color: showList?.[3]?.rate >= 0 ? theme.normal.success : theme.normal.danger,
                               }
-                            })}>{showList?.[3]?.value.toLocaleString('en-US', {
-                              maximumFractionDigits: 2,
-                              minimumFractionDigits: 2,
-                            })} {showList?.[3]?.unit} <span>{showList?.[3]?.rate}%</span>
+                            })}>{showList?.[3]?.value.toFixed(2)} {showList?.[3]?.unit} <span>{showList?.[3]?.rate.toFixed(2)}%</span>
                             </Box>
                           </Stack>
                         )

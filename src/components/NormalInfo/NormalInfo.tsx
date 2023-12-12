@@ -46,6 +46,7 @@ const NormalInfo: FC<NormalInfoProps> = ({ ...props }) => {
         direction={"row"}
         justifyContent={"flex-end"}
         alignItems={"center"}
+        spacing={"4px"}
       >
         <Box
           component={"p"}
@@ -58,18 +59,17 @@ const NormalInfo: FC<NormalInfoProps> = ({ ...props }) => {
         >
           {props.value}
         </Box>
-        <Box
+        {props.symbol !== "" ? <Box
           component={"p"}
           sx={(theme) => ({
             fontSize: 14,
             fontWeight: 400,
             lineHeight: "20px",
-            color: theme.normal.text0,
-            marginLeft: "4px",
+            color: theme.normal.text0
           })}
         >
           {props.symbol}
-        </Box>
+        </Box> : <></>}
       </Stack>
     </Stack>
   );

@@ -6,7 +6,7 @@ import ArithFiLine from "../../../components/ArithFiLine";
 import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import useFuturesPOrder from "../../../hooks/useFuturesPOrder";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
-import { FuturesPrice } from "../Futures";
+import { FuturesPrice, isForex } from "../Futures";
 import {
   FuturesModalInfo,
   FuturesModalType,
@@ -22,6 +22,7 @@ interface POrderListProps {
   data: FuturesOrderService;
   price: FuturesPrice | undefined;
   buttonCallBack: (value: FuturesModalInfo) => void;
+  forexOpen: boolean;
 }
 
 const POrderList: FC<POrderListProps> = ({ ...props }) => {
@@ -62,7 +63,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         isClosed={false}
       />
       <OrderListPosition
-        tokenName={tokenName}
+        tokenPair={props.data.product}
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}
@@ -74,7 +75,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Open Price</Trans>
             </Box>
-            <Box component={"p"}>{showBasePrice}USDT</Box>
+            <Box component={"p"}>{showBasePrice}</Box>
           </FuturesOrderListInfoMain>
           <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
             <Box component={"p"}>
@@ -102,7 +103,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               <Box component={"p"}>
                 <Trans>Take Profit</Trans>
               </Box>
-              <Box component={"p"}>{tp}USDT</Box>
+              <Box component={"p"}>{tp}</Box>
             </FuturesOrderListInfo>
             <FuturesOrderListInfo
               direction={"row"}
@@ -112,7 +113,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               <Box component={"p"}>
                 <Trans>Stop Loss</Trans>
               </Box>
-              <Box component={"p"}>{sl}USDT</Box>
+              <Box component={"p"}>{sl}</Box>
             </FuturesOrderListInfo>
           </Stack>
         ) : (
@@ -147,7 +148,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
                 }
               />
             </Stack>
-            <Box component={"p"}>{showLiqPrice}USDT</Box>
+            <Box component={"p"}>{showLiqPrice}</Box>
           </FuturesOrderListInfo>
         </Stack>
 
@@ -174,43 +175,56 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         </Stack>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
-        {props.data.copy ? (
-          <></>
-        ) : (
+        {isForex(lever) && !props.forexOpen ? (
           <>
             <MainButton
-              title={t`Add`}
-              onClick={() =>
-                props.buttonCallBack({
-                  data: props.data,
-                  type: FuturesModalType.add,
-                })
-              }
+              title={t`Market Closed`}
+              onClick={() => {}}
               style={{ height: "40px", fontSize: 14 }}
+              disable
             />
+          </>
+        ) : (
+          <>
+            {props.data.copy ? (
+              <></>
+            ) : (
+              <>
+                <MainButton
+                  title={t`Add`}
+                  onClick={() =>
+                    props.buttonCallBack({
+                      data: props.data,
+                      type: FuturesModalType.add,
+                    })
+                  }
+                  style={{ height: "40px", fontSize: 14 }}
+                />
+                <MainButton
+                  title={showTriggerTitle}
+                  onClick={() =>
+                    props.buttonCallBack({
+                      data: props.data,
+                      type: FuturesModalType.trigger,
+                    })
+                  }
+                  style={{ height: "40px", fontSize: 14 }}
+                />
+              </>
+            )}
+
             <MainButton
-              title={showTriggerTitle}
+              title={t`Close`}
               onClick={() =>
                 props.buttonCallBack({
                   data: props.data,
-                  type: FuturesModalType.trigger,
+                  type: FuturesModalType.close,
                 })
               }
               style={{ height: "40px", fontSize: 14 }}
             />
           </>
         )}
-
-        <MainButton
-          title={t`Close`}
-          onClick={() =>
-            props.buttonCallBack({
-              data: props.data,
-              type: FuturesModalType.close,
-            })
-          }
-          style={{ height: "40px", fontSize: 14 }}
-        />
       </Stack>
     </Stack>
   );

@@ -219,6 +219,10 @@ msgstr "Después de que la orden límite se ejecute, los precios de TP y SL que 
 msgid "Align With Traders"
 msgstr "Alinéese con los Traders"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr "TODO"
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Todos los Traders"
@@ -266,8 +270,8 @@ msgstr "Intercambio ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi, un Intercambio Descentralizado de Derivados, Elimina a los Creadores de Mercado y LPs."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi, un Protocolo de Derivados descentralizado que elimina a los Creadores de Mercado y a los Proveedores de Liquidez."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -324,6 +328,10 @@ msgstr "Quemar $ATF."
 msgid "Burned"
 msgstr "Quemado"
 
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr "Elija el Par de Tokens"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
 msgstr "Haga clic aquí para ver los detalles de la copia de trading."
@@ -351,6 +359,7 @@ msgstr "Cerrar Posición"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
@@ -490,6 +499,10 @@ msgstr "Cantidad Total de Copia de Trading (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Transferencia de Copia"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr "Cripto"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -661,6 +674,10 @@ msgstr "Fallido"
 msgid "Fail Request"
 msgstr "Solicitud Fallida"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr "Favoritos"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -690,6 +707,10 @@ msgstr "Siguiendo"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Para los usuarios/contratos inteligentes que utilizan contratos perpetuos del Protocolo Arith, por favor, comprendan sus reglas y las diferencias con productos similares en el mercado al realizar posiciones, liquidación y otras operaciones relacionadas. Después de entender completamente los posibles riesgos siguientes y poder soportar la situación de riesgo, participen:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Forex"
+msgstr "Forex"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -746,14 +767,15 @@ msgstr "¿Cómo operar en ArithFi?"
 msgid "I have read and agreed to the"
 msgstr "He leído y aceptado el/la"
 
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "I understand"
 msgstr "Entiendo"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Si una Bolsa Centralizada (CEX) quiere introducir nuevos pares de activos, como futuros de oro, para la negociación de futuros, normalmente requieren que los creadores de mercado proporcionen liquidez; de lo contrario, puede haber un alto deslizamiento durante la negociación. Sin embargo, si solo 10 usuarios están interesados en negociar este nuevo activo, las ganancias pueden no cubrir los costos de crear mercado."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "Si un Protocolo Centralizado (CEX) desea introducir nuevos pares de activos, como futuros de ORO, para el comercio de futuros, generalmente requiere que los creadores de mercado proporcionen liquidez; de lo contrario, puede ocurrir un alto deslizamiento durante la negociación. Sin embargo, si solo 10 usuarios están interesados en negociar este nuevo activo, las ganancias pueden no cubrir los costos de la creación de mercado."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -803,7 +825,7 @@ msgstr "Saldo insuficiente. Por favor, deposita para comenzar el trading rápido
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr "Integraciones & Socios"
+msgstr "Integraciones y Socios"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -839,6 +861,7 @@ msgstr "Últimos 7 días"
 msgid "Last month"
 msgstr "Último mes"
 
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Last Price"
 msgstr "Último Precio"
@@ -882,11 +905,6 @@ msgstr "Precio de Liquidación"
 msgid "Liquidated"
 msgstr "Liquidado"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-msgid "Loading..."
-msgstr "Loading..."
-
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -914,6 +932,14 @@ msgstr "Si obtienes ganancias, ganarás $ATF."
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "Mercado"
+
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+#: src/pages/Futures/NewOrder.tsx
+msgid "Market Closed"
+msgstr "Mercado Cerrado"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1052,6 +1078,8 @@ msgstr "Abrir posición"
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
@@ -1256,6 +1284,8 @@ msgid "Save"
 msgstr "Guardar"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "Escanear y copiar la operación"
@@ -1357,6 +1387,8 @@ msgid "Status"
 msgstr "Estado"
 
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1365,6 +1397,7 @@ msgstr "Estado"
 msgid "Stop Copying"
 msgstr "Detener la Copia"
 
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1417,6 +1450,7 @@ msgid "Symbol Preference"
 msgstr "Preferencia de Símbolo"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
@@ -1432,6 +1466,10 @@ msgstr "BNB de Prueba"
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "La cantidad fija que invertiste para cada orden. La tarifa de servicio se deducirá del margen real de cada orden de copia."
+
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
+msgstr "El mercado de divisas está cerrado. Por favor, espere a que el mercado abra antes de tomar cualquier acción."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1528,6 +1566,7 @@ msgid "Total Pay"
 msgstr "Total Pagado"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Total Profit"
 msgstr "Ganancia Total"
@@ -1773,6 +1812,8 @@ msgid "Winning Trades"
 msgstr "Operaciones ganadoras"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "con 1 clic"

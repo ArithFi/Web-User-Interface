@@ -15,11 +15,13 @@ import FuturesOrderListInfo, {
 } from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
 import { Trans, t } from "@lingui/macro";
+import { isForex } from "../Futures";
 
 interface OrderListProps {
   data: FuturesOrderService;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 const OrderList: FC<OrderListProps> = ({ ...props }) => {
@@ -39,7 +41,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
     tp,
     sl,
     openTime,
-    showTriggerTitle
+    showTriggerTitle,
   } = useFuturesOrder(props.data, props.updateList);
   return (
     <Stack
@@ -59,7 +61,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
         }}
       />
       <OrderListPosition
-        tokenName={tokenName}
+        tokenPair={props.data.product}
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}
@@ -70,7 +72,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Open Price</Trans>
             </Box>
-            <Box component={"p"}>{showLimitPrice}USDT</Box>
+            <Box component={"p"}>{showLimitPrice}</Box>
           </FuturesOrderListInfoMain>
           <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
             <Box component={"p"}>
@@ -97,7 +99,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Take Profit</Trans>
             </Box>
-            <Box component={"p"}>{tp}USDT</Box>
+            <Box component={"p"}>{tp}</Box>
           </FuturesOrderListInfo>
           <FuturesOrderListInfo
             direction={"row"}
@@ -107,7 +109,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
             <Box component={"p"}>
               <Trans>Stop Loss</Trans>
             </Box>
-            <Box component={"p"}>{sl}USDT</Box>
+            <Box component={"p"}>{sl}</Box>
           </FuturesOrderListInfo>
         </Stack>
       ) : (
@@ -127,33 +129,46 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
         </FuturesOrderListInfo>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
-        <MainButton
-          title={t`Limit`}
-          onClick={() =>
-            props.buttonCallBack({
-              data: props.data,
-              type: FuturesModalType.editLimit,
-            })
-          }
-          style={{ height: "40px", fontSize: 14 }}
-        />
-        <MainButton
-          title={showTriggerTitle}
-          onClick={() =>
-            props.buttonCallBack({
-              data: props.data,
-              type: FuturesModalType.trigger,
-            })
-          }
-          style={{ height: "40px", fontSize: 14 }}
-        />
-        <MainButton
-          title={mainButtonTitle}
-          isLoading={mainButtonLoading}
-          disable={mainButtonDis}
-          onClick={mainButtonAction}
-          style={{ height: "40px", fontSize: 14 }}
-        />
+        {isForex(lever) && !props.forexOpen ? (
+          <>
+            <MainButton
+              title={t`Market Closed`}
+              onClick={() => {}}
+              style={{ height: "40px", fontSize: 14 }}
+              disable
+            />
+          </>
+        ) : (
+          <>
+            <MainButton
+              title={t`Limit`}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.editLimit,
+                })
+              }
+              style={{ height: "40px", fontSize: 14 }}
+            />
+            <MainButton
+              title={showTriggerTitle}
+              onClick={() =>
+                props.buttonCallBack({
+                  data: props.data,
+                  type: FuturesModalType.trigger,
+                })
+              }
+              style={{ height: "40px", fontSize: 14 }}
+            />
+            <MainButton
+              title={mainButtonTitle}
+              isLoading={mainButtonLoading}
+              disable={mainButtonDis}
+              onClick={mainButtonAction}
+              style={{ height: "40px", fontSize: 14 }}
+            />
+          </>
+        )}
       </Stack>
     </Stack>
   );

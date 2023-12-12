@@ -20,11 +20,11 @@ const Home = () => {
   ]
 
   const forexList: any[] = [
+    {pair1: 'AUD', pair2: 'USD'},
     {pair1: 'EUR', pair2: 'USD'},
+    {pair1: 'JPY', pair2: 'USD'},
+    {pair1: 'CAD', pair2: 'USD'},
     {pair1: 'GBP', pair2: 'USD'},
-    {pair1: 'NZD', pair2: 'USD'},
-    {pair1: 'VND', pair2: 'USD'},
-    {pair1: 'KRW', pair2: 'USD'},
   ]
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Home = () => {
 
   if (isBigMobile) {
     return (
-      <Stack sx={{
+      <Stack width={'100vw'} overflow={'hidden'} sx={{
         backgroundColor: 'white',
       }}>
         <Stack px={'20px'} alignItems={'center'} pt={'120px'} height={'400px'} pb={'80px'} gap={'40px'}
@@ -52,7 +52,7 @@ const Home = () => {
           </Stack>
           <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'}
                  color={'rgba(249, 249, 249, 1)'}>
-            <Trans>ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.</Trans>
+            <Trans>ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.</Trans>
           </Stack>
           <Stack zIndex={10}>
             <Link to={'/futures'}>
@@ -122,65 +122,65 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        {/*<Stack py={'40px'} px={'20px'} alignItems={'center'} sx={{*/}
-        {/*  boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',*/}
-        {/*}}>*/}
-        {/*  <Stack sx={{*/}
-        {/*    fontSize: '24px',*/}
-        {/*    fontWeight: '700',*/}
-        {/*    lineHeight: '32px',*/}
-        {/*    maxWidth: '280px',*/}
-        {/*    textAlign: 'center',*/}
-        {/*  }}>*/}
-        {/*    Catch Your Next*/}
-        {/*    Trading Opportunity*/}
-        {/*  </Stack>*/}
-        {/*  <Stack mt={'40px'} width={'100%'}>*/}
-        {/*    <Stack direction={'row'} width={'100%'}>*/}
-        {/*      <Stack sx={{*/}
-        {/*        cursor: 'pointer',*/}
-        {/*        fontSize: '16px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '22px',*/}
-        {/*        padding: '8px 20px',*/}
-        {/*        color: type === 0 ? 'rgba(246, 156, 0, 1)' : 'rgba(3, 3, 8, 1)',*/}
-        {/*        borderBottom: type === 0 ? '2px solid rgba(246, 156, 0, 1)' : '1px solid rgba(28, 28, 35, 0.08)',*/}
-        {/*        width: '50%',*/}
-        {/*        textAlign: 'center',*/}
-        {/*      }} onClick={() => setType(0)}>*/}
-        {/*        Popular Crypto*/}
-        {/*      </Stack>*/}
-        {/*      <Stack sx={{*/}
-        {/*        cursor: 'pointer',*/}
-        {/*        fontSize: '16px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '22px',*/}
-        {/*        padding: '8px 20px',*/}
-        {/*        color: type === 0 ? 'rgba(3, 3, 8, 1)' : 'rgba(246, 156, 0, 1)',*/}
-        {/*        borderBottom: type === 0 ? '1px solid rgba(28, 28, 35, 0.08)' : '2px solid rgba(246, 156, 0, 1)',*/}
-        {/*        width: '50%',*/}
-        {/*        textAlign: 'center',*/}
-        {/*      }} onClick={() => setType(1)}>*/}
-        {/*        Popular Forex*/}
-        {/*      </Stack>*/}
-        {/*    </Stack>*/}
-        {/*    <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{*/}
-        {/*      borderBottom: '1px solid rgba(28, 28, 35, 0.08)',*/}
-        {/*    }}>*/}
-        {/*      {*/}
-        {/*        type === 0 ? cryptoList.map((item, index) => {*/}
-        {/*          return (*/}
-        {/*            <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>*/}
-        {/*          )*/}
-        {/*        }) : forexList.map((item, index) => {*/}
-        {/*          return (*/}
-        {/*            <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>*/}
-        {/*          )*/}
-        {/*        })*/}
-        {/*      }*/}
-        {/*    </Stack>*/}
-        {/*  </Stack>*/}
-        {/*</Stack>*/}
+        <Stack py={'40px'} px={'20px'} alignItems={'center'} sx={{
+          boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',
+        }}>
+          <Stack sx={{
+            fontSize: '24px',
+            fontWeight: '700',
+            lineHeight: '32px',
+            maxWidth: '280px',
+            textAlign: 'center',
+          }}>
+            Catch Your Next
+            Trading Opportunity
+          </Stack>
+          <Stack mt={'40px'} width={'100%'}>
+            <Stack direction={'row'} width={'100%'}>
+              <Stack sx={{
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '700',
+                lineHeight: '22px',
+                padding: '8px 20px',
+                color: type === 0 ? 'rgba(246, 156, 0, 1)' : 'rgba(3, 3, 8, 1)',
+                borderBottom: type === 0 ? '2px solid rgba(246, 156, 0, 1)' : '1px solid rgba(28, 28, 35, 0.08)',
+                width: '50%',
+                textAlign: 'center',
+              }} onClick={() => setType(0)}>
+                Popular Crypto
+              </Stack>
+              <Stack sx={{
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '700',
+                lineHeight: '22px',
+                padding: '8px 20px',
+                color: type === 0 ? 'rgba(3, 3, 8, 1)' : 'rgba(246, 156, 0, 1)',
+                borderBottom: type === 0 ? '1px solid rgba(28, 28, 35, 0.08)' : '2px solid rgba(246, 156, 0, 1)',
+                width: '50%',
+                textAlign: 'center',
+              }} onClick={() => setType(1)}>
+                Popular Forex
+              </Stack>
+            </Stack>
+            <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+              borderBottom: '1px solid rgba(28, 28, 35, 0.08)',
+            }}>
+              {
+                type === 0 ? cryptoList.map((item, index) => {
+                  return (
+                    <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>
+                  )
+                }) : forexList.map((item, index) => {
+                  return (
+                    <TradeCard key={index} pair1={item.pair1} pair2={item.pair2} mobile/>
+                  )
+                })
+              }
+            </Stack>
+          </Stack>
+        </Stack>
         <Stack pt={'60px'} pb={'80px'} alignItems={'center'} zIndex={10} sx={{
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
         }}>
@@ -296,7 +296,7 @@ const Home = () => {
           <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} mt={'24px'} color={'rgba(3, 3, 8, 0.8)'}>
             <div>
               <Trans>
-                If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
                 trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
                 during trading. However, if only 10 users are interested in trading this new asset, the profits may not
                 cover the costs of market making.
@@ -337,7 +337,7 @@ const Home = () => {
           <Stack mt={'40px'} gap={'12px'}>
             <Stack direction={'row'} gap={'12px'}>
               <Link to={'https://coin98.com/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -346,7 +346,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://www.bnbchain.org/en'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -357,7 +357,7 @@ const Home = () => {
             </Stack>
             <Stack direction={'row'} gap={'12px'}>
               <Link to={'https://www.coingecko.com/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -366,7 +366,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://followin.io/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -377,7 +377,7 @@ const Home = () => {
             </Stack>
             <Stack direction={'row'} gap={'12px'} justifyContent={'center'}>
               <Link to={'https://nabox.io'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -386,7 +386,7 @@ const Home = () => {
                 </Stack>
               </Link>
               <Link to={'https://kyber.network/'} target={'_blank'}>
-                <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
+                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
                   cursor: 'pointer',
                 }}>
                   <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
@@ -492,7 +492,7 @@ const Home = () => {
           padding: '0 20px',
         }}>
           <Trans>
-            ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs.
+            ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.
           </Trans>
         </Stack>
         <Stack zIndex={10}>
@@ -669,78 +669,78 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        {/*<Stack sx={{*/}
-        {/*  zIndex: 10,*/}
-        {/*  marginTop: '120px',*/}
-        {/*  width: '100%',*/}
-        {/*  maxWidth: '1200px',*/}
-        {/*  alignItems: 'center',*/}
-        {/*}}>*/}
-        {/*  <Stack sx={{*/}
-        {/*    fontSize: '32px',*/}
-        {/*    fontWeight: '700',*/}
-        {/*    lineHeight: '44px',*/}
-        {/*    color: '#030308',*/}
-        {/*  }}>Catch Your Next Trading Opportunity</Stack>*/}
-        {/*  <Stack mt={'48px'} width={'100%'} spacing={'16px'} direction={'row'}>*/}
-        {/*    <Stack sx={{*/}
-        {/*      padding: '20px',*/}
-        {/*      borderRadius: '8px',*/}
-        {/*      backgroundColor: 'white',*/}
-        {/*      width: '50%',*/}
-        {/*    }} spacing={'12px'}>*/}
-        {/*      <Stack sx={{*/}
-        {/*        fontSize: '24px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '32px',*/}
-        {/*        color: '#030308',*/}
-        {/*      }}>*/}
-        {/*        Popular Cryptocurrencies*/}
-        {/*      </Stack>*/}
-        {/*      <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{*/}
-        {/*        color: '#030308',*/}
-        {/*        fontSize: '14px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '20px',*/}
-        {/*      }}>*/}
-        {/*        {*/}
-        {/*          cryptoList.map((item, index) => {*/}
-        {/*            return (*/}
-        {/*              <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>*/}
-        {/*            )*/}
-        {/*          })*/}
-        {/*        }*/}
-        {/*      </Stack>*/}
-        {/*    </Stack>*/}
-        {/*    <Stack sx={{*/}
-        {/*      padding: '20px',*/}
-        {/*      borderRadius: '8px',*/}
-        {/*      backgroundColor: 'white',*/}
-        {/*      width: '50%',*/}
-        {/*    }} spacing={'12px'}>*/}
-        {/*      <Stack sx={{*/}
-        {/*        fontSize: '24px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '32px',*/}
-        {/*        color: '#030308',*/}
-        {/*      }}>Popular Forex</Stack>*/}
-        {/*      <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{*/}
-        {/*        color: '#030308',*/}
-        {/*        fontSize: '14px',*/}
-        {/*        fontWeight: '700',*/}
-        {/*        lineHeight: '20px',*/}
-        {/*      }}>*/}
-        {/*        {*/}
-        {/*          forexList.map((item, index) => {*/}
-        {/*            return (*/}
-        {/*              <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>*/}
-        {/*            )*/}
-        {/*          })*/}
-        {/*        }*/}
-        {/*      </Stack>*/}
-        {/*    </Stack>*/}
-        {/*  </Stack>*/}
-        {/*</Stack>*/}
+        <Stack sx={{
+          zIndex: 10,
+          marginTop: '120px',
+          width: '100%',
+          maxWidth: '1200px',
+          alignItems: 'center',
+        }}>
+          <Stack sx={{
+            fontSize: '32px',
+            fontWeight: '700',
+            lineHeight: '44px',
+            color: '#030308',
+          }}>Catch Your Next Trading Opportunity</Stack>
+          <Stack mt={'48px'} width={'100%'} spacing={'16px'} direction={'row'}>
+            <Stack sx={{
+              padding: '20px',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              width: '50%',
+            }} spacing={'12px'}>
+              <Stack sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                lineHeight: '32px',
+                color: '#030308',
+              }}>
+                Popular Cryptocurrencies
+              </Stack>
+              <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+                color: '#030308',
+                fontSize: '14px',
+                fontWeight: '700',
+                lineHeight: '20px',
+              }}>
+                {
+                  cryptoList.map((item, index) => {
+                    return (
+                      <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>
+                    )
+                  })
+                }
+              </Stack>
+            </Stack>
+            <Stack sx={{
+              padding: '20px',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              width: '50%',
+            }} spacing={'12px'}>
+              <Stack sx={{
+                fontSize: '24px',
+                fontWeight: '700',
+                lineHeight: '32px',
+                color: '#030308',
+              }}>Popular Forex</Stack>
+              <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
+                color: '#030308',
+                fontSize: '14px',
+                fontWeight: '700',
+                lineHeight: '20px',
+              }}>
+                {
+                  forexList.map((item, index) => {
+                    return (
+                      <TradeCard key={index} pair1={item.pair1} pair2={item.pair2}/>
+                    )
+                  })
+                }
+              </Stack>
+            </Stack>
+          </Stack>
+        </Stack>
         <Stack zIndex={10} direction={'row'} alignItems={'center'} sx={{
           marginTop: '120px',
           height: '500px',
@@ -881,7 +881,7 @@ const Home = () => {
               </Stack>
               <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.80)'}>
                 <Trans>
-                  If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
+                  If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
                   trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
                   during trading. However, if only 10 users are interested in trading this new asset, the profits may
                   not cover the costs of market making.

@@ -1,7 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { BigNumber } from "ethers";
-import { useContractWrite, usePrepareContractWrite } from "wagmi";
-import useArithFi from "../hooks/useArithFi";
+import {useContractWrite, useNetwork, usePrepareContractWrite} from "wagmi";
 import UNISwapV2ABI from "./ABI/UNISwapV2.json";
 import { SwapContract } from "./contractAddress";
 import useAddGasLimit from "./useAddGasLimit";
@@ -17,14 +16,14 @@ function useSwapExactTokensForTokens(
   to: string | undefined,
   type?: TransactionType
 ) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const { addPendingList } = usePendingTransactions();
   const time = new Date().getTime() / 1000 + 600;
   const address = useMemo(() => {
-    if (chainsData.chainId && path && to && !BigNumber.from("0").eq(amountIn)) {
-      return SwapContract[chainsData.chainId] as `0x${string}`;
+    if (chain?.id && path && to && !BigNumber.from("0").eq(amountIn)) {
+      return SwapContract[chain?.id] as `0x${string}`;
     }
-  }, [amountIn, chainsData.chainId, path, to]);
+  }, [amountIn, chain?.id, path, to]);
   const { config, isLoading } = usePrepareContractWrite({
     address: address,
     abi: UNISwapV2ABI,
@@ -65,14 +64,14 @@ export function useSwapExactETHForTokens(
   to: string | undefined,
   type?: TransactionType
 ) {
-  const { chainsData } = useArithFi();
+  const { chain } = useNetwork();
   const { addPendingList } = usePendingTransactions();
   const time = new Date().getTime() / 1000 + 600;
   const address = useMemo(() => {
-    if (chainsData.chainId && path && to && !BigNumber.from("0").eq(amountIn)) {
-      return SwapContract[chainsData.chainId] as `0x${string}`;
+    if (chain?.id && path && to && !BigNumber.from("0").eq(amountIn)) {
+      return SwapContract[chain?.id] as `0x${string}`;
     }
-  }, [amountIn, chainsData.chainId, path, to]);
+  }, [amountIn, chain?.id, path, to]);
   const { config, isLoading } = usePrepareContractWrite({
     address: address,
     abi: UNISwapV2ABI,

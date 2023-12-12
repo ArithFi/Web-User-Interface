@@ -104,7 +104,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       openPrice:
         parseFloat(data.orderPrice.floor(tokenName.getTokenPriceDecimals())) ??
         0,
-      tokenPair: `${tokenName}/USDT`,
+      tokenPair: data.product,
       actualMargin: 0,
       initialMargin: parseFloat(data.balance.floor(2)),
       lastPrice: 0,
@@ -112,17 +112,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       sl: parseFloat(sl === String().placeHolder ? "0" : sl),
     };
     return info;
-  }, [
-    data.balance,
-    data.direction,
-    data.id,
-    data.leverage,
-    data.orderPrice,
-    data.walletAddress,
-    sl,
-    tokenName,
-    tp,
-  ]);
+  }, [data.balance, data.direction, data.id, data.leverage, data.orderPrice, data.product, data.walletAddress, sl, tokenName, tp]);
   return {
     tokenName,
     isLong,

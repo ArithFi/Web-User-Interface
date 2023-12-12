@@ -7,47 +7,67 @@ import FuturesNewOrder from "./NewOrder";
 import FuturesOrderList, { FuturesOrderService } from "./OrderList";
 import ExchangeTVChart from "./ExchangeTVChart";
 import {
-  getPriceList,
+  getPriceListV2,
   serviceFutureHistory,
+  serviceIsOpen,
   serviceList,
 } from "../../lib/ArithFiRequest";
 import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
+import { useSearchParams } from "react-router-dom";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
 }
+export interface FuturesPricePercent {
+  [key: string]: number;
+}
 const UPDATE_PRICE = 15;
+export const isForex = (lever: number) => {
+  return lever === 100;
+};
 export const priceToken = [
-  "ETH",
-  "BTC",
-  "BNB",
-  "MATIC",
-  "ADA",
-  "DOGE",
-  "XRP",
-  "SOL",
-  "LTC",
-  "AVAX",
+  "ETH/USDT",
+  "BTC/USDT",
+  "BNB/USDT",
+  "MATIC/USDT",
+  "ADA/USDT",
+  "DOGE/USDT",
+  "XRP/USDT",
+  "SOL/USDT",
+  "LTC/USDT",
+  "AVAX/USDT",
+  "AUD/USD",
+  "EUR/USD",
+  "JPY/USD",
+  "CAD/USD",
+  "GBP/USD",
 ];
 const Futures: FC = () => {
   const { width, isBigMobile } = useWindowWidth();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pt = searchParams.get("pt");
   const { account, chainsData, signature } = useArithFi();
   const defaultTokenPair = useMemo(() => {
+    if (pt) {
+      return pt;
+    }
     let code = getQueryVariable("pt");
     if (code) {
       const num = priceToken.filter(
-        (item) => item.toLocaleLowerCase() === code!.toLocaleLowerCase()
+        (item) => item.toLowerCase() === code!.toLowerCase()
       );
       if (num && num.length > 0) {
         return code.toLocaleUpperCase();
       }
     }
-    return "ETH";
-  }, []);
+    return "ETH/USDT";
+  }, [pt]);
   const [tokenPair, setTokenPair] = useState(defaultTokenPair);
   const [basePrice, setBasePrice] = useState<FuturesPrice>();
+  const [basePricePercent, setBasePricePercent] =
+    useState<FuturesPricePercent>();
   const [orderPrice, setOrderPrice] = useState<FuturesPrice>();
   const [pOrderListV2, setPOrderListV2] = useState<Array<FuturesOrderService>>(
     []
@@ -58,41 +78,174 @@ const Futures: FC = () => {
   const [historyList, setHistoryList] = useState<Array<FuturesHistoryService>>(
     []
   );
+  const [forexOpen, setForexOpen] = useState(false);
 
   const getPrice = useCallback(async () => {
-    const listPriceBase: { [key: string]: any } = await getPriceList();
+    const listPriceBase: { [key: string]: any } = await getPriceListV2();
+
+    const percent = () => {
+      const ETHPricePercent = listPriceBase
+        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const BTCPricePercent = listPriceBase
+        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const BNBPricePercent = listPriceBase
+        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const MATICPricePercent = listPriceBase
+        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const ADAPricePercent = listPriceBase
+        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const DOGEPricePercent = listPriceBase
+        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const XRPPricePercent = listPriceBase
+        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const SOLPricePercent = listPriceBase
+        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const LTCPricePercent = listPriceBase
+        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const AVAXPricePercent = listPriceBase
+        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"].toString()
+        : undefined;
+      const EURUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"].toString()
+        : undefined;
+      const GBPUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"].toString()
+        : undefined;
+      const AUDUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"].toString()
+        : undefined;
+      const JPYUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["JPYUSD"]["priceChangePercent"].toString()
+        : undefined;
+      const CADUSDPricePercent = listPriceBase
+        ? listPriceBase["value"]["CADUSD"]["priceChangePercent"].toString()
+        : undefined;
+      if (
+        ETHPricePercent &&
+        BTCPricePercent &&
+        BNBPricePercent &&
+        MATICPricePercent &&
+        ADAPricePercent &&
+        DOGEPricePercent &&
+        XRPPricePercent &&
+        SOLPricePercent &&
+        LTCPricePercent &&
+        AVAXPricePercent &&
+        EURUSDPricePercent &&
+        GBPUSDPricePercent &&
+        AUDUSDPricePercent &&
+        JPYUSDPricePercent &&
+        CADUSDPricePercent
+      ) {
+        const newPrice: FuturesPricePercent = {
+          "ETH/USDT": Number(ETHPricePercent),
+          "BTC/USDT": Number(BTCPricePercent),
+          "BNB/USDT": Number(BNBPricePercent),
+          "MATIC/USDT": Number(MATICPricePercent),
+          "ADA/USDT": Number(ADAPricePercent),
+          "DOGE/USDT": Number(DOGEPricePercent),
+          "XRP/USDT": Number(XRPPricePercent),
+          "SOL/USDT": Number(SOLPricePercent),
+          "LTC/USDT": Number(LTCPricePercent),
+          "AVAX/USDT": Number(AVAXPricePercent),
+          "EUR/USD": Number(EURUSDPricePercent),
+          "GBP/USD": Number(GBPUSDPricePercent),
+          "AUD/USD": Number(AUDUSDPricePercent),
+          "JPY/USD": Number(JPYUSDPricePercent),
+          "CAD/USD": Number(CADUSDPricePercent),
+        };
+        return newPrice;
+      } else {
+        return undefined;
+      }
+    };
 
     const ETHPrice = listPriceBase
-      ? listPriceBase["value"]["ETHUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["ETHUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const BTCPrice = listPriceBase
-      ? listPriceBase["value"]["BTCUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["BTCUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const BNBPrice = listPriceBase
-      ? listPriceBase["value"]["BNBUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["BNBUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const MATICPrice = listPriceBase
-      ? listPriceBase["value"]["MATICUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["MATICUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const ADAPrice = listPriceBase
-      ? listPriceBase["value"]["ADAUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["ADAUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const DOGEPrice = listPriceBase
-      ? listPriceBase["value"]["DOGEUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["DOGEUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const XRPPrice = listPriceBase
-      ? listPriceBase["value"]["XRPUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["XRPUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const SOLPrice = listPriceBase
-      ? listPriceBase["value"]["SOLUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["SOLUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const LTCPrice = listPriceBase
-      ? listPriceBase["value"]["LTCUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["LTCUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
     const AVAXPrice = listPriceBase
-      ? listPriceBase["value"]["AVAXUSDT"].toString().stringToBigNumber(18)
+      ? listPriceBase["value"]["AVAXUSDT"]["price"]
+          .toString()
+          .stringToBigNumber(18)
+      : undefined;
+    const EURUSDPrice = listPriceBase
+      ? listPriceBase["value"]["EURUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
+      : undefined;
+    const GBPUSDPrice = listPriceBase
+      ? listPriceBase["value"]["GBPUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
+      : undefined;
+    const AUDUSDPrice = listPriceBase
+      ? listPriceBase["value"]["AUDUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
+      : undefined;
+    const JPYUSDPrice = listPriceBase
+      ? listPriceBase["value"]["JPYUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
+      : undefined;
+    const CADUSDPrice = listPriceBase
+      ? listPriceBase["value"]["CADUSD"]["price"]
+          .toString()
+          .stringToBigNumber(18)
       : undefined;
 
+    const newPricePercent = percent();
     if (
       ETHPrice &&
       BTCPrice &&
@@ -103,21 +256,31 @@ const Futures: FC = () => {
       XRPPrice &&
       SOLPrice &&
       LTCPrice &&
-      AVAXPrice
+      AVAXPrice &&
+      EURUSDPrice &&
+      GBPUSDPrice &&
+      AUDUSDPrice &&
+      JPYUSDPrice &&
+      CADUSDPrice
     ) {
       const newPrice: FuturesPrice = {
-        ETH: ETHPrice,
-        BTC: BTCPrice,
-        BNB: BNBPrice,
-        MATIC: MATICPrice,
-        ADA: ADAPrice,
-        DOGE: DOGEPrice,
-        XRP: XRPPrice,
-        SOL: SOLPrice,
-        LTC: LTCPrice,
-        AVAX: AVAXPrice,
+        "ETH/USDT": ETHPrice,
+        "BTC/USDT": BTCPrice,
+        "BNB/USDT": BNBPrice,
+        "MATIC/USDT": MATICPrice,
+        "ADA/USDT": ADAPrice,
+        "DOGE/USDT": DOGEPrice,
+        "XRP/USDT": XRPPrice,
+        "SOL/USDT": SOLPrice,
+        "LTC/USDT": LTCPrice,
+        "AVAX/USDT": AVAXPrice,
+        "EUR/USD": EURUSDPrice,
+        "GBP/USD": GBPUSDPrice,
+        "AUD/USD": AUDUSDPrice,
+        "JPY/USD": JPYUSDPrice,
+        "CAD/USD": CADUSDPrice,
       };
-      return newPrice;
+      return [newPrice, newPricePercent];
     } else {
       return undefined;
     }
@@ -206,6 +369,21 @@ const Futures: FC = () => {
       console.log(error);
     }
   }, [account.address, chainsData.chainId, signature]);
+
+  const getForexOpen = useCallback(async () => {
+    try {
+      if (!account.address || !signature) {
+        return;
+      }
+      const base = await serviceIsOpen({ Authorization: signature.signature });
+      if (base) {
+        setForexOpen(base);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [account.address, signature]);
+
   const handleUpdateList = useCallback(() => {
     getList();
     getHistoryList();
@@ -216,7 +394,10 @@ const Futures: FC = () => {
     const time = setInterval(() => {
       (async () => {
         const newPrice = await getPrice();
-        setBasePrice(newPrice);
+        setBasePrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
+        setBasePricePercent(
+          newPrice ? (newPrice[1] as FuturesPricePercent) : undefined
+        );
       })();
     }, 1000);
     return () => {
@@ -227,16 +408,18 @@ const Futures: FC = () => {
   useEffect(() => {
     const getOrderPrice = async () => {
       const newPrice = await getPrice();
-      setOrderPrice(newPrice);
+      setOrderPrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
     };
     getOrderPrice();
+    getForexOpen();
     const time = setInterval(() => {
       getOrderPrice();
+      getForexOpen();
     }, UPDATE_PRICE * 1000);
     return () => {
       clearInterval(time);
     };
-  }, [getPrice]);
+  }, [getForexOpen, getPrice]);
   // update list
   useEffect(() => {
     getList();
@@ -262,10 +445,17 @@ const Futures: FC = () => {
       <ExchangeTVChart
         tokenPair={tokenPair}
         basePrice={basePrice}
-        changeTokenPair={(value: string) => setTokenPair(value)}
+        basePricePercent={basePricePercent}
+        changeTokenPair={(value: string) => {
+          setSearchParams({
+            pt: value,
+          });
+          setTokenPair(value);
+        }}
+        forexOpen={forexOpen}
       />
     );
-  }, [tokenPair, basePrice]);
+  }, [tokenPair, basePrice, basePricePercent, forexOpen, setSearchParams]);
 
   const orderList = useCallback(() => {
     return (
@@ -275,18 +465,27 @@ const Futures: FC = () => {
         limitOrderList={limitOrderList}
         historyList={historyList}
         updateList={handleUpdateList}
+        forexOpen={forexOpen}
       />
     );
-  }, [handleUpdateList, historyList, limitOrderList, orderPrice, pOrderListV2]);
+  }, [
+    forexOpen,
+    handleUpdateList,
+    historyList,
+    limitOrderList,
+    orderPrice,
+    pOrderListV2,
+  ]);
   const newOrder = useCallback(() => {
     return (
       <FuturesNewOrder
         price={basePrice}
         tokenPair={tokenPair}
         updateList={handleUpdateList}
+        forexOpen={forexOpen}
       />
     );
-  }, [basePrice, handleUpdateList, tokenPair]);
+  }, [basePrice, forexOpen, handleUpdateList, tokenPair]);
   const moreInfo = useCallback(() => {
     return <FuturesMoreInfo />;
   }, []);

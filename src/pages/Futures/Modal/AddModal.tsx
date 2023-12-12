@@ -78,9 +78,9 @@ const AddModalBase: FC<AddModalBaseProps> = ({ ...props }) => {
         <NormalInfo
           title={t`Open Price`}
           value={showOpenPrice}
-          symbol={"USDT"}
+          symbol={""}
         />
-        <NormalInfo title={t`Liq Price`} value={showLiqPrice} symbol={"USDT"} />
+        <NormalInfo title={t`Liq Price`} value={showLiqPrice} symbol={""} />
       </Stack>
       <MainButton
         title={mainButtonTitle}

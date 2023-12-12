@@ -75,19 +75,20 @@ function useSettingTPAndSL(
   const [sl, setSl] = useState<string>("");
   const [firstShow, setFirstShow] = useState<boolean>(false);
 
+  const tokenLeft = token.split("/")[0]
   useEffect(() => {
     if (!firstShow) {
       setFirstShow(true);
       if (tpNow !== undefined && Number(tpNow) !== 0) {
-        setTp(tpNow.floor(token.getTokenPriceDecimals()));
+        setTp(tpNow.floor(tokenLeft.getTokenPriceDecimals()));
         setTPPercent(tpNow ? tpNow.toString() : "");
       }
       if (slNow !== undefined && Number(slNow) !== 0) {
-        setSl(slNow.floor(token.getTokenPriceDecimals()));
+        setSl(slNow.floor(tokenLeft.getTokenPriceDecimals()));
         setSLPercent(slNow ? slNow.toString() : "");
       }
     }
-  }, [firstShow, setSLPercent, setTPPercent, slNow, token, tpNow]);
+  }, [firstShow, setSLPercent, setTPPercent, slNow, tokenLeft, tpNow]);
 
   const setTPNum = useCallback(
     (data: string) => {
@@ -281,9 +282,9 @@ function useSettingTPAndSL(
   }, [baseAmount, isLong, lever]);
   const baseOpenPrice = useMemo(() => {
     if (openPrice) {
-      return openPrice.floor(token.getTokenPriceDecimals());
+      return openPrice.floor(tokenLeft.getTokenPriceDecimals());
     }
-  }, [openPrice, token]);
+  }, [openPrice, tokenLeft]);
   const showOpenPrice = useMemo(() => {
     return `${baseOpenPrice}`;
   }, [baseOpenPrice]);
@@ -296,6 +297,7 @@ function useSettingTPAndSL(
       const appendBNum =
         (append ?? 0).toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        token,
         balance,
         appendBNum,
         BigNumber.from(lever.toString()),
@@ -303,11 +305,11 @@ function useSettingTPAndSL(
         orderPrice,
         isLong
       );
-      return result.bigNumberToShowPrice(18, token.getTokenPriceDecimals());
+      return result.bigNumberToShowPrice(18, tokenLeft.getTokenPriceDecimals());
     } else {
       return String().placeHolder;
     }
-  }, [append, baseAmount, isLong, lever, openPrice, token]);
+  }, [append, baseAmount, isLong, lever, openPrice, token, tokenLeft]);
 
   const tlPlaceHolder = useMemo(() => {
     return `${isLong ? ">" : "<"} ${limitPrice.floor(2)}`;

@@ -219,6 +219,10 @@ msgstr "Limit emir gerçekleştikten sonra, belirlediğiniz TP ve SL fiyatları 
 msgid "Align With Traders"
 msgstr "Diğer Tüccarlarla Uyum Sağlayın"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "All"
+msgstr "Tüm"
+
 #: src/pages/Copy/Copy.tsx
 msgid "All Traders"
 msgstr "Tüm Tüccarlar"
@@ -266,8 +270,8 @@ msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Exchange Eliminates Market Makers and LPs."
-msgstr "ArithFi, Piyasa Yapıcılarını ve LP'leri Ortadan Kaldıran Merkezi Olmayan Bir Türev Borsasıdır."
+msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgstr "ArithFi, Merkezileştirilmemiş Türev Protokolü Piyasa Yapıcılarını ve LP'leri Ortadan Kaldırıyor."
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -324,6 +328,10 @@ msgstr "$ATF Yakma"
 msgid "Burned"
 msgstr "Yakıldı"
 
+#: src/pages/Futures/TokenList/TokenListModal.tsx
+msgid "Choose Token Pair"
+msgstr "Token Çifti Seçin"
+
 #: src/pages/Copy/Components/KolInfo.tsx
 msgid "Click here to view copy trading details."
 msgstr "Kopya işlem ayrıntılarını görmek için buraya tıklayın."
@@ -351,6 +359,7 @@ msgstr "Pozisyonu Kapat"
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
@@ -490,6 +499,10 @@ msgstr "Kopya İşlem Varlıkları (ATF)"
 #: src/pages/Account/Assets/Overview.tsx
 msgid "Copy Transfer"
 msgstr "Kopya Transferi"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Crypto"
+msgstr "Kripto"
 
 #: src/pages/Home/Home.tsx
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
@@ -661,6 +674,10 @@ msgstr "Başarısız"
 msgid "Fail Request"
 msgstr "Başarısız İstek"
 
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Favorites"
+msgstr "Favoriler"
+
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
@@ -690,6 +707,10 @@ msgstr "Takip"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "For users/smart contracts using Arith Protocol perpetual contracts, please understand its rules and the differences of similar products in the market when performing positions, settlement, liquidation and other related operations. After fully understanding the following possible risks and can bear Participate in the risk situation:"
 msgstr "Arith Protokolü sürekli sözleşmelerini kullanan kullanıcılar/smart sözleşmeler, pozisyon, hesaplaşma, likidasyon ve diğer ilgili işlemleri gerçekleştirirken lütfen kurallarını ve benzer ürünlerin piyasada farklarını anlayın. Aşağıda belirtilen olası riskleri tamamen anladıktan ve bu risk durumuna katlanabileceğinizden emin olduktan sonra katılın:"
+
+#: src/pages/Futures/TokenList/TokenListBaseView.tsx
+msgid "Forex"
+msgstr "Forex"
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
@@ -746,14 +767,15 @@ msgstr "ArithFi'de Nasıl İşlem Yapılır?"
 msgid "I have read and agreed to the"
 msgstr "Okudum ve kabul ettim"
 
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "I understand"
 msgstr "Anladım"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "If a Centralized Exchange (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Eğer Merkezi Olmayan Bir Borsa (CEX), yeni varlık çiftleri eklemek istiyorsa, örneğin ALTIN vadeli işlemleri gibi, vadeli işlem için genellikle piyasa yapıcılarının likidite sağlamaları gerekir; aksi takdirde ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, yalnızca 10 kullanıcının bu yeni varlığı ticaret yapmaya ilgi gösterdiği durumda, karlar piyasa yapma maliyetlerini karşılamayabilir."
+msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
+msgstr "Eğer bir Merkezileştirilmiş Protokol (CEX), örneğin GOLD vadeli işlemleri gibi yeni varlık çiftlerini vadeli işlem ticareti için tanıtmak istiyorsa, genellikle piyasa yapıcıların likidite sağlaması gerekmektedir; aksi takdirde, ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, bu yeni varlıkla ticaret yapmakla ilgilenen sadece 10 kullanıcı varsa, piyasa yapıcılığının maliyetleri kar etmeyebilir."
 
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
@@ -803,7 +825,7 @@ msgstr "Yetersiz bakiye. Hızlı işlem yapmaya başlamak için lütfen para yat
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Integrations & Partners"
-msgstr "Entegrasyonlar & Ortaklar"
+msgstr "Entegrasyonlar ve Ortaklar"
 
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -839,6 +861,7 @@ msgstr "Son 7 gün"
 msgid "Last month"
 msgstr "Geçen ay"
 
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Last Price"
 msgstr "Son Fiyat"
@@ -882,11 +905,6 @@ msgstr "Liq Price"
 msgid "Liquidated"
 msgstr "Likidasyon"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-msgid "Loading..."
-msgstr "Loading..."
-
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -914,6 +932,14 @@ msgstr "Kar elde ederseniz, $ATF kazanırsınız."
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
 msgstr "Piyasa"
+
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+#: src/pages/Futures/NewOrder.tsx
+msgid "Market Closed"
+msgstr "Piyasa Kapalı"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
@@ -1052,6 +1078,8 @@ msgstr "Pozisyon Aç"
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
@@ -1258,6 +1286,8 @@ msgid "Save"
 msgstr "Kaydet"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "İşlemi tarayın ve kopyalayın"
@@ -1359,6 +1389,8 @@ msgid "Status"
 msgstr "Durum"
 
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
@@ -1367,6 +1399,7 @@ msgstr "Durum"
 msgid "Stop Copying"
 msgstr "Kopyalamayı Durdur"
 
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
@@ -1419,6 +1452,7 @@ msgid "Symbol Preference"
 msgstr "Sembol Tercihi"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/POrderList.tsx
@@ -1434,6 +1468,10 @@ msgstr "Test BNB"
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr "Her bir emir için yatırdığınız sabit miktar. Hizmet ücreti, her emir açıldığında kopya işlem yapılacak olan gerçek marjinden düşülecektir."
+
+#: src/pages/Copy/Components/CopyNoStopModal.tsx
+msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
+msgstr "Döviz piyasası kapalıdır. Herhangi bir işlem yapmadan önce piyasanın açılmasını bekleyiniz."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1530,6 +1568,7 @@ msgid "Total Pay"
 msgstr "Toplam Ödeme"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 msgid "Total Profit"
 msgstr "Toplam Kar"
@@ -1775,6 +1814,8 @@ msgid "Winning Trades"
 msgstr "Kazançlı İşlemler"
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "1 tıklamayla"

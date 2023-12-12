@@ -5,18 +5,19 @@ import { Long, Short } from "../../../components/icons";
 import { Trans } from "@lingui/macro";
 
 interface CopyListPositionProps {
-  tokenName: string;
+  tokenPair: string;
   lever: number;
   isLong: boolean;
   style?: React.CSSProperties;
 }
 
 const CopyListPosition: FC<CopyListPositionProps> = ({ ...props }) => {
+  const tokenName = props.tokenPair.split("/")[0]
   const TokenIcon = useMemo(() => {
-    return props.tokenName.getToken()
-      ? props.tokenName.getToken()!.icon
+    return tokenName.getToken()
+      ? tokenName.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [props.tokenName]);
+  }, [tokenName]);
   return (
     <Stack
       direction={"row"}
@@ -54,7 +55,7 @@ const CopyListPosition: FC<CopyListPositionProps> = ({ ...props }) => {
             color: theme.normal.text0,
             marginLeft: "8px !important",
           })}
-        >{`${props.tokenName}/USDT`}</Box>
+        >{props.tokenPair}</Box>
 
         <Stack
           direction={"row"}

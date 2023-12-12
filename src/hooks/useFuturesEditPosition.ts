@@ -129,10 +129,11 @@ function useFuturesEditPosition(
       const append =
         data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        data.product,
         balance,
         append,
         BigNumber.from(data.leverage.toString()),
-        price[tokenPair],
+        price[data.product.toLocaleUpperCase()],
         orderPrice,
         data.direction
       );
@@ -141,12 +142,13 @@ function useFuturesEditPosition(
       return String().placeHolder;
     }
   }, [
-    data.append,
-    data.margin,
-    data.direction,
-    data.leverage,
-    data.orderPrice,
     price,
+    data.margin,
+    data.orderPrice,
+    data.append,
+    data.leverage,
+    data.product,
+    data.direction,
     tokenPair,
   ]);
 

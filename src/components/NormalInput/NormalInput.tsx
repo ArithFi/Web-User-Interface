@@ -9,7 +9,7 @@ interface NormalInputProps {
   rightTitle: string;
   value: string;
   changeValue: (value: string) => void;
-  isShare?:boolean;
+  isShare?: boolean;
   error?: boolean;
   style?: React.CSSProperties;
 }
@@ -19,7 +19,7 @@ interface NormalInputWithLastButtonProps {
   value: string;
   changeValue: (value: string) => void;
   rightAction: () => void;
-  isShare?:boolean;
+  isShare?: boolean;
   error?: boolean;
   style?: React.CSSProperties;
 }
@@ -66,10 +66,13 @@ const NormalInput: FC<NormalInputProps> = ({ ...props }) => {
       style={props.style}
       className={props.error ? "error" : ""}
       sx={(theme) => ({
-        background: props.isShare ? theme.normal.primary_light_hover : theme.normal.bg1,
+        background: props.isShare
+          ? theme.normal.primary_light_hover
+          : theme.normal.bg1,
       })}
     >
       <input
+        type="number"
         placeholder={props.placeHolder}
         value={props.value}
         maxLength={32}
@@ -91,10 +94,13 @@ export const NormalInputWithLastButton: FC<NormalInputWithLastButtonProps> = ({
       style={props.style}
       className={props.error ? "error" : ""}
       sx={(theme) => ({
-        background: props.isShare ? theme.normal.primary_light_hover : theme.normal.bg1,
+        background: props.isShare
+          ? theme.normal.primary_light_hover
+          : theme.normal.bg1,
       })}
     >
       <input
+      type="number"
         placeholder={props.placeHolder}
         value={props.value}
         maxLength={32}

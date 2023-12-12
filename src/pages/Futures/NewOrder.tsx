@@ -5,7 +5,7 @@ import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
 import Agree from "../../components/Agree/Agree";
 import NormalInfo from "../../components/NormalInfo/NormalInfo";
-import { FuturesPrice } from "./Futures";
+import { FuturesPrice, isForex } from "./Futures";
 import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
@@ -28,6 +28,7 @@ interface FuturesNewOrderProps {
   price: FuturesPrice | undefined;
   tokenPair: string;
   updateList: () => void;
+  forexOpen: boolean;
 }
 
 const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
@@ -71,11 +72,11 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     openCallBack,
     clearTPSLError,
     showDepositError,
-    setShowConnect,
+    showConnectModal,
     showConnectButton,
     amountPercent,
     amountPercentCallBack,
-    loading
+    loading,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -293,10 +294,14 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
           })}
           component={"button"}
-          onClick={() => setShowLeverModal(true)}
+          onClick={() => {
+            if (!isForex(lever)) {
+              setShowLeverModal(true);
+            }
+          }}
         >
           <Box>{lever}X</Box>
-          <NetworkDownIcon />
+          {!isForex(lever) ? <NetworkDownIcon /> : <></>}
         </Stack>
       </Stack>
     );
@@ -437,7 +442,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               <InputWithSymbol
                 placeholder={t`Take Profit`}
                 value={tp}
-                symbol={"USDT"}
+                symbol={""}
                 changeValue={(value: string) => {
                   setTp(value.formatInputNum4());
                   clearTPSLError();
@@ -447,7 +452,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
               <InputWithSymbol
                 placeholder={t`Stop Loss`}
                 value={sl}
-                symbol={"USDT"}
+                symbol={""}
                 changeValue={(value: string) => {
                   setSl(value.formatInputNum4());
                   clearTPSLError();
@@ -486,7 +491,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           <NormalInfo
             title={t`Entry Price`}
             value={showOpenPrice}
-            symbol={"USDT"}
+            symbol={""}
           />
         ) : (
           <></>
@@ -509,6 +514,21 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </Stack>
     );
   }, [showFee, showFeeHoverText, showOpenPrice, showTotalPay, tabsValue]);
+
+  const marketClosedButton = useMemo(() => {
+    return (
+      <MainButton
+        title={t`Market Closed`}
+        onClick={() => {}}
+        style={{
+          height: "48px",
+          fontSize: "16px",
+        }}
+        disable={true}
+      />
+    );
+  }, []);
+
   const openButtons = useMemo(() => {
     return (
       <Stack
@@ -536,8 +556,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
             "&:disabled": {
               backgroundColor: theme.normal.disabled_bg,
-              color: theme.normal.disabled_text
-            }
+              color: theme.normal.disabled_text,
+            },
           })}
           component={"button"}
           disabled={loading}
@@ -562,8 +582,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             },
             "&:disabled": {
               backgroundColor: theme.normal.disabled_bg,
-              color: theme.normal.disabled_text
-            }
+              color: theme.normal.disabled_text,
+            },
           })}
           component={"button"}
           disabled={loading}
@@ -577,14 +597,14 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     return (
       <MainButton
         title={t`Connect Wallet`}
-        onClick={() => setShowConnect(true)}
+        onClick={showConnectModal}
         style={{
           height: "48px",
           fontSize: "16px",
         }}
       />
     );
-  }, [setShowConnect]);
+  }, [showConnectModal]);
 
   const liqPrice = useMemo(() => {
     return (
@@ -609,7 +629,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             sx={(theme) => ({ color: theme.normal.text2 })}
           >{t`Liq Price`}</Box>
           <Box sx={(theme) => ({ color: theme.normal.text0 })}>
-            {showLiqPrice(true)} USDT
+            {showLiqPrice(true)}
           </Box>
         </Stack>
         <Stack
@@ -622,7 +642,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             sx={(theme) => ({ color: theme.normal.text2 })}
           >{t`Liq Price`}</Box>
           <Box sx={(theme) => ({ color: theme.normal.text0 })}>
-            {showLiqPrice(false)} USDT
+            {showLiqPrice(false)}
           </Box>
         </Stack>
       </Stack>
@@ -655,7 +675,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
             placeholder={tabsValue === 0 ? t`Market Price` : t`Limit Price`}
             value={tabsValue === 1 ? limitAmount : ""}
             dis={tabsValue === 0}
-            symbol={"USDT"}
+            symbol={""}
             changeValue={(value: string) => {
               setLimitAmount(value.formatInputNum6());
             }}
@@ -680,7 +700,11 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       </Stack>
       {showConnectButton ? <></> : info}
       <Stack spacing={"12px"} width={"100%"}>
-        {showConnectButton ? connectButton : openButtons}
+        {showConnectButton
+          ? connectButton
+          : !isForex(lever) || (isForex(lever) && props.forexOpen)
+          ? openButtons
+          : marketClosedButton}
         {showConnectButton ? <></> : liqPrice}
       </Stack>
     </Stack>

@@ -12,6 +12,7 @@ import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/system";
 import numeral from "numeral";
 import useArithFi from '../../../../hooks/useArithFi';
+import {useNetwork} from "wagmi";
 
 type ChartsProps = {
   address: string | undefined
@@ -22,10 +23,10 @@ type ChartsProps = {
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
-  const {chainsData} = useArithFi()
+  const {chain} = useNetwork()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
-  const {data} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/personal/yield?address=${props.address}&chainId=${chainsData.chainId ?? 56}&from=${from}&to=${to}&copy=1`,
+  const {data} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/personal/yield?address=${props.address}&chainId=${chain?.id ?? 56}&from=${from}&to=${to}&copy=1`,
     (url: string) => fetch(url)
       .then((res) => res.json())
       .then((res: any) => res.value))

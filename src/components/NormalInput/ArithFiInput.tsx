@@ -75,6 +75,7 @@ const ArithFiInput: FC<ArithFiInputProps> = ({ ...props }) => {
           onChange={(e) =>
             props.changeArithFiAmount(e.target.value.formatInputNum())
           }
+          type="number"
         />
         <OneTokenIN tokenName={"ATF"} height={24} />
       </Stack>

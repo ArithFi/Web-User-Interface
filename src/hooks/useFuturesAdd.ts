@@ -62,7 +62,14 @@ function useFuturesAdd(
       onClose(Number(addBase["errorCode"]) === 0);
     }
     setLoading(false);
-  }, [chainsData.chainId, data.id, getBalance, arithFiAmount, onClose, signature]);
+  }, [
+    chainsData.chainId,
+    data.id,
+    getBalance,
+    arithFiAmount,
+    onClose,
+    signature,
+  ]);
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
@@ -108,12 +115,13 @@ function useFuturesAdd(
       const orderPrice =
         data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const result = lipPrice(
+        data.product,
         balance,
         arithFiAmount === ""
           ? BigNumber.from("0")
           : arithFiAmount.stringToBigNumber(4)!,
         BigNumber.from(data.leverage.toString()),
-        price[tokenPair],
+        price[data.product.toLocaleUpperCase()],
         orderPrice,
         data.direction
       );
@@ -122,12 +130,13 @@ function useFuturesAdd(
       return String().placeHolder;
     }
   }, [
-    data.margin,
-    data.direction,
-    data.leverage,
-    data.orderPrice,
-    arithFiAmount,
     price,
+    data.margin,
+    data.orderPrice,
+    data.leverage,
+    data.product,
+    data.direction,
+    arithFiAmount,
     tokenPair,
   ]);
   /**
