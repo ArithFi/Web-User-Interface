@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FuturesPrice } from "../pages/Futures/Futures";
+import { FuturesPrice, isForex } from "../pages/Futures/Futures";
 import useArithFi from "./useArithFi";
 import { getQueryVariable } from "../lib/queryVaribale";
 import { KOLTx, serviceOpen } from "../lib/ArithFiRequest";
@@ -99,16 +99,20 @@ function useFuturesNewOrder(
       return undefined;
     }
   }, [price, tokenPair]);
+
   /**
    * uniswap out amount
    */
+  const feeNum = useMemo(() => {
+    return isForex(lever) ? 2 : 5;
+  }, [lever]);
   const allValue = useCallback(
     (value: BigNumber) => {
       return value
         .mul(BigNumber.from("10000"))
-        .div(BigNumber.from(`${10000 + lever * 5}`));
+        .div(BigNumber.from(`${10000 + lever * feeNum}`));
     },
-    [lever]
+    [feeNum, lever]
   );
   useEffect(() => {
     setArithFiAmount(inputAmount);
@@ -149,10 +153,10 @@ function useFuturesNewOrder(
     const baseFee = arithFiAmount
       .stringToBigNumber(18)!
       .mul(BigNumber.from(lever.toString()))
-      .mul(BigNumber.from("5"))
+      .mul(BigNumber.from(feeNum.toString()))
       .div(BigNumber.from("10000"));
     return baseFee;
-  }, [lever, arithFiAmount]);
+  }, [arithFiAmount, lever, feeNum]);
   /**
    * check
    */
@@ -189,8 +193,8 @@ function useFuturesNewOrder(
       if (chainsData.chainId && account.address && basePrice && signature) {
         const orderPrice =
           tabsValue === 1
-            ? basePrice.bigNumberToShowString(18, 5)
-            : addPricePoint(basePrice, isLong).bigNumberToShowString(18, 5);
+            ? basePrice.bigNumberToShowString(18, 7)
+            : addPricePoint(basePrice, isLong).bigNumberToShowString(18, 7);
         const openBase: { [key: string]: any } = await serviceOpen(
           chainsData.chainId,
           account.address,
@@ -496,16 +500,12 @@ function useFuturesNewOrder(
     [openPriceBase, arithFiAmount, lever, tokenPair]
   );
   const showFeeHoverText = useMemo(() => {
-    if (tabsValue === 0 && !isStop) {
-      return [t`Position fee = Position * 0.05%`];
-    } else if (tabsValue === 1 && !isStop) {
-      return [t`Position fee = Position * 0.05%`];
-    } else if (tabsValue === 0 && isStop) {
-      return [t`Position fee = Position * 0.05%`];
+    if (isForex(lever)) {
+      return [t`Position fee = Position * 0.02%`];
     } else {
       return [t`Position fee = Position * 0.05%`];
     }
-  }, [isStop, tabsValue]);
+  }, [lever]);
 
   const showAmountError = useMemo(() => {
     if (inputAmount === "") {

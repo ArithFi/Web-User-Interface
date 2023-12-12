@@ -1171,8 +1171,9 @@ msgid "Position"
 msgstr "Pozisyon"
 
 #: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
-#: src/hooks/useFuturesNewOrder.ts
+msgid "Position fee = Position * 0.02%"
+msgstr ""
+
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.05%"
 msgstr "Pozisyon ücreti = Pozisyon * 0.05%"

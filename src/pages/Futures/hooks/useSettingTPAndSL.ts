@@ -98,15 +98,15 @@ function useSettingTPAndSL(
       }
       const tpPercentNum = Number(data);
       if (isLong) {
-        var newTPLong = (limitPrice + (limitPrice * tpPercentNum) / 100).floor(6);
+        var newTPLong = (limitPrice + (limitPrice * tpPercentNum) / 100).floor(7);
         if (tpPercentType === 0) {
-          newTPLong = ((1 + tpPercentNum / 100 / lever) * openPrice).floor(6)
+          newTPLong = ((1 + tpPercentNum / 100 / lever) * openPrice).floor(7)
         }
         setTp(newTPLong);
       } else {
-        var newTPShort = (limitPrice - (limitPrice * tpPercentNum) / 100).floor(6);
+        var newTPShort = (limitPrice - (limitPrice * tpPercentNum) / 100).floor(7);
         if (tpPercentType === 0) {
-          newTPShort = ((1 - tpPercentNum / 100 / lever) * openPrice).floor(6)
+          newTPShort = ((1 - tpPercentNum / 100 / lever) * openPrice).floor(7)
         }
         setTp(newTPShort);
       }
@@ -121,15 +121,15 @@ function useSettingTPAndSL(
       }
       const slPercentNum = Number(data);
       if (isLong) {
-        var newSLLong = (limitPrice - (limitPrice * slPercentNum) / 100).floor(6);
+        var newSLLong = (limitPrice - (limitPrice * slPercentNum) / 100).floor(7);
         if (slPercentType === 0) {
-          newSLLong = ((1 - slPercentNum / 100 / lever) * openPrice).floor(6)
+          newSLLong = ((1 - slPercentNum / 100 / lever) * openPrice).floor(7)
         }
         setSl(newSLLong);
       } else {
-        var newSLShort = (limitPrice + (limitPrice * slPercentNum) / 100).floor(6);
+        var newSLShort = (limitPrice + (limitPrice * slPercentNum) / 100).floor(7);
         if (slPercentType === 0) {
-          newSLShort = ((1 + slPercentNum / 100 / lever) * openPrice).floor(6)
+          newSLShort = ((1 + slPercentNum / 100 / lever) * openPrice).floor(7)
         }
         setSl(newSLShort);
       }
