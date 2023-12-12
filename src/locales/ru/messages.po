@@ -1170,7 +1170,7 @@ msgstr "Позиция"
 
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.02%"
-msgstr ""
+msgstr "Плата за позицию = Позиция * 0,02%"
 
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.05%"
@@ -1180,6 +1180,10 @@ msgstr "Плата за позицию = Позиция * 0,05%"
 #: src/pages/Account/Futures/Futures.tsx
 msgid "Position Value"
 msgstr "Стоимость Позиции"
+
+#: src/hooks/useFuturesClose.ts
+msgid "Position*0.02%"
+msgstr "Позиция*0,02%"
 
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"

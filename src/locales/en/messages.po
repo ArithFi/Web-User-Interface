@@ -1182,6 +1182,10 @@ msgid "Position Value"
 msgstr "Position Value"
 
 #: src/hooks/useFuturesClose.ts
+msgid "Position*0.02%"
+msgstr "Position*0.02%"
+
+#: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
 msgstr "Position*0.05%"
 

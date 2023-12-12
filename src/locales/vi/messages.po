@@ -1170,7 +1170,7 @@ msgstr "Vị thế"
 
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.02%"
-msgstr ""
+msgstr "Phí vị thế = Vị thế * 0.02%"
 
 #: src/hooks/useFuturesNewOrder.ts
 msgid "Position fee = Position * 0.05%"
@@ -1180,6 +1180,10 @@ msgstr "Phí vị thế = Vị thế * 0.05%"
 #: src/pages/Account/Futures/Futures.tsx
 msgid "Position Value"
 msgstr "Giá trị Vị thế"
+
+#: src/hooks/useFuturesClose.ts
+msgid "Position*0.02%"
+msgstr "Position*0.02%"
 
 #: src/hooks/useFuturesClose.ts
 msgid "Position*0.05%"
