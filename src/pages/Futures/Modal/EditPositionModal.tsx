@@ -86,18 +86,17 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   // }, [props.data.stopLossPrice, props.data.takeProfitPrice]);
   const baseAmount =
     props.data.balance === 0 ? props.data.margin : props.data.balance;
-  const token = props.data.product.split("/")[0];
   const nowPrice = useMemo(() => {
     if (props.price) {
       return Number(
         props.price[
           props.data.product.toLocaleUpperCase()
-        ].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
+        ].bigNumberToShowPrice(18, props.data.product.getTokenPriceDecimals())
       );
     } else {
       return 0;
     }
-  }, [props.data.product, props.price, token]);
+  }, [props.data.product, props.price]);
   const limitPrice = useMemo(() => {
     return props.data.status === 4 ? props.data.orderPrice : nowPrice;
   }, [nowPrice, props.data.orderPrice, props.data.status]);
@@ -153,7 +152,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               onClose={props.onClose}
               baseAmount={baseAmount}
               lever={props.data.leverage}
-              token={token}
+              token={props.data.product}
               isLong={props.data.direction}
               openPrice={props.data.orderPrice}
               append={props.data.append}
@@ -167,7 +166,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
         </Box>
       </Modal>
     );
-  }, [baseAmount, isMobile, limitPrice, props, token]);
+  }, [baseAmount, isMobile, limitPrice, props]);
 
   return view;
 };

@@ -138,7 +138,7 @@ const ShareMyOrderModal: FC<ShareMyOrderModalProps> = ({ ...props }) => {
       link.click();
     }
   };
-  const tokenName = props.value.tokenPair.split("/")[0];
+  const tokenName = props.value.tokenPair
   const shareLink = useMemo(() => {
     const order = props.value;
     const basePrice = parseUnits(

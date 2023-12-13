@@ -29,14 +29,13 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
 
   const mobile = useMemo(() => {
     const items = props.list.map((item, index) => {
-      const tokenName = item.product.split("/")[0];
       const isLong = item.direction;
       const lever = item.leverage;
       const openPrice = item.orderPrice?.floor(
-        tokenName.getTokenPriceDecimals()
+        item.product.getTokenPriceDecimals()
       );
       const marketPrice = item.marketPrice?.floor(
-        tokenName.getTokenPriceDecimals()
+        item.product.getTokenPriceDecimals()
       );
       const roi = item.profitLossRate?.floor(2) + "%";
 
@@ -85,7 +84,9 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     fontSize: "14px",
                     fontWeight: "700",
                     lineHeight: "20px",
-                    color: props.history ? theme.normal.text2 : theme.normal.text0,
+                    color: props.history
+                      ? theme.normal.text2
+                      : theme.normal.text0,
                   })}
                 >
                   {openPrice}
@@ -111,7 +112,9 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     fontSize: "14px",
                     fontWeight: "700",
                     lineHeight: "20px",
-                    color: props.history ? theme.normal.text2 : theme.normal.text0,
+                    color: props.history
+                      ? theme.normal.text2
+                      : theme.normal.text0,
                   })}
                 >
                   {marketPrice}
@@ -124,7 +127,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     fontWeight: "400",
                     lineHeight: "16px",
                     color: theme.normal.text2,
-                    textAlign: "right"
+                    textAlign: "right",
                   })}
                 >
                   <Trans>ROI</Trans>
@@ -146,10 +149,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
               </Stack>
             </Stack>
             <ArithFiLine />
-            <Stack
-              spacing={"8px"}
-              alignItems={"center"}
-            >
+            <Stack spacing={"8px"} alignItems={"center"}>
               <Stack direction={"row"} spacing={"4px"} width={"100%"}>
                 <Box
                   sx={(theme) => ({
@@ -166,7 +166,9 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     fontSize: "12px",
                     fontWeight: "400",
                     lineHeight: "16px",
-                    color: props.history ? theme.normal.text2 : theme.normal.text0,
+                    color: props.history
+                      ? theme.normal.text2
+                      : theme.normal.text0,
                   })}
                 >
                   {openTimeString}
@@ -188,7 +190,9 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
                     fontSize: "12px",
                     fontWeight: "400",
                     lineHeight: "16px",
-                    color: props.history ? theme.normal.text2 : theme.normal.text0,
+                    color: props.history
+                      ? theme.normal.text2
+                      : theme.normal.text0,
                   })}
                 >
                   {closeTimeString}
@@ -236,14 +240,13 @@ interface RowProps {
 }
 
 const Row: FC<RowProps> = ({ ...props }) => {
-  const tokenName = props.data.product.split("/")[0];
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const openPrice = props.data.orderPrice?.floor(
-    tokenName.getTokenPriceDecimals()
+    props.data.product.getTokenPriceDecimals()
   );
   const marketPrice = props.data.marketPrice?.floor(
-    tokenName.getTokenPriceDecimals()
+    props.data.product.getTokenPriceDecimals()
   );
   const roi = props.data.profitLossRate?.floor(2) + "%";
 

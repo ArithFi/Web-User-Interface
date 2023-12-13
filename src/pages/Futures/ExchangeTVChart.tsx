@@ -145,8 +145,8 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
         return 420;
     }
   }, [width]);
-  const TokenIcon = props.tokenPair.split("/")[0].getToken()!.icon;
-  const RightTokenIcon = props.tokenPair.split("/")[1].getToken()!.icon;
+  const TokenIcon = props.tokenPair.getToken()!.icon;
+  // const RightTokenIcon = props.tokenPair.split("/")[1].getToken()!.icon;
   const dataProvider = useRef();
   const [hr, setHr] = useState({
     priceChangePercent: "",
@@ -202,7 +202,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
       return formatAmount(
         props.basePrice?.[props.tokenPair],
         18,
-        props.tokenPair.split("/")[0].getTokenPriceDecimals()
+        props.tokenPair.getTokenPriceDecimals()
       );
     }
     return "-";
@@ -374,8 +374,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
       return <></>;
     } else {
       const topPairItem = (tokenPair: string) => {
-        const token = tokenPair.split("/")[0];
-        const TokenIcon = token.getToken()!.icon;
+        const TokenIcon = tokenPair.getToken()!.icon;
         const percent = props.basePricePercent
           ? Number(props.basePricePercent[tokenPair].floor(4))
           : undefined;
@@ -437,13 +436,18 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           </Stack>
         );
       };
-      const topPairsDefault = ["ETH/USDT", "BTC/USDT", "BNB/USDT", "MATIC/USDT", "AUD/USD"]
+      const topPairsDefault = [
+        "ETH/USDT",
+        "BTC/USDT",
+        "BNB/USDT",
+        "MATIC/USDT",
+        "AUD/USD",
+      ];
       const topPairsAddFav = [
         ...favPairs,
         ...topPairsDefault.filter((item) => favPairs.indexOf(item) === -1),
       ];
-      const topPairs = topPairsAddFav
-        .slice(0, 5);
+      const topPairs = topPairsAddFav.slice(0, 5);
 
       return (
         <Stack
@@ -512,11 +516,11 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                       position: "relative",
                       zIndex: 5,
                     },
-                    "& svg + svg": { marginLeft: "-8px", zIndex: 4 },
+                    // "& svg + svg": { marginLeft: "-8px", zIndex: 4 },
                   }}
                 >
                   <TokenIcon />
-                  <RightTokenIcon />
+                  {/* <RightTokenIcon /> */}
                 </Stack>
                 <Stack spacing={0}>
                   <Box
@@ -583,7 +587,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   {hr.highPrice
                     ? numberWithCommas(
                         Number(hr.highPrice).toFixed(
-                          props.tokenPair.split("/")[0].getTokenPriceDecimals()
+                          props.tokenPair.getTokenPriceDecimals()
                         )
                       )
                     : "-"}
@@ -597,7 +601,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                   {hr.lowPrice
                     ? numberWithCommas(
                         Number(hr.lowPrice).toFixed(
-                          props.tokenPair.split("/")[0].getTokenPriceDecimals()
+                          props.tokenPair.getTokenPriceDecimals()
                         )
                       )
                     : "-"}

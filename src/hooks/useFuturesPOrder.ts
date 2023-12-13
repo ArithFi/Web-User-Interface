@@ -18,7 +18,7 @@ function useFuturesPOrder(
   const [showShareOrderModal, setShowShareOrderModal] =
     useState<boolean>(false);
   const showBasePrice = data.orderPrice.toFixed(
-    tokenName.getTokenPriceDecimals()
+    data.product.getTokenPriceDecimals()
   );
   const showTriggerTitle = useMemo(() => {
     const isEdit = data.takeProfitPrice === 0 && data.stopLossPrice === 0;
@@ -27,13 +27,13 @@ function useFuturesPOrder(
   const tp = useMemo(() => {
     return data.takeProfitPrice === 0
       ? String().placeHolder
-      : data.takeProfitPrice.toFixed(tokenName.getTokenPriceDecimals());
-  }, [data.takeProfitPrice, tokenName]);
+      : data.takeProfitPrice.toFixed(data.product.getTokenPriceDecimals());
+  }, [data.takeProfitPrice, data.product]);
   const sl = useMemo(() => {
     return data.stopLossPrice === 0
       ? String().placeHolder
-      : data.stopLossPrice.toFixed(tokenName.getTokenPriceDecimals());
-  }, [data.stopLossPrice, tokenName]);
+      : data.stopLossPrice.toFixed(data.product.getTokenPriceDecimals());
+  }, [data.stopLossPrice, data.product]);
   const showLiqPrice = useMemo(() => {
     if (price) {
       const balance =
@@ -51,7 +51,10 @@ function useFuturesPOrder(
         orderPrice,
         data.direction
       );
-      return result.bigNumberToShowPrice(18, tokenName.getTokenPriceDecimals());
+      return result.bigNumberToShowPrice(
+        18,
+        data.product.getTokenPriceDecimals()
+      );
     } else {
       return String().placeHolder;
     }
@@ -63,7 +66,6 @@ function useFuturesPOrder(
     data.leverage,
     data.product,
     data.direction,
-    tokenName,
   ]);
   const showMarginAssets = useMemo(() => {
     return data.balance.toFixed(2);
@@ -106,7 +108,7 @@ function useFuturesPOrder(
       actualRate: showPercentNum,
       index: parseInt(data.id.toString()),
       openPrice: parseFloat(
-        data.orderPrice.toFixed(tokenName.getTokenPriceDecimals())
+        data.orderPrice.toFixed(data.product.getTokenPriceDecimals())
       ),
       tokenPair: data.product,
       actualMargin: parseFloat(data.balance.toFixed(2)),
@@ -115,7 +117,7 @@ function useFuturesPOrder(
         price
           ? price[data.product.toLocaleUpperCase()].bigNumberToShowPrice(
               18,
-              tokenName.getTokenPriceDecimals()
+              data.product.getTokenPriceDecimals()
             )
           : "0"
       ),
@@ -134,7 +136,6 @@ function useFuturesPOrder(
     price,
     showPercentNum,
     sl,
-    tokenName,
     tp,
   ]);
   return {

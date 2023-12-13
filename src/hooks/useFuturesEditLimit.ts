@@ -10,19 +10,16 @@ function useFuturesEditLimit(
 ) {
   const { chainsData, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
-  const tokenPair = useMemo(() => {
-    return data.product.split("/")[0];
-  }, [data.product]);
   const defaultLimitPrice = useMemo(() => {
     const orderPrice = data.orderPrice.toString().stringToBigNumber(18);
     if (orderPrice) {
       return data.orderPrice !== 0
-        ? data.orderPrice.floor(tokenPair.getTokenPriceDecimals())
+        ? data.orderPrice.floor(data.product.getTokenPriceDecimals())
         : "";
     } else {
       return "";
     }
-  }, [data.orderPrice, tokenPair]);
+  }, [data.orderPrice, data.product]);
   const [limitPrice, setLimitPrice] = useState(defaultLimitPrice);
   /**
    * action

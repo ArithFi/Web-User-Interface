@@ -1,49 +1,49 @@
-import {Box, Modal, Stack} from "@mui/material";
-import {FC, useEffect, useMemo, useRef, useState} from "react";
+import { Box, Modal, Stack } from "@mui/material";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import BaseModal from "../Components/DashboardBaseModal";
-import {Order} from "../Dashboard";
-import {styled} from "@mui/material/styles";
-import {ATFIconDark, Close, ATFLogo} from "../../../components/icons";
-import {QRCodeCanvas} from "qrcode.react";
-import {useAccount} from "wagmi";
+import { Order } from "../Dashboard";
+import { styled } from "@mui/material/styles";
+import { ATFIconDark, Close, ATFLogo } from "../../../components/icons";
+import { QRCodeCanvas } from "qrcode.react";
+import { useAccount } from "wagmi";
 import ShareOrderPosition from "../Components/ShareOrderPosition";
 import MainButton from "../../../components/MainButton/MainButton";
 import domtoimage from "../../../lib/dom-to-image";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import copy from "copy-to-clipboard";
-import {parseUnits} from "ethers/lib/utils.js";
+import { parseUnits } from "ethers/lib/utils.js";
 import CircularProgress from "@mui/material/CircularProgress";
-import {t} from "@lingui/macro";
+import { t } from "@lingui/macro";
 
-const Caption5 = styled("div")(({theme}) => ({
+const Caption5 = styled("div")(({ theme }) => ({
   fontWeight: "400",
   fontSize: "14px",
   lineHeight: "20px",
   color: "rgba(249, 249, 249, 0.6)",
 }));
 
-const Caption7 = styled("div")(({theme}) => ({
+const Caption7 = styled("div")(({ theme }) => ({
   fontWeight: "400",
   fontSize: "16px",
   lineHeight: "22px",
   color: "#F9F9F9",
 }));
 
-const Caption8 = styled("div")(({theme}) => ({
+const Caption8 = styled("div")(({ theme }) => ({
   fontWeight: "700",
   fontSize: "24px",
   lineHeight: "32px",
   color: "#F9F9F9",
 }));
 
-const Caption9 = styled("div")(({theme}) => ({
+const Caption9 = styled("div")(({ theme }) => ({
   fontWeight: "700",
   fontSize: "32px",
   lineHeight: "44px",
   color: "#F9F9F9",
 }));
 
-const TopStack = styled(Stack)(({theme}) => {
+const TopStack = styled(Stack)(({ theme }) => {
   return {
     position: "absolute",
     top: 0,
@@ -73,9 +73,9 @@ interface ShareNewOrderModalProps {
   value: Order;
 }
 
-const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({...props}) => {
-  const {address} = useAccount();
-  const {messageSnackBar} = useArithFiSnackBar();
+const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({ ...props }) => {
+  const { address } = useAccount();
+  const { messageSnackBar } = useArithFiSnackBar();
   const myShareRef = useRef(null);
   const [dataUrl, setDataUrl] = useState<string | null>(null);
 
@@ -132,7 +132,7 @@ const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({...props}) => {
     }
   };
 
-  const tokenName = props.value.tokenPair.split("/")[0];
+  const tokenName = props.value.tokenPair;
 
   const shareLink = useMemo(() => {
     const order = props.value;
@@ -144,15 +144,15 @@ const ShareNewOrderModal: FC<ShareNewOrderModalProps> = ({...props}) => {
     const orientation = order.orientation === "Long" ? "1" : "0";
     const sp = order.sp
       ? parseUnits(
-        order.sp!.toString(),
-        tokenName.getTokenPriceDecimals()
-      ).toString()
+          order.sp!.toString(),
+          tokenName.getTokenPriceDecimals()
+        ).toString()
       : "0";
     const sl = order.sl
       ? parseUnits(
-        order.sl!.toString(),
-        tokenName.getTokenPriceDecimals()
-      ).toString()
+          order.sl!.toString(),
+          tokenName.getTokenPriceDecimals()
+        ).toString()
       : "0";
     const orderString = `&pt=${props.value.tokenPair}&po=${orientation}&pl=${lever}&pp=${basePrice}&pst=${sp}&psl=${sl}`;
     return `https://arithfi.com/?a=${address
@@ -207,17 +207,17 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   props.onClose();
                 }}
               >
-                <Close/>
+                <Close />
               </button>
             </TopStack>
             {dataUrl && (
-              <Stack position={'absolute'} zIndex={-1}>
-                <img src={dataUrl} style={{width: "100%"}} alt={"share"}/>
+              <Stack position={"absolute"} zIndex={-1}>
+                <img src={dataUrl} style={{ width: "100%" }} alt={"share"} />
               </Stack>
             )}
             <Stack
               alignItems={"center"}
-              width={'100%'}
+              width={"100%"}
               justifyContent={"center"}
               sx={(theme) => ({
                 color: "#F9F9F9",
@@ -233,7 +233,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
               <Stack
                 pt={"50px"}
                 px={"24px"}
-                width={'100%'}
+                width={"100%"}
                 bgcolor={"#0B0C0D"}
                 minHeight={"558px"}
                 style={{
@@ -243,7 +243,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   backgroundSize: "contain",
                 }}
               >
-                <ATFIconDark/>
+                <ATFIconDark />
                 <Stack direction={"row"} pt={"60px"}>
                   <ShareOrderPosition
                     tokenPair={props.value.tokenPair}
@@ -279,7 +279,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     </Caption8>
                   </Stack>
                 </Stack>
-                <Stack height={"110px"}/>
+                <Stack height={"110px"} />
               </Stack>
               <Stack
                 px={"20px"}
@@ -292,7 +292,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 py={"18px"}
               >
                 <Stack direction={"row"} spacing={"12px"}>
-                  <ATFLogo/>
+                  <ATFLogo />
                   <Stack>
                     <Caption7>{t`Scan and copy the trade`}</Caption7>
                     <Caption7>{t`with 1 click`}</Caption7>
@@ -306,7 +306,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     padding: "3px",
                   }}
                 >
-                  <QRCodeCanvas value={shareLink} size={58}/>
+                  <QRCodeCanvas value={shareLink} size={58} />
                 </Box>
               </Stack>
             </Stack>
@@ -323,7 +323,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   backgroundSize: "contain",
                 }}
               >
-                <ATFIconDark/>
+                <ATFIconDark />
                 <Stack direction={"row"} pt={"60px"}>
                   <ShareOrderPosition
                     tokenPair={props.value.tokenPair}
@@ -359,7 +359,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     </Caption8>
                   </Stack>
                 </Stack>
-                <Stack height={"110px"}/>
+                <Stack height={"110px"} />
               </Stack>
               <Stack
                 px={"20px"}
@@ -372,7 +372,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 py={"18px"}
               >
                 <Stack direction={"row"} spacing={"12px"}>
-                  <ATFLogo/>
+                  <ATFLogo />
                   <Stack>
                     <Caption7>{t`Scan and copy the trade`}</Caption7>
                     <Caption7>{t`with 1 click`}</Caption7>
@@ -386,7 +386,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                     padding: "3px",
                   }}
                 >
-                  <QRCodeCanvas value={shareLink} size={58}/>
+                  <QRCodeCanvas value={shareLink} size={58} />
                 </Box>
               </Stack>
             </Stack>

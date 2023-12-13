@@ -403,9 +403,7 @@ function useFuturesNewOrder(
       sl_info &&
       !hasShowShareLink
     ) {
-      const tokenPriceDecimals = tokenPair
-        .split("/")[0]
-        .getTokenPriceDecimals();
+      const tokenPriceDecimals = tokenPair.getTokenPriceDecimals();
       setTabsValue(1);
       setLever(parseInt(lever_info));
       setLimitAmount(
@@ -466,7 +464,7 @@ function useFuturesNewOrder(
     if (openPriceBase) {
       return openPriceBase.bigNumberToShowPrice(
         18,
-        tokenPair.split("/")[0].getTokenPriceDecimals()
+        tokenPair.getTokenPriceDecimals()
       );
     } else {
       return String().placeHolder;
@@ -491,10 +489,8 @@ function useFuturesNewOrder(
         isLong
       );
       return (
-        result.bigNumberToShowPrice(
-          18,
-          tokenPair.split("/")[0].getTokenPriceDecimals()
-        ) ?? String().placeHolder
+        result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
+        String().placeHolder
       );
     },
     [openPriceBase, arithFiAmount, lever, tokenPair]
@@ -563,7 +559,7 @@ function useFuturesNewOrder(
       setLimitAmount(
         openPriceBase.bigNumberToShowString(
           18,
-          tokenPair.split("/")[0].getTokenPriceDecimals()
+          tokenPair.getTokenPriceDecimals()
         )
       );
       setHadSetLimit(true);

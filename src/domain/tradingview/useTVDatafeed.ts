@@ -3,12 +3,12 @@ import {
   LibrarySymbolInfo,
   PeriodParams,
   ResolutionString,
-  SubscribeBarsCallback
+  SubscribeBarsCallback,
 } from "../../charting_library";
 import { SUPPORTED_RESOLUTIONS } from "../../config/tradingview";
 import { useEffect, useMemo, useRef } from "react";
 import { TVDataProvider } from "./TVDataProvider";
-import {formatTimeInBarToMs} from "./utils";
+import { formatTimeInBarToMs } from "./utils";
 
 const configurationData = {
   supported_resolutions: Object.keys(SUPPORTED_RESOLUTIONS),
@@ -52,12 +52,12 @@ export default function useTVDatafeed({ dataProvider }: Props) {
             type: "crypto",
             description: symbolName,
             ticker: symbolName,
-            session: symbolName.includes('/USDT') ? "24x7" : "2200-2200",
+            session: symbolName.includes("/USDT") ? "24x7" : "2200-2200",
             minmov: 1,
-            pricescale: 10 ** (symbolName.split('/')[0]).getTokenPriceDecimals(),
+            pricescale: 10 ** symbolName.getTokenPriceDecimals(),
             timezone: "Etc/UTC",
             has_intraday: true,
-            has_seconds: symbolName.includes('/USDT'),
+            has_seconds: symbolName.includes("/USDT"),
             has_daily: true,
             currency_code: "USD",
             visible_plots_set: "ohlc",
@@ -114,11 +114,13 @@ export default function useTVDatafeed({ dataProvider }: Props) {
           intervalRef.current && clearInterval(intervalRef.current);
           resetCacheRef.current = onResetCacheNeededCallback;
           intervalRef.current = setInterval(function () {
-            tvDataProvider.current?.getLiveBar(ticker, resolution).then((bar) => {
-              if (bar && ticker === activeTicker.current) {
-                onRealtimeCallback(formatTimeInBarToMs(bar));
-              }
-            });
+            tvDataProvider.current
+              ?.getLiveBar(ticker, resolution)
+              .then((bar) => {
+                if (bar && ticker === activeTicker.current) {
+                  onRealtimeCallback(formatTimeInBarToMs(bar));
+                }
+              });
           }, 1000);
         },
         unsubscribeBars: () => {

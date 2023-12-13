@@ -10,9 +10,9 @@ export const TradeCard: FC<{
   mobile?: boolean,
 }> = ({pair1, pair2, mobile}) => {
   const TokenLogo = useMemo(() => {
-    const token = pair1?.getToken()
+    const token = `${pair1}/${pair2}`?.getToken()
     return token ? token.icon : ETHLogo
-  }, [pair1]);
+  }, [pair1, pair2]);
 
   const {data: price,} = useSWR(`https://db.arithfi.com/api/oracle/price/${pair1}${pair2}`,
     (url) => fetch(url).then((res) => res.json()).then((res) => res?.value), {
@@ -71,7 +71,7 @@ export const TradeCard: FC<{
             lineHeight: '20px',
             fontWeight: '700',
           }}>
-            {price ? price.toFixed(pair1.getTokenPriceDecimals()) : '-'}
+            {price ? price.toFixed(`${pair1}/${pair2}`.getTokenPriceDecimals()) : '-'}
           </Stack>
           <Stack flexShrink={0} sx={{
             backgroundColor: price24h && price24h > 0 ? 'rgba(43, 181, 90, 1)' : 'rgba(232, 66, 98, 1)',
@@ -115,7 +115,7 @@ export const TradeCard: FC<{
             </Stack>
           </Stack>
           <Stack textAlign={'end'} pr={'4px'} flexShrink={0}>
-            {price ? price.toFixed(pair1.getTokenPriceDecimals()) : '-'}
+            {price ? price.toFixed(`${pair1}/${pair2}`.getTokenPriceDecimals()) : '-'}
           </Stack>
           <Stack width={'106px'} textAlign={'end'} pr={'40px'} flexShrink={0} sx={(theme) => ({
             color: price24h && price24h > 0 ? 'rgba(43, 181, 90, 1)' : 'rgba(232, 66, 98, 1)',

@@ -13,12 +13,11 @@ interface OrderTablePositionProps {
 }
 
 const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
-  const tokenName = props.tokenPair.split("/")[0]
   const TokenIcon = useMemo(() => {
-    return tokenName.getToken()
-      ? tokenName.getToken()!.icon
+    return props.tokenPair.getToken()
+      ? props.tokenPair.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [tokenName]);
+  }, [props.tokenPair]);
   const showCopy = useMemo(() => {
     return props.isCopy ? <Box component={"button"} sx={(theme) => ({
       backgroundColor: theme.normal.primary_light_hover,

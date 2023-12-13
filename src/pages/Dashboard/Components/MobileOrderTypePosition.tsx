@@ -12,13 +12,12 @@ interface OrderTablePositionProps {
 }
 
 const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
-  const tokenName = props.tokenPair.split("/")[0]
   const TokenIcon = useMemo(() => {
-    return tokenName.getToken()
-      ? tokenName.getToken()!.icon
+    return props.tokenPair.getToken()
+      ? props.tokenPair.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [tokenName]);
-  const BaseToken = props.tokenPair.split("/")[1].getToken()!.icon;
+  }, [props.tokenPair]);
+  // const BaseToken = props.tokenPair.split("/")[1].getToken()!.icon;
   return (
     <Stack
       direction={"row"}
@@ -33,8 +32,8 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
         direction={"row"}
         sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
       >
-        <TokenIcon style={{ marginRight: "-8px", position: "relative" }} />
-        <BaseToken />
+        <TokenIcon />
+        {/* <BaseToken /> */}
       </Stack>
       <Box
         component={"p"}
@@ -43,7 +42,9 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
           fontSize: 14,
           color: theme.normal.text0,
         })}
-      >{props.tokenPair}</Box>
+      >
+        {props.tokenPair}
+      </Box>
       <Stack direction={"row"} spacing={"4px"}>
         <Stack
           direction={"row"}
@@ -64,9 +65,7 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
               height: "10px",
               display: "block",
               "& path": {
-                fill: props.isLong
-                  ? theme.normal.success
-                  : theme.normal.danger,
+                fill: props.isLong ? theme.normal.success : theme.normal.danger,
               },
             },
           })}

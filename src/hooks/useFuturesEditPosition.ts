@@ -15,9 +15,6 @@ function useFuturesEditPosition(
 ) {
   const { chainsData, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
-  const tokenPair = useMemo(() => {
-    return data.product.split("/")[0];
-  }, [data.product]);
   /**
    * futures modal
    */
@@ -30,18 +27,20 @@ function useFuturesEditPosition(
 
   const defaultTP = useMemo(() => {
     if (data.takeProfitPrice !== 0) {
-      const p = data.takeProfitPrice.floor(tokenPair.getTokenPriceDecimals());
+      const p = data.takeProfitPrice.floor(
+        data.product.getTokenPriceDecimals()
+      );
       return p ?? "";
     }
     return "";
-  }, [data.takeProfitPrice, tokenPair]);
+  }, [data.takeProfitPrice, data.product]);
   const defaultSL = useMemo(() => {
     if (data.stopLossPrice !== 0) {
-      const p = data.stopLossPrice.floor(tokenPair.getTokenPriceDecimals());
+      const p = data.stopLossPrice.floor(data.product.getTokenPriceDecimals());
       return p ?? "";
     }
     return "";
-  }, [data.stopLossPrice, tokenPair]);
+  }, [data.stopLossPrice, data.product]);
   const [stopProfitPriceInput, setStopProfitPriceInput] =
     useState<string>(defaultTP);
   const [stopLossPriceInput, setStopLossPriceInput] =
@@ -59,8 +58,8 @@ function useFuturesEditPosition(
     return false;
   }, [stopLossPriceInput]);
   const baseOpenPrice = useMemo(() => {
-    return data.orderPrice.floor(tokenPair.getTokenPriceDecimals());
-  }, [data.orderPrice, tokenPair]);
+    return data.orderPrice.floor(data.product.getTokenPriceDecimals());
+  }, [data.orderPrice, data.product]);
   const tpError = useMemo(() => {
     if (stopProfitPriceInput !== "" && parseFloat(stopProfitPriceInput) !== 0) {
       return data.direction
@@ -137,7 +136,10 @@ function useFuturesEditPosition(
         orderPrice,
         data.direction
       );
-      return result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals());
+      return result.bigNumberToShowPrice(
+        18,
+        data.product.getTokenPriceDecimals()
+      );
     } else {
       return String().placeHolder;
     }
@@ -149,7 +151,6 @@ function useFuturesEditPosition(
     data.leverage,
     data.product,
     data.direction,
-    tokenPair,
   ]);
 
   /**

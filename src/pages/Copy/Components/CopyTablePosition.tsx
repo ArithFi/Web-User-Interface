@@ -12,12 +12,11 @@ interface CopyTablePositionProps {
 }
 
 const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
-  const tokenName = props.tokenPair.split("/")[0];
   const TokenIcon = useMemo(() => {
-    return tokenName.getToken()
-      ? tokenName.getToken()!.icon
+    return props.tokenPair.getToken()
+      ? props.tokenPair.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [tokenName]);
+  }, [props.tokenPair]);
   return (
     <Stack
       direction={"row"}

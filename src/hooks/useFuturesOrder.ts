@@ -19,8 +19,8 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
   const [showShareOrderModal, setShowShareOrderModal] =
     useState<boolean>(false);
   const showLimitPrice = useMemo(() => {
-    return data.orderPrice.toFixed(tokenName.getTokenPriceDecimals());
-  }, [data.orderPrice, tokenName]);
+    return data.orderPrice.toFixed(data.product.getTokenPriceDecimals());
+  }, [data.orderPrice, data.product]);
   const showBalance = useMemo(() => {
     return data.margin.toFixed(2);
   }, [data.margin]);
@@ -82,13 +82,13 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
   const tp = useMemo(() => {
     return data.takeProfitPrice === 0
       ? String().placeHolder
-      : data.takeProfitPrice.floor(tokenName.getTokenPriceDecimals());
-  }, [data.takeProfitPrice, tokenName]);
+      : data.takeProfitPrice.floor(data.product.getTokenPriceDecimals());
+  }, [data.takeProfitPrice, data.product]);
   const sl = useMemo(() => {
     return data.stopLossPrice === 0
       ? String().placeHolder
-      : data.stopLossPrice.floor(tokenName.getTokenPriceDecimals());
-  }, [data.stopLossPrice, tokenName]);
+      : data.stopLossPrice.floor(data.product.getTokenPriceDecimals());
+  }, [data.stopLossPrice, data.product]);
   const openTime = useMemo(() => {
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
@@ -102,8 +102,9 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       actualRate: 0,
       index: parseInt(data.id.toString()),
       openPrice:
-        parseFloat(data.orderPrice.floor(tokenName.getTokenPriceDecimals())) ??
-        0,
+        parseFloat(
+          data.orderPrice.floor(data.product.getTokenPriceDecimals())
+        ) ?? 0,
       tokenPair: data.product,
       actualMargin: 0,
       initialMargin: parseFloat(data.balance.floor(2)),
@@ -112,7 +113,17 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       sl: parseFloat(sl === String().placeHolder ? "0" : sl),
     };
     return info;
-  }, [data.balance, data.direction, data.id, data.leverage, data.orderPrice, data.product, data.walletAddress, sl, tokenName, tp]);
+  }, [
+    data.balance,
+    data.direction,
+    data.id,
+    data.leverage,
+    data.orderPrice,
+    data.product,
+    data.walletAddress,
+    sl,
+    tp,
+  ]);
   return {
     tokenName,
     isLong,
@@ -129,7 +140,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     tp,
     sl,
     openTime,
-    showTriggerTitle
+    showTriggerTitle,
   };
 }
 

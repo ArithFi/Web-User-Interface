@@ -20,9 +20,6 @@ function useFuturesClose(
     const balance = data.balance.floor(2);
     return `${lever}X ${longOrShort} ${balance} ATF`;
   }, [data.balance, data.direction, data.leverage]);
-  const tokenPair = useMemo(() => {
-    return data.product.split("/")[0];
-  }, [data.product]);
 
   const closePrice = useMemo(() => {
     const atfBigNumber = data.balance.toString().stringToBigNumber(18);
@@ -70,11 +67,12 @@ function useFuturesClose(
     if (!closePrice) {
       return String().placeHolder;
     }
+    const token = data.product.toLocaleUpperCase();
     return BigNumber.from(closePrice.toString()).bigNumberToShowPrice(
       18,
-      tokenPair.getTokenPriceDecimals()
+      token.getTokenPriceDecimals()
     );
-  }, [closePrice, tokenPair]);
+  }, [closePrice, data.product]);
 
   const showFee = useMemo(() => {
     if (!price) {
@@ -82,21 +80,14 @@ function useFuturesClose(
     }
     const token = data.product.toLocaleUpperCase();
     const nowPrice = parseFloat(
-      price[token].bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals())
+      price[token].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
     );
     const feeNum = isForex(data.leverage) ? 2 : 5;
     const fee =
       (((data.leverage * data.balance * feeNum) / 10000) * nowPrice) /
       data.orderPrice;
     return fee.floor(4);
-  }, [
-    data.balance,
-    data.leverage,
-    data.orderPrice,
-    data.product,
-    price,
-    tokenPair,
-  ]);
+  }, [data.balance, data.leverage, data.orderPrice, data.product, price]);
   const feeTip = useMemo(() => {
     if (isForex(data.leverage)) {
       return t`Position*0.02%`;
