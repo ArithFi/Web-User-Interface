@@ -22,8 +22,8 @@ const Home = () => {
   const forexList: any[] = [
     {pair1: 'AUD', pair2: 'USD'},
     {pair1: 'EUR', pair2: 'USD'},
-    {pair1: 'JPY', pair2: 'USD'},
-    {pair1: 'CAD', pair2: 'USD'},
+    // {pair1: 'JPY', pair2: 'USD'},
+    // {pair1: 'CAD', pair2: 'USD'},
     {pair1: 'GBP', pair2: 'USD'},
   ]
 
