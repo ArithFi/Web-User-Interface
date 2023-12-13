@@ -123,12 +123,12 @@ const Futures: FC = () => {
       const AUDUSDPricePercent = listPriceBase
         ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"].toString()
         : undefined;
-      const JPYUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["JPYUSD"]["priceChangePercent"].toString()
-        : undefined;
-      const CADUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["CADUSD"]["priceChangePercent"].toString()
-        : undefined;
+      // const JPYUSDPricePercent = listPriceBase
+      //   ? listPriceBase["value"]["JPYUSD"]["priceChangePercent"].toString()
+      //   : undefined;
+      // const CADUSDPricePercent = listPriceBase
+      //   ? listPriceBase["value"]["CADUSD"]["priceChangePercent"].toString()
+      //   : undefined;
       if (
         ETHPricePercent &&
         BTCPricePercent &&
@@ -142,9 +142,9 @@ const Futures: FC = () => {
         AVAXPricePercent &&
         EURUSDPricePercent &&
         GBPUSDPricePercent &&
-        AUDUSDPricePercent &&
-        JPYUSDPricePercent &&
-        CADUSDPricePercent
+        AUDUSDPricePercent
+        // JPYUSDPricePercent &&
+        // CADUSDPricePercent
       ) {
         const newPrice: FuturesPricePercent = {
           "ETH/USDT": Number(ETHPricePercent),
@@ -160,8 +160,8 @@ const Futures: FC = () => {
           "EUR/USD": Number(EURUSDPricePercent),
           "GBP/USD": Number(GBPUSDPricePercent),
           "AUD/USD": Number(AUDUSDPricePercent),
-          "JPY/USD": Number(JPYUSDPricePercent),
-          "CAD/USD": Number(CADUSDPricePercent),
+          // "JPY/USD": Number(JPYUSDPricePercent),
+          // "CAD/USD": Number(CADUSDPricePercent),
         };
         return newPrice;
       } else {
@@ -234,16 +234,16 @@ const Futures: FC = () => {
           .toString()
           .stringToBigNumber(18)
       : undefined;
-    const JPYUSDPrice = listPriceBase
-      ? listPriceBase["value"]["JPYUSD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
-      : undefined;
-    const CADUSDPrice = listPriceBase
-      ? listPriceBase["value"]["CADUSD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
-      : undefined;
+    // const JPYUSDPrice = listPriceBase
+    //   ? listPriceBase["value"]["JPYUSD"]["price"]
+    //       .toString()
+    //       .stringToBigNumber(18)
+    //   : undefined;
+    // const CADUSDPrice = listPriceBase
+    //   ? listPriceBase["value"]["CADUSD"]["price"]
+    //       .toString()
+    //       .stringToBigNumber(18)
+    //   : undefined;
 
     const newPricePercent = percent();
     if (
@@ -259,9 +259,9 @@ const Futures: FC = () => {
       AVAXPrice &&
       EURUSDPrice &&
       GBPUSDPrice &&
-      AUDUSDPrice &&
-      JPYUSDPrice &&
-      CADUSDPrice
+      AUDUSDPrice
+      // JPYUSDPrice &&
+      // CADUSDPrice
     ) {
       const newPrice: FuturesPrice = {
         "ETH/USDT": ETHPrice,
@@ -277,8 +277,8 @@ const Futures: FC = () => {
         "EUR/USD": EURUSDPrice,
         "GBP/USD": GBPUSDPrice,
         "AUD/USD": AUDUSDPrice,
-        "JPY/USD": JPYUSDPrice,
-        "CAD/USD": CADUSDPrice,
+        // "JPY/USD": JPYUSDPrice,
+        // "CAD/USD": CADUSDPrice,
       };
       return [newPrice, newPricePercent];
     } else {
