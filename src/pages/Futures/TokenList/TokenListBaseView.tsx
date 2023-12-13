@@ -30,7 +30,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   const [favPairs, setFavPairs] = useState<Array<string>>([]);
   const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
-  const forexPrice = priceToken.slice(-5);
+  const forexPrice = priceToken.slice(-5).filter((item) => item !== "JPY/USD" && item !== "CAD/USD");
 
   const latestTabs = (num: number) => {
     sessionStorage.setItem("TokenListBaseViewLatestTab", num.toString());
