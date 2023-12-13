@@ -25,12 +25,16 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   const { chainsData, signature, account } = useArithFi();
   const [tabsValue, setTabsValue] = useState(defaultTabs);
   useEffect(() => {
-    setFavPairs(props.favList)
-  }, [props.favList])
+    setFavPairs(props.favList);
+  }, [props.favList]);
   const [favPairs, setFavPairs] = useState<Array<string>>([]);
-  const allPrice = priceToken;
+  const allPrice = priceToken.filter(
+    (item) => item !== "JPY/USD" && item !== "CAD/USD"
+  );
   const cryptoPrice = priceToken.slice(0, 10);
-  const forexPrice = priceToken.slice(-5).filter((item) => item !== "JPY/USD" && item !== "CAD/USD");
+  const forexPrice = priceToken
+    .slice(-5)
+    .filter((item) => item !== "JPY/USD" && item !== "CAD/USD");
 
   const latestTabs = (num: number) => {
     sessionStorage.setItem("TokenListBaseViewLatestTab", num.toString());
@@ -141,8 +145,11 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
             } else {
               newArray = [...newArray, tokenName];
             }
-            setFavPairs(newArray);
-            setFav(newArray);
+            const filterNewArray = newArray.filter(
+              (item) => item !== "JPY/USD" && item !== "CAD/USD"
+            );
+            setFavPairs(filterNewArray);
+            setFav(filterNewArray);
           }}
           isSelected={favPairs.indexOf(item) !== -1}
           forexPrice={forexPrice}
