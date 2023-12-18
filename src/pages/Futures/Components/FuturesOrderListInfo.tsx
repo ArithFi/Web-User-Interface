@@ -29,7 +29,7 @@ export const FuturesOrderListInfoMain = styled(Stack)(({ theme }) => ({
     "& span + span": {
       fontSize: 10,
       fontWeight: 400,
-      lineHeight: "14px",
+      lineHeight: "15px",
       "&.Long": {
         color: theme.normal.success,
       },

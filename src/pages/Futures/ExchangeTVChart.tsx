@@ -516,7 +516,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                       position: "relative",
                       zIndex: 5,
                     },
-                    // "& svg + svg": { marginLeft: "-8px", zIndex: 4 },
                   }}
                 >
                   <TokenIcon />

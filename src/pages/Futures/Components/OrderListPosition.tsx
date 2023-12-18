@@ -59,7 +59,7 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
           direction={"row"}
           sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
         >
-          <TokenIcon style={{ marginRight: "-8px", position: "relative" }} />
+          <TokenIcon/>
         </Stack>
         <Box
           component={"p"}
