@@ -68,7 +68,10 @@ function useFuturesNewOrder(
   updateList: () => void
 ) {
   const fLever = useMemo(() => {
-    if (tokenPair.substring(tokenPair.length - 3) === "USD") {
+    if (
+      tokenPair.substring(tokenPair.length - 3) === "USD" ||
+      tokenPair.substring(0, 3) === "USD"
+    ) {
       return 100;
     } else {
       return 1;

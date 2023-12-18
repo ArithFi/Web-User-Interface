@@ -54,16 +54,18 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
               "&:hover": {
                 background: theme.normal.bg1,
               },
+              cursor: "pointer",
             })}
+            onClick={() => {
+              props.selectToken(item.title);
+              handleClose();
+            }}
           >
             <OneIconWithString
               icon={item.icon}
               title={item.title}
               selected={props.tokenName === item.title}
-              onClick={() => {
-                props.selectToken(item.title);
-                handleClose();
-              }}
+              onClick={() => {}}
             />
           </Stack>
         );
