@@ -795,7 +795,7 @@ msgstr "In ArithFi's trading model, the cost of adding new asset pairs, like GOL
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
-msgstr "Incur a loss, your $ATF will be burned"
+msgstr "Incur a loss, your $ATF will be burned."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -926,7 +926,7 @@ msgstr "Losing Trades"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
-msgstr "Make a profit, you will earn $ATF"
+msgstr "Make a profit, you will earn $ATF."
 
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
