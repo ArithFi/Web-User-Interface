@@ -267,7 +267,7 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
               <Trans>I have read and agreed to the</Trans>{" "}
               <ArithFia
                 target={"blank"}
-                href="https://docs.arithfi.com/docs/blogs/ArithFi-Copy-Trading-TermsConditions"
+                href="https://docs.arithfi.com/docs/blogs/Article/ArithFi-Copy-Trading-TermsConditions"
               >
                 <Trans>Copy Trader Service Agreement</Trans>
               </ArithFia>
