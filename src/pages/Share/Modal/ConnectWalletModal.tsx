@@ -183,14 +183,14 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
                     item.connect?.();
                   }
                   let callbackFired = false;
-          
+
                   item.onConnecting?.(async () => {
                     if (callbackFired) return;
                     callbackFired = true;
                     const getMobileUri = item.mobile?.getUri;
                     if (getMobileUri) {
                       const mobileUri = await getMobileUri();
-          
+
                       if (
                         item.connector.id === "walletConnect" ||
                         item.connector.id === "walletConnectLegacy"
@@ -200,7 +200,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
                           name: item.name,
                         });
                       }
-          
+
                       if (mobileUri.startsWith("http")) {
                         const link = document.createElement("a");
                         link.href = mobileUri;
@@ -277,14 +277,14 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
                   item.connect?.();
                 }
                 let callbackFired = false;
-        
+
                 item.onConnecting?.(async () => {
                   if (callbackFired) return;
                   callbackFired = true;
                   const getMobileUri = item.mobile?.getUri;
                   if (getMobileUri) {
                     const mobileUri = await getMobileUri();
-        
+
                     if (
                       item.connector.id === "walletConnect" ||
                       item.connector.id === "walletConnectLegacy"
@@ -294,7 +294,7 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
                         name: item.name,
                       });
                     }
-        
+
                     if (mobileUri.startsWith("http")) {
                       const link = document.createElement("a");
                       link.href = mobileUri;
@@ -341,14 +341,14 @@ const ConnectWalletModalBase: FC<ConnectWalletModalBaseProps> = ({
           </ItemBox>
         );
       })}
-      
+
     </Stack>
   );
   return (
     <BaseStack spacing={0}>
       <p className="WalletLearnMore">
         <ArithFia
-          href="https://docs.arithfi.com/blog/How-to-Swap-On-ArithFi"
+          href="https://docs.arithfi.com/docs/blogs/How-to-Swap-On-ArithFi"
           target={"_blank"}
         >
           <Trans>Learn more</Trans>{" "}
