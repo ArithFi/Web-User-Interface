@@ -5,21 +5,21 @@ function useLanguageWithDoc() {
   const docLink = useMemo(() => {
     const locale = i18n.locale;
     if (locale === "en") {
-      return "https://docs.arithfi.com/blog/how-to-trade";
+      return "https://docs.arithfi.com/docs/blogs/Guide/how-to-trade";
     } else if (locale === "es") {
-      return "https://docs.arithfi.com/es/blog/how-to-trade";
+      return "https://docs.arithfi.com/es/docs/blogs/Guide/how-to-trade";
     } else if (locale === "ko") {
-      return "https://docs.arithfi.com/ko/blog/how-to-trade";
+      return "https://docs.arithfi.com/ko/docs/blogs/Guide/how-to-trade";
     } else if (locale === "pt") {
-      return "https://docs.arithfi.com/pt/blog/how-to-trade";
+      return "https://docs.arithfi.com/pt/docs/blogs/Guide/how-to-trade";
     } else if (locale === "vi") {
-      return "https://docs.arithfi.com/vi/blog/how-to-trade";
+      return "https://docs.arithfi.com/vi/docs/blogs/Guide/how-to-trade";
     } else if (locale === "tr") {
-      return "https://docs.arithfi.com/tr/blog/how-to-trade";
+      return "https://docs.arithfi.com/tr/docs/blogs/Guide/how-to-trade";
     } else if (locale === "ru") {
-      return "https://docs.arithfi.com/ru/blog/how-to-trade";
+      return "https://docs.arithfi.com/ru/docs/blogs/Guide/how-to-trade";
     } else {
-      return "https://docs.arithfi.com/blog/how-to-trade";
+      return "https://docs.arithfi.com/docs/blogs/Guide/how-to-trade";
     }
   }, []);
 
@@ -31,21 +31,21 @@ export function useLanguageWithCopyDoc() {
   const docLink = useMemo(() => {
     const locale = i18n.locale;
     if (locale === "en") {
-      return "https://docs.arithfi.com/blog/guildline";
+      return "https://docs.arithfi.com/docs/blogs/Guide/guildline";
     } else if (locale === "es") {
-      return "https://docs.arithfi.com/es/blog/guildline";
+      return "https://docs.arithfi.com/es/docs/blogs/Guide/guildline";
     } else if (locale === "ko") {
-      return "https://docs.arithfi.com/ko/blog/guildline";
+      return "https://docs.arithfi.com/ko/docs/blogs/Guide/guildline";
     } else if (locale === "pt") {
-      return "https://docs.arithfi.com/pt/blog/guildline";
+      return "https://docs.arithfi.com/pt/docs/blogs/Guide/guildline";
     } else if (locale === "vi") {
-      return "https://docs.arithfi.com/vi/blog/guildline";
+      return "https://docs.arithfi.com/vi/docs/blogs/Guide/guildline";
     } else if (locale === "tr") {
-      return "https://docs.arithfi.com/tr/blog/guildline";
+      return "https://docs.arithfi.com/tr/docs/blogs/Guide/guildline";
     } else if (locale === "ru") {
-      return "https://docs.arithfi.com/ru/blog/guildline";
+      return "https://docs.arithfi.com/ru/docs/blogs/Guide/guildline";
     } else {
-      return "https://docs.arithfi.com/blog/guildline";
+      return "https://docs.arithfi.com/docs/blogs/Guide/guildline";
     }
   }, []);
 
