@@ -40,7 +40,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
     return props.tokenArray
       .map((item) => {
         const token = item.getToken();
-        return { icon: token!.icon, title: token!.symbol };
+        return { icon: token ? token.icon : "ETH".getToken()!.icon, title: token!.symbol };
       })
       .map((item, index) => {
         return (
