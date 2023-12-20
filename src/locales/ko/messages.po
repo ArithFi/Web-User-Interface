@@ -287,12 +287,9 @@ msgstr "ATF는 소멸적인 토큰으로 작용하며 ArithFi의 산술 거래 �
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/kolItem.tsx
-msgid "Aum(ATF)"
-msgstr "Aum(ATF)"
-
-#: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
 msgstr "AUM (ATF)"
 

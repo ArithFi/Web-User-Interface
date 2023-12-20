@@ -497,7 +497,7 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
                 color: theme.normal.text2,
               })}
             >
-              <Trans>Aum(ATF)</Trans>
+              <Trans>AUM(ATF)</Trans>
             </Box>
           </Stack>
         </Stack>

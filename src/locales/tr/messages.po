@@ -287,12 +287,9 @@ msgstr "ATF, bir deflasyonaryon jetonudur ve ArithFi aritmetik ticaret modelinin
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/kolItem.tsx
-msgid "Aum(ATF)"
-msgstr "Aum(ATF)"
-
-#: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
 msgstr "AUM (ATF)"
 
