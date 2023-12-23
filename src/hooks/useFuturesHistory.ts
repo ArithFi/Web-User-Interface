@@ -30,22 +30,22 @@ function useFuturesHistory(data: FuturesHistoryService) {
     useState<boolean>(false);
   const tp = useMemo(() => {
     return data.sp
-      ? data.sp.toFixed(tokenName.getTokenPriceDecimals())
+      ? data.sp.toFixed(data.tokenPair.getTokenPriceDecimals())
       : String().placeHolder;
-  }, [data.sp, tokenName]);
+  }, [data.sp, data.tokenPair]);
   const sl = useMemo(() => {
     return data.sl
-      ? data.sl.toFixed(tokenName.getTokenPriceDecimals())
+      ? data.sl.toFixed(data.tokenPair.getTokenPriceDecimals())
       : String().placeHolder;
-  }, [data.sl, tokenName]);
+  }, [data.sl, data.tokenPair]);
   const showOpenPrice = useMemo(() => {
     
     if (data.openPrice) {
-      return data.openPrice.toFixed(tokenName.getTokenPriceDecimals());
+      return data.openPrice.toFixed(data.tokenPair.getTokenPriceDecimals());
     } else {
       return String().placeHolder;
     }
-  }, [data.openPrice, tokenName]);
+  }, [data.openPrice, data.tokenPair]);
   const showMarginAssets = useMemo(() => {
     return data.actualMargin
       ? data.actualMargin.floor(2)
@@ -91,25 +91,11 @@ function useFuturesHistory(data: FuturesHistoryService) {
       actualMargin: data.actualMargin,
       initialMargin: data.initialMargin,
       lastPrice: data.lastPrice,
-      sp: parseFloat(data.sp.toFixed(tokenName.getTokenPriceDecimals())),
-      sl: parseFloat(data.sl.toFixed(tokenName.getTokenPriceDecimals())),
+      sp: parseFloat(data.sp.toFixed(data.tokenPair.getTokenPriceDecimals())),
+      sl: parseFloat(data.sl.toFixed(data.tokenPair.getTokenPriceDecimals())),
     };
     return info;
-  }, [
-    data.actualMargin,
-    data.actualRate,
-    data.index,
-    data.initialMargin,
-    data.lastPrice,
-    data.leverage,
-    data.openPrice,
-    data.orientation,
-    data.owner,
-    data.sl,
-    data.sp,
-    data.tokenPair,
-    tokenName,
-  ]);
+  }, [data.actualMargin, data.actualRate, data.index, data.initialMargin, data.lastPrice, data.leverage, data.openPrice, data.orientation, data.owner, data.sl, data.sp, data.tokenPair]);
   return {
     tokenName,
     isLong,

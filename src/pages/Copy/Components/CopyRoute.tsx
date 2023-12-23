@@ -3,6 +3,7 @@ import useWindowWidth from "../../../hooks/useWindowWidth";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { Trans } from "@lingui/macro";
+import {useSessionStorage} from "react-use";
 
 const BACK = (
   <svg
@@ -27,6 +28,7 @@ interface CopyRouteProps {
 
 const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
   const { isBigMobile } = useWindowWidth();
+  const [page, setPage] = useSessionStorage('copy-page', 1);
 
   const mobile = useMemo(() => {
     return (
@@ -43,7 +45,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
           alignItems={"center"}
           spacing={"4px"}
           onClick={() => {
-            window.history.go(-1);
+            window.location.href = `/#/copy?page=${page}`
           }}
           paddingY={"16px"}
           paddingX={"20px"}
@@ -108,7 +110,7 @@ const CopyRoute: FC<CopyRouteProps> = ({ ...props }) => {
             },
           })}
           onClick={() => {
-            window.history.go(-1);
+            window.location.href = `/#/copy?page=${page}`
           }}
         >
           <Trans>Copy Trading</Trans>

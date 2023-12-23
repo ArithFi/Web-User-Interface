@@ -287,12 +287,9 @@ msgstr "ATF es un token deflacionario y sirve como token de liquidación para el
 msgid "AUM (ATF)"
 msgstr "AUM (ATF)"
 
+#: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/kolItem.tsx
-msgid "Aum(ATF)"
-msgstr "Aum(ATF)"
-
-#: src/pages/Copy/Components/KolInfo.tsx
-#: src/pages/Copy/Components/KolInfo.tsx
 msgid "AUM(ATF)"
 msgstr "AUM(ATF)"
 

@@ -77,8 +77,8 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
               alignItems={"flex-end"}
               component={"p"}
             >
-              <span>{showMarginAssets}ATF</span>
-              <span className={isRed ? "Short" : "Long"}>{showPercent}%</span>
+              <Box component={"span"}>{showMarginAssets}ATF</Box>
+              <Box component={"span"} className={isRed ? "Short" : "Long"}>{showPercent}%</Box>
             </Stack>
           </FuturesOrderListInfoMain>
         </Stack>

@@ -14,6 +14,13 @@ import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 
 export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
+const isForesNewOrder = (tokenPair: string) => {
+  return (
+    tokenPair.substring(tokenPair.length - 3) === "USD" ||
+    tokenPair.substring(0, 3) === "USD"
+  );
+};
+
 export const lipPrice = (
   tokenPair: string,
   balance: BigNumber,
@@ -29,7 +36,7 @@ export const lipPrice = (
   ) {
     return BigNumber.from("0");
   }
-  const isForex = tokenPair.substring(tokenPair.length - 3) === "USD";
+  const isForex = isForesNewOrder(tokenPair);
   if (isForex) {
     const subPrice = price
       .mul(BigNumber.from("95"))
@@ -68,7 +75,7 @@ function useFuturesNewOrder(
   updateList: () => void
 ) {
   const fLever = useMemo(() => {
-    if (tokenPair.substring(tokenPair.length - 3) === "USD") {
+    if (isForesNewOrder(tokenPair)) {
       return 100;
     } else {
       return 1;
@@ -118,7 +125,7 @@ function useFuturesNewOrder(
     setArithFiAmount(inputAmount);
   }, [inputAmount]);
   useEffect(() => {
-    if (tokenPair.substring(tokenPair.length - 3) === "USD") {
+    if (isForesNewOrder(tokenPair)) {
       setLever(100);
     } else {
       setLever(1);
@@ -403,9 +410,7 @@ function useFuturesNewOrder(
       sl_info &&
       !hasShowShareLink
     ) {
-      const tokenPriceDecimals = tokenPair
-        .split("/")[0]
-        .getTokenPriceDecimals();
+      const tokenPriceDecimals = tokenPair.getTokenPriceDecimals();
       setTabsValue(1);
       setLever(parseInt(lever_info));
       setLimitAmount(
@@ -466,7 +471,7 @@ function useFuturesNewOrder(
     if (openPriceBase) {
       return openPriceBase.bigNumberToShowPrice(
         18,
-        tokenPair.split("/")[0].getTokenPriceDecimals()
+        tokenPair.getTokenPriceDecimals()
       );
     } else {
       return String().placeHolder;
@@ -491,10 +496,8 @@ function useFuturesNewOrder(
         isLong
       );
       return (
-        result.bigNumberToShowPrice(
-          18,
-          tokenPair.split("/")[0].getTokenPriceDecimals()
-        ) ?? String().placeHolder
+        result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
+        String().placeHolder
       );
     },
     [openPriceBase, arithFiAmount, lever, tokenPair]
@@ -563,7 +566,7 @@ function useFuturesNewOrder(
       setLimitAmount(
         openPriceBase.bigNumberToShowString(
           18,
-          tokenPair.split("/")[0].getTokenPriceDecimals()
+          tokenPair.getTokenPriceDecimals()
         )
       );
       setHadSetLimit(true);

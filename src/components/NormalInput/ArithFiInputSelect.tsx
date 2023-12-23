@@ -40,7 +40,7 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
     return props.tokenArray
       .map((item) => {
         const token = item.getToken();
-        return { icon: token!.icon, title: token!.symbol };
+        return { icon: token ? token.icon : "ETH".getToken()!.icon, title: token!.symbol };
       })
       .map((item, index) => {
         return (
@@ -54,16 +54,18 @@ const ArithFiInputSelect: FC<ArithFiInputSelectProps> = ({ ...props }) => {
               "&:hover": {
                 background: theme.normal.bg1,
               },
+              cursor: "pointer",
             })}
+            onClick={() => {
+              props.selectToken(item.title);
+              handleClose();
+            }}
           >
             <OneIconWithString
               icon={item.icon}
               title={item.title}
               selected={props.tokenName === item.title}
-              onClick={() => {
-                props.selectToken(item.title);
-                handleClose();
-              }}
+              onClick={() => {}}
             />
           </Stack>
         );

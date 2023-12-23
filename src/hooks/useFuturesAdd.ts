@@ -19,9 +19,6 @@ function useFuturesAdd(
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();
   const [loading, setLoading] = useState<boolean>(false);
-  const tokenPair = useMemo(() => {
-    return data.product.split("/")[0];
-  }, [data.product]);
   /**
    * balance
    */
@@ -105,8 +102,8 @@ function useFuturesAdd(
   }, [data.balance, data.direction, data.leverage]);
 
   const showOpenPrice = useMemo(() => {
-    return `${data.orderPrice.toFixed(tokenPair.getTokenPriceDecimals())}`;
-  }, [data.orderPrice, tokenPair]);
+    return `${data.orderPrice.toFixed(data.product.getTokenPriceDecimals())}`;
+  }, [data.orderPrice, data.product]);
 
   const showLiqPrice = useMemo(() => {
     if (price) {
@@ -125,19 +122,21 @@ function useFuturesAdd(
         orderPrice,
         data.direction
       );
-      return result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals());
+      return result.bigNumberToShowPrice(
+        18,
+        data.product.getTokenPriceDecimals()
+      );
     } else {
       return String().placeHolder;
     }
   }, [
-    price,
+    arithFiAmount,
+    data.direction,
+    data.leverage,
     data.margin,
     data.orderPrice,
-    data.leverage,
     data.product,
-    data.direction,
-    arithFiAmount,
-    tokenPair,
+    price,
   ]);
   /**
    * main button

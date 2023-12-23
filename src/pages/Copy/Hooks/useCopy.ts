@@ -5,6 +5,7 @@ import useWindowWidth from "../../../hooks/useWindowWidth";
 import {DEFAULT_CHAIN_ID} from "../../../lib/client";
 import {useSearchParams} from "react-router-dom";
 import useSWR from "swr";
+import {useSessionStorage} from "react-use";
 
 export interface AllKOLModel {
   id: string;
@@ -37,7 +38,7 @@ function useCopy() {
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [page, setPage] = useState<number>(Number(searchParams.get('page')) || 1);
+  const [page, setPage] = useSessionStorage<number>('copy-page', 1);
   const [allPage, setAllPage] = useState<number>(1);
   const {isBigMobile} = useWindowWidth();
   const pageAmount = isBigMobile ? 5 : 12;

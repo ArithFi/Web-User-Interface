@@ -23,11 +23,14 @@ export const FuturesOrderListInfoMain = styled(Stack)(({ theme }) => ({
     fontWeight: 700,
     color: theme.normal.text0,
     "& span": {
+      lineHeight: "19px",
       display: 'block',
     },
     "& span + span": {
       fontSize: 10,
       fontWeight: 400,
+      lineHeight: "15px",
+      paddingTop: "4px",
       "&.Long": {
         color: theme.normal.success,
       },

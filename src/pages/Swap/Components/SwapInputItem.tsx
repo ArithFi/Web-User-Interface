@@ -151,17 +151,19 @@ const SwapInputItem: FC<SwapInputItemProps> = ({ children, ...props }) => {
                 "&:hover": {
                   background: theme.normal.bg1,
                 },
+                cursor: "pointer"
               })}
               key={`SelectTokenList + ${index}`}
+              onClick={() => {
+                props.selectToken(item.title);
+                handleClose();
+              }}
             >
               <OneIconWithString
                 icon={item.icon}
                 title={item.title}
                 selected={props.tokenName === item.title}
-                onClick={() => {
-                  props.selectToken(item.title);
-                  handleClose();
-                }}
+                onClick={() => {}}
               />
             </Stack>
           );

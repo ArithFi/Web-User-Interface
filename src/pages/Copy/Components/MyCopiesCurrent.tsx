@@ -40,7 +40,6 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
 
   const mobile = useMemo(() => {
     const items = props.list.map((item, index) => {
-      const tokenName = item.product.split("/")[0];
       const isLong = item.direction;
       const lever = item.leverage;
       const nickName = item.nickName;
@@ -48,12 +47,14 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
       const balance = item.balance.floor(2);
       const profitLossRate = item.profitLossRate.floor(2) + "%";
       const orderPrice = item.orderPrice.floor(
-        tokenName.getTokenPriceDecimals()
+        item.product.getTokenPriceDecimals()
       );
       const marketPrice = item.marketPrice.floor(
-        tokenName.getTokenPriceDecimals()
+        item.product.getTokenPriceDecimals()
       );
-      const lipPrice = item.lipPrice.floor(tokenName.getTokenPriceDecimals());
+      const lipPrice = item.lipPrice.floor(
+        item.product.getTokenPriceDecimals()
+      );
 
       const openTime = new Date(item.timestamp * 1000);
       const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
@@ -356,7 +357,6 @@ interface RowProps {
 }
 
 const Row: FC<RowProps> = ({ ...props }) => {
-  const tokenName = props.data.product.split("/")[0];
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const nickName = props.data.nickName;
@@ -364,12 +364,14 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const balance = props.data.balance.floor(2);
   const profitLossRate = props.data.profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
-    tokenName.getTokenPriceDecimals()
+    props.data.product.getTokenPriceDecimals()
   );
   const marketPrice = props.data.marketPrice.floor(
-    tokenName.getTokenPriceDecimals()
+    props.data.product.getTokenPriceDecimals()
   );
-  const lipPrice = props.data.lipPrice.floor(tokenName.getTokenPriceDecimals());
+  const lipPrice = props.data.lipPrice.floor(
+    props.data.product.getTokenPriceDecimals()
+  );
 
   const openTime = new Date(props.data.timestamp * 1000);
   const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;

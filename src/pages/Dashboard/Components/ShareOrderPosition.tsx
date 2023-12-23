@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import {FC, useMemo, CSSProperties} from "react";
-import {Long, Short} from "../../../components/icons";
-import {t} from "@lingui/macro";
+import { FC, useMemo, CSSProperties } from "react";
+import { Long, Short } from "../../../components/icons";
+import { t } from "@lingui/macro";
 
 interface ShareOrderPositionProps {
   tokenPair: string;
@@ -11,14 +11,13 @@ interface ShareOrderPositionProps {
   style?: CSSProperties;
 }
 
-const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
-  const tokenName = props.tokenPair.split("/")[0]
+const ShareOrderPosition: FC<ShareOrderPositionProps> = ({ ...props }) => {
   const TokenIcon = useMemo(() => {
-    return tokenName.getToken()
-      ? tokenName.getToken()!.icon
+    return props.tokenPair.getToken()
+      ? props.tokenPair.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [tokenName]);
-  const BaseToken = props.tokenPair.split("/")[1].getToken()!.icon;
+  }, [props.tokenPair]);
+  // const BaseToken = props.tokenPair.split("/")[1].getToken()!.icon;
   return (
     <Stack
       direction={"row"}
@@ -31,10 +30,10 @@ const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
     >
       <Stack
         direction={"row"}
-        sx={{"& svg": {width: "24px", height: "24px", display: "block"}}}
+        sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
       >
-        <TokenIcon style={{marginRight: "-8px", position: "relative"}}/>
-        <BaseToken/>
+        <TokenIcon />
+        {/* <BaseToken/> */}
       </Stack>
       <Box
         component={"p"}
@@ -47,12 +46,14 @@ const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
       >
         {props.tokenPair}
       </Box>
-      <Stack px={'6px'}>
-        <Box sx={{
-          height: "24px",
-          width: "0",
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-        }}/>
+      <Stack px={"6px"}>
+        <Box
+          sx={{
+            height: "24px",
+            width: "0",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+          }}
+        />
       </Stack>
       <Box
         sx={(theme) => ({
@@ -62,12 +63,14 @@ const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
           fontSize: "24px",
         })}
       >{`${props.lever}`}</Box>
-      <Stack px={'6px'}>
-        <Box sx={{
-          height: "24px",
-          width: "0",
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-        }}/>
+      <Stack px={"6px"}>
+        <Box
+          sx={{
+            height: "24px",
+            width: "0",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+          }}
+        />
       </Stack>
       <Stack
         direction={"row"}
@@ -88,14 +91,12 @@ const ShareOrderPosition: FC<ShareOrderPositionProps> = ({...props}) => {
             height: "10px",
             display: "block",
             "& path": {
-              fill: props.isLong
-                ? theme.normal.success
-                : theme.normal.danger,
+              fill: props.isLong ? theme.normal.success : theme.normal.danger,
             },
           },
         })}
       >
-        {props.isLong ? <Long/> : <Short/>}
+        {props.isLong ? <Long /> : <Short />}
         {props.isLong ? <p>{t`Long`}</p> : <p>{t`Short`}</p>}
       </Stack>
     </Stack>

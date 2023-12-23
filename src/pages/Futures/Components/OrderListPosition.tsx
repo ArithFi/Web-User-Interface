@@ -14,14 +14,11 @@ interface OrderListPositionProps {
 }
 
 const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
-  const tokenName = props.tokenPair.split("/")[0]
-  const rightTokenName = props.tokenPair.split("/")[1]
   const TokenIcon = useMemo(() => {
-    return tokenName.getToken()
-      ? tokenName.getToken()!.icon
+    return props.tokenPair.getToken()
+      ? props.tokenPair.getToken()!.icon
       : "ETH".getToken()!.icon;
-  }, [tokenName]);
-  const BaseToken = rightTokenName.getToken()!.icon;
+  }, [props.tokenPair]);
   const showCopy = useMemo(() => {
     return props.isCopy ? (
       <Box
@@ -62,8 +59,7 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
           direction={"row"}
           sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
         >
-          <TokenIcon style={{ marginRight: "-8px", position: "relative" }} />
-          <BaseToken />
+          <TokenIcon/>
         </Stack>
         <Box
           component={"p"}

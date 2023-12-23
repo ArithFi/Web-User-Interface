@@ -148,8 +148,8 @@ export class TVDataProvider {
       return {
         ...this.lastBar,
         close: Number(close_price),
-        high: Number(bars[0].high),
-        low: Number(bars[0].low),
+        high: Math.max(Number(bars[0].high), Number(close_price)),
+        low: Math.min(Number(bars[0].low), Number(close_price)),
         volume: Number(bars[0].volume),
         ticker,
       };
@@ -158,8 +158,8 @@ export class TVDataProvider {
         time: currentCandleTime,
         open: Number(this.lastBar.close),
         close: Number(close_price),
-        high: Number(bars[0].high),
-        low: Number(bars[0].low),
+        high: Math.max(Number(bars[0].high), Number(close_price)),
+        low: Math.min(Number(bars[0].low), Number(close_price)),
         volume: Number(bars[0].volume),
         ticker,
       };

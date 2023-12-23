@@ -22,8 +22,8 @@ const Home = () => {
   const forexList: any[] = [
     {pair1: 'AUD', pair2: 'USD'},
     {pair1: 'EUR', pair2: 'USD'},
-    // {pair1: 'JPY', pair2: 'USD'},
-    // {pair1: 'CAD', pair2: 'USD'},
+    {pair1: 'USD', pair2: 'JPY'},
+    {pair1: 'USD', pair2: 'CAD'},
     {pair1: 'GBP', pair2: 'USD'},
   ]
 
@@ -111,7 +111,7 @@ const Home = () => {
                  bgcolor={'rgba(53, 55, 61, 1)'} borderRadius={'12px'} fontSize={'18px'} fontWeight={'700'}
                  alignItems={'center'}
                  onClick={() => {
-                   window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
+                   window.open('https://docs.arithfi.com/docs/whitepaper/arithfi', '_blank')
                  }}
                  lineHeight={'24px'}>
             <Stack pl={'20px'} pr={'50px'} py={'24px'} color={'rgba(255, 255, 255, 1)'}>
@@ -148,7 +148,7 @@ const Home = () => {
                 width: '50%',
                 textAlign: 'center',
               }} onClick={() => setType(0)}>
-                Popular Crypto
+                Crypto
               </Stack>
               <Stack sx={{
                 cursor: 'pointer',
@@ -161,7 +161,7 @@ const Home = () => {
                 width: '50%',
                 textAlign: 'center',
               }} onClick={() => setType(1)}>
-                Popular Forex
+                Forex
               </Stack>
             </Stack>
             <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
@@ -644,7 +644,7 @@ const Home = () => {
           </Stack>
           <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}
                  onClick={() => {
-                   window.open('https://docs.arithfi.com/docs/arithfi', '_blank')
+                   window.open('https://docs.arithfi.com/docs/whitepaper/arithfi', '_blank')
                  }}
                  position={'relative'}
                  sx={{
@@ -695,7 +695,7 @@ const Home = () => {
                 lineHeight: '32px',
                 color: '#030308',
               }}>
-                Popular Cryptocurrencies
+                Crypto
               </Stack>
               <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
                 color: '#030308',
@@ -723,7 +723,7 @@ const Home = () => {
                 fontWeight: '700',
                 lineHeight: '32px',
                 color: '#030308',
-              }}>Popular Forex</Stack>
+              }}>Forex</Stack>
               <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
                 color: '#030308',
                 fontSize: '14px',

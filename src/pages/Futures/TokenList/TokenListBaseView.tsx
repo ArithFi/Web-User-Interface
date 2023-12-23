@@ -28,13 +28,9 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     setFavPairs(props.favList);
   }, [props.favList]);
   const [favPairs, setFavPairs] = useState<Array<string>>([]);
-  const allPrice = priceToken.filter(
-    (item) => item !== "JPY/USD" && item !== "CAD/USD"
-  );
+  const allPrice = priceToken;
   const cryptoPrice = priceToken.slice(0, 10);
-  const forexPrice = priceToken
-    .slice(-5)
-    .filter((item) => item !== "JPY/USD" && item !== "CAD/USD");
+  const forexPrice = priceToken.slice(-5);
 
   const latestTabs = (num: number) => {
     sessionStorage.setItem("TokenListBaseViewLatestTab", num.toString());
@@ -116,12 +112,11 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   }, [allPrice, cryptoPrice, favPairs, forexPrice, tabsValue]);
   const ListView = useMemo(() => {
     const list = priceList.map((item, index) => {
-      const token = item.split("/")[0];
       const price = props.basePrice
         ? Number(
             props.basePrice[item].bigNumberToShowPrice(
               18,
-              token.getTokenPriceDecimals()
+              item.getTokenPriceDecimals()
             )
           )
         : undefined;
@@ -145,11 +140,8 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
             } else {
               newArray = [...newArray, tokenName];
             }
-            const filterNewArray = newArray.filter(
-              (item) => item !== "JPY/USD" && item !== "CAD/USD"
-            );
-            setFavPairs(filterNewArray);
-            setFav(filterNewArray);
+            setFavPairs(newArray);
+            setFav(newArray);
           }}
           isSelected={favPairs.indexOf(item) !== -1}
           forexPrice={forexPrice}
@@ -190,7 +182,7 @@ const TokenListBaseViewListItem: FC<TokenListBaseViewListItemProps> = ({
 }) => {
   const Icon = props.isSelected ? FavIcon1 : FavIcon0;
   const TokenIcon = useMemo(() => {
-    const token = props.tokenName.split("/")[0].getToken();
+    const token = props.tokenName.getToken();
     if (token) {
       return token.icon;
     } else {

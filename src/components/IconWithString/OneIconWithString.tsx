@@ -1,6 +1,7 @@
+import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import { Stack } from "@mui/system";
-import { FC } from "react";
+import { FC, useMemo } from "react";
 
 interface OneIconWithStringProps {
   icon: React.FunctionComponent<
@@ -14,7 +15,23 @@ interface OneIconWithStringProps {
 }
 
 const OneIconWithString: FC<OneIconWithStringProps> = ({ ...props }) => {
-  const Icon = props.icon;
+  const iconBox = useMemo(() => {
+    const LeftIcon = props.icon;
+    return (
+      <Box
+        sx={{
+          width: "20px",
+          height: "20px",
+          "& svg": {
+            width: "20px",
+            height: "20px",
+          },
+        }}
+      >
+        <LeftIcon />
+      </Box>
+    );
+  }, [props.icon]);
   const TitleP = styled("p")(({ theme }) => {
     return {
       height: 24,
@@ -38,7 +55,8 @@ const OneIconWithString: FC<OneIconWithStringProps> = ({ ...props }) => {
       component={"button"}
       onClick={props.onClick}
     >
-      <Icon style={{ width: 20, height: 20, display: "block" }} />
+      {iconBox}
+
       <TitleP>{props.title}</TitleP>
     </Stack>
   );
