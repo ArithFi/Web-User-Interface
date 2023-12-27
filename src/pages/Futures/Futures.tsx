@@ -16,6 +16,7 @@ import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
 import { useSearchParams } from "react-router-dom";
+import { getCurrentPriceOfToken } from "../../domain/prices";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
@@ -79,6 +80,26 @@ const Futures: FC = () => {
     []
   );
   const [forexOpen, setForexOpen] = useState(false);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      (async () => {
+        const newPrice: number = await getCurrentPriceOfToken(tokenPair);
+        if (newPrice) {
+          const newPriceBigNum = newPrice.toString().stringToBigNumber(18);
+          if (newPriceBigNum) {
+            console.log(newPrice);
+            const newList = { ...basePrice };
+            newList[`${tokenPair}`] = newPriceBigNum;
+            setBasePrice(newList);
+          }
+        }
+      })();
+    }, 1000);
+    return () => {
+      clearInterval(time);
+    };
+  }, [basePrice, tokenPair]);
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
@@ -399,7 +420,7 @@ const Futures: FC = () => {
           newPrice ? (newPrice[1] as FuturesPricePercent) : undefined
         );
       })();
-    }, 1000);
+    }, 10000);
     return () => {
       clearInterval(time);
     };
