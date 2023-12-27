@@ -6,7 +6,7 @@ export async function getChartPricesFromBinance(
   const symbolList = symbol.split("/");
   try {
     const response = await fetch(
-      `https://db.arithfi.com/api/oracle/price/klines?symbol=${symbolList[0]}${symbolList[1]}&limit=${limit}&interval=${period}`
+      `https://cms.nestfi.net/api/oracle/price/klines?symbol=${symbolList[0]}${symbolList[1]}&limit=${limit}&interval=${period}`
     );
     const prices = await response.json();
     return prices.map((price: any) => {
@@ -45,7 +45,7 @@ export async function getCurrentPriceOfToken(symbol: string) {
   const symbolList = symbol.split("/");
   try {
     const response = await fetch(
-      `https://db.arithfi.com/api/oracle/price/${symbolList[0]}${symbolList[1]}`
+      `https://cms.nestfi.net/api/oracle/price/${symbolList[0]}${symbolList[1]}`
     );
     const data = await response.json();
     return data.value;
@@ -66,7 +66,7 @@ export async function get24HrFromBinance(symbol: string) {
   const symbolList = symbol.split("/");
   try {
     const res = await fetch(
-      `https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
+      `https://cms.nestfi.net/api/oracle/price/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
     );
     const data = await res.json();
     if (data) {

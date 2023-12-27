@@ -78,7 +78,6 @@ function useFuturesHistory(data: FuturesHistoryService) {
   const isRed = useMemo(() => {
     return showPercent.indexOf("-") === 0;
   }, [showPercent]);
-  // TODO
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.owner,

@@ -14,12 +14,12 @@ export const TradeCard: FC<{
     return token ? token.icon : ETHLogo
   }, [pair1, pair2]);
 
-  const {data: price,} = useSWR(`https://db.arithfi.com/api/oracle/price/${pair1}${pair2}`,
+  const {data: price,} = useSWR(`https://cms.nestfi.net/api/oracle/price/${pair1}${pair2}`,
     (url) => fetch(url).then((res) => res.json()).then((res) => res?.value), {
       refreshInterval: 1000,
     });
 
-  const {data: price24h} = useSWR(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${pair1}${pair2}`,
+  const {data: price24h} = useSWR(`https://cms.nestfi.net/api/oracle/price/ticker/24hr?symbol=${pair1}${pair2}`,
     (url) => fetch(url).then((res) => res.json()).then((res) => Number(res?.priceChangePercent || 0)), {
       refreshInterval: 1000,
     })
