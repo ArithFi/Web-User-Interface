@@ -16,6 +16,7 @@ import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
 import { useSearchParams } from "react-router-dom";
+import { getCurrentPriceOfToken } from "../../domain/prices";
 
 export interface FuturesPrice {
   [key: string]: BigNumber;
@@ -80,54 +81,74 @@ const Futures: FC = () => {
   );
   const [forexOpen, setForexOpen] = useState(false);
 
+  useEffect(() => {
+    const time = setInterval(() => {
+      (async () => {
+        const newPrice: number = await getCurrentPriceOfToken(tokenPair);
+        if (newPrice) {
+          const newPriceBigNum = newPrice.toString().stringToBigNumber(18);
+          if (newPriceBigNum) {
+            console.log(newPrice);
+            const newList = { ...basePrice };
+            newList[`${tokenPair}`] = newPriceBigNum;
+            setBasePrice(newList);
+          }
+        }
+      })();
+    }, 1000);
+    return () => {
+      clearInterval(time);
+    };
+  }, [basePrice, tokenPair]);
+
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
 
     const percent = () => {
       const ETHPricePercent = listPriceBase
-        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const BTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const BNBPricePercent = listPriceBase
-        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const MATICPricePercent = listPriceBase
-        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const ADAPricePercent = listPriceBase
-        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const DOGEPricePercent = listPriceBase
-        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const XRPPricePercent = listPriceBase
-        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const SOLPricePercent = listPriceBase
-        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const LTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const AVAXPricePercent = listPriceBase
-        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"]?.toString()
         : undefined;
       const EURUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"]?.toString()
         : undefined;
       const GBPUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"]?.toString()
         : undefined;
       const AUDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"]?.toString()
         : undefined;
       const USDJPYPricePercent = listPriceBase
-        ? listPriceBase["value"]["USDJPY"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["USDJPY"]["priceChangePercent"]?.toString()
         : undefined;
       const USDCADPricePercent = listPriceBase
-        ? listPriceBase["value"]["USDCAD"]["priceChangePercent"].toString()
+        ? listPriceBase["value"]["USDCAD"]["priceChangePercent"]?.toString()
         : undefined;
       if (
         ETHPricePercent &&
@@ -171,48 +192,48 @@ const Futures: FC = () => {
 
     const ETHPrice = listPriceBase
       ? listPriceBase["value"]["ETHUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const BTCPrice = listPriceBase
       ? listPriceBase["value"]["BTCUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const BNBPrice = listPriceBase
       ? listPriceBase["value"]["BNBUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const MATICPrice = listPriceBase
       ? listPriceBase["value"]["MATICUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const ADAPrice = listPriceBase
       ? listPriceBase["value"]["ADAUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const DOGEPrice = listPriceBase
       ? listPriceBase["value"]["DOGEUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const XRPPrice = listPriceBase
       ? listPriceBase["value"]["XRPUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const SOLPrice = listPriceBase
       ? listPriceBase["value"]["SOLUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const LTCPrice = listPriceBase
       ? listPriceBase["value"]["LTCUSDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const AVAXPrice = listPriceBase
       ? listPriceBase["value"]["AVAXUSDT"]["price"]
@@ -221,28 +242,28 @@ const Futures: FC = () => {
       : undefined;
     const EURUSDPrice = listPriceBase
       ? listPriceBase["value"]["EURUSD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const GBPUSDPrice = listPriceBase
       ? listPriceBase["value"]["GBPUSD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const AUDUSDPrice = listPriceBase
       ? listPriceBase["value"]["AUDUSD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const USDJPYPrice = listPriceBase
       ? listPriceBase["value"]["USDJPY"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
     const USDCADPrice = listPriceBase
       ? listPriceBase["value"]["USDCAD"]["price"]
-          .toString()
-          .stringToBigNumber(18)
+          ?.toString()
+          ?.stringToBigNumber(18)
       : undefined;
 
     const newPricePercent = percent();
@@ -399,7 +420,7 @@ const Futures: FC = () => {
           newPrice ? (newPrice[1] as FuturesPricePercent) : undefined
         );
       })();
-    }, 1000);
+    }, 10000);
     return () => {
       clearInterval(time);
     };

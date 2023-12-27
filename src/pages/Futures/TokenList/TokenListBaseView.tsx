@@ -112,7 +112,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   }, [allPrice, cryptoPrice, favPairs, forexPrice, tabsValue]);
   const ListView = useMemo(() => {
     const list = priceList.map((item, index) => {
-      const price = props.basePrice
+      const price = props.basePrice && props.basePrice[item]
         ? Number(
             props.basePrice[item].bigNumberToShowPrice(
               18,

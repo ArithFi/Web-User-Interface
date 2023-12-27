@@ -508,8 +508,8 @@ const Copy: FC = () => {
             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => {
               return <KolItemSkeleton key={`KolItemSkeleton+${item}`}/>;
             })
-          ) : kolList.map((item) => {
-            return <KolItem data={item}/>;
+          ) : kolList.map((item, index) => {
+            return <KolItem data={item} key={index}/>;
           })}
         </Grid>
         <Stack
