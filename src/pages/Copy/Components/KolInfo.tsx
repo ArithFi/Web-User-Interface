@@ -147,7 +147,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
       const baseList = await copyMyCopiesMyTradersList(chainsData.chainId, {
         Authorization: signature.signature,
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<MyCopiesMyTradersList> = baseList["value"].map(
           (item: { [x: string]: any }) => {
             return {

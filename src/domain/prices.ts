@@ -1,15 +1,20 @@
+import { serviceBaseURL } from "../lib/ArithFiRequest";
+
 export async function getChartPricesFromBinance(
   symbol: string,
   period: string,
-  limit: number
+  limit: number,
+  chainId?: number
 ) {
   const symbolList = symbol.split("/");
   try {
     const response = await fetch(
-      `https://cms.nestfi.net/api/oracle/price/klines?symbol=${symbolList[0]}${symbolList[1]}&limit=${limit}&interval=${period}`
+      `${serviceBaseURL(
+        chainId
+      )}/oracle/klines?product=${symbol}&limit=${limit}&interval=${period}`
     );
-    const prices = await response.json();
-    return prices.map((price: any) => {
+    const data = await response.json();
+    return data.data.map((price: any) => {
       return {
         time: Number(price[0]) / 1000,
         open: Number(price[1]),
@@ -21,7 +26,7 @@ export async function getChartPricesFromBinance(
     });
   } catch (error) {
     console.log(`Error fetching data: ${error}`);
-    if (symbol.includes('/USDT')) {
+    if (symbol.includes("/USDT")) {
       const response = await fetch(
         `https://api.binance.com/dapi/v3/klines?symbol=${symbolList[0]}${symbolList[1]}&interval=${period}&limit=${limit}`
       );
@@ -41,17 +46,17 @@ export async function getChartPricesFromBinance(
   }
 }
 
-export async function getCurrentPriceOfToken(symbol: string) {
+export async function getCurrentPriceOfToken(symbol: string, chainId?: number) {
   const symbolList = symbol.split("/");
   try {
     const response = await fetch(
-      `https://cms.nestfi.net/api/oracle/price/${symbolList[0]}${symbolList[1]}`
+      `${serviceBaseURL(chainId)}/oracle/price?product=${symbol}`
     );
     const data = await response.json();
-    return data.value;
+    return data.data;
   } catch (e) {
     console.log(`Error fetching data: ${e}`);
-    if (symbol.includes('/USDT')) {
+    if (symbol.includes("/USDT")) {
       const response = await fetch(
         `https://api.binance.com/dapi/v3/ticker/price?symbol=${symbolList[0]}${symbolList[1]}`
       );
@@ -62,24 +67,24 @@ export async function getCurrentPriceOfToken(symbol: string) {
   }
 }
 
-export async function get24HrFromBinance(symbol: string) {
+export async function get24HrFromBinance(symbol: string, chainId?: number) {
   const symbolList = symbol.split("/");
   try {
     const res = await fetch(
-      `https://cms.nestfi.net/api/oracle/price/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
+      `${serviceBaseURL(chainId)}/oracle/ticker24hr?product=${symbol}`
     );
     const data = await res.json();
-    if (data) {
+    if (data.data) {
       return {
-        priceChangePercent: data.priceChangePercent,
-        highPrice: data.highPrice,
-        lowPrice: data.lowPrice,
+        priceChangePercent: data.data.priceChangePercent,
+        highPrice: data.data.highPrice,
+        lowPrice: data.data.lowPrice,
       };
     }
     return null;
   } catch (e) {
     console.log(`Error fetching data: ${e}`);
-    if (symbol.includes('/USDT')) {
+    if (symbol.includes("/USDT")) {
       const res = await fetch(
         `https://api.binance.com/dapi/v3/ticker/24hr?symbol=${symbolList[0]}${symbolList[1]}`
       );

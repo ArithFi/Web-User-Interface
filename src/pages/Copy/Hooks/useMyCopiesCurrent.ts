@@ -19,14 +19,14 @@ function useMyCopiesCurrent(updateList: () => void) {
           chainsData.chainId,
           { Authorization: signature.signature }
         );
-        if (Number(closeBase["errorCode"]) === 0) {
+        if (Number(closeBase["err"]) === 0) {
         }
 
         addTransactionNotice({
           type: TransactionType.futures_sell,
           info: "",
           result:
-            Number(closeBase["errorCode"]) === 0
+            Number(closeBase["err"]) === 0
               ? SnackBarType.success
               : SnackBarType.fail,
         });

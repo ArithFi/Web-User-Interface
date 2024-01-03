@@ -42,7 +42,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
           chainsData.chainId,
           { Authorization: signature.signature }
         );
-        props.onClose(Number(updateBase["errorCode"]) === 0);
+        props.onClose(Number(updateBase["err"]) === 0);
       }
     },
     [chainsData.chainId, props, signature]

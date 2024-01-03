@@ -89,9 +89,9 @@ function useFuturesEditPosition(
         chainsData.chainId,
         { Authorization: signature.signature }
       );
-      if (Number(updateBase["errorCode"]) === 0) {
+      if (Number(updateBase["err"]) === 0) {
       }
-      onClose(Number(updateBase["errorCode"]) === 0);
+      onClose(Number(updateBase["err"]) === 0);
     }
     setLoading(false);
   }, [

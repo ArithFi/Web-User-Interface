@@ -203,7 +203,6 @@ function useFuturesNewOrder(
             ? basePrice.bigNumberToShowString(18, 7)
             : addPricePoint(basePrice, isLong).bigNumberToShowString(18, 7);
         const openBase: { [key: string]: any } = await serviceOpen(
-          chainsData.chainId,
           account.address,
           isLong,
           lever,
@@ -215,7 +214,7 @@ function useFuturesNewOrder(
           Number(tp),
           { Authorization: signature.signature }
         );
-        if (Number(openBase["errorCode"]) === 0) {
+        if (Number(openBase["err"]) === 0) {
           getBalance();
           KOLTx({
             kolLink: window.location.href,
@@ -228,7 +227,7 @@ function useFuturesNewOrder(
           type: TransactionType.futures_buy,
           info: "",
           result:
-            Number(openBase["errorCode"]) === 0
+            Number(openBase["err"]) === 0
               ? SnackBarType.success
               : SnackBarType.fail,
         });

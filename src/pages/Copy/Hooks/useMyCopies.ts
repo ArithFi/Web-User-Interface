@@ -58,7 +58,7 @@ function useMyCopies() {
       const req = await copyMyTradeInfo(chainsData.chainId, {
         Authorization: signature.signature,
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const info: MyTradeInfoModel = {
           assets: value["assets"],
@@ -79,7 +79,7 @@ function useMyCopies() {
       const baseList = await copyMyCopiesList(chainsData.chainId, {
         Authorization: signature.signature,
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<MyCopiesList> = baseList["value"].map(
           (item: { [x: string]: any }) => {
             return {
@@ -116,7 +116,7 @@ function useMyCopies() {
       const baseList = await copyMyCopiesHistoryList(chainsData.chainId, {
         Authorization: signature.signature,
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<MyCopiesList> = baseList["value"].map(
           (item: { [x: string]: any }) => {
             return {
@@ -155,7 +155,7 @@ function useMyCopies() {
       const baseList = await copyMyCopiesMyTradersList(chainsData.chainId, {
         Authorization: signature.signature,
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<MyCopiesMyTradersList> = baseList["value"].map(
           (item: { [x: string]: any }) => {
             return {

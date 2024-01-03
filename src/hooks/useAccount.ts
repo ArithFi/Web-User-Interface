@@ -34,7 +34,7 @@ function useAccount() {
         account.address,
         {Authorization: signature.signature}
       );
-      if (Number(assetsListBase["errorCode"]) === 0) {
+      if (Number(assetsListBase["err"]) === 0) {
         const value = assetsListBase["value"];
         const list: Array<AccountListData> = value.map((item: any) => {
           const one: AccountListData = {
@@ -60,7 +60,7 @@ function useAccount() {
         account.address,
         { Authorization: signature.signature }
       );
-      if (Number(transactionListBase["errorCode"]) === 0) {
+      if (Number(transactionListBase["err"]) === 0) {
         const value = transactionListBase["value"];
         // const list: Array<AccountListData> = value.map((item: any) => {
         //   const one: AccountListData = {

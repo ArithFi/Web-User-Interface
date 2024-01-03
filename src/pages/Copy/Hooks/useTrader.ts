@@ -6,11 +6,11 @@ import {
   copyPerformance,
   copyPerformanceSymbol,
   copyTraderHistory,
-  serviceList,
+  servicePList,
 } from "../../../lib/ArithFiRequest";
 import { AllKOLModel } from "./useCopy";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
-import {useNetwork} from "wagmi";
+import { useNetwork } from "wagmi";
 
 export interface EarningsListModel {
   date: string;
@@ -82,7 +82,7 @@ function useTrader(address: string | undefined) {
       const req = await copyKOLInfo(chainId, address, {
         Authorization: "",
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const tags = () => {
           if (!value["tags"] || value["tags"] === "-") {
@@ -129,7 +129,7 @@ function useTrader(address: string | undefined) {
       const req = await copyEarningsList(chainId, address, days(), {
         Authorization: "",
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const list: Array<EarningsListModel> = value.map((item: any) => {
           const one: EarningsListModel = {
@@ -139,7 +139,6 @@ function useTrader(address: string | undefined) {
           };
           return one;
         });
-
         setEarningsData(list);
       }
     }
@@ -163,7 +162,7 @@ function useTrader(address: string | undefined) {
         Authorization: "",
       });
 
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
 
         const info: PerformanceModel = {
@@ -198,7 +197,7 @@ function useTrader(address: string | undefined) {
       const req = await copyPerformanceSymbol(chainId, address, days(), {
         Authorization: "",
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const list: Array<PerformanceSymbolModel> = value.map((item: any) => {
           const one: PerformanceSymbolModel = {
@@ -217,11 +216,10 @@ function useTrader(address: string | undefined) {
       if (!address) {
         return;
       }
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const baseList = await serviceList(chainId, address, {
+      const baseList = await servicePList(address, {
         Authorization: "",
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<TraderOrderList> = baseList["value"]
           .map((item: { [x: string]: any }) => {
             return {
@@ -242,10 +240,7 @@ function useTrader(address: string | undefined) {
           .filter(
             (item: any) => item.leverage.toString() !== "0" && !item.copy
           );
-        const pOrderList = list.filter((item) => {
-          return item.status === 2;
-        });
-        setTraderOrderList(pOrderList);
+        setTraderOrderList(list);
       }
     } catch (error) {
       console.log(error);
@@ -261,7 +256,7 @@ function useTrader(address: string | undefined) {
       const baseList = await copyTraderHistory(chainId, address, {
         Authorization: "",
       });
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<TraderOrderList> = baseList["value"]
           .map((item: { [x: string]: any }) => {
             return {
@@ -288,17 +283,24 @@ function useTrader(address: string | undefined) {
   }, [address, chain?.id]);
 
   const showPerformanceSymbolData = useCallback(() => {
-    if (performanceSymbolData.length === 0) {return []}
-    const sortPerformanceSymbolData = performanceSymbolData.sort((a,b) => b.value - a.value)
-    const otherValue = sortPerformanceSymbolData.map((item) => item.value).slice(-3).reduce((all ,now) => {
-      return all + now
-    })
-    const one :PerformanceSymbolModel = {
-      name: "Other",
-      value: otherValue
+    if (performanceSymbolData.length === 0) {
+      return [];
     }
-    return [...sortPerformanceSymbolData.slice(0,7)].concat(one)
-  }, [performanceSymbolData])
+    const sortPerformanceSymbolData = performanceSymbolData.sort(
+      (a, b) => b.value - a.value
+    );
+    const otherValue = sortPerformanceSymbolData
+      .map((item) => item.value)
+      .slice(-3)
+      .reduce((all, now) => {
+        return all + now;
+      });
+    const one: PerformanceSymbolModel = {
+      name: "Other",
+      value: otherValue,
+    };
+    return [...sortPerformanceSymbolData.slice(0, 7)].concat(one);
+  }, [performanceSymbolData]);
 
   useEffect(() => {
     getEarnings();
@@ -342,7 +344,7 @@ function useTrader(address: string | undefined) {
     setPerformanceSymbolDay,
     traderOrderList,
     traderOrderHistoryList,
-    showPerformanceSymbolData
+    showPerformanceSymbolData,
   };
 }
 

@@ -105,8 +105,8 @@ function useFuturesClose(
         chainsData.chainId,
         { Authorization: signature.signature }
       );
-      if (Number(closeBase["errorCode"]) === 0) {
-        onClose(Number(closeBase["errorCode"]) === 0);
+      if (Number(closeBase["err"]) === 0) {
+        onClose(Number(closeBase["err"]) === 0);
       }
     }
     setLoading(false);

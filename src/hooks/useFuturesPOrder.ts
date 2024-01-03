@@ -12,7 +12,6 @@ function useFuturesPOrder(
   data: FuturesOrderService,
   price: FuturesPrice | undefined
 ) {
-  const tokenName = data.product.split("/")[0];
   const isLong = data.direction;
   const lever = data.leverage;
   const [showShareOrderModal, setShowShareOrderModal] =
@@ -97,6 +96,7 @@ function useFuturesPOrder(
     return showPercent.indexOf("-") === 0;
   }, [showPercent]);
   const openTime = useMemo(() => {
+    console.log(data.timestamp)
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);
@@ -139,7 +139,6 @@ function useFuturesPOrder(
     tp,
   ]);
   return {
-    tokenName,
     isLong,
     lever,
     showBasePrice,

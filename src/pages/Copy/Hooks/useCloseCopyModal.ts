@@ -22,7 +22,7 @@ function useCloseCopyModal(
       const req = await copyCloseInfo(chainsData.chainId, address, {
         Authorization: signature.signature,
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const info: MyCopiesCloseModel = {
           openInterest: value["openInterest"],
@@ -40,10 +40,10 @@ function useCloseCopyModal(
       const req = await copyClose(chainsData.chainId, address, {
         Authorization: signature.signature,
       });
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
       }
       setIsLoading(false);
-      onClose(Number(req["errorCode"]) === 0);
+      onClose(Number(req["err"]) === 0);
     }
   }, [address, chainsData.chainId, onClose, signature]);
 

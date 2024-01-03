@@ -23,21 +23,19 @@ function useSignModal() {
     async (signature: string) => {
       if (account.address && chainsData.chainId) {
         const info: RequestBodyInterface = {
-          content: BASE_SIGN_CONTENT,
           signature: signature,
         };
         const loginBase: { [key: string]: any } = await serviceLogin(
-          chainsData.chainId,
           account.address,
           remember,
           info
         );
-        if (Number(loginBase["errorCode"]) === 0) {
+        if (Number(loginBase["err"]) === 0) {
           const signatureData: signatureData = {
             address: account.address,
             chainId: chainsData.chainId,
-            signature: loginBase["value"]["token"],
-            expirationTime: loginBase["value"]["expirationTime"],
+            signature: loginBase["data"]["token"],
+            expirationTime: loginBase["data"]["expirationTime"],
           };
           setSignature(signatureData);
           if (remember) {

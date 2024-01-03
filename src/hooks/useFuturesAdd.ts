@@ -53,10 +53,10 @@ function useFuturesAdd(
         data.id.toString(),
         { Authorization: signature.signature }
       );
-      if (Number(addBase["errorCode"]) === 0) {
+      if (Number(addBase["err"]) === 0) {
         getBalance();
       }
-      onClose(Number(addBase["errorCode"]) === 0);
+      onClose(Number(addBase["err"]) === 0);
     }
     setLoading(false);
   }, [

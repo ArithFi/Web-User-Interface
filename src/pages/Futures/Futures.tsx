@@ -11,6 +11,7 @@ import {
   serviceFutureHistory,
   serviceIsOpen,
   serviceList,
+  servicePList,
 } from "../../lib/ArithFiRequest";
 import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
@@ -106,49 +107,49 @@ const Futures: FC = () => {
 
     const percent = () => {
       const ETHPricePercent = listPriceBase
-        ? listPriceBase["value"]["ETHUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["ETH/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const BTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["BTCUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["BTC/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const BNBPricePercent = listPriceBase
-        ? listPriceBase["value"]["BNBUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["BNB/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const MATICPricePercent = listPriceBase
-        ? listPriceBase["value"]["MATICUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["MATIC/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const ADAPricePercent = listPriceBase
-        ? listPriceBase["value"]["ADAUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["ADA/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const DOGEPricePercent = listPriceBase
-        ? listPriceBase["value"]["DOGEUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["DOGE/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const XRPPricePercent = listPriceBase
-        ? listPriceBase["value"]["XRPUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["XRP/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const SOLPricePercent = listPriceBase
-        ? listPriceBase["value"]["SOLUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["SOL/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const LTCPricePercent = listPriceBase
-        ? listPriceBase["value"]["LTCUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["LTC/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const AVAXPricePercent = listPriceBase
-        ? listPriceBase["value"]["AVAXUSDT"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["AVAX/USDT"]["priceChangePercent"]?.toString()
         : undefined;
       const EURUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["EURUSD"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["EUR/USD"]["priceChangePercent"]?.toString()
         : undefined;
       const GBPUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["GBPUSD"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["GBP/USD"]["priceChangePercent"]?.toString()
         : undefined;
       const AUDUSDPricePercent = listPriceBase
-        ? listPriceBase["value"]["AUDUSD"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["AUD/USD"]["priceChangePercent"]?.toString()
         : undefined;
       const USDJPYPricePercent = listPriceBase
-        ? listPriceBase["value"]["USDJPY"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["USD/JPY"]["priceChangePercent"]?.toString()
         : undefined;
       const USDCADPricePercent = listPriceBase
-        ? listPriceBase["value"]["USDCAD"]["priceChangePercent"]?.toString()
+        ? listPriceBase["data"]["USD/CAD"]["priceChangePercent"]?.toString()
         : undefined;
       if (
         ETHPricePercent &&
@@ -191,77 +192,77 @@ const Futures: FC = () => {
     };
 
     const ETHPrice = listPriceBase
-      ? listPriceBase["value"]["ETHUSDT"]["price"]
+      ? listPriceBase["data"]["ETH/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const BTCPrice = listPriceBase
-      ? listPriceBase["value"]["BTCUSDT"]["price"]
+      ? listPriceBase["data"]["BTC/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const BNBPrice = listPriceBase
-      ? listPriceBase["value"]["BNBUSDT"]["price"]
+      ? listPriceBase["data"]["BNB/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const MATICPrice = listPriceBase
-      ? listPriceBase["value"]["MATICUSDT"]["price"]
+      ? listPriceBase["data"]["MATIC/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const ADAPrice = listPriceBase
-      ? listPriceBase["value"]["ADAUSDT"]["price"]
+      ? listPriceBase["data"]["ADA/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const DOGEPrice = listPriceBase
-      ? listPriceBase["value"]["DOGEUSDT"]["price"]
+      ? listPriceBase["data"]["DOGE/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const XRPPrice = listPriceBase
-      ? listPriceBase["value"]["XRPUSDT"]["price"]
+      ? listPriceBase["data"]["XRP/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const SOLPrice = listPriceBase
-      ? listPriceBase["value"]["SOLUSDT"]["price"]
+      ? listPriceBase["data"]["SOL/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const LTCPrice = listPriceBase
-      ? listPriceBase["value"]["LTCUSDT"]["price"]
+      ? listPriceBase["data"]["LTC/USDT"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const AVAXPrice = listPriceBase
-      ? listPriceBase["value"]["AVAXUSDT"]["price"]
+      ? listPriceBase["data"]["AVAX/USDT"]["price"]
           .toString()
           .stringToBigNumber(18)
       : undefined;
     const EURUSDPrice = listPriceBase
-      ? listPriceBase["value"]["EURUSD"]["price"]
+      ? listPriceBase["data"]["EUR/USD"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const GBPUSDPrice = listPriceBase
-      ? listPriceBase["value"]["GBPUSD"]["price"]
+      ? listPriceBase["data"]["GBP/USD"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const AUDUSDPrice = listPriceBase
-      ? listPriceBase["value"]["AUDUSD"]["price"]
+      ? listPriceBase["data"]["AUD/USD"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const USDJPYPrice = listPriceBase
-      ? listPriceBase["value"]["USDJPY"]["price"]
+      ? listPriceBase["data"]["USD/JPY"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
     const USDCADPrice = listPriceBase
-      ? listPriceBase["value"]["USDCAD"]["price"]
+      ? listPriceBase["data"]["USD/CAD"]["price"]
           ?.toString()
           ?.stringToBigNumber(18)
       : undefined;
@@ -312,41 +313,65 @@ const Futures: FC = () => {
       if (!chainsData.chainId || !account.address || !signature) {
         return;
       }
-      const baseList = await serviceList(chainsData.chainId, account.address, {
+      // TODO: 10
+      const pList = await servicePList(account.address, {
         Authorization: signature.signature,
       });
-      if (Number(baseList["errorCode"]) === 0) {
-        const list: Array<FuturesOrderService> = baseList["value"]
+      if (Number(pList["err"]) === 0) {
+        const list: Array<FuturesOrderService> = pList["data"]
           .map((item: { [x: string]: any }) => {
+            const timestamp = new Date(item["openAt"]).getTime()
             return {
               id: item["id"],
-              timestamp: item["timestamp"],
+              timestamp: timestamp / 1000,
               walletAddress: item["walletAddress"],
               chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
-              orderPrice: item["orderPrice"],
+              orderPrice: item["openPrice"],
               limitPrice: item["limitPrice"],
               direction: item["direction"],
               margin: item["margin"],
               append: item["append"],
-              balance: item["balance"],
-              fees: item["fees"],
+              balance: item["balance"] ?? 10,
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
-              copy: item["copy"],
+              copy: item["pid"] !== null,
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
-        const pOrderList = list.filter((item) => {
-          return item.status === 2;
-        });
-        const orderList = list.filter((item) => {
-          return item.status === 4;
-        });
-        setPOrderListV2(pOrderList);
-        setLimitOrderList(orderList);
+        setPOrderListV2(list);
+      }
+// TODO: 10
+      const limitList = await serviceList(account.address, {
+        Authorization: signature.signature,
+      });
+
+      if (Number(limitList["err"]) === 0) {
+        const list: Array<FuturesOrderService> = limitList["data"]
+          .map((item: { [x: string]: any }) => {
+            const timestamp = new Date(item["openAt"]).getTime()
+            return {
+              id: item["id"],
+              timestamp: timestamp / 1000,
+              walletAddress: item["walletAddress"],
+              chainId: item["chainId"],
+              product: item["product"],
+              leverage: item["leverage"],
+              orderPrice: item["openPrice"],
+              limitPrice: item["limitPrice"],
+              direction: item["direction"],
+              margin: item["margin"],
+              append: item["append"],
+              balance: item["balance"] ?? 10,
+              stopLossPrice: item["stopLossPrice"],
+              takeProfitPrice: item["takeProfitPrice"],
+              status: item["status"],
+            };
+          })
+          .filter((item: any) => item.leverage.toString() !== "0");
+        setLimitOrderList(list);
       }
     } catch (error) {
       console.log(error);
@@ -362,7 +387,7 @@ const Futures: FC = () => {
         account.address,
         { Authorization: signature.signature }
       );
-      if (Number(baseList["errorCode"]) === 0) {
+      if (Number(baseList["err"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["value"].map(
           (item: { [x: string]: any }) => {
             return {

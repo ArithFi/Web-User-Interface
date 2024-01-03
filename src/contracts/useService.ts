@@ -8,12 +8,11 @@ function useService() {
     async (back: (result: number) => void) => {
       if (chainsData.chainId && account.address && signature) {
         const balanceBase: { [key: string]: any } = await serviceAsset(
-          chainsData.chainId,
           account.address,
           { Authorization: signature.signature }
         );
-        if (Number(balanceBase["errorCode"]) === 0) {
-          const value: { [key: string]: number } = balanceBase["value"] ?? 0;
+        if (Number(balanceBase["err"]) === 0) {
+          const value: { [key: string]: number } = balanceBase["data"] ?? 0;
           const balance = value["availableBalance"];
           back(balance);
         }
@@ -26,13 +25,12 @@ function useService() {
     async (back: (result: number) => void) => {
       if (chainsData.chainId && account.address && signature) {
         const balanceBase: { [key: string]: any } = await serviceAsset(
-          chainsData.chainId,
           account.address,
           { Authorization: signature.signature }
         );
-        if (Number(balanceBase["errorCode"]) === 0) {
-          const value: { [key: string]: number } = balanceBase["value"] ?? 0;
-          const balance = value["block"];
+        if (Number(balanceBase["err"]) === 0) {
+          const value: { [key: string]: number } = balanceBase["data"] ?? 0;
+          const balance = value["freezeBalance"];
           back(balance);
         }
       }
@@ -44,12 +42,11 @@ function useService() {
     async (back: (result: Array<string>) => void) => {
       if (chainsData.chainId && account.address && signature) {
         const baseData: { [key: string]: any } = await serviceAsset(
-          chainsData.chainId,
           account.address,
           { Authorization: signature.signature }
         );
-        if (Number(baseData["errorCode"]) === 0) {
-          const value: { [key: string]: string } = baseData["value"] ?? "";
+        if (Number(baseData["err"]) === 0) {
+          const value: { [key: string]: string } = baseData["data"] ?? "";
           const data = value["favorites"];
           const pairs = data.split(";");
           const tokenPairs = pairs.map((item) => {

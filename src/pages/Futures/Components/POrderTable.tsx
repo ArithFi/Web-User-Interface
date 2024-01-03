@@ -117,7 +117,6 @@ const EditIcon = (
 
 const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     showBasePrice,

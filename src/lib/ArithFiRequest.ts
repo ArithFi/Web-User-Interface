@@ -109,41 +109,36 @@ export function KOLTx(info: RequestBodyInterface) {
   baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
-// deprecated
-export function getPriceList(): Promise<any> {
-  return baseRequestGet(`https://cms.nestfi.net/api/oracle/price/list`);
-}
-export function getPriceListV2(): Promise<any> {
-  return baseRequestGet(`https://cms.nestfi.net/api/oracle/pair/list`);
+export function getPriceListV2(chainId?: number): Promise<any> {
+  return baseRequestGet(`${serviceBaseURL(chainId)}/oracle/list`);
 }
 
 /**
  * service
  */
-export function serviceBaseURL(chainId: number) {
+export function serviceBaseURL(chainId: number = 97) {
   if (chainId === 56) {
     return "https://db.arithfi.com/arithfi";
   } else {
-    return "https://db.arithfi.com/arithfi";
+    return "https://db.nestfi.net/arithfi";
   }
 }
 export function serviceLogin(
-  chainId: number,
   address: string,
   remember: boolean,
-  info: RequestBodyInterface
+  info: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/user/login?chainId=${chainId}&walletAddress=${address}&remember=${remember}`,
+    )}/user/login?walletAddress=${address}&remember=${remember}`,
     info,
     {}
   );
 }
 
 export function serviceOpen(
-  chainId: number,
   address: string,
   direction: boolean,
   leverage: number,
@@ -153,14 +148,23 @@ export function serviceOpen(
   product: string,
   stopLossPrice: number,
   takeProfitPrice: number,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(
-      chainId
-    )}/op/future/open?chainId=${chainId}&direction=${direction}&leverage=${leverage}&limit=${limit}&margin=${margin}&orderPrice=${orderPrice}&product=${product}&stopLossPrice=${stopLossPrice}&takeProfitPrice=${takeProfitPrice}&walletAddress=${address}`,
+    `${serviceBaseURL(chainId)}/future/open`,
     header,
-    {}
+    {
+      walletAddress: address,
+      product: product,
+      direction: `${direction}`,
+      leverage: leverage.toString(),
+      margin: margin.toString(),
+      orderPrice: orderPrice.toString(),
+      limit: `${limit}`,
+      stopLossPrice: stopLossPrice.toString(),
+      takeProfitPrice: takeProfitPrice.toString(),
+    }
   );
 }
 
@@ -266,27 +270,38 @@ export function serviceSetFavorites(
 }
 
 export function serviceAsset(
-  chainId: number,
   address: string,
-  info: RequestBodyInterface
+  info: RequestBodyInterface,
+  chainId?: number
+): Promise<any> {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(chainId)}/user/asset?walletAddress=${address}`,
+    info
+  );
+}
+
+export function servicePList(
+  address: string,
+  info: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/op/user/asset?chainId=${chainId}&walletAddress=${address}`,
+    )}/future/list?walletAddress=${address}&status=2&copy=null`,
     info
   );
 }
 
 export function serviceList(
-  chainId: number,
   address: string,
-  info: RequestBodyInterface
+  info: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/op/future/list?chainId=${chainId}&walletAddress=${address}`,
+    )}/future/list?walletAddress=${address}&status=4&copy=null`,
     info
   );
 }

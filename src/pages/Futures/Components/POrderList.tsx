@@ -27,7 +27,6 @@ interface POrderListProps {
 
 const POrderList: FC<POrderListProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     showBasePrice,

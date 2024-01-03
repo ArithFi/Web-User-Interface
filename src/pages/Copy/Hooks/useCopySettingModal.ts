@@ -41,10 +41,10 @@ function useCopySettingModal(
           followingValue: followingValue,
         }
       );
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
       }
       setIsLoading(false);
-      onClose(Number(req["errorCode"]) === 0);
+      onClose(Number(req["err"]) === 0);
     }
   }, [
     address,
@@ -74,7 +74,7 @@ function useCopySettingModal(
           Authorization: signature.signature,
         }
       );
-      if (Number(req["errorCode"]) === 0) {
+      if (Number(req["err"]) === 0) {
         const value = req["value"];
         const currentValue = value["copyAccountBalance"];
         const oldTotal = value["copyAccountBalanceTotal"];

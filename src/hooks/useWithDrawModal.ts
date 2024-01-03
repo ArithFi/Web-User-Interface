@@ -112,15 +112,15 @@ function useWithDrawModal(onClose: (res?: boolean) => void) {
           type: TransactionType.futures_add,
           info: "",
           result:
-            Number(withDrawBase["errorCode"]) === 0
+            Number(withDrawBase["err"]) === 0
               ? SnackBarType.success
               : SnackBarType.fail,
         });
 
-        if (Number(withDrawBase["errorCode"]) === 0) {
+        if (Number(withDrawBase["err"]) === 0) {
           getBalance();
         }
-        onClose(Number(withDrawBase["errorCode"]) === 0);
+        onClose(Number(withDrawBase["err"]) === 0);
       }
     }
     setLoading(false);
