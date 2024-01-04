@@ -46,10 +46,10 @@ function useFuturesAdd(
    * action
    */
   const add = useCallback(async () => {
-    if (chainsData.chainId && signature) {
+    if (account.address && signature) {
       const addBase: { [key: string]: any } = await serviceAdd(
+        account.address,
         arithFiAmount,
-        chainsData.chainId,
         data.id.toString(),
         { Authorization: signature.signature }
       );
@@ -59,14 +59,7 @@ function useFuturesAdd(
       onClose(Number(addBase["err"]) === 0);
     }
     setLoading(false);
-  }, [
-    chainsData.chainId,
-    data.id,
-    getBalance,
-    arithFiAmount,
-    onClose,
-    signature,
-  ]);
+  }, [signature, account.address, arithFiAmount, data.id, onClose, getBalance]);
 
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {

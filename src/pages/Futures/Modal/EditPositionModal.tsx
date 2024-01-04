@@ -31,21 +31,21 @@ interface EditPositionModalBaseProps {
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
   ...props
 }) => {
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const update = useCallback(
     async (tp: number, sl: number) => {
-      if (chainsData.chainId && signature) {
+      if (account.address && signature) {
         const updateBase: { [key: string]: any } = await serviceUpdateStopPrice(
+          account.address,
           props.index.toString(),
           sl.toString(),
           tp.toString(),
-          chainsData.chainId,
           { Authorization: signature.signature }
         );
         props.onClose(Number(updateBase["err"]) === 0);
       }
     },
-    [chainsData.chainId, props, signature]
+    [account.address, props, signature]
   );
 
   return (

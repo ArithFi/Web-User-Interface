@@ -8,15 +8,15 @@ import {
 import { SnackBarType } from "../../../components/SnackBar/NormalSnackBar";
 
 function useMyCopiesCurrent(updateList: () => void) {
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [isLoading, setIsLoading] = useState<number>(-1);
   const { addTransactionNotice } = usePendingTransactionsBase();
   const close = useCallback(
     async (id: number) => {
-      if (chainsData.chainId && signature) {
+      if (account.address && signature) {
         const closeBase: { [key: string]: any } = await serviceClose(
+          account.address,
           id.toString(),
-          chainsData.chainId,
           { Authorization: signature.signature }
         );
         if (Number(closeBase["err"]) === 0) {
@@ -34,7 +34,7 @@ function useMyCopiesCurrent(updateList: () => void) {
         updateList();
       }
     },
-    [addTransactionNotice, chainsData.chainId, signature, updateList]
+    [account.address, addTransactionNotice, signature, updateList]
   );
 
   const action = useCallback(

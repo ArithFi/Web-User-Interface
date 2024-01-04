@@ -1,8 +1,7 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useService from "../contracts/useService";
 import useArithFi from "./useArithFi";
-import {serviceAccountList, serviceHistory} from "../lib/ArithFiRequest";
-import {t} from "@lingui/macro";
+import { serviceAccountList } from "../lib/ArithFiRequest";
 
 export interface AccountListData {
   text: string;
@@ -16,14 +15,13 @@ export interface AccountListData {
 }
 
 function useAccount() {
-  const {service_balance, block_balance} = useService();
-  const {account, chainsData, signature} = useArithFi();
+  const { service_balance, block_balance } = useService();
+  const { account, chainsData, signature } = useArithFi();
   const [showDeposit, setShowDeposit] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);
   const [tokenBalance, setTokenBalance] = useState<number>();
   const [tokenBlockBalance, setTokenBlockBalance] = useState<number>();
   const [moneyList, setMoneyList] = useState<Array<AccountListData>>([]);
-  const [historyList, setHistoryList] = useState<Array<AccountListData>>([]);
   /**
    * List
    */
@@ -32,7 +30,7 @@ function useAccount() {
       const assetsListBase = await serviceAccountList(
         chainsData.chainId,
         account.address,
-        {Authorization: signature.signature}
+        { Authorization: signature.signature }
       );
       if (Number(assetsListBase["err"]) === 0) {
         const value = assetsListBase["value"];
@@ -45,34 +43,11 @@ function useAccount() {
             chainId: item["chainId"],
             hash: item["hash"],
             ordertype: item["ordertype"],
-            info: item['info'] || undefined,
+            info: item["info"] || undefined,
           };
           return one;
         });
         setMoneyList(list);
-      }
-    }
-  }, [account.address, chainsData.chainId, signature]);
-  const getTransactionList = useCallback(async () => {
-    if (chainsData.chainId && account.address && signature) {
-      const transactionListBase = await serviceHistory(
-        chainsData.chainId,
-        account.address,
-        { Authorization: signature.signature }
-      );
-      if (Number(transactionListBase["err"]) === 0) {
-        const value = transactionListBase["value"];
-        // const list: Array<AccountListData> = value.map((item: any) => {
-        //   const one: AccountListData = {
-        //     text: "",
-        //     time: item["timestamp"],
-        //     status: item["status"],
-        //     ordertype: item["orderType"],
-        //     orderTypeString: ""
-        //   };
-        //   return one;
-        // });
-        // setHistoryList(list);
       }
     }
   }, [account.address, chainsData.chainId, signature]);
@@ -140,15 +115,13 @@ function useAccount() {
 
   useEffect(() => {
     getAssetsList();
-    getTransactionList();
     const time = setInterval(() => {
       getAssetsList();
-      getTransactionList();
     }, 10 * 1000);
     return () => {
       clearInterval(time);
     };
-  }, [getAssetsList, getTransactionList]);
+  }, [getAssetsList]);
 
   return {
     showDeposit,
@@ -158,7 +131,6 @@ function useAccount() {
     showBalance,
     showBlockBalance,
     moneyList,
-    historyList,
     getAssetsList,
   };
 }

@@ -22,7 +22,7 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
     const tab = sessionStorage.getItem("TokenListBaseViewLatestTab");
     return tab ? Number(tab) : 2;
   }, []);
-  const { chainsData, signature, account } = useArithFi();
+  const { signature, account } = useArithFi();
   const [tabsValue, setTabsValue] = useState(defaultTabs);
   useEffect(() => {
     setFavPairs(props.favList);
@@ -39,21 +39,17 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
 
   const setFav = useCallback(
     async (pairs: Array<String>) => {
-      if (chainsData.chainId && signature && account.address) {
-        const pairsData = pairs.map(
-          (item) => item.split("/")[0] + item.split("/")[1]
-        );
+      if (signature && account.address) {
         const closeBase: { [key: string]: any } = await serviceSetFavorites(
-          chainsData.chainId,
           account.address,
-          pairsData.join(";"),
+          pairs.join(";"),
           { Authorization: signature.signature }
         );
         if (Number(closeBase["err"]) === 0) {
         }
       }
     },
-    [account.address, chainsData.chainId, signature]
+    [account.address, signature]
   );
 
   const TabsView = useMemo(() => {
@@ -112,14 +108,15 @@ const TokenListBaseView: FC<TokenListBaseViewProps> = ({ ...props }) => {
   }, [allPrice, cryptoPrice, favPairs, forexPrice, tabsValue]);
   const ListView = useMemo(() => {
     const list = priceList.map((item, index) => {
-      const price = props.basePrice && props.basePrice[item]
-        ? Number(
-            props.basePrice[item].bigNumberToShowPrice(
-              18,
-              item.getTokenPriceDecimals()
+      const price =
+        props.basePrice && props.basePrice[item]
+          ? Number(
+              props.basePrice[item].bigNumberToShowPrice(
+                18,
+                item.getTokenPriceDecimals()
+              )
             )
-          )
-        : undefined;
+          : undefined;
       const percent = props.basePricePercent
         ? Number(props.basePricePercent[item].floor(4))
         : undefined;

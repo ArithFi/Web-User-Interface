@@ -96,7 +96,6 @@ function useFuturesPOrder(
     return showPercent.indexOf("-") === 0;
   }, [showPercent]);
   const openTime = useMemo(() => {
-    console.log(data.timestamp)
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);

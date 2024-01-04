@@ -8,7 +8,7 @@ function useFuturesEditLimit(
   data: FuturesOrderService,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
   const defaultLimitPrice = useMemo(() => {
     const orderPrice = data.orderPrice.toString().stringToBigNumber(18);
@@ -25,11 +25,11 @@ function useFuturesEditLimit(
    * action
    */
   const update = useCallback(async () => {
-    if (chainsData.chainId && signature) {
+    if (account.address && signature) {
       const updateBase: { [key: string]: any } = await serviceUpdateLimitPrice(
+        account.address,
         data.id.toString(),
         limitPrice,
-        chainsData.chainId,
         { Authorization: signature.signature }
       );
       if (Number(updateBase["err"]) === 0) {
@@ -37,7 +37,7 @@ function useFuturesEditLimit(
       onClose(Number(updateBase["err"]) === 0);
     }
     setLoading(false);
-  }, [chainsData.chainId, data.id, limitPrice, onClose, signature]);
+  }, [account.address, data.id, limitPrice, onClose, signature]);
 
   /**
    * main button

@@ -11,7 +11,7 @@ import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 
 function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
   const tokenName = data.product.split("/")[0];
   const isLong = data.direction;
@@ -33,10 +33,10 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
    * action
    */
   const close = useCallback(async () => {
-    if (chainsData.chainId && signature) {
+    if (account.address && signature) {
       const closeBase: { [key: string]: any } = await serviceCancel(
+        account.address,
         data.id.toString(),
-        chainsData.chainId,
         { Authorization: signature.signature }
       );
       if (Number(closeBase["err"]) === 0) {
@@ -52,13 +52,7 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
       });
     }
     setLoading(false);
-  }, [
-    addTransactionNotice,
-    chainsData.chainId,
-    data.id,
-    signature,
-    updateList,
-  ]);
+  }, [account.address, addTransactionNotice, data.id, signature, updateList]);
   /**
    * main button
    */

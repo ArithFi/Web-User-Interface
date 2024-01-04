@@ -49,25 +49,7 @@ function useService() {
           const value: { [key: string]: string } = baseData["data"] ?? "";
           const data = value["favorites"];
           const pairs = data.split(";");
-          const tokenPairs = pairs.map((item) => {
-            if (item.includes("USDT")) {
-              return (
-                item.substring(0, item.length - 4) +
-                "/" +
-                item.substring(item.length - 4)
-              );
-            } else if (item.includes("USD")) {
-              return (
-                item.substring(0, item.length - 3) +
-                "/" +
-                item.substring(item.length - 3)
-              );
-            } else {
-              return "";
-            }
-          });
-
-          back(tokenPairs.filter((item) => item !== ""));
+          back(pairs.filter((item) => item !== ""));
         }
       }
     },

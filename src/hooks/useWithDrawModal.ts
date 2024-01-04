@@ -55,7 +55,6 @@ function useWithDrawModal(onClose: (res?: boolean) => void) {
   );
   const checkBalance = useMemo(() => {
     if (tokenBalance) {
-      
       return tokenAmount.stringToBigNumber(18)?.gt(tokenBalance);
     }
     return false;
@@ -97,37 +96,30 @@ function useWithDrawModal(onClose: (res?: boolean) => void) {
   }, [tokenAmount]);
 
   const withdraw = useCallback(async () => {
-    if (chainsData.chainId && account.address && signature) {
-      const tokenAddress = "ATF".getTokenAddress(chainsData.chainId);
-      if (tokenAddress) {
-        const withDrawBase: { [key: string]: any } = await serviceWithdraw(
-          Number(tokenAmount),
-          chainsData.chainId,
-          "ATF",
-          tokenAddress,
-          account.address,
-          { Authorization: signature.signature }
-        );
-        addTransactionNotice({
-          type: TransactionType.futures_add,
-          info: "",
-          result:
-            Number(withDrawBase["err"]) === 0
-              ? SnackBarType.success
-              : SnackBarType.fail,
-        });
+    if (account.address && signature) {
+      const withDrawBase: { [key: string]: any } = await serviceWithdraw(
+        account.address,
+        Number(tokenAmount),
+        { Authorization: signature.signature }
+      );
+      addTransactionNotice({
+        type: TransactionType.futures_add,
+        info: "",
+        result:
+          Number(withDrawBase["err"]) === 0
+            ? SnackBarType.success
+            : SnackBarType.fail,
+      });
 
-        if (Number(withDrawBase["err"]) === 0) {
-          getBalance();
-        }
-        onClose(Number(withDrawBase["err"]) === 0);
+      if (Number(withDrawBase["err"]) === 0) {
+        getBalance();
       }
+      onClose(Number(withDrawBase["err"]) === 0);
     }
     setLoading(false);
   }, [
     account.address,
     addTransactionNotice,
-    chainsData.chainId,
     getBalance,
     onClose,
     signature,

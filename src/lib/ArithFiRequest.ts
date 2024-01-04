@@ -169,103 +169,111 @@ export function serviceOpen(
 }
 
 export function serviceAdd(
+  walletAddress: string,
   append: string,
-  chainId: number,
   id: string,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/future/add?append=${append}&chainId=${chainId}&id=${id}`,
+    )}/future/add?walletAddress=${walletAddress}&id=${id}&append=${append}`,
     header,
     {}
   );
 }
 
 export function serviceUpdateStopPrice(
+  walletAddress: string,
   id: string,
   stopLossPrice: string,
   takeProfitPrice: string,
-  chainId: number,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/future/updateStopPrice?id=${id}&stopLossPrice=${stopLossPrice}&takeProfitPrice=${takeProfitPrice}`,
+    )}/future/updateStopPrice?walletAddress=${walletAddress}&id=${id}&stopLossPrice=${stopLossPrice}&takeProfitPrice=${takeProfitPrice}`,
     header,
     {}
   );
 }
 
 export function serviceUpdateLimitPrice(
+  walletAddress: string,
   id: string,
   limitPrice: string,
-  chainId: number,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/future/updateLimitPrice?id=${id}&limitPrice=${limitPrice}`,
+    )}/future/updateLimitPrice?walletAddress=${walletAddress}&id=${id}&limitPrice=${limitPrice}`,
     header,
     {}
   );
 }
 
 export function serviceCancel(
+  walletAddress: string,
   id: string,
-  chainId: number,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(chainId)}/op/future/cancel?id=${id}`,
+    `${serviceBaseURL(
+      chainId
+    )}/future/cancel?walletAddress=${walletAddress}&id=${id}`,
     header,
     {}
   );
 }
 
 export function serviceWithdraw(
-  amount: number,
-  chainId: number,
-  token: string,
-  tokenAddress: string,
   walletAddress: string,
-  header: RequestBodyInterface
+  amount: number,
+  header: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/user/withdraw?amount=${amount}&chainId=${chainId}&token=${token}&tokenAddress=${tokenAddress}&walletAddress=${walletAddress}`,
+    )}/user/withdraw?walletAddress=${walletAddress}&value=${amount}`,
     header,
     {}
   );
 }
 
 export function serviceClose(
+  walletAddress: string,
   id: string,
-  chainId: number,
-  header: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(chainId)}/op/future/close?id=${id}`,
+    `${serviceBaseURL(
+      chainId
+    )}/future/close?walletAddress=${walletAddress}&id=${id}`,
     header,
     {}
   );
 }
 
 export function serviceSetFavorites(
-  chainId: number,
   walletAddress: string,
   favorites: string,
-  info: RequestBodyInterface
+  header: RequestBodyInterface,
+  chainId?: number
 ) {
-  return baseRequestGetWithHeader(
+  return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/op/user/setFavorites?walletAddress=${walletAddress}&chainId=${chainId}&favorites=${favorites}`,
-    info
+    )}/user/setFavorites?walletAddress=${walletAddress}&favorites=${favorites}`,
+    header,
+    {}
   );
 }
 
@@ -315,19 +323,6 @@ export function serviceAccountList(
     `${serviceBaseURL(
       chainId
     )}/op/user/depositWithdraw/list?chainId=${chainId}&walletAddress=${address}`,
-    info
-  );
-}
-
-export function serviceHistory(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/op/future/history?chainId=${chainId}&walletAddress=${address}`,
     info
   );
 }

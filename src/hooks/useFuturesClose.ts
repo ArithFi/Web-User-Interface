@@ -13,7 +13,7 @@ function useFuturesClose(
   onClose: (result: boolean) => void
 ) {
   const [loading, setLoading] = useState<boolean>(false);
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const showPosition = useMemo(() => {
     const lever = data.leverage.toString();
     const longOrShort = data.direction ? t`Long` : t`Short`;
@@ -99,10 +99,10 @@ function useFuturesClose(
    * action
    */
   const close = useCallback(async () => {
-    if (chainsData.chainId && signature) {
+    if (account.address && signature) {
       const closeBase: { [key: string]: any } = await serviceClose(
+        account.address,
         data.id.toString(),
-        chainsData.chainId,
         { Authorization: signature.signature }
       );
       if (Number(closeBase["err"]) === 0) {
@@ -110,7 +110,7 @@ function useFuturesClose(
       }
     }
     setLoading(false);
-  }, [chainsData.chainId, data.id, onClose, signature]);
+  }, [account.address, data.id, onClose, signature]);
 
   /**
    * main button
