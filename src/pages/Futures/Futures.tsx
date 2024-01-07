@@ -333,7 +333,7 @@ const Futures: FC = () => {
               direction: item["direction"],
               margin: item["margin"],
               append: item["append"],
-              balance: item["balance"] ?? 10,
+              balance: item["orderValue"] ?? 10,
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
