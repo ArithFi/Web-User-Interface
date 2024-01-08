@@ -16,7 +16,7 @@ export const TradeCard: FC<{
   }, [pair1, pair2]);
 
   const { data: price } = useSWR(
-    `${serviceBaseURL()}/oracle/price?product=${pair1}/${pair2}`,
+    `${serviceBaseURL()}/arithfi/oracle/price?product=${pair1}/${pair2}`,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())
@@ -27,7 +27,7 @@ export const TradeCard: FC<{
   );
 
   const { data: price24h } = useSWR(
-    `${serviceBaseURL()}/oracle/ticker24hr?product=${pair1}/${pair2}`,
+    `${serviceBaseURL()}/arithfi/oracle/ticker24hr?product=${pair1}/${pair2}`,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())

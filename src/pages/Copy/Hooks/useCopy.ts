@@ -44,7 +44,7 @@ function useCopy() {
   const pageAmount = isBigMobile ? 5 : 12;
   const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
   const { data: kolListData, isLoading: isKOLListLoading } = useSWR(
-    `${serviceBaseURL(chainId)}/copy/kol/list?chainId=56&walletAddress=${
+    `${serviceBaseURL(chainId)}/arithfi/copy/kol/list?chainId=56&walletAddress=${
       account.address
     }&pageNumber=${page}&pageSize=${pageAmount}`,
     (url: string) => fetch(url).then((res) => res.json()),
@@ -56,7 +56,7 @@ function useCopy() {
     signature?.signature
       ? `${serviceBaseURL(
           chainId
-        )}/copy/follower/position/info?chainId=${chainId}`
+        )}/arithfi/copy/follower/position/info?chainId=${chainId}`
       : undefined,
     (url: any) =>
       fetch(url, {

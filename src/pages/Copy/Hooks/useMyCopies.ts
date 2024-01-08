@@ -184,7 +184,7 @@ function useMyCopies() {
       }
       const base = await serviceIsOpen({ Authorization: signature.signature });
       if (base) {
-        setForexOpen(base);
+        setForexOpen(base.data);
       }
     } catch (error) {
       console.log(error);

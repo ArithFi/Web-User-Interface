@@ -11,7 +11,7 @@ export async function getChartPricesFromBinance(
     const response = await fetch(
       `${serviceBaseURL(
         chainId
-      )}/oracle/klines?product=${symbol}&limit=${limit}&interval=${period}`
+      )}/arithfi/oracle/klines?product=${symbol}&limit=${limit}&interval=${period}`
     );
     const data = await response.json();
     return data.data.map((price: any) => {
@@ -50,7 +50,7 @@ export async function getCurrentPriceOfToken(symbol: string, chainId?: number) {
   const symbolList = symbol.split("/");
   try {
     const response = await fetch(
-      `${serviceBaseURL(chainId)}/oracle/price?product=${symbol}`
+      `${serviceBaseURL(chainId)}/arithfi/oracle/price?product=${symbol}`
     );
     const data = await response.json();
     return data.data;
@@ -71,7 +71,7 @@ export async function get24HrFromBinance(symbol: string, chainId?: number) {
   const symbolList = symbol.split("/");
   try {
     const res = await fetch(
-      `${serviceBaseURL(chainId)}/oracle/ticker24hr?product=${symbol}`
+      `${serviceBaseURL(chainId)}/arithfi/oracle/ticker24hr?product=${symbol}`
     );
     const data = await res.json();
     if (data.data) {

@@ -89,7 +89,6 @@ const Futures: FC = () => {
         if (newPrice) {
           const newPriceBigNum = newPrice.toString().stringToBigNumber(18);
           if (newPriceBigNum) {
-            console.log(newPrice);
             const newList = { ...basePrice };
             newList[`${tokenPair}`] = newPriceBigNum;
             setBasePrice(newList);
@@ -423,7 +422,7 @@ const Futures: FC = () => {
       }
       const base = await serviceIsOpen({ Authorization: signature.signature });
       if (base) {
-        setForexOpen(base);
+        setForexOpen(base.data);
       }
     } catch (error) {
       console.log(error);
