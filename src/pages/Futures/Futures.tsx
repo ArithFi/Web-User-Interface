@@ -319,7 +319,7 @@ const Futures: FC = () => {
       if (Number(pList["err"]) === 0) {
         const list: Array<FuturesOrderService> = pList["data"]
           .map((item: { [x: string]: any }) => {
-            const timestamp = new Date(item["openAt"]).getTime()
+            const timestamp = new Date(item["openAt"]).getTime();
             return {
               id: item["id"],
               timestamp: timestamp / 1000,
@@ -336,13 +336,13 @@ const Futures: FC = () => {
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
-              copy: item["pid"] !== null,
+              copy: item["pid"] != null,
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
         setPOrderListV2(list);
       }
-// TODO: 10
+      // TODO: 10
       const limitList = await serviceList(account.address, {
         Authorization: signature.signature,
       });
@@ -350,7 +350,7 @@ const Futures: FC = () => {
       if (Number(limitList["err"]) === 0) {
         const list: Array<FuturesOrderService> = limitList["data"]
           .map((item: { [x: string]: any }) => {
-            const timestamp = new Date(item["openAt"]).getTime()
+            const timestamp = new Date(item["openAt"]).getTime();
             return {
               id: item["id"],
               timestamp: timestamp / 1000,
@@ -358,12 +358,12 @@ const Futures: FC = () => {
               chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
-              orderPrice: item["openPrice"],
+              orderPrice: item["limitPrice"],
               limitPrice: item["limitPrice"],
               direction: item["direction"],
               margin: item["margin"],
               append: item["append"],
-              balance: item["balance"] ?? 10,
+              balance: item["orderValue"] ?? 10,
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
