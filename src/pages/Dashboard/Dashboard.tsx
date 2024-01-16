@@ -29,7 +29,7 @@ export type Order = {
 };
 const Dashboard: FC = () => {
   const {chainsData, signature} = useArithFi()
-  const {data: infoData} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/entirety/info?chainId=${chainsData.chainId ?? 56}`, (url: any) => fetch(url, {
+  const {data: infoData} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/entirety/info`, (url: any) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""

@@ -123,14 +123,14 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               />
             )
           }
-          <Bar dataKey="longOpen" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success} stackId="a"
+          <Bar dataKey="openLong" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success} stackId="a"
                unit={' ATF'} minPointSize={1}
           />
-          <Bar dataKey="longClose" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success_light_active}
+          <Bar dataKey="closeLong" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success_light_active}
                stackId="a" unit={' ATF'}/>
-          <Bar dataKey="shortOpen" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger}
+          <Bar dataKey="openShort" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger}
                stackId="a" unit={' ATF'}/>
-          <Bar dataKey="shortClose" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger_light_active}
+          <Bar dataKey="closeShort" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger_light_active}
                stackId="a" unit={' ATF'}/>
           <Line type="monotone" yAxisId={'right'} dataKey="cumulative" stroke="#EAAA00" dot={false}
                 strokeWidth={2} unit={' ATF'}/>

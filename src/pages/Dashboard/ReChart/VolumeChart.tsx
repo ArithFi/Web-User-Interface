@@ -83,13 +83,13 @@ const ReCharts: FC<ReChartsProps> = ({...props}) => {
             return value.replace(/[A-Z]/g, ' $&').toLowerCase()
           }}
         />
-        <Bar yAxisId="left" dataKey="longOpen" barSize={20} fill={nowTheme.normal.success} stackId="a"
+        <Bar yAxisId="left" dataKey="openLong" barSize={20} fill={nowTheme.normal.success} stackId="a"
              minPointSize={1} unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="longClose" barSize={20} fill={nowTheme.normal.success_light_active} stackId="a"
+        <Bar yAxisId="left" dataKey="closeLong" barSize={20} fill={nowTheme.normal.success_light_active} stackId="a"
              unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="shortOpen" barSize={20} fill={nowTheme.normal.danger} stackId="a"
+        <Bar yAxisId="left" dataKey="openShort" barSize={20} fill={nowTheme.normal.danger} stackId="a"
              unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="shortClose" barSize={20} fill={nowTheme.normal.danger_light_active} stackId="a"
+        <Bar yAxisId="left" dataKey="closeShort" barSize={20} fill={nowTheme.normal.danger_light_active} stackId="a"
              unit={' ATF'}/>
         <Line yAxisId="right" type="monotone" dataKey="cumulative" stroke="#EAAA00" dot={false} strokeWidth={2} unit={' ATF'}/>
       </ComposedChart>

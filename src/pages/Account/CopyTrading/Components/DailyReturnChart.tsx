@@ -13,7 +13,6 @@ import useTheme from "../../../../hooks/useTheme";
 import {CustomTooltip} from "./CustomTooltip";
 import numeral from "numeral";
 import {Stack} from "@mui/system";
-import {useNetwork} from "wagmi";
 import {serviceBaseURL} from "../../../../lib/ArithFiRequest";
 import useArithFi from "../../../../hooks/useArithFi";
 
@@ -47,13 +46,16 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
         }
       })
         .then((res) => res.json())
-        .then((res: any) =>
-          res.data.map((item: any) => ({
-            date: item.date,
-            get: item.daily >= 0 ? item.daily : 0,
-            loss: item.daily < 0 ? item.daily : 0,
-          }))
-        )
+        .then((res: any) => res.data)
+        .then((res) => res.map((item: any) => ({
+          date: item.date,
+          value: item?.realized_pnl_copy + item?.realized_pnl_self + item?.unrealized_pnl_copy + item?.unrealized_pnl_self
+        })))
+        .then((res: any) => res.map((item: any) => ({
+          date: item.date,
+          get: item.value >= 0 ? item.value : 0,
+          loss: item.value < 0 ? item.value : 0,
+        })))
   );
 
   return (

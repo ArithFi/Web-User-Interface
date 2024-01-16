@@ -34,7 +34,12 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
       }
     })
       .then((res) => res.json())
-      .then((res: any) => res.data))
+      .then((res: any) => res.data)
+      .then((res) => res.map((item: any) => ({
+        date: item.date,
+        value: item?.available_balance + item?.copy_balance + item?.position_value_copy + item?.position_value_self
+      })))
+  )
 
   return (
     <Stack width={'100%'} height={'100%'}>
@@ -100,7 +105,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               />
             )
           }
-          <Line type="monotone" dataKey="daily" stroke={nowTheme.normal.primary} dot={false} strokeWidth={2} unit={' ATF'}/>
+          <Line type="monotone" dataKey="value" stroke={nowTheme.normal.primary} dot={false} strokeWidth={2} unit={' ATF'}/>
         </ComposedChart>
       </ResponsiveContainer>
     </Stack>

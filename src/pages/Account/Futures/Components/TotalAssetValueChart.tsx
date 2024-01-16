@@ -26,7 +26,6 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {chainsData, signature} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
-
   const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/personal/asset?walletAddress=${props.address}&from=${from}&to=${to}&copy=0`,
     (url: string) => fetch(url, {
       headers: {
@@ -35,7 +34,12 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
       }
     })
       .then((res) => res.json())
-      .then((res: any) => res.data))
+      .then((res: any) => res.data)
+      .then((res) => res.map((item: any) => ({
+        date: item.date,
+        value: item?.available_balance + item?.copy_balance + item?.position_value_copy + item?.position_value_self
+      })))
+  )
 
   return (
     <Stack width={'100%'} height={'100%'}>
@@ -101,7 +105,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               />
             )
           }
-          <Line type="monotone" dataKey="daily" stroke={nowTheme.normal.primary} dot={false} strokeWidth={2} unit={' ATF'}/>
+          <Line type="monotone" dataKey="value" stroke={nowTheme.normal.primary} dot={false} strokeWidth={2} unit={' ATF'}/>
         </ComposedChart>
       </ResponsiveContainer>
     </Stack>
