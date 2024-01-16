@@ -12,6 +12,7 @@ const Menu = () => {
   const {address} = useAccount()
   const {data: isKol} = useSWR(
     (q || address)
+      // TODO
       ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
         q || address
       }`
@@ -24,6 +25,7 @@ const Menu = () => {
 
   const {data: isCopyKol} = useSWR(
     (q || address)
+      // TODO
       ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || address}` : undefined,
     (url: any) =>
       fetch(url)

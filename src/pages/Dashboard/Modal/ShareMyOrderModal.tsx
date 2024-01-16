@@ -12,7 +12,6 @@ import domtoimage from "../../../lib/dom-to-image";
 import copy from "copy-to-clipboard";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import { parseUnits } from "ethers/lib/utils.js";
-import CircularProgress from "@mui/material/CircularProgress";
 import { t } from "@lingui/macro";
 
 const Caption2 = styled("div")(({ theme }) => ({

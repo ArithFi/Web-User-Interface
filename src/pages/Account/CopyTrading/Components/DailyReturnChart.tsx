@@ -14,6 +14,8 @@ import {CustomTooltip} from "./CustomTooltip";
 import numeral from "numeral";
 import {Stack} from "@mui/system";
 import {useNetwork} from "wagmi";
+import {serviceBaseURL} from "../../../../lib/ArithFiRequest";
+import useArithFi from "../../../../hooks/useArithFi";
 
 type ChartsProps = {
   address: string | undefined;
@@ -25,7 +27,7 @@ type ChartsProps = {
 
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme();
-  const {chain} = useNetwork();
+  const {chainsData, signature} = useArithFi();
   const to = props.to ?? new Date().toLocaleDateString().replaceAll("/", "-");
   const from =
     props.from ??
@@ -34,14 +36,19 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
       .replaceAll("/", "-");
 
   const {data} = useSWR(
-    `https://db.arithfi.com/dashboardapi/dashboard/v2/personal/return?address=${
+    `${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/personal/return?walletAddress=${
       props.address
-    }&chainId=${chain?.id ?? 56}&from=${from}&to=${to}&copy=1`,
+    }&from=${from}&to=${to}&copy=1`,
     (url: string) =>
-      fetch(url)
+      fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": signature?.signature || ""
+        }
+      })
         .then((res) => res.json())
         .then((res: any) =>
-          res.value.map((item: any) => ({
+          res.data.map((item: any) => ({
             date: item.date,
             get: item.daily >= 0 ? item.daily : 0,
             loss: item.daily < 0 ? item.daily : 0,

@@ -62,6 +62,7 @@ const Futures = () => {
 
   const {data: overview} = useSWR(
     q || account.address
+      // TODO
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/overview?copyKolAddress=${
         q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
@@ -73,6 +74,7 @@ const Futures = () => {
 
   const {data: listData} = useSWR(
     q || account.address
+      // TODO
       ? `https://db.arithfi.com/arithfi/copy/kol/reward/list?copyKolAddress=${
         q || account.address
       }&chainId=${chainsData.chainId ?? 56}`
