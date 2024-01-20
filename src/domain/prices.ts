@@ -71,7 +71,7 @@ export async function get24HrFromBinance(symbol: string, chainId?: number) {
   const symbolList = symbol.split("/");
   try {
     const res = await fetch(
-      `${serviceBaseURL(chainId)}/arithfi/oracle/ticker24hr?product=${symbol}`
+      `${serviceBaseURL(chainId)}/oracle/ticker24hr?product=${symbol}`
     );
     const data = await res.json();
     if (data.data) {

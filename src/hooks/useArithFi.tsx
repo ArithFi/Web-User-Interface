@@ -10,6 +10,7 @@ import {
 import { NavItems } from "../pages/Share/Head/ArithFiHead";
 import { setWalletConnectDeepLink } from "../lib/RainbowOptions/walletConnectDeepLink";
 import { useWalletConnectors } from "../lib/RainbowOptions/useWalletConnectors";
+import {serviceBaseURL} from "../lib/ArithFiRequest";
 
 export interface signatureData {
   address: string;
@@ -68,7 +69,7 @@ function useMainReact() {
       (async () => {
         try {
           await fetch(
-            `https://db.arithfi.com/dashboardapi/users/users/setwallet?address=${account.address}&chainId=${chainId}`,
+            `${serviceBaseURL(chainId)}/arithfi/dashboard/entirety/setwallet?address=${account.address}`,
             {
               method: "POST",
             }

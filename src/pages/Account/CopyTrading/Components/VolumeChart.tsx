@@ -13,7 +13,8 @@ import useSWR from "swr";
 import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/material";
 import numeral from 'numeral';
-import {useNetwork} from "wagmi";
+import {serviceBaseURL} from "../../../../lib/ArithFiRequest";
+import useArithFi from "../../../../hooks/useArithFi";
 
 type ChartsProps = {
   address: string | undefined
@@ -24,14 +25,18 @@ type ChartsProps = {
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
-  const {chain} = useNetwork()
+  const {chainsData, signature} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
-
-  const {data} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/personal/volume?address=${props.address}&chainId=${chain?.id ?? 56}&from=${from}&to=${to}&copy=1`,
-    (url: string) => fetch(url)
+  const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/personal/volume?walletAddress=${props.address}&from=${from}&to=${to}&copy=1`,
+    (url: string) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
       .then((res) => res.json())
-      .then((res: any) => res.value))
+      .then((res: any) => res.data))
 
   return (
     <Stack height={'100%'} width={'100%'}>
@@ -118,14 +123,14 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
               />
             )
           }
-          <Bar dataKey="longOpen" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success} stackId="a"
+          <Bar dataKey="openLong" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success} stackId="a"
                unit={' ATF'} minPointSize={1}
           />
-          <Bar dataKey="longClose" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success_light_active}
+          <Bar dataKey="closeLong" yAxisId={'left'} barSize={20} fill={nowTheme.normal.success_light_active}
                stackId="a" unit={' ATF'}/>
-          <Bar dataKey="shortOpen" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger}
+          <Bar dataKey="openShort" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger}
                stackId="a" unit={' ATF'}/>
-          <Bar dataKey="shortClose" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger_light_active}
+          <Bar dataKey="closeShort" yAxisId={'left'} barSize={20} fill={nowTheme.normal.danger_light_active}
                stackId="a" unit={' ATF'}/>
           <Line type="monotone" yAxisId={'right'} dataKey="cumulative" stroke="#EAAA00" dot={false}
                 strokeWidth={2} unit={' ATF'}/>

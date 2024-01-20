@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import useTheme from "../../hooks/useTheme";
 import {t} from "@lingui/macro";
 import useArithFi from "../../hooks/useArithFi";
+import {serviceBaseURL} from "../../lib/ArithFiRequest";
 
 export type Order = {
   owner: string;
@@ -27,10 +28,15 @@ export type Order = {
   sl: number;
 };
 const Dashboard: FC = () => {
-  const {chainsData} = useArithFi()
-  const {data: infoData} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/entirety/info?chainId=${chainsData.chainId ?? 56}`, (url: any) => fetch(url)
+  const {chainsData, signature} = useArithFi()
+  const {data: infoData} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/entirety/info`, (url: any) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
     .then((res) => res.json())
-    .then((res: any) => res.value), {
+    .then((res: any) => res.data), {
     refreshInterval: 10_000,
   });
   const [range, setRange] = useState<Range[]>([{

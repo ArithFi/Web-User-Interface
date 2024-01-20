@@ -11,7 +11,8 @@ import useSWR from "swr";
 import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/system";
 import numeral from "numeral";
-import {useNetwork} from "wagmi";
+import {serviceBaseURL} from "../../../../lib/ArithFiRequest";
+import useArithFi from "../../../../hooks/useArithFi";
 
 type ChartsProps = {
   address: string | undefined
@@ -22,13 +23,18 @@ type ChartsProps = {
 }
 const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
-  const {chain} = useNetwork()
+  const {chainsData, signature} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
-  const {data} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/personal/yield?address=${props.address}&chainId=${chain?.id ?? 56}&from=${from}&to=${to}&copy=0`,
-    (url: string) => fetch(url)
+  const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/personal/yield?walletAddress=${props.address}&from=${from}&to=${to}&copy=0`,
+    (url: string) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
       .then((res) => res.json())
-      .then((res: any) => res.value))
+      .then((res: any) => res.data))
 
   return (
     <Stack width={'100%'} height={'100%'}>
@@ -65,6 +71,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             !!props.show && (
               <YAxis axisLine={false} tickLine={false} hide={props.simple} tick={{fontSize: '10px'}} width={30}
                      tickFormatter={(value, index) => {
+                       // TODO
                        return numeral(value / 100).format('0%').toUpperCase()
                      }}
               />

@@ -13,6 +13,8 @@ import useSWR from "swr";
 import useTheme from "../../../hooks/useTheme";
 import numeral from "numeral";
 import {useNetwork} from "wagmi";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
+import useArithFi from "../../../hooks/useArithFi";
 
 type ReChartsProps = {
   from?: string
@@ -20,14 +22,19 @@ type ReChartsProps = {
 }
 const ReCharts: FC<ReChartsProps> = ({...props}) => {
   const {nowTheme} = useTheme()
-  const {chain} = useNetwork()
+  const {chainsData, signature} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
 
-  const {data} = useSWR(`https://db.arithfi.com/dashboardapi/dashboard/v2/entirety/Volume?chainId=${chain?.id ?? 56}&from=${from}&to=${to}`,
-    (url) => fetch(url)
+  const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/entirety/volume?from=${from}&to=${to}`,
+    (url: string) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
       .then((res) => res.json())
-      .then((res: any) => res.value))
+      .then((res: any) => res.data))
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -76,13 +83,13 @@ const ReCharts: FC<ReChartsProps> = ({...props}) => {
             return value.replace(/[A-Z]/g, ' $&').toLowerCase()
           }}
         />
-        <Bar yAxisId="left" dataKey="longOpen" barSize={20} fill={nowTheme.normal.success} stackId="a"
+        <Bar yAxisId="left" dataKey="openLong" barSize={20} fill={nowTheme.normal.success} stackId="a"
              minPointSize={1} unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="longClose" barSize={20} fill={nowTheme.normal.success_light_active} stackId="a"
+        <Bar yAxisId="left" dataKey="closeLong" barSize={20} fill={nowTheme.normal.success_light_active} stackId="a"
              unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="shortOpen" barSize={20} fill={nowTheme.normal.danger} stackId="a"
+        <Bar yAxisId="left" dataKey="openShort" barSize={20} fill={nowTheme.normal.danger} stackId="a"
              unit={' ATF'}/>
-        <Bar yAxisId="left" dataKey="shortClose" barSize={20} fill={nowTheme.normal.danger_light_active} stackId="a"
+        <Bar yAxisId="left" dataKey="closeShort" barSize={20} fill={nowTheme.normal.danger_light_active} stackId="a"
              unit={' ATF'}/>
         <Line yAxisId="right" type="monotone" dataKey="cumulative" stroke="#EAAA00" dot={false} strokeWidth={2} unit={' ATF'}/>
       </ComposedChart>

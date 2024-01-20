@@ -26,7 +26,7 @@ import useSWR from "swr";
 
 const Assets = () => {
   const [showrdr, setShowrdr] = useState(false);
-  const {account, checkSigned, chainsData} = useArithFi();
+  const {account, signature} = useArithFi();
   const {nowTheme} = useTheme();
   const {addTransactionNotice} = usePendingTransactionsBase();
   const [range, setRange] = useState<Range[]>([
@@ -54,10 +54,16 @@ const Assets = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
+  // TODO
   const { data } = useSWR((account || q) ? `https://db.arithfi.com/arithfi/op/user/account/total?walletAddress=${q || account.address}&chainId=56` : undefined,
-    (url: any) => fetch(url)
+    (url: any) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
       .then(res => res.json())
-      .then(res => res.value));
+      .then(res => res.data));
 
   const total_balance_atf = data ? data?.available_balance + data?.copy_balance + data?.future_order_balance + data?.copy_order_balance + data?.future_limit_balance + data?.copy_limit_balance : 0
   const total_balance_usd = total_balance_atf * price;

@@ -2,10 +2,12 @@ import Stack from "@mui/material/Stack";
 import {Link, useLocation, useSearchParams} from "react-router-dom";
 import {t} from "@lingui/macro";
 import useSWR from "swr";
-import {useAccount} from "wagmi";
+import {useAccount, useNetwork} from "wagmi";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
 const Menu = () => {
   const location = useLocation();
+  const { chain } = useNetwork();
   let [searchParams] = useSearchParams();
   const q = searchParams.get('address');
   const { address } = useAccount();
@@ -24,6 +26,7 @@ const Menu = () => {
 
   const {data: isCopyKol} = useSWR(
     (q || address)
+      // TODO
       ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || address}` : undefined,
     (url: any) =>
       fetch(url)
