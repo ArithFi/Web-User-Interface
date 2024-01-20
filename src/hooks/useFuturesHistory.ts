@@ -5,7 +5,6 @@ import { Order } from "../pages/Dashboard/Dashboard";
 export interface FuturesHistoryService {
   actualMargin: number;
   actualRate: number;
-  appendMargin: number;
   index: number;
   initialMargin: number;
   lastPrice: number;

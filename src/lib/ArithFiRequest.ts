@@ -329,14 +329,14 @@ export function serviceAccountList(
 }
 
 export function serviceFutureHistory(
-  chainId: number,
   address: string,
-  info: RequestBodyInterface
-) {
+  info: RequestBodyInterface,
+  chainId?: number
+): Promise<any> {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/op/history/list?chainId=${chainId}&address=${address}`,
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null`,
     info
   );
 }
@@ -351,81 +351,89 @@ export function serviceIsOpen(info: RequestBodyInterface, chainId?: number) {
 /**
  * Copy
  */
+// has-ok-test
 export function copyFollow(
-  chainId: number,
   header: RequestBodyInterface,
-  body: RequestBodyInterface
+  body: RequestBodyInterface,
+  chainId?: number,
 ) {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(chainId)}/arithfi/copy/follower/setting`,
+    `${serviceBaseURL(chainId)}/arithfi/user/copySetting`,
     header,
     body
   );
 }
-
+// has-ok=test
 export function copyClose(
-  chainId: number,
-  address: string,
-  header: RequestBodyInterface
+  walletAddress: string,
+  copyKolAddress: string,
+  header: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/follower/cancle?chainId=${chainId}&copyKolAddress=${address}`,
+    )}/arithfi/user/cancelCopy?walletAddress=${walletAddress}&copyKolAddress=${copyKolAddress}&chainId=${chainId}`,
     header,
     {}
   );
 }
-
-export function copyAllKOL(
-  chainId: number,
-  pageNum: number,
-  pageSize: number,
-  address: string,
-  info: RequestBodyInterface
+export function copyAllKol(
+  closeAtFromDate: string,
+  closeAtToDate: string,
+  info: RequestBodyInterface,
+  chainId?: number
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(chainId)}/arithfi/copy/kol/listFull?walletAddress=${
+      String().zeroAddress
+    }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`follow DESC`}&start=0&count=999`,
+    info
+  );
+}
+export function copyMyTradeInfo(
+  walletAddress: string,
+  info: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/kol/list?chainId=${chainId}&walletAddress=${address}&pageNumber=${pageNum}&pageSize=${pageSize}`,
+    )}/arithfi/user/account/copyTrading?walletAddress=${walletAddress}`,
     info
   );
 }
 
-export function copyMyTradeInfo(chainId: number, info: RequestBodyInterface) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/copy/follower/position/info?chainId=${chainId}`,
-    info
-  );
-}
-
+//bingo-test
 export function copyKOLInfo(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
+  kolAddress: string,
+  from: string,
+  to: string,
+  info: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/kol/info?chainId=${chainId}&walletAddress=${address}`,
+    )}/arithfi/copy/kol/detail?kolAddress=${kolAddress}&closeAtFromDate=${from}&closeAtToDate=${to}`,
     info
   );
 }
-
 export function copyEarningsList(
-  chainId: number,
-  address: string,
-  days: number,
-  info: RequestBodyInterface
+  kolAddress: string,
+  from: string,
+  to: string,
+  info: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/kol/earnings/list?chainId=${chainId}&copyKolAddress=${address}&days=${days}`,
+    )}/arithfi/copy/earnings/list?kolAddress=${kolAddress}&from=${from}&to=${to}`,
     info
   );
 }
-
+// -> copyKOLInfo
 export function copyPerformance(
   chainId: number,
   address: string,
@@ -439,99 +447,95 @@ export function copyPerformance(
     info
   );
 }
-
 export function copyPerformanceSymbol(
-  chainId: number,
-  address: string,
-  days: number,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/arithfi/copy/kol/performance/symbol?chainId=${chainId}&copyKolAddress=${address}&days=${days}`,
-    info
-  );
-}
-
-export function copyTraderFollowers(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/arithfi/copy/kol/follower/list?chainId=${chainId}&copyKolAddress=${address}`,
-    info
-  );
-}
-
-export function copyMyCopiesList(chainId: number, info: RequestBodyInterface) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/copy/follower/future/list?chainId=${chainId}`,
-    info
-  );
-}
-
-export function copyMyCopiesHistoryList(
-  chainId: number,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/arithfi/copy/follower/future/history?chainId=${chainId}`,
-    info
-  );
-}
-
-export function copyMyCopiesMyTradersList(
-  chainId: number,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/copy/follower/kolList?chainId=${chainId}`,
-    info
-  );
-}
-
-export function copyTraderHistory(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/arithfi/copy/kol/future/history?chainId=${chainId}&walletAddress=${address}`,
-    info
-  );
-}
-
-export function copyCloseInfo(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/arithfi/copy/follower/future/info?chainId=${chainId}&copyKolAddress=${address}`,
-    info
-  );
-}
-
-export function copyAsset(
-  chainId: number,
   kolAddress: string,
-  address: string,
-  info: RequestBodyInterface
+  from: string,
+  to: string,
+  info: RequestBodyInterface,
+  chainId?: number
 ) {
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/follower/asset?chainId=${chainId}&copyKolAddress=${kolAddress}&walletAddress=${address}`,
+    )}/arithfi/copy/performance/symbol?kolAddress=${kolAddress}&from=${from}&to=${to}`,
+    info
+  );
+}
+export function copyMyCopiesList(
+  address: string,
+  info: RequestBodyInterface,
+  chainId?: number
+): Promise<any> {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=true`,
+    info
+  );
+}
+export function copyMyCopiesHistoryList(
+  address: string,
+  info: RequestBodyInterface,
+  chainId?: number
+): Promise<any> {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true`,
+    info
+  );
+}
+//  ok-test
+export function copyMyCopiesMyTradersList(
+  walletAddress: string,
+  info: RequestBodyInterface,
+  chainId?: number
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/copy/follower/kolList?walletAddress=${walletAddress}`,
+    info
+  );
+}
+// ok-test
+export function copyTraderHistory(
+  address: string,
+  info: RequestBodyInterface,
+  chainId?: number
+): Promise<any> {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null`,
+    info
+  );
+}
+// ok-test
+export function copyCloseInfo(
+  walletAddress: string,
+  kolAddress: string,
+  info: RequestBodyInterface,
+  chainId?: number
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/copy/future/info?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
+    info
+  );
+}
+// ok-test
+export function copyAsset(
+  walletAddress: string,
+  kolAddress: string,
+  info: RequestBodyInterface,
+  chainId?: number
+) {
+  return baseRequestGetWithHeader(
+    `${serviceBaseURL(
+      chainId
+    )}/arithfi/copy/follower/asset?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
     info
   );
 }

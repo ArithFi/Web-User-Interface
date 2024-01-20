@@ -103,7 +103,7 @@ const Futures: FC = () => {
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
-
+    console.log(listPriceBase)
     const percent = () => {
       const ETHPricePercent = listPriceBase
         ? listPriceBase["data"]["ETH/USDT"]["priceChangePercent"]?.toString()
@@ -301,6 +301,7 @@ const Futures: FC = () => {
         "USD/JPY": USDJPYPrice,
         "USD/CAD": USDCADPrice,
       };
+      
       return [newPrice, newPricePercent];
     } else {
       return undefined;
@@ -332,7 +333,7 @@ const Futures: FC = () => {
               direction: item["direction"],
               margin: item["margin"],
               append: item["append"],
-              balance: item["orderValue"] ?? 10,
+              balance: item["orderValue"] ?? 0,
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
@@ -378,33 +379,47 @@ const Futures: FC = () => {
   }, [account.address, chainsData.chainId, signature]);
   const getHistoryList = useCallback(async () => {
     try {
-      if (!chainsData.chainId || !account.address || !signature) {
+      if (!account.address || !signature) {
         return;
       }
       const baseList = await serviceFutureHistory(
-        chainsData.chainId,
         account.address,
         { Authorization: signature.signature }
       );
       if (Number(baseList["err"]) === 0) {
-        const list: Array<FuturesHistoryService> = baseList["value"].map(
+        const list: Array<FuturesHistoryService> = baseList["data"].map(
           (item: { [x: string]: any }) => {
+            const status = item["status"]
+            const orderType = () => {
+              if (status === 0) {
+                return "Closed"
+              } else if (status === -1) {
+                return "Liquidated"
+              } else {
+                return ""
+              }
+            }
+            const timestamp = new Date(item["closeAt"]).getTime();
+            const actualRate = () => {
+              const baseValue = item["margin"] + item["append"]
+              const closeValue = item["closeValue"]
+              return (closeValue - baseValue) / baseValue * 100
+            }
             return {
-              actualMargin: item["actualMargin"],
-              actualRate: item["actualRate"],
-              appendMargin: item["appendMargin"],
-              index: item["index"],
-              initialMargin: item["initialMargin"],
+              actualMargin: item["closeValue"],
+              actualRate: actualRate(),
+              index: item["id"],
+              initialMargin: item["margin"] + item["append"],
               lastPrice: item["lastPrice"],
-              leverage: item["leverage"],
+              leverage: item["leverage"].toString(),
               openPrice: item["openPrice"],
-              orderType: item["orderType"],
-              orientation: item["orientation"],
-              owner: item["owner"],
-              sl: item["sl"],
-              sp: item["sp"],
-              time: item["time"],
-              tokenPair: item["tokenPair"],
+              orderType: orderType(),
+              orientation: item["direction"],
+              owner: item["walletAddress"],
+              sl: item["stopLossPrice"],
+              sp: item["takeProfitPrice"],
+              time: timestamp / 1000,
+              tokenPair: item["product"],
             };
           }
         );
@@ -413,7 +428,7 @@ const Futures: FC = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [account.address, chainsData.chainId, signature]);
+  }, [account.address, signature]);
 
   const getForexOpen = useCallback(async () => {
     try {
@@ -439,10 +454,10 @@ const Futures: FC = () => {
     const time = setInterval(() => {
       (async () => {
         const newPrice = await getPrice();
-        setBasePrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
-        setBasePricePercent(
-          newPrice ? (newPrice[1] as FuturesPricePercent) : undefined
-        );
+        if (newPrice) {
+          setBasePrice(newPrice[0] as FuturesPrice);
+          setBasePricePercent(newPrice[1] as FuturesPricePercent);
+        }
       })();
     }, 10000);
     return () => {

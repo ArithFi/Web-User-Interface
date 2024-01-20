@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import useArithFi from "../../../hooks/useArithFi";
 import {
   copyEarningsList,
   copyKOLInfo,
@@ -11,6 +10,7 @@ import {
 import { AllKOLModel } from "./useCopy";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
 import { useNetwork } from "wagmi";
+import { formatTVDate } from "../../../lib/dates";
 
 export interface EarningsListModel {
   date: string;
@@ -78,12 +78,26 @@ function useTrader(address: string | undefined) {
 
   const getKOLInfo = useCallback(async () => {
     if (address) {
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const req = await copyKOLInfo(chainId, address, {
+      const days = () => {
+        if (performanceDay === 0) {
+          return 1;
+        } else if (performanceDay === 1) {
+          return 7;
+        } else {
+          return 30;
+        }
+      };
+      const nowTime = new Date();
+      const days7Time = new Date(
+        nowTime.getTime() - days() * 24 * 60 * 60 * 1000
+      );
+      const closeAtFromDate = formatTVDate(days7Time);
+      const closeAtToDate = formatTVDate(nowTime);
+      const req = await copyKOLInfo(address, closeAtFromDate, closeAtToDate, {
         Authorization: "",
       });
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
         const tags = () => {
           if (!value["tags"] || value["tags"] === "-") {
             return [];
@@ -112,7 +126,7 @@ function useTrader(address: string | undefined) {
         setKolInfo(info);
       }
     }
-  }, [address, chain?.id]);
+  }, [address, performanceDay]);
 
   const getEarnings = useCallback(async () => {
     const days = () => {
@@ -124,13 +138,24 @@ function useTrader(address: string | undefined) {
         return 30;
       }
     };
+    const nowTime = new Date();
+    const days7Time = new Date(
+      nowTime.getTime() - days() * 24 * 60 * 60 * 1000
+    );
+    const closeAtFromDate = formatTVDate(days7Time);
+    const closeAtToDate = formatTVDate(nowTime);
+
     if (address) {
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const req = await copyEarningsList(chainId, address, days(), {
-        Authorization: "",
-      });
+      const req = await copyEarningsList(
+        address,
+        closeAtFromDate,
+        closeAtToDate,
+        {
+          Authorization: "",
+        }
+      );
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
         const list: Array<EarningsListModel> = value.map((item: any) => {
           const one: EarningsListModel = {
             date: item["date"],
@@ -142,7 +167,7 @@ function useTrader(address: string | undefined) {
         setEarningsData(list);
       }
     }
-  }, [address, chain?.id, earningsDay]);
+  }, [address, earningsDay]);
 
   const getPerformance = useCallback(async () => {
     const days = () => {
@@ -163,7 +188,7 @@ function useTrader(address: string | undefined) {
       });
 
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
 
         const info: PerformanceModel = {
           pnlRatio: value["pnlRatio"],
@@ -192,24 +217,34 @@ function useTrader(address: string | undefined) {
         return 30;
       }
     };
+    const nowTime = new Date();
+    const days7Time = new Date(
+      nowTime.getTime() - days() * 24 * 60 * 60 * 1000
+    );
+    const closeAtFromDate = formatTVDate(days7Time);
+    const closeAtToDate = formatTVDate(nowTime);
     if (address) {
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const req = await copyPerformanceSymbol(chainId, address, days(), {
-        Authorization: "",
-      });
+      const req = await copyPerformanceSymbol(
+        address,
+        closeAtFromDate,
+        closeAtToDate,
+        {
+          Authorization: "",
+        }
+      );
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
         const list: Array<PerformanceSymbolModel> = value.map((item: any) => {
           const one: PerformanceSymbolModel = {
-            name: item["name"],
-            value: item["value"],
+            name: item["product"],
+            value: item["positionSize"],
           };
           return one;
         });
         setPerformanceSymbolData(list);
       }
     }
-  }, [address, chain?.id, performanceSymbolDay]);
+  }, [address, performanceSymbolDay]);
 
   const getList = useCallback(async () => {
     try {
@@ -220,21 +255,20 @@ function useTrader(address: string | undefined) {
         Authorization: "",
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<TraderOrderList> = baseList["value"]
+        const list: Array<TraderOrderList> = baseList["data"]
           .map((item: { [x: string]: any }) => {
+            const timestamp = new Date(item["openAt"]).getTime();
             return {
               id: item["id"],
-              timestamp: item["timestamp"],
+              timestamp: timestamp / 1000,
               walletAddress: item["walletAddress"],
-              chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
               orderPrice: item["orderPrice"],
               direction: item["direction"],
-              marketPrice: item["marketPrice"],
+              marketPrice: item["lastPrice"],
               profitLossRate: item["profitLossRate"],
               status: item["status"],
-              copy: item["copy"],
             };
           })
           .filter(
@@ -245,26 +279,26 @@ function useTrader(address: string | undefined) {
     } catch (error) {
       console.log(error);
     }
-  }, [address, chain?.id]);
+  }, [address]);
 
   const getHistoryList = useCallback(async () => {
     try {
       if (!address) {
         return;
       }
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const baseList = await copyTraderHistory(chainId, address, {
+      const baseList = await copyTraderHistory(address, {
         Authorization: "",
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<TraderOrderList> = baseList["value"]
+        const list: Array<TraderOrderList> = baseList["data"]
           .map((item: { [x: string]: any }) => {
+            const timestamp = new Date(item["openAt"]).getTime();
+            const closeTime = new Date(item["closeAt"]).getTime();
             return {
               id: item["id"],
-              timestamp: item["openTime"],
-              closeTime: item["closeTime"],
+              timestamp: timestamp / 1000,
+              closeTime: closeTime / 1000,
               walletAddress: item["walletAddress"],
-              chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
               orderPrice: item["openPrice"],
@@ -280,7 +314,7 @@ function useTrader(address: string | undefined) {
     } catch (error) {
       console.log(error);
     }
-  }, [address, chain?.id]);
+  }, [address]);
 
   const showPerformanceSymbolData = useCallback(() => {
     if (performanceSymbolData.length === 0) {

@@ -21,24 +21,24 @@ function useCopySettingModal(
 
   const [isLoading, setIsLoading] = useState(false);
   const follow = useCallback(async () => {
-    if (chainsData.chainId && signature && address && followingValue !== "") {
+    if (account.address && signature && address && followingValue !== "") {
       const copyAccountBalanceNumber =
         copyAccountBalance === "" ? 0 : parseFloat(copyAccountBalance);
       const oldTotalValueNumber = oldTotalValue ?? 0;
       const req = await copyFollow(
-        chainsData.chainId,
         {
           Authorization: signature.signature,
         },
         {
-          chainId: chainsData.chainId.toString(),
+          walletAddress: account.address,
           copyAccountBalance: (
             copyAccountBalanceNumber + oldTotalValueNumber
           ).floor(2),
           copyKolAddress: address,
           follow: "true",
-          followingMethod: "FIEXD",
+          followingMethod: "FIXED",
           followingValue: followingValue,
+          copyAccountBalanceTotal:"0"
         }
       );
       if (Number(req["err"]) === 0) {
@@ -47,8 +47,8 @@ function useCopySettingModal(
       onClose(Number(req["err"]) === 0);
     }
   }, [
+    account.address,
     address,
-    chainsData.chainId,
     copyAccountBalance,
     followingValue,
     oldTotalValue,
@@ -66,16 +66,11 @@ function useCopySettingModal(
 
   const getCurrent = useCallback(async () => {
     if (chainsData.chainId && signature && address && account.address) {
-      const req = await copyAsset(
-        chainsData.chainId,
-        address,
-        account.address,
-        {
-          Authorization: signature.signature,
-        }
-      );
+      const req = await copyAsset(account.address, address, {
+        Authorization: signature.signature,
+      });
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
         const currentValue = value["copyAccountBalance"];
         const oldTotal = value["copyAccountBalanceTotal"];
         if (currentValue) {

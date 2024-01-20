@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import FuturesTableTitle from "../../Futures/Components/TableTitle";
 import { Trans, t } from "@lingui/macro";
@@ -9,14 +9,16 @@ import Box from "@mui/material/Box";
 import CopyTablePosition from "./CopyTablePosition";
 import CopyListPosition from "./CopyListPosition";
 import ArithFiLine from "../../../components/ArithFiLine";
-import { MyCopiesList } from "../Hooks/useMyCopies";
 import useMyCopiesCurrent from "../Hooks/useMyCopiesCurrent";
 import { DefaultKolIcon } from "../../../components/icons";
 import CircularProgress from "@mui/material/CircularProgress";
 import GreyButton from "../../../components/MainButton/GreyButton";
+import { BigNumber } from "ethers";
+import { FuturesOrderService } from "../../Futures/OrderList";
+import { lipPrice } from "../../../hooks/useFuturesNewOrder";
 
 interface MyCopiesCurrentProps {
-  list: MyCopiesList[];
+  list: FuturesOrderService[];
   updateList: () => void;
 }
 
@@ -40,280 +42,13 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
 
   const mobile = useMemo(() => {
     const items = props.list.map((item, index) => {
-      const isLong = item.direction;
-      const lever = item.leverage;
-      const nickName = item.nickName;
-      const kolAddress = item.kolAddress.showAddress();
-      const balance = item.balance.floor(2);
-      const profitLossRate = item.profitLossRate.floor(2) + "%";
-      const orderPrice = item.orderPrice.floor(
-        item.product.getTokenPriceDecimals()
-      );
-      const marketPrice = item.marketPrice.floor(
-        item.product.getTokenPriceDecimals()
-      );
-      const lipPrice = item.lipPrice.floor(
-        item.product.getTokenPriceDecimals()
-      );
-
-      const openTime = new Date(item.timestamp * 1000);
-      const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
-      const kolIcon = () => {
-        if (item.avatar !== "-" && item.avatar !== "") {
-          return (
-            <Box
-              sx={(theme) => ({
-                width: "24px",
-                height: "24px",
-                borderRadius: "12px",
-                background: theme.normal.primary,
-                overflow: "hidden",
-                "& img": {
-                  width: "24px",
-                  height: "24px",
-                },
-              })}
-            >
-              <img src={item.avatar} alt="kolIcon" />
-            </Box>
-          );
-        } else {
-          return (
-            <Box
-              sx={(theme) => ({
-                width: "24px",
-                height: "24px",
-                borderRadius: "12px",
-                background: theme.normal.primary,
-                "& svg": {
-                  width: "24px",
-                  height: "24px",
-                  display: "block",
-                },
-              })}
-            >
-              <DefaultKolIcon />
-            </Box>
-          );
-        }
-      };
       return (
-        <Stack
-          key={`MyCopiesCurrentMobile + ${index}`}
-          spacing={"20px"}
-          sx={(theme) => ({
-            borderRadius: "12px",
-            background: theme.normal.bg1,
-            padding: "20px 12px",
-          })}
-        >
-          <CopyListPosition
-            tokenPair={item.product}
-            lever={lever}
-            isLong={isLong}
-          />
-          <Stack spacing={"8px"}>
-            <Stack
-              direction={"row"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-            >
-              <Stack spacing={"4px"} width={"100%"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Open Price</Trans>
-                </Box>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    lineHeight: "20px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {orderPrice}
-                </Box>
-              </Stack>
-
-              <Stack spacing={"4px"} width={"100%"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Actual Margin</Trans>
-                </Box>
-                <Stack
-                  direction={"row"}
-                  spacing={"4px"}
-                  alignItems={"flex-end"}
-                >
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "14px",
-                      fontWeight: "700",
-                      lineHeight: "20px",
-                      color: theme.normal.text0,
-                    })}
-                  >
-                    {balance}ATF
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "10px",
-                      fontWeight: "400",
-                      lineHeight: "14px",
-                      color:
-                        item.profitLossRate >= 0
-                          ? theme.normal.success
-                          : theme.normal.danger,
-                    })}
-                  >
-                    {profitLossRate}
-                  </Box>
-                </Stack>
-              </Stack>
-            </Stack>
-            <ArithFiLine />
-            <Stack spacing={"8px"}>
-              <Stack direction={"row"}>
-                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Market Price</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text0,
-                    })}
-                  >
-                    {marketPrice}
-                  </Box>
-                </Stack>
-                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Liq Price</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text0,
-                    })}
-                  >
-                    {lipPrice}
-                  </Box>
-                </Stack>
-              </Stack>
-
-              <Stack direction={"row"}>
-                <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Open Time</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      lineHeight: "16px",
-                      color: theme.normal.text0,
-                    })}
-                  >
-                    {openTimeString}
-                  </Box>
-                </Stack>
-              </Stack>
-            </Stack>
-          </Stack>
-          <Stack
-            direction={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Stack direction={"row"} alignItems={"center"} spacing={"8px"}>
-              {kolIcon()}
-              <Stack spacing={"4px"}>
-                <Box
-                  sx={(theme) => ({
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {nickName}
-                </Box>
-                <Box
-                  sx={(theme) => ({
-                    fontWeight: "400",
-                    fontSize: "12px",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  {kolAddress}
-                </Box>
-              </Stack>
-            </Stack>
-            <Box
-              sx={(theme) => ({
-                fontWeight: "700",
-                fontSize: "14px",
-                lineHeight: "20px",
-                color: theme.normal.text0,
-                padding: "10px 16px",
-                borderRadius: "8px",
-                background: theme.normal.grey_hover,
-                width: "fit-content",
-                "& .MuiCircularProgress-root": {
-                  color: theme.normal.text0,
-                },
-              })}
-              onClick={() => {
-                action(item.id);
-              }}
-            >
-              {isLoading === item.id ? (
-                <CircularProgress size={"12px"} />
-              ) : (
-                <Trans>Close</Trans>
-              )}
-            </Box>
-          </Stack>
-        </Stack>
+        <Item
+          key={`MyCopiesCurrent + ${index}`}
+          data={item}
+          action={action}
+          isLoading={isLoading}
+        />
       );
     });
     return (
@@ -351,32 +86,76 @@ const tdNoPadding = {
 };
 
 interface RowProps {
-  data: MyCopiesList;
+  data: FuturesOrderService;
   action: (id: number) => void;
   isLoading: number;
 }
 
-const Row: FC<RowProps> = ({ ...props }) => {
+const Item: FC<RowProps> = ({ ...props }) => {
+  const [avatar, setAvatar] = useState("");
+
+  const profitLossRate = useMemo(() => {
+    const balance_num = props.data.margin + props.data.append;
+    const marginAssets_num = props.data.balance;
+    if (marginAssets_num >= balance_num) {
+      return parseFloat(
+        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(4)
+      );
+    } else {
+      return -parseFloat(
+        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(4)
+      );
+    }
+  }, [props.data.append, props.data.balance, props.data.margin]);
+
   const isLong = props.data.direction;
   const lever = props.data.leverage;
-  const nickName = props.data.nickName;
-  const kolAddress = props.data.kolAddress.showAddress();
+  const nickName = "";
+  const kolAddress = props.data.kolAddress;
   const balance = props.data.balance.floor(2);
-  const profitLossRate = props.data.profitLossRate.floor(2) + "%";
+  const profitLossRateString = profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-  const marketPrice = props.data.marketPrice.floor(
+  const marketPrice = props.data.lastPrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-  const lipPrice = props.data.lipPrice.floor(
-    props.data.product.getTokenPriceDecimals()
-  );
+  const lipPriceString = useMemo(() => {
+    const balance =
+      props.data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const orderPrice =
+      props.data.orderPrice.toString().stringToBigNumber(18) ??
+      BigNumber.from("0");
+    const append =
+      props.data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const result = lipPrice(
+      props.data.product,
+      balance,
+      append,
+      BigNumber.from(props.data.leverage.toString()),
+      props.data.lastPrice.toString().stringToBigNumber(18) ??
+        BigNumber.from("0"),
+      orderPrice,
+      props.data.direction
+    );
+    return result.bigNumberToShowPrice(
+      18,
+      props.data.product.getTokenPriceDecimals()
+    );
+  }, [
+    props.data.append,
+    props.data.direction,
+    props.data.lastPrice,
+    props.data.leverage,
+    props.data.margin,
+    props.data.orderPrice,
+    props.data.product,
+  ]);
 
   const openTime = new Date(props.data.timestamp * 1000);
   const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
   const kolIcon = () => {
-    if (props.data.avatar !== "-" && props.data.avatar !== "") {
+    if (avatar !== "") {
       return (
         <Box
           sx={(theme) => ({
@@ -391,7 +170,326 @@ const Row: FC<RowProps> = ({ ...props }) => {
             },
           })}
         >
-          <img src={props.data.avatar} alt="kolIcon" />
+          <img src={avatar} alt="kolIcon" />
+        </Box>
+      );
+    } else {
+      return (
+        <Box
+          sx={(theme) => ({
+            width: "24px",
+            height: "24px",
+            borderRadius: "12px",
+            background: theme.normal.primary,
+            "& svg": {
+              width: "24px",
+              height: "24px",
+              display: "block",
+            },
+          })}
+        >
+          <DefaultKolIcon />
+        </Box>
+      );
+    }
+  };
+  return (
+    <Stack
+      key={`MyCopiesCurrentMobile + ${props.data.id}`}
+      spacing={"20px"}
+      sx={(theme) => ({
+        borderRadius: "12px",
+        background: theme.normal.bg1,
+        padding: "20px 12px",
+      })}
+    >
+      <CopyListPosition
+        tokenPair={props.data.product}
+        lever={lever}
+        isLong={isLong}
+      />
+      <Stack spacing={"8px"}>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Stack spacing={"4px"} width={"100%"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "12px",
+                fontWeight: "400",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              <Trans>Open Price</Trans>
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontSize: "14px",
+                fontWeight: "700",
+                lineHeight: "20px",
+                color: theme.normal.text0,
+              })}
+            >
+              {orderPrice}
+            </Box>
+          </Stack>
+
+          <Stack spacing={"4px"} width={"100%"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "12px",
+                fontWeight: "400",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              <Trans>Actual Margin</Trans>
+            </Box>
+            <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "14px",
+                  fontWeight: "700",
+                  lineHeight: "20px",
+                  color: theme.normal.text0,
+                })}
+              >
+                {balance}ATF
+              </Box>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "10px",
+                  fontWeight: "400",
+                  lineHeight: "14px",
+                  color:
+                    profitLossRate >= 0
+                      ? theme.normal.success
+                      : theme.normal.danger,
+                })}
+              >
+                {profitLossRateString}
+              </Box>
+            </Stack>
+          </Stack>
+        </Stack>
+        <ArithFiLine />
+        <Stack spacing={"8px"}>
+          <Stack direction={"row"}>
+            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text2,
+                })}
+              >
+                <Trans>Market Price</Trans>
+              </Box>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text0,
+                })}
+              >
+                {marketPrice}
+              </Box>
+            </Stack>
+            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text2,
+                })}
+              >
+                <Trans>Liq Price</Trans>
+              </Box>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text0,
+                })}
+              >
+                {lipPriceString}
+              </Box>
+            </Stack>
+          </Stack>
+
+          <Stack direction={"row"}>
+            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text2,
+                })}
+              >
+                <Trans>Open Time</Trans>
+              </Box>
+              <Box
+                sx={(theme) => ({
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  lineHeight: "16px",
+                  color: theme.normal.text0,
+                })}
+              >
+                {openTimeString}
+              </Box>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack
+        direction={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Stack direction={"row"} alignItems={"center"} spacing={"8px"}>
+          {kolIcon()}
+          <Stack spacing={"4px"}>
+            <Box
+              sx={(theme) => ({
+                fontWeight: "700",
+                fontSize: "14px",
+                lineHeight: "20px",
+                color: theme.normal.text0,
+              })}
+            >
+              {nickName}
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontWeight: "400",
+                fontSize: "12px",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              {kolAddress}
+            </Box>
+          </Stack>
+        </Stack>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "14px",
+            lineHeight: "20px",
+            color: theme.normal.text0,
+            padding: "10px 16px",
+            borderRadius: "8px",
+            background: theme.normal.grey_hover,
+            width: "fit-content",
+            "& .MuiCircularProgress-root": {
+              color: theme.normal.text0,
+            },
+          })}
+          onClick={() => {
+            props.action(props.data.id);
+          }}
+        >
+          {props.isLoading === props.data.id ? (
+            <CircularProgress size={"12px"} />
+          ) : (
+            <Trans>Close</Trans>
+          )}
+        </Box>
+      </Stack>
+    </Stack>
+  );
+};
+
+const Row: FC<RowProps> = ({ ...props }) => {
+  const [avatar, setAvatar] = useState("");
+
+  const profitLossRate = useMemo(() => {
+    const balance_num = props.data.margin + props.data.append;
+    const marginAssets_num = props.data.balance;
+    if (marginAssets_num >= balance_num) {
+      return parseFloat(
+        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(2)
+      );
+    } else {
+      return -parseFloat(
+        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
+      );
+    }
+  }, [props.data.append, props.data.balance, props.data.margin]);
+
+  const isLong = props.data.direction;
+  const lever = props.data.leverage;
+  const nickName = "";
+  const kolAddress = props.data.kolAddress;
+  const balance = props.data.balance.floor(2);
+  const profitLossRateString = profitLossRate.floor(2) + "%";
+
+  const orderPrice = props.data.orderPrice.floor(
+    props.data.product.getTokenPriceDecimals()
+  );
+  const marketPrice = props.data.lastPrice.floor(
+    props.data.product.getTokenPriceDecimals()
+  );
+  const lipPriceString = useMemo(() => {
+    const balance =
+      props.data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const orderPrice =
+      props.data.orderPrice.toString().stringToBigNumber(18) ??
+      BigNumber.from("0");
+    const append =
+      props.data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const result = lipPrice(
+      props.data.product,
+      balance,
+      append,
+      BigNumber.from(props.data.leverage.toString()),
+      props.data.lastPrice.toString().stringToBigNumber(18) ??
+        BigNumber.from("0"),
+      orderPrice,
+      props.data.direction
+    );
+    return result.bigNumberToShowPrice(
+      18,
+      props.data.product.getTokenPriceDecimals()
+    );
+  }, [
+    props.data.append,
+    props.data.direction,
+    props.data.lastPrice,
+    props.data.leverage,
+    props.data.margin,
+    props.data.orderPrice,
+    props.data.product,
+  ]);
+
+  const openTime = new Date(props.data.timestamp * 1000);
+  const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
+  const kolIcon = () => {
+    if (avatar !== "") {
+      return (
+        <Box
+          sx={(theme) => ({
+            width: "24px",
+            height: "24px",
+            borderRadius: "12px",
+            background: theme.normal.primary,
+            overflow: "hidden",
+            "& img": {
+              width: "24px",
+              height: "24px",
+            },
+          })}
+        >
+          <img src={avatar} alt="kolIcon" />
         </Box>
       );
     } else {
@@ -460,7 +558,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
               fontSize: "12px",
               lineHeight: "16px",
               color:
-                props.data.profitLossRate >= 0
+                profitLossRate >= 0
                   ? theme.normal.success
                   : theme.normal.danger,
             })}
@@ -473,12 +571,12 @@ const Row: FC<RowProps> = ({ ...props }) => {
               fontSize: "12px",
               lineHeight: "16px",
               color:
-                props.data.profitLossRate >= 0
+                profitLossRate >= 0
                   ? theme.normal.success
                   : theme.normal.danger,
             })}
           >
-            {profitLossRate}
+            {profitLossRateString}
           </Box>
         </Stack>
       </TableCell>
@@ -540,7 +638,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {lipPrice}
+          {lipPriceString}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>

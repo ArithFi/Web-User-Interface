@@ -27,6 +27,7 @@ import HistoryList from "./Components/HistoryList";
 export interface FuturesOrderService {
   id: number;
   timestamp: number;
+  closeTime: number;
   walletAddress: string;
   chainId: number;
   product: string;
@@ -42,6 +43,10 @@ export interface FuturesOrderService {
   takeProfitPrice: number;
   status: number;
   copy: boolean;
+  lastPrice: number;
+  kolAddress: string;
+  closePrice: number;
+  closeValue: number;
 }
 
 interface FuturesOrderListProps {

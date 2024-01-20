@@ -9,26 +9,7 @@ import {
   serviceIsOpen,
 } from "../../../lib/ArithFiRequest";
 import { isForex } from "../../Futures/Futures";
-
-export interface MyCopiesList {
-  id: number;
-  timestamp: number;
-  walletAddress: string;
-  chainId: number;
-  product: string;
-  leverage: number;
-  orderPrice: number;
-  direction: boolean;
-  balance: number;
-  marketPrice: number;
-  lipPrice: number;
-  profitLossRate: number;
-  profitLoss: number;
-  kolAddress: string;
-  nickName: string;
-  avatar: string;
-  closeTime: number;
-}
+import { FuturesOrderService } from "../../Futures/OrderList";
 
 export interface MyCopiesMyTradersList {
   kolAddress: string;
@@ -44,9 +25,11 @@ export interface MyCopiesMyTradersList {
 function useMyCopies() {
   const { account, chainsData, signature } = useArithFi();
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
-  const [myCopiesList, setMyCopiesList] = useState<Array<MyCopiesList>>([]);
+  const [myCopiesList, setMyCopiesList] = useState<Array<FuturesOrderService>>(
+    []
+  );
   const [myCopiesHistoryList, setMyCopiesHistoryList] = useState<
-    Array<MyCopiesList>
+    Array<FuturesOrderService>
   >([]);
   const [myCopiesMyTradersList, setMyCopiesMyTradersList] = useState<
     Array<MyCopiesMyTradersList>
@@ -54,51 +37,61 @@ function useMyCopies() {
   const [forexOpen, setForexOpen] = useState(false);
 
   const getMyTradeInfo = useCallback(async () => {
-    if (chainsData.chainId && signature) {
-      const req = await copyMyTradeInfo(chainsData.chainId, {
+    if (signature && account.address) {
+      const req = await copyMyTradeInfo(account.address, {
         Authorization: signature.signature,
       });
       if (Number(req["err"]) === 0) {
-        const value = req["value"];
+        const value = req["data"];
         const info: MyTradeInfoModel = {
-          assets: value["assets"],
-          copyOrders: value["copyOrders"],
-          unRealizedPnl: value["unRealizedPnl"],
-          profit: value["profit"],
+          assets: value["copy_order_balance"],
+          copyOrders: value["copy_order_count"],
+          unRealizedPnl: value["unrealized_pnl"],
+          profit:
+            Number(value["realized_pnl"]) - Number(value["unrealized_pnl"]),
         };
         setMyTradeInfo(info);
       }
     }
-  }, [chainsData.chainId, signature]);
+  }, [account.address, signature]);
 
   const getMyCopiesList = useCallback(async () => {
     try {
-      if (!chainsData.chainId || !signature) {
+      if (!account.address || !signature) {
         return;
       }
-      const baseList = await copyMyCopiesList(chainsData.chainId, {
+      const baseList = await copyMyCopiesList(account.address, {
         Authorization: signature.signature,
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<MyCopiesList> = baseList["value"].map(
+        const list: Array<FuturesOrderService> = baseList["data"].map(
           (item: { [x: string]: any }) => {
-            return {
+            const timestamp = new Date(item["openAt"]).getTime();
+            const result: FuturesOrderService = {
               id: item["id"],
-              timestamp: item["timestamp"],
+              timestamp: timestamp / 1000,
               walletAddress: item["walletAddress"],
               chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
-              orderPrice: item["orderPrice"],
+              orderPrice: item["openPrice"],
               direction: item["direction"],
-              balance: item["balance"],
-              marketPrice: item["marketPrice"],
-              lipPrice: item["lipPrice"],
-              profitLossRate: item["profitLossRate"],
+              balance: item["orderValue"] ?? 0,
+              lastPrice: item["lastPrice"],
               kolAddress: item["kolAddress"],
-              nickName: item["nickName"],
-              avatar: item["avatar"],
+              limitPrice: 0,
+              margin: item["margin"],
+              append: item["append"],
+              fees: 0,
+              stopLossPrice: 0,
+              takeProfitPrice: 0,
+              status: item["status"],
+              copy: true,
+              closeTime: 0,
+              closePrice: 0,
+              closeValue: 0,
             };
+            return result;
           }
         );
         setMyCopiesList(list);
@@ -106,38 +99,46 @@ function useMyCopies() {
     } catch (error) {
       console.log(error);
     }
-  }, [chainsData.chainId, signature]);
+  }, [account.address, signature]);
 
   const getMyCopiesHistoryList = useCallback(async () => {
     try {
-      if (!chainsData.chainId || !signature) {
+      if (!account.address || !signature) {
         return;
       }
-      const baseList = await copyMyCopiesHistoryList(chainsData.chainId, {
+      const baseList = await copyMyCopiesHistoryList(account.address, {
         Authorization: signature.signature,
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<MyCopiesList> = baseList["value"].map(
+        const list: Array<FuturesOrderService> = baseList["data"].map(
           (item: { [x: string]: any }) => {
-            return {
+            const timestamp = new Date(item["openAt"]).getTime();
+            const timestampClose = new Date(item["closeAt"]).getTime();
+            const result: FuturesOrderService = {
               id: item["id"],
-              timestamp: item["openTime"],
+              timestamp: timestamp / 1000,
               walletAddress: item["walletAddress"],
               chainId: item["chainId"],
               product: item["product"],
               leverage: item["leverage"],
               orderPrice: item["openPrice"],
               direction: item["direction"],
-              balance: item["actualMargin"],
-              marketPrice: item["closePrice"],
-              lipPrice: item["lipPrice"],
-              profitLossRate: item["profitLossRate"],
-              profitLoss: item["profitLoss"],
+              balance: item["orderValue"] ?? 0,
+              lastPrice: item["lastPrice"],
               kolAddress: item["kolAddress"],
-              nickName: item["nickName"],
-              avatar: item["avatar"],
-              closeTime: item["closeTime"],
+              limitPrice: 0,
+              margin: item["margin"],
+              append: item["append"],
+              fees: 0,
+              stopLossPrice: 0,
+              takeProfitPrice: 0,
+              status: 0,
+              copy: true,
+              closeTime: timestampClose / 1000,
+              closePrice: item["closePrice"],
+              closeValue: item["closeValue"],
             };
+            return result;
           }
         );
         setMyCopiesHistoryList(list);
@@ -145,14 +146,14 @@ function useMyCopies() {
     } catch (error) {
       console.log(error);
     }
-  }, [chainsData.chainId, signature]);
+  }, [account.address, signature]);
 
   const getMyCopiesMyTraderList = useCallback(async () => {
     try {
-      if (!chainsData.chainId || !signature) {
+      if (!chainsData.chainId || !signature || !account.address) {
         return;
       }
-      const baseList = await copyMyCopiesMyTradersList(chainsData.chainId, {
+      const baseList = await copyMyCopiesMyTradersList(account.address, {
         Authorization: signature.signature,
       });
       if (Number(baseList["err"]) === 0) {
@@ -175,7 +176,7 @@ function useMyCopies() {
     } catch (error) {
       console.log(error);
     }
-  }, [chainsData.chainId, signature]);
+  }, [account.address, chainsData.chainId, signature]);
 
   const getForexOpen = useCallback(async () => {
     try {

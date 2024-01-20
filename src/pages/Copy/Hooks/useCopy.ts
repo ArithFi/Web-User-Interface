@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { serviceBaseURL } from "../../../lib/ArithFiRequest";
+import { copyAllKol, serviceBaseURL } from "../../../lib/ArithFiRequest";
 import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import { DEFAULT_CHAIN_ID } from "../../../lib/client";
 import { useSearchParams } from "react-router-dom";
 import useSWR from "swr";
 import { useSessionStorage } from "react-use";
+import { formatTVDate } from "../../../lib/dates";
 
 export interface AllKOLModel {
   id: string;
@@ -38,15 +39,26 @@ function useCopy() {
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [searchParams, setSearchParams] = useSearchParams();
+
   const [page, setPage] = useSessionStorage<number>("copy-page", 1);
+
   const [allPage, setAllPage] = useState<number>(1);
   const { isBigMobile } = useWindowWidth();
+
   const pageAmount = isBigMobile ? 5 : 12;
+
   const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
+  const nowTime = new Date();
+  const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
+  const closeAtFromDate = formatTVDate(days7Time);
+  const closeAtToDate = formatTVDate(nowTime);
+
   const { data: kolListData, isLoading: isKOLListLoading } = useSWR(
-    `${serviceBaseURL(chainId)}/arithfi/copy/kol/list?chainId=56&walletAddress=${
-      account.address
-    }&pageNumber=${page}&pageSize=${pageAmount}`,
+    `${serviceBaseURL(chainId)}/arithfi/copy/kol/listFull?walletAddress=${
+      String().zeroAddress
+    }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`follow DESC`}&start=${
+      (page - 1) * pageAmount
+    }&count=${pageAmount}`,
     (url: string) => fetch(url).then((res) => res.json()),
     {
       refreshInterval: 3_000,
@@ -56,7 +68,9 @@ function useCopy() {
     signature?.signature
       ? `${serviceBaseURL(
           chainId
-        )}/arithfi/copy/follower/position/info?chainId=${chainId}`
+        )}/arithfi/user/account/copyTrading?walletAddress=${
+          account.address ?? ""
+        }`
       : undefined,
     (url: any) =>
       fetch(url, {
@@ -71,10 +85,18 @@ function useCopy() {
   );
 
   useEffect(() => {
+    (async () => {
+      const res = await copyAllKol(closeAtFromDate, closeAtToDate, {});
+      if (res["err"] === 0) {
+        const allItem = res["data"].length;
+        setAllPage(Math.ceil(allItem / pageAmount));
+      }
+    })();
+  }, [closeAtFromDate, closeAtToDate, pageAmount]);
+
+  useEffect(() => {
     if (kolListData && Number(kolListData?.["err"]) === 0) {
-      const value = kolListData["value"]["records"];
-      const allItem = kolListData["value"]["total"];
-      setAllPage(Math.ceil(allItem / pageAmount));
+      const value = kolListData["data"];
       const list: Array<AllKOLModel> = value.map((item: any) => {
         const one: AllKOLModel = {
           id: item["id"],
@@ -102,12 +124,12 @@ function useCopy() {
 
   useEffect(() => {
     if (myTradeData && Number(myTradeData?.["err"]) === 0) {
-      const value = myTradeData["value"];
+      const value = myTradeData["data"];
       const info: MyTradeInfoModel = {
-        assets: value["assets"],
-        copyOrders: value["copyOrders"],
-        unRealizedPnl: value["unRealizedPnl"],
-        profit: value["profit"],
+        assets: value["copy_order_balance"],
+        copyOrders: value["copy_order_count"],
+        unRealizedPnl: value["unrealized_pnl"],
+        profit: Number(value["realized_pnl"]) - Number(value["unrealized_pnl"]),
       };
       setMyTradeInfo(info);
     }

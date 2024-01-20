@@ -29,7 +29,7 @@ const COLORS = [
   "#36C56E",
   "#EF8839",
   "#00B2EA",
-  "#6F6F6F"
+  "#6F6F6F",
 ];
 
 interface TraderChartViewProps {
@@ -186,6 +186,25 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
       })
       .every((e) => e === 0);
   }, [props.performanceSymbolData]);
+
+  const performanceSymbolDataList1 = useMemo(() => {
+    return props.performanceSymbolData.map((item, index) => {
+      return TokenPercent(
+        index,
+        props.performanceSymbolData[index].value.floor(2)
+      );
+    });
+  }, [TokenPercent, props.performanceSymbolData]);
+
+  const performanceSymbolDataList2 = useMemo(() => {
+    return props.performanceSymbolData.slice(4).map((item, index) => {
+      return TokenPercent(
+        index,
+        props.performanceSymbolData[index].value.floor(2)
+      );
+    });
+  }, [TokenPercent, props.performanceSymbolData]);
+
   return (
     <Stack spacing={"24px"} width={"100%"}>
       <Stack
@@ -287,7 +306,7 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
               stroke={nowTheme.normal.success}
               dot={false}
               strokeWidth={"2"}
-              unit={' %'}
+              unit={" %"}
             />
             <Line
               yAxisId="right"
@@ -296,7 +315,7 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
               stroke={nowTheme.normal.primary}
               dot={false}
               strokeWidth={"2"}
-              unit={' ATF'}
+              unit={" ATF"}
             />
           </LineChart>
         </ResponsiveContainer>
@@ -585,7 +604,8 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                 {props.performanceSymbolData.length > 0 ? (
                   <>
                     <Stack spacing={"16px"}>
-                      {TokenPercent(
+                      {performanceSymbolDataList1}
+                      {/* {TokenPercent(
                         0,
                         props.performanceSymbolData[0].value.floor(2)
                       )}
@@ -600,10 +620,12 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                       {TokenPercent(
                         3,
                         props.performanceSymbolData[3].value.floor(2)
-                      )}
+                      )} */}
                     </Stack>
+                    
                     <Stack spacing={"16px"}>
-                      {TokenPercent(
+                    {props.performanceSymbolData.length > 4 ? performanceSymbolDataList2:<></>}
+                      {/* {TokenPercent(
                         4,
                         props.performanceSymbolData[4].value.floor(2)
                       )}
@@ -618,7 +640,7 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                       {TokenPercent(
                         7,
                         props.performanceSymbolData[7].value.floor(2)
-                      )}
+                      )} */}
                     </Stack>
                   </>
                 ) : (

@@ -82,7 +82,7 @@ interface KolInfoProps {
 
 const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const { isBigMobile } = useWindowWidth();
-  const { chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [openCopyModal, setOpenCopyModal] = useState(false);
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openStopModal, setOpenStopModal] = useState(false);
@@ -91,6 +91,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
     useState<Array<MyCopiesMyTradersList>>();
   const [openNoStopModal, setOpenNoStopModal] = useState(false);
   const { checkCopyNoStop } = useMyCopies();
+
 
   const nickName = props.data ? props.data.nickName : String().placeHolder;
   const walletAddress = props.data
@@ -141,14 +142,14 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
 
   const getMyCopiesMyTraderList = useCallback(async () => {
     try {
-      if (!chainsData.chainId || !signature) {
+      if (!signature || !account.address) {
         return;
       }
-      const baseList = await copyMyCopiesMyTradersList(chainsData.chainId, {
+      const baseList = await copyMyCopiesMyTradersList(account.address, {
         Authorization: signature.signature,
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<MyCopiesMyTradersList> = baseList["value"].map(
+        const list: Array<MyCopiesMyTradersList> = baseList["data"].map(
           (item: { [x: string]: any }) => {
             return {
               kolAddress: item["walletAddress"],
@@ -161,7 +162,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
     } catch (error) {
       console.log(error);
     }
-  }, [chainsData.chainId, signature]);
+  }, [account.address, signature]);
 
   const isFollow = useMemo(() => {
     if (props.data && myCopiesMyTradersList) {
@@ -173,7 +174,8 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
       );
       return f.length > 0;
     }
-    return undefined;
+    // TODO：undefind
+    return false;
   }, [myCopiesMyTradersList, props.data]);
 
   useEffect(() => {
