@@ -88,7 +88,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const nickName = "";
-  const kolAddress = props.data.kolAddress;
+  const kolAddress = props.data.kolAddress.showAddress();
   const balance = props.data.balance.floor(2);
   const profitLoss = useMemo(() => {
     const baseValue = props.data.margin + props.data.append;
@@ -398,7 +398,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const nickName = "";
-  const kolAddress = props.data.kolAddress;
+  const kolAddress = props.data.kolAddress.showAddress();
   const balance = props.data.balance.floor(2);
   const profitLoss = useMemo(() => {
     const baseValue = props.data.margin + props.data.append;

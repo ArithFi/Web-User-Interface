@@ -13,7 +13,7 @@ function useCloseCopyModal(
   address: string | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { chainsData, signature, account } = useArithFi();
+  const { signature, account } = useArithFi();
   const [closeInfo, setCloseInfo] = useState<MyCopiesCloseModel>();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,9 +25,9 @@ function useCloseCopyModal(
       if (Number(req["err"]) === 0) {
         const value = req["data"];
         const info: MyCopiesCloseModel = {
-          openInterest: value["openInterest"],
-          totalProfit: value["totalProfit"],
-          totalCopyAmount: value["totalCopyAmount"],
+          openInterest: value["openInterest"] ?? 0,
+          totalProfit: value["traderPnl"],
+          totalCopyAmount: value["totalCopyAmount"] ?? 0,
           aum: value["aum"],
         };
         setCloseInfo(info);
@@ -36,21 +36,20 @@ function useCloseCopyModal(
   }, [account.address, address, signature]);
 
   const closeFollow = useCallback(async () => {
-    if (chainsData.chainId && signature && address && account.address) {
+    if (signature && address && account.address) {
       const req = await copyClose(
         account.address,
         address,
         {
           Authorization: signature.signature,
         },
-        chainsData.chainId
       );
       if (Number(req["err"]) === 0) {
       }
       setIsLoading(false);
       onClose(Number(req["err"]) === 0);
     }
-  }, [account.address, address, chainsData.chainId, onClose, signature]);
+  }, [account.address, address, onClose, signature]);
 
   const mainButtonLoading = useMemo(() => {
     return isLoading;

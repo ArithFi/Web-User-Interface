@@ -13,12 +13,10 @@ import { FuturesOrderService } from "../../Futures/OrderList";
 
 export interface MyCopiesMyTradersList {
   kolAddress: string;
-  nickName: string;
-  avatar: string;
   copyAccountBalance: number;
-  profit: number;
   follow: boolean;
   copyTradingAssets: number;
+  profit: number;
   unrealizedPnL: number;
 }
 
@@ -44,11 +42,11 @@ function useMyCopies() {
       if (Number(req["err"]) === 0) {
         const value = req["data"];
         const info: MyTradeInfoModel = {
-          assets: value["copy_order_balance"],
+          assets: value["copy_balance"],
           copyOrders: value["copy_order_count"],
           unRealizedPnl: value["unrealized_pnl"],
-          profit:
-            Number(value["realized_pnl"]) - Number(value["unrealized_pnl"]),
+          // TODO
+          profit: value["unrealized_pnl"],
         };
         setMyTradeInfo(info);
       }
@@ -157,16 +155,14 @@ function useMyCopies() {
         Authorization: signature.signature,
       });
       if (Number(baseList["err"]) === 0) {
-        const list: Array<MyCopiesMyTradersList> = baseList["value"].map(
+        const list: Array<MyCopiesMyTradersList> = baseList["data"].map(
           (item: { [x: string]: any }) => {
             return {
-              profit: item["profit"],
+              profit: item["profit"] ?? 0,
               copyAccountBalance: item["copyAccountBalance"],
-              kolAddress: item["walletAddress"],
-              nickName: item["nickName"],
-              avatar: item["avatar"],
-              follow: item["follow"] === "true",
-              unrealizedPnL: item["unrealizedPnL"],
+              kolAddress: item["kolAddress"],
+              follow: item["follow"] === 1,
+              unrealizedPnL: item["unrealizedPnL"] ?? 0,
               copyTradingAssets: item["copyTradingAssets"],
             };
           }

@@ -2,14 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import {
   copyEarningsList,
   copyKOLInfo,
-  copyPerformance,
   copyPerformanceSymbol,
-  copyTraderHistory,
-  servicePList,
+  copyTraderCurrent,
+  copyTraderHistory
 } from "../../../lib/ArithFiRequest";
 import { AllKOLModel } from "./useCopy";
-import { DEFAULT_CHAIN_ID } from "../../../lib/client";
-import { useNetwork } from "wagmi";
 import { formatTVDate } from "../../../lib/dates";
 
 export interface EarningsListModel {
@@ -54,8 +51,18 @@ export interface TraderFollowerList {
   followerProfitLoss: number;
 }
 
+const BasePerformanceSymbol: PerformanceSymbolModel[] = [
+  { name: "BTC", value: 0 },
+  { name: "ETH", value: 0 },
+  { name: "MATIC", value: 0 },
+  { name: "BNB", value: 0 },
+  { name: "SOL", value: 0 },
+  { name: "AVAX", value: 0 },
+  { name: "DOGE", value: 0 },
+  { name: "Other", value: 0 },
+];
+
 function useTrader(address: string | undefined) {
-  const { chain } = useNetwork();
   const [kolInfo, setKolInfo] = useState<AllKOLModel>();
   const [earningsData, setEarningsData] = useState<Array<EarningsListModel>>(
     []
@@ -123,6 +130,19 @@ function useTrader(address: string | undefined) {
           roiList: value["roiList"],
           follow: value["follow"],
         };
+        const subOrders = value["ordersNumber"] - value["winCount"]
+        const winRate = subOrders !== 0 ? subOrders / value["ordersNumber"] * 100 : 100
+        const info2: PerformanceModel = {
+          pnlRatio: value["pnlRatio"],
+          cumlativeTraders: value["cumlativeTraders"],
+          losingTraders: value["losingTraders"],
+          aum: value["aum"],
+          winRate: winRate,
+          traderPnl: value["traderPnl"],
+          winningTraders: value["winningTraders"],
+          ordersNumber: value["ordersNumber"],
+        };
+        setPerformanceData(info2);
         setKolInfo(info);
       }
     }
@@ -169,41 +189,41 @@ function useTrader(address: string | undefined) {
     }
   }, [address, earningsDay]);
 
-  const getPerformance = useCallback(async () => {
-    const days = () => {
-      if (performanceDay === 0) {
-        return 1;
-      } else if (performanceDay === 1) {
-        return 7;
-      } else if (performanceDay === 2) {
-        return 21;
-      } else {
-        return 30;
-      }
-    };
-    if (address) {
-      const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
-      const req = await copyPerformance(chainId, address, days(), {
-        Authorization: "",
-      });
+  // const getPerformance = useCallback(async () => {
+  //   const days = () => {
+  //     if (performanceDay === 0) {
+  //       return 1;
+  //     } else if (performanceDay === 1) {
+  //       return 7;
+  //     } else if (performanceDay === 2) {
+  //       return 21;
+  //     } else {
+  //       return 30;
+  //     }
+  //   };
+  //   if (address) {
+  //     const chainId = chain?.id ?? DEFAULT_CHAIN_ID;
+  //     const req = await copyPerformance(chainId, address, days(), {
+  //       Authorization: "",
+  //     });
 
-      if (Number(req["err"]) === 0) {
-        const value = req["data"];
+  //     if (Number(req["err"]) === 0) {
+  //       const value = req["data"];
 
-        const info: PerformanceModel = {
-          pnlRatio: value["pnlRatio"],
-          cumlativeTraders: value["cumlativeTraders"],
-          losingTraders: value["losingTraders"],
-          aum: value["aum"],
-          winRate: value["winRate"],
-          traderPnl: value["traderPnl"],
-          winningTraders: value["winningTraders"],
-          ordersNumber: value["ordersNumber"],
-        };
-        setPerformanceData(info);
-      }
-    }
-  }, [address, chain?.id, performanceDay]);
+  //       const info: PerformanceModel = {
+  //         pnlRatio: value["pnlRatio"],
+  //         cumlativeTraders: value["cumlativeTraders"],
+  //         losingTraders: value["losingTraders"],
+  //         aum: value["aum"],
+  //         winRate: value["winRate"],
+  //         traderPnl: value["traderPnl"],
+  //         winningTraders: value["winningTraders"],
+  //         ordersNumber: value["ordersNumber"],
+  //       };
+  //       setPerformanceData(info);
+  //     }
+  //   }
+  // }, [address, chain?.id, performanceDay]);
 
   const getPerformanceSymbol = useCallback(async () => {
     const days = () => {
@@ -241,7 +261,39 @@ function useTrader(address: string | undefined) {
           };
           return one;
         });
-        setPerformanceSymbolData(list);
+        const allValue = list.reduce((all, item) => item.value + all, 0);
+
+        let newPerformanceSymbolArray = [...BasePerformanceSymbol];
+
+        for (let index = 0; index < list.length; index++) {
+          const element = list[index].name.split("/")[0];
+          const resArray = BasePerformanceSymbol.filter(
+            (item) => item.name === element
+          );
+          if (resArray.length > 0) {
+            const newItem = newPerformanceSymbolArray.find(
+              (item) => item.name === element
+            );
+            newItem!.value = list[index].value;
+          } else {
+            const newItem = newPerformanceSymbolArray.find(
+              (item) => item.name === "Other"
+            );
+            newItem!.value += list[index].value;
+          }
+        }
+
+        const resData = newPerformanceSymbolArray.map((item) => {
+          const newItem = item;
+          if (item.value > 0) {
+            newItem.value = Number(((item.value / allValue) * 100).toFixed(2));
+          } else {
+            newItem.value = 0;
+          }
+          return newItem;
+        });
+
+        setPerformanceSymbolData(resData.sort((a, b) => b.value - a.value));
       }
     }
   }, [address, performanceSymbolDay]);
@@ -251,23 +303,23 @@ function useTrader(address: string | undefined) {
       if (!address) {
         return;
       }
-      const baseList = await servicePList(address, {
-        Authorization: "",
-      });
+      const baseList = await copyTraderCurrent(address, {});
       if (Number(baseList["err"]) === 0) {
         const list: Array<TraderOrderList> = baseList["data"]
           .map((item: { [x: string]: any }) => {
             const timestamp = new Date(item["openAt"]).getTime();
+            const balance_num = item["margin"] + item["append"];
+            const marginAssets_num = item["orderValue"];
             return {
               id: item["id"],
               timestamp: timestamp / 1000,
               walletAddress: item["walletAddress"],
               product: item["product"],
               leverage: item["leverage"],
-              orderPrice: item["orderPrice"],
+              orderPrice: item["openPrice"],
               direction: item["direction"],
               marketPrice: item["lastPrice"],
-              profitLossRate: item["profitLossRate"],
+              profitLossRate: (((marginAssets_num - balance_num) * 100) / balance_num),
               status: item["status"],
             };
           })
@@ -294,6 +346,8 @@ function useTrader(address: string | undefined) {
           .map((item: { [x: string]: any }) => {
             const timestamp = new Date(item["openAt"]).getTime();
             const closeTime = new Date(item["closeAt"]).getTime();
+            const balance_num = item["margin"] + item["append"];
+            const marginAssets_num = item["orderValue"];
             return {
               id: item["id"],
               timestamp: timestamp / 1000,
@@ -304,7 +358,7 @@ function useTrader(address: string | undefined) {
               orderPrice: item["openPrice"],
               direction: item["direction"],
               marketPrice: item["closePrice"],
-              profitLossRate: item["profitLossRate"],
+              profitLossRate: (((marginAssets_num - balance_num) * 100) / balance_num),
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -338,9 +392,8 @@ function useTrader(address: string | undefined) {
 
   useEffect(() => {
     getEarnings();
-    getPerformance();
     getPerformanceSymbol();
-  }, [getEarnings, getPerformance, getPerformanceSymbol]);
+  }, [getEarnings, getPerformanceSymbol]);
 
   useEffect(() => {
     getKOLInfo();

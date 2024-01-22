@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import FuturesTableTitle from "../../Futures/Components/TableTitle";
 import { Trans, t } from "@lingui/macro";
@@ -24,9 +24,7 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
     return (
       <Row
         key={`MyCopiesMyTraders + ${index}`}
-        copyCallBack={() => {
-          props.copyCallBack(item.nickName, item.kolAddress);
-        }}
+        copyCallBack={props.copyCallBack}
         stopCallBack={() => {
           props.stopCallBack(item.kolAddress);
         }}
@@ -41,267 +39,15 @@ const MyCopiesMyTraders: FC<MyCopiesMyTradersProps> = ({ ...props }) => {
 
   const mobile = useMemo(() => {
     const items = props.list.map((item, index) => {
-      const nickName = item.nickName;
-      const kolAddress = item.kolAddress.showAddress();
-      const copyAccountBalance = item.copyAccountBalance.floor(2);
-      const profit = item.profit?.floor(2);
-      const copyTradingAssets = item.copyTradingAssets.floor(2);
-      const unrealizedPnL = item.unrealizedPnL.floor(2);
-
-      const kolIcon = () => {
-        if (item.avatar !== "-" && item.avatar !== "") {
-          return (
-            <Box
-              sx={(theme) => ({
-                width: "24px",
-                height: "24px",
-                borderRadius: "12px",
-                background: theme.normal.primary,
-                overflow: "hidden",
-                "& img": {
-                  width: "24px",
-                  height: "24px",
-                },
-              })}
-            >
-              <img src={item.avatar} alt="kolIcon" />
-            </Box>
-          );
-        } else {
-          return (
-            <Box
-              sx={(theme) => ({
-                width: "24px",
-                height: "24px",
-                borderRadius: "12px",
-                background: theme.normal.primary,
-                "& svg": {
-                  width: "24px",
-                  height: "24px",
-                  display: "block",
-                },
-              })}
-            >
-              <DefaultKolIcon />
-            </Box>
-          );
-        }
-      };
       return (
-        <Stack
+        <Item
           key={`MyCopiesMyTradersMobile + ${index}`}
-          spacing={"20px"}
-          sx={(theme) => ({
-            borderRadius: "12px",
-            background: theme.normal.bg1,
-            padding: "20px 12px",
-          })}
-        >
-          <Stack direction={"row"} alignItems={"center"} spacing={"8px"}>
-            {kolIcon()}
-            <Stack spacing={"4px"}>
-              <Box
-                sx={(theme) => ({
-                  fontWeight: "700",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {nickName}
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontWeight: "400",
-                  fontSize: "12px",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                {kolAddress}
-              </Box>
-            </Stack>
-          </Stack>
-          <Stack
-            direction={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Stack spacing={"4px"} width={"100%"}>
-              <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Profit&Loss</Trans>
-                </Box>
-                <ArithFiTooltipFC
-                  title={
-                    <p>
-                      <Trans>
-                        This indicates your copy trading total profit for
-                        copying this trader. Profit&Loss = Total Profit - Total
-                        Pre-Deducted Profit Sharing . Your surplus pre-deducted
-                        profit will be refunded at settlement.
-                      </Trans>
-                    </p>
-                  }
-                />
-              </Stack>
-
-              <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    lineHeight: "20px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {profit}ATF
-                </Box>
-              </Stack>
-            </Stack>
-
-            <Stack spacing={"4px"} width={"100%"}>
-              <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Unrealized PnL</Trans>
-                </Box>
-                <ArithFiTooltipFC
-                  title={
-                    <p>
-                      <Trans>
-                        This indicates the actual profit of your current
-                        position. Please note that this data does not
-                        pre-deducted profit.
-                      </Trans>
-                    </p>
-                  }
-                />
-              </Stack>
-
-              <Box
-                sx={(theme) => ({
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  lineHeight: "20px",
-                  color:
-                    item.unrealizedPnL >= 0
-                      ? theme.normal.success
-                      : theme.normal.danger,
-                })}
-              >
-                {unrealizedPnL}
-              </Box>
-            </Stack>
-          </Stack>
-
-          <Stack
-            direction={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Stack spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Copy trading assets</Trans>
-              </Box>
-              <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    lineHeight: "20px",
-                    color: theme.normal.text0,
-                  })}
-                >
-                  {copyTradingAssets}ATF
-                </Box>
-              </Stack>
-            </Stack>
-
-            <Stack spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Remaining Copy Amount</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  lineHeight: "20px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {copyAccountBalance}
-              </Box>
-            </Stack>
-          </Stack>
-
-          <Stack
-            direction={"row"}
-            spacing={"8px"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <GreyButton
-              title={t`Settings`}
-              onClick={() => {
-                props.copyCallBack(nickName, kolAddress);
-              }}
-              style={{
-                fontSize: "10px",
-                lineHeight: "14px",
-                borderRadius: "4px",
-                padding: "5px 12px",
-                height: "24px",
-                width: "fit-content",
-              }}
-            />
-            {item.follow ? (
-              <GreyButton
-                title={t`Stop Copying`}
-                onClick={() => {
-                  props.stopCallBack(item.kolAddress);
-                }}
-                style={{
-                  fontSize: "10px",
-                  lineHeight: "14px",
-                  borderRadius: "4px",
-                  padding: "5px 12px",
-                  height: "24px",
-                  width: "fit-content",
-                }}
-              />
-            ) : (
-              <></>
-            )}
-          </Stack>
-        </Stack>
+          copyCallBack={props.copyCallBack}
+          stopCallBack={() => {
+            props.stopCallBack(item.kolAddress);
+          }}
+          data={item}
+        />
       );
     });
     return (
@@ -368,8 +114,9 @@ interface RowProps {
   data: MyCopiesMyTradersList;
 }
 
-const Row: FC<RowProps> = ({ ...props }) => {
-  const nickName = props.data.nickName;
+const Item: FC<RowProps> = ({ ...props }) => {
+  const [avatar, setAvatar] = useState("");
+  const [nickName, setNickName] = useState("");
   const kolAddress = props.data.kolAddress.showAddress();
   const copyAccountBalance = props.data.copyAccountBalance.floor(2);
   const profit = props.data.profit?.floor(2);
@@ -377,7 +124,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const unrealizedPnL = props.data.unrealizedPnL.floor(2);
 
   const kolIcon = () => {
-    if (props.data.avatar !== "-" && props.data.avatar !== "") {
+    if (avatar !== "") {
       return (
         <Box
           sx={(theme) => ({
@@ -392,7 +139,272 @@ const Row: FC<RowProps> = ({ ...props }) => {
             },
           })}
         >
-          <img src={props.data.avatar} alt="kolIcon" />
+          <img src={avatar} alt="kolIcon" />
+        </Box>
+      );
+    } else {
+      return (
+        <Box
+          sx={(theme) => ({
+            width: "24px",
+            height: "24px",
+            borderRadius: "12px",
+            background: theme.normal.primary,
+            "& svg": {
+              width: "24px",
+              height: "24px",
+              display: "block",
+            },
+          })}
+        >
+          <DefaultKolIcon />
+        </Box>
+      );
+    }
+  };
+  return (
+    <Stack
+      spacing={"20px"}
+      sx={(theme) => ({
+        borderRadius: "12px",
+        background: theme.normal.bg1,
+        padding: "20px 12px",
+      })}
+    >
+      <Stack direction={"row"} alignItems={"center"} spacing={"8px"}>
+        {kolIcon()}
+        <Stack spacing={"4px"}>
+          <Box
+            sx={(theme) => ({
+              fontWeight: "700",
+              fontSize: "14px",
+              lineHeight: "20px",
+              color: theme.normal.text0,
+            })}
+          >
+            {nickName}
+          </Box>
+          <Box
+            sx={(theme) => ({
+              fontWeight: "400",
+              fontSize: "12px",
+              lineHeight: "16px",
+              color: theme.normal.text2,
+            })}
+          >
+            {kolAddress}
+          </Box>
+        </Stack>
+      </Stack>
+      <Stack
+        direction={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Stack spacing={"4px"} width={"100%"}>
+          <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "12px",
+                fontWeight: "400",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              <Trans>Profit&Loss</Trans>
+            </Box>
+            <ArithFiTooltipFC
+              title={
+                <p>
+                  <Trans>
+                    This indicates your copy trading total profit for copying
+                    this trader. Profit&Loss = Total Profit - Total Pre-Deducted
+                    Profit Sharing . Your surplus pre-deducted profit will be
+                    refunded at settlement.
+                  </Trans>
+                </p>
+              }
+            />
+          </Stack>
+
+          <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "14px",
+                fontWeight: "700",
+                lineHeight: "20px",
+                color: theme.normal.text0,
+              })}
+            >
+              {profit}ATF
+            </Box>
+          </Stack>
+        </Stack>
+
+        <Stack spacing={"4px"} width={"100%"}>
+          <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "12px",
+                fontWeight: "400",
+                lineHeight: "16px",
+                color: theme.normal.text2,
+              })}
+            >
+              <Trans>Unrealized PnL</Trans>
+            </Box>
+            <ArithFiTooltipFC
+              title={
+                <p>
+                  <Trans>
+                    This indicates the actual profit of your current position.
+                    Please note that this data does not pre-deducted profit.
+                  </Trans>
+                </p>
+              }
+            />
+          </Stack>
+
+          <Box
+            sx={(theme) => ({
+              fontSize: "14px",
+              fontWeight: "700",
+              lineHeight: "20px",
+              color:
+                props.data.unrealizedPnL >= 0
+                  ? theme.normal.success
+                  : theme.normal.danger,
+            })}
+          >
+            {unrealizedPnL}
+          </Box>
+        </Stack>
+      </Stack>
+
+      <Stack
+        direction={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Stack spacing={"4px"} width={"100%"}>
+          <Box
+            sx={(theme) => ({
+              fontSize: "12px",
+              fontWeight: "400",
+              lineHeight: "16px",
+              color: theme.normal.text2,
+            })}
+          >
+            <Trans>Copy trading assets</Trans>
+          </Box>
+          <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
+            <Box
+              sx={(theme) => ({
+                fontSize: "14px",
+                fontWeight: "700",
+                lineHeight: "20px",
+                color: theme.normal.text0,
+              })}
+            >
+              {copyTradingAssets}ATF
+            </Box>
+          </Stack>
+        </Stack>
+
+        <Stack spacing={"4px"} width={"100%"}>
+          <Box
+            sx={(theme) => ({
+              fontSize: "12px",
+              fontWeight: "400",
+              lineHeight: "16px",
+              color: theme.normal.text2,
+            })}
+          >
+            <Trans>Remaining Copy Amount</Trans>
+          </Box>
+          <Box
+            sx={(theme) => ({
+              fontSize: "14px",
+              fontWeight: "700",
+              lineHeight: "20px",
+              color: theme.normal.text0,
+            })}
+          >
+            {copyAccountBalance}
+          </Box>
+        </Stack>
+      </Stack>
+
+      <Stack
+        direction={"row"}
+        spacing={"8px"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <GreyButton
+          title={t`Settings`}
+          onClick={() => {
+            props.copyCallBack(nickName, kolAddress);
+          }}
+          style={{
+            fontSize: "10px",
+            lineHeight: "14px",
+            borderRadius: "4px",
+            padding: "5px 12px",
+            height: "24px",
+            width: "fit-content",
+          }}
+        />
+        {props.data.follow ? (
+          <GreyButton
+            title={t`Stop Copying`}
+            onClick={() => {
+              props.stopCallBack(props.data.kolAddress);
+            }}
+            style={{
+              fontSize: "10px",
+              lineHeight: "14px",
+              borderRadius: "4px",
+              padding: "5px 12px",
+              height: "24px",
+              width: "fit-content",
+            }}
+          />
+        ) : (
+          <></>
+        )}
+      </Stack>
+    </Stack>
+  );
+};
+
+const Row: FC<RowProps> = ({ ...props }) => {
+  const [avatar, setAvatar] = useState("");
+  const [nickName, setNickName] = useState("");
+
+  const kolAddress = props.data.kolAddress.showAddress();
+  const copyAccountBalance = props.data.copyAccountBalance.floor(2);
+  const profit = props.data.profit?.floor(2);
+  const copyTradingAssets = props.data.copyTradingAssets.floor(2);
+  const unrealizedPnL = props.data.unrealizedPnL.floor(2);
+
+  const kolIcon = () => {
+    if (avatar !== "") {
+      return (
+        <Box
+          sx={(theme) => ({
+            width: "24px",
+            height: "24px",
+            borderRadius: "12px",
+            background: theme.normal.primary,
+            overflow: "hidden",
+            "& img": {
+              width: "24px",
+              height: "24px",
+            },
+          })}
+        >
+          <img src={avatar} alt="kolIcon" />
         </Box>
       );
     } else {

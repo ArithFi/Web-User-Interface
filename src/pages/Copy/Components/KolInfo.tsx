@@ -92,7 +92,6 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
   const [openNoStopModal, setOpenNoStopModal] = useState(false);
   const { checkCopyNoStop } = useMyCopies();
 
-
   const nickName = props.data ? props.data.nickName : String().placeHolder;
   const walletAddress = props.data
     ? props.data.walletAddress.showAddress()
@@ -152,8 +151,8 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
         const list: Array<MyCopiesMyTradersList> = baseList["data"].map(
           (item: { [x: string]: any }) => {
             return {
-              kolAddress: item["walletAddress"],
-              follow: item["follow"] === "true",
+              kolAddress: item["kolAddress"],
+              follow: item["follow"] === 1,
             };
           }
         );
@@ -174,8 +173,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
       );
       return f.length > 0;
     }
-    // TODO：undefind
-    return false;
+    return undefined;
   }, [myCopiesMyTradersList, props.data]);
 
   useEffect(() => {

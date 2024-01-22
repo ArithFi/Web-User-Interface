@@ -187,24 +187,6 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
       .every((e) => e === 0);
   }, [props.performanceSymbolData]);
 
-  const performanceSymbolDataList1 = useMemo(() => {
-    return props.performanceSymbolData.map((item, index) => {
-      return TokenPercent(
-        index,
-        props.performanceSymbolData[index].value.floor(2)
-      );
-    });
-  }, [TokenPercent, props.performanceSymbolData]);
-
-  const performanceSymbolDataList2 = useMemo(() => {
-    return props.performanceSymbolData.slice(4).map((item, index) => {
-      return TokenPercent(
-        index,
-        props.performanceSymbolData[index].value.floor(2)
-      );
-    });
-  }, [TokenPercent, props.performanceSymbolData]);
-
   return (
     <Stack spacing={"24px"} width={"100%"}>
       <Stack
@@ -604,8 +586,7 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                 {props.performanceSymbolData.length > 0 ? (
                   <>
                     <Stack spacing={"16px"}>
-                      {performanceSymbolDataList1}
-                      {/* {TokenPercent(
+                      {TokenPercent(
                         0,
                         props.performanceSymbolData[0].value.floor(2)
                       )}
@@ -620,12 +601,11 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                       {TokenPercent(
                         3,
                         props.performanceSymbolData[3].value.floor(2)
-                      )} */}
+                      )}
                     </Stack>
-                    
+
                     <Stack spacing={"16px"}>
-                    {props.performanceSymbolData.length > 4 ? performanceSymbolDataList2:<></>}
-                      {/* {TokenPercent(
+                      {TokenPercent(
                         4,
                         props.performanceSymbolData[4].value.floor(2)
                       )}
@@ -640,7 +620,7 @@ const TraderChartView: FC<TraderChartViewProps> = ({ ...props }) => {
                       {TokenPercent(
                         7,
                         props.performanceSymbolData[7].value.floor(2)
-                      )} */}
+                      )}
                     </Stack>
                   </>
                 ) : (
