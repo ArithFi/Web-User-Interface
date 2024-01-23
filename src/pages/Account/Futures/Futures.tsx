@@ -17,10 +17,11 @@ import useSWR from "swr";
 import {Link, useSearchParams} from "react-router-dom";
 import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
 const Futures = () => {
   const [showrdr, setShowrdr] = useState(false);
-  const {account, checkSigned, chainsData} = useArithFi();
+  const {account, checkSigned, chainsData, signature} = useArithFi();
   const {nowTheme} = useTheme();
   const [range, setRange] = useState<Range[]>([
     {
@@ -42,11 +43,15 @@ const Futures = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  // TODO
-  const { data } = useSWR((account || q) ? `https://db.arithfi.com/arithfi/op/user/account/futures?walletAddress=${q || account.address}&chainId=56` : undefined,
-    (url: any) => fetch(url)
+  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/account/futures?walletAddress=${q || account.address}` : undefined,
+    (url: any) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
       .then(res => res.json())
-      .then(res => res.value));
+      .then(res => res.data));
 
   const showData = [
     {
