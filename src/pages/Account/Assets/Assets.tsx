@@ -23,10 +23,11 @@ import {NoOrderMobile} from "../../Futures/OrderList";
 import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
 import useSWR from "swr";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
 const Assets = () => {
   const [showrdr, setShowrdr] = useState(false);
-  const {account, signature} = useArithFi();
+  const {account, signature, chainsData} = useArithFi();
   const {nowTheme} = useTheme();
   const {addTransactionNotice} = usePendingTransactionsBase();
   const [range, setRange] = useState<Range[]>([
@@ -54,8 +55,7 @@ const Assets = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  // TODO
-  const { data } = useSWR((account || q) ? `https://db.arithfi.com/arithfi/op/user/account/total?walletAddress=${q || account.address}&chainId=56` : undefined,
+  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/account/total?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
