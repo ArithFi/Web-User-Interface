@@ -267,7 +267,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                           : theme.normal.danger,
                     })}
                   >
-                    {props.value.actualRate}%
+                    {props.value.actualRate.toFixed(2)}%
                   </Caption4>
                 </Stack>
                 <Stack direction={"row"} pt={"54px"}>
@@ -358,7 +358,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                           : theme.normal.danger,
                     })}
                   >
-                    {props.value.actualRate}%
+                    {props.value.actualRate.toFixed(2)}%
                   </Caption4>
                 </Stack>
                 <Stack direction={"row"} pt={"54px"}>
