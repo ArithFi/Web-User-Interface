@@ -65,14 +65,23 @@ const Assets = () => {
       .then(res => res.json())
       .then(res => res.data));
 
-  const total_balance_atf = data ? data?.available_balance + data?.copy_balance + data?.future_order_balance + data?.copy_order_balance + data?.future_limit_balance + data?.copy_limit_balance : 0
+  const total_balance_atf = (data?.available_balance || 0) + (data?.copy_balance || 0) + (data?.future_order_balance || 0) + (data?.copy_order_balance || 0) + (data?.future_limit_balance || 0) + (data?.copy_limit_balance || 0)
   const total_balance_usd = total_balance_atf * price;
 
-  const futures_balance_atf = data ? data?.available_balance + data?.future_order_balance + data?.future_limit_balance : 0;
+  const futures_balance_atf = (data?.available_balance || 0) + (data?.future_order_balance || 0) + (data?.future_limit_balance || 0)
   const futures_balance_usd = futures_balance_atf * price;
 
-  const copy_balance_atf = data ? data?.copy_balance + data?.copy_order_balance + data?.copy_limit_balance : 0;
+  const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
+
+  const { data: withdrawListData } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?walletAddress=${account || q}` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
 
   useEffect(() => {
     const time = setInterval(() => {
