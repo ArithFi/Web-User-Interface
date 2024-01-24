@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import FuturesTableTitle from "../../Futures/Components/TableTitle";
 import { Trans, t } from "@lingui/macro";
@@ -10,6 +10,8 @@ import { MyCopiesMyTradersList } from "../Hooks/useMyCopies";
 import { DefaultKolIcon } from "../../../components/icons";
 import GreyButton from "../../../components/MainButton/GreyButton";
 import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
+import { formatTVDate } from "../../../lib/dates";
+import { copyKOLInfo } from "../../../lib/ArithFiRequest";
 
 interface MyCopiesMyTradersProps {
   copyCallBack: (name: string, address: string) => void;
@@ -122,6 +124,29 @@ const Item: FC<RowProps> = ({ ...props }) => {
   const profit = props.data.profit?.floor(2);
   const copyTradingAssets = props.data.copyTradingAssets.floor(2);
   const unrealizedPnL = props.data.unrealizedPnL.floor(2);
+
+  useEffect(() => {
+    if (avatar === "") {
+      (async () => {
+        const nowTime = new Date();
+        const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
+        const closeAtFromDate = formatTVDate(days7Time);
+        const closeAtToDate = formatTVDate(nowTime);
+        const req = await copyKOLInfo(
+          props.data.kolAddress,
+          closeAtFromDate,
+          closeAtToDate,
+          {
+            Authorization: "",
+          }
+        );
+        if (Number(req["err"]) === 0) {
+          setAvatar(req["data"]["avatar"]);
+          setNickName(req["data"]["nickName"]);
+        }
+      })();
+    }
+  }, [avatar, props.data.kolAddress]);
 
   const kolIcon = () => {
     if (avatar !== "") {
@@ -236,7 +261,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {profit}ATF
+              {props.data.follow ? `${profit}ATF` : "-"}
             </Box>
           </Stack>
         </Stack>
@@ -276,7 +301,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                   : theme.normal.danger,
             })}
           >
-            {unrealizedPnL}
+            {props.data.follow ? unrealizedPnL : "-"}
           </Box>
         </Stack>
       </Stack>
@@ -306,7 +331,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {copyTradingAssets}ATF
+              {props.data.follow ? `${copyTradingAssets}ATF` : "-"}
             </Box>
           </Stack>
         </Stack>
@@ -330,7 +355,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {copyAccountBalance}
+            {props.data.follow ? copyAccountBalance : "-"}
           </Box>
         </Stack>
       </Stack>
@@ -381,12 +406,34 @@ const Item: FC<RowProps> = ({ ...props }) => {
 const Row: FC<RowProps> = ({ ...props }) => {
   const [avatar, setAvatar] = useState("");
   const [nickName, setNickName] = useState("");
-
   const kolAddress = props.data.kolAddress.showAddress();
   const copyAccountBalance = props.data.copyAccountBalance.floor(2);
   const profit = props.data.profit?.floor(2);
   const copyTradingAssets = props.data.copyTradingAssets.floor(2);
   const unrealizedPnL = props.data.unrealizedPnL.floor(2);
+
+  useEffect(() => {
+    if (avatar === "") {
+      (async () => {
+        const nowTime = new Date();
+        const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
+        const closeAtFromDate = formatTVDate(days7Time);
+        const closeAtToDate = formatTVDate(nowTime);
+        const req = await copyKOLInfo(
+          props.data.kolAddress,
+          closeAtFromDate,
+          closeAtToDate,
+          {
+            Authorization: "",
+          }
+        );
+        if (Number(req["err"]) === 0) {
+          setAvatar(req["data"]["avatar"]);
+          setNickName(req["data"]["nickName"]);
+        }
+      })();
+    }
+  }, [avatar, props.data.kolAddress]);
 
   const kolIcon = () => {
     if (avatar !== "") {

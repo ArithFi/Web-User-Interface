@@ -114,7 +114,7 @@ function useCopy() {
           kolProfitLoss: item["kolProfitLoss"],
           kolProfitLossRate: item["kolProfitLossRate"],
           roiList: item["roiList"],
-          follow: item["follow"],
+          follow: item["follow"] === 1,
         };
         return one;
       });

@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import FuturesTableTitle from "../../Futures/Components/TableTitle";
 import { Trans, t } from "@lingui/macro";
@@ -12,6 +12,8 @@ import ArithFiLine from "../../../components/ArithFiLine";
 import { DefaultKolIcon } from "../../../components/icons";
 import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import { FuturesOrderService } from "../../Futures/OrderList";
+import { formatTVDate } from "../../../lib/dates";
+import { copyKOLInfo } from "../../../lib/ArithFiRequest";
 
 interface MyCopiesHistoryProps {
   list: FuturesOrderService[];
@@ -85,9 +87,32 @@ interface RowProps {
 }
 const Item: FC<RowProps> = ({ ...props }) => {
   const [avatar, setAvatar] = useState("");
+  const [nickName, setNickName] = useState("");
+  useEffect(() => {
+    if (avatar === "") {
+      (async () => {
+        const nowTime = new Date();
+        const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
+        const closeAtFromDate = formatTVDate(days7Time);
+        const closeAtToDate = formatTVDate(nowTime);
+        const req = await copyKOLInfo(
+          props.data.kolAddress,
+          closeAtFromDate,
+          closeAtToDate,
+          {
+            Authorization: "",
+          }
+        );
+        if (Number(req["err"]) === 0) {
+          setAvatar(req["data"]["avatar"]);
+          setNickName(req["data"]["nickName"]);
+        }
+      })();
+    }
+  }, [avatar, props.data.kolAddress]);
   const isLong = props.data.direction;
   const lever = props.data.leverage;
-  const nickName = "";
+
   const kolAddress = props.data.kolAddress.showAddress();
   const balance = props.data.balance.floor(2);
   const profitLoss = useMemo(() => {
@@ -395,9 +420,31 @@ const Item: FC<RowProps> = ({ ...props }) => {
 
 const Row: FC<RowProps> = ({ ...props }) => {
   const [avatar, setAvatar] = useState("");
+  const [nickName, setNickName] = useState("");
+  useEffect(() => {
+    if (avatar === "") {
+      (async () => {
+        const nowTime = new Date();
+        const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
+        const closeAtFromDate = formatTVDate(days7Time);
+        const closeAtToDate = formatTVDate(nowTime);
+        const req = await copyKOLInfo(
+          props.data.kolAddress,
+          closeAtFromDate,
+          closeAtToDate,
+          {
+            Authorization: "",
+          }
+        );
+        if (Number(req["err"]) === 0) {
+          setAvatar(req["data"]["avatar"]);
+          setNickName(req["data"]["nickName"]);
+        }
+      })();
+    }
+  }, [avatar, props.data.kolAddress]);
   const isLong = props.data.direction;
   const lever = props.data.leverage;
-  const nickName = "";
   const kolAddress = props.data.kolAddress.showAddress();
   const balance = props.data.balance.floor(2);
   const profitLoss = useMemo(() => {

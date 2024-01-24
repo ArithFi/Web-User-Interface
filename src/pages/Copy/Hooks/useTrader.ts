@@ -128,7 +128,7 @@ function useTrader(address: string | undefined) {
           kolProfitLoss: value["kolProfitLoss"],
           kolProfitLossRate: value["kolProfitLossRate"],
           roiList: value["roiList"],
-          follow: value["follow"],
+          follow: value["follow"] === 1,
         };
         const subOrders = value["ordersNumber"] - value["winCount"]
         const winRate = subOrders !== 0 ? subOrders / value["ordersNumber"] * 100 : 100
