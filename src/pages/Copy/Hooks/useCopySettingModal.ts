@@ -14,7 +14,6 @@ function useCopySettingModal(
   const [copyAccountBalance, setCopyAccountBalance] = useState<string>("");
   const [followingValue, setFollowingValue] = useState<string>("");
   const [oldFollowingValue, setOldFollowingValue] = useState<string>("");
-  const [oldTotalValue, setOldTotalValue] = useState<number>();
   const [selectButton, setSelectButton] = useState<number>();
   const [agree, setAgree] = useState<boolean>(true);
   const [current, setCurrent] = useState<number>();
@@ -24,16 +23,13 @@ function useCopySettingModal(
     if (account.address && signature && address && followingValue !== "") {
       const copyAccountBalanceNumber =
         copyAccountBalance === "" ? 0 : parseFloat(copyAccountBalance);
-      const oldTotalValueNumber = oldTotalValue ?? 0;
       const req = await copyFollow(
         {
           Authorization: signature.signature,
         },
         {
           walletAddress: account.address,
-          copyAccountBalance: (
-            copyAccountBalanceNumber + oldTotalValueNumber
-          ).floor(2),
+          copyAccountBalance: copyAccountBalanceNumber.floor(2),
           copyKolAddress: address,
           follow: "true",
           followingMethod: "FIXED",
@@ -51,7 +47,6 @@ function useCopySettingModal(
     address,
     copyAccountBalance,
     followingValue,
-    oldTotalValue,
     onClose,
     signature,
   ]);
@@ -72,12 +67,8 @@ function useCopySettingModal(
       if (Number(req["err"]) === 0) {
         const value = req["data"];
         const currentValue = value["copyAccountBalance"];
-        const oldTotal = value["copyAccountBalanceTotal"];
         if (currentValue) {
           setCurrent(currentValue);
-        }
-        if (oldTotal) {
-          setOldTotalValue(oldTotal);
         }
         const follow: number = value["followingValue"];
         if (oldFollowingValue === "" && follow > 0) {
@@ -105,12 +96,11 @@ function useCopySettingModal(
   const checkLimit = useMemo(() => {
     const copyAccountBalanceNumber =
       copyAccountBalance === "" ? 0 : parseFloat(copyAccountBalance);
-    const oldTotalValueNumber = oldTotalValue ?? 0;
-    if (oldTotalValueNumber + copyAccountBalanceNumber >= 200) {
+    if (copyAccountBalanceNumber >= 200) {
       return true;
     }
     return false;
-  }, [copyAccountBalance, oldTotalValue]);
+  }, [copyAccountBalance]);
 
   const checkLimit2 = useMemo(() => {
     const followingValueNumber =

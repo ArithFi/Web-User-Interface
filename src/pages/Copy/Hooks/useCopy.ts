@@ -127,7 +127,7 @@ function useCopy() {
           copyOrders: value["copy_order_count"],
           unRealizedPnl: value["unrealized_pnl"],
           // TODO
-          profit: value["unrealized_pnl"],
+          profit: value["pnl_total"] - value["unrealized_pnl"],
       };
       setMyTradeInfo(info);
     }

@@ -336,7 +336,7 @@ export function serviceFutureHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null&start=${0}&count=${999}`,
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -463,7 +463,7 @@ export function copyMyCopiesHistoryList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true&start=${0}&count=${999}`,
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -499,7 +499,7 @@ export function copyTraderHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3&start=${0}&count=${999}`,
+    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
