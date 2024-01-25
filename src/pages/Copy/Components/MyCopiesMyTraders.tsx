@@ -369,7 +369,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
         <GreyButton
           title={t`Settings`}
           onClick={() => {
-            props.copyCallBack(nickName, kolAddress);
+            props.copyCallBack(nickName, props.data.kolAddress);
           }}
           style={{
             fontSize: "10px",
@@ -515,7 +515,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {copyTradingAssets}ATF
+          {props.data.follow ? `${copyTradingAssets}ATF` : "-"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -528,7 +528,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {copyAccountBalance}ATF
+          {props.data.follow ? `${copyAccountBalance}ATF` : "-"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -541,7 +541,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {profit}ATF
+          {props.data.follow ? `${profit}ATF` : "-"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -557,7 +557,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {unrealizedPnL}ATF
+          {props.data.follow ? `${unrealizedPnL}ATF` : "-"}
         </Box>
       </TableCell>
       <TableCell>
@@ -570,7 +570,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
           <GreyButton
             title={t`Settings`}
             onClick={() => {
-              props.copyCallBack(nickName, kolAddress);
+              props.copyCallBack(nickName, props.data.kolAddress);
             }}
             style={{
               fontSize: "10px",
