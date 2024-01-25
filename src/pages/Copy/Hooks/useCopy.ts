@@ -35,7 +35,7 @@ export interface MyTradeInfoModel {
 }
 
 function useCopy() {
-  const { chainsData, account, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -47,16 +47,15 @@ function useCopy() {
 
   const pageAmount = isBigMobile ? 5 : 12;
 
-  const chainId = chainsData.chainId ?? DEFAULT_CHAIN_ID;
   const nowTime = new Date();
   const days7Time = new Date(nowTime.getTime() - 7 * 24 * 60 * 60 * 1000);
   const closeAtFromDate = formatTVDate(days7Time);
   const closeAtToDate = formatTVDate(nowTime);
 
   const { data: kolListData, isLoading: isKOLListLoading } = useSWR(
-    `${serviceBaseURL(chainId)}/arithfi/copy/kol/listFull?walletAddress=${
-      String().zeroAddress
-    }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`follow DESC`}&start=${
+    `${serviceBaseURL()}/arithfi/copy/kol/listFull?walletAddress=${
+      account.address ?? String().zeroAddress
+    }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`currentFollowers DESC`}&start=${
       (page - 1) * pageAmount
     }&count=${pageAmount}`,
     (url: string) => fetch(url).then((res) => res.json()),
@@ -66,9 +65,7 @@ function useCopy() {
   );
   const { data: myTradeData } = useSWR(
     signature?.signature
-      ? `${serviceBaseURL(
-          chainId
-        )}/arithfi/user/account/copyTrading?walletAddress=${
+      ? `${serviceBaseURL()}/arithfi/user/account/copyTrading?walletAddress=${
           account.address ?? ""
         }`
       : undefined,

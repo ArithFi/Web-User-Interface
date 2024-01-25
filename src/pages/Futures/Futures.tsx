@@ -414,7 +414,7 @@ const Futures: FC = () => {
               leverage: item["leverage"].toString(),
               openPrice: item["openPrice"],
               orderType: orderType(),
-              orientation: item["direction"],
+              orientation: item["direction"] ? "Long" : "Short",
               owner: item["walletAddress"],
               sl: item["stopLossPrice"],
               sp: item["takeProfitPrice"],
