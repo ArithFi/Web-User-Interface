@@ -394,8 +394,12 @@ const Futures: FC = () => {
                 return "Closed";
               } else if (status === -1) {
                 return "Liquidated";
+              } else if (status === -2) {
+                return "SL Executed";
+              } else if (status === -3) {
+                return "TP Executed";
               } else {
-                return "";
+                return ""
               }
             };
             const timestamp = new Date(item["closeAt"]).getTime();
