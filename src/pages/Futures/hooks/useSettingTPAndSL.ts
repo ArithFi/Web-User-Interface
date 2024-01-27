@@ -161,6 +161,7 @@ function useSettingTPAndSL(
     if (tp === "") {
       return false;
     }
+    console.log(Number(tp), limitPrice)
     if (isLong) {
       return Number(tp) < limitPrice;
     } else {

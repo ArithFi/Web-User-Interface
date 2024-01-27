@@ -103,7 +103,7 @@ const Futures: FC = () => {
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
-    console.log(listPriceBase)
+    console.log(listPriceBase);
     const percent = () => {
       const ETHPricePercent = listPriceBase
         ? listPriceBase["data"]["ETH/USDT"]["priceChangePercent"]?.toString()
@@ -301,7 +301,7 @@ const Futures: FC = () => {
         "USD/JPY": USDJPYPrice,
         "USD/CAD": USDCADPrice,
       };
-      
+
       return [newPrice, newPricePercent];
     } else {
       return undefined;
@@ -382,35 +382,34 @@ const Futures: FC = () => {
       if (!account.address || !signature) {
         return;
       }
-      const baseList = await serviceFutureHistory(
-        account.address,
-        { Authorization: signature.signature }
-      );
+      const baseList = await serviceFutureHistory(account.address, {
+        Authorization: signature.signature,
+      });
       if (Number(baseList["err"]) === 0) {
         const list: Array<FuturesHistoryService> = baseList["data"].map(
           (item: { [x: string]: any }) => {
-            const status = item["status"]
+            const status = item["status"];
             const orderType = () => {
               if (status === 0) {
-                return "Closed"
+                return "Closed";
               } else if (status === -1) {
-                return "Liquidated"
+                return "Liquidated";
               } else {
-                return ""
+                return "";
               }
-            }
+            };
             const timestamp = new Date(item["closeAt"]).getTime();
             const actualRate = () => {
-              const baseValue = item["margin"] + item["append"]
-              const closeValue = item["closeValue"]
-              return (closeValue - baseValue) / baseValue * 100
-            }
+              const baseValue = item["margin"] + item["append"];
+              const closeValue = item["closeValue"];
+              return ((closeValue - baseValue) / baseValue) * 100;
+            };
             return {
               actualMargin: item["closeValue"],
               actualRate: actualRate(),
               index: item["id"],
               initialMargin: item["margin"] + item["append"],
-              lastPrice: item["lastPrice"],
+              lastPrice: item["closePrice"],
               leverage: item["leverage"].toString(),
               openPrice: item["openPrice"],
               orderType: orderType(),
@@ -468,7 +467,9 @@ const Futures: FC = () => {
   useEffect(() => {
     const getOrderPrice = async () => {
       const newPrice = await getPrice();
-      setOrderPrice(newPrice ? (newPrice[0] as FuturesPrice) : undefined);
+      if (newPrice) {
+        setOrderPrice(newPrice[0] as FuturesPrice);
+      }
     };
     getOrderPrice();
     getForexOpen();

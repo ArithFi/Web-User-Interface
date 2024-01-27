@@ -347,7 +347,7 @@ function useTrader(address: string | undefined) {
             const timestamp = new Date(item["openAt"]).getTime();
             const closeTime = new Date(item["closeAt"]).getTime();
             const balance_num = item["margin"] + item["append"];
-            const marginAssets_num = item["orderValue"];
+            const marginAssets_num = item["closeValue"];
             return {
               id: item["id"],
               timestamp: timestamp / 1000,
