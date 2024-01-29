@@ -3,18 +3,20 @@ import { useMemo } from "react";
 import { useContractRead } from "wagmi";
 import UNISwapABI from "../ABI/UNISwapV2.json";
 import { SwapContract } from "../contractAddress";
+import useArithFi from "../../hooks/useArithFi";
 
 function useReadSwapAmountOut(
   amountIn: BigNumber | undefined,
   path?: Array<string>
 ) {
+  const { chainsData } = useArithFi()
   const address = useMemo(() => {
     if (
       path &&
       amountIn &&
       !BigNumber.from("0").eq(amountIn)
     ) {
-      return SwapContract[56] as `0x${string}`;
+      return SwapContract[chainsData.chainId!] as `0x${string}`;
     }
   }, [amountIn, path]);
   const {
