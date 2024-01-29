@@ -121,7 +121,7 @@ function useMyCopies() {
               leverage: item["leverage"],
               orderPrice: item["openPrice"],
               direction: item["direction"],
-              balance: item["orderValue"] ?? 0,
+              balance: item["closeValue"] ?? 0,
               lastPrice: item["lastPrice"],
               kolAddress: item["kolAddress"],
               limitPrice: 0,

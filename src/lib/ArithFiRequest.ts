@@ -297,7 +297,7 @@ export function servicePList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=null`,
+    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=null&start=${0}&count=${999}`,
     info
   );
 }
@@ -310,7 +310,7 @@ export function serviceList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=4&copy=null`,
+    )}/arithfi/future/list?walletAddress=${address}&status=4&copy=null&start=${0}&count=${999}`,
     info
   );
 }
@@ -336,7 +336,7 @@ export function serviceFutureHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null`,
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -451,7 +451,7 @@ export function copyMyCopiesList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=true`,
+    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=true&start=${0}&count=${999}`,
     info
   );
 }
@@ -463,7 +463,7 @@ export function copyMyCopiesHistoryList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true`,
+    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -487,7 +487,7 @@ export function copyTraderCurrent(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=2`,
+    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=2&start=${0}&count=${999}`,
     info
   );
 }
@@ -499,7 +499,7 @@ export function copyTraderHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3`,
+    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
