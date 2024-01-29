@@ -156,7 +156,7 @@ const Assets = () => {
       applyTime: new Date(item["completeAt"]).getTime() / 1000,
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: "WITHDRAW",
+      ordertype: "DEPOSIT",
       info: "",
     }));
     filterList = withdrawList?.concat(depositList);
