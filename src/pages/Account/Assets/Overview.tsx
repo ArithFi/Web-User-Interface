@@ -6,15 +6,15 @@ import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useSearchParams} from "react-router-dom";
 import {useEffect, useMemo, useState} from "react";
 import useArithFi from "../../../hooks/useArithFi";
-import useAccount from "../../../hooks/useAccount";
 import ArithFiTabs from "../../../components/ArithFiTabs/ArithFiTabs";
 import MobileList, {AccountListType} from "./Components/MobileList";
 import {NoOrderMobile} from "../../Futures/OrderList";
 import MoneyTable from "./Components/MoneyTable";
 import MobileMenu from "../Share/MobileMenu";
+import useSWR from "swr";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
 export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', "SETTLE", 'WALLET_DEPOSIT'];
-export const WITHDRAW_TYPES = ['WITHDRAW', 'AVAILABLE_TO_COPY'];
 
 export const parseOrderType = (type: string | undefined, info: string | undefined) => {
   switch (type) {
@@ -47,7 +47,28 @@ const Overview = () => {
     searchParams.get("type") === "withdraw" ? 1 : 0
   );
   const {checkSigned} = useArithFi();
-  const {moneyList} = useAccount();
+  const q = searchParams.get('address');
+  const {chainsData, account, signature} = useArithFi()
+
+  const {data: withdrawData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?toAddress=${q || account.address}` : undefined,
+    (url: any) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
+      .then(res => res.json())
+      .then(res => res.data));
+
+  const {data: depositData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listDeposit?txAddress=${q || account.address}` : undefined,
+    (url: any) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
+      .then(res => res.json())
+      .then(res => res.data));
 
   useEffect(() => {
     if (!checkSigned) {
@@ -97,11 +118,63 @@ const Overview = () => {
     }
   }, [tabsValue]);
   const list = useMemo(() => {
-    const filterList = moneyList
-      .filter((item) => tabsValue === 0 ? DEPOSIT_TYPES.includes(item.ordertype!) : WITHDRAW_TYPES.includes(item.ordertype!));
+    let filterList: any[];
+    if (tabsValue === 1) {
+      filterList = withdrawData?.map((item: {
+        id: number,
+        ts: string,
+        chainId: number,
+        hash: string,
+        nonce: number,
+        txAddress: string,
+        fromAddress: string,
+        toAddress: string,
+        value: number,
+        bn: number,
+        status: number,
+        completeAt: string,
+        auditor: null,
+        auditAt: null,
+      }) => ({
+        text: `${item.value.toFixed(2)} ATF`,
+        time: new Date(item["ts"]).getTime() / 1000,
+        status: item["status"],
+        applyTime: new Date(item["completeAt"]).getTime() / 1000,
+        chainId: item.chainId,
+        hash: item.hash,
+        ordertype: "WITHDRAW",
+        info: "",
+      }))
+    } else {
+      filterList = depositData?.map((item: {
+        id: number,
+        ts: string,
+        chainId: number,
+        hash: string,
+        nonce: number,
+        txAddress: string,
+        fromAddress: string,
+        toAddress: string,
+        value: number,
+        bn: number,
+        status: number,
+        completeAt: string,
+        auditor: null,
+        auditAt: null,
+      }) => ({
+        text: `${item.value.toFixed(2)} ATF`,
+        time: new Date(item["ts"]).getTime() / 1000,
+        status: item["status"],
+        applyTime: new Date(item["completeAt"]).getTime() / 1000,
+        chainId: item.chainId,
+        hash: item.hash,
+        ordertype: "DEPOSIT",
+        info: "",
+      }))
+    }
 
     if (isBigMobile) {
-      if (filterList.length === 0) {
+      if (filterList && filterList?.length === 0) {
         return (
           <NoOrderMobile>
             <Trans>No Order</Trans>
@@ -110,7 +183,7 @@ const Overview = () => {
       }
       return (
         <Stack spacing={"16px"}>
-          {filterList.map((item, index) => {
+          {filterList?.map((item, index: number) => {
             return (
               <MobileList
                 key={`AccountMobileList + ${index}`}
@@ -122,9 +195,9 @@ const Overview = () => {
         </Stack>
       );
     } else {
-      return <MoneyTable list={filterList} type={listType}/>;
+      return <MoneyTable list={filterList || []} type={listType}/>;
     }
-  }, [isBigMobile, listType, moneyList, tabsValue]);
+  }, [isBigMobile, listType, tabsValue, depositData, withdrawData]);
 
   return (
     <Stack sx={(theme) => ({

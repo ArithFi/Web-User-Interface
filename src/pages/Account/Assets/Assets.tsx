@@ -47,7 +47,6 @@ const Assets = () => {
     showWithdraw,
     setShowWithdraw,
     getAssetsList,
-    moneyList,
   } = useAccount();
   const {
     uniSwapAmountOut,
@@ -74,7 +73,16 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const { data: withdrawListData } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?walletAddress=${account || q}` : undefined, (url: string) => fetch(url, {
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?toAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listDeposit?txAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -128,6 +136,32 @@ const Assets = () => {
     showDeposit,
     showWithdraw,
   ]);
+
+  const moneyList = useMemo(() => {
+    let filterList: any[];
+    const withdrawList = withdrawData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      applyTime: new Date(item["completeAt"]).getTime() / 1000,
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: "WITHDRAW",
+      info: "",
+    }));
+    const depositList = depositData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      applyTime: new Date(item["completeAt"]).getTime() / 1000,
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: "WITHDRAW",
+      info: "",
+    }));
+    filterList = withdrawList?.concat(depositList);
+    return filterList;
+  }, [withdrawData, depositData])
 
   useEffect(() => {
     if (showNumber) {
