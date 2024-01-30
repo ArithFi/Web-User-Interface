@@ -71,8 +71,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             !!props.show && (
               <YAxis axisLine={false} tickLine={false} hide={props.simple} tick={{fontSize: '10px'}} width={30}
                      tickFormatter={(value, index) => {
-                       // TODO
-                       return numeral(value / 100).format('0%').toUpperCase()
+                       return numeral(value).format('0%').toUpperCase()
                      }}
               />
             )
@@ -96,14 +95,20 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
                   fontWeight: 400,
                   color: '#000',
                 }}
-                formatter={(value: any) => Number(value).toLocaleString('en-US', {
+                formatter={(value: any) => Number(value * 100).toLocaleString('en-US', {
                   maximumFractionDigits: 2,
                 })}
               />
             )
           }
-          <Line type="monotone" dataKey="daily" stroke={nowTheme.normal.primary} dot={false} strokeWidth={2}
-                unit={'%'}/>
+          <Line
+            type="monotone"
+            dataKey="daily"
+            stroke={nowTheme.normal.primary}
+            dot={false}
+            strokeWidth={2}
+            unit={'%'}
+          />
         </ComposedChart>
       </ResponsiveContainer>
     </Stack>

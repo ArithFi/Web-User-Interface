@@ -4,13 +4,16 @@ import {Trans} from "@lingui/macro";
 import useReadSwapAmountOut from "../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
 import {useEffect} from "react";
+import {ATFToken, USDTToken} from "../../contracts/contractAddress";
+import useArithFi from "../../hooks/useArithFi";
 
 const Token = () => {
+  const { chainsData } = useArithFi();
   const {
     uniSwapAmountOut,
     uniSwapAmountOutRefetch,
     uniSwapAmountOutIsLoading,
-  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), ['0x00000000bA2ca30042001aBC545871380F570B1F', '0x55d398326f99059fF775485246999027B3197955']);
+  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), [ATFToken[chainsData.chainId!], USDTToken[chainsData.chainId!]]);
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 

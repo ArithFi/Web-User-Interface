@@ -24,6 +24,7 @@ import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnB
 import {BigNumber} from "ethers";
 import useSWR from "swr";
 import {serviceBaseURL} from "../../../lib/ArithFiRequest";
+import {ATFToken, USDTToken} from "../../../contracts/contractAddress";
 
 const Assets = () => {
   const [showrdr, setShowrdr] = useState(false);
@@ -46,13 +47,11 @@ const Assets = () => {
     showWithdraw,
     setShowWithdraw,
     getAssetsList,
-    moneyList,
   } = useAccount();
   const {
     uniSwapAmountOut,
     uniSwapAmountOutRefetch,
-  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), ['0x00000000bA2ca30042001aBC545871380F570B1F', '0x55d398326f99059fF775485246999027B3197955']);
-
+  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), [ATFToken[chainsData.chainId!], USDTToken[chainsData.chainId!]]);
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
   const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/account/total?walletAddress=${q || account.address}` : undefined,
@@ -65,14 +64,32 @@ const Assets = () => {
       .then(res => res.json())
       .then(res => res.data));
 
-  const total_balance_atf = data ? data?.available_balance + data?.copy_balance + data?.future_order_balance + data?.copy_order_balance + data?.future_limit_balance + data?.copy_limit_balance : 0
+  const total_balance_atf = (data?.available_balance || 0) + (data?.copy_balance || 0) + (data?.future_order_balance || 0) + (data?.copy_order_balance || 0) + (data?.future_limit_balance || 0) + (data?.copy_limit_balance || 0)
   const total_balance_usd = total_balance_atf * price;
 
-  const futures_balance_atf = data ? data?.available_balance + data?.future_order_balance + data?.future_limit_balance : 0;
+  const futures_balance_atf = (data?.available_balance || 0) + (data?.future_order_balance || 0) + (data?.future_limit_balance || 0)
   const futures_balance_usd = futures_balance_atf * price;
 
-  const copy_balance_atf = data ? data?.copy_balance + data?.copy_order_balance + data?.copy_limit_balance : 0;
+  const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
+
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?toAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listDeposit?txAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -119,6 +136,32 @@ const Assets = () => {
     showDeposit,
     showWithdraw,
   ]);
+
+  const moneyList = useMemo(() => {
+    let filterList: any[];
+    const withdrawList = withdrawData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      applyTime: new Date(item["completeAt"]).getTime() / 1000,
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: "WITHDRAW",
+      info: "",
+    }));
+    const depositList = depositData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      applyTime: new Date(item["completeAt"]).getTime() / 1000,
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: "DEPOSIT",
+      info: "",
+    }));
+    filterList = withdrawList?.concat(depositList);
+    return filterList?.sort((a: any, b: any) => b.time - a.time) || [];
+  }, [withdrawData, depositData])
 
   useEffect(() => {
     if (showNumber) {
@@ -801,7 +844,7 @@ const Assets = () => {
                                 fontWeight: '400',
                                 lineHeight: '20px',
                                 color: theme.normal.text0,
-                              })}>{showNumber ? item.text : '******'}</Stack>
+                              })}>{showNumber ? item?.text : '******'}</Stack>
                               <Stack sx={(theme) => ({
                                 fontSize: '10px',
                                 fontWeight: '400',
@@ -815,7 +858,7 @@ const Assets = () => {
                               lineHeight: '14px',
                               color: theme.normal.text2,
                             })}>
-                              {item.status === 0 || item.status === 255 ? new Date((item.applyTime || 0) * 1000).toLocaleString() : new Date(item.time * 1000).toLocaleString()}
+                              {item.status === 0 || item.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item.time * 1000).toLocaleString()}
                             </Stack>
                           </Stack>
                           <Stack px={'4px'} py={'3px'} sx={(theme) => ({

@@ -96,7 +96,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
                   fontWeight: 400,
                   color: '#000',
                 }}
-                formatter={(value: any) => Number(value).toLocaleString('en-US', {
+                formatter={(value: any) => Number(value * 100).toLocaleString('en-US', {
                   maximumFractionDigits: 2,
                 })}
               />

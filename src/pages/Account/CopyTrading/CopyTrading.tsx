@@ -18,6 +18,7 @@ import {BigNumber} from "ethers";
 import useSWR from "swr";
 import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import {serviceBaseURL} from "../../../lib/ArithFiRequest";
+import {ATFToken, USDTToken} from "../../../contracts/contractAddress";
 
 const CopyTrading = () => {
   const [showrdr, setShowrdr] = useState(false);
@@ -37,7 +38,7 @@ const CopyTrading = () => {
   const {
     uniSwapAmountOut,
     uniSwapAmountOutRefetch,
-  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), ['0x00000000bA2ca30042001aBC545871380F570B1F', '0x55d398326f99059fF775485246999027B3197955']);
+  } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), [ATFToken[chainsData.chainId!], USDTToken[chainsData.chainId!]]);
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
