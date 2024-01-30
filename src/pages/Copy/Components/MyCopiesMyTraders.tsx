@@ -261,7 +261,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {props.data.follow ? `${profit}ATF` : "-"}
+              {props.data.follow ? `${profit}ATF` : "0"}
             </Box>
           </Stack>
         </Stack>
@@ -301,7 +301,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                   : theme.normal.danger,
             })}
           >
-            {props.data.follow ? unrealizedPnL : "-"}
+            {props.data.follow ? unrealizedPnL : "0"}
           </Box>
         </Stack>
       </Stack>
@@ -331,7 +331,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {props.data.follow ? `${copyTradingAssets}ATF` : "-"}
+              {props.data.follow ? `${copyTradingAssets}ATF` : "0"}
             </Box>
           </Stack>
         </Stack>
@@ -355,7 +355,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
               color: theme.normal.text0,
             })}
           >
-            {props.data.follow ? copyAccountBalance : "-"}
+            {props.data.follow ? copyAccountBalance : "0"}
           </Box>
         </Stack>
       </Stack>
@@ -515,7 +515,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {props.data.follow ? `${copyTradingAssets}ATF` : "-"}
+          {props.data.follow ? `${copyTradingAssets}ATF` : "0"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -528,7 +528,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {props.data.follow ? `${copyAccountBalance}ATF` : "-"}
+          {props.data.follow ? `${copyAccountBalance}ATF` : "0"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -541,7 +541,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {props.data.follow ? `${profit}ATF` : "-"}
+          {props.data.follow ? `${profit}ATF` : "0"}
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -557,7 +557,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             paddingRight: "20px",
           })}
         >
-          {props.data.follow ? `${unrealizedPnL}ATF` : "-"}
+          {props.data.follow ? `${unrealizedPnL}ATF` : "0"}
         </Box>
       </TableCell>
       <TableCell>
