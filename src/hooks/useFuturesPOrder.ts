@@ -34,7 +34,6 @@ function useFuturesPOrder(
       : data.stopLossPrice.toFixed(data.product.getTokenPriceDecimals());
   }, [data.stopLossPrice, data.product]);
   const showLiqPrice = useMemo(() => {
-    if (price) {
       const balance =
         data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const orderPrice =
@@ -46,7 +45,7 @@ function useFuturesPOrder(
         balance,
         append,
         BigNumber.from(data.leverage.toString()),
-        price[data.product.toLocaleUpperCase()],
+        BigNumber.from("0"),
         orderPrice,
         data.direction
       );
@@ -54,18 +53,7 @@ function useFuturesPOrder(
         18,
         data.product.getTokenPriceDecimals()
       );
-    } else {
-      return String().placeHolder;
-    }
-  }, [
-    price,
-    data.margin,
-    data.orderPrice,
-    data.append,
-    data.leverage,
-    data.product,
-    data.direction,
-  ]);
+  }, [data.margin, data.orderPrice, data.append, data.leverage, data.product, data.direction]);
   const showMarginAssets = useMemo(() => {
     return data.balance.toFixed(2);
   }, [data.balance]);
@@ -99,6 +87,13 @@ function useFuturesPOrder(
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);
+  const nowPrice = useMemo(() => {
+    const nowPrice = price?.[data.product.toLocaleUpperCase()]
+    return nowPrice ? nowPrice.bigNumberToShowPrice(
+      18,
+      data.product.getTokenPriceDecimals()
+    ) : "0"
+  }, [data.product, price])
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.walletAddress.toString(),
@@ -112,31 +107,12 @@ function useFuturesPOrder(
       tokenPair: data.product,
       actualMargin: parseFloat(data.balance.toFixed(2)),
       initialMargin: parseFloat(data.balance.toFixed(2)),
-      lastPrice: parseFloat(
-        price
-          ? price[data.product.toLocaleUpperCase()].bigNumberToShowPrice(
-              18,
-              data.product.getTokenPriceDecimals()
-            )
-          : "0"
-      ),
+      lastPrice: parseFloat(nowPrice),
       sp: parseFloat(tp === String().placeHolder ? "0" : tp),
       sl: parseFloat(sl === String().placeHolder ? "0" : sl),
     };
     return info;
-  }, [
-    data.balance,
-    data.direction,
-    data.id,
-    data.leverage,
-    data.orderPrice,
-    data.product,
-    data.walletAddress,
-    price,
-    showPercentNum,
-    sl,
-    tp,
-  ]);
+  }, [data.balance, data.direction, data.id, data.leverage, data.orderPrice, data.product, data.walletAddress, nowPrice, showPercentNum, sl, tp]);
   return {
     isLong,
     lever,

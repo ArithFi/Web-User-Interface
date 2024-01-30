@@ -75,12 +75,14 @@ function useFuturesClose(
   }, [closePrice, data.product]);
 
   const showFee = useMemo(() => {
-    if (!price) {
+    const token = data.product.toLocaleUpperCase();
+    const nowPriceBase = price?.[token]
+    if (!price || nowPriceBase == null) {
       return String().placeHolder;
     }
-    const token = data.product.toLocaleUpperCase();
+   
     const nowPrice = parseFloat(
-      price[token].bigNumberToShowPrice(18, token.getTokenPriceDecimals())
+      nowPriceBase.bigNumberToShowPrice(18, token.getTokenPriceDecimals())
     );
     const feeNum = isForex(data.leverage) ? 2 : 5;
     const fee =

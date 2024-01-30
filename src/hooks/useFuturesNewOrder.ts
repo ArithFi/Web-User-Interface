@@ -99,8 +99,8 @@ function useFuturesNewOrder(
   const [amountPercent, setAmountPercent] = useState(0);
 
   const openPriceBase = useMemo(() => {
-    if (price) {
-      const nowPrice = price[tokenPair];
+    const nowPrice = price?.[tokenPair]
+    if (price && nowPrice) {
       return nowPrice;
     } else {
       return undefined;
