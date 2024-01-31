@@ -87,11 +87,12 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   const baseAmount =
     props.data.balance === 0 ? props.data.margin : props.data.balance;
   const nowPrice = useMemo(() => {
-    if (props.price) {
+    const nowPriceBase = props.price?.[
+      props.data.product.toLocaleUpperCase()
+    ]
+    if (nowPriceBase != null) {
       return Number(
-        props.price[
-          props.data.product.toLocaleUpperCase()
-        ].bigNumberToShowPrice(18, props.data.product.getTokenPriceDecimals())
+        nowPriceBase.bigNumberToShowPrice(18, props.data.product.getTokenPriceDecimals())
       );
     } else {
       return 0;

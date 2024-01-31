@@ -487,7 +487,7 @@ export function copyTraderCurrent(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=2&start=${0}&count=${999}`,
+    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=2&order=id DESC&start=${0}&count=${999}`,
     info
   );
 }

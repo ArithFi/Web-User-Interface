@@ -14,7 +14,7 @@ function useFuturesAdd(
   price: FuturesPrice | undefined,
   onClose: (res?: boolean) => void
 ) {
-  const { account, chainsData, signature } = useArithFi();
+  const { account, signature } = useArithFi();
   const [arithFiAmount, setArithFiAmount] = useState("");
   const { service_balance } = useService();
   const [tokenBalance, setTokenBalance] = useState<BigNumber>();
@@ -99,7 +99,8 @@ function useFuturesAdd(
   }, [data.orderPrice, data.product]);
 
   const showLiqPrice = useMemo(() => {
-    if (price) {
+    const nowPrice = price?.[data.product.toLocaleUpperCase()]
+    if (price && nowPrice != null) {
       const balance =
         data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
       const orderPrice =
@@ -111,7 +112,7 @@ function useFuturesAdd(
           ? BigNumber.from("0")
           : arithFiAmount.stringToBigNumber(4)!,
         BigNumber.from(data.leverage.toString()),
-        price[data.product.toLocaleUpperCase()],
+        nowPrice,
         orderPrice,
         data.direction
       );

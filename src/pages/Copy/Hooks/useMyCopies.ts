@@ -130,7 +130,7 @@ function useMyCopies() {
               fees: 0,
               stopLossPrice: 0,
               takeProfitPrice: 0,
-              status: 0,
+              status: item["status"],
               copy: true,
               closeTime: timestampClose / 1000,
               closePrice: item["closePrice"],

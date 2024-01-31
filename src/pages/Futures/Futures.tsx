@@ -20,10 +20,10 @@ import { useSearchParams } from "react-router-dom";
 import { getCurrentPriceOfToken } from "../../domain/prices";
 
 export interface FuturesPrice {
-  [key: string]: BigNumber;
+  [key: string]: BigNumber | undefined | null;
 }
 export interface FuturesPricePercent {
-  [key: string]: number;
+  [key: string]: number | undefined | null;
 }
 const UPDATE_PRICE = 15;
 export const isForex = (lever: number) => {
@@ -103,209 +103,230 @@ const Futures: FC = () => {
 
   const getPrice = useCallback(async () => {
     const listPriceBase: { [key: string]: any } = await getPriceListV2();
-    console.log(listPriceBase);
-    const percent = () => {
-      const ETHPricePercent = listPriceBase
-        ? listPriceBase["data"]["ETH/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const BTCPricePercent = listPriceBase
-        ? listPriceBase["data"]["BTC/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const BNBPricePercent = listPriceBase
-        ? listPriceBase["data"]["BNB/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const MATICPricePercent = listPriceBase
-        ? listPriceBase["data"]["MATIC/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const ADAPricePercent = listPriceBase
-        ? listPriceBase["data"]["ADA/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const DOGEPricePercent = listPriceBase
-        ? listPriceBase["data"]["DOGE/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const XRPPricePercent = listPriceBase
-        ? listPriceBase["data"]["XRP/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const SOLPricePercent = listPriceBase
-        ? listPriceBase["data"]["SOL/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const LTCPricePercent = listPriceBase
-        ? listPriceBase["data"]["LTC/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const AVAXPricePercent = listPriceBase
-        ? listPriceBase["data"]["AVAX/USDT"]["priceChangePercent"]?.toString()
-        : undefined;
-      const EURUSDPricePercent = listPriceBase
-        ? listPriceBase["data"]["EUR/USD"]["priceChangePercent"]?.toString()
-        : undefined;
-      const GBPUSDPricePercent = listPriceBase
-        ? listPriceBase["data"]["GBP/USD"]["priceChangePercent"]?.toString()
-        : undefined;
-      const AUDUSDPricePercent = listPriceBase
-        ? listPriceBase["data"]["AUD/USD"]["priceChangePercent"]?.toString()
-        : undefined;
-      const USDJPYPricePercent = listPriceBase
-        ? listPriceBase["data"]["USD/JPY"]["priceChangePercent"]?.toString()
-        : undefined;
-      const USDCADPricePercent = listPriceBase
-        ? listPriceBase["data"]["USD/CAD"]["priceChangePercent"]?.toString()
-        : undefined;
-      if (
-        ETHPricePercent &&
-        BTCPricePercent &&
-        BNBPricePercent &&
-        MATICPricePercent &&
-        ADAPricePercent &&
-        DOGEPricePercent &&
-        XRPPricePercent &&
-        SOLPricePercent &&
-        LTCPricePercent &&
-        AVAXPricePercent &&
-        EURUSDPricePercent &&
-        GBPUSDPricePercent &&
-        AUDUSDPricePercent &&
-        USDJPYPricePercent &&
-        USDCADPricePercent
-      ) {
-        const newPrice: FuturesPricePercent = {
-          "ETH/USDT": Number(ETHPricePercent),
-          "BTC/USDT": Number(BTCPricePercent),
-          "BNB/USDT": Number(BNBPricePercent),
-          "MATIC/USDT": Number(MATICPricePercent),
-          "ADA/USDT": Number(ADAPricePercent),
-          "DOGE/USDT": Number(DOGEPricePercent),
-          "XRP/USDT": Number(XRPPricePercent),
-          "SOL/USDT": Number(SOLPricePercent),
-          "LTC/USDT": Number(LTCPricePercent),
-          "AVAX/USDT": Number(AVAXPricePercent),
-          "EUR/USD": Number(EURUSDPricePercent),
-          "GBP/USD": Number(GBPUSDPricePercent),
-          "AUD/USD": Number(AUDUSDPricePercent),
-          "USD/JPY": Number(USDJPYPricePercent),
-          "USD/CAD": Number(USDCADPricePercent),
-        };
-        return newPrice;
-      } else {
-        return undefined;
-      }
-    };
+    // const percent = () => {
+    //   const ETHPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["ETH/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const BTCPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["BTC/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const BNBPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["BNB/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const MATICPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["MATIC/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const ADAPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["ADA/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const DOGEPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["DOGE/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const XRPPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["XRP/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const SOLPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["SOL/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const LTCPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["LTC/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const AVAXPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["AVAX/USDT"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const EURUSDPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["EUR/USD"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const GBPUSDPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["GBP/USD"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const AUDUSDPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["AUD/USD"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const USDJPYPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["USD/JPY"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   const USDCADPricePercent = listPriceBase
+    //     ? listPriceBase["data"]["USD/CAD"]["priceChangePercent"]?.toString()
+    //     : undefined;
+    //   if (
+    //     ETHPricePercent &&
+    //     BTCPricePercent &&
+    //     BNBPricePercent &&
+    //     MATICPricePercent &&
+    //     ADAPricePercent &&
+    //     DOGEPricePercent &&
+    //     XRPPricePercent &&
+    //     SOLPricePercent &&
+    //     LTCPricePercent &&
+    //     AVAXPricePercent &&
+    //     EURUSDPricePercent &&
+    //     GBPUSDPricePercent &&
+    //     AUDUSDPricePercent &&
+    //     USDJPYPricePercent &&
+    //     USDCADPricePercent
+    //   ) {
+    //     const newPrice: FuturesPricePercent = {
+    //       "ETH/USDT": Number(ETHPricePercent),
+    //       "BTC/USDT": Number(BTCPricePercent),
+    //       "BNB/USDT": Number(BNBPricePercent),
+    //       "MATIC/USDT": Number(MATICPricePercent),
+    //       "ADA/USDT": Number(ADAPricePercent),
+    //       "DOGE/USDT": Number(DOGEPricePercent),
+    //       "XRP/USDT": Number(XRPPricePercent),
+    //       "SOL/USDT": Number(SOLPricePercent),
+    //       "LTC/USDT": Number(LTCPricePercent),
+    //       "AVAX/USDT": Number(AVAXPricePercent),
+    //       "EUR/USD": Number(EURUSDPricePercent),
+    //       "GBP/USD": Number(GBPUSDPricePercent),
+    //       "AUD/USD": Number(AUDUSDPricePercent),
+    //       "USD/JPY": Number(USDJPYPricePercent),
+    //       "USD/CAD": Number(USDCADPricePercent),
+    //     };
+    //     return newPrice;
+    //   } else {
+    //     return undefined;
+    //   }
+    // };
 
-    const ETHPrice = listPriceBase
-      ? listPriceBase["data"]["ETH/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const BTCPrice = listPriceBase
-      ? listPriceBase["data"]["BTC/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const BNBPrice = listPriceBase
-      ? listPriceBase["data"]["BNB/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const MATICPrice = listPriceBase
-      ? listPriceBase["data"]["MATIC/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const ADAPrice = listPriceBase
-      ? listPriceBase["data"]["ADA/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const DOGEPrice = listPriceBase
-      ? listPriceBase["data"]["DOGE/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const XRPPrice = listPriceBase
-      ? listPriceBase["data"]["XRP/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const SOLPrice = listPriceBase
-      ? listPriceBase["data"]["SOL/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const LTCPrice = listPriceBase
-      ? listPriceBase["data"]["LTC/USDT"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const AVAXPrice = listPriceBase
-      ? listPriceBase["data"]["AVAX/USDT"]["price"]
-          .toString()
-          .stringToBigNumber(18)
-      : undefined;
-    const EURUSDPrice = listPriceBase
-      ? listPriceBase["data"]["EUR/USD"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const GBPUSDPrice = listPriceBase
-      ? listPriceBase["data"]["GBP/USD"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const AUDUSDPrice = listPriceBase
-      ? listPriceBase["data"]["AUD/USD"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const USDJPYPrice = listPriceBase
-      ? listPriceBase["data"]["USD/JPY"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
-    const USDCADPrice = listPriceBase
-      ? listPriceBase["data"]["USD/CAD"]["price"]
-          ?.toString()
-          ?.stringToBigNumber(18)
-      : undefined;
+    var newPrice = Object.keys(listPriceBase["data"]).reduce(
+      (result: any, key) => {
+        const price: BigNumber | undefined = listPriceBase
+          ? listPriceBase["data"][key]["price"]
+              ?.toString()
+              ?.stringToBigNumber(18)
+          : undefined;
+        result[key] = price;
+        return result;
+      },{}
+    );
+    var newPercent = Object.keys(listPriceBase["data"]).reduce(
+      (result: any, key) => {
+        const percent: number | undefined = listPriceBase
+          ? listPriceBase["data"][key]["priceChangePercent"]?.toString()
+          : undefined;
+        result[key] = Number(percent);
+        return result;
+      },{}
+    );
 
-    const newPricePercent = percent();
-    if (
-      ETHPrice &&
-      BTCPrice &&
-      BNBPrice &&
-      MATICPrice &&
-      ADAPrice &&
-      DOGEPrice &&
-      XRPPrice &&
-      SOLPrice &&
-      LTCPrice &&
-      AVAXPrice &&
-      EURUSDPrice &&
-      GBPUSDPrice &&
-      AUDUSDPrice &&
-      USDJPYPrice &&
-      USDCADPrice
-    ) {
-      const newPrice: FuturesPrice = {
-        "ETH/USDT": ETHPrice,
-        "BTC/USDT": BTCPrice,
-        "BNB/USDT": BNBPrice,
-        "MATIC/USDT": MATICPrice,
-        "ADA/USDT": ADAPrice,
-        "DOGE/USDT": DOGEPrice,
-        "XRP/USDT": XRPPrice,
-        "SOL/USDT": SOLPrice,
-        "LTC/USDT": LTCPrice,
-        "AVAX/USDT": AVAXPrice,
-        "EUR/USD": EURUSDPrice,
-        "GBP/USD": GBPUSDPrice,
-        "AUD/USD": AUDUSDPrice,
-        "USD/JPY": USDJPYPrice,
-        "USD/CAD": USDCADPrice,
-      };
+    return [newPrice, newPercent];
+    // const ETHPrice = listPriceBase
+    //   ? listPriceBase["data"]["ETH/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const BTCPrice = listPriceBase
+    //   ? listPriceBase["data"]["BTC/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const BNBPrice = listPriceBase
+    //   ? listPriceBase["data"]["BNB/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const MATICPrice = listPriceBase
+    //   ? listPriceBase["data"]["MATIC/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const ADAPrice = listPriceBase
+    //   ? listPriceBase["data"]["ADA/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const DOGEPrice = listPriceBase
+    //   ? listPriceBase["data"]["DOGE/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const XRPPrice = listPriceBase
+    //   ? listPriceBase["data"]["XRP/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const SOLPrice = listPriceBase
+    //   ? listPriceBase["data"]["SOL/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const LTCPrice = listPriceBase
+    //   ? listPriceBase["data"]["LTC/USDT"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const AVAXPrice = listPriceBase
+    //   ? listPriceBase["data"]["AVAX/USDT"]["price"]
+    //       .toString()
+    //       .stringToBigNumber(18)
+    //   : undefined;
+    // const EURUSDPrice = listPriceBase
+    //   ? listPriceBase["data"]["EUR/USD"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const GBPUSDPrice = listPriceBase
+    //   ? listPriceBase["data"]["GBP/USD"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const AUDUSDPrice = listPriceBase
+    //   ? listPriceBase["data"]["AUD/USD"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const USDJPYPrice = listPriceBase
+    //   ? listPriceBase["data"]["USD/JPY"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
+    // const USDCADPrice = listPriceBase
+    //   ? listPriceBase["data"]["USD/CAD"]["price"]
+    //       ?.toString()
+    //       ?.stringToBigNumber(18)
+    //   : undefined;
 
-      return [newPrice, newPricePercent];
-    } else {
-      return undefined;
-    }
+    // const newPricePercent = percent();
+    // if (
+    //   ETHPrice &&
+    //   BTCPrice &&
+    //   BNBPrice &&
+    //   MATICPrice &&
+    //   ADAPrice &&
+    //   DOGEPrice &&
+    //   XRPPrice &&
+    //   SOLPrice &&
+    //   LTCPrice &&
+    //   AVAXPrice &&
+    //   EURUSDPrice &&
+    //   GBPUSDPrice &&
+    //   AUDUSDPrice &&
+    //   USDJPYPrice &&
+    //   USDCADPrice
+    // ) {
+    //   const newPrice: FuturesPrice = {
+    //     "ETH/USDT": ETHPrice,
+    //     "BTC/USDT": BTCPrice,
+    //     "BNB/USDT": BNBPrice,
+    //     "MATIC/USDT": MATICPrice,
+    //     "ADA/USDT": ADAPrice,
+    //     "DOGE/USDT": DOGEPrice,
+    //     "XRP/USDT": XRPPrice,
+    //     "SOL/USDT": SOLPrice,
+    //     "LTC/USDT": LTCPrice,
+    //     "AVAX/USDT": AVAXPrice,
+    //     "EUR/USD": EURUSDPrice,
+    //     "GBP/USD": GBPUSDPrice,
+    //     "AUD/USD": AUDUSDPrice,
+    //     "USD/JPY": USDJPYPrice,
+    //     "USD/CAD": USDCADPrice,
+    //   };
+
+    //   return [newPrice, newPricePercent];
+    // } else {
+    //   return undefined;
+    // }
   }, []);
 
   const getList = useCallback(async () => {
@@ -399,7 +420,7 @@ const Futures: FC = () => {
               } else if (status === -3) {
                 return "TP Executed";
               } else {
-                return ""
+                return "";
               }
             };
             const timestamp = new Date(item["closeAt"]).getTime();
@@ -423,6 +444,7 @@ const Futures: FC = () => {
               sp: item["takeProfitPrice"],
               time: timestamp / 1000,
               tokenPair: item["product"],
+              status: item["status"],
             };
           }
         );

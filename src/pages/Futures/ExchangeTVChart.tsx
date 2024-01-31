@@ -198,9 +198,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   // }, [props]);
 
   const average = useMemo(() => {
-    if (props.tokenPair && props.basePrice) {
+    const nowPrice = props.basePrice?.[props.tokenPair]
+    if (props.tokenPair && nowPrice != null) {
       return formatAmount(
-        props.basePrice?.[props.tokenPair],
+        nowPrice,
         18,
         props.tokenPair.getTokenPriceDecimals()
       );
@@ -375,8 +376,9 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     } else {
       const topPairItem = (tokenPair: string) => {
         const TokenIcon = tokenPair.getToken()!.icon;
-        const percent = props.basePricePercent
-          ? Number(props.basePricePercent[tokenPair].floor(4))
+        const percentBase = props.basePricePercent?.[tokenPair]
+        const percent = percentBase != null
+          ? Number(percentBase.floor(4))
           : undefined;
         return (
           <Stack

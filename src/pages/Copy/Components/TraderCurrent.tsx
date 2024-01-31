@@ -37,7 +37,7 @@ const TraderCurrent: FC<TraderCurrentProps> = ({ ...props }) => {
       const marketPrice = item.marketPrice?.floor(
         item.product.getTokenPriceDecimals()
       );
-      const roi = item.profitLossRate?.floor(2) + "%";
+      const roi = item.status === -1 ? "-100" : item.profitLossRate?.floor(2) + "%";
 
       const openTime = new Date(item.timestamp * 1000);
       const closeTime = item.closeTime
@@ -248,7 +248,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const marketPrice = props.data.marketPrice?.floor(
     props.data.product.getTokenPriceDecimals()
   );
-  const roi = props.data.profitLossRate?.floor(2) + "%";
+  const roi = props.data.status === -1 ? "-100" : props.data.profitLossRate?.floor(2) + "%";
 
   const openTime = new Date(props.data.timestamp * 1000);
   const closeTime = props.data.closeTime
