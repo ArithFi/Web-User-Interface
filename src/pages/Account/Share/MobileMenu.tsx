@@ -4,33 +4,44 @@ import {useEffect, useRef, useState} from "react";
 import {t} from "@lingui/macro";
 import useSWR from "swr";
 import {useAccount} from "wagmi";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
+import useArithFi from "../../../hooks/useArithFi";
 
 const Menu = () => {
   const location = useLocation();
   let [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get('address');
   const {address} = useAccount()
+  const { chainsData, signature } = useArithFi()
   const {data: isKol} = useSWR(
     (q || address)
-      // TODO
-      ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/invite/is-kol-whitelist?walletAddress=${
         q || address
       }`
       : undefined,
     (url: any) =>
-      fetch(url)
+      fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": signature?.signature || ""
+        }
+      })
         .then((res) => res.json())
-        .then((res: any) => res.value)
+        .then((res: any) => res.data)
   );
 
   const {data: isCopyKol} = useSWR(
     (q || address)
-      // TODO
-      ? `https://db.arithfi.com/arithfi/copy/kol/isKol?walletAddress=${q || address}` : undefined,
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/copy/kol/info?kolAddress=${q || address}` : undefined,
     (url: any) =>
-      fetch(url)
+      fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": signature?.signature || ""
+        }
+      })
         .then((res) => res.json())
-        .then(res => res.value)
+        .then(res => res.data)
   )
 
   const menu = [

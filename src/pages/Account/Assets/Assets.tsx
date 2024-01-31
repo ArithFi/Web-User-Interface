@@ -858,20 +858,20 @@ const Assets = () => {
                               lineHeight: '14px',
                               color: theme.normal.text2,
                             })}>
-                              {item.status === 0 || item.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item.time * 1000).toLocaleString()}
+                              {item?.status === 0 || item?.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item.time * 1000).toLocaleString()}
                             </Stack>
                           </Stack>
                           <Stack px={'4px'} py={'3px'} sx={(theme) => ({
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${item.status === 1 ? theme.normal.success_light_hover : (item.status === -1 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status === -1 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: item.status === 1 ? theme.normal.success : (item.status === -1 ? theme.normal.danger : theme.normal.primary),
+                            color: item?.status === 1 ? theme.normal.success : (item?.status === -1 ? theme.normal.danger : theme.normal.primary),
                           })}>
-                            {item.status === -1 && 'Fail'}
-                            {(item.status === 0 || item.status === 255) && 'Pending'}
-                            {item.status === 1 && 'Success'}
+                            {item?.status === -1 && 'Fail'}
+                            {(item?.status === 0 || item?.status === 255) && 'Pending'}
+                            {item?.status === 1 && 'Success'}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}
