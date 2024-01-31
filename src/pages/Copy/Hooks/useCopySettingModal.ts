@@ -17,6 +17,7 @@ function useCopySettingModal(
   const [selectButton, setSelectButton] = useState<number>();
   const [agree, setAgree] = useState<boolean>(true);
   const [current, setCurrent] = useState<number>();
+  const [isFollow, setIsFollow] = useState(false)
 
   const [isLoading, setIsLoading] = useState(false);
   const follow = useCallback(async () => {
@@ -67,6 +68,7 @@ function useCopySettingModal(
       if (Number(req["err"]) === 0) {
         const value = req["data"];
         const currentValue = value["copyAccountBalance"];
+        setIsFollow(value["follow"])
         if (currentValue) {
           setCurrent(currentValue);
         }
@@ -96,11 +98,11 @@ function useCopySettingModal(
   const checkLimit = useMemo(() => {
     const copyAccountBalanceNumber =
       copyAccountBalance === "" ? 0 : parseFloat(copyAccountBalance);
-    if (copyAccountBalanceNumber >= 200) {
+    if (copyAccountBalanceNumber >= 200 || isFollow) {
       return true;
     }
     return false;
-  }, [copyAccountBalance]);
+  }, [copyAccountBalance, isFollow]);
 
   const checkLimit2 = useMemo(() => {
     const followingValueNumber =

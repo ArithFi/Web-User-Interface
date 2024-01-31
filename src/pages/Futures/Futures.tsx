@@ -444,6 +444,7 @@ const Futures: FC = () => {
               sp: item["takeProfitPrice"],
               time: timestamp / 1000,
               tokenPair: item["product"],
+              status: item["status"],
             };
           }
         );

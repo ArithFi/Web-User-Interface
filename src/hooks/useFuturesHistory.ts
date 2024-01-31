@@ -17,6 +17,7 @@ export interface FuturesHistoryService {
   sp: number;
   time: number;
   tokenPair: string;
+  status: number;
 }
 
 function useFuturesHistory(data: FuturesHistoryService) {
@@ -46,10 +47,13 @@ function useFuturesHistory(data: FuturesHistoryService) {
     }
   }, [data.openPrice, data.tokenPair]);
   const showMarginAssets = useMemo(() => {
+    if (data.status === -1) {
+      return String().placeHolder;
+    }
     return data.actualMargin
       ? data.actualMargin.floor(2)
       : String().placeHolder;
-  }, [data.actualMargin]);
+  }, [data.actualMargin, data.status]);
   const time = useMemo(() => {
     if (data.time) {
       const timestamp = new Date(data.time * 1000);
@@ -63,8 +67,11 @@ function useFuturesHistory(data: FuturesHistoryService) {
   }, [data.lastPrice]);
 
   const showPercentNum = useMemo(() => {
+    if (data.status === -1) {
+      return -100
+    }
     return data.actualRate ? data.actualRate : 0;
-  }, [data.actualRate]);
+  }, [data.actualRate, data.status]);
   const showPercent = useMemo(() => {
     if (showPercentNum > 0) {
       return `+${showPercentNum.floor(2)}`;

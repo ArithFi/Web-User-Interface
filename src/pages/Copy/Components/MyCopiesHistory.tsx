@@ -114,13 +114,20 @@ const Item: FC<RowProps> = ({ ...props }) => {
   const lever = props.data.leverage;
 
   const kolAddress = props.data.kolAddress.showAddress();
-  const balance = props.data.balance.floor(2);
+  
+  const balance = props.data.status === -1 ? String().placeHolder : props.data.balance.floor(2);
   const profitLoss = useMemo(() => {
     const baseValue = props.data.margin + props.data.append;
+    if (props.data.status === -1) {
+      return -(baseValue)
+    }
     const closeValue = props.data.closeValue;
     return closeValue - baseValue;
-  }, [props.data.append, props.data.closeValue, props.data.margin]);
+  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
   const profitLossRate = useMemo(() => {
+    if (props.data.status === -1) {
+      return -100
+    }
     const balance_num = props.data.margin + props.data.append;
     const marginAssets_num = props.data.closeValue;
     if (marginAssets_num >= balance_num) {
@@ -132,7 +139,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
         (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
       );
     }
-  }, [props.data.append, props.data.closeValue, props.data.margin]);
+  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
   const profitLossRateString = profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
@@ -446,13 +453,19 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const kolAddress = props.data.kolAddress.showAddress();
-  const balance = props.data.balance.floor(2);
+  const balance = props.data.status === -1 ? String().placeHolder : props.data.balance.floor(2);
   const profitLoss = useMemo(() => {
     const baseValue = props.data.margin + props.data.append;
+    if (props.data.status === -1) {
+      return -(baseValue)
+    }
     const closeValue = props.data.closeValue;
     return closeValue - baseValue;
-  }, [props.data.append, props.data.closeValue, props.data.margin]);
+  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
   const profitLossRate = useMemo(() => {
+    if (props.data.status === -1) {
+      return -100
+    }
     const balance_num = props.data.margin + props.data.append;
     const marginAssets_num = props.data.closeValue;
     if (marginAssets_num >= balance_num) {
@@ -464,7 +477,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
         (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
       );
     }
-  }, [props.data.append, props.data.closeValue, props.data.margin]);
+  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
   const profitLossRateString = profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
