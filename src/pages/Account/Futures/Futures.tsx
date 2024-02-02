@@ -427,7 +427,7 @@ const Futures = () => {
           })}></Stack>
           <Stack gap={'22px'}>
             {
-              showData.slice(1).map((item) => (
+              showData?.slice(1)?.map((item) => (
                 <Stack key={item.name} direction={'row'} justifyContent={'space-between'}>
                   <Stack sx={(theme) => ({
                     fontSize: '14px',
@@ -465,7 +465,7 @@ const Futures = () => {
         })}>
           <Grid container spacing={"16px"}>
             {
-              showData.map((item) => (
+              showData?.map((item) => (
                 <Grid item md={4} key={item.name}>
                   <Stack p={'40px'} gap={'12px'} height={'100%'} sx={(theme) => ({
                     border: `1px solid ${theme.normal.border}`,

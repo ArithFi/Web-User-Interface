@@ -160,7 +160,7 @@ const Assets = () => {
       info: "",
     }));
     filterList = withdrawList?.concat(depositList);
-    return filterList?.sort((a: any, b: any) => b.time - a.time) || [];
+    return filterList?.sort((a: any, b: any) => b?.time - a?.time) || [];
   }, [withdrawData, depositData])
 
   useEffect(() => {
@@ -858,7 +858,7 @@ const Assets = () => {
                               lineHeight: '14px',
                               color: theme.normal.text2,
                             })}>
-                              {item?.status === 0 || item?.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item.time * 1000).toLocaleString()}
+                              {item?.status === 0 || item?.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item?.time * 1000).toLocaleString()}
                             </Stack>
                           </Stack>
                           <Stack px={'4px'} py={'3px'} sx={(theme) => ({
