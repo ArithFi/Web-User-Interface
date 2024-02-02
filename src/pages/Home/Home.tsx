@@ -5,11 +5,135 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import {TradeCard} from "./TradeCard";
+import {Grid} from "@mui/material";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
   const [lang, setLang] = useState('en');
   const [type, setType] = useState(0);
+
+  const integrations = [
+    {
+      name: 'NEST',
+      img: '/images/nest.svg',
+      black: '/images/nest.svg',
+      href: 'https://nestprotocol.org/',
+    },
+    {
+      name: 'Huobi',
+      img: '/images/huobi.svg',
+      black: '/images/huobi.svg',
+      href: 'https://www.htx.com/',
+    },
+    {
+      name: 'Binance',
+      img: '/images/binance.svg',
+      black: '/images/binance.svg',
+      href: 'https://binance.com/',
+    },
+    {
+      name: 'Coinbase',
+      img: '/images/coinbase.svg',
+      black: '/images/coinbase.svg',
+      href: 'https://www.coinbase.com/',
+    },
+    {
+      name: 'Polygon',
+      img: '/images/polygon.svg',
+      black: '/images/polygon.svg',
+      href: 'https://polygon.technology/',
+    },
+    {
+      name: 'KCC',
+      img: '/images/kcc.svg',
+      black: '/images/kcc.svg',
+      href: 'https://www.kcc.io/',
+    },
+    {
+      name: 'Cointelegraph',
+      img: '/images/cointelegraph.svg',
+      black: '/images/cointelegraph.svg',
+      href: 'https://cointelegraph.com/',
+    },
+    {
+      name: 'Cube',
+      img: '/images/cube.svg',
+      black: '/images/cube.svg',
+      href: 'https://www.cube.network/',
+    },
+    {
+      name: 'Peckshield',
+      img: '/images/peckshield.svg',
+      black: '/images/peckshield.svg',
+      href: 'https://peckshield.com/',
+    },
+    {
+      name: 'fortube',
+      img: '/images/fortube.svg',
+      black: '/images/fortube.svg',
+      href: 'https://for.tube/',
+    },
+    {
+      name: 'Coin98',
+      img: '/images/coin98.svg',
+      black: '/images/coin98_black.svg',
+      href: 'https://www.coin98.com/',
+    },
+    {
+      name: 'polynetwork',
+      img: '/images/polynetwork.svg',
+      black: '/images/polynetwork.svg',
+      href: 'https://www.poly.network/',
+    },
+    {
+      name: 'cofix',
+      img: '/images/cofix.svg',
+      black: '/images/cofix.svg',
+      href: 'https://cofix.tech/',
+    },
+    {
+      name: 'parasset',
+      img: '/images/parasset.svg',
+      black: '/images/parasset.svg',
+      href: 'https://parasset.top/',
+    },
+    {
+      name: 'certik',
+      img: '/images/certik.svg',
+      black: '/images/certik.svg',
+      href: 'https://www.certik.com/',
+    },
+    {
+      name: 'dragonfly',
+      img: '/images/dragonfly.svg',
+      black: '/images/dragonfly.svg',
+      href: 'https://www.dragonfly.xyz/',
+    },
+    {
+      name: 'CoinGecko',
+      img: '/images/coingecko.svg',
+      black: '/images/coingecko_black.svg',
+      href: 'https://www.coingecko.com/'
+    },
+    {
+      name: 'Followin',
+      img: '/images/followin.svg',
+      black: '/images/followin_black.svg',
+      href: 'https://followin.io/',
+    },
+    {
+      name: 'Nabox',
+      img: '/images/nabox.svg',
+      black: '/images/nabox_black.svg',
+      href: 'https://nabox.io/',
+    },
+    {
+      name: 'Kyber Network',
+      img: '/images/kybernetwork.svg',
+      black: '/images/kybernetwork_black.svg',
+      href: 'https://kyber.network/',
+    },
+  ];
 
   const cryptoList: any[] = [
     {pair1: 'ETH', pair2: 'USDT'},
@@ -375,68 +499,38 @@ const Home = () => {
               Integrations & Partners
             </Trans>
           </Stack>
-          <Stack mt={'40px'} gap={'12px'}>
-            <Stack direction={'row'} gap={'12px'}>
-              <Link to={'https://coin98.com/'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/coin98.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-              <Link to={'https://www.bnbchain.org/en'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/binancechain.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-            </Stack>
-            <Stack direction={'row'} gap={'12px'}>
-              <Link to={'https://www.coingecko.com/'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/coingecko.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-              <Link to={'https://followin.io/'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/followin.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-            </Stack>
-            <Stack direction={'row'} gap={'12px'} justifyContent={'center'}>
-              <Link to={'https://nabox.io'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/nabox.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-              <Link to={'https://kyber.network/'} target={'_blank'}>
-                <Stack px={['12px', '20px']} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                  cursor: 'pointer',
-                }}>
-                  <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                    <img src={'/images/kybernetwork.svg'} alt={''}/>
-                  </Stack>
-                </Stack>
-              </Link>
-            </Stack>
-          </Stack>
+          <Grid container mt={'40px'} spacing={'20px'} justifyContent={"center"}>
+            {
+              integrations.map((item, index) => (
+                <Grid item key={index} md={4}>
+                  <Link to={item.href} target={'_blank'}>
+                    <Stack width={'104px'} height={"40px"} bgcolor={'white'} borderRadius={'12px'} sx={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      cursor: 'pointer',
+                      '#color': {
+                        display: 'none',
+                      },
+                      '&:hover': {
+                        boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
+                        '#black': {
+                          display: 'none',
+                        },
+                        '#color': {
+                          display: 'block',
+                        },
+                      },
+                    }}>
+                      <Stack alignItems={'center'} justifyContent={'center'}>
+                        <img src={item.black} alt={''} id={'black'} height={'40px'}/>
+                        <img src={item.img} alt={''} id={'color'} height={'40px'}/>
+                      </Stack>
+                    </Stack>
+                  </Link>
+                </Grid>
+              ))
+            }
+          </Grid>
         </Stack>
         <Stack px={'20px'} py={'20px'} sx={{
           background: 'linear-gradient(358deg, #3D404D 1.38%, #222529 98.62%)'
@@ -961,7 +1055,7 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack zIndex={10} height={'420px'} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
+        <Stack zIndex={10} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
                py={'120px'}>
           <Stack sx={{
             fontSize: '32px',
@@ -974,100 +1068,38 @@ const Home = () => {
               Integrations & Partners
             </Trans>
           </Stack>
-          <Stack mt={'48px'} spacing={'40px'} direction={'row'}>
+          <Grid container mt={'48px'} spacing={'40px'} maxWidth={'1200px'} justifyContent={"center"}>
             {
-              [
-                {
-                  name: 'Coin98',
-                  img: '/images/coin98.svg',
-                  black: '/images/coin98_black.svg',
-                  href: 'https://www.coin98.com/',
-                },
-                {
-                  name: 'Binance Chain',
-                  img: '/images/binancechain.svg',
-                  black: '/images/binancechain_black.svg',
-                  href: 'https://www.bnbchain.org/',
-                },
-                {
-                  name: 'CoinGecko',
-                  img: '/images/coingecko.svg',
-                  black: '/images/coingecko_black.svg',
-                  href: 'https://www.coingecko.com/'
-                },
-              ].map((item, index) => (
-                <Link to={item.href} key={index} target={'_blank'}>
-                  <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                    cursor: 'pointer',
-                    '#color': {
-                      display: 'none',
-                    },
-                    '&:hover': {
-                      boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
-                      '#black': {
+              integrations.map((item, index) => (
+                <Grid item key={index} xl={2}>
+                  <Link to={item.href} target={'_blank'}>
+                    <Stack width={'184px'} height={"72px"} bgcolor={'white'} borderRadius={'12px'} sx={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      cursor: 'pointer',
+                      '#color': {
                         display: 'none',
                       },
-                      '#color': {
-                        display: 'block',
+                      '&:hover': {
+                        boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
+                        '#black': {
+                          display: 'none',
+                        },
+                        '#color': {
+                          display: 'block',
+                        },
                       },
-                    },
-                  }}>
-                    <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                      <img src={item.black} alt={''} id={'black'}/>
-                      <img src={item.img} alt={''} id={'color'}/>
+                    }}>
+                      <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
+                        <img src={item.black} alt={''} id={'black'}/>
+                        <img src={item.img} alt={''} id={'color'}/>
+                      </Stack>
                     </Stack>
-                  </Stack>
-                </Link>
+                  </Link>
+                </Grid>
               ))
             }
-          </Stack>
-          <Stack mt={'48px'} spacing={'40px'} direction={'row'}>
-            {
-              [
-                {
-                  name: 'Followin',
-                  img: '/images/followin.svg',
-                  black: '/images/followin_black.svg',
-                  href: 'https://followin.io/',
-                },
-                {
-                  name: 'Nabox',
-                  img: '/images/nabox.svg',
-                  black: '/images/nabox_black.svg',
-                  href: 'https://nabox.io/',
-                },
-                {
-                  name: 'Kyber Network',
-                  img: '/images/kybernetwork.svg',
-                  black: '/images/kybernetwork_black.svg',
-                  href: 'https://kyber.network/',
-                },
-              ].map((item, index) => (
-                <Link to={item.href} key={index} target={'_blank'}>
-                  <Stack px={'20px'} py={'12px'} bgcolor={'white'} borderRadius={'36px'} sx={{
-                    cursor: 'pointer',
-                    '#color': {
-                      display: 'none',
-                    },
-                    '&:hover': {
-                      boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
-                      '#black': {
-                        display: 'none',
-                      },
-                      '#color': {
-                        display: 'block',
-                      },
-                    },
-                  }}>
-                    <Stack width={'144px'} height={'48px'} alignItems={'center'} justifyContent={'center'}>
-                      <img src={item.black} alt={''} id={'black'}/>
-                      <img src={item.img} alt={''} id={'color'}/>
-                    </Stack>
-                  </Stack>
-                </Link>
-              ))
-            }
-          </Stack>
+          </Grid>
         </Stack>
         <Stack maxWidth={'1200px'} marginTop={'40px'} bgcolor={'white'} width={'100%'}
                zIndex={10} borderRadius={'8px'} padding={'20px'}
