@@ -123,10 +123,9 @@ function useCopy() {
     if (myTradeData && Number(myTradeData?.["err"]) === 0) {
       const value = myTradeData["data"];
       const info: MyTradeInfoModel = {
-        assets: value["copy_balance"],
+        assets: value["copy_balance"] + value["position"],
           copyOrders: value["copy_order_count"],
           unRealizedPnl: value["unrealized_pnl"],
-          // TODO
           profit: value["pnl_total"] - value["unrealized_pnl"],
       };
       setMyTradeInfo(info);

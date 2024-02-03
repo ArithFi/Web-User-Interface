@@ -42,11 +42,10 @@ function useMyCopies() {
       if (Number(req["err"]) === 0) {
         const value = req["data"];
         const info: MyTradeInfoModel = {
-          assets: value["copy_balance"],
+          assets: value["copy_balance"] + value["position"],
           copyOrders: value["copy_order_count"],
           unRealizedPnl: value["unrealized_pnl"],
-          // TODO
-          profit: value["unrealized_pnl"],
+          profit: value["pnl_total"] - value["unrealized_pnl"],
         };
         setMyTradeInfo(info);
       }
