@@ -28,7 +28,7 @@ function useCloseCopyModal(
           openInterest: value["openInterest"] ?? 0,
           totalProfit: value["traderPnl"],
           totalCopyAmount: value["totalCopyAmount"] ?? 0,
-          aum: value["aum"],
+          aum: value["estimatedRealizedAmount"],
         };
         setCloseInfo(info);
       }
