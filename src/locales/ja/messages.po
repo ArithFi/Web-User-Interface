@@ -31,16 +31,6 @@ msgstr ""
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr ""
 
-#: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesEditPosition.ts
-msgid "< OPEN PRICE"
-msgstr "< オープン価格"
-
-#: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesEditPosition.ts
-msgid "> OPEN PRICE"
-msgstr "> オープン価格"
-
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
@@ -50,6 +40,11 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "0 Slippage"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "0 Trading Fees"
 msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
@@ -249,16 +244,6 @@ msgstr "承認"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi can meet the needs of long-tail users."
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "ArithFi Coin"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
 msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
 msgstr ""
 
@@ -268,12 +253,17 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
+msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage."
 msgstr ""
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 msgid "Assets"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ATF Coin"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -312,6 +302,10 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 msgid "Boost your earning and influence by becoming copy traders."
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "BTC, ETH, ATF?"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
@@ -383,7 +377,6 @@ msgstr ""
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
@@ -571,6 +564,11 @@ msgstr "ダッシュボード"
 msgid "Default"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Deflationary"
+msgstr ""
+
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
@@ -632,16 +630,13 @@ msgstr "ポジションを編集"
 msgid "Edited"
 msgstr ""
 
-#: src/pages/Home/Home.tsx
-msgid "Eliminate market makers and LPs in trading"
-msgstr ""
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "Enjoy 0 slippage trading on ArithFi"
+#: src/pages/Home/Home.tsx
+msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
 msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
@@ -747,6 +742,10 @@ msgstr "沿革"
 msgid "Home"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "How can ArithFi make profits through 0 trading fees?"
+msgstr ""
+
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
 msgstr ""
@@ -765,11 +764,6 @@ msgstr ""
 msgid "I understand"
 msgstr "理解しました"
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr ""
-
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr ""
@@ -779,11 +773,6 @@ msgstr ""
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "画像"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -901,7 +890,6 @@ msgstr "清算済み"
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
@@ -1002,16 +990,6 @@ msgstr "ニュース"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "No LPs"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "No Market Makers"
 msgstr ""
 
 #: src/pages/Account/Assets/Overview.tsx
@@ -1162,12 +1140,12 @@ msgid "Position"
 msgstr "ポジション"
 
 #: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.02%"
+msgid "Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
 msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.05%"
-msgstr "ポジション料金 = ポジション * 0.05"
+msgid "Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr ""
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Account/Futures/Futures.tsx
@@ -1175,12 +1153,12 @@ msgid "Position Value"
 msgstr ""
 
 #: src/hooks/useFuturesClose.ts
-msgid "Position*0.02%"
+msgid "Position*0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
 msgstr ""
 
 #: src/hooks/useFuturesClose.ts
-msgid "Position*0.05%"
-msgstr "ポジション*0.05％"
+msgid "Position*0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr ""
 
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
@@ -1343,7 +1321,6 @@ msgstr "シェア"
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
@@ -1783,6 +1760,10 @@ msgstr "ウォレット"
 msgid "Wallet Balance"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "What competition does ArithFi face?"
+msgstr ""
+
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
 msgstr ""
@@ -1793,8 +1774,11 @@ msgid "Where to buy $ATF"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
-msgid "Why is this considered the next-generation trading model?"
+msgid "Why would the price of ATF increase?"
 msgstr ""
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx

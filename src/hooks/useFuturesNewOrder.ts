@@ -99,7 +99,7 @@ function useFuturesNewOrder(
   const [amountPercent, setAmountPercent] = useState(0);
 
   const openPriceBase = useMemo(() => {
-    const nowPrice = price?.[tokenPair]
+    const nowPrice = price?.[tokenPair];
     if (price && nowPrice) {
       return nowPrice;
     } else {
@@ -503,9 +503,13 @@ function useFuturesNewOrder(
   );
   const showFeeHoverText = useMemo(() => {
     if (isForex(lever)) {
-      return [t`Position fee = Position * 0.02%`];
+      return [
+        t`Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`,
+      ];
     } else {
-      return [t`Position fee = Position * 0.05%`];
+      return [
+        t`Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`,
+      ];
     }
   }, [lever]);
 

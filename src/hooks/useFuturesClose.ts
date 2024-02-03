@@ -76,11 +76,11 @@ function useFuturesClose(
 
   const showFee = useMemo(() => {
     const token = data.product.toLocaleUpperCase();
-    const nowPriceBase = price?.[token]
+    const nowPriceBase = price?.[token];
     if (!price || nowPriceBase == null) {
       return String().placeHolder;
     }
-   
+
     const nowPrice = parseFloat(
       nowPriceBase.bigNumberToShowPrice(18, token.getTokenPriceDecimals())
     );
@@ -92,9 +92,9 @@ function useFuturesClose(
   }, [data.balance, data.leverage, data.orderPrice, data.product, price]);
   const feeTip = useMemo(() => {
     if (isForex(data.leverage)) {
-      return t`Position*0.02%`;
+      return t`Position*0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`;
     } else {
-      return t`Position*0.05%`;
+      return t`Position*0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`;
     }
   }, [data.leverage]);
   /**

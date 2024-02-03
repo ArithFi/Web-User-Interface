@@ -1,4 +1,4 @@
-import {Trans} from "@lingui/macro";
+import {Trans, t} from "@lingui/macro";
 import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import {useEffect, useState} from "react";
@@ -27,6 +27,29 @@ const Home = () => {
     {pair1: 'GBP', pair2: 'USD'},
   ]
 
+  const commonQuestion: { title: string, link: string }[] = [
+    {
+      title: t`Why ArithFi's SCP Model Does NOT have a death spiral?`,
+      link: "https://docs.arithfi.com/docs/blogs/Article/why-arithfi-scp-model-does-not-have-a-death-spiral",
+    },
+    {
+      title: t`How can ArithFi make profits through 0 trading fees?`,
+      link: "https://docs.arithfi.com/docs/blogs/Article/how-can-arithfi-make-profits-through-0-trading-fees",
+    },
+    {
+      title: t`Why would the price of ATF increase?`,
+      link: "https://docs.arithfi.com/docs/blogs/Article/why-would-the-price-of-ATF-increase",
+    },
+    {
+      title: t`What competition does ArithFi face?`,
+      link: "https://docs.arithfi.com/docs/blogs/Article/what-competition-does-arithfi-face"
+    },
+    {
+      title: t`BTC, ETH, ATF?`,
+      link: "https://docs.arithfi.com/docs/blogs/Article/the-third-class-of-decentralized-asset-poised-to-fllow-BTC-and-ETH"
+    }
+  ]
+
   useEffect(() => {
     const cache = localStorage.getItem("Language");
     if (cache) {
@@ -52,7 +75,7 @@ const Home = () => {
           </Stack>
           <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'}
                  color={'rgba(249, 249, 249, 1)'}>
-            <Trans>ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.</Trans>
+            <Trans>ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage.</Trans>
           </Stack>
           <Stack zIndex={10}>
             <Link to={'/futures'}>
@@ -196,7 +219,7 @@ const Home = () => {
                 opacity: 0.8
               }}>
                 <Trans>
-                  ArithFi Coin
+                  ATF Coin
                 </Trans>
               </Stack>
               <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} mt={'8px'} color={'#1D2129'} sx={{
@@ -251,7 +274,7 @@ const Home = () => {
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
-                No LPs
+                0 Trading Fees
               </Trans>
             </Stack>
             <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
@@ -259,7 +282,7 @@ const Home = () => {
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
-                No Market Makers
+                0 Slippage
               </Trans>
             </Stack>
           </Stack>
@@ -270,14 +293,14 @@ const Home = () => {
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
-                0 Slippage
+                Infinite Liquidity
               </Trans>
             </Stack>
             <Stack px={'20px'} py={'12px'} bgcolor={'white'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}
                    borderRadius={'8px'} direction={'row'} gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
-                Infinite Liquidity
+                Deflationary
               </Trans>
             </Stack>
           </Stack>
@@ -288,39 +311,57 @@ const Home = () => {
           <Stack position={'absolute'} right={0} top={-300}>
             <img src={'/images/home_icon7.svg'} alt={''}/>
           </Stack>
-          <Stack fontSize={'24px'} lineHeight={'32px'} fontWeight={'700'} color={'#030308'}>
-            <Trans>
-              Why is this considered the next-generation trading model?
-            </Trans>
-          </Stack>
-          <Stack fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} mt={'24px'} color={'rgba(3, 3, 8, 0.8)'}>
-            <div>
-              <Trans>
-                If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
-                trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
-                during trading. However, if only 10 users are interested in trading this new asset, the profits may not
-                cover the costs of market making.
-              </Trans>
-            </div>
-            <br/>
-            <div>
-              <Trans>
-                In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading,
-                is
-                approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user
-                wishes
-                to trade, we can provide support.
-              </Trans>
-            </div>
-            <br/>
-            <div>
-              <Trans>
-                ArithFi can meet the needs of long-tail users.
-              </Trans>
-            </div>
-          </Stack>
-          <Stack mt={'80px'} alignItems={'center'}>
-            <img src={`/images/home_icon1_${lang}.svg`} alt={''} width={'100%'}/>
+          <Stack maxWidth={'1200px'} width={'100%'} position={'relative'} alignItems={"center"} zIndex={10}>
+            <Stack sx={{
+              fontSize: '24px',
+              fontWeight: '700',
+              lineHeight: '32px',
+              textAlign: 'center',
+              color: 'rgba(3, 3, 8, 1)',
+            }}>Common Questions</Stack>
+            <Stack mt={'40px'} gap={'16px'} width={"100%"}>
+              {
+                commonQuestion.map((item, index) => (
+                  <Link key={index} to={item.link} target={"_blank"}>
+                    <Stack flexDirection={'row'} justifyContent={"space-between"} alignItems={"center"} key={index}
+                           bgcolor={"white"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
+                           sx={{
+                             cursor: "pointer",
+                             color: "rgba(3, 3, 8, 1)",
+                             "&:hover": {
+                               color: "#F69C00",
+                               "& svg": {
+                                 path: {
+                                   fill: "#F69C00"
+                                 }
+                               }
+                             }
+                           }}
+                    >
+                      <Stack flexDirection={'row'} gap={'8px'}>
+                        <Stack>
+                          {"• "}
+                        </Stack>
+                        <Stack sx={{
+                          fontSize: "16px",
+                          lineHeight: "22px",
+                          fontWeight: 700,
+                        }}>
+                          {item.title}
+                        </Stack>
+                      </Stack>
+                      <Stack>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd"
+                                d="M17.0664 11.6465C17.2617 11.8418 17.2617 12.1584 17.0664 12.3536L8.58116 20.8389C8.3859 21.0342 8.06932 21.0342 7.87406 20.8389L7.14615 20.111C6.95089 19.9157 6.95089 19.5992 7.14615 19.4039L14.55 12.0001L7.14615 4.59625C6.95089 4.40099 6.95089 4.0844 7.14615 3.88914L7.87406 3.16124C8.06932 2.96597 8.3859 2.96597 8.58116 3.16124L17.0664 11.6465Z"
+                                fill="#030308" fillOpacity="0.6"/>
+                        </svg>
+                      </Stack>
+                    </Stack>
+                  </Link>
+                ))
+              }
+            </Stack>
           </Stack>
         </Stack>
         <Stack pt={'40px'} pb={'80px'} alignItems={'center'} bgcolor={'rgba(247, 251, 255, 1)'}>
@@ -442,7 +483,7 @@ const Home = () => {
                color={'rgba(255, 255, 255, 1)'} fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>
           <Stack textAlign={'center'}>
             <Trans>
-              Eliminate market makers and LPs in trading
+              Enjoy 0 trading fees & 0 slippage  trading on ArithFi
             </Trans>
           </Stack>
           <Link to={'/futures'}>
@@ -492,7 +533,7 @@ const Home = () => {
           padding: '0 20px',
         }}>
           <Trans>
-            ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs.
+            ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage.
           </Trans>
         </Stack>
         <Stack zIndex={10}>
@@ -688,7 +729,7 @@ const Home = () => {
               borderRadius: '8px',
               backgroundColor: 'white',
               width: '50%',
-            }} spacing={'12px'}>
+            }} spacing={'12px'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}>
               <Stack sx={{
                 fontSize: '24px',
                 fontWeight: '700',
@@ -717,7 +758,7 @@ const Home = () => {
               borderRadius: '8px',
               backgroundColor: 'white',
               width: '50%',
-            }} spacing={'12px'}>
+            }} spacing={'12px'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}>
               <Stack sx={{
                 fontSize: '24px',
                 fontWeight: '700',
@@ -753,7 +794,7 @@ const Home = () => {
           <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'} px={'24px'}>
             <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
               <Trans>
-                ArithFi Coin
+                ATF Coin
               </Trans>
             </Stack>
             <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
@@ -815,22 +856,7 @@ const Home = () => {
           }}>
             <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
-              <Trans>No LPs</Trans>
-            </div>
-          </Stack>
-          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
-            padding: '16px 24px',
-            fontSize: '16px',
-            fontWeight: '400',
-            lineHeight: '22px',
-            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
-            borderRadius: '8px',
-          }}>
-            <img src={'/images/home_icon6.svg'} alt={''}/>
-            <div>
-              <Trans>
-                No Market Makers
-              </Trans>
+              <Trans>0 Trading Fees</Trans>
             </div>
           </Stack>
           <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
@@ -863,45 +889,75 @@ const Home = () => {
               </Trans>
             </div>
           </Stack>
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
+            padding: '16px 24px',
+            fontSize: '16px',
+            fontWeight: '400',
+            lineHeight: '22px',
+            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
+            borderRadius: '8px',
+          }}>
+            <img src={'/images/home_icon6.svg'} alt={''}/>
+            <div>
+              <Trans>
+                Deflationary
+              </Trans>
+            </div>
+          </Stack>
         </Stack>
       </Stack>
       <Stack alignItems={'center'} position={'relative'} zIndex={5}>
-        <Stack width={'100%'} paddingTop={'140px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'} sx={{
+        <Stack width={'100%'} paddingTop={'80px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'} sx={{
           background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
         }}>
           <Stack position={'absolute'} right={0} zIndex={5} top={-200}>
             <img src={'/images/home_icon11.svg'} alt={''}/>
           </Stack>
-          <Stack direction={'row'} maxWidth={'1200px'} width={'100%'} position={'relative'}>
-            <Stack gap={'40px'} maxWidth={'600px'} width={'100%'} px={'20px'}>
-              <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'} color={'#030308'}>
-                <Trans>
-                  Why is this considered the next-generation trading model?
-                </Trans>
-              </Stack>
-              <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.80)'}>
-                <Trans>
-                  If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures
-                  trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur
-                  during trading. However, if only 10 users are interested in trading this new asset, the profits may
-                  not cover the costs of market making.
-                </Trans>
-                <br/>
-                <br/>
-                <Trans>
-                  In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures
-                  trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only
-                  one user wishes to trade, we can provide support.
-                </Trans>
-                <br/>
-                <br/>
-                <Trans>
-                  ArithFi can meet the needs of long-tail users.
-                </Trans>
-              </Stack>
-            </Stack>
-            <Stack pl={'80px'} height={'500px'}>
-              <img src={`/images/home_icon1_${lang}.svg`} alt={''}/>
+          <Stack maxWidth={'1200px'} width={'100%'} position={'relative'} alignItems={"center"} zIndex={10} px={"20px"}>
+            <Stack sx={{
+              fontSize: '32px',
+              fontWeight: '700',
+              lineHeight: '44px',
+              textAlign: 'center',
+              color: 'rgba(3, 3, 8, 1)',
+            }}>Common Questions</Stack>
+            <Stack mt={'40px'} gap={'16px'} width={"100%"}>
+              {
+                commonQuestion.map((item, index) => (
+                  <Link key={index} to={item.link} target={"_blank"}>
+                    <Stack flexDirection={'row'} justifyContent={"space-between"} alignItems={"center"} key={index}
+                           bgcolor={"white"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
+                           sx={{
+                             cursor: "pointer",
+                             color: "rgba(3, 3, 8, 1)",
+                             "&:hover": {
+                               color: "#F69C00",
+                               "& svg": {
+                                 path: {
+                                   fill: "#F69C00"
+                                 }
+                               }
+                             }
+                           }}
+                    >
+                      <Stack sx={{
+                        fontSize: "16px",
+                        lineHeight: "22px",
+                        fontWeight: 700,
+                      }}>
+                        {"• "}{item.title}
+                      </Stack>
+                      <Stack>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd"
+                                d="M17.0664 11.6465C17.2617 11.8418 17.2617 12.1584 17.0664 12.3536L8.58116 20.8389C8.3859 21.0342 8.06932 21.0342 7.87406 20.8389L7.14615 20.111C6.95089 19.9157 6.95089 19.5992 7.14615 19.4039L14.55 12.0001L7.14615 4.59625C6.95089 4.40099 6.95089 4.0844 7.14615 3.88914L7.87406 3.16124C8.06932 2.96597 8.3859 2.96597 8.58116 3.16124L17.0664 11.6465Z"
+                                fill="#030308" fillOpacity="0.6"/>
+                        </svg>
+                      </Stack>
+                    </Stack>
+                  </Link>
+                ))
+              }
             </Stack>
           </Stack>
         </Stack>
@@ -1041,7 +1097,7 @@ const Home = () => {
             <Stack gap={'25px'} direction={'row'} alignItems={"center"}>
               <Stack>
                 <Trans>
-                  Enjoy 0 slippage trading on ArithFi
+                  Enjoy 0 trading fees & 0 slippage  trading on ArithFi
                 </Trans>
               </Stack>
               <Stack>

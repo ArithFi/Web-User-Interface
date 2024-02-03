@@ -31,16 +31,6 @@ msgstr "* Finansal verilerin karmaşıklığı nedeniyle nüanslar ve gecikmeler
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi yalnızca ATF çekimlerini destekler."
 
-#: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesEditPosition.ts
-msgid "< OPEN PRICE"
-msgstr "< AÇILIŞ FİYATI"
-
-#: src/hooks/useFuturesEditPosition.ts
-#: src/hooks/useFuturesEditPosition.ts
-msgid "> OPEN PRICE"
-msgstr "＞ AÇILIŞ FİYATI"
-
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 msgid ""
 "0 balance. Before trading, you can switch to \"Swap\" to exchange\n"
@@ -53,6 +43,11 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 msgid "0 Slippage"
 msgstr "0 Kayma"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "0 Trading Fees"
+msgstr "0 Ticaret Ücretleri"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -251,16 +246,6 @@ msgstr "Onayla"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi can meet the needs of long-tail users."
-msgstr "ArithFi, uzun kuyruk kullanıcılarının ihtiyaçlarını karşılayabilir."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "ArithFi Coin"
-msgstr "ArithFi Coin"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
 msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
 msgstr "ArithFi, SCP (Akıllı sözleşme karşı taraf) modeline dayanmaktadır"
 
@@ -270,13 +255,18 @@ msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, A decentralized Derivatives Protocol Eliminates Market Makers and LPs."
-msgstr "ArithFi, Merkezileştirilmemiş Türev Protokolü Piyasa Yapıcılarını ve LP'leri Ortadan Kaldırıyor."
+msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage."
+msgstr "ArithFi, İlk Merkezi Olmayan Türev Protokolü 0 Ticaret Ücretleri ve 0 Kayma Başarısını Elde Etti. "
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 msgid "Assets"
 msgstr "Varlıklar"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ATF Coin"
+msgstr "ATF Coin"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -315,6 +305,10 @@ msgstr "Elit Tüccarlar Olun >"
 #: src/pages/Copy/Copy.tsx
 msgid "Boost your earning and influence by becoming copy traders."
 msgstr "Kopya Tüccarları Olarak Gelirinizi ve Etkinliğinizi Artırın."
+
+#: src/pages/Home/Home.tsx
+msgid "BTC, ETH, ATF?"
+msgstr "BTC, ETH, ATF?"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -385,7 +379,6 @@ msgstr "Komisyon"
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
@@ -573,6 +566,11 @@ msgstr "Kontrol Paneli"
 msgid "Default"
 msgstr "Varsayılan"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Deflationary"
+msgstr "Deflasyonist"
+
 #: src/components/NormalInput/ArithFiInput.tsx
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
@@ -634,17 +632,14 @@ msgstr "Pozisyonu Düzenle"
 msgid "Edited"
 msgstr "Düzenlendi"
 
-#: src/pages/Home/Home.tsx
-msgid "Eliminate market makers and LPs in trading"
-msgstr "Ticarette piyasa yapıcıları ve LP'leri ortadan kaldırın"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "Kopya transferi ise, pozisyonunuzu piyasa emirleriyle likide edecek ve yerleşim dönemi boyunca kar payı kesintisi yapıldıktan sonra varlıkları otomatik olarak hesabınıza iade edecektir."
 
 #: src/pages/Home/Home.tsx
-msgid "Enjoy 0 slippage trading on ArithFi"
-msgstr "ArithFi'de 0 kayma ile ticaretin tadını çıkarın."
+#: src/pages/Home/Home.tsx
+msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
+msgstr "ArithFi'de 0 ticaret ücreti ve 0 kayma ile ticaretin keyfini çıkarın."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -751,6 +746,10 @@ msgstr "Geçmiş"
 msgid "Home"
 msgstr "ANA SAYFA"
 
+#: src/pages/Home/Home.tsx
+msgid "How can ArithFi make profits through 0 trading fees?"
+msgstr "ArithFi, O ticaret ücretleri aracılığıyla nasıl kar edebilir?"
+
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
 msgstr "Nasıl Ticaret Yapılır"
@@ -769,11 +768,6 @@ msgstr "Okudum ve kabul ettim"
 msgid "I understand"
 msgstr "Anladım"
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "If a Centralized Protocol (CEX) wants to introduce new asset pairs, such as GOLD futures, for futures trading, they typically require market makers to provide liquidity; otherwise, high slippage can occur during trading. However, if only 10 users are interested in trading this new asset, the profits may not cover the costs of market making."
-msgstr "Eğer bir Merkezileştirilmiş Protokol (CEX), örneğin GOLD vadeli işlemleri gibi yeni varlık çiftlerini vadeli işlem ticareti için tanıtmak istiyorsa, genellikle piyasa yapıcıların likidite sağlaması gerekmektedir; aksi takdirde, ticaret sırasında yüksek kayma (slippage) meydana gelebilir. Ancak, bu yeni varlıkla ticaret yapmakla ilgilenen sadece 10 kullanıcı varsa, piyasa yapıcılığının maliyetleri kar etmeyebilir."
-
 #: src/pages/Share/Modal/SignModal.tsx
 msgid "If you are using a secure device that you own. Selecting this option can expose your keys and information to others if you are on a public or non-secured device."
 msgstr "Kendinize ait güvenli bir cihaz kullanıyorsanız. Bu seçeneği seçmek, genel bir cihazda veya güvensiz bir cihazda olmanız durumunda anahtarlarınızın ve bilgilerinizin başkalarına açığa çıkmasına neden olabilir."
@@ -783,11 +777,6 @@ msgstr "Kendinize ait güvenli bir cihaz kullanıyorsanız. Bu seçeneği seçme
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Image"
 msgstr "Görsel"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "In ArithFi's trading model, the cost of adding new asset pairs, like GOLD futures, for futures trading, is approximately $0.1 per day, and it offers infinite liquidity with 0 slippage. Even if only one user wishes to trade, we can provide support."
-msgstr "ArithFi'nin ticaret modeline göre, yeni varlık çiftleri eklemenin maliyeti (örneğin, ALTIN vadeli işlemleri gibi) yaklaşık olarak günde 0.1 dolar ve 0 kayma ile sonsuz likidite sunar. Yalnızca bir kullanıcı bile ticaret yapmak istese, destek sağlayabiliriz."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -905,7 +894,6 @@ msgstr "Likidasyon"
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
@@ -1007,16 +995,6 @@ msgstr "Haberler"
 #: src/pages/Account/Referral/Referral.tsx
 msgid "No commissions yet"
 msgstr "Henüz komisyon yok"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "No LPs"
-msgstr "Likidite Sağlayıcıları Yok"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "No Market Makers"
-msgstr "Piyasa Yapıcıları Yok"
 
 #: src/pages/Account/Assets/Overview.tsx
 msgid "No Order"
@@ -1168,12 +1146,12 @@ msgid "Position"
 msgstr "Pozisyon"
 
 #: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.02%"
-msgstr "Pozisyon ücreti = Pozisyon * 0.02%"
+msgid "Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr "Pozisyon ücreti = Pozisyon * %0.02; Bu Şubat'ta ArithFi Uygulaması'nın lansmanından sonra, ücretsiz işlem yapmanın keyfini çıkaracaksınız."
 
 #: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.05%"
-msgstr "Pozisyon ücreti = Pozisyon * 0.05%"
+msgid "Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr "Pozisyon ücreti = Pozisyon * %0.05; Bu Şubat'ta ArithFi Uygulaması'nın lansmanından sonra, ücretsiz işlem yapmanın keyfini çıkaracaksınız."
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Account/Futures/Futures.tsx
@@ -1181,12 +1159,12 @@ msgid "Position Value"
 msgstr "Pozisyon Değeri"
 
 #: src/hooks/useFuturesClose.ts
-msgid "Position*0.02%"
-msgstr "Pozisyon*0.02"
+msgid "Position*0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr "Pozisyon*%0.02; Bu Şubat'ta ArithFi Uygulaması'nın lansmanından sonra, ücretsiz işlem yapmanın keyfini çıkaracaksınız."
 
 #: src/hooks/useFuturesClose.ts
-msgid "Position*0.05%"
-msgstr "Pozisyon*0.05%"
+msgid "Position*0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
+msgstr "Pozisyon*%0.05; Bu Şubat'ta ArithFi Uygulaması'nın lansmanından sonra, ücretsiz işlem yapmanın keyfini çıkaracaksınız."
 
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
@@ -1349,7 +1327,6 @@ msgstr "Paylaş"
 #: src/components/LongOrShort/LongOrShort.tsx
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
-#: src/hooks/useFuturesEditPosition.ts
 #: src/pages/Copy/Components/CopyListPosition.tsx
 #: src/pages/Copy/Components/CopyTablePosition.tsx
 #: src/pages/Dashboard/Components/MobileOrderTypePosition.tsx
@@ -1789,6 +1766,10 @@ msgstr "Cüzdan"
 msgid "Wallet Balance"
 msgstr "Cüzdan Bakiyesi"
 
+#: src/pages/Home/Home.tsx
+msgid "What competition does ArithFi face?"
+msgstr "ArithFi hangi rekabetle karşı karşıya?"
+
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "When Price reaches"
 msgstr "Fiyat ulaştığında"
@@ -1799,9 +1780,12 @@ msgid "Where to buy $ATF"
 msgstr "$ATF nereden alınır?"
 
 #: src/pages/Home/Home.tsx
+msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
+msgstr "ArithFi'nin SCP Modeli neden ölüm sarmalına sahip DEĞİL?"
+
 #: src/pages/Home/Home.tsx
-msgid "Why is this considered the next-generation trading model?"
-msgstr "Bu neden gelecek nesil ticaret modeli olarak kabul ediliyor?"
+msgid "Why would the price of ATF increase?"
+msgstr "ATF'nin fiyatı neden artar?"
 
 #: src/pages/Futures/Modal/CloseOrderNoticeModal.tsx
 msgid "Will not be displayed after closing"
