@@ -19,7 +19,9 @@ import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import MobileMenu from "../Share/MobileMenu";
-import {useAccount, useNetwork} from "wagmi";
+import {useAccount} from "wagmi";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
+import useArithFi from "../../../hooks/useArithFi";
 
 export const Select1 = styled("select")(({theme}) => ({
   width: "100%",
@@ -167,13 +169,13 @@ export const UpSort = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clipRule="evenodd"
           d="M5.24984 1.48714C5.25313 1.35503 5.20437 1.22187 5.10355 1.12106C4.90829 0.925794 4.59171 0.925794 4.39645 1.12106L1.39645 4.12105C1.20118 4.31632 1.20118 4.6329 1.39645 4.82816C1.59171 5.02342 1.90829 5.02342 2.10355 4.82816L4.25 2.68172V10.4998C4.25 10.7759 4.47386 10.9998 4.75 10.9998C5.02614 10.9998 5.25 10.7759 5.25 10.4998V1.49976C5.25 1.49554 5.24995 1.49133 5.24984 1.48714Z"
           fill="#EAAA00"
         />
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clipRule="evenodd"
           d="M7.75 1.52539C7.75 1.24925 7.52614 1.02539 7.25 1.02539C6.97386 1.02539 6.75 1.24925 6.75 1.52539V10.5254C6.75 10.5932 6.76349 10.6578 6.78794 10.7168C6.81123 10.7731 6.84524 10.826 6.88998 10.8724C6.89425 10.8768 6.8986 10.8811 6.90303 10.8854C6.94864 10.9294 7.00056 10.963 7.0558 10.9863C7.1155 11.0115 7.18113 11.0254 7.25 11.0254C7.31887 11.0254 7.3845 11.0115 7.4442 10.9863C7.49944 10.963 7.55136 10.9294 7.59697 10.8854C7.59949 10.883 7.60199 10.8805 7.60446 10.878L10.6036 7.87894C10.7988 7.68368 10.7988 7.3671 10.6036 7.17184C10.4083 6.97657 10.0917 6.97657 9.89645 7.17184L7.75 9.31828V1.52539Z"
           fill="#030308"
@@ -207,7 +209,7 @@ export const DownSort = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clipRule="evenodd"
           d="M5.24984 1.48714C5.25313 1.35503 5.20437 1.22187 5.10355 1.12106C4.90829 0.925794 4.59171 0.925794 4.39645 1.12106L1.39645 4.12105C1.20118 4.31632 1.20118 4.6329 1.39645 4.82816C1.59171 5.02342 1.90829 5.02342 2.10355 4.82816L4.25 2.68172V10.4998C4.25 10.7759 4.47386 10.9998 4.75 10.9998C5.02614 10.9998 5.25 10.7759 5.25 10.4998V1.49976C5.25 1.49554 5.24995 1.49133 5.24984 1.48714Z"
           fill="#030308"
@@ -215,7 +217,7 @@ export const DownSort = () => {
           className={"lightHeight"}
         />
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clipRule="evenodd"
           d="M7.75 1.52539C7.75 1.24925 7.52614 1.02539 7.25 1.02539C6.97386 1.02539 6.75 1.24925 6.75 1.52539V10.5254C6.75 10.5936 6.76368 10.6587 6.78844 10.718C6.81171 10.7738 6.84556 10.8263 6.88998 10.8724C6.89425 10.8768 6.8986 10.8811 6.90303 10.8854C6.94787 10.9287 6.9988 10.9619 7.05299 10.9851C7.11345 11.011 7.18005 11.0254 7.25 11.0254C7.31995 11.0254 7.38655 11.011 7.44701 10.9851C7.5012 10.9619 7.55213 10.9287 7.59697 10.8854C7.59949 10.883 7.60199 10.8805 7.60446 10.878L10.6036 7.87894C10.7988 7.68368 10.7988 7.3671 10.6036 7.17184C10.4083 6.97657 10.0917 6.97657 9.89645 7.17184L7.75 9.31828V1.52539Z"
           fill="#EAAA00"
@@ -237,7 +239,7 @@ const Futures = () => {
   const [searchText, setSearchText] = useState("");
   let [searchParams] = useSearchParams();
   const q = searchParams.get('address');
-  const { chain } = useNetwork();
+  const { chainsData, signature } = useArithFi();
   const { address } = useAccount();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
@@ -266,31 +268,36 @@ const Futures = () => {
 
   const {data: overview} = useSWR(
     q || address
-      // TODO
-      ? `https://db.arithfi.com/dashboardapi/invite/overview/${
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/invite/overview?walletAddress=${
         q || address
-      }?chainId=${chain?.id ?? 56}`
-      : undefined,
-    (url) => fetch(url).then((res) => res.json())
+      }` : undefined,
+    (url: string) => fetch(url, {
+      headers: {
+        "Authorization": signature?.signature || "",
+      }
+    }).then((res) => res.json())
   );
+
   const {data: listData} = useSWR(
     q || address
-      // TODO
-      ? `https://db.arithfi.com/dashboardapi/invite/list-invitee/${
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/invite/list-invitee?walletAddress=${
         q || address
-      }?chainId=${chain?.id ?? 56}`
-      : undefined,
-    (url) => fetch(url).then((res) => res.json())
+      }` : undefined,
+    (url: string) => fetch(url, {
+      headers: {
+        "Authorization": signature?.signature || "",
+      }
+    }).then((res) => res.json())
   );
 
   const inviteeList = useMemo(() => {
     if (!listData) {
       return [];
     }
-    setTotalPage(Math.ceil(listData?.value?.length / 10));
-    return listData?.value
+    setTotalPage(Math.ceil(listData?.data?.length / 10));
+    return listData?.data
       ?.filter((item: any) => {
-        return item.inviteeWalletAddress
+        return item?.inviteeWalletAddress
           .toLowerCase()
           .includes(searchText.toLowerCase());
       })
@@ -675,11 +682,11 @@ const Futures = () => {
                         if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            q.slice(-8).toLowerCase();
+                            q?.slice(-8).toLowerCase();
                         } else if (address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
+                            address?.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar(t`Copy Successfully`);
@@ -729,11 +736,11 @@ const Futures = () => {
                         if (q) {
                           link =
                             "https://arithfi.com/?a=" +
-                            q.slice(-8).toLowerCase();
+                            q?.slice(-8).toLowerCase();
                         } else if (address) {
                           link =
                             "https://arithfi.com/?a=" +
-                            address.slice(-8).toLowerCase();
+                            address?.slice(-8).toLowerCase();
                         }
                         copy(link);
                         messageSnackBar("Copy Successfully");
@@ -952,7 +959,7 @@ const Futures = () => {
                     <Trans>My commissions</Trans>
                   </div>
                 </Stack>
-                {listData?.value?.length > 0 && (
+                {listData?.data?.length > 0 && (
                   <Stack
                     direction={"row"}
                     px={"20px"}
@@ -1039,7 +1046,7 @@ const Futures = () => {
                   {inviteeList.map((item: any, index: number) => (
                     <MobileOrderCard item={item} key={index}/>
                   ))}
-                  {inviteeList.length === 0 && (
+                  {inviteeList?.length === 0 && (
                     <Stack
                       justifyContent={"center"}
                       alignItems={"center"}
@@ -1312,12 +1319,11 @@ const Futures = () => {
                         },
                       })}
                     >
-                      {inviteeList
-                        .slice((currentPage - 1) * 10, currentPage * 10)
+                      {inviteeList?.length > 0 && inviteeList?.slice((currentPage - 1) * 10, currentPage * 10)
                         .map((item: any, index: number) => (
                           <PCOrderRow item={item} key={index}/>
                         ))}
-                      {inviteeList.length === 0 && (
+                      {inviteeList?.length === 0 && (
                         <TableRow sx={{"& td": {borderBottom: "0px"}}}>
                           <TableCell
                             colSpan={6}
@@ -1338,7 +1344,7 @@ const Futures = () => {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                {inviteeList.length > 0 && (
+                {inviteeList?.length > 0 && (
                   <Stack
                     direction={"row"}
                     spacing={"10px"}
