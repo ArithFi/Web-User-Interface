@@ -71,7 +71,6 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             !!props.show && (
               <YAxis axisLine={false} tickLine={false} hide={props.simple} tick={{fontSize: '10px'}} width={30}
                      tickFormatter={(value, index) => {
-                       // TODO
                        return numeral(value / 100).format('0%').toUpperCase()
                      }}
               />
