@@ -21,6 +21,7 @@ import TableBody from "@mui/material/TableBody";
 import {DownSort, Input, InputPC, NoSort, PaginationButton, Select1, UpSort} from "../Referral/Referral";
 import MobileMenu from "../Share/MobileMenu";
 import ArithFiTooltipFC from "../../../components/ArithFiTooltip/ArithFiTooltip";
+import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
 const Futures = () => {
   const {messageSnackBar} = useArithFiSnackBar();
@@ -62,33 +63,28 @@ const Futures = () => {
 
   const {data: overview} = useSWR(
     q || account.address
-      // TODO
-      ? `https://db.arithfi.com/arithfi/copy/kol/reward/overview?copyKolAddress=${
-        q || account.address
-      }&chainId=${chainsData.chainId ?? 56}`
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/copy/kol/reward/overview?kolAddress=${q || account.address}`
       : undefined,
-    (url) => fetch(url)
+    (url: string) => fetch(url)
       .then((res) => res.json())
-      .then(res => res.value)
+      .then(res => res.data?.[0])
   );
 
   const {data: listData} = useSWR(
     q || account.address
-      // TODO
-      ? `https://db.arithfi.com/arithfi/copy/kol/reward/list?copyKolAddress=${
-        q || account.address
-      }&chainId=${chainsData.chainId ?? 56}`
+      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/copy/kol/reward/list?copyKolAddress=${ q || account.address}`
       : undefined,
-    (url) => fetch(url)
+    (url: string) => fetch(url)
       .then((res) => res.json())
+      .then(res => res.data)
   );
 
   const inviteeList = useMemo(() => {
     if (!listData) {
       return [];
     }
-    setTotalPage(Math.ceil(listData?.value?.length / 10));
-    return listData?.value
+    setTotalPage(Math.ceil(listData?.length / 10));
+    return listData
       ?.filter((item: any) => {
         return item.walletAddress
           .toLowerCase()
@@ -714,7 +710,7 @@ const Futures = () => {
                     <Trans>My profit sharing</Trans>
                   </div>
                 </Stack>
-                {listData?.value?.length > 0 && (
+                {listData?.length > 0 && (
                   <Stack
                     direction={"row"}
                     px={"20px"}
