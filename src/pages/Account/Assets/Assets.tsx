@@ -780,7 +780,7 @@ const Assets = () => {
                     <Stack
                       key={index}
                       sx={(theme) => ({
-                        cursor: item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
+                        cursor: !item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
                         gap: '12px',
                         borderBottom: `1px solid ${theme.normal.border}`,
                         [theme.breakpoints.down("md")]: {
@@ -789,7 +789,7 @@ const Assets = () => {
                         }
                       })}
                       onClick={() => {
-                        if (item?.hash?.includes('-') || item?.hash?.includes(':')) return;
+                        if (!item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':')) return;
                         window.open(item?.hash?.hashToChainScan(item.chainId), '_blank')
                       }}
                     >
@@ -865,18 +865,18 @@ const Assets = () => {
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status === -1 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: item?.status === 1 ? theme.normal.success : (item?.status === -1 ? theme.normal.danger : theme.normal.primary),
+                            color: item?.status === 1 ? theme.normal.success : (item?.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
-                            {item?.status === -1 && 'Fail'}
-                            {(item?.status === 0 || item?.status === 255) && 'Pending'}
+                            {item?.status < 0 && 'Fail'}
                             {item?.status === 1 && 'Success'}
+                            {(item?.status === 0 || item?.status > 1) && 'Pending'}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}
                                sx={(theme) => ({
-                                 opacity: (item?.hash?.includes('-') || item?.hash?.includes(':')) ? 0 : 1,
+                                 opacity: (!item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':')) ? 0 : 1,
                                  svg: {
                                    path: {
                                      fill: theme.normal.text2,

@@ -63,14 +63,12 @@ interface MoneyTableRowProps {
 
 const MoneyTableRow: FC<MoneyTableRowProps> = ({ ...props }) => {
   const state = useMemo(() => {
-    if (props.state === -1) {
+    if (props.state < 0) {
       return t`Fail`;
-    } else if (props.state === 0 || props.state === 255) {
-      return t`Pending`;
     } else if (props.state === 1) {
       return t`Success`;
-    } else {
-      return "";
+    } else  {
+      return t`Pending`;
     }
   }, [props.state]);
   return (
@@ -201,17 +199,17 @@ const MoneyTableRow: FC<MoneyTableRowProps> = ({ ...props }) => {
           <Box
             sx={(theme) => {
               const color =
-                props.state === -1
+                props.state < 0
                   ? theme.normal.danger
-                  : props.state === 0 || props.state === 255
-                  ? theme.normal.primary
-                  : theme.normal.success;
+                  : props.state === 1
+                  ? theme.normal.success
+                  : theme.normal.primary;
               const borderColor =
-                props.state === -1
+                props.state < 0
                   ? theme.normal.danger_light_hover
-                  : props.state === 0 || props.state === 255
-                  ? theme.normal.primary_light_hover
-                  : theme.normal.success_light_hover;
+                  : props.state === 1
+                  ? theme.normal.success_light_hover
+                  : theme.normal.primary_light_hover;
               return {
                 padding: "4px",
                 borderRadius: "4px",

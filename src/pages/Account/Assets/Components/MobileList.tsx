@@ -94,14 +94,12 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
     return props.data.text;
   }, [props.data.text]);
   const state = useMemo(() => {
-    if (props.data.status === -1) {
+    if (props.data.status < 0) {
       return t`Fail`;
-    } else if (props.data.status === 0 || props.data.status === 255) {
-      return t`Pending`;
     } else if (props.data.status === 1) {
       return t`Success`;
     } else {
-      return "";
+      return t`Pending`;
     }
   }, [props.data.status]);
   const time =
@@ -208,17 +206,17 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
           <Box
             sx={(theme) => {
               const color =
-                props.data.status === -1
+                props.data.status < 0
                   ? theme.normal.danger
-                  : props.data.status === 0 || props.data.status === 255
-                  ? theme.normal.primary
-                  : theme.normal.success;
+                  : props.data.status === 1
+                  ? theme.normal.success
+                  : theme.normal.primary;
               const borderColor =
-                props.data.status === -1
+                props.data.status < 0
                   ? theme.normal.danger_light_hover
-                  : props.data.status === 0 || props.data.status === 255
-                  ? theme.normal.primary_light_hover
-                  : theme.normal.success_light_hover;
+                  : props.data.status === 1
+                  ? theme.normal.success_light_hover
+                  : theme.normal.primary_light_hover;
               return {
                 padding: "4px",
                 borderRadius: "4px",
