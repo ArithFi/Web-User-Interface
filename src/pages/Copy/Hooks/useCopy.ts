@@ -121,12 +121,12 @@ function useCopy() {
 
   useEffect(() => {
     if (myTradeData && Number(myTradeData?.["err"]) === 0) {
-      const value = myTradeData["data"];
+      const value = myTradeData?.["data"];
       const info: MyTradeInfoModel = {
-        assets: value["copy_balance"] + value["position"],
-          copyOrders: value["copy_order_count"],
-          unRealizedPnl: value["unrealized_pnl"],
-          profit: value["pnl_total"] - value["unrealized_pnl"],
+        assets: value?.["copy_balance"] + value?.["position"] || 0,
+          copyOrders: value?.["copy_order_count"] || 0,
+          unRealizedPnl: value?.["unrealized_pnl"] || 0,
+          profit: value?.["pnl_total"] - value?.["unrealized_pnl"] || 0,
       };
       setMyTradeInfo(info);
     }
