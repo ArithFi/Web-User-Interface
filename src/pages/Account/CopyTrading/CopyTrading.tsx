@@ -42,7 +42,7 @@ const CopyTrading = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const {data} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/account/copyTrading?walletAddress=${q || account.address}` : undefined,
+  const {data} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/account/copyTrading?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",

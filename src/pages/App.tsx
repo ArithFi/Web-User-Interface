@@ -44,7 +44,7 @@ const App: FC = () => {
       ) {
         return;
       }
-      fetch(`${serviceBaseURL(chainsData.chainId)}/arithfi/invite/saveInviteUser?walletAddress=${account.address}&inviteCode=${inviteCode.toLowerCase()}`, {
+      fetch(`${serviceBaseURL(chainsData.chainId)}/invite/saveInviteUser?walletAddress=${account.address}&inviteCode=${inviteCode.toLowerCase()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

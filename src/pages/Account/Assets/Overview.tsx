@@ -50,7 +50,7 @@ const Overview = () => {
   const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
-  const {data: withdrawData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?toAddress=${q || account.address}` : undefined,
+  const {data: withdrawData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Overview = () => {
       .then(res => res.json())
       .then(res => res.data));
 
-  const {data: depositData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listDeposit?txAddress=${q || account.address}` : undefined,
+  const {data: depositData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",

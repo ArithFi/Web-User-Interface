@@ -92,6 +92,7 @@ async function baseRequestGetWithHeader(
 }
 
 export function KOLClick(info: RequestBodyInterface) {
+  // TODO
   baseRequestPOSTWithBody(
     "https://db.arithfi.com/dashboardapi/kol/click",
     info
@@ -99,6 +100,7 @@ export function KOLClick(info: RequestBodyInterface) {
 }
 
 export function KOLWallet(info: RequestBodyInterface) {
+  // TODO
   baseRequestPOSTWithBody(
     "https://db.arithfi.com/dashboardapi/kol/wallet",
     info
@@ -106,11 +108,12 @@ export function KOLWallet(info: RequestBodyInterface) {
 }
 
 export function KOLTx(info: RequestBodyInterface) {
+  // TODO
   baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
 }
 
 export function getPriceListV2(chainId?: number): Promise<any> {
-  return baseRequestGet(`${serviceBaseURL(chainId)}/arithfi/oracle/list`);
+  return baseRequestGet(`${serviceBaseURL(chainId)}/oracle/list`);
 }
 
 /**
@@ -118,9 +121,9 @@ export function getPriceListV2(chainId?: number): Promise<any> {
  */
 export function serviceBaseURL(chainId: number = 97) {
   if (chainId === 56) {
-    return "https://db.arithfi.com";
+    return "https://db.nestfi.net/arithfi_main";
   } else {
-    return "https://db.nestfi.net";
+    return "https://db.nestfi.net/arithfi";
   }
 }
 
@@ -133,7 +136,7 @@ export function serviceLogin(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/user/login?walletAddress=${address}&remember=${remember}`,
+    )}/user/login?walletAddress=${address}&remember=${remember}`,
     info,
     {}
   );
@@ -153,7 +156,7 @@ export function serviceOpen(
   chainId?: number
 ): Promise<any> {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(chainId)}/arithfi/future/open`,
+    `${serviceBaseURL(chainId)}/future/open`,
     header,
     {
       walletAddress: address,
@@ -179,7 +182,7 @@ export function serviceAdd(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/add?walletAddress=${walletAddress}&id=${id}&append=${append}`,
+    )}/future/add?walletAddress=${walletAddress}&id=${id}&append=${append}`,
     header,
     {}
   );
@@ -196,7 +199,7 @@ export function serviceUpdateStopPrice(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/updateStopPrice?walletAddress=${walletAddress}&id=${id}&stopLossPrice=${stopLossPrice}&takeProfitPrice=${takeProfitPrice}`,
+    )}/future/updateStopPrice?walletAddress=${walletAddress}&id=${id}&stopLossPrice=${stopLossPrice}&takeProfitPrice=${takeProfitPrice}`,
     header,
     {}
   );
@@ -212,7 +215,7 @@ export function serviceUpdateLimitPrice(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/updateLimitPrice?walletAddress=${walletAddress}&id=${id}&limitPrice=${limitPrice}`,
+    )}/future/updateLimitPrice?walletAddress=${walletAddress}&id=${id}&limitPrice=${limitPrice}`,
     header,
     {}
   );
@@ -227,7 +230,7 @@ export function serviceCancel(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/cancel?walletAddress=${walletAddress}&id=${id}`,
+    )}/future/cancel?walletAddress=${walletAddress}&id=${id}`,
     header,
     {}
   );
@@ -242,7 +245,7 @@ export function serviceWithdraw(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/user/withdraw?walletAddress=${walletAddress}&value=${amount}`,
+    )}/user/withdraw?walletAddress=${walletAddress}&value=${amount}`,
     header,
     {}
   );
@@ -257,7 +260,7 @@ export function serviceClose(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/close?walletAddress=${walletAddress}&id=${id}`,
+    )}/future/close?walletAddress=${walletAddress}&id=${id}`,
     header,
     {}
   );
@@ -272,7 +275,7 @@ export function serviceSetFavorites(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/user/setFavorites?walletAddress=${walletAddress}&favorites=${favorites}`,
+    )}/user/setFavorites?walletAddress=${walletAddress}&favorites=${favorites}`,
     header,
     {}
   );
@@ -284,7 +287,7 @@ export function serviceAsset(
   chainId?: number
 ): Promise<any> {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/user/asset?walletAddress=${address}`,
+    `${serviceBaseURL(chainId)}/user/asset?walletAddress=${address}`,
     info
   );
 }
@@ -297,7 +300,7 @@ export function servicePList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=null&start=${0}&count=${999}`,
+    )}/future/list?walletAddress=${address}&status=2&copy=null&start=${0}&count=${999}`,
     info
   );
 }
@@ -310,11 +313,12 @@ export function serviceList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=4&copy=null&start=${0}&count=${999}`,
+    )}/future/list?walletAddress=${address}&status=4&copy=null&start=${0}&count=${999}`,
     info
   );
 }
 
+// TODO: don't use
 export function serviceAccountList(
   chainId: number,
   address: string,
@@ -323,7 +327,7 @@ export function serviceAccountList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/op/user/depositWithdraw/list?chainId=${chainId}&walletAddress=${address}`,
+    )}/op/user/depositWithdraw/list?chainId=${chainId}&walletAddress=${address}`,
     info
   );
 }
@@ -336,14 +340,14 @@ export function serviceFutureHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null&order=closeAt DESC&start=${0}&count=${999}`,
+    )}/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=null&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
 
 export function serviceIsOpen(info: RequestBodyInterface, chainId?: number) {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/oracle/isMarketOpen?product=USD/JPY`,
+    `${serviceBaseURL(chainId)}/oracle/isMarketOpen?product=USD/JPY`,
     info
   );
 }
@@ -357,7 +361,7 @@ export function copyFollow(
   chainId?: number
 ) {
   return baseRequestPOSTWithBody_return(
-    `${serviceBaseURL(chainId)}/arithfi/user/copySetting`,
+    `${serviceBaseURL(chainId)}/user/copySetting`,
     header,
     body
   );
@@ -371,7 +375,7 @@ export function copyClose(
   return baseRequestPOSTWithBody_return(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/user/cancelCopy?walletAddress=${walletAddress}&copyKolAddress=${copyKolAddress}`,
+    )}/user/cancelCopy?walletAddress=${walletAddress}&copyKolAddress=${copyKolAddress}`,
     header,
     {}
   );
@@ -383,7 +387,7 @@ export function copyAllKol(
   chainId?: number
 ) {
   return baseRequestGetWithHeader(
-    `${serviceBaseURL(chainId)}/arithfi/copy/kol/listFull?walletAddress=${
+    `${serviceBaseURL(chainId)}/copy/kol/listFull?walletAddress=${
       String().zeroAddress
     }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`follow DESC`}&start=0&count=999`,
     info
@@ -397,7 +401,7 @@ export function copyMyTradeInfo(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/user/account/copyTrading?walletAddress=${walletAddress}`,
+    )}/user/account/copyTrading?walletAddress=${walletAddress}`,
     info
   );
 }
@@ -411,7 +415,7 @@ export function copyKOLInfo(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/kol/detail?kolAddress=${kolAddress}&closeAtFromDate=${from}&closeAtToDate=${to}`,
+    )}/copy/kol/detail?kolAddress=${kolAddress}&closeAtFromDate=${from}&closeAtToDate=${to}`,
     info
   );
 }
@@ -425,7 +429,7 @@ export function copyEarningsList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/earnings/list?kolAddress=${kolAddress}&from=${from}&to=${to}`,
+    )}/copy/earnings/list?kolAddress=${kolAddress}&from=${from}&to=${to}`,
     info
   );
 }
@@ -439,7 +443,7 @@ export function copyPerformanceSymbol(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/performance/symbol?kolAddress=${kolAddress}&from=${from}&to=${to}`,
+    )}/copy/performance/symbol?kolAddress=${kolAddress}&from=${from}&to=${to}`,
     info
   );
 }
@@ -451,7 +455,7 @@ export function copyMyCopiesList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=2&copy=true&start=${0}&count=${999}`,
+    )}/future/list?walletAddress=${address}&status=2&copy=true&start=${0}&count=${999}`,
     info
   );
 }
@@ -463,7 +467,7 @@ export function copyMyCopiesHistoryList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true&order=closeAt DESC&start=${0}&count=${999}`,
+    )}/future/list?walletAddress=${address}&status=0,-1,-2,-3&copy=true&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -475,7 +479,7 @@ export function copyMyCopiesMyTradersList(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/follower/kolList?walletAddress=${walletAddress}`,
+    )}/copy/follower/kolList?walletAddress=${walletAddress}`,
     info
   );
 }
@@ -487,7 +491,7 @@ export function copyTraderCurrent(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=2&order=id DESC&start=${0}&count=${999}`,
+    )}/copy/listKolOrders?kolAddress=${address}&status=2&order=id DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -499,7 +503,7 @@ export function copyTraderHistory(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3&order=closeAt DESC&start=${0}&count=${999}`,
+    )}/copy/listKolOrders?kolAddress=${address}&status=0,-1,-2,-3&order=closeAt DESC&start=${0}&count=${999}`,
     info
   );
 }
@@ -512,7 +516,7 @@ export function copyCloseInfo(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/future/info?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
+    )}/copy/future/info?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
     info
   );
 }
@@ -525,7 +529,7 @@ export function copyAsset(
   return baseRequestGetWithHeader(
     `${serviceBaseURL(
       chainId
-    )}/arithfi/copy/follower/asset?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
+    )}/copy/follower/asset?walletAddress=${walletAddress}&kolAddress=${kolAddress}`,
     info
   );
 }

@@ -268,7 +268,7 @@ const Futures = () => {
 
   const {data: overview} = useSWR(
     q || address
-      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/invite/overview?walletAddress=${
+      ? `${serviceBaseURL(chainsData.chainId)}/invite/overview?walletAddress=${
         q || address
       }` : undefined,
     (url: string) => fetch(url, {
@@ -280,7 +280,7 @@ const Futures = () => {
 
   const {data: listData} = useSWR(
     q || address
-      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/invite/list-invitee?walletAddress=${
+      ? `${serviceBaseURL(chainsData.chainId)}/invite/list-invitee?walletAddress=${
         q || address
       }` : undefined,
     (url: string) => fetch(url, {
