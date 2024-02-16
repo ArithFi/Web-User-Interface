@@ -91,27 +91,6 @@ async function baseRequestGetWithHeader(
   }
 }
 
-export function KOLClick(info: RequestBodyInterface) {
-  // TODO
-  baseRequestPOSTWithBody(
-    "https://db.arithfi.com/dashboardapi/kol/click",
-    info
-  );
-}
-
-export function KOLWallet(info: RequestBodyInterface) {
-  // TODO
-  baseRequestPOSTWithBody(
-    "https://db.arithfi.com/dashboardapi/kol/wallet",
-    info
-  );
-}
-
-export function KOLTx(info: RequestBodyInterface) {
-  // TODO
-  baseRequestPOSTWithBody("https://db.arithfi.com/dashboardapi/kol/tx", info);
-}
-
 export function getPriceListV2(chainId?: number): Promise<any> {
   return baseRequestGet(`${serviceBaseURL(chainId)}/oracle/list`);
 }
