@@ -119,7 +119,7 @@ export function getPriceListV2(chainId?: number): Promise<any> {
 /**
  * service
  */
-export function serviceBaseURL(chainId: number = 97) {
+export function serviceBaseURL(chainId: number = 56) {
   if (chainId === 56) {
     return "https://db.nestfi.net/arithfi_main";
   } else {
