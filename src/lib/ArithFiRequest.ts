@@ -318,20 +318,6 @@ export function serviceList(
   );
 }
 
-// TODO: don't use
-export function serviceAccountList(
-  chainId: number,
-  address: string,
-  info: RequestBodyInterface
-) {
-  return baseRequestGetWithHeader(
-    `${serviceBaseURL(
-      chainId
-    )}/op/user/depositWithdraw/list?chainId=${chainId}&walletAddress=${address}`,
-    info
-  );
-}
-
 export function serviceFutureHistory(
   address: string,
   info: RequestBodyInterface,

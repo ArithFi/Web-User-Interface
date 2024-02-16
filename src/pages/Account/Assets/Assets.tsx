@@ -46,7 +46,6 @@ const Assets = () => {
     setShowDeposit,
     showWithdraw,
     setShowWithdraw,
-    getAssetsList,
   } = useAccount();
   const {
     uniSwapAmountOut,
@@ -118,7 +117,6 @@ const Assets = () => {
                   info: "",
                   result: res ? SnackBarType.success : SnackBarType.fail,
                 });
-                getAssetsList();
               }
               setShowWithdraw(false);
             }}
@@ -130,7 +128,6 @@ const Assets = () => {
     );
   }, [
     // addTransactionNotice,
-    getAssetsList,
     setShowDeposit,
     setShowWithdraw,
     showDeposit,
