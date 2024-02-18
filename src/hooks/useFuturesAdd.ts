@@ -99,38 +99,32 @@ function useFuturesAdd(
   }, [data.orderPrice, data.product]);
 
   const showLiqPrice = useMemo(() => {
-    const nowPrice = price?.[data.product.toLocaleUpperCase()]
-    if (price && nowPrice != null) {
-      const balance =
-        data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-      const orderPrice =
-        data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-      const result = lipPrice(
-        data.product,
-        balance,
-        arithFiAmount === ""
-          ? BigNumber.from("0")
-          : arithFiAmount.stringToBigNumber(4)!,
-        BigNumber.from(data.leverage.toString()),
-        nowPrice,
-        orderPrice,
-        data.direction
-      );
-      return result.bigNumberToShowPrice(
-        18,
-        data.product.getTokenPriceDecimals()
-      );
-    } else {
-      return String().placeHolder;
-    }
+    const balance =
+      data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const orderPrice =
+      data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const append =
+      data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const result = lipPrice(
+      data.product,
+      balance,
+      append,
+      BigNumber.from(data.leverage.toString()),
+      BigNumber.from("0"),
+      orderPrice,
+      data.direction
+    );
+    return result.bigNumberToShowPrice(
+      18,
+      data.product.getTokenPriceDecimals()
+    );
   }, [
-    arithFiAmount,
+    data.append,
     data.direction,
     data.leverage,
     data.margin,
     data.orderPrice,
     data.product,
-    price,
   ]);
   /**
    * main button

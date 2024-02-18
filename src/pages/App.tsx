@@ -37,7 +37,6 @@ const App: FC = () => {
           .split("?position=")[0];
       }
     }
-
     if (inviteCode && account.address) {
       if (
         inviteCode.toLowerCase() === account.address.toLowerCase().slice(-8)
