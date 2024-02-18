@@ -5,7 +5,7 @@ import ArithFiFoot from "./Share/Foot/ArithFiFoot";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import useWindowWidth from "../hooks/useWindowWidth";
-import {KOLClick, KOLWallet, serviceBaseURL} from "../lib/ArithFiRequest";
+import {serviceBaseURL} from "../lib/ArithFiRequest";
 import {getQueryVariable} from "../lib/queryVaribale";
 import useArithFi from "../hooks/useArithFi";
 
@@ -43,7 +43,7 @@ const App: FC = () => {
       ) {
         return;
       }
-      fetch(`${serviceBaseURL(chainsData.chainId)}/arithfi/invite/saveInviteUser?walletAddress=${account.address}&inviteCode=${inviteCode.toLowerCase()}`, {
+      fetch(`${serviceBaseURL(chainsData.chainId)}/invite/saveInviteUser?walletAddress=${account.address}&inviteCode=${inviteCode.toLowerCase()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,20 +58,6 @@ const App: FC = () => {
   useEffect(() => {
     handleInviteCode();
   }, [handleInviteCode]);
-  // count KOL Link
-  useEffect(() => {
-    let code = getQueryVariable("pt");
-    if (code) {
-      KOLClick({ kolLink: window.location.href });
-    }
-  }, []);
-  // count KOL Link with address
-  useEffect(() => {
-    let code = getQueryVariable("pt");
-    if (code && account.address && chainsData?.chainId !== 97) {
-      KOLWallet({ kolLink: window.location.href, wallet: account.address });
-    }
-  }, [account.address, chainsData]);
 
   const MainContent = styled("div")(({ theme }) => {
     return {

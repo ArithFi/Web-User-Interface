@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { FuturesPrice, isForex } from "../pages/Futures/Futures";
 import useArithFi from "./useArithFi";
 import { getQueryVariable } from "../lib/queryVaribale";
-import { KOLTx, serviceOpen } from "../lib/ArithFiRequest";
+import { serviceOpen } from "../lib/ArithFiRequest";
 import { t } from "@lingui/macro";
 import useService from "../contracts/useService";
 import {
@@ -216,11 +216,6 @@ function useFuturesNewOrder(
         );
         if (Number(openBase["err"]) === 0) {
           getBalance();
-          KOLTx({
-            kolLink: window.location.href,
-            hash: "",
-            positionIndex: openBase["value"],
-          });
           updateList();
         }
         addTransactionNotice({

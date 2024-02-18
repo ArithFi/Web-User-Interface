@@ -28,7 +28,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {chainsData, signature} = useArithFi()
   const to = props.to ?? new Date().toLocaleDateString().replaceAll('/', '-')
   const from = props.from ?? new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString().replaceAll('/', '-')
-  const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/arithfi/dashboard/personal/volume?walletAddress=${props.address}&from=${from}&to=${to}&copy=1`,
+  const {data} = useSWR(`${serviceBaseURL(chainsData.chainId)}/dashboard/personal/volume?walletAddress=${props.address}&from=${from}&to=${to}&copy=1`,
     (url: string) => fetch(url, {
       headers: {
         "Content-Type": "application/json",

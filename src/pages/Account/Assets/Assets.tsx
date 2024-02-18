@@ -46,7 +46,6 @@ const Assets = () => {
     setShowDeposit,
     showWithdraw,
     setShowWithdraw,
-    getAssetsList,
   } = useAccount();
   const {
     uniSwapAmountOut,
@@ -54,7 +53,7 @@ const Assets = () => {
   } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), [ATFToken[chainsData.chainId!], USDTToken[chainsData.chainId!]]);
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/account/total?walletAddress=${q || account.address}` : undefined,
+  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/account/total?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +72,7 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listWithdraw?toAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -82,7 +81,7 @@ const Assets = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/arithfi/user/listDeposit?txAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -118,7 +117,6 @@ const Assets = () => {
                   info: "",
                   result: res ? SnackBarType.success : SnackBarType.fail,
                 });
-                getAssetsList();
               }
               setShowWithdraw(false);
             }}
@@ -130,7 +128,6 @@ const Assets = () => {
     );
   }, [
     // addTransactionNotice,
-    getAssetsList,
     setShowDeposit,
     setShowWithdraw,
     showDeposit,
@@ -780,7 +777,7 @@ const Assets = () => {
                     <Stack
                       key={index}
                       sx={(theme) => ({
-                        cursor: item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
+                        cursor: !item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
                         gap: '12px',
                         borderBottom: `1px solid ${theme.normal.border}`,
                         [theme.breakpoints.down("md")]: {
@@ -789,7 +786,7 @@ const Assets = () => {
                         }
                       })}
                       onClick={() => {
-                        if (item?.hash?.includes('-') || item?.hash?.includes(':')) return;
+                        if (!item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':')) return;
                         window.open(item?.hash?.hashToChainScan(item.chainId), '_blank')
                       }}
                     >
@@ -865,18 +862,18 @@ const Assets = () => {
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status === -1 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: item?.status === 1 ? theme.normal.success : (item?.status === -1 ? theme.normal.danger : theme.normal.primary),
+                            color: item?.status === 1 ? theme.normal.success : (item?.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
-                            {item?.status === -1 && 'Fail'}
-                            {(item?.status === 0 || item?.status === 255) && 'Pending'}
+                            {item?.status < 0 && 'Fail'}
                             {item?.status === 1 && 'Success'}
+                            {(item?.status === 0 || item?.status > 1) && 'Pending'}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}
                                sx={(theme) => ({
-                                 opacity: (item?.hash?.includes('-') || item?.hash?.includes(':')) ? 0 : 1,
+                                 opacity: (!item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':')) ? 0 : 1,
                                  svg: {
                                    path: {
                                      fill: theme.normal.text2,

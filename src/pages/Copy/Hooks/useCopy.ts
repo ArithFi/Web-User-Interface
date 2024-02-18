@@ -35,7 +35,7 @@ export interface MyTradeInfoModel {
 }
 
 function useCopy() {
-  const { account, signature } = useArithFi();
+  const { account, signature, chainsData } = useArithFi();
   const [kolList, setKolList] = useState<Array<AllKOLModel>>([]);
   const [myTradeInfo, setMyTradeInfo] = useState<MyTradeInfoModel>();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,7 +53,7 @@ function useCopy() {
   const closeAtToDate = formatTVDate(nowTime);
 
   const { data: kolListData, isLoading: isKOLListLoading } = useSWR(
-    `${serviceBaseURL()}/arithfi/copy/kol/listFull?walletAddress=${
+    `${serviceBaseURL(chainsData.chainId)}/copy/kol/listFull?walletAddress=${
       account.address ?? String().zeroAddress
     }&closeAtFromDate=${closeAtFromDate}&closeAtToDate=${closeAtToDate}&followOnly=false&order=${`currentFollowers DESC`}&start=${
       (page - 1) * pageAmount
@@ -65,7 +65,7 @@ function useCopy() {
   );
   const { data: myTradeData } = useSWR(
     signature?.signature
-      ? `${serviceBaseURL()}/arithfi/user/account/copyTrading?walletAddress=${
+      ? `${serviceBaseURL(chainsData.chainId)}/user/account/copyTrading?walletAddress=${
           account.address ?? ""
         }`
       : undefined,
@@ -121,12 +121,12 @@ function useCopy() {
 
   useEffect(() => {
     if (myTradeData && Number(myTradeData?.["err"]) === 0) {
-      const value = myTradeData["data"];
+      const value = myTradeData?.["data"];
       const info: MyTradeInfoModel = {
-        assets: value["copy_balance"] + value["position"],
-          copyOrders: value["copy_order_count"],
-          unRealizedPnl: value["unrealized_pnl"],
-          profit: value["pnl_total"] - value["unrealized_pnl"],
+        assets: value?.["copy_balance"] + value?.["position"] || 0,
+          copyOrders: value?.["copy_order_count"] || 0,
+          unRealizedPnl: value?.["unrealized_pnl"] || 0,
+          profit: value?.["pnl_total"] - value?.["unrealized_pnl"] || 0,
       };
       setMyTradeInfo(info);
     }

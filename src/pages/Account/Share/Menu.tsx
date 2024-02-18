@@ -15,7 +15,7 @@ const Menu = () => {
 
   const {data: isKol} = useSWR(
     (q || address)
-      ? `https://db.arithfi.com/dashboardapi/invite/is-kol-whitelist/${
+      ? `${serviceBaseURL(chainsData.chainId)}/invite/is-kol-whitelist?walletAddress=${
         q || address
       }`
       : undefined,
@@ -27,7 +27,7 @@ const Menu = () => {
 
   const {data: isCopyKol} = useSWR(
     (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/arithfi/copy/kol/get?kolAddress=${q || address}` : undefined,
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/get?kolAddress=${q || address}` : undefined,
     (url: any) =>
       fetch(url, {
         headers: {

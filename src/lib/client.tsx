@@ -37,8 +37,8 @@ export const DEFAULT_CHAIN_ID = 56;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   // [bsc, scrollAlphaTestnet],
-  [bscTestnet],
-  // [bsc],
+  // [bscTestnet],
+  [bsc],
   [
     publicProvider(),
     jsonRpcProvider({

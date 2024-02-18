@@ -69,7 +69,7 @@ function useMainReact() {
       (async () => {
         try {
           await fetch(
-            `${serviceBaseURL(chainId)}/arithfi/dashboard/entirety/setwallet?address=${account.address}`,
+            `${serviceBaseURL(chainId)}/dashboard/entirety/setwallet?address=${account.address}`,
             {
               method: "POST",
             }

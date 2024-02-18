@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import useService from "../contracts/useService";
 import useArithFi from "./useArithFi";
-import { serviceAccountList } from "../lib/ArithFiRequest";
 
 export interface AccountListData {
   text: string;
@@ -22,35 +21,6 @@ function useAccount() {
   const [tokenBalance, setTokenBalance] = useState<number>();
   const [tokenBlockBalance, setTokenBlockBalance] = useState<number>();
   const [moneyList, setMoneyList] = useState<Array<AccountListData>>([]);
-  /**
-   * List
-   */
-  const getAssetsList = useCallback(async () => {
-    if (chainsData.chainId && account.address && signature) {
-      const assetsListBase = await serviceAccountList(
-        chainsData.chainId,
-        account.address,
-        { Authorization: signature.signature }
-      );
-      if (Number(assetsListBase["err"]) === 0) {
-        const value = assetsListBase["value"];
-        const list: Array<AccountListData> = value.map((item: any) => {
-          const one: AccountListData = {
-            text: `${Number(item["amount"]).floor(2)} ATF`,
-            time: item["timestamp"],
-            applyTime: item["applyTime"],
-            status: item["status"],
-            chainId: item["chainId"],
-            hash: item["hash"],
-            ordertype: item["ordertype"],
-            info: item["info"] || undefined,
-          };
-          return one;
-        });
-        setMoneyList(list);
-      }
-    }
-  }, [account.address, chainsData.chainId, signature]);
   /**
    * balance
    */
@@ -113,16 +83,6 @@ function useAccount() {
     };
   }, [getBlockBalance]);
 
-  useEffect(() => {
-    getAssetsList();
-    const time = setInterval(() => {
-      getAssetsList();
-    }, 10 * 1000);
-    return () => {
-      clearInterval(time);
-    };
-  }, [getAssetsList]);
-
   return {
     showDeposit,
     setShowDeposit,
@@ -131,7 +91,6 @@ function useAccount() {
     showBalance,
     showBlockBalance,
     moneyList,
-    getAssetsList,
   };
 }
 

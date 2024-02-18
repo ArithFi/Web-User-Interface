@@ -3,6 +3,8 @@ import {FC, useMemo} from "react";
 import {ETHLogo} from "../../components/icons";
 import useSWR from "swr";
 import {Link} from "react-router-dom";
+import {serviceBaseURL} from "../../lib/ArithFiRequest";
+import useArithFi from "../../hooks/useArithFi";
 
 export const TradeCard: FC<{
   pair1: string,
@@ -13,14 +15,15 @@ export const TradeCard: FC<{
     const token = `${pair1}/${pair2}`?.getToken()
     return token ? token.icon : ETHLogo
   }, [pair1, pair2]);
+  const {chainsData} = useArithFi();
 
-  const {data: price,} = useSWR(`https://db.arithfi.com/api/oracle/price/${pair1}${pair2}`,
-    (url) => fetch(url).then((res) => res.json()).then((res) => res?.value), {
+  const {data: price,} = useSWR(`${serviceBaseURL(chainsData.chainId)}/oracle/price?product=${pair1}/${pair2}`,
+    (url: string) => fetch(url).then((res) => res.json()).then((res) => res?.data), {
       refreshInterval: 1000,
     });
 
-  const {data: price24h} = useSWR(`https://db.arithfi.com/api/oracle/price/ticker/24hr?symbol=${pair1}${pair2}`,
-    (url) => fetch(url).then((res) => res.json()).then((res) => Number(res?.priceChangePercent || 0)), {
+  const {data: price24h} = useSWR(`${serviceBaseURL(chainsData.chainId)}/oracle/ticker24hr?product=${pair1}/${pair2}`,
+    (url: string) => fetch(url).then((res) => res.json()).then((res) => Number(res?.data?.priceChangePercent || 0)), {
       refreshInterval: 1000,
     })
 
