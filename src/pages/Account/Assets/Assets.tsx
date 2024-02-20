@@ -172,7 +172,7 @@ const Assets = () => {
       type: item.type,
       ordertype: parseOrderType(item.type),
     })) : [];
-    return withdrawList.concat(depositList).concat(assetRecordList);
+    return withdrawList.concat(depositList).concat(assetRecordList).sort((a: any, b: any) => b.time - a.time).slice(0, 5);
   }, [assetRecord, withdrawData, depositData])
 
   useEffect(() => {

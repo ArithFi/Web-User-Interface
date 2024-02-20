@@ -165,7 +165,7 @@ const Overview = () => {
           chainId: item.chainId,
           hash: item.hash,
           ordertype: parseOrderType(item.type),
-        })))
+        }))).sort((a: any, b: any) => b.time - a.time)
     }
 
     if (isBigMobile) {
