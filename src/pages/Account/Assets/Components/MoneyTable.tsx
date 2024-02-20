@@ -33,7 +33,7 @@ const MoneyTable: FC<MoneyTableProps> = ({ ...props }) => {
         state={item.status}
         link={item.hash && showLink() ? item.hash.hashToChainScan(item.chainId) : undefined}
         type={props.type}
-        orderType={parseOrderType(item.ordertype, item?.info)}
+        orderType={item.ordertype || ""}
       />
     );
   });
@@ -65,9 +65,9 @@ const MoneyTableRow: FC<MoneyTableRowProps> = ({ ...props }) => {
   const state = useMemo(() => {
     if (props.state < 0) {
       return t`Fail`;
-    } else if (props.state === 1) {
+    } else if (props.state === 1 || props.state === 2) {
       return t`Success`;
-    } else  {
+    } else if (props.state === 3 || props.state === 0) {
       return t`Pending`;
     }
   }, [props.state]);

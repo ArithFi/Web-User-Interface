@@ -72,23 +72,15 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
-
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
+    (url: any) => fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": signature?.signature || ""
+      }
+    })
+      .then(res => res.json())
+      .then(res => res.data));
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -135,30 +127,15 @@ const Assets = () => {
   ]);
 
   const moneyList = useMemo(() => {
-    let filterList: any[];
-    const withdrawList = withdrawData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
+    return assetRecord?.map((item: any) => ({
+      text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
       time: new Date(item["ts"]).getTime() / 1000,
       status: item["status"],
-      applyTime: new Date(item["completeAt"]).getTime() / 1000,
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: "WITHDRAW",
-      info: "",
+      ordertype: parseOrderType(item.type),
     }));
-    const depositList = depositData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: item["status"],
-      applyTime: new Date(item["completeAt"]).getTime() / 1000,
-      chainId: item.chainId,
-      hash: item.hash,
-      ordertype: "DEPOSIT",
-      info: "",
-    }));
-    filterList = withdrawList?.concat(depositList);
-    return filterList?.sort((a: any, b: any) => b?.time - a?.time) || [];
-  }, [withdrawData, depositData])
+  }, [assetRecord])
 
   useEffect(() => {
     if (showNumber) {
@@ -773,7 +750,7 @@ const Assets = () => {
               </Stack>
               <Stack overflow={'scroll'}>
                 {
-                  moneyList?.length > 0 ? moneyList?.slice(0, 5)?.map((item, index) => (
+                  moneyList?.length > 0 ? moneyList?.slice(0, 5)?.map((item: any, index: number) => (
                     <Stack
                       key={index}
                       sx={(theme) => ({
@@ -847,7 +824,7 @@ const Assets = () => {
                                 fontWeight: '400',
                                 lineHeight: '14px',
                                 color: theme.normal.text0,
-                              })}>{parseOrderType(item?.ordertype || '', item?.info)}</Stack>
+                              })}>{item?.ordertype}</Stack>
                             </Stack>
                             <Stack sx={(theme) => ({
                               fontSize: '10px',
@@ -855,7 +832,7 @@ const Assets = () => {
                               lineHeight: '14px',
                               color: theme.normal.text2,
                             })}>
-                              {item?.status === 0 || item?.status === 255 ? new Date((item?.applyTime || 0) * 1000).toLocaleString() : new Date(item?.time * 1000).toLocaleString()}
+                              {new Date(item?.time * 1000).toLocaleString()}
                             </Stack>
                           </Stack>
                           <Stack px={'4px'} py={'3px'} sx={(theme) => ({
@@ -867,8 +844,8 @@ const Assets = () => {
                             color: item?.status === 1 ? theme.normal.success : (item?.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
                             {item?.status < 0 && 'Fail'}
-                            {item?.status === 1 && 'Success'}
-                            {(item?.status === 0 || item?.status > 1) && 'Pending'}
+                            {item?.status === 1 && item?.status === 2 && 'Success'}
+                            {(item?.status === 0 || item?.status === 3) && 'Pending'}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}

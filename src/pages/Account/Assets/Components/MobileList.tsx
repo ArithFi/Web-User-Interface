@@ -4,7 +4,6 @@ import {Fail, NEXT, Success} from "../../../../components/icons";
 import Box from "@mui/material/Box";
 import {t} from "@lingui/macro";
 import {AccountListData} from "../../../../hooks/useAccount";
-import {parseOrderType} from "../Overview";
 import {useNetwork} from "wagmi";
 
 export enum AccountListType {
@@ -96,9 +95,9 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
   const state = useMemo(() => {
     if (props.data.status < 0) {
       return t`Fail`;
-    } else if (props.data.status === 1) {
+    } else if (props.data.status === 1 || props.data.status === 2) {
       return t`Success`;
-    } else {
+    } else if (props.data.status === 3 || props.data.status === 0) {
       return t`Pending`;
     }
   }, [props.data.status]);
@@ -173,7 +172,7 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
                 color: theme.normal.text0,
               })}
             >
-              {parseOrderType(props.data.ordertype, props.data.info)}
+              {props.data.ordertype}
             </Box>
           </Stack>
 

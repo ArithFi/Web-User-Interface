@@ -14,21 +14,19 @@ import MobileMenu from "../Share/MobileMenu";
 import useSWR from "swr";
 import {serviceBaseURL} from "../../../lib/ArithFiRequest";
 
-export const DEPOSIT_TYPES = ['DEPOSIT', 'COPY_TO_AVAILABLE', "SETTLE", 'WALLET_DEPOSIT'];
+export const DEPOSIT_TYPES = ['AIRDROP', 'SETTLE_SERVICE_FEE', "SETTLE_COPY_REWARDS", 'SETTLE_COPY_RETURNS', 'USER_DEPOSIT', 'COPY_TO_AVAILABLE'];
+export const WITHDRAW_TYPES = ["USER_WITHDRAW", "AVAILABLE_TO_COPY"];
 
-export const parseOrderType = (type: string | undefined, info: string | undefined) => {
+export const parseOrderType = (type: string | undefined) => {
   switch (type) {
-    case "SETTLE":
-      if (info === 'copy return') {
-        return t`Return`;
-      } else if (info === 'copy reward') {
-        return t`Profit Sharing`;
-      } else if (info === 'future') {
-        return t`Commission`;
-      } else return t`Deposit`;
-    case "DEPOSIT":
-    case "WALLET_DEPOSIT":
+    case "AIRDROP":
+    case "USER_DEPOSIT":
+    case "SETTLE_SERVICE_FEE":
       return t`Deposit`;
+    case "SETTLE_COPY_REWARDS":
+      return t`Profit Sharing`;
+    case "SETTLE_COPY_RETURNS":
+      return t`Return`;
     case "COPY_TO_AVAILABLE":
       return t`Copy Settle`;
     case "WITHDRAW":
@@ -50,17 +48,7 @@ const Overview = () => {
   const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
-  const {data: withdrawData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}` : undefined,
-    (url: any) => fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": signature?.signature || ""
-      }
-    })
-      .then(res => res.json())
-      .then(res => res.data));
-
-  const {data: depositData} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -120,57 +108,31 @@ const Overview = () => {
   const list = useMemo(() => {
     let filterList: any[];
     if (tabsValue === 1) {
-      filterList = withdrawData?.map((item: {
-        id: number,
-        ts: string,
-        chainId: number,
-        hash: string,
-        nonce: number,
-        txAddress: string,
-        fromAddress: string,
-        toAddress: string,
-        value: number,
-        bn: number,
-        status: number,
-        completeAt: string,
-        auditor: null,
-        auditAt: null,
-      }) => ({
-        text: `${item.value.toFixed(2)} ATF`,
-        time: new Date(item["ts"]).getTime() / 1000,
-        status: item["status"],
-        applyTime: new Date(item["completeAt"]).getTime() / 1000,
-        chainId: item.chainId,
-        hash: item.hash,
-        ordertype: "WITHDRAW",
-        info: "",
-      }))
+      filterList = assetRecord
+        ?.filter((item: any) => WITHDRAW_TYPES.includes(item.type))
+        ?.map((item: any) => ({
+          text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
+          time: new Date(item["ts"]).getTime() / 1000,
+          status: item["status"],
+          applyTime: new Date(item["completeAt"]).getTime() / 1000,
+          chainId: item.chainId,
+          hash: item.hash,
+          ordertype: parseOrderType(item.type),
+          info: "",
+        }))
     } else {
-      filterList = depositData?.map((item: {
-        id: number,
-        ts: string,
-        chainId: number,
-        hash: string,
-        nonce: number,
-        txAddress: string,
-        fromAddress: string,
-        toAddress: string,
-        value: number,
-        bn: number,
-        status: number,
-        completeAt: string,
-        auditor: null,
-        auditAt: null,
-      }) => ({
-        text: `${item.value.toFixed(2)} ATF`,
-        time: new Date(item["ts"]).getTime() / 1000,
-        status: item["status"],
-        applyTime: new Date(item["completeAt"]).getTime() / 1000,
-        chainId: item.chainId,
-        hash: item.hash,
-        ordertype: "DEPOSIT",
-        info: "",
-      }))
+      filterList = assetRecord
+        ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type))
+        ?.map((item: any) => ({
+          text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
+          time: new Date(item["ts"]).getTime() / 1000,
+          status: item["status"],
+          applyTime: new Date(item["completeAt"]).getTime() / 1000,
+          chainId: item.chainId,
+          hash: item.hash,
+          ordertype: parseOrderType(item.type),
+          info: "",
+        }))
     }
 
     if (isBigMobile) {
@@ -197,7 +159,7 @@ const Overview = () => {
     } else {
       return <MoneyTable list={filterList || []} type={listType}/>;
     }
-  }, [isBigMobile, listType, tabsValue, depositData, withdrawData]);
+  }, [isBigMobile, listType, tabsValue, assetRecord]);
 
   return (
     <Stack sx={(theme) => ({
