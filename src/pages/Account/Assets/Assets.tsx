@@ -72,7 +72,7 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -81,7 +81,7 @@ const Assets = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""

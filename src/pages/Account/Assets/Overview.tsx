@@ -48,7 +48,7 @@ const Overview = () => {
   const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -57,7 +57,7 @@ const Overview = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": signature?.signature || ""
@@ -66,7 +66,7 @@ const Overview = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
