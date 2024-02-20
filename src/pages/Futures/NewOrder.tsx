@@ -77,6 +77,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     amountPercent,
     amountPercentCallBack,
     loading,
+    limitModalPrice,
   } = useFuturesNewOrder(props.price, props.tokenPair, props.updateList);
 
   const modals = useMemo(() => {
@@ -129,7 +130,9 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           lever={lever}
           baseAmount={inputAmount === "" ? 0 : Number(inputAmount)}
           limitPrice={
-            showOpenPrice === String().placeHolder ? 0 : Number(showOpenPrice)
+            limitModalPrice === String().placeHolder || limitModalPrice === ""
+              ? 0
+              : Number(limitModalPrice)
           }
           token={props.tokenPair}
           tpNow={Number(tp)}

@@ -471,6 +471,13 @@ function useFuturesNewOrder(
       return String().placeHolder;
     }
   }, [openPriceBase, tokenPair]);
+  const limitModalPrice = useMemo(() => {
+    if (tabsValue === 1) {
+      return limitAmount
+    } else {
+      return showOpenPrice
+    }
+  }, [limitAmount, showOpenPrice, tabsValue])
   const showFee = useMemo(() => {
     return fee.bigNumberToShowString(18, 2);
   }, [fee]);
@@ -647,6 +654,7 @@ function useFuturesNewOrder(
     amountPercent,
     amountPercentCallBack,
     loading,
+    limitModalPrice
   };
 }
 
