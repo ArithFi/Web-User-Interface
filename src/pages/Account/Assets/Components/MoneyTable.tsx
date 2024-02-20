@@ -18,10 +18,7 @@ interface MoneyTableProps {
 
 const MoneyTable: FC<MoneyTableProps> = ({ ...props }) => {
   const rows = props.list.map((item, index) => {
-    const time =
-      item.status === 0 || item.status === 255
-        ? new Date((item.applyTime ?? 0) * 1000)
-        : new Date(item.time * 1000);
+    const time = new Date(item.time * 1000)
         const showLink = () => {
     return !item.hash?.includes('-') && !item.hash?.includes(':');
   };

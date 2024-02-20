@@ -151,7 +151,8 @@ const Assets = () => {
       status: item["status"],
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: parseOrderType(item.type),
+      type: "USER_WITHDRAW",
+      ordertype: parseOrderType("USER_WITHDRAW"),
     })) : [];
     const depositList = depositData ? depositData?.map((item: any) => ({
       text: `${item.value.toFixed(2)} ATF`,
@@ -159,7 +160,8 @@ const Assets = () => {
       status: item["status"],
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: parseOrderType(item.type),
+      type: "USER_DEPOSIT",
+      ordertype: parseOrderType("USER_DEPOSIT"),
     })) : [];
     const assetRecordList = assetRecord ? assetRecord?.map((item: any) => ({
       text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
@@ -167,6 +169,7 @@ const Assets = () => {
       status: 1,
       chainId: item.chainId,
       hash: item.hash,
+      type: item.type,
       ordertype: parseOrderType(item.type),
     })) : [];
     return withdrawList.concat(depositList).concat(assetRecordList);

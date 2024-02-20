@@ -131,7 +131,8 @@ const Overview = () => {
       status: item["status"],
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: parseOrderType(item.type),
+      type: "USER_WITHDRAW",
+      ordertype: parseOrderType("USER_WITHDRAW"),
     })) : [];
     const depositList = depositData ? depositData?.map((item: any) => ({
       text: `${item.value.toFixed(2)} ATF`,
@@ -139,7 +140,8 @@ const Overview = () => {
       status: item["status"],
       chainId: item.chainId,
       hash: item.hash,
-      ordertype: parseOrderType(item.type),
+      type: "USER_DEPOSIT",
+      ordertype: parseOrderType("USER_DEPOSIT"),
     })) : [];
     if (tabsValue === 1) {
       filterList = withdrawList.concat(assetRecord
@@ -150,6 +152,7 @@ const Overview = () => {
           status: item["status"],
           chainId: item.chainId,
           hash: item.hash,
+          type: item.type,
           ordertype: parseOrderType(item.type),
         })))
     } else {
