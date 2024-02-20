@@ -15,7 +15,7 @@ const Menu = () => {
   const { chainsData, signature } = useArithFi()
   const {data: isKol} = useSWR(
     (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/invite/is-kol-whitelist?walletAddress=${
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kolInvite/get?kolAddress=${
         q || address
       }`
       : undefined,
@@ -32,7 +32,7 @@ const Menu = () => {
 
   const {data: isCopyKol} = useSWR(
     (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/info?kolAddress=${q || address}` : undefined,
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/get?kolAddress=${q || address}` : undefined,
     (url: any) =>
       fetch(url, {
         headers: {

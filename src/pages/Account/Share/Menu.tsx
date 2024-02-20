@@ -15,14 +15,14 @@ const Menu = () => {
 
   const {data: isKol} = useSWR(
     (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/invite/is-kol-whitelist?walletAddress=${
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kolInvite/get?kolAddress=${
         q || address
       }`
       : undefined,
     (url: any) =>
       fetch(url)
         .then((res) => res.json())
-        .then((res: any) => res.value)
+        .then((res: any) => res.data)
   );
 
   const {data: isCopyKol} = useSWR(
