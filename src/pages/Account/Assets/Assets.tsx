@@ -72,6 +72,24 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
   const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
     (url: any) => fetch(url, {
       headers: {
@@ -127,15 +145,32 @@ const Assets = () => {
   ]);
 
   const moneyList = useMemo(() => {
-    return assetRecord?.map((item: any) => ({
-      text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
+    const withdrawList = withdrawData ? withdrawData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
       time: new Date(item["ts"]).getTime() / 1000,
       status: item["status"],
       chainId: item.chainId,
       hash: item.hash,
       ordertype: parseOrderType(item.type),
-    }));
-  }, [assetRecord])
+    })) : [];
+    const depositList = depositData ? depositData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: parseOrderType(item.type),
+    })) : [];
+    const assetRecordList = assetRecord ? assetRecord?.map((item: any) => ({
+      text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: 1,
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: parseOrderType(item.type),
+    })) : [];
+    return withdrawList.concat(depositList).concat(assetRecordList);
+  }, [assetRecord, withdrawData, depositData])
 
   useEffect(() => {
     if (showNumber) {
@@ -844,7 +879,7 @@ const Assets = () => {
                             color: item?.status === 1 ? theme.normal.success : (item?.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
                             {item?.status < 0 && 'Fail'}
-                            {item?.status === 1 && item?.status === 2 && 'Success'}
+                            {(item?.status === 1 || item.status === 2) && 'Success'}
                             {(item?.status === 0 || item?.status === 3) && 'Pending'}
                           </Stack>
                         </Stack>

@@ -48,6 +48,24 @@ const Overview = () => {
   const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
+  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
+  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=3` : undefined, (url: string) => fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": signature?.signature || ""
+    }
+  })
+    .then(res => res.json())
+    .then(res => res.data));
+
   const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
     (url: any) => fetch(url, {
       headers: {
@@ -107,32 +125,44 @@ const Overview = () => {
   }, [tabsValue]);
   const list = useMemo(() => {
     let filterList: any[];
+    const withdrawList = withdrawData ? withdrawData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: parseOrderType(item.type),
+    })) : [];
+    const depositList = depositData ? depositData?.map((item: any) => ({
+      text: `${item.value.toFixed(2)} ATF`,
+      time: new Date(item["ts"]).getTime() / 1000,
+      status: item["status"],
+      chainId: item.chainId,
+      hash: item.hash,
+      ordertype: parseOrderType(item.type),
+    })) : [];
     if (tabsValue === 1) {
-      filterList = assetRecord
+      filterList = withdrawList.concat(assetRecord
         ?.filter((item: any) => WITHDRAW_TYPES.includes(item.type))
         ?.map((item: any) => ({
           text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
           time: new Date(item["ts"]).getTime() / 1000,
           status: item["status"],
-          applyTime: new Date(item["completeAt"]).getTime() / 1000,
           chainId: item.chainId,
           hash: item.hash,
           ordertype: parseOrderType(item.type),
-          info: "",
-        }))
+        })))
     } else {
-      filterList = assetRecord
+      filterList = depositList.concat(assetRecord
         ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type))
         ?.map((item: any) => ({
           text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
           time: new Date(item["ts"]).getTime() / 1000,
           status: item["status"],
-          applyTime: new Date(item["completeAt"]).getTime() / 1000,
           chainId: item.chainId,
           hash: item.hash,
           ordertype: parseOrderType(item.type),
-          info: "",
-        }))
+        })))
     }
 
     if (isBigMobile) {
