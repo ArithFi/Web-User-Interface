@@ -66,7 +66,7 @@ const Overview = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&count=20` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -128,7 +128,7 @@ const Overview = () => {
     const withdrawList = withdrawData ? withdrawData?.map((item: any) => ({
       text: `${item.value.toFixed(2)} ATF`,
       time: new Date(item["ts"]).getTime() / 1000,
-      status: item["status"],
+      status: item.status,
       chainId: item.chainId,
       hash: item.hash,
       type: "USER_WITHDRAW",
@@ -137,37 +137,40 @@ const Overview = () => {
     const depositList = depositData ? depositData?.map((item: any) => ({
       text: `${item.value.toFixed(2)} ATF`,
       time: new Date(item["ts"]).getTime() / 1000,
-      status: item["status"],
+      status: item.status,
       chainId: item.chainId,
       hash: item.hash,
       type: "USER_DEPOSIT",
       ordertype: parseOrderType("USER_DEPOSIT"),
     })) : [];
-    if (tabsValue === 1) {
-      filterList = withdrawList.concat(assetRecord
-        ?.filter((item: any) => WITHDRAW_TYPES.includes(item.type))
-        ?.map((item: any) => ({
-          text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
-          time: new Date(item["ts"]).getTime() / 1000,
-          status: item["status"],
-          chainId: item.chainId,
-          hash: item.hash,
-          type: item.type,
-          ordertype: parseOrderType(item.type),
-        })))
-    } else {
-      filterList = depositList.concat(assetRecord
-        ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type))
-        ?.map((item: any) => ({
-          text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
-          time: new Date(item["ts"]).getTime() / 1000,
-          status: item["status"],
-          chainId: item.chainId,
-          hash: item.hash,
-          ordertype: parseOrderType(item.type),
-        }))).sort((a: any, b: any) => b.time - a.time)
+    let assetList = [];
+    if (assetRecord) {
+      if (tabsValue === 1) {
+        assetList = assetRecord
+          ?.filter((item: any) => WITHDRAW_TYPES.includes(item.type))
+          ?.map((item: any) => ({
+            text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
+            time: new Date(item["ts"]).getTime() / 1000,
+            status: 1,
+            chainId: item.chainId,
+            hash: item.hash,
+            type: item.type,
+            ordertype: parseOrderType(item.type),
+          })) || []
+      } else {
+        assetList = depositList.concat(assetRecord
+          ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type))
+          ?.map((item: any) => ({
+            text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
+            time: new Date(item["ts"]).getTime() / 1000,
+            status: 1,
+            chainId: item.chainId,
+            hash: item.hash,
+            ordertype: parseOrderType(item.type),
+          })))
+      }
     }
-
+    filterList = [...withdrawList, ...assetList].sort((a, b) => b.time - a.time)
     if (isBigMobile) {
       if (filterList && filterList?.length === 0) {
         return (

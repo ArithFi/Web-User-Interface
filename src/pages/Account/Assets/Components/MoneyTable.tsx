@@ -18,19 +18,19 @@ interface MoneyTableProps {
 
 const MoneyTable: FC<MoneyTableProps> = ({ ...props }) => {
   const rows = props.list.map((item, index) => {
-    const time = new Date(item.time * 1000)
+    const time = new Date(item?.time * 1000)
         const showLink = () => {
     return !item.hash?.includes('-') && !item.hash?.includes(':');
   };
     return (
       <MoneyTableRow
         key={`MoneyTableRow + ${index}`}
-        text={item.text}
+        text={item?.text}
         time={`${time.toLocaleDateString()} ${time.toLocaleTimeString()}`}
         state={item.status}
-        link={item.hash && showLink() ? item.hash.hashToChainScan(item.chainId) : undefined}
-        type={props.type}
-        orderType={item.ordertype || ""}
+        link={item?.hash && showLink() ? item?.hash.hashToChainScan(item.chainId) : undefined}
+        type={props?.type}
+        orderType={item?.ordertype || ""}
       />
     );
   });

@@ -18,7 +18,7 @@ import DailyReturnChart from "./Components/DailyReturnChart";
 import VolumeChart from "./Components/VolumeChart";
 import CumulativeReturnChart from "./Components/CumulativeReturnChart";
 import TotalAssetValueChart from "./Components/TotalAssetValueChart";
-import {DEPOSIT_TYPES, parseOrderType} from "./Overview";
+import {DEPOSIT_TYPES, parseOrderType, WITHDRAW_TYPES} from "./Overview";
 import {NoOrderMobile} from "../../Futures/OrderList";
 import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
@@ -90,7 +90,7 @@ const Assets = () => {
     .then(res => res.json())
     .then(res => res.data));
 
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&type=AIRDROP` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -163,7 +163,9 @@ const Assets = () => {
       type: "USER_DEPOSIT",
       ordertype: parseOrderType("USER_DEPOSIT"),
     })) : [];
-    const assetRecordList = assetRecord ? assetRecord?.map((item: any) => ({
+    const assetRecordList = assetRecord ? assetRecord
+      ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type) || WITHDRAW_TYPES.includes(item.type))
+      ?.map((item: any) => ({
       text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
       time: new Date(item["ts"]).getTime() / 1000,
       status: 1,
