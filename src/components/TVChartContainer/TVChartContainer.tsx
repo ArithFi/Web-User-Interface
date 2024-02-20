@@ -86,6 +86,12 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       interval: getObjectKeyFromValue(period, SUPPORTED_RESOLUTIONS),
       favorites: defaultChartProps.favorites,
       custom_formatters: defaultChartProps.custom_formatters,
+      studies_overrides: {
+        "volume.volume.color.0": "#FF4F33",
+        "volume.volume.color.1": "#36C56E",
+        "volume.volume.linewidth": 3,
+        "volume.volume.transparency": 60,
+      },
     };
     tvWidgetRef.current = new window.TradingView.widget(widgetOptions);
     tvWidgetRef.current!.onChartReady(function () {
@@ -112,6 +118,12 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
             setPeriod(period);
           }
         });
+      // @ts-ignore
+      // tvWidgetRef.current?.activeChart().createStudy("Volume", false, false, tvWidgetRef.current?.activeChart().resolution()
+      //   , {
+      //     "length": 5,
+      //     "showLabelsOnPriceScale": false,
+      //   }, {})
       tvWidgetRef.current?.activeChart().dataReady(() => {
         setChartDataLoading(false);
       });
