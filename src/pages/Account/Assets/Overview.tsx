@@ -29,7 +29,7 @@ export const parseOrderType = (type: string | undefined) => {
       return t`Return`;
     case "COPY_TO_AVAILABLE":
       return t`Copy Settle`;
-    case "WITHDRAW":
+    case "USER_WITHDRAW":
       return t`Withdraw`;
     case "AVAILABLE_TO_COPY":
       return t`Copy Transfer`;
