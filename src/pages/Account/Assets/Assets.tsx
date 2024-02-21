@@ -72,29 +72,11 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
-
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
-
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${q || account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": signature?.signature || ""
+        "Authorization": signature?.signature || "",
       }
     })
       .then(res => res.json())
@@ -143,39 +125,6 @@ const Assets = () => {
     showDeposit,
     showWithdraw,
   ]);
-
-  const moneyList = useMemo(() => {
-    const withdrawList = withdrawData ? withdrawData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: item["status"],
-      chainId: item.chainId,
-      hash: item.hash,
-      type: "USER_WITHDRAW",
-      ordertype: parseOrderType("USER_WITHDRAW"),
-    })) : [];
-    const depositList = depositData ? depositData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: item["status"],
-      chainId: item.chainId,
-      hash: item.hash,
-      type: "USER_DEPOSIT",
-      ordertype: parseOrderType("USER_DEPOSIT"),
-    })) : [];
-    const assetRecordList = assetRecord ? assetRecord
-      ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type) || WITHDRAW_TYPES.includes(item.type))
-      ?.map((item: any) => ({
-      text: `${(item.availableDelta || item.copyDelta || 0)?.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: 1,
-      chainId: item.chainId,
-      hash: item.hash,
-      type: item.type,
-      ordertype: parseOrderType(item.type),
-    })) : [];
-    return withdrawList.concat(depositList).concat(assetRecordList).sort((a: any, b: any) => b.time - a.time).slice(0, 5);
-  }, [assetRecord, withdrawData, depositData])
 
   useEffect(() => {
     if (showNumber) {
@@ -790,11 +739,11 @@ const Assets = () => {
               </Stack>
               <Stack overflow={'scroll'}>
                 {
-                  moneyList?.length > 0 ? moneyList?.slice(0, 5)?.map((item: any, index: number) => (
+                  assetRecord?.length > 0 ? assetRecord?.slice(0, 5)?.map((item: any, index: number) => (
                     <Stack
                       key={index}
                       sx={(theme) => ({
-                        cursor: !item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':') ? '' : 'pointer',
+                        cursor: item?.hash ? 'pointer' : '',
                         gap: '12px',
                         borderBottom: `1px solid ${theme.normal.border}`,
                         [theme.breakpoints.down("md")]: {
@@ -803,7 +752,7 @@ const Assets = () => {
                         }
                       })}
                       onClick={() => {
-                        if (!item?.hash || item?.hash?.includes('-') || item?.hash?.includes(':')) return;
+                        if (!item?.hash) return;
                         window.open(item?.hash?.hashToChainScan(item.chainId), '_blank')
                       }}
                     >
@@ -820,7 +769,7 @@ const Assets = () => {
                             }
                           })}>
                             {
-                              DEPOSIT_TYPES.includes(item?.ordertype || '') ? (
+                              DEPOSIT_TYPES.includes(item?.type || '') ? (
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                   <rect width="16" height="16" rx="2" fill="#35373D"/>
@@ -858,13 +807,13 @@ const Assets = () => {
                                 fontWeight: '400',
                                 lineHeight: '20px',
                                 color: theme.normal.text0,
-                              })}>{showNumber ? item?.text : '******'}</Stack>
+                              })}>{showNumber ? `${item.value.toFixed(2).replace('-', '')} ATF` : '******'}</Stack>
                               <Stack sx={(theme) => ({
                                 fontSize: '10px',
                                 fontWeight: '400',
                                 lineHeight: '14px',
                                 color: theme.normal.text0,
-                              })}>{item?.ordertype}</Stack>
+                              })}>{parseOrderType(item.type)}</Stack>
                             </Stack>
                             <Stack sx={(theme) => ({
                               fontSize: '10px',
@@ -872,20 +821,20 @@ const Assets = () => {
                               lineHeight: '14px',
                               color: theme.normal.text2,
                             })}>
-                              {new Date(item?.time * 1000).toLocaleString()}
+                              {new Date(item.time).toLocaleString()}
                             </Stack>
                           </Stack>
                           <Stack px={'4px'} py={'3px'} sx={(theme) => ({
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${item?.status === 1 ? theme.normal.success_light_hover : (item?.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${(item.status === 1 || item.status === null) ? theme.normal.success_light_hover : (item.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: item?.status === 1 ? theme.normal.success : (item?.status < 0 ? theme.normal.danger : theme.normal.primary),
+                            color: (item?.status === 1 || item.status === null) ? theme.normal.success : (item.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
-                            {item?.status < 0 && 'Fail'}
-                            {(item?.status === 1 || item.status === 2) && 'Success'}
-                            {(item?.status === 0 || item?.status === 3) && 'Pending'}
+                            {item.status < 0 && 'Fail'}
+                            {(item.status === 1 || item.status === 2 || item.status === null) && 'Success'}
+                            {(item.status === 0 || item.status === 3) && 'Pending'}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}

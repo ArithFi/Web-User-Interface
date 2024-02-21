@@ -48,29 +48,11 @@ const Overview = () => {
   const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
-  const { data: withdrawData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listWithdraw?toAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
-
-  const { data: depositData } = useSWR((q || account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDeposit?txAddress=${q || account.address}&status=0` : undefined, (url: string) => fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": signature?.signature || ""
-    }
-  })
-    .then(res => res.json())
-    .then(res => res.data));
-
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listAssetRecord?walletAddress=${q || account.address}&count=20` : undefined,
+  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${q || account.address}&count=50` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": signature?.signature || ""
+        "Authorization": signature?.signature || "",
       }
     })
       .then(res => res.json())
@@ -124,53 +106,33 @@ const Overview = () => {
     }
   }, [tabsValue]);
   const list = useMemo(() => {
-    let filterList: any[];
-    const withdrawList = withdrawData ? withdrawData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: item.status,
-      chainId: item.chainId,
-      hash: item.hash,
-      type: "USER_WITHDRAW",
-      ordertype: parseOrderType("USER_WITHDRAW"),
-    })) : [];
-    const depositList = depositData ? depositData?.map((item: any) => ({
-      text: `${item.value.toFixed(2)} ATF`,
-      time: new Date(item["ts"]).getTime() / 1000,
-      status: item.status,
-      chainId: item.chainId,
-      hash: item.hash,
-      type: "USER_DEPOSIT",
-      ordertype: parseOrderType("USER_DEPOSIT"),
-    })) : [];
-    let assetList = [];
+    let filterList = [];
     if (assetRecord) {
       if (tabsValue === 1) {
-        assetList = assetRecord
+        filterList = assetRecord
           ?.filter((item: any) => WITHDRAW_TYPES.includes(item.type))
           ?.map((item: any) => ({
-            text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
-            time: new Date(item["ts"]).getTime() / 1000,
-            status: 1,
+            text: `${(item?.value).toFixed(2).replace('-', '')} ATF`,
+            time: new Date(item.time).getTime() / 1000,
+            status: item.status || 1,
             chainId: item.chainId,
             hash: item.hash,
             type: item.type,
             ordertype: parseOrderType(item.type),
           })) || []
       } else {
-        assetList = depositList.concat(assetRecord
+        filterList = assetRecord
           ?.filter((item: any) => DEPOSIT_TYPES.includes(item.type))
           ?.map((item: any) => ({
-            text: `${(item?.availableDelta || item?.copyDelta || 0).toFixed(2)} ATF`,
-            time: new Date(item["ts"]).getTime() / 1000,
-            status: 1,
+            text: `${(item?.value).toFixed(2).replace('-', '')} ATF`,
+            time: new Date(item.time).getTime() / 1000,
+            status: item.status || 1,
             chainId: item.chainId,
             hash: item.hash,
             ordertype: parseOrderType(item.type),
-          })))
+          }))
       }
     }
-    filterList = [...withdrawList, ...assetList].sort((a, b) => b.time - a.time)
     if (isBigMobile) {
       if (filterList && filterList?.length === 0) {
         return (
@@ -181,7 +143,7 @@ const Overview = () => {
       }
       return (
         <Stack spacing={"16px"}>
-          {filterList?.map((item, index: number) => {
+          {filterList?.map((item: any, index: number) => {
             return (
               <MobileList
                 key={`AccountMobileList + ${index}`}
