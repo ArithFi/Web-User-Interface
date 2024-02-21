@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   ComposedChart,
 } from "recharts";
-import {FC} from "react";
+import {FC, useMemo} from "react";
 import useSWR from "swr";
 import useTheme from "../../../../hooks/useTheme";
 import {CustomTooltip} from "./CustomTooltip";
@@ -49,14 +49,19 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
         .then((res: any) => res.data)
         .then((res) => res.map((item: any) => ({
           date: item.date,
-          value: item?.realized_pnl_copy + item?.realized_pnl_self + item?.unrealized_pnl_copy + item?.unrealized_pnl_self
-        })))
-        .then((res: any) => res.map((item: any) => ({
-          date: item.date,
-          get: item.value >= 0 ? item.value : 0,
-          loss: item.value < 0 ? item.value : 0,
+          daily: item.daily,
+          get: item.daily >= 0 ? item.daily : 0,
+          loss: item.daily < 0 ? item.daily : 0,
         })))
   );
+
+  const lastNumber = useMemo((() => {
+    if (data && data.length > 0) {
+      return data[data.length - 1]?.daily || 0
+    } else {
+      return 0
+    }
+  }), [data])
 
   return (
     <Stack width={"100%"} height={"100%"}>
@@ -69,13 +74,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             color: "#F9F9F9",
           })}
         >
-          {Number(
-            data[data.length - 1]?.get === 0
-              ? data[data.length - 1]?.loss
-              : data[data.length - 1]?.get
-          ).toLocaleString("en-US", {
-            maximumFractionDigits: 2,
-          })}{" "}
+          {lastNumber.toFixed(2)}{" "}
           ATF
         </Stack>
       )}

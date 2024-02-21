@@ -47,9 +47,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             lineHeight: '24px',
             fontWeight: '700',
             color: "#F9F9F9",
-          })}>{Number(data[data.length - 1]?.cumulative ?? 0).toLocaleString('en-US', {
-            maximumFractionDigits: 2,
-          })
+          })}>{Number(data[data.length - 1]?.cumulative ?? 0).toFixed(2)
           } ATF</Stack>
         )
       }

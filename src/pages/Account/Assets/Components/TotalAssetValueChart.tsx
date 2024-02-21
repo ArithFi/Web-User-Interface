@@ -6,7 +6,7 @@ import {
   ResponsiveContainer,
   ComposedChart, Line
 } from 'recharts';
-import {FC} from "react";
+import {FC, useMemo} from "react";
 import useSWR from "swr";
 import useTheme from "../../../../hooks/useTheme";
 import {Stack} from "@mui/material";
@@ -41,6 +41,14 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
       })))
   )
 
+  const lastNumber = useMemo((() => {
+    if (data && data.length > 0) {
+      return data[data.length - 1]?.value || 0
+    } else {
+      return 0
+    }
+  }), [data])
+
   return (
     <Stack width={'100%'} height={'100%'}>
       {
@@ -50,10 +58,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
             lineHeight: '24px',
             fontWeight: '700',
             color: "#F9F9F9",
-          })}>{Number(data[data.length - 1]?.daily ?? 0).toLocaleString('en-US', {
-            maximumFractionDigits: 2,
-          })
-          } ATF</Stack>
+          })}>{lastNumber.toFixed(2)} ATF</Stack>
         )
       }
       <ResponsiveContainer width="100%" height="100%">
