@@ -828,9 +828,9 @@ const Assets = () => {
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${(item.status === 1 || item.status === null) ? theme.normal.success_light_hover : (item.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${(item.status === 1 || item.status === null || item.status === 2) ? theme.normal.success_light_hover : (item.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: (item?.status === 1 || item.status === null) ? theme.normal.success : (item.status < 0 ? theme.normal.danger : theme.normal.primary),
+                            color: (item?.status === 1 || item?.status === 2 || item.status === null) ? theme.normal.success : (item.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
                             {item.status < 0 && 'Fail'}
                             {(item.status === 1 || item.status === 2 || item.status === null) && 'Success'}
