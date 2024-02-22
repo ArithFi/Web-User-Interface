@@ -198,13 +198,13 @@ const MoneyTableRow: FC<MoneyTableRowProps> = ({ ...props }) => {
               const color =
                 props.state < 0
                   ? theme.normal.danger
-                  : props.state === 1
+                  : (props.state === 1 || props.state === 2)
                   ? theme.normal.success
                   : theme.normal.primary;
               const borderColor =
                 props.state < 0
                   ? theme.normal.danger_light_hover
-                  : props.state === 1
+                  : (props.state === 1 || props.state === 2)
                   ? theme.normal.success_light_hover
                   : theme.normal.primary_light_hover;
               return {

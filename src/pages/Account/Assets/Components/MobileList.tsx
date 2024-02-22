@@ -207,13 +207,13 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
               const color =
                 props.data.status < 0
                   ? theme.normal.danger
-                  : props.data.status === 1
+                  : (props.data.status === 1 || props.data.status === 2)
                   ? theme.normal.success
                   : theme.normal.primary;
               const borderColor =
                 props.data.status < 0
                   ? theme.normal.danger_light_hover
-                  : props.data.status === 1
+                  : (props.data.status === 1 || props.data.status === 2)
                   ? theme.normal.success_light_hover
                   : theme.normal.primary_light_hover;
               return {
