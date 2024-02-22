@@ -758,22 +758,22 @@ const Futures = () => {
                   {[
                     {
                       title: t`Invitee Trading Volume`,
-                      value: overview?.value?.tradingVolume || 0,
+                      value: overview?.data?.tradingVolume || 0,
                       unit: "ATF",
                     },
                     {
                       title: t`Cumulative Commissions`,
-                      value: overview?.value?.reward || 0,
+                      value: overview?.data?.reward || 0,
                       unit: "ATF",
                     },
                     {
                       title: t`Traded Invitees`,
-                      value: overview?.value?.inviteeTransaction || 0,
+                      value: overview?.data?.inviteeTransaction || 0,
                       unit: "",
                     },
                     {
                       title: t`Total Invitees`,
-                      value: overview?.value?.invitee || 0,
+                      value: overview?.data?.invitee || 0,
                       unit: "",
                     },
                   ].map((item, index) => (
@@ -847,7 +847,7 @@ const Futures = () => {
                       lineHeight: "32px",
                     })}
                   >
-                    {overview?.value?.tradingVolume?.toFixed(2) || 0} ATF
+                    {overview?.data?.tradingVolume?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Box
@@ -874,7 +874,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.reward?.toFixed(2) || 0} ATF
+                    {overview?.data?.reward?.toFixed(2) || 0} ATF
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
@@ -896,7 +896,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.inviteeTransaction || 0}
+                    {overview?.data?.inviteeTransaction || 0}
                   </Box>
                 </Stack>
                 <Stack direction={"row"} justifyContent={"space-between"}>
@@ -918,7 +918,7 @@ const Futures = () => {
                       fontWeight: 700,
                     })}
                   >
-                    {overview?.value?.invitee || 0}
+                    {overview?.data?.invitee || 0}
                   </Box>
                 </Stack>
                 <Divider/>

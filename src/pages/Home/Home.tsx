@@ -573,11 +573,62 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
+        <Stack height={"660px"} alignItems={'center'} sx={{
+          background: 'linear-gradient(180deg, #3D404D 50%, #1A1D23 100%)'
+        }}>
+          <Stack alignItems={"center"} pt={"20px"}>
+            <Stack direction={'row'} alignItems={'baseline'} sx={{
+              fontSize: "20px",
+              lineHeight: "28px",
+              fontWeight: "700",
+              color: "#F9F9F9"
+            }}>
+                <span style={{paddingRight: "8px", fontSize: "24px", lineHeight: "32px", fontWeight: "700"}}>
+                 0
+              </span>
+              <Trans>
+                trading fees,
+              </Trans>
+            </Stack>
+            <Stack direction={'row'} alignItems={'baseline'} sx={{
+              fontSize: "20px",
+              lineHeight: "28px",
+              fontWeight: "700",
+              color: "#F9F9F9"
+            }}>
+              <span style={{
+                paddingRight: "8px",
+                fontSize: "24px",
+                lineHeight: "32px",
+                fontWeight: "700"
+              }}>
+                 0
+              </span>
+              <Trans>
+                slippage trading at any time
+              </Trans>
+            </Stack>
+          </Stack>
+          <Stack height={"36px"} alignItems={'center'} justifyContent={'center'} mt={'20px'} sx={{
+            fontSize: "12px",
+            lineHeight: "16px",
+            fontWeight: "700",
+            color: "#F9F9F9",
+            backgroundColor: "#1F2329",
+            paddingX: "20px",
+            borderRadius: "8px"
+          }}>
+            Launching soon!
+          </Stack>
+          <Stack marginTop={'40px'}>
+            <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
+          </Stack>
+        </Stack>
         <Stack alignItems={'center'} px={'20px'} py={'40px'} bgcolor={'rgba(41, 46, 61, 1)'}
                color={'rgba(255, 255, 255, 1)'} fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>
           <Stack textAlign={'center'}>
             <Trans>
-              Enjoy 0 trading fees & 0 slippage  trading on ArithFi
+              Enjoy 0 trading fees & 0 slippage trading on ArithFi
             </Trans>
           </Stack>
           <Link to={'/futures'}>
@@ -622,7 +673,7 @@ const Home = () => {
           lineHeight: '60px',
           marginTop: '160px',
           textAlign: 'center',
-          color: 'white',
+          color: '#F9F9F9',
           maxWidth: '1200px',
           padding: '0 20px',
         }}>
@@ -1109,15 +1160,82 @@ const Home = () => {
         >
           <img src={`/images/home_icon2_${lang}.svg`} alt={''}/>
         </Stack>
-        <Stack position={'absolute'} bottom={0} left={0} width={'100%'} height={'1400px'}
+        <Stack position={'absolute'} bottom={800} left={0} width={'100%'} height={'1400px'}
                bgcolor={'rgba(247, 251, 255, 1)'}/>
-        <Stack position={'absolute'} bottom={0} left={0} width={'100%'} height={'640px'} sx={{
+        <Stack position={'absolute'} bottom={800} left={0} width={'100%'} height={'640px'} sx={{
           backgroundImage: `url('/images/home_bg2.svg')`,
           backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}/>
-        <Stack width={'100%'} marginTop={'80px'} fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'}
+        <Stack width={'100%'} height={'840px'} zIndex={10} justifyContent={"center"} alignItems={'center'} sx={{
+          background: 'linear-gradient(180deg, #1D2129 0%, #171A1F 100%)',
+          paddingY: 10,
+        }}>
+          <Stack maxWidth={'1200px'} width={"100%"} direction={"row"} height={"100%"}>
+            <Stack width={["500px", "500px", "400px", "300px", "200px"]} zIndex={10} position={"relative"}>
+              <img src={`/images/app.png`} alt={''} height={680} width={313} style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                marginLeft: "40px",
+              }}/>
+            </Stack>
+            <Stack width={"100%"} mt={"32px"} height={"648px"} justifyContent={"center"} alignItems={"center"} sx={{
+              backgroundColor: "#171A1F",
+              borderRadius: "0 12px 12px 0",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+            }}>
+              <Stack alignItems={"start"}>
+                <Stack direction={"row"} alignItems={"baseline"} sx={{
+                  fontSize: '32px',
+                  fontWeight: '700',
+                  lineHeight: '44px',
+                  textAlign: 'center',
+                  color: 'white',
+                }}>
+                  <span style={{paddingRight: "10px", fontSize: "48px", lineHeight: "60px", fontWeight: "700"}}>
+                     0
+                  </span>
+                  <Trans>
+                    trading fees,
+                  </Trans>
+                </Stack>
+                <Stack direction={"row"} alignItems={"baseline"} sx={{
+                  fontSize: '32px',
+                  fontWeight: '700',
+                  lineHeight: '44px',
+                  textAlign: 'center',
+                  color: 'white',
+                }}>
+                  <span style={{paddingRight: "10px", fontSize: "48px", lineHeight: "60px", fontWeight: "700"}}>
+                     0
+                  </span>
+                  <Trans>
+                    slippage trading at any time
+                  </Trans>
+                </Stack>
+                <Stack sx={{
+                  fontSize: '16px',
+                  fontWeight: '700',
+                  lineHeight: '22px',
+                  textAlign: 'center',
+                  color: 'white',
+                  backgroundColor: "#1F2329",
+                  height: "48px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  paddingX: "40px",
+                  borderRadius: "12px",
+                  marginTop: "40px"
+                }}>
+                  Launching soon!
+                </Stack>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack width={'100%'} fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'}
                height={'128px'} justifyContent={'center'} zIndex={10}
                sx={{
                  backgroundColor: '#292E3D',
@@ -1129,7 +1247,7 @@ const Home = () => {
             <Stack gap={'25px'} direction={'row'} alignItems={"center"}>
               <Stack>
                 <Trans>
-                  Enjoy 0 trading fees & 0 slippage  trading on ArithFi
+                  Enjoy 0 trading fees & 0 slippage trading on ArithFi
                 </Trans>
               </Stack>
               <Stack>
