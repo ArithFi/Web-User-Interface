@@ -95,16 +95,13 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
   const state = useMemo(() => {
     if (props.data.status < 0) {
       return t`Fail`;
-    } else if (props.data.status === 1 || props.data.status === 2) {
+    } else if (props.data.status === 1) {
       return t`Success`;
-    } else if (props.data.status === 3 || props.data.status === 0) {
+    } else {
       return t`Pending`;
     }
   }, [props.data.status]);
-  const time =
-    props.data.status === 0 || props.data.status === 255
-      ? new Date((props.data.applyTime ?? 0) * 1000)
-      : new Date(props.data.time * 1000);
+  const time = new Date((props.data.applyTime ?? 0) * 1000);
   const hash = props.data.hash
     ? props.data.hash.hashToChainScan(props.data.chainId)
     : "";
@@ -207,13 +204,13 @@ const MobileList: FC<MobileListProps> = ({ ...props }) => {
               const color =
                 props.data.status < 0
                   ? theme.normal.danger
-                  : (props.data.status === 1 || props.data.status === 2)
+                  : (props.data.status === 1)
                   ? theme.normal.success
                   : theme.normal.primary;
               const borderColor =
                 props.data.status < 0
                   ? theme.normal.danger_light_hover
-                  : (props.data.status === 1 || props.data.status === 2)
+                  : (props.data.status === 1)
                   ? theme.normal.success_light_hover
                   : theme.normal.primary_light_hover;
               return {

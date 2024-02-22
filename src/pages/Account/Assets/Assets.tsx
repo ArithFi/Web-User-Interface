@@ -18,7 +18,7 @@ import DailyReturnChart from "./Components/DailyReturnChart";
 import VolumeChart from "./Components/VolumeChart";
 import CumulativeReturnChart from "./Components/CumulativeReturnChart";
 import TotalAssetValueChart from "./Components/TotalAssetValueChart";
-import {DEPOSIT_TYPES, parseOrderType, WITHDRAW_TYPES} from "./Overview";
+import {DEPOSIT_TYPES, parseOrderType} from "./Overview";
 import {NoOrderMobile} from "../../Futures/OrderList";
 import useReadSwapAmountOut from "../../../contracts/Read/useReadSwapContractOnBsc";
 import {BigNumber} from "ethers";
@@ -828,13 +828,11 @@ const Assets = () => {
                             fontSize: '10px',
                             fontWeight: '700',
                             lineHeight: '14px',
-                            border: `1px solid ${(item.status === 1 || item.status === null || item.status === 2) ? theme.normal.success_light_hover : (item.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
+                            border: `1px solid ${(item.status === 1) ? theme.normal.success_light_hover : (item.status < 0 ? theme.normal.danger_light_hover : theme.normal.primary_light_hover)}`,
                             borderRadius: '4px',
-                            color: (item?.status === 1 || item?.status === 2 || item.status === null) ? theme.normal.success : (item.status < 0 ? theme.normal.danger : theme.normal.primary),
+                            color: (item?.status === 1) ? theme.normal.success : (item.status < 0 ? theme.normal.danger : theme.normal.primary),
                           })}>
-                            {item.status < 0 && 'Fail'}
-                            {(item.status === 1 || item.status === 2 || item.status === null) && 'Success'}
-                            {(item.status === 0 || item.status === 3) && 'Pending'}
+                            {item.status < 0 ? 'Fail' : (item.status === 1 ? "Success" : "Pending")}
                           </Stack>
                         </Stack>
                         <Stack width={'16px'} justifyContent={'center'}
