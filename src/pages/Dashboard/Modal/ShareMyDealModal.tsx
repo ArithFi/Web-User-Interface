@@ -685,13 +685,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`
                     fontSize: '16px',
                     lineHeight: '22px',
                     color: "#F9F9F9",
-                  }}>{t`Trade with me on ArithFi`}</Box>
-                  <Box sx={{
-                    fontWeight: "700",
-                    fontSize: '14px',
-                    lineHeight: '20px',
-                    color: "rgba(249, 249, 249, 0.6)",
-                  }}>{new Date().toLocaleString()}</Box>
+                  }}>{t`Enjoy 0 trading fees & 0 slippage trading`}</Box>
                 </Stack>
               </Stack>
               <Box style={{width: '64px', height: '64px', background: 'white', padding: '3px'}}>

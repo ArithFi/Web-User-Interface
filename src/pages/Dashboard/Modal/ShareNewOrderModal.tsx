@@ -370,11 +370,15 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                 alignItems={"center"}
                 py={"18px"}
               >
-                <Stack direction={"row"} spacing={"12px"}>
-                  <ATFLogo />
-                  <Stack>
-                    <Caption7>{t`Scan and copy the trade`}</Caption7>
-                    <Caption7>{t`with 1 click`}</Caption7>
+                <Stack direction={'row'} spacing={'12px'}>
+                  <ATFLogo/>
+                  <Stack spacing={'4px'}>
+                    <Box sx={{
+                      fontWeight: "400",
+                      fontSize: '16px',
+                      lineHeight: '22px',
+                      color: "#F9F9F9",
+                    }}>{t`Enjoy 0 trading fees & 0 slippage trading`}</Box>
                   </Stack>
                 </Stack>
                 <Box
