@@ -411,7 +411,7 @@ const KolItem: FC<KolItemProps> = ({ ...props }) => {
                     : theme.normal.danger,
               })}
             >
-              {`${parseFloat(props.data.kolProfitLossRate.floor(2))}%`}
+              {`${parseFloat((props.data.kolProfitLossRate * 100).floor(2))}%`}
             </Box>
             <Box
               sx={(theme) => ({

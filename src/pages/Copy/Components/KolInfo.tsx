@@ -100,7 +100,7 @@ const KolInfo: FC<KolInfoProps> = ({ ...props }) => {
     ? (props.data.rewardRatio * 100).floor(2) + "%"
     : String().placeHolder;
   const kolProfitLossRate = props.data
-    ? props.data.kolProfitLossRate.floor(2)
+    ? (props.data.kolProfitLossRate * 100).floor(2)
     : String().placeHolder;
   const followersAssets = props.data
     ? props.data.followersAssets.floor(2)
