@@ -103,7 +103,7 @@ function useMainReact() {
     if (!chainsData.chainId || !account.address) {
       return;
     }
-    var cache = localStorage.getItem("signature");
+    var cache = localStorage.getItem("signatureV2");
     if (!cache) {
       return;
     }

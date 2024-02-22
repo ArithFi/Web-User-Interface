@@ -12,7 +12,7 @@ function useSignModal() {
   const [loading, setLoading] = useState(false);
 
   const signsData: Array<any> = useMemo(() => {
-    var cache = localStorage.getItem("signature");
+    var cache = localStorage.getItem("signatureV2");
     if (!cache) {
       return [];
     }
@@ -49,10 +49,10 @@ function useSignModal() {
               const itemIndex = signsData.indexOf(same[0]);
               const newSignsData = [...signsData];
               newSignsData[itemIndex] = signatureData;
-              localStorage.setItem(`signature`, JSON.stringify(newSignsData));
+              localStorage.setItem(`signatureV2`, JSON.stringify(newSignsData));
             } else {
               const newSignsData = [...signsData, signatureData];
-              localStorage.setItem(`signature`, JSON.stringify(newSignsData));
+              localStorage.setItem(`signatureV2`, JSON.stringify(newSignsData));
             }
           }
         }
