@@ -23,7 +23,6 @@ import {ATFToken, USDTToken} from "../../../contracts/contractAddress";
 const CopyTrading = () => {
   const [showrdr, setShowrdr] = useState(false);
   let [searchParams, setSearchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const [showNumber, setShowNumber] = useState(searchParams.get("mode") === "public");
   const {account, checkSigned, chainsData, signature} = useArithFi();
   const {nowTheme} = useTheme();
@@ -42,7 +41,7 @@ const CopyTrading = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const {data} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/account/copyTrading?walletAddress=${q || account.address}` : undefined,
+  const {data} = useSWR(account ? `${serviceBaseURL(chainsData.chainId)}/user/account/copyTrading?walletAddress=${account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -567,7 +566,7 @@ const CopyTrading = () => {
                 chart: (
                   <VolumeChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -590,7 +589,7 @@ const CopyTrading = () => {
                 chart: (
                   <TotalAssetValueChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -613,7 +612,7 @@ const CopyTrading = () => {
                 chart: (
                   <DailyReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -636,7 +635,7 @@ const CopyTrading = () => {
                 chart: (
                   <CumulativeReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",

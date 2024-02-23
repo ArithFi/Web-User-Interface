@@ -45,10 +45,9 @@ const Overview = () => {
     searchParams.get("type") === "withdraw" ? 1 : 0
   );
   const {checkSigned} = useArithFi();
-  const q = searchParams.get('address');
   const {chainsData, account, signature} = useArithFi()
 
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${q || account.address}&count=50` : undefined,
+  const {data: assetRecord} = useSWR((account) ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${account.address}&count=50` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",

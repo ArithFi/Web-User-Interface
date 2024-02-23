@@ -4,7 +4,6 @@ import {styled} from "@mui/material/styles";
 import useArithFiSnackBar from "../../../hooks/useArithFiSnackBar";
 import useWindowWidth from "../../../hooks/useWindowWidth";
 import {useMemo, useState} from "react";
-import {useSearchParams} from "react-router-dom";
 import useSWR from "swr";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
@@ -230,15 +229,13 @@ const Futures = () => {
   const {messageSnackBar} = useArithFiSnackBar();
   const {isBigMobile} = useWindowWidth();
   const [currentPage, setCurrentPage] = useState(1);
-  let [searchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const { chainsData, signature } = useArithFi();
   const { address } = useAccount();
 
   const {data: overview} = useSWR(
-    q || address
+    address
       ? `${serviceBaseURL(chainsData.chainId)}/invite/overview?walletAddress=${
-        q || address
+        address
       }` : undefined,
     (url: string) => fetch(url, {
       headers: {
@@ -248,9 +245,9 @@ const Futures = () => {
   );
 
   const {data: listData} = useSWR(
-    q || address
+    address
       ? `${serviceBaseURL(chainsData.chainId)}/invite/list-invitee?walletAddress=${
-        q || address
+        address
       }&start=${(currentPage - 1) * 10}&count=10` : undefined,
     (url: string) => fetch(url, {
       headers: {
@@ -553,7 +550,7 @@ const Futures = () => {
                 <Box width={"145px"}>
                   <MainButton
                     title={t`Copy Invitation Link`}
-                    disable={!q && !address}
+                    disable={!address}
                     style={{
                       height: "36px",
                       fontSize: "12px",
@@ -561,13 +558,9 @@ const Futures = () => {
                       fontWeight: 700,
                     }}
                     onClick={() => {
-                      if (!address && !q) return;
+                      if (!address) return;
                       let link = "https://arithfi.com/";
-                      if (q) {
-                        link =
-                          "https://arithfi.com/?a=" +
-                          q?.slice(-8).toLowerCase();
-                      } else if (address) {
+                      if (address) {
                         link =
                           "https://arithfi.com/?a=" +
                           address?.slice(-8).toLowerCase();
@@ -614,15 +607,11 @@ const Futures = () => {
                         borderRadius: "8px",
                       }}
                       title={t`Copy Invitation Link`}
-                      disable={!q && !address}
+                      disable={!address}
                       onClick={() => {
-                        if (!q && !address) return;
+                        if (!address) return;
                         let link = "https://arithfi.com/";
-                        if (q) {
-                          link =
-                            "https://arithfi.com/?a=" +
-                            q?.slice(-8).toLowerCase();
-                        } else if (address) {
+                        if (address) {
                           link =
                             "https://arithfi.com/?a=" +
                             address?.slice(-8).toLowerCase();

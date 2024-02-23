@@ -10,13 +10,12 @@ const Menu = () => {
   const location = useLocation();
   const { chainsData, signature } = useArithFi();
   let [searchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const { address } = useAccount();
 
   const {data: isKol} = useSWR(
-    (q || address)
+    (address)
       ? `${serviceBaseURL(chainsData.chainId)}/copy/kolInvite/get?kolAddress=${
-        q || address
+        address
       }`
       : undefined,
     (url: any) =>
@@ -26,8 +25,8 @@ const Menu = () => {
   );
 
   const {data: isCopyKol} = useSWR(
-    (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/get?kolAddress=${q || address}` : undefined,
+    address
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/get?kolAddress=${address}` : undefined,
     (url: any) =>
       fetch(url, {
         headers: {

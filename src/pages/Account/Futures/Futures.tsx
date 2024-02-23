@@ -34,7 +34,6 @@ const Futures = () => {
 
   const [showShareMyDealModal, setShareMyDealModal] = useState(false);
   let [searchParams, setSearchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const [ showNumber, setShowNumber ] = useState(searchParams.get("mode") === "public");
 
   const {
@@ -44,7 +43,7 @@ const Futures = () => {
 
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/account/futures?walletAddress=${q || account.address}` : undefined,
+  const { data } = useSWR(account ? `${serviceBaseURL(chainsData.chainId)}/user/account/futures?walletAddress=${account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +120,7 @@ const Futures = () => {
     return (
       <ShareMyDealModal
         value={{
-          address: q || account.address,
+          address: account.address,
           totalProfitLoss: data?.pnl_total ?? 0,
           totalRate: (data?.roi_total * 100) ?? 0,
           todayPNL: data?.pnl_1d ?? 0,
@@ -140,7 +139,6 @@ const Futures = () => {
       />
     );
   }, [
-    q,
     account.address,
     data?.pnl_total,
     data?.roi_total,
@@ -621,7 +619,7 @@ const Futures = () => {
                 chart: (
                   <VolumeChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -644,7 +642,7 @@ const Futures = () => {
                 chart: (
                   <TotalAssetValueChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -667,7 +665,7 @@ const Futures = () => {
                 chart: (
                   <DailyReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -690,7 +688,7 @@ const Futures = () => {
                 chart: (
                   <CumulativeReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",

@@ -39,7 +39,6 @@ const Assets = () => {
     },
   ]);
   let [searchParams, setSearchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const [showNumber, setShowNumber] = useState(searchParams.get("mode") !== "private");
   const {
     showDeposit,
@@ -53,7 +52,7 @@ const Assets = () => {
   } = useReadSwapAmountOut(BigNumber.from("1".stringToBigNumber(18)!), [ATFToken[chainsData.chainId!], USDTToken[chainsData.chainId!]]);
   const price = (uniSwapAmountOut?.[1].div(BigNumber.from("1".stringToBigNumber(12)!)).toNumber() || 0) / 1e6
 
-  const { data } = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/account/total?walletAddress=${q || account.address}` : undefined,
+  const { data } = useSWR(account ? `${serviceBaseURL(chainsData.chainId)}/user/account/total?walletAddress=${account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -72,7 +71,7 @@ const Assets = () => {
   const copy_balance_atf = (data?.copy_balance || 0) + (data?.copy_order_balance || 0) + (data?.copy_limit_balance || 0)
   const copy_balance_usd = copy_balance_atf * price;
 
-  const {data: assetRecord} = useSWR((account || q) ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${q || account.address}` : undefined,
+  const {data: assetRecord} = useSWR(account ? `${serviceBaseURL(chainsData.chainId)}/user/listDepositAndWithdraw?walletAddress=${account.address}` : undefined,
     (url: any) => fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -981,7 +980,7 @@ const Assets = () => {
                 chart: (
                   <VolumeChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -1004,7 +1003,7 @@ const Assets = () => {
                 chart: (
                   <TotalAssetValueChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -1027,7 +1026,7 @@ const Assets = () => {
                 chart: (
                   <DailyReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",
@@ -1050,7 +1049,7 @@ const Assets = () => {
                 chart: (
                   <CumulativeReturnChart
                     show={showNumber}
-                    address={q || account.address}
+                    address={account.address}
                     from={range?.[0]?.startDate
                       ?.toLocaleDateString("zh-CN", {
                         year: "numeric",

@@ -33,8 +33,6 @@ const Futures = () => {
     sort: "desc",
   });
   const [searchText, setSearchText] = useState("");
-  let [searchParams] = useSearchParams();
-  const q = searchParams.get('address');
   const {chainsData, account} = useArithFi();
   const pageWindow = useMemo(() => {
     if (totalPage <= 5) {
@@ -62,8 +60,8 @@ const Futures = () => {
   }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
-    q || account.address
-      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/reward/overview?kolAddress=${q || account.address}`
+    account.address
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/reward/overview?kolAddress=${account.address}`
       : undefined,
     (url: string) => fetch(url)
       .then((res) => res.json())
@@ -71,8 +69,8 @@ const Futures = () => {
   );
 
   const {data: listData} = useSWR(
-    q || account.address
-      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/reward/list?copyKolAddress=${ q || account.address}`
+    account.address
+      ? `${serviceBaseURL(chainsData.chainId)}/copy/kol/reward/list?copyKolAddress=${account.address}`
       : undefined,
     (url: string) => fetch(url)
       .then((res) => res.json())
