@@ -11,9 +11,8 @@ import TableCell from "@mui/material/TableCell";
 import Box from "@mui/material/Box";
 import copy from "copy-to-clipboard";
 import {t, Trans} from "@lingui/macro";
-import {Copy, DownIcon, SearchIcon} from "../../../components/icons";
+import {Copy} from "../../../components/icons";
 import MainButton from "../../../components/MainButton/MainButton";
-import Divider from "@mui/material/Divider";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -231,40 +230,10 @@ const Futures = () => {
   const {messageSnackBar} = useArithFiSnackBar();
   const {isBigMobile} = useWindowWidth();
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(0);
-  const [sortItem, setSortItem] = useState({
-    key: "noSettled",
-    sort: "desc",
-  });
-  const [searchText, setSearchText] = useState("");
   let [searchParams] = useSearchParams();
   const q = searchParams.get('address');
   const { chainsData, signature } = useArithFi();
   const { address } = useAccount();
-  const pageWindow = useMemo(() => {
-    if (totalPage <= 5) {
-      return Array.from({length: totalPage}, (v, k) => k + 1);
-    }
-    if (currentPage <= 3) {
-      return [1, 2, 3, 4, 5];
-    }
-    if (currentPage >= totalPage - 2) {
-      return [
-        totalPage - 4,
-        totalPage - 3,
-        totalPage - 2,
-        totalPage - 1,
-        totalPage,
-      ];
-    }
-    return [
-      currentPage - 2,
-      currentPage - 1,
-      currentPage,
-      currentPage + 1,
-      currentPage + 2,
-    ];
-  }, [currentPage, totalPage]);
 
   const {data: overview} = useSWR(
     q || address
@@ -282,7 +251,7 @@ const Futures = () => {
     q || address
       ? `${serviceBaseURL(chainsData.chainId)}/invite/list-invitee?walletAddress=${
         q || address
-      }` : undefined,
+      }&start=${(currentPage - 1) * 10}&count=10` : undefined,
     (url: string) => fetch(url, {
       headers: {
         "Authorization": signature?.signature || "",
@@ -294,23 +263,12 @@ const Futures = () => {
     if (!listData) {
       return [];
     }
-    setTotalPage(Math.ceil(listData?.data?.length / 10));
     return listData?.data
       ?.filter((item: any) => {
         return item?.inviteeWalletAddress
-          .toLowerCase()
-          .includes(searchText.toLowerCase());
+          .toLowerCase();
       })
-      .sort((a: any, b: any) => {
-        if (sortItem.key === "default") {
-          return 0;
-        }
-        if (sortItem.sort === "asc") {
-          return a[sortItem.key] - b[sortItem.key];
-        }
-        return b[sortItem.key] - a[sortItem.key];
-      });
-  }, [listData, sortItem, searchText]);
+  }, [listData]);
 
   const PCOrderRow = (props: any) => {
     return (
@@ -325,11 +283,10 @@ const Futures = () => {
           <Stack direction={"row"} spacing={"8px"} alignItems={"center"}>
             <Box
               sx={(theme) => ({
-                fontSize: "16px",
-                lineHeight: "22px",
+                fontSize: "12px",
+                lineHeight: "16px",
                 color: theme.normal.text0,
                 fontWeight: 700,
-                maxWidth: '208px',
                 wordWrap: "break-word",
               })}
             >
@@ -381,49 +338,26 @@ const Futures = () => {
         <TableCell>
           <Box
             sx={(theme) => ({
-              fontSize: "16px",
-              lineHeight: "22px",
+              fontSize: "12px",
+              lineHeight: "16px",
               color: theme.normal.text0,
               fontWeight: 700,
             })}
           >
-            {props.item?.volume?.toFixed(2) || "0"}
+            {props.item?.joinTime ? new Date(props.item?.joinTime).toLocaleString() : "-"}
           </Box>
         </TableCell>
+
         <TableCell>
           <Box
             sx={(theme) => ({
-              fontSize: "16px",
-              lineHeight: "22px",
+              fontSize: "12px",
+              lineHeight: "16px",
               color: theme.normal.text0,
               fontWeight: 700,
             })}
           >
-            {props.item?.reward?.toFixed(2) || "0"}
-          </Box>
-        </TableCell>
-        <TableCell>
-          <Box
-            sx={(theme) => ({
-              fontSize: "16px",
-              lineHeight: "22px",
-              color: theme.normal.text0,
-              fontWeight: 700,
-            })}
-          >
-            {props.item?.settled?.toFixed(2) || "0"}
-          </Box>
-        </TableCell>
-        <TableCell>
-          <Box
-            sx={(theme) => ({
-              fontSize: "16px",
-              lineHeight: "22px",
-              color: theme.normal.text0,
-              fontWeight: 700,
-            })}
-          >
-            {props.item?.noSettled?.toFixed(2) || "0"}
+            {props.item?.tradeTime ? new Date(props.item?.tradeTime).toLocaleString() : "-"}
           </Box>
         </TableCell>
       </TableRow>
@@ -434,10 +368,10 @@ const Futures = () => {
     return (
       <Stack
         spacing={"4px"}
-        p={"20px 16px"}
+        p={"16px"}
         sx={(theme) => ({
-          border: `1px solid ${theme.normal.border}`,
           borderRadius: "12px",
+          backgroundColor: theme.normal.bg1,
         })}
       >
         <Stack
@@ -477,9 +411,6 @@ const Futures = () => {
           direction={"row"}
           justifyContent={"space-between"}
           py={"8px"}
-          sx={(theme) => ({
-            borderBottom: `1px solid ${theme.normal.border}`,
-          })}
         >
           <Stack spacing={"4px"} width={"100%"}>
             <Box
@@ -490,7 +421,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              <Trans>Total Trading Volume</Trans>
+              <Trans>Join Time</Trans>
             </Box>
             <Box
               sx={(theme) => ({
@@ -500,7 +431,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.volume?.toFixed(2) || "0"} ATF
+              {props.item?.joinTime ? new Date(props.item?.joinTime).toLocaleString() : "-"}
             </Box>
           </Stack>
           <Stack spacing={"4px"} width={"100%"}>
@@ -512,7 +443,7 @@ const Futures = () => {
                 fontWeight: 400,
               })}
             >
-              <Trans>Total Commissions</Trans>
+              <Trans>Trade Time</Trans>
             </Box>
             <Box
               sx={(theme) => ({
@@ -522,53 +453,7 @@ const Futures = () => {
                 fontWeight: 700,
               })}
             >
-              {props.item?.reward?.toFixed(2) || "0"} ATF
-            </Box>
-          </Stack>
-        </Stack>
-        <Stack direction={"row"} justifyContent={"space-between"} pt={"8px"}>
-          <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-            <Box
-              sx={(theme) => ({
-                fontSize: "12px",
-                lineHeight: "16px",
-                color: theme.normal.text2,
-                fontWeight: 400,
-              })}
-            >
-              <Trans>Settled</Trans>
-            </Box>
-            <Box
-              sx={(theme) => ({
-                fontSize: "12px",
-                lineHeight: "16px",
-                color: theme.normal.text0,
-                fontWeight: 400,
-              })}
-            >
-              {props.item?.settled?.toFixed(2) || "0"} ATF
-            </Box>
-          </Stack>
-          <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-            <Box
-              sx={(theme) => ({
-                fontSize: "12px",
-                lineHeight: "16px",
-                color: theme.normal.text2,
-                fontWeight: 400,
-              })}
-            >
-              <Trans>Unsettled</Trans>
-            </Box>
-            <Box
-              sx={(theme) => ({
-                fontSize: "12px",
-                lineHeight: "16px",
-                color: theme.normal.text0,
-                fontWeight: 400,
-              })}
-            >
-              {props.item?.noSettled?.toFixed(2) || "0"} ATF
+              {props.item?.tradeTime ? new Date(props.item?.tradeTime).toLocaleString() : "-"}
             </Box>
           </Stack>
         </Stack>
@@ -639,17 +524,71 @@ const Futures = () => {
             sx={(theme) => ({
               width: "100%",
               padding: "20px",
-              border: isBigMobile ? "" : `1px solid ${theme.normal.border}`,
-              borderRadius: "12px",
             })}
           >
             {isBigMobile ? (
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
+                spacing={"8px"}
+                justifyContent={"space-between"}
+                sx={(theme) => ({
+                  borderBottom: `1px solid ${theme.normal.border}`,
+                  paddingBottom: "20px",
+                })}
+              >
+                <Stack
+                  direction={"row"}
+                  spacing={"8px"}
+                  alignItems={"center"}
+                  sx={(theme) => ({
+                    color: theme.normal.text0,
+                    fontWeight: 700,
+                    fontSize: "16px",
+                    lineHeight: "22px",
+                  })}
+                >
+                  <Trans>Overview</Trans>
+                </Stack>
+                <Box width={"145px"}>
+                  <MainButton
+                    title={t`Copy Invitation Link`}
+                    disable={!q && !address}
+                    style={{
+                      height: "36px",
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      fontWeight: 700,
+                    }}
+                    onClick={() => {
+                      if (!address && !q) return;
+                      let link = "https://arithfi.com/";
+                      if (q) {
+                        link =
+                          "https://arithfi.com/?a=" +
+                          q?.slice(-8).toLowerCase();
+                      } else if (address) {
+                        link =
+                          "https://arithfi.com/?a=" +
+                          address?.slice(-8).toLowerCase();
+                      }
+                      copy(link);
+                      messageSnackBar(t`Copy Successfully`);
+                    }}
+                  />
+                </Box>
+              </Stack>
+            ) : (
               <>
                 <Stack
                   direction={"row"}
-                  alignItems={"center"}
-                  spacing={"8px"}
+                  width={"100%"}
                   justifyContent={"space-between"}
+                  alignItems={"center"}
+                  sx={(theme) => ({
+                    borderBottom: isBigMobile ? "" : `1px solid ${theme.normal.border}`,
+                    paddingBottom: 2,
+                  })}
                 >
                   <Stack
                     direction={"row"}
@@ -658,65 +597,11 @@ const Futures = () => {
                     sx={(theme) => ({
                       color: theme.normal.text0,
                       fontWeight: 700,
-                      fontSize: "16px",
-                      lineHeight: "22px",
+                      fontSize: "20px",
+                      lineHeight: "28px",
                     })}
                   >
-                    <div>
-                      <Trans>Overview</Trans>
-                    </div>
-                  </Stack>
-                  <Box width={"145px"}>
-                    <MainButton
-                      title={t`Copy Invitation Link`}
-                      disable={!q && !address}
-                      style={{
-                        height: "36px",
-                        fontSize: "12px",
-                        lineHeight: "16px",
-                        fontWeight: 700,
-                      }}
-                      onClick={() => {
-                        if (!address && !q) return;
-                        let link = "https://arithfi.com/";
-                        if (q) {
-                          link =
-                            "https://arithfi.com/?a=" +
-                            q?.slice(-8).toLowerCase();
-                        } else if (address) {
-                          link =
-                            "https://arithfi.com/?a=" +
-                            address?.slice(-8).toLowerCase();
-                        }
-                        copy(link);
-                        messageSnackBar(t`Copy Successfully`);
-                      }}
-                    />
-                  </Box>
-                </Stack>
-              </>
-            ) : (
-              <>
-                <Stack
-                  direction={"row"}
-                  width={"100%"}
-                  justifyContent={"space-between"}
-                  alignItems={"center"}
-                >
-                  <Stack
-                    direction={"row"}
-                    spacing={"8px"}
-                    alignItems={"center"}
-                    sx={(theme) => ({
-                      color: theme.normal.text2,
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                    })}
-                  >
-                    <div>
-                      <Trans>Overview</Trans>
-                    </div>
+                    <Trans>Invitee Address</Trans>
                   </Stack>
                   <Box>
                     <MainButton
@@ -757,16 +642,6 @@ const Futures = () => {
                 >
                   {[
                     {
-                      title: t`Invitee Trading Volume`,
-                      value: overview?.data?.tradingVolume || 0,
-                      unit: "ATF",
-                    },
-                    {
-                      title: t`Cumulative Commissions`,
-                      value: overview?.data?.reward || 0,
-                      unit: "ATF",
-                    },
-                    {
                       title: t`Traded Invitees`,
                       value: overview?.data?.inviteeTransaction || 0,
                       unit: "",
@@ -794,90 +669,26 @@ const Futures = () => {
                           fontSize: "14px",
                           lineHeight: "20px",
                         },
-                        padding: "40px 20px",
-                        border: `1px solid ${theme.normal.border}`,
-                        borderRadius: "12px",
                       })}
                     >
                       <div>
-                        {item.value?.toFixed(index >= 2 ? 0 : 2)} {item.unit}
+                        {item.value}
                       </div>
                       <span>{item.title}</span>
                     </Stack>
                   ))}
-                </Stack>
-                <Stack
-                  sx={(theme) => ({
-                    color: theme.normal.text2,
-                    fontWeight: 400,
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                  })}
-                >
-                  <Trans>
-                    * Due to the complexity of financial data, there might be
-                    nuances and delay. Data displayed above is for reference
-                    only.We sincerely apologize for any inconvenience.
-                  </Trans>
                 </Stack>
               </>
             )}
             {isBigMobile && (
               <Stack
                 sx={(theme) => ({
-                  border: `1px solid ${theme.normal.border}`,
-                  borderRadius: "12px",
-                  padding: "20px 12px",
                 })}
                 spacing={"20px"}
+                direction={"row"}
+                justifyContent={"space-between"}
               >
-                <Stack spacing={"4px"}>
-                  <Box
-                    sx={(theme) => ({
-                      color: theme.normal.text2,
-                    })}
-                  >
-                    <Trans>Cumulative Invitee Trading Volume</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      color: theme.normal.text0,
-                      fontWeight: 700,
-                      fontSize: "24px",
-                      lineHeight: "32px",
-                    })}
-                  >
-                    {overview?.data?.tradingVolume?.toFixed(2) || 0} ATF
-                  </Box>
-                </Stack>
-                <Box
-                  sx={(theme) => ({
-                    borderBottom: `1px solid ${theme.normal.border}`,
-                  })}
-                ></Box>
-                <Stack direction={"row"} justifyContent={"space-between"}>
-                  <Box
-                    sx={(theme) => ({
-                      color: theme.normal.text2,
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      fontWeight: 400,
-                    })}
-                  >
-                    <Trans>Cumulative Commission</Trans>
-                  </Box>
-                  <Box
-                    sx={(theme) => ({
-                      color: theme.normal.text0,
-                      fontSize: "16px",
-                      lineHeight: "22px",
-                      fontWeight: 700,
-                    })}
-                  >
-                    {overview?.data?.reward?.toFixed(2) || 0} ATF
-                  </Box>
-                </Stack>
-                <Stack direction={"row"} justifyContent={"space-between"}>
+                <Stack width={"100%"}>
                   <Box
                     sx={(theme) => ({
                       color: theme.normal.text2,
@@ -899,7 +710,7 @@ const Futures = () => {
                     {overview?.data?.inviteeTransaction || 0}
                   </Box>
                 </Stack>
-                <Stack direction={"row"} justifyContent={"space-between"}>
+                <Stack width={"100%"}>
                   <Box
                     sx={(theme) => ({
                       color: theme.normal.text2,
@@ -921,21 +732,6 @@ const Futures = () => {
                     {overview?.data?.invitee || 0}
                   </Box>
                 </Stack>
-                <Divider/>
-                <Stack
-                  sx={(theme) => ({
-                    color: theme.normal.text2,
-                    fontWeight: 400,
-                    fontSize: "10px",
-                    lineHeight: "14px",
-                  })}
-                >
-                  <Trans>
-                    * Due to the complexity of financial data, there might be
-                    nuances and delay. Data displayed above is for reference
-                    only.We sincerely apologize for any inconvenience.
-                  </Trans>
-                </Stack>
               </Stack>
             )}
           </Stack>
@@ -952,96 +748,10 @@ const Futures = () => {
                     fontWeight: 700,
                     fontSize: "16px",
                     lineHeight: "22px",
-                    borderBottom: `1px solid ${theme.normal.border}`,
                   })}
                 >
-                  <div>
-                    <Trans>My commissions</Trans>
-                  </div>
+                  <Trans>Referrals</Trans>
                 </Stack>
-                {listData?.data?.length > 0 && (
-                  <Stack
-                    direction={"row"}
-                    px={"20px"}
-                    spacing={"8px"}
-                    height={"38px"}
-                  >
-                    <Box position={"relative"} width={"100%"} height={"100%"}>
-                      <Box
-                        position={"absolute"}
-                        sx={(theme) => ({
-                          color: theme.normal.text2,
-                          right: "12px",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          "& svg": {
-                            height: "12px",
-                            width: "12px",
-                            "& path": {
-                              fill: theme.normal.text2,
-                            },
-                          },
-                        })}
-                      >
-                        <DownIcon/>
-                      </Box>
-                      <Select1
-                        value={sortItem.key}
-                        onChange={(e) => {
-                          setSortItem({
-                            key: e.target.value,
-                            sort: "desc",
-                          });
-                        }}
-                      >
-                        <option value={"default"}>
-                          <Trans>Default</Trans>
-                        </option>
-                        <option value={"volume"}>
-                          <Trans>Trading Volume</Trans>
-                        </option>
-                        <option value={"reward"}>
-                          <Trans>Total Commissions</Trans>
-                        </option>
-                        <option value={"settled"}>
-                          <Trans>Settled Commissions</Trans>
-                        </option>
-                        <option value={"noSettled"}>
-                          <Trans>Unsettled Commissions</Trans>
-                        </option>
-                      </Select1>
-                    </Box>
-                    <Box position={"relative"} width={"100%"} height={"100%"}>
-                      <Box
-                        position={"absolute"}
-                        sx={(theme) => ({
-                          color: theme.normal.text2,
-                          right: "12px",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          "& svg": {
-                            height: "12px",
-                            width: "12px",
-                            "& path": {
-                              fill: theme.normal.text2,
-                            },
-                          },
-                        })}
-                      >
-                        <SearchIcon/>
-                      </Box>
-                      <Input
-                        placeholder={t`Search`}
-                        value={searchText}
-                        onChange={(e) => {
-                          setSearchText(e.target.value);
-                        }}
-                      />
-                    </Box>
-                  </Stack>
-                )}
                 <Stack px={"20px"} spacing={"12px"}>
                   {inviteeList.map((item: any, index: number) => (
                     <MobileOrderCard item={item} key={index}/>
@@ -1087,39 +797,8 @@ const Futures = () => {
                     alignItems={"center"}
                     justifyContent={"center"}
                   >
-                    <div>
-                      <Trans>My commissions</Trans>
-                    </div>
+                    <Trans>Referrals</Trans>
                   </Stack>
-
-                  <Box position={"relative"} height={"28px"}>
-                    <Box
-                      position={"absolute"}
-                      sx={(theme) => ({
-                        color: theme.normal.text2,
-                        right: "12px",
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        "& svg": {
-                          height: "12px",
-                          width: "12px",
-                          "& path": {
-                            fill: theme.normal.text2,
-                          },
-                        },
-                      })}
-                    >
-                      <SearchIcon/>
-                    </Box>
-                    <InputPC
-                      placeholder={"Search"}
-                      value={searchText}
-                      onChange={(e) => {
-                        setSearchText(e.target.value);
-                      }}
-                    ></InputPC>
-                  </Box>
                 </Stack>
                 <TableContainer component={"div"}>
                   <Table sx={{width: "100%"}} aria-label="simple table">
@@ -1144,168 +823,18 @@ const Futures = () => {
                           <Stack
                             direction={"row"}
                             spacing={"8px"}
-                            onClick={() => {
-                              setCurrentPage(1);
-                              if (
-                                sortItem.key === "volume" &&
-                                sortItem.sort === "asc"
-                              ) {
-                                setSortItem({
-                                  key: "default",
-                                  sort: "desc",
-                                });
-                                return;
-                              }
-                              setSortItem({
-                                key: "volume",
-                                sort:
-                                  sortItem.key === "volume"
-                                    ? sortItem.sort === "asc"
-                                      ? "desc"
-                                      : "asc"
-                                    : "desc",
-                              });
-                            }}
                             style={{cursor: "pointer", userSelect: "none"}}
                           >
-                            <div>
-                              <Trans>Total Trading Volume</Trans>
-                            </div>
-                            {sortItem.key === "volume" ? (
-                              sortItem.sort === "asc" ? (
-                                <UpSort/>
-                              ) : (
-                                <DownSort/>
-                              )
-                            ) : (
-                              <NoSort/>
-                            )}
+                            <Trans>Join Time</Trans>
                           </Stack>
                         </TableCell>
                         <TableCell align="left">
                           <Stack
                             direction={"row"}
                             spacing={"8px"}
-                            onClick={() => {
-                              setCurrentPage(1);
-                              if (
-                                sortItem.key === "reward" &&
-                                sortItem.sort === "asc"
-                              ) {
-                                setSortItem({
-                                  key: "default",
-                                  sort: "desc",
-                                });
-                                return;
-                              }
-                              setSortItem({
-                                key: "reward",
-                                sort:
-                                  sortItem.key === "reward"
-                                    ? sortItem.sort === "asc"
-                                      ? "desc"
-                                      : "asc"
-                                    : "desc",
-                              });
-                            }}
                             style={{cursor: "pointer", userSelect: "none"}}
                           >
-                            <div>
-                              <Trans>Total Commissions</Trans>
-                            </div>
-                            {sortItem.key === "reward" ? (
-                              sortItem.sort === "asc" ? (
-                                <UpSort/>
-                              ) : (
-                                <DownSort/>
-                              )
-                            ) : (
-                              <NoSort/>
-                            )}
-                          </Stack>
-                        </TableCell>
-                        <TableCell align="left">
-                          <Stack
-                            direction={"row"}
-                            spacing={"8px"}
-                            onClick={() => {
-                              setCurrentPage(1);
-                              if (
-                                sortItem.key === "settled" &&
-                                sortItem.sort === "asc"
-                              ) {
-                                setSortItem({
-                                  key: "default",
-                                  sort: "desc",
-                                });
-                                return;
-                              }
-                              setSortItem({
-                                key: "settled",
-                                sort:
-                                  sortItem.key === "settled"
-                                    ? sortItem.sort === "asc"
-                                      ? "desc"
-                                      : "asc"
-                                    : "desc",
-                              });
-                            }}
-                            style={{cursor: "pointer", userSelect: "none"}}
-                          >
-                            <div>
-                              <Trans>Settled Commissions</Trans>
-                            </div>
-                            {sortItem.key === "settled" ? (
-                              sortItem.sort === "asc" ? (
-                                <UpSort/>
-                              ) : (
-                                <DownSort/>
-                              )
-                            ) : (
-                              <NoSort/>
-                            )}
-                          </Stack>
-                        </TableCell>
-                        <TableCell align="left">
-                          <Stack
-                            direction={"row"}
-                            spacing={"8px"}
-                            onClick={() => {
-                              setCurrentPage(1);
-                              if (
-                                sortItem.key === "noSettled" &&
-                                sortItem.sort === "asc"
-                              ) {
-                                setSortItem({
-                                  key: "default",
-                                  sort: "desc",
-                                });
-                                return;
-                              }
-                              setSortItem({
-                                key: "noSettled",
-                                sort:
-                                  sortItem.key === "noSettled"
-                                    ? sortItem.sort === "asc"
-                                      ? "desc"
-                                      : "asc"
-                                    : "desc",
-                              });
-                            }}
-                            style={{cursor: "pointer", userSelect: "none"}}
-                          >
-                            <div>
-                              <Trans>Unsettled Commissions</Trans>
-                            </div>
-                            {sortItem.key === "noSettled" ? (
-                              sortItem.sort === "asc" ? (
-                                <UpSort/>
-                              ) : (
-                                <DownSort/>
-                              )
-                            ) : (
-                              <NoSort/>
-                            )}
+                            <Trans>Trade Time</Trans>
                           </Stack>
                         </TableCell>
                       </TableRow>
@@ -1344,7 +873,7 @@ const Futures = () => {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                {inviteeList?.length > 0 && (
+                {(inviteeList?.length > 0 || currentPage > 1) && (
                   <Stack
                     direction={"row"}
                     spacing={"10px"}
@@ -1361,29 +890,21 @@ const Futures = () => {
                     >
                       {"<"}
                     </PaginationButton>
-                    {pageWindow.map((item, index) => {
-                      return (
-                        <PaginationButton
-                          key={index}
-                          onClick={() => {
-                            setCurrentPage(item);
-                          }}
-                          style={{
-                            background: item === currentPage ? "#EAAA00" : "",
-                            color: item === currentPage ? "#1F2329" : "",
-                          }}
-                        >
-                          {item}
-                        </PaginationButton>
-                      );
-                    })}
+                    <PaginationButton
+                      style={{
+                        background: "#EAAA00",
+                        color: "#1F2329",
+                      }}
+                    >
+                      {currentPage}
+                    </PaginationButton>
                     <PaginationButton
                       onClick={() => {
-                        if (currentPage < totalPage) {
-                          setCurrentPage(currentPage + 1);
+                        if (inviteeList.length === 10) {
+                          setCurrentPage(currentPage + 1)
                         }
                       }}
-                      disabled={currentPage >= totalPage}
+                      disabled={inviteeList.length < 10}
                     >
                       {">"}
                     </PaginationButton>
