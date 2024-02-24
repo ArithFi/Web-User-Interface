@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { copyAllKol, serviceBaseURL } from "../../../lib/ArithFiRequest";
 import useArithFi from "../../../hooks/useArithFi";
 import useWindowWidth from "../../../hooks/useWindowWidth";
-import { DEFAULT_CHAIN_ID } from "../../../lib/client";
 import { useSearchParams } from "react-router-dom";
 import useSWR from "swr";
 import { useSessionStorage } from "react-use";

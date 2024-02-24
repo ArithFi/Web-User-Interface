@@ -110,17 +110,6 @@ function useFuturesNewOrder(
   /**
    * uniswap out amount
    */
-  const feeNum = useMemo(() => {
-    return isForex(lever) ? 2 : 5;
-  }, [lever]);
-  const allValue = useCallback(
-    (value: BigNumber) => {
-      return value
-        .mul(BigNumber.from("10000"))
-        .div(BigNumber.from(`${10000 + lever * feeNum}`));
-    },
-    [feeNum, lever]
-  );
   useEffect(() => {
     setArithFiAmount(inputAmount);
   }, [inputAmount]);
@@ -152,18 +141,6 @@ function useFuturesNewOrder(
       setTokenBalance(balance_bigNumber ?? BigNumber.from("0"));
     });
   }, [service_balance]);
-
-  const fee = useMemo(() => {
-    if (arithFiAmount === "") {
-      return BigNumber.from("0");
-    }
-    const baseFee = arithFiAmount
-      .stringToBigNumber(18)!
-      .mul(BigNumber.from(lever.toString()))
-      .mul(BigNumber.from(feeNum.toString()))
-      .div(BigNumber.from("10000"));
-    return baseFee;
-  }, [arithFiAmount, lever, feeNum]);
   /**
    * check
    */
@@ -174,11 +151,11 @@ function useFuturesNewOrder(
         : inputAmount.stringToBigNumber(18)!;
 
     if (tokenBalance) {
-      return fee.add(inputAmountNumber).lte(tokenBalance);
+      return inputAmountNumber.lte(tokenBalance);
     } else {
       return false;
     }
-  }, [fee, inputAmount, tokenBalance]);
+  }, [inputAmount, tokenBalance]);
   /**
    * action
    */
@@ -245,14 +222,6 @@ function useFuturesNewOrder(
       updateList,
     ]
   );
-  const showTotalPay = useMemo(() => {
-    if (arithFiAmount !== "") {
-      return fee
-        .add(arithFiAmount.stringToBigNumber(18)!)
-        .bigNumberToShowString(18, 2);
-    }
-    return fee.bigNumberToShowString(18, 2);
-  }, [fee, arithFiAmount]);
   /**
    * main button
    */
@@ -478,9 +447,6 @@ function useFuturesNewOrder(
       return showOpenPrice
     }
   }, [limitAmount, showOpenPrice, tabsValue])
-  const showFee = useMemo(() => {
-    return fee.bigNumberToShowString(18, 2);
-  }, [fee]);
   const showLiqPrice = useCallback(
     (isLong: boolean) => {
       if (!openPriceBase || arithFiAmount === "" || arithFiAmount === "0") {
@@ -503,17 +469,6 @@ function useFuturesNewOrder(
     },
     [openPriceBase, arithFiAmount, lever, tokenPair]
   );
-  const showFeeHoverText = useMemo(() => {
-    if (isForex(lever)) {
-      return [
-        t`Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`,
-      ];
-    } else {
-      return [
-        t`Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading.`,
-      ];
-    }
-  }, [lever]);
 
   const showAmountError = useMemo(() => {
     if (inputAmount === "") {
@@ -535,10 +490,10 @@ function useFuturesNewOrder(
   const maxCallBack = useCallback(() => {
     if (tokenBalance) {
       setInputAmount(
-        allValue(tokenBalance).bigNumberToShowString(18, 2).formatInputNum4()
+        tokenBalance.bigNumberToShowString(18, 2).formatInputNum4()
       );
     }
-  }, [tokenBalance, allValue]);
+  }, [tokenBalance]);
 
   const stopErrorText = useMemo(() => {
     if (tabsValue === 0) {
@@ -627,10 +582,7 @@ function useFuturesNewOrder(
     setSl,
     showBalance,
     maxCallBack,
-    showFeeHoverText,
     showOpenPrice,
-    showFee,
-    showTotalPay,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,

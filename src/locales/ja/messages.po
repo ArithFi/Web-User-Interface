@@ -370,10 +370,6 @@ msgstr ""
 msgid "Closed"
 msgstr ""
 
-#: src/pages/Account/Assets/Overview.tsx
-msgid "Commission"
-msgstr ""
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -573,7 +569,6 @@ msgstr ""
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Account/Assets/Assets.tsx
-#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
@@ -942,11 +937,8 @@ msgid "Minimum 200 ATF"
 msgstr ""
 
 #: src/hooks/useFuturesNewOrder.ts
-msgid "Minimum 50 ATF"
-msgstr ""
-
 #: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 60 ATF"
+msgid "Minimum 50 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
@@ -1139,25 +1131,9 @@ msgstr ""
 msgid "Position"
 msgstr "ポジション"
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr ""
-
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr ""
-
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Account/Futures/Futures.tsx
 msgid "Position Value"
-msgstr ""
-
-#: src/hooks/useFuturesClose.ts
-msgid "Position*0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr ""
-
-#: src/hooks/useFuturesClose.ts
-msgid "Position*0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
 msgstr ""
 
 #: src/pages/Futures/OrderList.tsx
@@ -1285,8 +1261,6 @@ msgstr "ポジションを売る"
 msgid "Send request"
 msgstr ""
 
-#: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Service Fee"
 msgstr "手数料"
@@ -1438,10 +1412,6 @@ msgstr "利益確定"
 msgid "Test BNB"
 msgstr "テスト BNB"
 
-#: src/pages/Copy/Components/CopySettingModal.tsx
-msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
-msgstr ""
-
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
 msgstr ""
@@ -1535,10 +1505,6 @@ msgstr ""
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr ""
-
-#: src/pages/Futures/NewOrder.tsx
-msgid "Total Pay"
-msgstr "支払い合計"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
