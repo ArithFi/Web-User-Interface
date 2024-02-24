@@ -24,8 +24,8 @@ msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
-msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-msgstr ""
+#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
+#~ msgstr ""
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
@@ -45,6 +45,10 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "0 Trading Fees"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "0 Trading Fees and 0 Slippage"
 msgstr ""
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
@@ -231,6 +235,11 @@ msgstr "金額"
 msgid "Analysis"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "App Store"
+msgstr ""
+
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
 msgstr "承認が必要です"
@@ -252,6 +261,9 @@ msgid "ArithFi Swap"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+msgid "ArithFi,"
+msgstr ""
+
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
 msgstr ""
@@ -371,8 +383,8 @@ msgid "Closed"
 msgstr ""
 
 #: src/pages/Account/Assets/Overview.tsx
-msgid "Commission"
-msgstr ""
+#~ msgid "Commission"
+#~ msgstr ""
 
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -497,20 +509,20 @@ msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Cumulative Commission"
-msgstr ""
+#~ msgid "Cumulative Commission"
+#~ msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Cumulative Commissions"
-msgstr ""
+#~ msgid "Cumulative Commissions"
+#~ msgstr ""
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Cumulative Invitee Trading Volume"
-msgstr ""
+#~ msgid "Cumulative Invitee Trading Volume"
+#~ msgstr ""
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -560,7 +572,6 @@ msgid "Dashboard"
 msgstr "ダッシュボード"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
 msgid "Default"
 msgstr ""
 
@@ -573,7 +584,6 @@ msgstr ""
 #: src/hooks/useDepositModal.ts
 #: src/hooks/useDepositModal.ts
 #: src/pages/Account/Assets/Assets.tsx
-#: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Futures/NewOrder.tsx
@@ -596,6 +606,11 @@ msgstr "ディスコネクト"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Doc"
 msgstr "Doc"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Download on the"
+msgstr ""
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -636,7 +651,18 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
+#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
+#~ msgstr ""
+
+#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
+msgid "Enjoy 0 trading fees & 0 slippage trading"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Enjoy 0 trading fees & 0 slippage trading on ArithFi"
 msgstr ""
 
 #: src/pages/Futures/NewOrder.tsx
@@ -728,9 +754,19 @@ msgstr ""
 msgid "Get ATF"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "GET IT ON"
+msgstr ""
+
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
 msgstr "Github"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Google Play"
+msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
 #: src/pages/Copy/Trader.tsx
@@ -810,15 +846,26 @@ msgid "Integrations & Partners"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Invitee Trading Volume"
+#~ msgid "Invitee Trading Volume"
+#~ msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "iOS & Android"
 msgstr ""
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
+msgstr ""
+
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Join Time"
 msgstr ""
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
@@ -960,8 +1007,8 @@ msgstr "詳細情報"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
-msgid "My commissions"
-msgstr ""
+#~ msgid "My commissions"
+#~ msgstr ""
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1089,7 +1136,6 @@ msgstr ""
 #: src/pages/Account/Assets/Overview.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Overview"
 msgstr ""
@@ -1223,6 +1269,11 @@ msgstr "最近の取引"
 msgid "Referral"
 msgstr ""
 
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Referrals"
+msgstr ""
+
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1260,14 +1311,16 @@ msgid "Save"
 msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "取引をスキャンしてコピー"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Scan to Download App"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
 msgid "Search"
 msgstr ""
 
@@ -1305,13 +1358,13 @@ msgid "Settings"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Settled"
-msgstr ""
+#~ msgid "Settled"
+#~ msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Settled Commissions"
-msgstr ""
+#~ msgid "Settled Commissions"
+#~ msgstr ""
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1349,6 +1402,11 @@ msgstr ""
 #: src/pages/Swap/Components/SwapSlippageModal.tsx
 msgid "Slippage Tolerance Setting"
 msgstr "スリッページトレランス設定"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "slippage trading at any time"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1438,6 +1496,10 @@ msgstr "利益確定"
 msgid "Test BNB"
 msgstr "テスト BNB"
 
+#: src/pages/Home/Home.tsx
+msgid "the First Decentralized Derivatives Protocol Achieves"
+msgstr ""
+
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
 msgstr ""
@@ -1524,8 +1586,8 @@ msgstr ""
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Total Commissions"
-msgstr ""
+#~ msgid "Total Commissions"
+#~ msgstr ""
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
@@ -1562,8 +1624,6 @@ msgstr ""
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
 msgid "Total Trading Volume"
 msgstr ""
 
@@ -1594,6 +1654,11 @@ msgstr ""
 msgid "Trade"
 msgstr ""
 
+#: src/pages/Account/Referral/Referral.tsx
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Trade Time"
+msgstr ""
+
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
 msgstr "トークンを瞬時に取引"
@@ -1604,8 +1669,8 @@ msgid "Trade With $ATF"
 msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-msgid "Trade with me on ArithFi"
-msgstr ""
+#~ msgid "Trade with me on ArithFi"
+#~ msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1627,8 +1692,12 @@ msgstr ""
 msgid "Trader profit sharing rules."
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "trading fees,"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
 msgid "Trading Volume"
 msgstr ""
 
@@ -1701,14 +1770,13 @@ msgid "Unrealized PnL(ATF)"
 msgstr ""
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Account/Referral/Referral.tsx
 msgid "Unsettled"
 msgstr ""
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
-msgid "Unsettled Commissions"
-msgstr ""
+#~ msgid "Unsettled Commissions"
+#~ msgstr ""
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -1794,8 +1862,6 @@ msgid "Winning Trades"
 msgstr ""
 
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
-#: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "1クリックで"
