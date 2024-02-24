@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <title>ArithFi Download App</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQY6J5D5Z3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CQY6J5D5Z3');
+    </script>
+    <script type="text/javascript">
+      const Terminal = {
+        platform: function () {
+          const u = navigator.userAgent, app = navigator.appVersion;
+          return {
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+            iPhone: u.indexOf('iPhone') > -1,
+            iPad: u.indexOf('iPad') > -1
+          };
+        }(),
+      };
+      let theUrl = 'https://itunes.apple.com/us/app/6475583769';
+      if(Terminal.platform.android){
+        theUrl = 'https://play.google.com/store/apps/details?id=com.arithfi';
+        gtag('event', 'prepare-download', {'event_category': 'download-app', 'event_label': 'android'});
+      }else if(Terminal.platform.iPhone){
+        theUrl = 'https://itunes.apple.com/us/app/6475583769';
+        gtag('event', 'prepare-download', {'event_category': 'download-app', 'event_label': 'iphone'});
+      }
+
+      location.href = theUrl;
+    </script>
+</head>
+<body>
+</body>
+</html>
