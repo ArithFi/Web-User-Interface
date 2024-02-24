@@ -246,7 +246,7 @@ msgstr "승인"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model"
 msgstr "ArithFi는 SCP (스마트 계약 상대방) 모델을 기반으로 합니다"
 
 #: src/pages/Token/Token.tsx
@@ -255,8 +255,8 @@ msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage."
-msgstr "ArithFi, 최초의 분산형 파생 상품 프로토콜은 0 거래 수수료 및 0 슬리피지를 달성합니다. "
+msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+msgstr "ArithFi, 최초의 분산형 파생 상품 프로토콜은 0 거래 수수료 및 0 슬리피지를 달성합니다"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -270,7 +270,7 @@ msgstr "ATF Coin"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
+msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future"
 msgstr "ATF는 소멸적인 토큰으로 작용하며 ArithFi의 산술 거래 모델의 결제 토큰 역할을 합니다. ATF 토큰 보유자는 ArithFi의 모든 거래자들과 동등한 위치에 있다고 볼 수 있습니다. 우리는 장기적으로 거래자가 시장을 일관되게 능가할 수 없다고 믿으므로, 따라서 ATF 보유자는 거래자들이 발생시키는 손실로 인한 토큰 가치의 상승을 이용할 수 있습니다. 지속적인 제품 개발과 커뮤니티 발전을 통해 ATF는 균형 재산이 될 것으로 기대됩니다. 게다가, ATF 토큰은 향후 ATF 보유자에게 더 많은 권리를 부여하는 지배 기능도 가지고 있습니다."
 
 #: src/pages/Copy/Components/TraderChartView.tsx
@@ -1721,8 +1721,8 @@ msgstr "미해결 이익 공유"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Use $ATF as margin to open positions."
-msgstr "$ATF를 마진으로 사용하여 포지션을 개설하세요."
+msgid "Use $ATF as margin to open positions"
+msgstr "$ATF를 마진으로 사용하여 포지션을 개설하세요"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"

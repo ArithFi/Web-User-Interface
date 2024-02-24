@@ -246,7 +246,7 @@ msgstr "Phê duyệt"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model"
 msgstr "ArithFi dựa trên mô hình SCP (Smart contract Counterparty)"
 
 #: src/pages/Token/Token.tsx
@@ -255,8 +255,8 @@ msgstr "Sàn giao dịch ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage."
-msgstr "ArithFi, Giao thức Phái sinh Phi tập trung đầu tiên đạt được 0 phí giao dịch và 0 trượt giá. "
+msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+msgstr "ArithFi, Giao thức Phái sinh Phi tập trung đầu tiên đạt được 0 phí giao dịch và 0 trượt giá"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -270,8 +270,8 @@ msgstr "ATF Coin"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
-msgstr "ATF là một token phòng thao hóa và đóng vai trò là token thanh toán cho mô hình giao dịch toán học ArithFi. Người nắm giữ token ATF có thể được coi là đối tác của tất cả các nhà giao dịch trong ArithFi. Chúng tôi tin rằng những người giao dịch không thể liên tục vượt qua thị trường trong dài hạn, do đó người nắm giữ ATF có thể hưởng lợi từ sự tăng giá của token do những người giao dịch gánh chịu. Với việc phát triển sản phẩm liên tục và phát triển cộng đồng, ATF sẽ trở thành một tài sản cân đối. Ngoài ra, token ATF cũng có các chức năng quản trị, mang lại nhiều quyền lợi hơn cho người nắm giữ ATF trong tương lai."
+msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future"
+msgstr "ATF là một token phòng thao hóa và đóng vai trò là token thanh toán cho mô hình giao dịch toán học ArithFi. Người nắm giữ token ATF có thể được coi là đối tác của tất cả các nhà giao dịch trong ArithFi. Chúng tôi tin rằng những người giao dịch không thể liên tục vượt qua thị trường trong dài hạn, do đó người nắm giữ ATF có thể hưởng lợi từ sự tăng giá của token do những người giao dịch gánh chịu. Với việc phát triển sản phẩm liên tục và phát triển cộng đồng, ATF sẽ trở thành một tài sản cân đối. Ngoài ra, token ATF cũng có các chức năng quản trị, mang lại nhiều quyền lợi hơn cho người nắm giữ ATF trong tương lai"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -1721,8 +1721,8 @@ msgstr "Chưa giải quyết lợi nhuận chia sẻ"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Use $ATF as margin to open positions."
-msgstr "Sử dụng $ATF làm ký quỹ để mở vị thế."
+msgid "Use $ATF as margin to open positions"
+msgstr "Sử dụng $ATF làm ký quỹ để mở vị thế"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"

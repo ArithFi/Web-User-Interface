@@ -246,7 +246,7 @@ msgstr "Подтвердить"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi is based on the SCP (Smart contract Counterparty) model."
+msgid "ArithFi is based on the SCP (Smart contract Counterparty) model"
 msgstr "ArithFi основана на модели SCP (Smart contract Counterparty)"
 
 #: src/pages/Token/Token.tsx
@@ -255,8 +255,8 @@ msgstr "Обмен ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage."
-msgstr "ArithFi, o Primeiro Protocolo Descentralizado de Derivativos Alcança 0 Taxas de Negociação e 0 Derrapagem. "
+msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+msgstr "ArithFi, o Primeiro Protocolo Descentralizado de Derivativos Alcança 0 Taxas de Negociação e 0 Derrapagem"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -270,8 +270,8 @@ msgstr "ATF Coin"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future."
-msgstr "ATF — это дефляционный токен, который служит в качестве расчетного токена для арифметической торговой модели ArithFi. Владельцы токенов ATF могут рассматриваться как контрагенты для всех трейдеров в ArithFi. Мы верим, что трейдеры не могут постоянно превосходить рынок в долгосрочной перспективе, поэтому владельцы ATF могут получить выгоду от роста стоимости токена из-за убытков, понесенных трейдерами. С непрерывными итерациями продукта и развитием сообщества ATF станет активом равновесия. Кроме того, токены ATF также обладают функциями управления, предоставляя более широкие права владельцам ATF в будущем."
+msgid "ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model. Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that traders cannot consistently outperform the market in the long run, thus ATF holders can benefit from the appreciation of the token due to losses incurred by traders. With ongoing product iterations and community development, ATF will become a equilibrium asset. Additionally, ATF tokens also possess governance functions, providing more rights to ATF holders in the future"
+msgstr "ATF — это дефляционный токен, который служит в качестве расчетного токена для арифметической торговой модели ArithFi. Владельцы токенов ATF могут рассматриваться как контрагенты для всех трейдеров в ArithFi. Мы верим, что трейдеры не могут постоянно превосходить рынок в долгосрочной перспективе, поэтому владельцы ATF могут получить выгоду от роста стоимости токена из-за убытков, понесенных трейдерами. С непрерывными итерациями продукта и развитием сообщества ATF станет активом равновесия. Кроме того, токены ATF также обладают функциями управления, предоставляя более широкие права владельцам ATF в будущем"
 
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "AUM (ATF)"
@@ -1721,8 +1721,8 @@ msgstr "Не урегулированное прибыльное участие"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
-msgid "Use $ATF as margin to open positions."
-msgstr "Используйте $ATF в качестве залога для открытия позиций."
+msgid "Use $ATF as margin to open positions"
+msgstr "Используйте $ATF в качестве залога для открытия позиций"
 
 #: src/pages/Dashboard/Dashboard.tsx
 msgid "User"
