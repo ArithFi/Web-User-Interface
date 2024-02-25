@@ -22,11 +22,6 @@ msgstr "{0}"
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* 금융 데이터의 복잡성으로 인해 세부 사항과 지연이 발생할 수 있습니다. 위에 표시된 데이터는 참고용입니다. 불편을 드려 진심으로 사과합니다."
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-#~ msgstr "*금융 데이터의 복잡성으로 인해 미묘한 차이와 지연이 있을 수 있습니다. 위에 표시된 데이터는 참고용일 뿐이며, 불편을 드려 죄송합니다."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "ArithFi는 ATF 인출만 지원합니다."
@@ -51,7 +46,7 @@ msgstr "0 거래 수수료"
 
 #: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
-msgstr ""
+msgstr "0 거래 수수료 및 0 슬리피지"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -384,10 +379,6 @@ msgstr "종료 시간"
 msgid "Closed"
 msgstr "닫힘"
 
-#: src/pages/Account/Assets/Overview.tsx
-#~ msgid "Commission"
-#~ msgstr "수수료"
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -510,21 +501,9 @@ msgstr "암호화폐"
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "암호화폐, 외환, 귀금속, 상품, 주식"
 
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commission"
-#~ msgstr "누적 수수료"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commissions"
-#~ msgstr "누적 수수료"
-
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr "누적 복사 트레이더"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Invitee Trading Volume"
-#~ msgstr "누적 피추천인 거래량"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -651,21 +630,16 @@ msgstr "편집됨"
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "복사 종료는 시장 주문으로 포지션을 청산하고, 결산 기간 동안의 이익 분배를 공제한 후 자산을 계정으로 자동 환불합니다."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
-#~ msgstr "ArithFi에서 0 거래 수수료 및 0 슬리피지 거래를 즐기세요."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
-msgstr ""
+msgstr "0 거래 수수료 & 0 슬리피지 거래를 즐기세요"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "ArithFi에서 0 거래 수수료 & 0 슬리피지 거래를 즐기세요"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -855,8 +829,9 @@ msgid "Invitee Address"
 msgstr "초청자 주소"
 
 #: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Invitee Trading Volume"
-#~ msgstr "피추천인의 거래량"
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Invitees"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -870,7 +845,7 @@ msgstr "시장 주문을 트리거하고, 예상되는 PNL은"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Join Time"
-msgstr ""
+msgstr "가입 시간"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1008,11 +983,6 @@ msgstr "자세히 보기"
 #: src/pages/Futures/MoreInfo.tsx
 msgid "More Info"
 msgstr "자세한 정보"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "My commissions"
-#~ msgstr "내 수수료"
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1273,11 +1243,6 @@ msgstr "최근 트랜잭션"
 msgid "Referral"
 msgstr "추천"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-msgid "Referrals"
-msgstr ""
-
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1322,7 +1287,7 @@ msgstr "거래 스캔 및 복사"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Scan to Download App"
-msgstr ""
+msgstr "앱 다운로드를 위해 스캔하세요"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Search"
@@ -1360,15 +1325,6 @@ msgstr "설정"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
 msgstr "설정"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled"
-#~ msgstr "해결됨"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled Commissions"
-#~ msgstr "정산 수수료"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1410,7 +1366,7 @@ msgstr "슬리피지 허용 범위 설정"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "slippage trading at any time"
-msgstr ""
+msgstr "언제든지 슬리피지 거래"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1502,7 +1458,7 @@ msgstr "테스트 BNB"
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr ""
+msgstr "첫 번째 탈중앙화 파생 상품 프로토콜 달성"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
@@ -1587,12 +1543,6 @@ msgstr "총 자산"
 msgid "Total Burned"
 msgstr "총 소각된"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Total Commissions"
-#~ msgstr "총 수수료"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
 msgstr "총 복사 금액"
@@ -1661,7 +1611,7 @@ msgstr "거래"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Trade Time"
-msgstr ""
+msgstr "거래 시간"
 
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
@@ -1671,10 +1621,6 @@ msgstr "즉시 토큰 거래"
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
 msgstr "$ATF로 거래하기"
-
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#~ msgid "Trade with me on ArithFi"
-#~ msgstr "ArithFi에서 저와 함께 거래하세요."
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1699,7 +1645,7 @@ msgstr "트레이더 수익 공유 규정"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "trading fees,"
-msgstr ""
+msgstr "거래 수수료"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trading Volume"
@@ -1776,11 +1722,6 @@ msgstr "미실현 이익 및 손실 (ATF)"
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"
 msgstr "미정"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Unsettled Commissions"
-#~ msgstr "미정산 수수료"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx

@@ -22,11 +22,6 @@ msgstr "{0}"
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Из-за сложности финансовых данных могут возникать нюансы и задержки. Представленные выше данные предназначены только для справки. Мы искренне извиняемся за возможные неудобства."
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-#~ msgstr "* Из-за сложности финансовых данных возможны нюансы и задержки. Приведенные выше данные предоставлены только для ознакомления. Мы искренне приносим извинения за возможные неудобства."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi поддерживает только вывод ATF."
@@ -51,7 +46,7 @@ msgstr "0 Комиссии за Торговлю"
 
 #: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
-msgstr ""
+msgstr "0 комиссий и 0 проскальзывания"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -384,10 +379,6 @@ msgstr "Время закрытия"
 msgid "Closed"
 msgstr "Закрыто"
 
-#: src/pages/Account/Assets/Overview.tsx
-#~ msgid "Commission"
-#~ msgstr "Комиссия"
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -510,21 +501,9 @@ msgstr "Крипто"
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Криптовалюты, валютный рынок, драгоценные металлы, товары, акции"
 
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commission"
-#~ msgstr "Накопительная комиссия"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commissions"
-#~ msgstr "Накопленные комиссии"
-
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr "Накопительные копирующие трейдеры"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Invitee Trading Volume"
-#~ msgstr "Накопительный объем торговли приглашенных пользователей"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -651,21 +630,16 @@ msgstr "измененный"
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "Завершение копирования ликвидирует вашу позицию с рыночными ордерами и автоматически вернет активы на ваш счет после вычета доли прибыли в период расчетов."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
-#~ msgstr "Aproveite 0 taxas de negociação e 0 derrapagem negociando no ArithFi."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
-msgstr ""
+msgstr "Наслаждайтесь торговлей без комиссий и без скольжения."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "Наслаждайтесь торговлей без комиссий и без скольжения на ArithFi."
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -855,8 +829,9 @@ msgid "Invitee Address"
 msgstr "Адрес приглашенного"
 
 #: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Invitee Trading Volume"
-#~ msgstr "Объем торговли приглашенных пользователей"
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Invitees"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -870,7 +845,7 @@ msgstr "Это вызовет рыночный ордер, и ожидаемая
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Join Time"
-msgstr ""
+msgstr "Присоединяйтесь к Time"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1008,11 +983,6 @@ msgstr "Подробнее"
 #: src/pages/Futures/MoreInfo.tsx
 msgid "More Info"
 msgstr "Больше информации"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "My commissions"
-#~ msgstr "Мои комиссии"
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1273,11 +1243,6 @@ msgstr "Последние сделки"
 msgid "Referral"
 msgstr "Реферал"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-msgid "Referrals"
-msgstr ""
-
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1322,7 +1287,7 @@ msgstr "Сканировать и копировать сделку"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Scan to Download App"
-msgstr ""
+msgstr "Сканируйте, чтобы скачать приложение"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Search"
@@ -1360,15 +1325,6 @@ msgstr "Настройка"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
 msgstr "Настройки"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled"
-#~ msgstr "Урегулировано"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled Commissions"
-#~ msgstr "Урегулированные комиссии"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1410,7 +1366,7 @@ msgstr "Настройка допустимого отклонения цены"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "slippage trading at any time"
-msgstr ""
+msgstr "торговля со скольжением в любое время"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1502,7 +1458,7 @@ msgstr "Тест BNB"
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr ""
+msgstr "Первый децентрализованный протокол производных финансовых инструментов достигает"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
@@ -1587,12 +1543,6 @@ msgstr "Общие Активы"
 msgid "Total Burned"
 msgstr "Всего сожжено"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Total Commissions"
-#~ msgstr "Общие комиссии"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
 msgstr "Общая сумма копирования"
@@ -1661,7 +1611,7 @@ msgstr "Торговля"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Trade Time"
-msgstr ""
+msgstr "Время Торговли"
 
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
@@ -1671,10 +1621,6 @@ msgstr "Торговля токенами мгновенно"
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
 msgstr "Торгуйте с помощью $ATF"
-
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#~ msgid "Trade with me on ArithFi"
-#~ msgstr "Торгуйте со мной на ArithFi"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1699,7 +1645,7 @@ msgstr "Правила деления прибыли трейдера."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "trading fees,"
-msgstr ""
+msgstr "торговые комиссии"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trading Volume"
@@ -1776,11 +1722,6 @@ msgstr "Не реализованный PnL(ATF)"
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"
 msgstr "Неурегулировано"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Unsettled Commissions"
-#~ msgstr "Неурегулированные комиссии"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx

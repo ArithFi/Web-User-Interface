@@ -22,11 +22,6 @@ msgstr "{0}"
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-#~ msgstr "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi only supports ATF withdrawals."
@@ -384,10 +379,6 @@ msgstr "Close Time"
 msgid "Closed"
 msgstr "Closed"
 
-#: src/pages/Account/Assets/Overview.tsx
-#~ msgid "Commission"
-#~ msgstr "Commission"
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -510,21 +501,9 @@ msgstr "Crypto"
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commission"
-#~ msgstr "Cumulative Commission"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commissions"
-#~ msgstr "Cumulative Commissions"
-
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr "Cumulative Copy Traders"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Invitee Trading Volume"
-#~ msgstr "Cumulative Invitee Trading Volume"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -650,11 +629,6 @@ msgstr "Edited"
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
-#~ msgstr "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
@@ -855,8 +829,9 @@ msgid "Invitee Address"
 msgstr "Invitee Address"
 
 #: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Invitee Trading Volume"
-#~ msgstr "Invitee Trading Volume"
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Invitees"
+msgstr "Invitees"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1008,11 +983,6 @@ msgstr "More"
 #: src/pages/Futures/MoreInfo.tsx
 msgid "More Info"
 msgstr "More Info"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "My commissions"
-#~ msgstr "My commissions"
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1273,11 +1243,6 @@ msgstr "Recent transactions"
 msgid "Referral"
 msgstr "Referral"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-msgid "Referrals"
-msgstr "Referrals"
-
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1360,15 +1325,6 @@ msgstr "Setting"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
 msgstr "Settings"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled"
-#~ msgstr "Settled"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled Commissions"
-#~ msgstr "Settled Commissions"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1587,12 +1543,6 @@ msgstr "Total Assets"
 msgid "Total Burned"
 msgstr "Total Burned"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Total Commissions"
-#~ msgstr "Total Commissions"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
 msgstr "Total Copy Amount"
@@ -1671,10 +1621,6 @@ msgstr "Trade tokens in instant"
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
 msgstr "Trade With $ATF"
-
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#~ msgid "Trade with me on ArithFi"
-#~ msgstr "Trade with me on ArithFi"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1776,11 +1722,6 @@ msgstr "Unrealized PnL(ATF)"
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"
 msgstr "Unsettled"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Unsettled Commissions"
-#~ msgstr "Unsettled Commissions"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx

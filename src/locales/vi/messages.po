@@ -22,11 +22,6 @@ msgstr "{0}"
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Do vấn đề phức tạp của dữ liệu tài chính, có thể có sự tinh tế và trễ. Dữ liệu được hiển thị ở trên chỉ mang tính chất tham khảo. Chúng tôi thành thật xin lỗi về mọi sự bất tiện."
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-#~ msgstr "* Do sự phức tạp của dữ liệu tài chính, do đó có thể bị sai số̉ và chậm trễ. Dữ liệu được hiển thị ở trên chỉ mang tính chất tham khảo. Chúng tôi thành thật xin lỗi nếu có bất kỳ sự bất tiện không đáng có nào xảy ra."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi chỉ hỗ trợ rút tiền ATF."
@@ -51,7 +46,7 @@ msgstr "0 Phí Giao Dịch"
 
 #: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
-msgstr ""
+msgstr "Phí giao dịch 0 và lệch giá 0"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -384,10 +379,6 @@ msgstr "Thời gian đóng cửa"
 msgid "Closed"
 msgstr "Đóng"
 
-#: src/pages/Account/Assets/Overview.tsx
-#~ msgid "Commission"
-#~ msgstr "Hoa hồng"
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -510,21 +501,9 @@ msgstr "Tiền điện tử"
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Tiền điện tử, Ngoại hối, Kim loại quý, Hàng hóa, Cổ phiếu"
 
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commission"
-#~ msgstr "Hoa hồng tích lũy"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commissions"
-#~ msgstr "Hoa hồng tích lũy"
-
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr "Nhà giao dịch sao chép tích luỹ"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Invitee Trading Volume"
-#~ msgstr "Tổng khối lượng giao dịch của người được mời tích lũy"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -651,21 +630,16 @@ msgstr "Đã chỉnh sửa"
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "Kết thúc sao chép sẽ thanh lý vị thế của bạn bằng lệnh thị trường và tự động hoàn lại tài sản vào tài khoản của bạn sau khi đã khấu trừ phần chia lợi nhuận trong thời gian thanh toán."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
-#~ msgstr "Tận hưởng 0 phí giao dịch & 0 trượt giá khi giao dịch trên ArithFi."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
-msgstr ""
+msgstr "Tận hưởng giao dịch không mất phí & không bị trượt giá"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "Tận hưởng giao dịch không mất phí & không bị trượt giá trên ArithFi"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -855,8 +829,9 @@ msgid "Invitee Address"
 msgstr "Địa chỉ người được mời"
 
 #: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Invitee Trading Volume"
-#~ msgstr "Khối lượng giao dịch của người được giới thiệu"
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Invitees"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -870,7 +845,7 @@ msgstr "nó sẽ kích hoạt lệnh thị trường và ước tính lợi nhu�
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Join Time"
-msgstr ""
+msgstr "Tham gia Thời gian"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1008,11 +983,6 @@ msgstr "Thêm"
 #: src/pages/Futures/MoreInfo.tsx
 msgid "More Info"
 msgstr "Thông tin thêm"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "My commissions"
-#~ msgstr "Hoa hồng của tôi"
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1273,11 +1243,6 @@ msgstr "Các lệnh giao dịch gần đây"
 msgid "Referral"
 msgstr "Giới thiệu"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-msgid "Referrals"
-msgstr ""
-
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1322,7 +1287,7 @@ msgstr "Quét và sao chép giao dịch"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Scan to Download App"
-msgstr ""
+msgstr "Quét để Tải Ứng dụng"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Search"
@@ -1360,15 +1325,6 @@ msgstr "Thiết lập"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
 msgstr "Cài đặt"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled"
-#~ msgstr "Đã thanh toán"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled Commissions"
-#~ msgstr "Hoa hồng đã thanh toán"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1410,7 +1366,7 @@ msgstr "Cài đặt ngưỡng độ trượt giá"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "slippage trading at any time"
-msgstr ""
+msgstr "giao dịch trượt giá vào bất kỳ lúc nào"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1502,7 +1458,7 @@ msgstr "Thử nghiệm BNB"
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr ""
+msgstr "Giao thức Phái sinh Phi tập trung Đầu tiên Đạt được"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
@@ -1587,12 +1543,6 @@ msgstr "Tổng Tài sản"
 msgid "Total Burned"
 msgstr "Tổng số đã đốt cháy"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Total Commissions"
-#~ msgstr "Tổng hoa hồng"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
 msgstr "Tổng số tiền sao chép"
@@ -1661,7 +1611,7 @@ msgstr "Giao dịch"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Trade Time"
-msgstr ""
+msgstr "Thời gian Giao dịch"
 
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
@@ -1671,10 +1621,6 @@ msgstr "Giao dịch token ngay lập tức"
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
 msgstr "Giao dịch với $ATF"
-
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#~ msgid "Trade with me on ArithFi"
-#~ msgstr "Giao dịch cùng tôi trên ArithFi"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1699,7 +1645,7 @@ msgstr "Luật chia sẻ lợi nhuận của Người Giao Dịch."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "trading fees,"
-msgstr ""
+msgstr "phí giao dịch"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trading Volume"
@@ -1776,11 +1722,6 @@ msgstr "PnL chưa thực hiện(ATF)"
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"
 msgstr "Chưa thanh toán"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Unsettled Commissions"
-#~ msgstr "Hoa hồng chưa được thanh toán"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx

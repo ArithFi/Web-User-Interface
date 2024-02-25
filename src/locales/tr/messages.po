@@ -22,11 +22,6 @@ msgstr "{0}"
 msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only. We sincerely apologize for any inconvenience."
 msgstr "* Finansal verilerin karmaşıklığı nedeniyle bazı ince detaylar ve gecikmeler olabilir. Yukarıda sunulan veriler sadece referans içindir. Herhangi bir rahatsızlık için içtenlikle özür dileriz."
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "* Due to the complexity of financial data, there might be nuances and delay. Data displayed above is for reference only.We sincerely apologize for any inconvenience."
-#~ msgstr "* Finansal verilerin karmaşıklığı nedeniyle nüanslar ve gecikmeler olabilir. Yukarıda gösterilen veriler sadece referans içindir. Herhangi bir rahatsızlık için içtenlikle özür dileriz."
-
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "*ArithFi only supports ATF withdrawals."
 msgstr "*ArithFi yalnızca ATF çekimlerini destekler."
@@ -51,7 +46,7 @@ msgstr "0 Ticaret Ücretleri"
 
 #: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
-msgstr ""
+msgstr "0 Ticaret Ücreti ve 0 Kayma"
 
 #: src/pages/Futures/Modal/LimitAndPriceModal.tsx
 msgid "1. The trigger price has been reached but there is not enough time to execute."
@@ -384,10 +379,6 @@ msgstr "Kapanış Saati"
 msgid "Closed"
 msgstr "Closed"
 
-#: src/pages/Account/Assets/Overview.tsx
-#~ msgid "Commission"
-#~ msgstr "Komisyon"
-
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -510,21 +501,9 @@ msgstr "Kripto"
 msgid "CryptoCurrencies, Forex, Precious Metal, Commodity, Stock"
 msgstr "Kripto Paralar, Forex, Değerli Maden, Emtia, Hisse Senedi"
 
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commission"
-#~ msgstr "Toplam Komisyon"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Commissions"
-#~ msgstr "Toplam Komisyon"
-
 #: src/pages/Copy/Components/TraderChartView.tsx
 msgid "Cumulative Copy Traders"
 msgstr "Toplam Kopya Tüccarları"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Cumulative Invitee Trading Volume"
-#~ msgstr "Toplam Davet Edilen Kullanıcıların İşlem Hacmi"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
@@ -651,21 +630,16 @@ msgstr "Düzenlendi"
 msgid "End copy will liquidate your position with market orders, and automatically refund the assets to your account after deducting the profit-sharing during the settlement period."
 msgstr "Kopya transferi ise, pozisyonunuzu piyasa emirleriyle likide edecek ve yerleşim dönemi boyunca kar payı kesintisi yapıldıktan sonra varlıkları otomatik olarak hesabınıza iade edecektir."
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#~ msgid "Enjoy 0 trading fees & 0 slippage  trading on ArithFi"
-#~ msgstr "ArithFi'de 0 ticaret ücreti ve 0 kayma ile ticaretin keyfini çıkarın."
-
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
-msgstr ""
+msgstr "0 işlem ücreti ve 0 kayma ile işlem yapın"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading on ArithFi"
-msgstr ""
+msgstr "ArithFi'de 0 işlem ücreti ve 0 kayma ile işlem yapın"
 
 #: src/pages/Futures/NewOrder.tsx
 msgid "Entry Price"
@@ -855,8 +829,9 @@ msgid "Invitee Address"
 msgstr "Davet Edilen Adres"
 
 #: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Invitee Trading Volume"
-#~ msgstr "Davet Edilen Kullanıcıların İşlem Hacmi"
+#: src/pages/Account/Referral/Referral.tsx
+msgid "Invitees"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -870,7 +845,7 @@ msgstr "Piyasa emri tetikleyecek ve tahmini Kar/Zarar (PNL) şu şekilde olacak"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Join Time"
-msgstr ""
+msgstr "Katılım Zamanı"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 #: src/pages/Share/Modal/LanguageModal.tsx
@@ -1008,11 +983,6 @@ msgstr "Daha Fazla"
 #: src/pages/Futures/MoreInfo.tsx
 msgid "More Info"
 msgstr "Daha Fazla Bilgi"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "My commissions"
-#~ msgstr "Komisyonlarım"
 
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Copy/Copy.tsx
@@ -1275,11 +1245,6 @@ msgstr "Son işlemler"
 msgid "Referral"
 msgstr "Yönlendirme"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-msgid "Referrals"
-msgstr ""
-
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Remaining Copy Amount"
@@ -1324,7 +1289,7 @@ msgstr "İşlemi tarayın ve kopyalayın"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Scan to Download App"
-msgstr ""
+msgstr "Uygulamayı İndirmek için Tarama"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Search"
@@ -1362,15 +1327,6 @@ msgstr "Ayar"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Settings"
 msgstr "Ayarlar"
-
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled"
-#~ msgstr "Hesaplandı"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Settled Commissions"
-#~ msgstr "Hesaplanan Komisyonlar"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
@@ -1412,7 +1368,7 @@ msgstr "Kayma Toleransı Ayarı"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "slippage trading at any time"
-msgstr ""
+msgstr "herhangi bir zamanda kayma ticareti"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -1504,7 +1460,7 @@ msgstr "Test BNB"
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr ""
+msgstr "İlk Merkezi Olmayan Türev Protokolü Başarısı"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
@@ -1589,12 +1545,6 @@ msgstr "Toplam Varlıklar"
 msgid "Total Burned"
 msgstr "Toplam Yakılan"
 
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Total Commissions"
-#~ msgstr "Toplam Komisyonlar"
-
 #: src/pages/Copy/Components/CopyStopModal.tsx
 msgid "Total Copy Amount"
 msgstr "Toplam Kopya Miktarı"
@@ -1663,7 +1613,7 @@ msgstr "İşlem"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Trade Time"
-msgstr ""
+msgstr "Ticaret Zamanı"
 
 #: src/pages/Swap/Swap.tsx
 msgid "Trade tokens in instant"
@@ -1673,10 +1623,6 @@ msgstr "Anında jetonlarla işlem yapın"
 #: src/pages/Home/Home.tsx
 msgid "Trade With $ATF"
 msgstr "$ATF ile Ticaret Yap"
-
-#: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
-#~ msgid "Trade with me on ArithFi"
-#~ msgstr "ArithFi'de benimle ticaret yap"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -1701,7 +1647,7 @@ msgstr "Tüccar Kar Paylaşım Kuralları."
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "trading fees,"
-msgstr ""
+msgstr "işlem ücretleri"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Trading Volume"
@@ -1778,11 +1724,6 @@ msgstr "Gerçekleşmemiş Kar ve Zarar (ATF)"
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"
 msgstr "Hesaplanmamış"
-
-#: src/pages/Account/Referral/Referral.tsx
-#: src/pages/Account/Referral/Referral.tsx
-#~ msgid "Unsettled Commissions"
-#~ msgstr "Hesaplanmamış Komisyonlar"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx

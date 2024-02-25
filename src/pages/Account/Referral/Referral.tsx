@@ -739,7 +739,7 @@ const Futures = () => {
                     lineHeight: "22px",
                   })}
                 >
-                  <Trans>Referrals</Trans>
+                  <Trans>Invitees</Trans>
                 </Stack>
                 <Stack px={"20px"} spacing={"12px"}>
                   {inviteeList.map((item: any, index: number) => (
@@ -786,7 +786,7 @@ const Futures = () => {
                     alignItems={"center"}
                     justifyContent={"center"}
                   >
-                    <Trans>Referrals</Trans>
+                    <Trans>Invitees</Trans>
                   </Stack>
                 </Stack>
                 <TableContainer component={"div"}>
