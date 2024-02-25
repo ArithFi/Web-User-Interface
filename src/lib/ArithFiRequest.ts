@@ -2,6 +2,8 @@
 //     return
 // }
 
+import { DEFAULT_CHAIN_ID } from "./client";
+
 export interface RequestBodyInterface {
   [key: string]: string | `0x${string}`;
 }
@@ -98,7 +100,7 @@ export function getPriceListV2(chainId?: number): Promise<any> {
 /**
  * service
  */
-export function serviceBaseURL(chainId: number = 56) {
+export function serviceBaseURL(chainId: number = DEFAULT_CHAIN_ID) {
   if (chainId === 56) {
     return "https://db.arithfi.com/arithfi_main";
   } else {

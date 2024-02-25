@@ -144,9 +144,6 @@ const CopySettingBaseModal: FC<CopySettingBaseModalProps> = ({ ...props }) => {
             >
               <Trans>Copy Trading Each Order</Trans>
             </Box>
-            <ArithFiTooltipFC
-              title={t`The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order.`}
-            />
           </Stack>
           <Stack
             width={"100%"}

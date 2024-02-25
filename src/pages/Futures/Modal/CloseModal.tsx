@@ -24,12 +24,10 @@ const CloseModalBase: FC<CloseModalBaseProps> = ({ ...props }) => {
   const {
     showPosition,
     showClosePrice,
-    showFee,
     mainButtonTitle,
     mainButtonLoading,
     mainButtonDis,
     mainButtonAction,
-    feeTip,
   } = useFuturesClose(props.data, props.price, props.onClose);
   return (
     <Stack spacing={"24px"} width={"100%"}>
@@ -41,13 +39,7 @@ const CloseModalBase: FC<CloseModalBaseProps> = ({ ...props }) => {
           value={showClosePrice}
           symbol={""}
         />
-        <NormalInfo
-          title={t`Service Fee`}
-          value={showFee}
-          symbol={"ATF"}
-          help
-          helpInfo={<p>{feeTip}</p>}
-        />
+        
       </Stack>
       <MainButton
         title={mainButtonTitle}

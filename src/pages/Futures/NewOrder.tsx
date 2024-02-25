@@ -50,10 +50,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     setSl,
     showBalance,
     maxCallBack,
-    showFeeHoverText,
     showOpenPrice,
-    showFee,
-    showTotalPay,
     showLiqPrice,
     showTriggerNotice,
     setShowTriggerNotice,
@@ -147,6 +144,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     inputAmount,
     isStop,
     lever,
+    limitModalPrice,
     props.tokenPair,
     setIsStop,
     setLever,
@@ -155,7 +153,6 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
     setSl,
     setTp,
     showLeverModal,
-    showOpenPrice,
     showSignModal,
     showStopLimitModal,
     showTriggerNotice,
@@ -499,24 +496,10 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         ) : (
           <></>
         )}
-        <NormalInfo
-          title={t`Service Fee`}
-          value={showFee}
-          symbol={"ATF"}
-          help
-          helpInfo={
-            <Stack>
-              {showFeeHoverText.map((item, index) => (
-                <p key={`Help + ${index}`}>{item}</p>
-              ))}
-            </Stack>
-          }
-        />
 
-        <NormalInfo title={t`Total Pay`} value={showTotalPay} symbol={"ATF"} />
       </Stack>
     );
-  }, [showFee, showFeeHoverText, showOpenPrice, showTotalPay, tabsValue]);
+  }, [showOpenPrice, tabsValue]);
 
   const marketClosedButton = useMemo(() => {
     return (
