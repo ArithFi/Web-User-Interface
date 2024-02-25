@@ -968,12 +968,9 @@ msgid "Minimum 200 ATF"
 msgstr "Минимально 200 ATF"
 
 #: src/hooks/useFuturesNewOrder.ts
+#: src/pages/Copy/Hooks/useCopySettingModal.ts
 msgid "Minimum 50 ATF"
 msgstr "Минимально 50 ATF"
-
-#: src/pages/Copy/Hooks/useCopySettingModal.ts
-msgid "Minimum 60 ATF"
-msgstr "Минимально 60 ATF"
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
@@ -1159,26 +1156,10 @@ msgstr "Коэффициент PNL"
 msgid "Position"
 msgstr "Позиция"
 
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr "Комиссия за позицию = Позиция * 0,02%; После запуска приложения ArithFi в феврале вы сможете наслаждаться торговлей без комиссий."
-
-#: src/hooks/useFuturesNewOrder.ts
-msgid "Position fee = Position * 0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr "Комиссия за позицию = Позиция * 0,05%; После запуска приложения ArithFi в феврале вы сможете наслаждаться торговлей без комиссий."
-
 #: src/pages/Account/CopyTrading/CopyTrading.tsx
 #: src/pages/Account/Futures/Futures.tsx
 msgid "Position Value"
 msgstr "Стоимость Позиции"
-
-#: src/hooks/useFuturesClose.ts
-msgid "Position*0.02%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr "Позиция*0,02%; После запуска приложения ArithFi в феврале вы сможете наслаждаться торговлей без комиссий."
-
-#: src/hooks/useFuturesClose.ts
-msgid "Position*0.05%; After the ArithFi App launches this February, you will enjoy 0 fee trading."
-msgstr "Позиция*0,05%; После запуска приложения ArithFi в феврале вы сможете наслаждаться торговлей без комиссий."
 
 #: src/pages/Futures/OrderList.tsx
 msgid "Positions"
@@ -1307,8 +1288,6 @@ msgstr "Продать позицию"
 msgid "Send request"
 msgstr "Отправить запрос"
 
-#: src/pages/Futures/Modal/CloseModal.tsx
-#: src/pages/Futures/NewOrder.tsx
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Service Fee"
 msgstr "Сервисный сбор"
@@ -1460,10 +1439,6 @@ msgstr "Тест BNB"
 msgid "the First Decentralized Derivatives Protocol Achieves"
 msgstr "Первый децентрализованный протокол производных финансовых инструментов достигает"
 
-#: src/pages/Copy/Components/CopySettingModal.tsx
-msgid "The fixed amount you invested for each order. The service fee will be deducted from the copy trading actual margin of each order."
-msgstr "Фиксированная сумма, которую вы вложили в каждый ордер. Сервисная плата будет вычитаться из фактической маржи каждого ордера копирования."
-
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
 msgstr "Рынок валют закрыт. Пожалуйста, дождитесь открытия рынка, прежде чем принимать какие-либо действия."
@@ -1551,10 +1526,6 @@ msgstr "Общая сумма копирования"
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Total Invitees"
 msgstr "Общее количество приглашенных"
-
-#: src/pages/Futures/NewOrder.tsx
-msgid "Total Pay"
-msgstr "Общая оплата"
 
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
