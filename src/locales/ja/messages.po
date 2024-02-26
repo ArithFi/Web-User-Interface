@@ -379,6 +379,8 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "Coming soon"
 msgstr ""
 
@@ -590,11 +592,6 @@ msgstr "ディスコネクト"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Doc"
 msgstr "Doc"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Download on the"
-msgstr ""
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -824,6 +821,10 @@ msgstr ""
 msgid "Integrations & Partners"
 msgstr ""
 
+#: src/pages/Account/Share/Menu.tsx
+msgid "Invite"
+msgstr ""
+
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -832,11 +833,6 @@ msgstr ""
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "iOS & Android"
 msgstr ""
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -1220,7 +1216,6 @@ msgstr ""
 msgid "Recent transactions"
 msgstr "最近の取引"
 
-#: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr ""
