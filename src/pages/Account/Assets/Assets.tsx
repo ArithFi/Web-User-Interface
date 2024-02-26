@@ -79,7 +79,12 @@ const Assets = () => {
       }
     })
       .then(res => res.json())
-      .then(res => res.data));
+      .then(res => res.data)
+      .then(res => res.map((item: any) => ({
+        ...item,
+        status: item.status === null ? 1 : item.status
+      })))
+  )
 
   useEffect(() => {
     const time = setInterval(() => {
