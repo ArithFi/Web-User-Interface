@@ -33,12 +33,13 @@
       // Get the 'code' query parameter value
       const referralCode = getQueryParam('code');
 
-      let theUrl = 'https://itunes.apple.com/us/app/6475583769';
+      let theUrl = 'https://www.arithfi.com/';
       if(Terminal.platform.android){
         theUrl = 'https://play.google.com/store/apps/details?id=com.arithfi';
         gtag('event', 'prepare-download', {'event_category': 'download-app', 'event_label': 'android'});
-      }else if(Terminal.platform.iPhone){
-        theUrl = 'https://itunes.apple.com/us/app/6475583769';
+      } else if(Terminal.platform.iPhone){
+        // TODO
+        // theUrl = 'https://itunes.apple.com/us/app/6475583769';
         gtag('event', 'prepare-download', {'event_category': 'download-app', 'event_label': 'iphone'});
       }
 

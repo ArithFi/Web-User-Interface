@@ -217,7 +217,7 @@ const Home = () => {
               <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
             </Stack>
             <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"40px"}>
-              <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
+              <Stack>
                 <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                   padding: "8px",
                   backgroundColor: "rgba(53, 55, 61, 1)",
@@ -240,7 +240,7 @@ const Home = () => {
                       color: "rgba(249, 249, 249, 0.8)",
                     }}>
                       <Trans>
-                        Download on the
+                        Coming soon
                       </Trans>
                     </Stack>
                     <Stack sx={{
@@ -255,7 +255,7 @@ const Home = () => {
                     </Stack>
                   </Stack>
                 </Stack>
-              </Link>
+              </Stack>
               <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
                 <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                   padding: "8px",
@@ -705,7 +705,7 @@ const Home = () => {
             <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
           </Stack>
           <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"24px"}>
-            <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
+            <Stack>
               <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                 padding: "8px",
                 backgroundColor: "rgba(53, 55, 61, 1)",
@@ -728,7 +728,7 @@ const Home = () => {
                     color: "rgba(249, 249, 249, 0.8)",
                   }}>
                     <Trans>
-                      Download on the
+                      Coming soon
                     </Trans>
                   </Stack>
                   <Stack sx={{
@@ -743,7 +743,7 @@ const Home = () => {
                   </Stack>
                 </Stack>
               </Stack>
-            </Link>
+            </Stack>
             <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
               <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                 padding: "8px",
@@ -908,18 +908,6 @@ const Home = () => {
                   <Trans>iOS & Android</Trans>
                 </Stack>
                 <Stack direction={"row"} spacing={"8px"}>
-                  <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="40" rx="8" fill="#1F2329"/>
-                      <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="white" strokeOpacity="0.08"/>
-                      <path
-                        d="M19.9531 13.6588C19.9941 12.543 20.3076 11.563 20.8862 10.7437C21.4677 9.92028 22.429 9.33535 23.7448 9.00391C23.7536 9.04443 23.7627 9.08497 23.7721 9.12536V9.33736C23.7721 9.81808 23.6555 10.3693 23.4254 10.9756C23.1842 11.5627 22.8072 12.1152 22.3066 12.6139C21.8383 13.0533 21.4051 13.3442 21.0223 13.4757C20.8959 13.5135 20.7226 13.5506 20.5133 13.5841C20.3271 13.6131 20.1404 13.638 19.9531 13.6588Z"
-                        fill="#F9F9F9"/>
-                      <path
-                        d="M20.1741 15.3145C18.6878 15.3145 17.6558 14 16.1897 14C14.7236 14 11.7031 15.3476 11.7031 20C11.7031 24.6524 14.3853 27.65 14.6853 28C14.9853 28.35 15.6791 29.2498 16.7539 29.2498C17.8288 29.2498 19.0056 28.3951 20.1741 28.3951C21.3426 28.3951 22.8134 29.2498 23.7736 29.2498C24.7338 29.2498 25.1288 28.8583 25.7823 28.1831C26.4357 27.508 27.6822 25.4476 28.1175 24.2111C27.4005 23.7843 25.5001 22.6256 25.5001 20C25.5001 18.2497 26.1397 16.7955 27.4191 15.6377C26.5798 14.5459 25.6064 14 24.4988 14C22.8375 14 21.6605 15.3145 20.1741 15.3145Z"
-                        fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
-                    </svg>
-                  </Link>
                   <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="40" height="40" rx="8" fill="#1F2329"/>
@@ -945,6 +933,31 @@ const Home = () => {
                       </defs>
                     </svg>
                   </Link>
+                  <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
+                    padding: "8px",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    backgroundColor: "rgba(31, 35, 41, 1)"
+                  }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
+                        fill="#F9F9F9"/>
+                      <path
+                        d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
+                        fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
+                    </svg>
+                    <Stack sx={{
+                      fontSize: "12px",
+                      lineHeight: "16px",
+                      fontWeight: "700",
+                      color: "rgba(249, 249, 249, 1)"
+                    }}>
+                      <Trans>
+                        Coming soon
+                      </Trans>
+                    </Stack>
+                  </Stack>
                 </Stack>
               </Stack>
             </Stack>
@@ -1492,18 +1505,6 @@ const Home = () => {
                       <Trans>iOS & Android</Trans>
                     </Stack>
                     <Stack direction={"row"} spacing={"8px"}>
-                      <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect width="40" height="40" rx="8" fill="#1F2329"/>
-                          <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="white" strokeOpacity="0.08"/>
-                          <path
-                            d="M19.9531 13.6588C19.9941 12.543 20.3076 11.563 20.8862 10.7437C21.4677 9.92028 22.429 9.33535 23.7448 9.00391C23.7536 9.04443 23.7627 9.08497 23.7721 9.12536V9.33736C23.7721 9.81808 23.6555 10.3693 23.4254 10.9756C23.1842 11.5627 22.8072 12.1152 22.3066 12.6139C21.8383 13.0533 21.4051 13.3442 21.0223 13.4757C20.8959 13.5135 20.7226 13.5506 20.5133 13.5841C20.3271 13.6131 20.1404 13.638 19.9531 13.6588Z"
-                            fill="#F9F9F9"/>
-                          <path
-                            d="M20.1741 15.3145C18.6878 15.3145 17.6558 14 16.1897 14C14.7236 14 11.7031 15.3476 11.7031 20C11.7031 24.6524 14.3853 27.65 14.6853 28C14.9853 28.35 15.6791 29.2498 16.7539 29.2498C17.8288 29.2498 19.0056 28.3951 20.1741 28.3951C21.3426 28.3951 22.8134 29.2498 23.7736 29.2498C24.7338 29.2498 25.1288 28.8583 25.7823 28.1831C26.4357 27.508 27.6822 25.4476 28.1175 24.2111C27.4005 23.7843 25.5001 22.6256 25.5001 20C25.5001 18.2497 26.1397 16.7955 27.4191 15.6377C26.5798 14.5459 25.6064 14 24.4988 14C22.8375 14 21.6605 15.3145 20.1741 15.3145Z"
-                            fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
-                        </svg>
-                      </Link>
                       <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect width="40" height="40" rx="8" fill="#1F2329"/>
@@ -1529,6 +1530,31 @@ const Home = () => {
                           </defs>
                         </svg>
                       </Link>
+                      <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
+                        padding: "8px",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        backgroundColor: "rgba(31, 35, 41, 1)"
+                      }}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
+                            fill="#F9F9F9"/>
+                          <path
+                            d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
+                            fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
+                        </svg>
+                        <Stack sx={{
+                          fontSize: "12px",
+                          lineHeight: "16px",
+                          fontWeight: "700",
+                          color: "rgba(249, 249, 249, 1)"
+                        }}>
+                          <Trans>
+                            Coming soon
+                          </Trans>
+                        </Stack>
+                      </Stack>
                     </Stack>
                   </Stack>
                 </Stack>
