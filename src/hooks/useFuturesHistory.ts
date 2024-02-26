@@ -39,7 +39,7 @@ function useFuturesHistory(data: FuturesHistoryService) {
       : String().placeHolder;
   }, [data.sl, data.tokenPair]);
   const showOpenPrice = useMemo(() => {
-    
+
     if (data.openPrice) {
       return data.openPrice.toFixed(data.tokenPair.getTokenPriceDecimals());
     } else {
@@ -87,7 +87,7 @@ function useFuturesHistory(data: FuturesHistoryService) {
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.owner,
-      leverage: data.leverage,
+      leverage: data.leverage + "X",
       orientation: data.orientation,
       actualRate: data.actualRate,
       index: data.index,
