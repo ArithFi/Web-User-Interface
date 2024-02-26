@@ -113,7 +113,7 @@ const Overview = () => {
           ?.map((item: any) => ({
             text: `${(item?.value).toFixed(2).replace('-', '')} ATF`,
             time: new Date(item.time).getTime() / 1000,
-            status: item.status || 1,
+            status: item.status === null ? 1 : item.status,
             chainId: item.chainId,
             hash: item.hash,
             type: item.type,
@@ -125,7 +125,7 @@ const Overview = () => {
           ?.map((item: any) => ({
             text: `${(item?.value).toFixed(2).replace('-', '')} ATF`,
             time: new Date(item.time).getTime() / 1000,
-            status: item.status || 1,
+            status: item.status === null ? 1 : item.status,
             chainId: item.chainId,
             hash: item.hash,
             ordertype: parseOrderType(item.type),
