@@ -381,6 +381,8 @@ msgstr "Closed"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "Coming soon"
 msgstr "Coming soon"
 
@@ -592,11 +594,6 @@ msgstr "Disconnect"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Doc"
 msgstr "Doc"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Download on the"
-msgstr "Download on the"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -828,6 +825,10 @@ msgstr "Insufficient balance. Please deposit to start the lightning trade."
 msgid "Integrations & Partners"
 msgstr "Integrations & Partners"
 
+#: src/pages/Account/Share/Menu.tsx
+msgid "Invite"
+msgstr "Invite"
+
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -837,11 +838,6 @@ msgstr "Invitee Address"
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
 msgstr "Invitees"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "iOS & Android"
-msgstr "iOS & Android"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
@@ -1224,7 +1220,6 @@ msgstr "Received 100 ATF test tokens"
 msgid "Recent transactions"
 msgstr "Recent transactions"
 
-#: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "Referral"

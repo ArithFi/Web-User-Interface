@@ -381,6 +381,8 @@ msgstr "Fechado"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "Coming soon"
 msgstr ""
 
@@ -593,11 +595,6 @@ msgstr "Desligar"
 msgid "Doc"
 msgstr "Doc"
 
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Download on the"
-msgstr ""
-
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
@@ -796,7 +793,7 @@ msgstr "Imagem"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
-msgstr "Incorra em uma perda e seus $ATF serão queimados."
+msgstr "Incorra em uma perda e seus $ATF serão queimados"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -828,6 +825,10 @@ msgstr "Saldo insuficiente. Por favor, deposite para começar a negociação rel
 msgid "Integrations & Partners"
 msgstr "Integrações e Parceiros"
 
+#: src/pages/Account/Share/Menu.tsx
+msgid "Invite"
+msgstr ""
+
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitee Address"
@@ -836,11 +837,6 @@ msgstr "Endereço do Convidado"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "iOS & Android"
 msgstr ""
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
@@ -938,7 +934,7 @@ msgstr "Negociações Perdedoras"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Make a profit, you will earn $ATF"
-msgstr "Faça um lucro e você ganhará $ATF."
+msgstr "Faça um lucro e você ganhará $ATF"
 
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
@@ -1224,7 +1220,6 @@ msgstr "Recebeu 100 tokens de teste ATF"
 msgid "Recent transactions"
 msgstr "Transacções recentes"
 
-#: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 msgid "Referral"
 msgstr "Referência"
