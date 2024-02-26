@@ -904,8 +904,6 @@ const Home = () => {
                   color: "rgba(249, 249, 249, 0.8)",
                 })}>
                   <Trans>Scan to Download App</Trans>
-                  <br/>
-                  <Trans>iOS & Android</Trans>
                 </Stack>
                 <Stack direction={"row"} spacing={"8px"}>
                   <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
@@ -937,7 +935,8 @@ const Home = () => {
                     padding: "8px",
                     borderRadius: "8px",
                     border: "1px solid rgba(255, 255, 255, 0.08)",
-                    backgroundColor: "rgba(31, 35, 41, 1)"
+                    backgroundColor: "rgba(31, 35, 41, 1)",
+                    height: "40px",
                   }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -949,7 +948,6 @@ const Home = () => {
                     </svg>
                     <Stack sx={{
                       fontSize: "12px",
-                      lineHeight: "16px",
                       fontWeight: "700",
                       color: "rgba(249, 249, 249, 1)"
                     }}>
@@ -1501,8 +1499,6 @@ const Home = () => {
                       color: "rgba(249, 249, 249, 0.8)",
                     })}>
                       <Trans>Scan to Download App</Trans>
-                      <br/>
-                      <Trans>iOS & Android</Trans>
                     </Stack>
                     <Stack direction={"row"} spacing={"8px"}>
                       <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
@@ -1534,7 +1530,8 @@ const Home = () => {
                         padding: "8px",
                         borderRadius: "8px",
                         border: "1px solid rgba(255, 255, 255, 0.08)",
-                        backgroundColor: "rgba(31, 35, 41, 1)"
+                        backgroundColor: "rgba(31, 35, 41, 1)",
+                        height: "40px",
                       }}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
