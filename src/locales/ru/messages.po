@@ -379,6 +379,11 @@ msgstr "Время закрытия"
 msgid "Closed"
 msgstr "Закрыто"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Coming soon"
+msgstr ""
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
