@@ -760,7 +760,7 @@ msgstr "홈"
 
 #: src/pages/Home/Home.tsx
 msgid "How can ArithFi make profits through 0 trading fees?"
-msgstr "ArithFi는 O 거래 수수료를 통해 어떻게 이익을 낼 수 있습니까?"
+msgstr "ArithFi는 0 거래 수수료를 통해 어떻게 이익을 낼 수 있습니까?"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
