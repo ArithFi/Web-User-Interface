@@ -760,7 +760,7 @@ msgstr "Trang chủ"
 
 #: src/pages/Home/Home.tsx
 msgid "How can ArithFi make profits through 0 trading fees?"
-msgstr "Làm thế nào ArithFi có thể kiếm lợi nhuận thông qua phí giao dịch O?"
+msgstr "Làm thế nào ArithFi có thể kiếm lợi nhuận thông qua phí giao dịch 0?"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"

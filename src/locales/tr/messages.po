@@ -760,7 +760,7 @@ msgstr "ANA SAYFA"
 
 #: src/pages/Home/Home.tsx
 msgid "How can ArithFi make profits through 0 trading fees?"
-msgstr "ArithFi, O ticaret ücretleri aracılığıyla nasıl kar edebilir?"
+msgstr "ArithFi, 0 ticaret ücretleri aracılığıyla nasıl kar edebilir?"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"

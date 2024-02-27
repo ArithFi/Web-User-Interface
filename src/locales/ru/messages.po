@@ -760,7 +760,7 @@ msgstr "Главная"
 
 #: src/pages/Home/Home.tsx
 msgid "How can ArithFi make profits through 0 trading fees?"
-msgstr "Как ArithFi может получать прибыль через комиссии за торговлю O?"
+msgstr "Как ArithFi может получать прибыль через комиссии за торговлю 0?"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"

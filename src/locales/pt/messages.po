@@ -760,7 +760,7 @@ msgstr "Início"
 
 #: src/pages/Home/Home.tsx
 msgid "How can ArithFi make profits through 0 trading fees?"
-msgstr "Como o ArithFi pode lucrar com as taxas de negociação O?"
+msgstr "Como o ArithFi pode lucrar com as taxas de negociação 0?"
 
 #: src/pages/Futures/MoreInfo.tsx
 msgid "How to Trade"
