@@ -634,6 +634,7 @@ msgstr "Kopya transferi ise, pozisyonunuzu piyasa emirleriyle likide edecek ve y
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "0 işlem ücreti ve 0 kayma ile işlem yapın"
@@ -1262,7 +1263,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "İşlemi tarayın ve kopyalayın"
@@ -1779,7 +1779,6 @@ msgstr "Kazanma Oranı"
 msgid "Winning Trades"
 msgstr "Kazançlı İşlemler"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "1 tıklamayla"

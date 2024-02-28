@@ -634,6 +634,7 @@ msgstr "Kết thúc sao chép sẽ thanh lý vị thế của bạn bằng lện
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "Tận hưởng giao dịch không mất phí & không bị trượt giá"
@@ -1260,7 +1261,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "Quét và sao chép giao dịch"
@@ -1777,7 +1777,6 @@ msgstr "Tỷ lệ chiến thắng"
 msgid "Winning Trades"
 msgstr "Các giao dịch chiến thắng"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "chỉ với 1 cú nhấp chuột"

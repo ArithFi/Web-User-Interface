@@ -634,6 +634,7 @@ msgstr "복사 종료는 시장 주문으로 포지션을 청산하고, 결산 �
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "0 거래 수수료 & 0 슬리피지 거래를 즐기세요"
@@ -1260,7 +1261,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "저장"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "거래 스캔 및 복사"
@@ -1777,7 +1777,6 @@ msgstr "승률"
 msgid "Winning Trades"
 msgstr "수익 거래"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "1 클릭으로"

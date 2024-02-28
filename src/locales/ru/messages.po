@@ -634,6 +634,7 @@ msgstr "Завершение копирования ликвидирует ва�
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "Наслаждайтесь торговлей без комиссий и без скольжения."
@@ -1260,7 +1261,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "Сканировать и копировать сделку"
@@ -1777,7 +1777,6 @@ msgstr "Процент выигрышей"
 msgid "Winning Trades"
 msgstr "Выигрышные сделки"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "в 1 клик"
