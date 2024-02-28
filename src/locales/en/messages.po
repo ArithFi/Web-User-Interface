@@ -634,6 +634,7 @@ msgstr "End copy will liquidate your position with market orders, and automatica
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "Enjoy 0 trading fees & 0 slippage trading"
@@ -1260,7 +1261,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "Save"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "Scan and copy the trade"
@@ -1777,7 +1777,6 @@ msgstr "Win Rate"
 msgid "Winning Trades"
 msgstr "Winning Trades"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "with 1 click"

@@ -634,6 +634,7 @@ msgstr "O fim da cópia liquidará sua posição com ordens de mercado e reembol
 
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 #: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
+#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Enjoy 0 trading fees & 0 slippage trading"
 msgstr "Desfrute de 0 taxas de negociação & 0 derrapagem nas operações"
@@ -1260,7 +1261,6 @@ msgstr "ROI"
 msgid "Save"
 msgstr "Salvar"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "Scan and copy the trade"
 msgstr "Escanear e copiar a negociação"
@@ -1777,7 +1777,6 @@ msgstr "Taxa de Vitória"
 msgid "Winning Trades"
 msgstr "Negociações Vencedoras"
 
-#: src/pages/Dashboard/Modal/ShareMyOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 msgid "with 1 click"
 msgstr "com 1 clique"

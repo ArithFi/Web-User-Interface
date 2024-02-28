@@ -374,6 +374,7 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
                   <ATFLogo/>
                   <Stack spacing={'4px'}>
                     <Box sx={{
+                      width: "240px",
                       fontWeight: "400",
                       fontSize: '16px',
                       lineHeight: '22px',

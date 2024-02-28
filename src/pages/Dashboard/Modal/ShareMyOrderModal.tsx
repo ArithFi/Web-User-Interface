@@ -310,9 +310,8 @@ You can follow the right person on ArithFi, here is my refer link`}: ${link}`;
               >
                 <Stack direction={"row"} spacing={"12px"}>
                   <ATFLogo />
-                  <Stack>
-                    <Caption7>{t`Scan and copy the trade`}</Caption7>
-                    <Caption7>{t`with 1 click`}</Caption7>
+                  <Stack width={"240px"}>
+                    <Caption7>{t`Enjoy 0 trading fees & 0 slippage trading`}</Caption7>
                   </Stack>
                 </Stack>
                 <Box
