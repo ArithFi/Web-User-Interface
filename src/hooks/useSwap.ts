@@ -21,7 +21,7 @@ interface SwapToken {
   dest: string;
 }
 
-const SWAP_UPDATE = 30;
+const SWAP_UPDATE = 10;
 
 function useSwap() {
   const { chainsData, account, showConnectModal } = useArithFi();
@@ -32,7 +32,7 @@ function useSwap() {
     };
   }, []);
   const [swapToken, setSwapToken] = useState<SwapToken>(swapTokenOfChain());
-  const [slippage, setSlippage] = useState<number>(0.1);
+  const [slippage, setSlippage] = useState<number>(0.5);
   const [inputAmount, setInputAmount] = useState<string>("");
   const [outAmount, setOutAmount] = useState<string>("");
   const [samePrice, setSamePrice] = useState<boolean>(true);

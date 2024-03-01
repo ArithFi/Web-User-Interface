@@ -256,7 +256,7 @@ function useDepositModal(onClose: () => void) {
     if (uniSwapAmountOut) {
       const out = uniSwapAmountOut[uniSwapAmountOut.length - 1]
       return out.sub(
-        out.mul(BigNumber.from("1")).div(BigNumber.from("1000"))
+        out.mul(BigNumber.from("5")).div(BigNumber.from("1000"))
       );
     } else {
       return MaxUint256;
