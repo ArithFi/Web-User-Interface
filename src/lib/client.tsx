@@ -33,12 +33,12 @@ import {
 } from "../components/icons";
 import useTheme from "../hooks/useTheme";
 
-export const DEFAULT_CHAIN_ID = 56;
+export const DEFAULT_CHAIN_ID = 97;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   // [bsc, scrollAlphaTestnet],
-  // [bscTestnet],
-  [bsc],
+  [bscTestnet],
+  // [bsc],
   [
     publicProvider(),
     jsonRpcProvider({
