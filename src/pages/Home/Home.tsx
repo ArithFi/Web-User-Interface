@@ -178,70 +178,70 @@ const Home = () => {
 
   const footerList = [
     {
-      text: "Products",
+      text: t`Products`,
       children: [
         {
-          text: "Futures",
+          text: t`Futures`,
           url: "/#/futures",
         },
         {
-          text: "Swap",
+          text: t`Swap`,
           url: "/#/swap",
         },
         {
-          text: "Copy Trade",
+          text: t`Copy Trade`,
           url: "/#/copy",
         },
         {
-          text: "Dashboard",
+          text: t`Dashboard`,
           url: "/#/dashboard",
         },
       ]
     },
     {
-      text: "Information",
+      text: t`Information`,
       children: [
         {
-          text: "ArithFi",
+          text: t`ArithFi`,
           url: "https://docs.arithfi.com/docs/whitepaper/arithfi",
         },
         {
-          text: "Tokenomics",
+          text: t`Tokenomics`,
           url: "https://docs.arithfi.com/docs/whitepaper/tokenomics",
         },
         {
-          text: "Roadmap",
+          text: t`Roadmap`,
           url: "https://docs.arithfi.com/docs/whitepaper/roadmap",
         },
         {
-          text: "White Paper",
+          text: t`White Paper`,
           url: "https://docs.arithfi.com/docs/whitepaper",
         },
       ]
     },
     {
-      text: "Support",
+      text: t`Support`,
       children: [
         {
-          text: "Contact",
+          text: t`Contact`,
           url: "https://docs.arithfi.com/docs/blogs/Guide/contact-for-support",
         },
         {
-          text: "Community",
+          text: t`Community`,
           url: "https://docs.arithfi.com/docs/whitepaper/community",
         },
         {
-          text: "Announcement",
+          text: t`Announcement`,
           url: "https://docs.arithfi.com/docs/blogs/Announcement/ArithFi-Copy-Trading-TermsConditions",
         },
         {
-          text: "Guide",
+          text: t`Guide`,
           url: "https://docs.arithfi.com/docs/blogs/Guide/guildline",
         },
       ]
     },
     {
-      text: "Trade",
+      text: t`Trade`,
       children: [
         {
           text: "ETH/USDT",

@@ -231,6 +231,10 @@ msgid "Analysis"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+msgid "Announcement"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "App Store"
 msgstr ""
@@ -245,6 +249,10 @@ msgstr "承認が必要です"
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approve"
 msgstr "承認"
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -384,6 +392,10 @@ msgstr ""
 msgid "Coming soon"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "Community"
+msgstr ""
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -404,6 +416,10 @@ msgstr ""
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Connect Wallet"
 msgstr "ウォレットに接続"
+
+#: src/pages/Home/Home.tsx
+msgid "Contact"
+msgstr ""
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -447,6 +463,10 @@ msgstr ""
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "コピーしました"
+
+#: src/pages/Home/Home.tsx
+msgid "Copy Trade"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -552,6 +572,7 @@ msgstr ""
 msgid "Dark mode"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -710,6 +731,7 @@ msgstr "送信元"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr ""
@@ -743,6 +765,10 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "Guide"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -795,6 +821,10 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "Information"
 msgstr ""
 
 #: src/hooks/useSwap.ts
@@ -1173,6 +1203,10 @@ msgstr ""
 msgid "Price"
 msgstr "価格"
 
+#: src/pages/Home/Home.tsx
+msgid "Products"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr ""
@@ -1238,6 +1272,10 @@ msgstr ""
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "Risk Warning"
 msgstr "リスク警告"
+
+#: src/pages/Home/Home.tsx
+msgid "Roadmap"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1392,9 +1430,14 @@ msgstr "ストップ・リミット"
 msgid "Success"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "Support"
+msgstr ""
+
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1494,6 +1537,10 @@ msgstr "受取先（見積もり）"
 msgid "Today's PNL"
 msgstr "今日の利益と損失"
 
+#: src/pages/Home/Home.tsx
+msgid "Tokenomics"
+msgstr ""
+
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
 msgstr ""
@@ -1572,6 +1619,7 @@ msgid "TP Executed"
 msgstr ""
 
 #: src/pages/Account/Futures/Futures.tsx
+#: src/pages/Home/Home.tsx
 msgid "Trade"
 msgstr ""
 
@@ -1751,6 +1799,10 @@ msgstr ""
 #: src/pages/Token/Token.tsx
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "White Paper"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
