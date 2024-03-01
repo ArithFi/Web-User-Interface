@@ -7,6 +7,7 @@ import Divider from "@mui/material/Divider";
 import {TradeCard} from "./TradeCard";
 import {Box, Grid} from "@mui/material";
 import {QRCodeCanvas} from "qrcode.react";
+import {FootAList} from "../Share/Foot/ArithFiFoot";
 
 const Home = () => {
   const {isBigMobile} = useWindowWidth();
@@ -173,6 +174,93 @@ const Home = () => {
       title: t`BTC, ETH, ATF?`,
       link: "https://docs.arithfi.com/docs/blogs/Article/the-third-class-of-decentralized-asset-poised-to-fllow-BTC-and-ETH"
     }
+  ]
+
+  const footerList = [
+    {
+      text: "Products",
+      children: [
+        {
+          text: "Futures",
+          url: "/#/futures",
+        },
+        {
+          text: "Swap",
+          url: "/#/swap",
+        },
+        {
+          text: "Copy Trade",
+          url: "/#/copy",
+        },
+        {
+          text: "Dashboard",
+          url: "/#/dashboard",
+        },
+      ]
+    },
+    {
+      text: "Information",
+      children: [
+        {
+          text: "ArithFi",
+          url: "https://docs.arithfi.com/docs/whitepaper/arithfi",
+        },
+        {
+          text: "Tokenomics",
+          url: "https://docs.arithfi.com/docs/whitepaper/tokenomics",
+        },
+        {
+          text: "Roadmap",
+          url: "https://docs.arithfi.com/docs/whitepaper/roadmap",
+        },
+        {
+          text: "White Paper",
+          url: "https://docs.arithfi.com/docs/whitepaper",
+        },
+      ]
+    },
+    {
+      text: "Support",
+      children: [
+        {
+          text: "Contact",
+          url: "https://docs.arithfi.com/docs/blogs/Guide/contact-for-support",
+        },
+        {
+          text: "Community",
+          url: "https://docs.arithfi.com/docs/whitepaper/community",
+        },
+        {
+          text: "Announcement",
+          url: "https://docs.arithfi.com/docs/blogs/Announcement/ArithFi-Copy-Trading-TermsConditions",
+        },
+        {
+          text: "Guide",
+          url: "https://docs.arithfi.com/docs/blogs/Guide/guildline",
+        },
+      ]
+    },
+    {
+      text: "Trade",
+      children: [
+        {
+          text: "ETH/USDT",
+          url: "/#/futures?pt=ETH%2FUSDT",
+        },
+        {
+          text: "BTC/USDT",
+          url: "/#/futures?pt=BTC%2FUSDT",
+        },
+        {
+          text: "AUD/USD",
+          url: "/#/futures?pt=AUD%2FUSD",
+        },
+        {
+          text: "EUR/USD",
+          url: "/#/futures?pt=EUR%2FUSD",
+        },
+      ]
+    },
   ]
 
   useEffect(() => {
@@ -810,6 +898,85 @@ const Home = () => {
             </Stack>
           </Link>
         </Stack>
+        <Stack spacing={"20px"} sx={(theme) => ({
+          backgroundColor: "#171A1F",
+          padding: "40px 24px",
+        })}>
+          <Stack>
+            <svg width="93" height="24" viewBox="0 0 93 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"
+                fill="#1F2329"/>
+              <path
+                d="M12.1829 5.625H8.62544L4.25781 17.625H6.65219L8.29004 13.125H14.9127L14.0937 10.875H9.109L10.2009 7.875H13.0018L12.1829 5.625Z"
+                fill="white"/>
+              <path d="M16.1938 7.87496L15.3749 5.625H12.9805L13.7994 7.87496H16.1938Z" fill="#F69C00"/>
+              <path d="M14.0723 8.625H16.4666L19.7424 17.625H17.348L14.0723 8.625Z" fill="white"/>
+              <path fillRule="evenodd" clipRule="evenodd"
+                    d="M33.0928 6.375H36.4013L40.0568 17.625H37.6909L36.777 14.8125H33.5143L34.2454 12.5625H36.046L34.7471 8.56492L31.8033 17.625H29.4375L33.0928 6.375ZM41.6422 11.229V11.4375V17.625H43.8922V11.4375H48.3923V9.1875H43.8922H43.6837L41.6422 11.229ZM63.5798 6.375H65.8298V9.1875H70.8923H70.989L73.1423 11.341V11.4375V17.625H70.8923V11.4375H65.8298V17.625H63.5798V11.4375V9.1875V6.375ZM74.8298 8.52165V8.625V17.625H77.0798V8.625H84.3923V6.375H77.0798H76.9766L74.8298 8.52165ZM78.2048 11.4375H83.8298V13.6875H78.2048V11.4375ZM86.0798 6.9375L86.6423 6.375H88.3298V8.0625L87.7673 8.625H86.0798V6.9375ZM86.0798 9.75H88.3298V17.625H86.0798V9.75ZM56.8298 6.375H54.5798V9.1875V11.4375V15.375V15.4715L56.7334 17.625H56.8298H62.4548V15.375H56.8298V11.4375H62.4548V9.1875H56.8298V6.375ZM50.0798 6.9375L50.6423 6.375H52.3298V8.0625L51.7673 8.625H50.0798V6.9375ZM50.0798 9.75H52.3298V17.625H50.0798V9.75Z"
+                    fill="white"/>
+            </svg>
+          </Stack>
+          <Stack direction={"row"}>
+            {
+              footerList.slice(0, 2).map((item, index) => (
+                <Stack key={index} width={"100%"} spacing={"8px"}>
+                  <Stack fontSize={"16px"} lineHeight={"22px"} color={"#F9F9F9"} fontWeight={"bold"}>
+                    {item.text}
+                  </Stack>
+                  <Stack spacing={"8px"}>
+                    {item.children.map((item, index) => (
+                      <a href={item.url} key={index} target={'_blank'}>
+                        <Stack fontSize={"12px"} lineHeight={"16px"} color={"rgba(249, 249, 249, 0.6)"}>
+                          {item.text}
+                        </Stack>
+                      </a>
+                    ))}
+                  </Stack>
+                </Stack>
+              ))
+            }
+          </Stack>
+          <Stack direction={"row"}>
+            {
+              footerList.slice(2, 4).map((item, index) => (
+                <Stack key={index} width={"100%"} spacing={"8px"}>
+                  <Stack fontSize={"16px"} lineHeight={"22px"} color={"#F9F9F9"} fontWeight={"bold"}>
+                    {item.text}
+                  </Stack>
+                  <Stack spacing={"8px"}>
+                    {item.children.map((item, index) => (
+                      <a href={item.url} key={index} target={'_blank'}>
+                        <Stack fontSize={"12px"} lineHeight={"16px"} color={"rgba(249, 249, 249, 0.6)"}>
+                          {item.text}
+                        </Stack>
+                      </a>
+                    ))}
+                  </Stack>
+                </Stack>
+              ))
+            }
+          </Stack>
+          <Stack direction={'row'} width={"100%"} alignItems={"center"}
+                 justifyContent={"center"} spacing={"20px"} paddingTop={'20px'}
+                 sx={{
+                   "& svg": {
+                     width: 20,
+                     height: 20,
+                     "& path": {
+                       fill: "rgba(249, 249, 249, 0.6)",
+                     },
+                   },
+                 }}
+          >
+            {FootAList.slice(0, 4)}
+          </Stack>
+          <Stack fontSize={"12px"} lineHeight={"16px"} color={"rgba(249, 249, 249, 0.6)"}
+                 paddingTop={'12px'} borderTop={"1px solid rgba(255, 255, 255, 0.08)"}
+                 width={"100%"} alignItems={"center"}>
+            Copyright © {new Date().getFullYear()} Morning Mist Network Technology Co., Ltd.
+          </Stack>
+        </Stack>
       </Stack>
     )
   }
@@ -834,7 +1001,8 @@ const Home = () => {
           background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)'
         }}>
         </Stack>
-        <Stack direction={"row"} zIndex={10} justifyContent={"space-between"} width={'100%'} maxWidth={1200} mt={"100px"}>
+        <Stack direction={"row"} zIndex={10} justifyContent={"space-between"} width={'100%'} maxWidth={1200}
+               mt={"100px"}>
           <Stack spacing={"24px"}>
             <Stack sx={{
               fontSize: '32px',
@@ -861,7 +1029,7 @@ const Home = () => {
               </Stack>
             </Stack>
             <Link to={'/futures'}>
-              <Stack sx={{
+            <Stack sx={{
                 cursor: 'pointer',
                 width: '200px',
                 height: '48px',
