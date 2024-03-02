@@ -11,6 +11,7 @@ import {
   usePendingTransactionsBase,
 } from "./useTransactionReceipt";
 import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
+import { parseEther } from "ethers/lib/utils";
 
 export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
@@ -26,9 +27,9 @@ export const lipPrice = (
   balance: BigNumber,
   appends: BigNumber,
   lever: BigNumber,
-  nowPrice: BigNumber,
   price: BigNumber,
-  orientation: boolean
+  orientation: boolean,
+  F: number,
 ) => {
   if (
     BigNumber.from("0").eq(BigNumber.from(balance.toString())) ||
@@ -43,17 +44,22 @@ export const lipPrice = (
       .div(BigNumber.from("10000"));
     return orientation ? price.sub(subPrice) : price.add(subPrice);
   } else {
-    const i = BigNumber.from("5")
+    let i = BigNumber.from("5")
       .mul(balance)
       .mul(lever)
       .div(BigNumber.from("1000"));
-    const top = BigNumber.from(balance.toString())
-      .add(appends)
-      .sub(i)
-      .mul(price);
+    if (i.lte(parseEther("15"))) {
+      i = parseEther("15")
+    }
+    const bigF = parseEther(F.toString())
+    const top = i.add(bigF).sub(balance).sub(appends).mul(price)
+    // const top = BigNumber.from(balance.toString())
+    //   .add(appends)
+    //   .sub(i)
+    //   .mul(price);
     const bottom = BigNumber.from(balance.toString()).mul(lever);
-    const subPrice = top.div(bottom);
-    const result = orientation ? price.sub(subPrice) : price.add(subPrice);
+    const base = top.div(bottom);
+    const result = orientation ? price.add(base) : price.sub(base);
     return BigNumber.from("0").gt(result) ? BigNumber.from("0") : result;
   }
 };
@@ -442,11 +448,11 @@ function useFuturesNewOrder(
   }, [openPriceBase, tokenPair]);
   const limitModalPrice = useMemo(() => {
     if (tabsValue === 1) {
-      return limitAmount
+      return limitAmount;
     } else {
-      return showOpenPrice
+      return showOpenPrice;
     }
-  }, [limitAmount, showOpenPrice, tabsValue])
+  }, [limitAmount, showOpenPrice, tabsValue]);
   const showLiqPrice = useCallback(
     (isLong: boolean) => {
       if (!openPriceBase || arithFiAmount === "" || arithFiAmount === "0") {
@@ -459,8 +465,8 @@ function useFuturesNewOrder(
         BigNumber.from("0"),
         BigNumber.from(lever.toString()),
         nowPrice,
-        nowPrice,
-        isLong
+        isLong,
+        0
       );
       return (
         result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
@@ -606,7 +612,7 @@ function useFuturesNewOrder(
     amountPercent,
     amountPercentCallBack,
     loading,
-    limitModalPrice
+    limitModalPrice,
   };
 }
 

@@ -11,6 +11,7 @@ function useSettingTPAndSL(
   limitPrice: number,
   callBack: (tp: number, sl: number) => void,
   openPrice: number,
+  F:number,
   isFirst?: boolean,
   append?: number,
   tpNow?: number,
@@ -323,14 +324,14 @@ function useSettingTPAndSL(
         appendBNum,
         BigNumber.from(lever.toString()),
         orderPrice,
-        orderPrice,
-        isLong
+        isLong,
+        F
       );
       return result.bigNumberToShowPrice(18, token.getTokenPriceDecimals());
     } else {
       return String().placeHolder;
     }
-  }, [append, baseAmount, isLong, lever, openPrice, token]);
+  }, [F, append, baseAmount, isLong, lever, openPrice, token]);
 
   const tlPlaceHolder = useMemo(() => {
     return `${isLong ? ">" : "<"} ${limitPrice.floor(2)}`;

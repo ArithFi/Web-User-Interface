@@ -34,26 +34,36 @@ function useFuturesPOrder(
       : data.stopLossPrice.toFixed(data.product.getTokenPriceDecimals());
   }, [data.stopLossPrice, data.product]);
   const showLiqPrice = useMemo(() => {
-      const balance =
-        data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-      const orderPrice =
-        data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-      const append =
-        data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-      const result = lipPrice(
-        data.product,
-        balance,
-        append,
-        BigNumber.from(data.leverage.toString()),
-        BigNumber.from("0"),
-        orderPrice,
-        data.direction
-      );
-      return result.bigNumberToShowPrice(
-        18,
-        data.product.getTokenPriceDecimals()
-      );
-  }, [data.margin, data.orderPrice, data.append, data.leverage, data.product, data.direction]);
+    const balance =
+      data.margin.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const orderPrice =
+      data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const append =
+      data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const F = data.pt1 != null && data.pt0 != null ? data.pt1 - data.pt0 : 0;
+    const result = lipPrice(
+      data.product,
+      balance,
+      append,
+      BigNumber.from(data.leverage.toString()),
+      orderPrice,
+      data.direction,
+      F
+    );
+    return result.bigNumberToShowPrice(
+      18,
+      data.product.getTokenPriceDecimals()
+    );
+  }, [
+    data.margin,
+    data.orderPrice,
+    data.append,
+    data.pt1,
+    data.pt0,
+    data.product,
+    data.leverage,
+    data.direction,
+  ]);
   const showMarginAssets = useMemo(() => {
     return data.balance.toFixed(2);
   }, [data.balance]);
@@ -88,12 +98,11 @@ function useFuturesPOrder(
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);
   const nowPrice = useMemo(() => {
-    const nowPrice = price?.[data.product.toLocaleUpperCase()]
-    return nowPrice ? nowPrice.bigNumberToShowPrice(
-      18,
-      data.product.getTokenPriceDecimals()
-    ) : "0"
-  }, [data.product, price])
+    const nowPrice = price?.[data.product.toLocaleUpperCase()];
+    return nowPrice
+      ? nowPrice.bigNumberToShowPrice(18, data.product.getTokenPriceDecimals())
+      : "0";
+  }, [data.product, price]);
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.walletAddress.toString(),
@@ -112,7 +121,19 @@ function useFuturesPOrder(
       sl: parseFloat(sl === String().placeHolder ? "0" : sl),
     };
     return info;
-  }, [data.balance, data.direction, data.id, data.leverage, data.orderPrice, data.product, data.walletAddress, nowPrice, showPercentNum, sl, tp]);
+  }, [
+    data.balance,
+    data.direction,
+    data.id,
+    data.leverage,
+    data.orderPrice,
+    data.product,
+    data.walletAddress,
+    nowPrice,
+    showPercentNum,
+    sl,
+    tp,
+  ]);
   return {
     isLong,
     lever,

@@ -20,6 +20,7 @@ interface SettingTPAndSLProps {
   limitPrice: number;
   callBack: (tp: number, sl: number) => void;
   openPrice: number;
+  F: number;
   isFirst?: boolean;
   append?: number;
   tpNow?: number;
@@ -72,6 +73,7 @@ const SettingTPAndSL: FC<SettingTPAndSLProps> = ({ ...props }) => {
     props.limitPrice,
     props.callBack,
     props.openPrice,
+    props.F,
     props.isFirst,
     props.append,
     props.tpNow,

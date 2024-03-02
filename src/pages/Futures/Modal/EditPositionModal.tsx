@@ -26,6 +26,7 @@ interface EditPositionModalBaseProps {
   slNow: number;
   nowPrice: number;
   isLimitOrder: boolean;
+  F: number;
 }
 
 const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
@@ -65,6 +66,7 @@ const EditPositionModalBase: FC<EditPositionModalBaseProps> = ({
         tpNow={props.tpNow}
         slNow={props.slNow}
         isLimitOrder={props.isLimitOrder}
+        F={props.F}
       />
     </Stack>
   );
@@ -101,6 +103,13 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
   const limitPrice = useMemo(() => {
     return props.data.status === 4 ? props.data.orderPrice : nowPrice;
   }, [nowPrice, props.data.orderPrice, props.data.status]);
+  const F = useMemo(() => {
+    if (props.data.pt0 != null && props.data.pt1 != null) {
+      return props.data.pt1 - props.data.pt0
+    } else {
+      return 0
+    }
+  }, [props.data.pt0, props.data.pt1])
   const view = useMemo(() => {
     return isMobile ? (
       <Drawer
@@ -132,6 +141,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
             slNow={props.data.stopLossPrice}
             nowPrice={limitPrice}
             isLimitOrder={props.data.status === 4}
+            F={F}
           />
         </BaseDrawer>
       </Drawer>
@@ -162,6 +172,7 @@ const EditPositionModal: FC<EditPositionModalProps> = ({ ...props }) => {
               slNow={props.data.stopLossPrice}
               nowPrice={limitPrice}
               isLimitOrder={props.data.status === 4}
+              F={F}
             />
           </BaseModal>
         </Box>

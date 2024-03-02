@@ -52,6 +52,7 @@ const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
         }}
         tpNow={props.tpNow}
         slNow={props.slNow}
+        F={0}
       />
     </Stack>
   );

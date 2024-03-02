@@ -359,6 +359,8 @@ const Futures: FC = () => {
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
               copy: item["pid"] != null,
+              pt0:item["pt0"],
+              pt1:item["pt1"]
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -445,6 +447,8 @@ const Futures: FC = () => {
               time: timestamp / 1000,
               tokenPair: item["product"],
               status: item["status"],
+              pt0: item["pt0"],
+              pt1: item["pt1"],
             };
           }
         );
