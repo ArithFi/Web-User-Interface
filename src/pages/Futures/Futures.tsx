@@ -427,6 +427,9 @@ const Futures: FC = () => {
             };
             const timestamp = new Date(item["closeAt"]).getTime();
             const actualRate = () => {
+              if (status === -1) {
+                return -100
+              }
               const baseValue = item["margin"] + item["append"];
               const closeValue = item["closeValue"];
               return ((closeValue - baseValue) / baseValue) * 100;
