@@ -62,7 +62,7 @@ export const lipPrice = (
       ? balance.mul(lever).mul(priceRatio).div(parseEther("1"))
       : balance
           .mul(lever)
-          .mul(parseEther("2").mul(parseEther("1")).sub(priceRatio))
+          .mul(parseEther("2").sub(priceRatio))
           .div(parseEther("1"));
           
     const bigF = parseEther(f.toFixed(18)).mul(v).div(parseEther("1"));
