@@ -152,10 +152,6 @@ const Item: FC<RowProps> = ({ ...props }) => {
       BigNumber.from("0");
     const append =
       props.data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-    const F =
-      props.data.pt1 != null && props.data.pt0 != null
-        ? props.data.pt1 - props.data.pt0
-        : 0;
     const result = lipPrice(
       props.data.product,
       balance,
@@ -163,13 +159,16 @@ const Item: FC<RowProps> = ({ ...props }) => {
       BigNumber.from(props.data.leverage.toString()),
       orderPrice,
       props.data.direction,
-      F
+      props.data.pt0,
+      props.data.pt1,
+      marketPrice.stringToBigNumber(18)
     );
     return result.bigNumberToShowPrice(
       18,
       props.data.product.getTokenPriceDecimals()
     );
   }, [
+    marketPrice,
     props.data.append,
     props.data.direction,
     props.data.leverage,
@@ -497,10 +496,6 @@ const Row: FC<RowProps> = ({ ...props }) => {
       BigNumber.from("0");
     const append =
       props.data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-    const F =
-      props.data.pt1 != null && props.data.pt0 != null
-        ? props.data.pt1 - props.data.pt0
-        : 0;
     const result = lipPrice(
       props.data.product,
       balance,
@@ -508,13 +503,16 @@ const Row: FC<RowProps> = ({ ...props }) => {
       BigNumber.from(props.data.leverage.toString()),
       orderPrice,
       props.data.direction,
-      F
+      props.data.pt0,
+      props.data.pt1,
+      marketPrice.stringToBigNumber(18)
     );
     return result.bigNumberToShowPrice(
       18,
       props.data.product.getTokenPriceDecimals()
     );
   }, [
+    marketPrice,
     props.data.append,
     props.data.direction,
     props.data.leverage,

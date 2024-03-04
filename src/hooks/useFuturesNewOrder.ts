@@ -29,7 +29,9 @@ export const lipPrice = (
   lever: BigNumber,
   price: BigNumber,
   orientation: boolean,
-  F: number,
+  pt0: number | null,
+  pt1: number | null,
+  nowPrice: BigNumber | null | undefined
 ) => {
   if (
     BigNumber.from("0").eq(BigNumber.from(balance.toString())) ||
@@ -49,10 +51,23 @@ export const lipPrice = (
       .mul(lever)
       .div(BigNumber.from("1000"));
     if (i.lte(parseEther("15"))) {
-      i = parseEther("15")
+      i = parseEther("15");
     }
-    const bigF = parseEther(F.toFixed(18))
-    const top = i.add(bigF).sub(balance).sub(appends).mul(price)
+    const f = pt1 != null && pt0 != null ? pt1 - pt0 : 0;
+    let priceRatio = BigNumber.from("0");
+    if (nowPrice != null && price.gt(BigNumber.from("0"))) {
+      priceRatio = nowPrice.mul(parseEther("1")).div(price);
+    }
+    const v = orientation
+      ? balance.mul(lever).mul(priceRatio).div(parseEther("1"))
+      : balance
+          .mul(lever)
+          .mul(parseEther("2").mul(parseEther("1")).sub(priceRatio))
+          .div(parseEther("1"));
+          
+    const bigF = parseEther(f.toFixed(18)).mul(v).div(parseEther("1"));
+    console.log(bigF.bigNumberToShowString(18))
+    const top = i.add(bigF).sub(balance).sub(appends).mul(price);
     // const top = BigNumber.from(balance.toString())
     //   .add(appends)
     //   .sub(i)
@@ -466,7 +481,9 @@ function useFuturesNewOrder(
         BigNumber.from(lever.toString()),
         nowPrice,
         isLong,
-        0
+        0,
+        0,
+        nowPrice
       );
       return (
         result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??

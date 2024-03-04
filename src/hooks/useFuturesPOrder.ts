@@ -40,7 +40,6 @@ function useFuturesPOrder(
       data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
     const append =
       data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
-    const F = data.pt1 != null && data.pt0 != null ? data.pt1 - data.pt0 : 0;
     const result = lipPrice(
       data.product,
       balance,
@@ -48,7 +47,9 @@ function useFuturesPOrder(
       BigNumber.from(data.leverage.toString()),
       orderPrice,
       data.direction,
-      F
+      data.pt0,
+      data.pt1,
+      price ? price[data.product] : orderPrice
     );
     return result.bigNumberToShowPrice(
       18,
@@ -63,6 +64,7 @@ function useFuturesPOrder(
     data.product,
     data.leverage,
     data.direction,
+    price,
   ]);
   const showMarginAssets = useMemo(() => {
     return data.balance.toFixed(2);

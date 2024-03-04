@@ -21,6 +21,8 @@ interface StopLimitBaseProps {
   slNow: number;
   isLong: boolean;
   changeIsLong: (isLong: boolean) => void;
+  pt0: number | null;
+  pt1: number | null;
 }
 
 const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
@@ -52,7 +54,9 @@ const StopLimitBase: FC<StopLimitBaseProps> = ({ ...props }) => {
         }}
         tpNow={props.tpNow}
         slNow={props.slNow}
-        F={0}
+        pt0={props.pt0}
+        pt1={props.pt1}
+        latestPrice={props.limitPrice}
       />
     </Stack>
   );
@@ -70,6 +74,8 @@ interface StopLimitModalProps {
   slNow: number;
   isLong: boolean;
   changeIsLong: (isLong: boolean) => void;
+  pt0: number | null;
+  pt1: number | null;
 }
 
 const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
@@ -96,6 +102,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
             slNow={props.slNow}
             isLong={props.isLong}
             changeIsLong={props.changeIsLong}
+            pt0={props.pt0}
+            pt1={props.pt1}
           />
         </BaseDrawer>
       </Drawer>
@@ -119,6 +127,8 @@ const StopLimitModal: FC<StopLimitModalProps> = ({ ...props }) => {
               slNow={props.slNow}
               isLong={props.isLong}
               changeIsLong={props.changeIsLong}
+              pt0={props.pt0}
+              pt1={props.pt1}
             />
           </BaseModal>
         </Box>
