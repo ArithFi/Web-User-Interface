@@ -51,7 +51,7 @@ export const lipPrice = (
     if (i.lte(parseEther("15"))) {
       i = parseEther("15")
     }
-    const bigF = parseEther(F.toString())
+    const bigF = parseEther(F.toFixed(18))
     const top = i.add(bigF).sub(balance).sub(appends).mul(price)
     // const top = BigNumber.from(balance.toString())
     //   .add(appends)
@@ -461,7 +461,7 @@ function useFuturesNewOrder(
       const nowPrice = openPriceBase;
       const result = lipPrice(
         tokenPair,
-        arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
+        arithFiAmount.stringToBigNumber(18) ?? BigNumber.from("0"),
         BigNumber.from("0"),
         BigNumber.from(lever.toString()),
         nowPrice,
