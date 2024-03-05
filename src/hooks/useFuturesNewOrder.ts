@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FuturesPrice, isForex } from "../pages/Futures/Futures";
+import { FuturesPrice } from "../pages/Futures/Futures";
 import useArithFi from "./useArithFi";
 import { getQueryVariable } from "../lib/queryVaribale";
 import { serviceOpen } from "../lib/ArithFiRequest";
@@ -66,7 +66,6 @@ export const lipPrice = (
           .div(parseEther("1"));
           
     const bigF = parseEther(f.toFixed(18)).mul(v).div(parseEther("1"));
-    console.log(bigF.bigNumberToShowString(18))
     const top = i.add(bigF).sub(balance).sub(appends).mul(price);
     // const top = BigNumber.from(balance.toString())
     //   .add(appends)
