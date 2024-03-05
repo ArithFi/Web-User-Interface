@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { useCallback, useMemo, useState } from "react";
-import { FuturesPrice, isForex } from "../pages/Futures/Futures";
+import { FuturesPrice } from "../pages/Futures/Futures";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
 
 import { t } from "@lingui/macro";

@@ -18,6 +18,8 @@ export interface FuturesHistoryService {
   time: number;
   tokenPair: string;
   status: number;
+  pt0: number | null;
+  pt1: number | null;
 }
 
 function useFuturesHistory(data: FuturesHistoryService) {

@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FuturesPrice, isForex } from "../pages/Futures/Futures";
+import { FuturesPrice } from "../pages/Futures/Futures";
 import useArithFi from "./useArithFi";
 import { getQueryVariable } from "../lib/queryVaribale";
 import { serviceOpen } from "../lib/ArithFiRequest";
@@ -11,6 +11,7 @@ import {
   usePendingTransactionsBase,
 } from "./useTransactionReceipt";
 import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
+import { parseEther } from "ethers/lib/utils";
 
 export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
@@ -26,9 +27,11 @@ export const lipPrice = (
   balance: BigNumber,
   appends: BigNumber,
   lever: BigNumber,
-  nowPrice: BigNumber,
   price: BigNumber,
-  orientation: boolean
+  orientation: boolean,
+  pt0: number | null,
+  pt1: number | null,
+  nowPrice: BigNumber | null | undefined
 ) => {
   if (
     BigNumber.from("0").eq(BigNumber.from(balance.toString())) ||
@@ -43,17 +46,34 @@ export const lipPrice = (
       .div(BigNumber.from("10000"));
     return orientation ? price.sub(subPrice) : price.add(subPrice);
   } else {
-    const i = BigNumber.from("5")
+    let i = BigNumber.from("5")
       .mul(balance)
       .mul(lever)
       .div(BigNumber.from("1000"));
-    const top = BigNumber.from(balance.toString())
-      .add(appends)
-      .sub(i)
-      .mul(price);
+    if (i.lte(parseEther("15"))) {
+      i = parseEther("15");
+    }
+    const f = pt1 != null && pt0 != null ? pt1 - pt0 : 0;
+    let priceRatio = BigNumber.from("0");
+    if (nowPrice != null && price.gt(BigNumber.from("0"))) {
+      priceRatio = nowPrice.mul(parseEther("1")).div(price);
+    }
+    const v = orientation
+      ? balance.mul(lever).mul(priceRatio).div(parseEther("1"))
+      : balance
+          .mul(lever)
+          .mul(parseEther("2").sub(priceRatio))
+          .div(parseEther("1"));
+          
+    const bigF = parseEther(f.toFixed(18)).mul(v).div(parseEther("1"));
+    const top = i.add(bigF).sub(balance).sub(appends).mul(price);
+    // const top = BigNumber.from(balance.toString())
+    //   .add(appends)
+    //   .sub(i)
+    //   .mul(price);
     const bottom = BigNumber.from(balance.toString()).mul(lever);
-    const subPrice = top.div(bottom);
-    const result = orientation ? price.sub(subPrice) : price.add(subPrice);
+    const base = top.div(bottom);
+    const result = orientation ? price.add(base) : price.sub(base);
     return BigNumber.from("0").gt(result) ? BigNumber.from("0") : result;
   }
 };
@@ -442,11 +462,11 @@ function useFuturesNewOrder(
   }, [openPriceBase, tokenPair]);
   const limitModalPrice = useMemo(() => {
     if (tabsValue === 1) {
-      return limitAmount
+      return limitAmount;
     } else {
-      return showOpenPrice
+      return showOpenPrice;
     }
-  }, [limitAmount, showOpenPrice, tabsValue])
+  }, [limitAmount, showOpenPrice, tabsValue]);
   const showLiqPrice = useCallback(
     (isLong: boolean) => {
       if (!openPriceBase || arithFiAmount === "" || arithFiAmount === "0") {
@@ -455,12 +475,14 @@ function useFuturesNewOrder(
       const nowPrice = openPriceBase;
       const result = lipPrice(
         tokenPair,
-        arithFiAmount.stringToBigNumber(4) ?? BigNumber.from("0"),
+        arithFiAmount.stringToBigNumber(18) ?? BigNumber.from("0"),
         BigNumber.from("0"),
         BigNumber.from(lever.toString()),
         nowPrice,
-        nowPrice,
-        isLong
+        isLong,
+        0,
+        0,
+        nowPrice
       );
       return (
         result.bigNumberToShowPrice(18, tokenPair.getTokenPriceDecimals()) ??
@@ -606,7 +628,7 @@ function useFuturesNewOrder(
     amountPercent,
     amountPercentCallBack,
     loading,
-    limitModalPrice
+    limitModalPrice,
   };
 }
 

@@ -8,6 +8,7 @@ import { FuturesPrice } from "../pages/Futures/Futures";
 import { t } from "@lingui/macro";
 import useService from "../contracts/useService";
 import { serviceAdd } from "../lib/ArithFiRequest";
+import { parseEther } from "ethers/lib/utils";
 
 function useFuturesAdd(
   data: FuturesOrderService,
@@ -105,14 +106,18 @@ function useFuturesAdd(
       data.orderPrice.toString().stringToBigNumber(18) ?? BigNumber.from("0");
     const append =
       data.append.toString().stringToBigNumber(18) ?? BigNumber.from("0");
+    const lever = BigNumber.from(data.leverage.toString());
+
     const result = lipPrice(
       data.product,
       balance,
       append,
-      BigNumber.from(data.leverage.toString()),
-      BigNumber.from("0"),
+      lever,
       orderPrice,
-      data.direction
+      data.direction,
+      data.pt0,
+      data.pt1,
+      price ? price[data.product] : orderPrice
     );
     return result.bigNumberToShowPrice(
       18,
@@ -125,6 +130,9 @@ function useFuturesAdd(
     data.margin,
     data.orderPrice,
     data.product,
+    data.pt0,
+    data.pt1,
+    price,
   ]);
   /**
    * main button

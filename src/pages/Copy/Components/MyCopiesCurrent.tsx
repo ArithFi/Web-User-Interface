@@ -157,23 +157,26 @@ const Item: FC<RowProps> = ({ ...props }) => {
       balance,
       append,
       BigNumber.from(props.data.leverage.toString()),
-      props.data.lastPrice.toString().stringToBigNumber(18) ??
-        BigNumber.from("0"),
       orderPrice,
-      props.data.direction
+      props.data.direction,
+      props.data.pt0,
+      props.data.pt1,
+      marketPrice.stringToBigNumber(18)
     );
     return result.bigNumberToShowPrice(
       18,
       props.data.product.getTokenPriceDecimals()
     );
   }, [
+    marketPrice,
     props.data.append,
     props.data.direction,
-    props.data.lastPrice,
     props.data.leverage,
     props.data.margin,
     props.data.orderPrice,
     props.data.product,
+    props.data.pt0,
+    props.data.pt1,
   ]);
 
   const openTime = new Date(props.data.timestamp * 1000);
@@ -498,23 +501,26 @@ const Row: FC<RowProps> = ({ ...props }) => {
       balance,
       append,
       BigNumber.from(props.data.leverage.toString()),
-      props.data.lastPrice.toString().stringToBigNumber(18) ??
-        BigNumber.from("0"),
       orderPrice,
-      props.data.direction
+      props.data.direction,
+      props.data.pt0,
+      props.data.pt1,
+      marketPrice.stringToBigNumber(18)
     );
     return result.bigNumberToShowPrice(
       18,
       props.data.product.getTokenPriceDecimals()
     );
   }, [
+    marketPrice,
     props.data.append,
     props.data.direction,
-    props.data.lastPrice,
     props.data.leverage,
     props.data.margin,
     props.data.orderPrice,
     props.data.product,
+    props.data.pt0,
+    props.data.pt1,
   ]);
 
   const openTime = new Date(props.data.timestamp * 1000);

@@ -136,6 +136,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           slNow={Number(sl)}
           isLong={stopIsLong}
           changeIsLong={(value: boolean) => setStopIsLong(value)}
+          pt0={0}
+          pt1={0}
         />
       </>
     );

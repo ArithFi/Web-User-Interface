@@ -251,7 +251,6 @@ function useDepositModal(onClose: () => void) {
     MaxUint256
   );
   
-
   const amountOutMin = useMemo(() => {
     if (uniSwapAmountOut) {
       const out = uniSwapAmountOut[uniSwapAmountOut.length - 1]

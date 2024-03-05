@@ -47,6 +47,8 @@ export interface FuturesOrderService {
   kolAddress: string;
   closePrice: number;
   closeValue: number;
+  pt0: number | null;
+  pt1: number | null
 }
 
 interface FuturesOrderListProps {

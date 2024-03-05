@@ -11,11 +11,14 @@ function useSettingTPAndSL(
   limitPrice: number,
   callBack: (tp: number, sl: number) => void,
   openPrice: number,
+  pt0: number | null,
+  pt1: number | null,
   isFirst?: boolean,
   append?: number,
   tpNow?: number,
   slNow?: number,
-  isLimitOrder?: boolean
+  isLimitOrder?: boolean,
+  latestPrice?: number
 ) {
   const [tpPercent, setTpPercent] = useState<string>("");
   const [slPercent, setSlPercent] = useState<string>("");
@@ -323,14 +326,26 @@ function useSettingTPAndSL(
         appendBNum,
         BigNumber.from(lever.toString()),
         orderPrice,
-        orderPrice,
-        isLong
+        isLong,
+        pt0,
+        pt1,
+        latestPrice ? latestPrice.toString().stringToBigNumber(18) : undefined
       );
       return result.bigNumberToShowPrice(18, token.getTokenPriceDecimals());
     } else {
       return String().placeHolder;
     }
-  }, [append, baseAmount, isLong, lever, openPrice, token]);
+  }, [
+    append,
+    baseAmount,
+    isLong,
+    latestPrice,
+    lever,
+    openPrice,
+    pt0,
+    pt1,
+    token,
+  ]);
 
   const tlPlaceHolder = useMemo(() => {
     return `${isLong ? ">" : "<"} ${limitPrice.floor(2)}`;

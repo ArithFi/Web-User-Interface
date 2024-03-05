@@ -87,6 +87,8 @@ function useMyCopies() {
               closeTime: 0,
               closePrice: 0,
               closeValue: 0,
+              pt0: item["pt0"],
+              pt1: item["pt1"]
             };
             return result;
           }
@@ -134,6 +136,8 @@ function useMyCopies() {
               closeTime: timestampClose / 1000,
               closePrice: item["closePrice"],
               closeValue: item["closeValue"],
+              pt0: item["pt0"],
+              pt1: item["pt1"]
             };
             return result;
           }

@@ -359,6 +359,8 @@ const Futures: FC = () => {
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
               copy: item["pid"] != null,
+              pt0:item["pt0"],
+              pt1:item["pt1"]
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -425,6 +427,9 @@ const Futures: FC = () => {
             };
             const timestamp = new Date(item["closeAt"]).getTime();
             const actualRate = () => {
+              if (status === -1) {
+                return -100
+              }
               const baseValue = item["margin"] + item["append"];
               const closeValue = item["closeValue"];
               return ((closeValue - baseValue) / baseValue) * 100;
@@ -445,6 +450,8 @@ const Futures: FC = () => {
               time: timestamp / 1000,
               tokenPair: item["product"],
               status: item["status"],
+              pt0: item["pt0"],
+              pt1: item["pt1"],
             };
           }
         );
