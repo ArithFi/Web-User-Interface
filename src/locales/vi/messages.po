@@ -233,6 +233,10 @@ msgid "Analysis"
 msgstr "Phân tích"
 
 #: src/pages/Home/Home.tsx
+msgid "Announcement"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "App Store"
 msgstr ""
@@ -247,6 +251,10 @@ msgstr "Yêu cầu phê duyệt"
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approve"
 msgstr "Phê duyệt"
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -386,6 +394,10 @@ msgstr "Đóng"
 msgid "Coming soon"
 msgstr ""
 
+#: src/pages/Home/Home.tsx
+msgid "Community"
+msgstr ""
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -406,6 +418,10 @@ msgstr "Xác nhận bạn là chủ sở hữu của ví này"
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Connect Wallet"
 msgstr "Kết nối ví"
+
+#: src/pages/Home/Home.tsx
+msgid "Contact"
+msgstr ""
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -449,6 +465,10 @@ msgstr "Chốt lời Copy"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Sao chép thành công"
+
+#: src/pages/Home/Home.tsx
+msgid "Copy Trade"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -554,6 +574,7 @@ msgstr "Lợi nhuận hàng ngày"
 msgid "Dark mode"
 msgstr "Chế độ tối"
 
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -714,6 +735,7 @@ msgstr "Từ"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Tương lai"
@@ -747,6 +769,10 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+msgid "Guide"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -800,6 +826,10 @@ msgstr "Gánh chịu một mất mát, $ATF của bạn sẽ bị đốt cháy"
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
 msgstr "Thanh khoản vô hạn"
+
+#: src/pages/Home/Home.tsx
+msgid "Information"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -1177,6 +1207,10 @@ msgstr "Lợi nhuận trước đó"
 msgid "Price"
 msgstr "Giá"
 
+#: src/pages/Home/Home.tsx
+msgid "Products"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Lợi nhuận (ATF)"
@@ -1242,6 +1276,10 @@ msgstr "Lợi nhuận"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "Risk Warning"
 msgstr "Cảnh báo rủi ro"
+
+#: src/pages/Home/Home.tsx
+msgid "Roadmap"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1396,9 +1434,14 @@ msgstr "Dừng-Giới hạn"
 msgid "Success"
 msgstr "Thành công"
 
+#: src/pages/Home/Home.tsx
+msgid "Support"
+msgstr ""
+
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1498,6 +1541,10 @@ msgstr "Đến (Ước tính)"
 msgid "Today's PNL"
 msgstr "PNL hôm nay"
 
+#: src/pages/Home/Home.tsx
+msgid "Tokenomics"
+msgstr ""
+
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
 msgstr "Tổng cộng"
@@ -1576,6 +1623,7 @@ msgid "TP Executed"
 msgstr "TP Executed"
 
 #: src/pages/Account/Futures/Futures.tsx
+#: src/pages/Home/Home.tsx
 msgid "Trade"
 msgstr "Giao dịch"
 
@@ -1756,6 +1804,10 @@ msgstr "Khi giá đạt đến"
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
 msgstr "Ở đâu có thể mua $ATF?"
+
+#: src/pages/Home/Home.tsx
+msgid "White Paper"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"

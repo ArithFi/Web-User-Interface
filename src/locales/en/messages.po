@@ -233,6 +233,10 @@ msgid "Analysis"
 msgstr "Analysis"
 
 #: src/pages/Home/Home.tsx
+msgid "Announcement"
+msgstr "Announcement"
+
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "App Store"
 msgstr "App Store"
@@ -247,6 +251,10 @@ msgstr "Approval required"
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approve"
 msgstr "Approve"
+
+#: src/pages/Home/Home.tsx
+msgid "ArithFi"
+msgstr "ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -386,6 +394,10 @@ msgstr "Closed"
 msgid "Coming soon"
 msgstr "Coming soon"
 
+#: src/pages/Home/Home.tsx
+msgid "Community"
+msgstr "Community"
+
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
 #: src/hooks/useFuturesEditLimit.ts
@@ -406,6 +418,10 @@ msgstr "Confirm you are the owner of this wallet"
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Connect Wallet"
 msgstr "Connect Wallet"
+
+#: src/pages/Home/Home.tsx
+msgid "Contact"
+msgstr "Contact"
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -449,6 +465,10 @@ msgstr "Copy Settle"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Copy Successfully"
+
+#: src/pages/Home/Home.tsx
+msgid "Copy Trade"
+msgstr "Copy Trade"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -554,6 +574,7 @@ msgstr "Daily Return"
 msgid "Dark mode"
 msgstr "Dark mode"
 
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -714,6 +735,7 @@ msgstr "From"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futures"
@@ -748,6 +770,10 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
 msgstr "Google Play"
+
+#: src/pages/Home/Home.tsx
+msgid "Guide"
+msgstr "Guide"
 
 #: src/pages/Copy/MyCopies.tsx
 #: src/pages/Copy/Trader.tsx
@@ -800,6 +826,10 @@ msgstr "Incur a loss, your $ATF will be burned"
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
 msgstr "Infinite Liquidity"
+
+#: src/pages/Home/Home.tsx
+msgid "Information"
+msgstr "Information"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -1177,6 +1207,10 @@ msgstr "Previous Profit"
 msgid "Price"
 msgstr "Price"
 
+#: src/pages/Home/Home.tsx
+msgid "Products"
+msgstr "Products"
+
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Profit (ATF)"
@@ -1242,6 +1276,10 @@ msgstr "Return"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "Risk Warning"
 msgstr "Risk Warning"
+
+#: src/pages/Home/Home.tsx
+msgid "Roadmap"
+msgstr "Roadmap"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1396,9 +1434,14 @@ msgstr "Stop-Limit"
 msgid "Success"
 msgstr "Success"
 
+#: src/pages/Home/Home.tsx
+msgid "Support"
+msgstr "Support"
+
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1498,6 +1541,10 @@ msgstr "To(Estimated)"
 msgid "Today's PNL"
 msgstr "Today's PNL"
 
+#: src/pages/Home/Home.tsx
+msgid "Tokenomics"
+msgstr "Tokenomics"
+
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
 msgstr "Total"
@@ -1576,6 +1623,7 @@ msgid "TP Executed"
 msgstr "TP Executed"
 
 #: src/pages/Account/Futures/Futures.tsx
+#: src/pages/Home/Home.tsx
 msgid "Trade"
 msgstr "Trade"
 
@@ -1756,6 +1804,10 @@ msgstr "When Price reaches"
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
 msgstr "Where to buy $ATF"
+
+#: src/pages/Home/Home.tsx
+msgid "White Paper"
+msgstr "White Paper"
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
