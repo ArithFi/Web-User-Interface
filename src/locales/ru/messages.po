@@ -233,12 +233,8 @@ msgid "Analysis"
 msgstr "Анализ"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "App Store"
 msgstr ""
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
@@ -253,6 +249,7 @@ msgid "Approve"
 msgstr "Подтвердить"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
 msgstr ""
 
@@ -388,13 +385,7 @@ msgid "Closed"
 msgstr "Закрыто"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Coming soon"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
 msgstr ""
 
@@ -420,6 +411,7 @@ msgid "Connect Wallet"
 msgstr "Подключить кошелек"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
 msgstr ""
 
@@ -467,6 +459,7 @@ msgid "Copy Successfully"
 msgstr "Скопировано успешно"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
 msgstr ""
 
@@ -575,6 +568,7 @@ msgid "Dark mode"
 msgstr "Тёмный режим"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -736,6 +730,7 @@ msgstr "От"
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Фьючерсы"
@@ -759,6 +754,8 @@ msgstr "Получить ATF"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "GET IT ON"
 msgstr ""
 
@@ -772,6 +769,7 @@ msgid "Google Play"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
 msgstr ""
 
@@ -828,6 +826,7 @@ msgid "Infinite Liquidity"
 msgstr "Бесконечная ликвидность"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
 msgstr ""
 
@@ -1208,6 +1207,7 @@ msgid "Price"
 msgstr "Цена"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
 msgstr ""
 
@@ -1278,6 +1278,7 @@ msgid "Risk Warning"
 msgstr "Предупреждение об уровне риска"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
 msgstr ""
 
@@ -1435,6 +1436,7 @@ msgid "Success"
 msgstr "Успешно"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
 msgstr ""
 
@@ -1442,6 +1444,7 @@ msgstr ""
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1477,6 +1480,11 @@ msgstr "Прибыль"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "Тест BNB"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "TestFlight"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
@@ -1542,6 +1550,7 @@ msgid "Today's PNL"
 msgstr "Прибыли и убытки or Прибыль и убыток"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
 msgstr ""
 
@@ -1624,6 +1633,7 @@ msgstr "TP Выполнено"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Trade"
 msgstr "Торговля"
 
@@ -1806,6 +1816,7 @@ msgid "Where to buy $ATF"
 msgstr "Где купить $ATF"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
 msgstr ""
 

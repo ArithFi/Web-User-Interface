@@ -233,13 +233,9 @@ msgid "Analysis"
 msgstr "Analysis"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
 msgstr "Announcement"
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "App Store"
-msgstr "App Store"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -253,6 +249,7 @@ msgid "Approve"
 msgstr "Approve"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
 msgstr "ArithFi"
 
@@ -388,13 +385,7 @@ msgid "Closed"
 msgstr "Closed"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Coming soon"
-msgstr "Coming soon"
-
-#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
 msgstr "Community"
 
@@ -420,6 +411,7 @@ msgid "Connect Wallet"
 msgstr "Connect Wallet"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
 msgstr "Contact"
 
@@ -467,6 +459,7 @@ msgid "Copy Successfully"
 msgstr "Copy Successfully"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
 msgstr "Copy Trade"
 
@@ -575,6 +568,7 @@ msgid "Dark mode"
 msgstr "Dark mode"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -736,6 +730,7 @@ msgstr "From"
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Futures"
@@ -759,6 +754,8 @@ msgstr "Get ATF"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "GET IT ON"
 msgstr "GET IT ON"
 
@@ -772,6 +769,7 @@ msgid "Google Play"
 msgstr "Google Play"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
 msgstr "Guide"
 
@@ -828,6 +826,7 @@ msgid "Infinite Liquidity"
 msgstr "Infinite Liquidity"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
 msgstr "Information"
 
@@ -1208,6 +1207,7 @@ msgid "Price"
 msgstr "Price"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
 msgstr "Products"
 
@@ -1278,6 +1278,7 @@ msgid "Risk Warning"
 msgstr "Risk Warning"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
 msgstr "Roadmap"
 
@@ -1435,6 +1436,7 @@ msgid "Success"
 msgstr "Success"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
 msgstr "Support"
 
@@ -1442,6 +1444,7 @@ msgstr "Support"
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1477,6 +1480,11 @@ msgstr "Take Profit"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "Test BNB"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "TestFlight"
+msgstr "TestFlight"
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
@@ -1542,6 +1550,7 @@ msgid "Today's PNL"
 msgstr "Today's PNL"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
 msgstr "Tokenomics"
 
@@ -1624,6 +1633,7 @@ msgstr "TP Executed"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Trade"
 msgstr "Trade"
 
@@ -1806,6 +1816,7 @@ msgid "Where to buy $ATF"
 msgstr "Where to buy $ATF"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
 msgstr "White Paper"
 

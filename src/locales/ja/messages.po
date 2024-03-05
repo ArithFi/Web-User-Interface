@@ -231,12 +231,8 @@ msgid "Analysis"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "App Store"
 msgstr ""
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
@@ -251,6 +247,7 @@ msgid "Approve"
 msgstr "承認"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
 msgstr ""
 
@@ -386,13 +383,7 @@ msgid "Closed"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Coming soon"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
 msgstr ""
 
@@ -418,6 +409,7 @@ msgid "Connect Wallet"
 msgstr "ウォレットに接続"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
 msgstr ""
 
@@ -465,6 +457,7 @@ msgid "Copy Successfully"
 msgstr "コピーしました"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
 msgstr ""
 
@@ -573,6 +566,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -732,6 +726,7 @@ msgstr "送信元"
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr ""
@@ -755,6 +750,8 @@ msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "GET IT ON"
 msgstr ""
 
@@ -768,6 +765,7 @@ msgid "Google Play"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
 msgstr ""
 
@@ -824,6 +822,7 @@ msgid "Infinite Liquidity"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
 msgstr ""
 
@@ -1204,6 +1203,7 @@ msgid "Price"
 msgstr "価格"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
 msgstr ""
 
@@ -1274,6 +1274,7 @@ msgid "Risk Warning"
 msgstr "リスク警告"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
 msgstr ""
 
@@ -1431,6 +1432,7 @@ msgid "Success"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
 msgstr ""
 
@@ -1438,6 +1440,7 @@ msgstr ""
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1473,6 +1476,11 @@ msgstr "利益確定"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "テスト BNB"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "TestFlight"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
@@ -1538,6 +1546,7 @@ msgid "Today's PNL"
 msgstr "今日の利益と損失"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
 msgstr ""
 
@@ -1620,6 +1629,7 @@ msgstr ""
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Trade"
 msgstr ""
 
@@ -1802,6 +1812,7 @@ msgid "Where to buy $ATF"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
 msgstr ""
 
