@@ -17,7 +17,7 @@ import { getQueryVariable } from "../../lib/queryVaribale";
 import useArithFi from "../../hooks/useArithFi";
 import { FuturesHistoryService } from "../../hooks/useFuturesHistory";
 import { useSearchParams } from "react-router-dom";
-import { getCurrentPriceOfToken } from "../../domain/prices";
+import { getCurrentPriceOfToken } from "../../lib/prices";
 
 export interface FuturesPrice {
   [key: string]: BigNumber | undefined | null;

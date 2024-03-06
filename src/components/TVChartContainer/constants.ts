@@ -73,6 +73,7 @@ const enabledFeatures = [
 ];
 
 export const defaultChartProps = {
+  datafeedUrl: "https://cms.nestfi.net/v1",
   theme: "Light",
   locale: "en",
   library_path: "charting_library/",
