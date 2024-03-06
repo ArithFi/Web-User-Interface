@@ -73,6 +73,7 @@ const enabledFeatures = [
 ];
 
 export const defaultChartProps = {
+  datafeedUrl: "https://cms.nestfi.net/v1",
   theme: "Light",
   locale: "en",
   library_path: "charting_library/",
@@ -87,7 +88,7 @@ export const defaultChartProps = {
   custom_css_url: "/tradingview-chart.css",
   loading_screen: { backgroundColor: "#171A1F", foregroundColor: "#fff" },
   favorites: {
-    intervals: ["1S", "5", "15", "60", "240", "1D"],
+    intervals: ["1", "5", "15", "60", "240", "1D"],
   },
   custom_formatters: {
     timeFormatter: {

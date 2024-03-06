@@ -6,10 +6,9 @@ import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
 import { FuturesPrice, FuturesPricePercent } from "./Futures";
 import TVChartContainer from "../../components/TVChartContainer/TVChartContainer";
-import { TVDataProvider } from "../../domain/tradingview/TVDataProvider";
 import { formatAmount, numberWithCommas } from "../../lib/numbers";
 import { styled } from "@mui/material";
-import { get24HrFromBinance } from "../../domain/prices";
+import { get24HrFromBinance } from "../../lib/prices";
 import { Trans } from "@lingui/macro";
 import TokenListBaseView from "./TokenList/TokenListBaseView";
 import TokenListModal from "./TokenList/TokenListModal";
@@ -147,7 +146,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   }, [width]);
   const TokenIcon = props.tokenPair.getToken()!.icon;
   // const RightTokenIcon = props.tokenPair.split("/")[1].getToken()!.icon;
-  const dataProvider = useRef();
   const [hr, setHr] = useState({
     priceChangePercent: "",
     highPrice: "",
@@ -227,11 +225,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     }, 1_000);
     return () => clearInterval(interval);
   }, [fetchHr]);
-
-  useEffect(() => {
-    // @ts-ignore
-    dataProvider.current = new TVDataProvider();
-  }, []);
 
   const mobileTop = useMemo(() => {
     return (
@@ -698,7 +691,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           <Box height={height}>
             <TVChartContainer
               symbol={props.tokenPair}
-              dataProvider={dataProvider.current!}
             />
           </Box>
         )}
