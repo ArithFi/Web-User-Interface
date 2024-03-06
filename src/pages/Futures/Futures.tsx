@@ -26,9 +26,6 @@ export interface FuturesPricePercent {
   [key: string]: number | undefined | null;
 }
 const UPDATE_PRICE = 15;
-export const isForex = (lever: number) => {
-  return lever === 100;
-};
 export const priceToken = [
   "ETH/USDT",
   "BTC/USDT",

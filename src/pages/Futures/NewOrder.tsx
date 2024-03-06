@@ -1,11 +1,13 @@
 import { FC, useMemo, useState } from "react";
 import Stack from "@mui/material/Stack";
 import MainButton from "../../components/MainButton/MainButton";
-import useFuturesNewOrder from "../../hooks/useFuturesNewOrder";
+import useFuturesNewOrder, {
+  isForesNewOrder,
+} from "../../hooks/useFuturesNewOrder";
 import Box from "@mui/material/Box";
 import Agree from "../../components/Agree/Agree";
 import NormalInfo from "../../components/NormalInfo/NormalInfo";
-import { FuturesPrice, isForex } from "./Futures";
+import { FuturesPrice } from "./Futures";
 import Modal from "@mui/material/Modal";
 import TriggerRiskModal from "./Modal/LimitAndPriceModal";
 import ErrorLabel from "../../components/ErrorLabel/ErrorLabel";
@@ -109,6 +111,7 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           changeValue={(value: number) => setLever(value)}
           open={showLeverModal}
           onClose={() => setShowLeverModal(false)}
+          product={props.tokenPair}
         />
 
         <StopLimitModal
@@ -297,17 +300,17 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
           })}
           component={"button"}
           onClick={() => {
-            if (!isForex(lever)) {
+            if (!isForesNewOrder(props.tokenPair)) {
               setShowLeverModal(true);
             }
           }}
         >
           <Box>{lever}X</Box>
-          {!isForex(lever) ? <NetworkDownIcon /> : <></>}
+          {!isForesNewOrder(props.tokenPair) ? <NetworkDownIcon /> : <></>}
         </Stack>
       </Stack>
     );
-  }, [anchorEl, changeTabs, lever, openTypeList, tabsValue]);
+  }, [anchorEl, changeTabs, lever, openTypeList, props.tokenPair, tabsValue]);
   const balanceAndDeposit = useMemo(() => {
     return (
       <Stack direction={"row"} justifyContent={"space-between"}>
@@ -498,7 +501,6 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
         ) : (
           <></>
         )}
-
       </Stack>
     );
   }, [showOpenPrice, tabsValue]);
@@ -690,7 +692,8 @@ const FuturesNewOrder: FC<FuturesNewOrderProps> = ({ ...props }) => {
       <Stack spacing={"12px"} width={"100%"}>
         {showConnectButton
           ? connectButton
-          : !isForex(lever) || (isForex(lever) && props.forexOpen)
+          : !isForesNewOrder(props.tokenPair) ||
+            (isForesNewOrder(props.tokenPair) && props.forexOpen)
           ? openButtons
           : marketClosedButton}
         {showConnectButton ? <></> : liqPrice}

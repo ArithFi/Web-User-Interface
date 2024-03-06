@@ -17,7 +17,7 @@ import FuturesOrderShare from "./FuturesOrderShare";
 import OrderTablePosition from "./OrderTablePosition";
 import FuturesTableTitle from "./TableTitle";
 import { Trans, t } from "@lingui/macro";
-import { isForex } from "../Futures";
+import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
 
 interface FuturesOrderListProps {
   dataArray: Array<FuturesOrderService>;
@@ -182,7 +182,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
               {sl}
             </Box>
           </Stack>
-          {isForex(lever) && !props.forexOpen ? (
+          {isForesNewOrder(props.data.product) && !props.forexOpen ? (
             <></>
           ) : (
             <Box
@@ -234,7 +234,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
       </TableCell>
       <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
-          {isForex(lever) && !props.forexOpen ? (
+          {isForesNewOrder(props.data.product) && !props.forexOpen ? (
             <MainButton
               title={t`Market Closed`}
               onClick={() => {}}

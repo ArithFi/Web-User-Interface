@@ -178,70 +178,70 @@ const Home = () => {
 
   const footerList = [
     {
-      text: "Products",
+      text: t`Products`,
       children: [
         {
-          text: "Futures",
+          text: t`Futures`,
           url: "/#/futures",
         },
         {
-          text: "Swap",
+          text: t`Swap`,
           url: "/#/swap",
         },
         {
-          text: "Copy Trade",
+          text: t`Copy Trade`,
           url: "/#/copy",
         },
         {
-          text: "Dashboard",
+          text: t`Dashboard`,
           url: "/#/dashboard",
         },
       ]
     },
     {
-      text: "Information",
+      text: t`Information`,
       children: [
         {
-          text: "ArithFi",
+          text: t`ArithFi`,
           url: "https://docs.arithfi.com/docs/whitepaper/arithfi",
         },
         {
-          text: "Tokenomics",
+          text: t`Tokenomics`,
           url: "https://docs.arithfi.com/docs/whitepaper/tokenomics",
         },
         {
-          text: "Roadmap",
+          text: t`Roadmap`,
           url: "https://docs.arithfi.com/docs/whitepaper/roadmap",
         },
         {
-          text: "White Paper",
+          text: t`White Paper`,
           url: "https://docs.arithfi.com/docs/whitepaper",
         },
       ]
     },
     {
-      text: "Support",
+      text: t`Support`,
       children: [
         {
-          text: "Contact",
+          text: t`Contact`,
           url: "https://docs.arithfi.com/docs/blogs/Guide/contact-for-support",
         },
         {
-          text: "Community",
+          text: t`Community`,
           url: "https://docs.arithfi.com/docs/whitepaper/community",
         },
         {
-          text: "Announcement",
+          text: t`Announcement`,
           url: "https://docs.arithfi.com/docs/blogs/Announcement/ArithFi-Copy-Trading-TermsConditions",
         },
         {
-          text: "Guide",
+          text: t`Guide`,
           url: "https://docs.arithfi.com/docs/blogs/Guide/guildline",
         },
       ]
     },
     {
-      text: "Trade",
+      text: t`Trade`,
       children: [
         {
           text: "ETH/USDT",
@@ -305,7 +305,7 @@ const Home = () => {
               <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
             </Stack>
             <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"40px"}>
-              <Stack>
+              <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
                 <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                   padding: "8px",
                   backgroundColor: "rgba(53, 55, 61, 1)",
@@ -328,7 +328,7 @@ const Home = () => {
                       color: "rgba(249, 249, 249, 0.8)",
                     }}>
                       <Trans>
-                        Coming soon
+                        GET IT ON
                       </Trans>
                     </Stack>
                     <Stack sx={{
@@ -338,12 +338,12 @@ const Home = () => {
                       color: "rgba(249, 249, 249, 1)",
                     }}>
                       <Trans>
-                        App Store
+                        TestFlight
                       </Trans>
                     </Stack>
                   </Stack>
                 </Stack>
-              </Stack>
+              </Link>
               <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
                 <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                   padding: "8px",
@@ -793,7 +793,7 @@ const Home = () => {
             <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
           </Stack>
           <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"24px"}>
-            <Stack>
+            <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
               <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                 padding: "8px",
                 backgroundColor: "rgba(53, 55, 61, 1)",
@@ -816,7 +816,7 @@ const Home = () => {
                     color: "rgba(249, 249, 249, 0.8)",
                   }}>
                     <Trans>
-                      Coming soon
+                      GET IT ON
                     </Trans>
                   </Stack>
                   <Stack sx={{
@@ -826,12 +826,12 @@ const Home = () => {
                     color: "rgba(249, 249, 249, 1)",
                   }}>
                     <Trans>
-                      App Store
+                      TestFlight
                     </Trans>
                   </Stack>
                 </Stack>
               </Stack>
-            </Stack>
+            </Link>
             <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
               <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                 padding: "8px",
@@ -1099,31 +1099,24 @@ const Home = () => {
                       </defs>
                     </svg>
                   </Link>
-                  <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
-                    padding: "8px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
-                    backgroundColor: "rgba(31, 35, 41, 1)",
-                    height: "40px",
-                  }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
-                        fill="#F9F9F9"/>
-                      <path
-                        d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
-                        fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
-                    </svg>
-                    <Stack sx={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "rgba(249, 249, 249, 1)"
+                  <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+                    <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
+                      padding: "8px",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      backgroundColor: "rgba(31, 35, 41, 1)",
+                      height: "40px",
                     }}>
-                      <Trans>
-                        Coming soon
-                      </Trans>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
+                          fill="#F9F9F9"/>
+                        <path
+                          d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
+                          fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
+                      </svg>
                     </Stack>
-                  </Stack>
+                  </Link>
                 </Stack>
               </Stack>
             </Stack>
@@ -1694,32 +1687,24 @@ const Home = () => {
                           </defs>
                         </svg>
                       </Link>
-                      <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
-                        padding: "8px",
-                        borderRadius: "8px",
-                        border: "1px solid rgba(255, 255, 255, 0.08)",
-                        backgroundColor: "rgba(31, 35, 41, 1)",
-                        height: "40px",
-                      }}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
-                            fill="#F9F9F9"/>
-                          <path
-                            d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
-                            fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
-                        </svg>
-                        <Stack sx={{
-                          fontSize: "12px",
-                          lineHeight: "16px",
-                          fontWeight: "700",
-                          color: "rgba(249, 249, 249, 1)"
+                      <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+                        <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
+                          padding: "8px",
+                          borderRadius: "8px",
+                          border: "1px solid rgba(255, 255, 255, 0.08)",
+                          backgroundColor: "rgba(31, 35, 41, 1)",
+                          height: "40px",
                         }}>
-                          <Trans>
-                            Coming soon
-                          </Trans>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
+                              fill="#F9F9F9"/>
+                            <path
+                              d="M12.1741 7.31455C10.6878 7.31455 9.65583 6 8.18968 6C6.72358 6 3.70312 7.3476 3.70312 12C3.70312 16.6524 6.38532 19.65 6.68532 20C6.98527 20.35 7.67908 21.2498 8.75393 21.2498C9.82883 21.2498 11.0056 20.3951 12.1741 20.3951C13.3426 20.3951 14.8134 21.2498 15.7736 21.2498C16.7338 21.2498 17.1288 20.8583 17.7823 20.1831C18.4357 19.508 19.6822 17.4476 20.1175 16.2111C19.4005 15.7843 17.5001 14.6256 17.5001 12C17.5001 10.2497 18.1397 8.7955 19.4191 7.63765C18.5798 6.5459 17.6064 6 16.4988 6C14.8375 6 13.6605 7.31455 12.1741 7.31455Z"
+                              fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
+                          </svg>
                         </Stack>
-                      </Stack>
+                      </Link>
                     </Stack>
                   </Stack>
                 </Stack>

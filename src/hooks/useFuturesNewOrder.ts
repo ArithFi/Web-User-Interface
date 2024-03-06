@@ -15,7 +15,7 @@ import { parseEther } from "ethers/lib/utils";
 
 export const MIN_ATF_BIG_NUMBER = BigNumber.from("500000");
 
-const isForesNewOrder = (tokenPair: string) => {
+export const isForesNewOrder = (tokenPair: string) => {
   return (
     tokenPair.substring(tokenPair.length - 3) === "USD" ||
     tokenPair.substring(0, 3) === "USD"

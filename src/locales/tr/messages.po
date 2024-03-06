@@ -233,8 +233,8 @@ msgid "Analysis"
 msgstr "Analiz"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "App Store"
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Announcement"
 msgstr ""
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
@@ -247,6 +247,11 @@ msgstr "Onay gerekiyor"
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approve"
 msgstr "Onayla"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "ArithFi"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -380,10 +385,8 @@ msgid "Closed"
 msgstr "Closed"
 
 #: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-#: src/pages/Home/Home.tsx
-msgid "Coming soon"
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Community"
 msgstr ""
 
 #: src/hooks/useFuturesAdd.ts
@@ -406,6 +409,11 @@ msgstr "Bu cüzdanın sahibi olduğunuzu onaylayın"
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "Connect Wallet"
 msgstr "Cüzdanı Bağla"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Contact"
+msgstr ""
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -449,6 +457,11 @@ msgstr "Kopyala Uyuş"
 #: src/pages/Share/Modal/MyWalletModal.tsx
 msgid "Copy Successfully"
 msgstr "Başarıyla Kopyalandı"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Copy Trade"
+msgstr ""
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -554,6 +567,8 @@ msgstr "Günlük Getiri"
 msgid "Dark mode"
 msgstr "Karanlık Mod"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Dashboard"
@@ -714,6 +729,8 @@ msgstr "Gönderen"
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 msgid "Futures"
 msgstr "Vadeli işlemler"
@@ -737,6 +754,8 @@ msgstr "ATF Alın"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "GET IT ON"
 msgstr ""
 
@@ -747,6 +766,11 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Guide"
 msgstr ""
 
 #: src/pages/Copy/MyCopies.tsx
@@ -800,6 +824,11 @@ msgstr "Zarar ederseniz, $ATF'niz yakılır"
 #: src/pages/Home/Home.tsx
 msgid "Infinite Liquidity"
 msgstr "Sınırsız Likidite"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Information"
+msgstr ""
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -1179,6 +1208,11 @@ msgstr "Önceki Kar"
 msgid "Price"
 msgstr "Fiyat"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Products"
+msgstr ""
+
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
 msgstr "Kar (ATF)"
@@ -1244,6 +1278,11 @@ msgstr "Getiri"
 #: src/pages/Futures/Modal/ProtocolModal.tsx
 msgid "Risk Warning"
 msgstr "Risk Uyarısı"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Roadmap"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1398,9 +1437,16 @@ msgstr "Stop-Limit"
 msgid "Success"
 msgstr "Başarı"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Support"
+msgstr ""
+
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
 #: src/hooks/useTransactionReceipt.ts
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 #: src/pages/Share/Head/ArithFiHead.tsx
 #: src/pages/Swap/Swap.tsx
 msgid "Swap"
@@ -1436,6 +1482,11 @@ msgstr "Kar Al"
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Test BNB"
 msgstr "Test BNB"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "TestFlight"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "the First Decentralized Derivatives Protocol Achieves"
@@ -1499,6 +1550,11 @@ msgstr "Hedeflenen (Tahmini) Zaman"
 #: src/pages/Dashboard/Modal/ShareMyDealModal.tsx
 msgid "Today's PNL"
 msgstr "Bugünkü Kar/Zarar"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "Tokenomics"
+msgstr ""
 
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
@@ -1578,6 +1634,8 @@ msgid "TP Executed"
 msgstr "TP Yürütüldü"
 
 #: src/pages/Account/Futures/Futures.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Trade"
 msgstr "İşlem"
 
@@ -1758,6 +1816,11 @@ msgstr "Fiyat ulaştığında"
 #: src/pages/Token/Token.tsx
 msgid "Where to buy $ATF"
 msgstr "$ATF nereden alınır?"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Share/Foot/ArithFiFoot.tsx
+msgid "White Paper"
+msgstr ""
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
