@@ -1,72 +1,30 @@
-import {useEffect, useRef, useState} from "react";
-import {defaultChartProps, DEFAULT_PERIOD, disabledFeaturesOnMobile} from "./constants";
-import useTVDatafeed from "../../domain/tradingview/useTVDatafeed";
-import {IChartingLibraryWidget, Timezone} from "../../charting_library";
-import {getObjectKeyFromValue} from "../../domain/tradingview/utils";
-import {SUPPORTED_RESOLUTIONS, TV_CHART_RELOAD_INTERVAL} from "../../config/tradingview";
-import {TVDataProvider} from "../../domain/tradingview/TVDataProvider";
-import {useLocalStorageSerializeKey} from "../../lib/localStorage";
-import {CHART_PERIODS} from "../../lib/legacy";
+import {useEffect, useMemo, useRef, useState} from "react";
+import {defaultChartProps, disabledFeaturesOnMobile} from "./constants";
+import {IChartingLibraryWidget, ResolutionString, Timezone} from "../../charting_library";
 import {Box, CircularProgress} from "@mui/material";
 import useTheme from "../../hooks/useTheme";
 import useWindowWidth from "../../hooks/useWindowWidth";
 
 type Props = {
   symbol: string;
-  dataProvider?: TVDataProvider;
 };
 
-export default function TVChartContainer({symbol, dataProvider}: Props) {
-  let [period, setPeriod] = useLocalStorageSerializeKey(["Chart-period"], DEFAULT_PERIOD);
-
-  if (!period || !(period in CHART_PERIODS)) {
-    period = DEFAULT_PERIOD;
-  }
-
+export default function TVChartContainer({symbol}: Props) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const tvWidgetRef = useRef<IChartingLibraryWidget | null>(null);
   const [chartReady, setChartReady] = useState(false);
   const [chartDataLoading, setChartDataLoading] = useState(true);
-  const {datafeed, resetCache} = useTVDatafeed({dataProvider});
-  const symbolRef = useRef(symbol);
   const {nowTheme} = useTheme();
   const {isMobile, isBigMobile} = useWindowWidth()
-  /* Tradingview charting library only fetches the historical data once so if the tab is inactive or system is in sleep mode
-  for a long time, the historical data will be outdated. */
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        localStorage.setItem("tv-chart-reload-timestamp", Date.now().toString());
-      } else {
-        const tvReloadTimestamp = Number(localStorage.getItem("tv-chart-reload-timestamp"));
-        if (tvReloadTimestamp && Date.now() - tvReloadTimestamp > TV_CHART_RELOAD_INTERVAL) {
-          if (resetCache) {
-            resetCache();
-            tvWidgetRef.current?.activeChart().resetData();
-          }
-        }
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, [resetCache]);
-
-  useEffect(() => {
-    if (chartReady && tvWidgetRef.current && symbol !== tvWidgetRef.current?.activeChart?.().symbol()) {
-      tvWidgetRef.current.setSymbol(symbol, tvWidgetRef.current.activeChart().resolution(), () => {
-      });
-    }
-  }, [symbol, chartReady, period]);
 
   useEffect(() => {
     const widgetOptions = {
       debug: false,
-      symbol: symbolRef.current, // Using ref to avoid unnecessary re-renders on symbol change and still have access to the latest symbol
-      datafeed: datafeed,
+      symbol: symbol, // Using ref to avoid unnecessary re-renders on symbol change and still have access to the latest symbol
+      datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(defaultChartProps.datafeedUrl, 1000, {
+        maxResponseLength: 500,
+        expectedOrder: "latestFirst",
+      }),
       theme: nowTheme.isLight ? "Light" : "Dark",
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone as Timezone,
       container: chartContainerRef.current,
@@ -83,7 +41,6 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       autosize: defaultChartProps.autosize,
       custom_css_url: defaultChartProps.custom_css_url,
       overrides: defaultChartProps.overrides,
-      interval: getObjectKeyFromValue(period, SUPPORTED_RESOLUTIONS),
       favorites: defaultChartProps.favorites,
       custom_formatters: defaultChartProps.custom_formatters,
       studies_overrides: {
@@ -107,17 +64,6 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
           "paneProperties.backgroundType": "solid",
         });
       }
-      tvWidgetRef.current
-        ?.activeChart()
-        .onIntervalChanged()
-        .subscribe(null, (interval) => {
-          // @ts-ignore
-          if (SUPPORTED_RESOLUTIONS[interval]) {
-            // @ts-ignore
-            const period = SUPPORTED_RESOLUTIONS[interval];
-            setPeriod(period);
-          }
-        });
       // @ts-ignore
       // tvWidgetRef.current?.activeChart().createStudy("Volume", false, false, tvWidgetRef.current?.activeChart().resolution()
       //   , {
@@ -132,13 +78,19 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
       if (tvWidgetRef.current) {
         tvWidgetRef.current.remove();
         tvWidgetRef.current = null;
-        setChartReady(false);
         setChartDataLoading(true);
       }
     };
-  }, [nowTheme, tvWidgetRef.current, isMobile]);
+  }, [nowTheme, isMobile]);
 
-  return (
+  useEffect(() => {
+    if (!symbol) return
+    if (chartReady && !chartDataLoading) {
+      tvWidgetRef.current?.setSymbol(symbol, '1D' as ResolutionString, () => {})
+    }
+  }, [symbol, chartReady, chartDataLoading]);
+
+  const view = useMemo(() => (
     <Box sx={(theme) => ({
       display: 'flex',
       justifyContent: 'center',
@@ -163,5 +115,9 @@ export default function TVChartContainer({symbol, dataProvider}: Props) {
         ref={chartContainerRef}
       />
     </Box>
+  ), [chartDataLoading])
+
+  return (
+    view
   )
 }
