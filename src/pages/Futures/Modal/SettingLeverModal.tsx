@@ -143,7 +143,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
           component={"button"}
           onClick={() => {
             const result = nowValue + 1;
-            if (result <= 50) {
+            if (result <= maxValue) {
               setNowValue(result);
             }
           }}
