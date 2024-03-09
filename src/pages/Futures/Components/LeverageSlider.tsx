@@ -3,36 +3,14 @@ import Slider from "@mui/material/Slider";
 import Stack from "@mui/material/Stack";
 import { FC } from "react";
 
-const marks = [
-  {
-    value: 1,
-    label: "1",
-  },
-  {
-    value: 10,
-    label: "10",
-  },
-  {
-    value: 20,
-    label: "20",
-  },
-  {
-    value: 30,
-    label: "30",
-  },
-  {
-    value: 40,
-    label: "40",
-  },
-  {
-    value: 50,
-    label: "50",
-  },
-];
-
 interface LeverageSliderProps {
   value: number;
   changeValue: (value: number) => void;
+  marks: {
+    value: number;
+    label: string;
+  }[];
+  maxValue: number;
   style?: React.CSSProperties;
 }
 
@@ -67,7 +45,7 @@ const LeverageSlider: FC<LeverageSliderProps> = ({ ...props }) => {
           <Slider
             aria-label="Custom marks"
             defaultValue={1}
-            max={50}
+            max={props.maxValue}
             min={1}
             getAriaValueText={valuetext}
             step={1}
@@ -75,7 +53,7 @@ const LeverageSlider: FC<LeverageSliderProps> = ({ ...props }) => {
             onChange={(e: any) => {
               props.changeValue(e.target.value);
             }}
-            marks={marks}
+            marks={props.marks}
             sx={(theme) => ({
               color: theme.normal.primary,
               "& .MuiSlider-rail": {

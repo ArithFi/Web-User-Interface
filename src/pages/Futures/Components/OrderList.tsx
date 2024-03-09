@@ -15,7 +15,7 @@ import FuturesOrderListInfo, {
 } from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
 import { Trans, t } from "@lingui/macro";
-import { isForex } from "../Futures";
+import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
 
 interface OrderListProps {
   data: FuturesOrderService;
@@ -129,7 +129,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
         </FuturesOrderListInfo>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
-        {isForex(lever) && !props.forexOpen ? (
+        {isForesNewOrder(props.data.product) && !props.forexOpen ? (
           <>
             <MainButton
               title={t`Market Closed`}

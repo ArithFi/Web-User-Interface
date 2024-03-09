@@ -14,6 +14,7 @@ interface SettingLeverBaseProps {
   value: number;
   changeValue: (value: number) => void;
   onClose: () => void;
+  product: string;
 }
 
 const subIcon = (
@@ -56,8 +57,24 @@ const addIcon = (
   </svg>
 );
 
+const lever100 = ["BTC/USDT", "ETH/USDT"];
 const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
   const [nowValue, setNowValue] = useState(props.value);
+  const marks = useMemo(() => {
+    let marksArray = [1, 10, 20, 30, 40, 50];
+    if (lever100.includes(props.product)) {
+      marksArray = [1, 20, 40, 60, 80, 100];
+    }
+    return marksArray.map((item) => {
+      return { value: item, label: item.toString() };
+    });
+  }, [props.product]);
+  const maxValue = useMemo(() => {
+    if (lever100.includes(props.product)) {
+      return 100;
+    }
+    return 50;
+  }, [props.product]);
   return (
     <Stack spacing={"24px"} width={"100%"}>
       <Stack
@@ -70,7 +87,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
           height: "48px",
           backgroundColor: theme.normal.bg1,
           width: "100%",
-          border: `1px solid ${theme.normal.border}`
+          border: `1px solid ${theme.normal.border}`,
         })}
       >
         <Box
@@ -126,7 +143,7 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
           component={"button"}
           onClick={() => {
             const result = nowValue + 1;
-            if (result <= 50) {
+            if (result <= maxValue) {
               setNowValue(result);
             }
           }}
@@ -137,6 +154,8 @@ const SettingLeverBase: FC<SettingLeverBaseProps> = ({ ...props }) => {
       <LeverageSlider
         value={nowValue}
         changeValue={(value: number) => setNowValue(value)}
+        marks={marks}
+        maxValue={maxValue}
       />
       <MainButton
         title={t`Save`}
@@ -155,6 +174,7 @@ interface SettingLeverModalProps {
   changeValue: (value: number) => void;
   open: boolean;
   onClose: () => void;
+  product: string;
 }
 
 const SettingLeverModal: FC<SettingLeverModalProps> = ({ ...props }) => {
@@ -174,6 +194,7 @@ const SettingLeverModal: FC<SettingLeverModalProps> = ({ ...props }) => {
             value={props.value}
             changeValue={props.changeValue}
             onClose={props.onClose}
+            product={props.product}
           />
         </BaseDrawer>
       </Drawer>
@@ -190,6 +211,7 @@ const SettingLeverModal: FC<SettingLeverModalProps> = ({ ...props }) => {
               value={props.value}
               changeValue={props.changeValue}
               onClose={props.onClose}
+              product={props.product}
             />
           </BaseModal>
         </Box>

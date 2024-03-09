@@ -8,8 +8,8 @@ import {
   copyMyTradeInfo,
   serviceIsOpen,
 } from "../../../lib/ArithFiRequest";
-import { isForex } from "../../Futures/Futures";
 import { FuturesOrderService } from "../../Futures/OrderList";
+import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
 
 export interface MyCopiesMyTradersList {
   kolAddress: string;
@@ -88,7 +88,7 @@ function useMyCopies() {
               closePrice: 0,
               closeValue: 0,
               pt0: item["pt0"],
-              pt1: item["pt1"]
+              pt1: item["pt1"],
             };
             return result;
           }
@@ -137,7 +137,7 @@ function useMyCopies() {
               closePrice: item["closePrice"],
               closeValue: item["closeValue"],
               pt0: item["pt0"],
-              pt1: item["pt1"]
+              pt1: item["pt1"],
             };
             return result;
           }
@@ -195,7 +195,7 @@ function useMyCopies() {
   const checkCopyNoStop = useCallback(
     (normal: () => void, no: () => void) => {
       const hasForexOrder = myCopiesList.filter((item) =>
-        isForex(item.leverage)
+        isForesNewOrder(item.product)
       );
       if (!forexOpen && hasForexOrder.length > 0) {
         no();

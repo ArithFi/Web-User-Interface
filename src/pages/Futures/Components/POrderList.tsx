@@ -6,7 +6,7 @@ import ArithFiLine from "../../../components/ArithFiLine";
 import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import useFuturesPOrder from "../../../hooks/useFuturesPOrder";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
-import { FuturesPrice, isForex } from "../Futures";
+import { FuturesPrice } from "../Futures";
 import {
   FuturesModalInfo,
   FuturesModalType,
@@ -17,6 +17,7 @@ import FuturesOrderListInfo, {
 } from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
 import { Trans, t } from "@lingui/macro";
+import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
 
 interface POrderListProps {
   data: FuturesOrderService;
@@ -174,7 +175,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         </Stack>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
-        {isForex(lever) && !props.forexOpen ? (
+        {isForesNewOrder(props.data.product) && !props.forexOpen ? (
           <>
             <MainButton
               title={t`Market Closed`}

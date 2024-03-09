@@ -9,12 +9,16 @@ import useArithFi from "./useArithFi";
 import useReadSwapAmountOut from "../contracts/Read/useReadSwapContract";
 import { SwapContract } from "../contracts/contractAddress";
 import useTokenApprove from "../contracts/useTokenContract";
-import useSwapExactTokensForTokens from "../contracts/useSwapContract";
+import useSwapExactTokensForTokens, {
+  useSwapExactETHForTokens,
+  useSwapExactTokensForETH,
+} from "../contracts/useSwapContract";
 import {
   TransactionType,
   usePendingTransactions,
 } from "./useTransactionReceipt";
 import { t } from "@lingui/macro";
+import { useBalance } from "wagmi";
 
 interface SwapToken {
   src: string;
@@ -37,8 +41,9 @@ function useSwap() {
   const [outAmount, setOutAmount] = useState<string>("");
   const [samePrice, setSamePrice] = useState<boolean>(true);
   const { isPendingType } = usePendingTransactions();
+  const mainToken = ["BNB", "ETH"];
   const tokenArray = useMemo(() => {
-    return ["USDT", "ATF"];
+    return ["USDT", "ATF", "BNB"];
   }, []);
   useEffect(() => {
     setSwapToken(swapTokenOfChain());
@@ -54,18 +59,19 @@ function useSwap() {
     }
   }, [chainsData.chainId]);
   const swapPath = useMemo(() => {
-    if (swapToken.src === "USDT") {
-      return ["USDT", "ATF"];
-    } else if (swapToken.src === "ATF") {
-      return ["ATF", "USDT"];
-    } else {
-      return undefined;
+    if (
+      (mainToken.includes(swapToken.src) && swapToken.dest === "ATF") ||
+      (mainToken.includes(swapToken.dest) && swapToken.src === "ATF")
+    ) {
+      return [swapToken.src, "USDT", swapToken.dest];
     }
-  }, [swapToken.src]);
+    return [swapToken.src, swapToken.dest];
+  }, [mainToken, swapToken.dest, swapToken.src]);
   const swapPathAddress = useMemo(() => {
     if (swapPath && chainsData.chainId) {
       const pathAddress = swapPath.map((item) => {
-        return item.getToken()!.address[chainsData.chainId!];
+        const tokenName = item === "BNB" ? "WBNB" : item;
+        return tokenName.getToken()!.address[chainsData.chainId!];
       });
       return pathAddress;
     } else {
@@ -77,7 +83,10 @@ function useSwap() {
    * swap token address
    */
   const scrAddress = useMemo(() => {
-    const token = swapToken.src.getToken();
+    let token = swapToken.src.getToken();
+    if (swapToken.src === "BNB") {
+      token = "WBNB".getToken();
+    }
     if (token && chainsData.chainId) {
       return token.address[chainsData.chainId];
     } else {
@@ -93,7 +102,10 @@ function useSwap() {
     }
   }, [chainsData, swapToken.src]);
   const destAddress = useMemo(() => {
-    const token = swapToken.dest.getToken();
+    let token = swapToken.dest.getToken();
+    if (swapToken.dest === "BNB") {
+      token = "WBNB".getToken();
+    }
     if (token && chainsData.chainId) {
       return token.address[chainsData.chainId];
     } else {
@@ -124,13 +136,13 @@ function useSwap() {
     inputToBigNumber && !inputToBigNumber.eq(BigNumber.from("0"))
       ? inputToBigNumber
       : "1".stringToBigNumber(18)!,
-    [scrAddress ?? String().zeroAddress, destAddress ?? String().zeroAddress]
+    swapPathAddress
   );
 
   const amountOutMin = useMemo(() => {
     if (uniSwapAmountOut) {
-      return uniSwapAmountOut[1].sub(
-        uniSwapAmountOut[1]
+      return uniSwapAmountOut[uniSwapAmountOut.length - 1].sub(
+        uniSwapAmountOut[uniSwapAmountOut.length - 1]
           .mul(BigNumber.from((slippage * 10).toString()))
           .div(BigNumber.from("1000"))
       );
@@ -144,15 +156,13 @@ function useSwap() {
       const destToken = swapToken.src.getToken();
       if (uniSwapAmountOut && destToken && destDecimals) {
         if (samePrice) {
-          return `1 ${
-            swapToken.src
-          } = ${uniSwapAmountOut[1].bigNumberToShowString(destDecimals, 6)} ${
-            swapToken.dest
-          }`;
+          return `1 ${swapToken.src} = ${uniSwapAmountOut[
+            uniSwapAmountOut.length - 1
+          ].bigNumberToShowString(destDecimals, 6)} ${swapToken.dest}`;
         } else {
           const out = parseUnits("1", destDecimals)
             .mul(parseUnits("1", 18))
-            .div(uniSwapAmountOut[1]);
+            .div(uniSwapAmountOut[uniSwapAmountOut.length - 1]);
           return `1 ${swapToken.dest} = ${out.bigNumberToShowString(18, 6)} ${
             swapToken.src
           }`;
@@ -199,6 +209,9 @@ function useSwap() {
       (destAddress ?? String().zeroAddress) as `0x${string}`,
       account.address ?? ""
     );
+  const { data: ETHBalance, refetch: ETHrefetch } = useBalance({
+    address: account.address,
+  });
   /**
    * allowance
    */
@@ -212,15 +225,22 @@ function useSwap() {
    * max button
    */
   const maxCallBack = useCallback(() => {
-    const token = swapToken.src.getToken();
-    if (token && scrBalance && chainsData.chainId) {
-      setInputAmount(
-        scrBalance
-          .bigNumberToShowString(token.decimals[chainsData.chainId], 18)
-          .formatInputNum4()
-      );
+    if (swapToken.src === "BNB") {
+      const token = "BNB".getToken();
+      if (token && ETHBalance && chainsData.chainId) {
+        setInputAmount(ETHBalance.formatted.formatInputNum4());
+      }
+    } else {
+      const token = swapToken.src.getToken();
+      if (token && scrBalance && chainsData.chainId) {
+        setInputAmount(
+          scrBalance
+            .bigNumberToShowString(token.decimals[chainsData.chainId], 18)
+            .formatInputNum4()
+        );
+      }
     }
-  }, [chainsData.chainId, scrBalance, swapToken.src]);
+  }, [ETHBalance, chainsData.chainId, scrBalance, swapToken.src]);
 
   const exchangePrice = useCallback(() => {
     setSamePrice(!samePrice);
@@ -239,44 +259,74 @@ function useSwap() {
    * show balance
    */
   const showSrcBalance = useMemo(() => {
-    const token = swapToken.src.getToken();
-    if (token && scrBalance && chainsData.chainId) {
-      return scrBalance.bigNumberToShowString(
-        token.decimals[chainsData.chainId]
-      );
+    if (swapToken.src === "BNB") {
+      const token = "BNB".getToken();
+      if (token && ETHBalance && chainsData.chainId) {
+        return (
+          ETHBalance.formatted.stringToBigNumber(18) ?? BigNumber.from("0")
+        ).bigNumberToShowString(token.decimals[chainsData.chainId]);
+      }
     } else {
-      return String().placeHolder;
+      const token = swapToken.src.getToken();
+      if (token && scrBalance && chainsData.chainId) {
+        return scrBalance.bigNumberToShowString(
+          token.decimals[chainsData.chainId]
+        );
+      }
     }
-  }, [chainsData.chainId, scrBalance, swapToken.src]);
+    return String().placeHolder;
+  }, [ETHBalance, chainsData.chainId, scrBalance, swapToken.src]);
   const showDestBalance = useMemo(() => {
-    const token = swapToken.dest.getToken();
-    if (token && destBalance && chainsData.chainId) {
-      return destBalance.bigNumberToShowString(
-        token.decimals[chainsData.chainId]
-      );
+    if (swapToken.dest === "BNB") {
+      const token = "BNB".getToken();
+      if (token && ETHBalance && chainsData.chainId) {
+        return (
+          ETHBalance.formatted.stringToBigNumber(18) ?? BigNumber.from("0")
+        ).bigNumberToShowString(token.decimals[chainsData.chainId]);
+      }
     } else {
-      return String().placeHolder;
+      const token = swapToken.dest.getToken();
+      if (token && destBalance && chainsData.chainId) {
+        return destBalance.bigNumberToShowString(
+          token.decimals[chainsData.chainId]
+        );
+      }
     }
-  }, [destBalance, swapToken.dest, chainsData.chainId]);
+    return String().placeHolder;
+  }, [swapToken.dest, ETHBalance, chainsData.chainId, destBalance]);
   /**
    * check
    */
   const checkAllowance = useMemo(() => {
+    if (mainToken.includes(swapToken.src)) {
+      return true;
+    }
     if (scrDecimals && srcAllowance) {
       const inputBigNumber = inputToBigNumber ?? BigNumber.from("0");
       return inputBigNumber.lte(srcAllowance);
     } else {
       return true;
     }
-  }, [inputToBigNumber, scrDecimals, srcAllowance]);
+  }, [inputToBigNumber, mainToken, scrDecimals, srcAllowance, swapToken.src]);
   const checkBalance = useMemo(() => {
-    if (scrDecimals && scrBalance) {
-      const inputBigNumber = inputToBigNumber ?? BigNumber.from("0");
-      return inputBigNumber.lte(scrBalance);
+    if (scrDecimals) {
+      if (swapToken.src === "BNB") {
+        if (ETHBalance) {
+          const inputBigNumber = inputToBigNumber ?? BigNumber.from("0");
+          return inputBigNumber.lte(
+            ETHBalance.formatted.stringToBigNumber(18) ?? BigNumber.from("0")
+          );
+        }
+      } else {
+        if (scrBalance) {
+          const inputBigNumber = inputToBigNumber ?? BigNumber.from("0");
+          return inputBigNumber.lte(scrBalance);
+        }
+      }
     } else {
       return false;
     }
-  }, [inputToBigNumber, scrBalance, scrDecimals]);
+  }, [ETHBalance, inputToBigNumber, scrBalance, scrDecimals, swapToken.src]);
   /**
    * action
    */
@@ -293,6 +343,18 @@ function useSwap() {
     MaxUint256
   );
   const { transaction: swapTTT } = useSwapExactTokensForTokens(
+    inputAmountTransaction,
+    amountOutMin,
+    swapPathAddress,
+    account.address
+  );
+  const { transaction: swapTTE } = useSwapExactTokensForETH(
+    inputAmountTransaction,
+    amountOutMin,
+    swapPathAddress,
+    account.address
+  );
+  const { transaction: swapETT } = useSwapExactETHForTokens(
     inputAmountTransaction,
     amountOutMin,
     swapPathAddress,
@@ -319,12 +381,24 @@ function useSwap() {
     );
   }, [isPendingType]);
   const mainButtonLoading = useMemo(() => {
-    if (tokenApprove.isLoading || swapTTT.isLoading || pending) {
+    if (
+      tokenApprove.isLoading ||
+      swapTTT.isLoading ||
+      swapETT.isLoading ||
+      swapTTE.isLoading ||
+      pending
+    ) {
       return true;
     } else {
       return false;
     }
-  }, [swapTTT.isLoading, pending, tokenApprove.isLoading]);
+  }, [
+    tokenApprove.isLoading,
+    swapTTT.isLoading,
+    swapETT.isLoading,
+    swapTTE.isLoading,
+    pending,
+  ]);
   const mainButtonDis = useMemo(() => {
     if (!account.address) {
       return false;
@@ -339,16 +413,29 @@ function useSwap() {
     } else if (!checkAllowance) {
       tokenApprove.write?.();
     } else {
-      swapTTT.reset();
-      swapTTT.write?.();
+      if (mainToken.includes(swapToken.src)) {
+        swapETT.reset();
+        swapETT.write?.();
+      } else if (mainToken.includes(swapToken.dest)) {
+        swapTTE.reset();
+        swapTTE.write?.();
+      } else {
+        swapTTT.reset();
+        swapTTT.write?.();
+      }
     }
   }, [
     account.address,
     checkAllowance,
     checkBalance,
     mainButtonLoading,
+    mainToken,
     showConnectModal,
+    swapETT,
+    swapTTE,
     swapTTT,
+    swapToken.dest,
+    swapToken.src,
     tokenApprove,
   ]);
   /**
@@ -365,28 +452,41 @@ function useSwap() {
   /**
    * select token
    */
-  const selectToken = useCallback(
+  const selectSrcToken = useCallback(
     (tokenName: string) => {
-      if (tokenName === "USDT") {
-        setSwapToken({ src: tokenName, dest: "ATF" });
-      } else if (tokenName === "ATF") {
-        setSwapToken({ src: tokenName, dest: "USDT" });
+      if (tokenName === swapToken.dest) {
+        setSwapToken({ src: swapToken.dest, dest: swapToken.src });
+      } else {
+        setSwapToken({ src: tokenName, dest: swapToken.dest });
       }
       setInputAmount("");
       setSamePrice(true);
       srcRefetch();
     },
-    [srcRefetch]
+    [srcRefetch, swapToken.dest, swapToken.src]
   );
-
-  useEffect(() => {
-    if (swapToken.src === "USDT" || swapToken.src === "ATF") {
-      //  use swap amount
-      if (uniSwapAmountOut && destDecimals) {
-        setOutAmount(
-          uniSwapAmountOut[1].bigNumberToShowString(destDecimals, 6)
-        );
+  const selectDestToken = useCallback(
+    (tokenName: string) => {
+      if (tokenName === swapToken.src) {
+        setSwapToken({ src: swapToken.dest, dest: swapToken.src });
+      } else {
+        setSwapToken({ src: swapToken.src, dest: tokenName });
       }
+      setInputAmount("");
+      setSamePrice(true);
+      srcRefetch();
+    },
+    [srcRefetch, swapToken.dest, swapToken.src]
+  );
+  useEffect(() => {
+    //  use swap amount
+    if (uniSwapAmountOut && destDecimals) {
+      setOutAmount(
+        uniSwapAmountOut[uniSwapAmountOut.length - 1].bigNumberToShowString(
+          destDecimals,
+          6
+        )
+      );
     }
   }, [destDecimals, inputAmount, swapToken.src, uniSwapAmountOut]);
   /**
@@ -395,26 +495,43 @@ function useSwap() {
   useEffect(() => {
     const time = setInterval(() => {
       uniSwapAmountOutRefetch();
-      srcBalanceRefetch();
-      destBalanceRefetch();
+      if (mainToken.includes(swapToken.src)) {
+        ETHrefetch();
+      } else {
+        srcBalanceRefetch();
+      }
+      if (mainToken.includes(swapToken.dest)) {
+        ETHrefetch();
+      } else {
+        destBalanceRefetch();
+      }
+
       srcRefetch();
     }, SWAP_UPDATE * 1000);
     return () => {
       clearInterval(time);
     };
   }, [
+    ETHrefetch,
     destBalanceRefetch,
+    mainToken,
     srcBalanceRefetch,
     srcRefetch,
+    swapToken.dest,
+    swapToken.src,
     uniSwapAmountOutRefetch,
   ]);
 
   useEffect(() => {
     setTimeout(() => {
-      srcRefetch();
-      srcBalanceRefetch();
+      if (mainToken.includes(swapToken.src)) {
+        ETHrefetch();
+      } else {
+        srcRefetch();
+        srcBalanceRefetch();
+      }
     }, 3000);
-  }, [srcRefetch, pending, srcBalanceRefetch]);
+  }, [ETHrefetch, mainToken, srcBalanceRefetch, srcRefetch, swapToken.src]);
 
   return {
     swapToken,
@@ -435,7 +552,8 @@ function useSwap() {
     mainButtonDis,
     mainButtonLoading,
     tokenArray,
-    selectToken,
+    selectSrcToken,
+    selectDestToken,
   };
 }
 

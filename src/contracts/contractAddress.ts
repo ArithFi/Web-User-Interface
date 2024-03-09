@@ -56,6 +56,12 @@ export const BNB: AddressType = {
   56: String().zeroAddress,
   97: String().zeroAddress,
 };
+export const WBNB: AddressType = {
+  1: String().zeroAddress,
+  5: String().zeroAddress,
+  56: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+  97: "0x0302E130B79A2220725eDFe0B9315b6290Ed7D1D",
+};
 
 export const ATFToken: AddressType = {
   1: "0x04abEdA201850aC0124161F037Efd70c74ddC74C",
@@ -159,6 +165,13 @@ export const TokenList: Array<TokenType> = [
     icon: BNBTokenLogo,
     decimals: All18,
     address: BNB,
+    priceDecimals: 2,
+  },
+  {
+    symbol: "WBNB",
+    icon: BNBTokenLogo,
+    decimals: All18,
+    address: WBNB,
     priceDecimals: 2,
   },
   {

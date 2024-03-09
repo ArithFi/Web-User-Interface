@@ -57,7 +57,8 @@ const Swap: FC = () => {
     mainButtonDis,
     mainButtonLoading,
     tokenArray,
-    selectToken,
+    selectSrcToken,
+    selectDestToken,
   } = useSwap();
 
   const ExchangeIcon = styled("button")(({ theme }) => {
@@ -217,7 +218,7 @@ const Swap: FC = () => {
           balance={showSrcBalance}
           maxCallBack={maxCallBack}
           tokenArray={tokenArray}
-          selectToken={selectToken}
+          selectToken={selectSrcToken}
         >
           <input
             type="number"
@@ -234,6 +235,8 @@ const Swap: FC = () => {
           tokenName={swapToken.dest}
           balance={showDestBalance}
           value={showOutAmount}
+          tokenArray={tokenArray}
+          selectToken={selectDestToken}
         />
         <Stack spacing={"12px"} width={"100%"} marginY={"24px"}>
           <SettingStack direction={"row"} justifyContent={"space-between"}>

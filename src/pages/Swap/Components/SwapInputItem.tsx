@@ -151,7 +151,7 @@ const SwapInputItem: FC<SwapInputItemProps> = ({ children, ...props }) => {
                 "&:hover": {
                   background: theme.normal.bg1,
                 },
-                cursor: "pointer"
+                cursor: "pointer",
               })}
               key={`SelectTokenList + ${index}`}
               onClick={() => {
@@ -223,14 +223,84 @@ interface SwapShowItemProps {
   tokenName: string;
   balance: string;
   value: string;
+  tokenArray: string[] | undefined;
+  selectToken: (tokenName: string) => void;
 }
 
 export const SwapShowItem: FC<SwapShowItemProps> = ({ ...props }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: any) => {
+    if (!props.tokenArray) {
+      return;
+    }
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const tokenPairList = useMemo(() => {
+    if (props.tokenArray) {
+      return props.tokenArray
+        .map((item) => {
+          const token = item.getToken();
+          return { icon: token!.icon, title: token!.symbol };
+        })
+        .map((item, index) => {
+          return (
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              sx={(theme) => ({
+                height: "40px",
+                paddingX: "20px",
+                "&:hover": {
+                  background: theme.normal.bg1,
+                },
+                cursor: "pointer",
+              })}
+              key={`SelectTokenList + ${index}`}
+              onClick={() => {
+                props.selectToken(item.title);
+                handleClose();
+              }}
+            >
+              <OneIconWithString
+                icon={item.icon}
+                title={item.title}
+                selected={props.tokenName === item.title}
+                onClick={() => {}}
+              />
+            </Stack>
+          );
+        });
+    } else {
+      return <></>;
+    }
+  }, [props]);
   return (
     <SwapInputStack>
       <ShowInputStack direction={"row"} justifyContent={"space-between"}>
         <input readOnly value={props.value} />
-        <OneTokenIN tokenName={props.tokenName} height={24} />
+        <SelectToken
+          direction={"row"}
+          justifyContent={"flex-end"}
+          aria-controls={"selectToken2-menu"}
+          aria-haspopup="true"
+          aria-expanded={"true"}
+          onClick={handleClick}
+        >
+          <OneTokenIN tokenName={props.tokenName} height={24} />
+          <SelectedTokenDown className="SwapInputDown" />
+        </SelectToken>
+        <SelectListMenu
+          id="selectToken2-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+        >
+          <Stack>{tokenPairList}</Stack>
+        </SelectListMenu>
       </ShowInputStack>
       <ArithFiLine />
       <ShowInfoStack direction={"row"} justifyContent={"space-between"}>
