@@ -272,23 +272,63 @@ const Home = () => {
 
   if (isBigMobile) {
     return (
-      <Stack width={'100vw'} overflow={'hidden'} sx={{
-        backgroundColor: 'white',
-      }}>
-        <Stack px={'20px'} alignItems={'center'} pt={'40px'} height={'840px'} pb={'40px'} gap={'40px'}
-               position={'relative'}>
-          <Stack position={'absolute'} zIndex={5} top={0} height={'840px'} width={'100%'}
-                 sx={{
-                   backgroundImage: `url('/images/home_bg2.svg')`,
-                   backgroundPosition: 'center',
-                   backgroundRepeat: 'no-repeat',
-                   backgroundSize: 'cover',
-                 }}
-          >
-          </Stack>
-          <Stack zIndex={10} fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'}
-                 color={'rgba(249, 249, 249, 1)'}>
-            <Trans>ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage</Trans>
+      <Stack width={'100vw'} overflow={'hidden'} sx={(theme) => ({
+        backgroundColor: `#171A1F`,
+      })}>
+        <Stack alignItems={'center'} pt={'40px'} height={'840px'} gap={'40px'}
+               sx={{
+                 backgroundImage: `url('/images/home_bg1.svg')`,
+                 backgroundPosition: 'center',
+                 backgroundSize: 'cover',
+               }} position={'relative'}>
+          <Stack zIndex={10}>
+            <Stack sx={{
+              position: 'relative',
+            }}>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} zIndex={10}
+                     color={'rgba(249, 249, 249, 1)'}>
+                <Trans>ArithFi, the First</Trans>
+              </Stack>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} position={'absolute'}
+                     top={'1.5px'} left={'1.5px'} width={'100%'} color={'#F69C00'}>
+                <Trans>ArithFi, the First</Trans>
+              </Stack>
+            </Stack>
+            <Stack sx={{
+              position: 'relative',
+            }}>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} zIndex={10}
+                     color={'rgba(249, 249, 249, 1)'}>
+                <Trans>Decentralized Derivatives</Trans>
+              </Stack>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} position={'absolute'}
+                     top={'1.5px'} left={'1.5px'} width={'100%'}
+                     color={'#F69C00'}>
+                <Trans>Decentralized Derivatives</Trans>
+              </Stack>
+            </Stack>
+            <Stack sx={{
+              position: 'relative',
+            }}>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} zIndex={10}
+                     color={'rgba(249, 249, 249, 1)'}>
+                <Trans>
+                  Protocol Achieves
+                </Trans>
+              </Stack>
+              <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={'center'} position={'absolute'}
+                     top={'1.5px'} left={'1.5px'} width={'100%'} color={'#F69C00'}>
+                <Trans>
+                  Protocol Achieves
+                </Trans>
+              </Stack>
+            </Stack>
+            <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} textAlign={'center'} mt={1}
+                   color={'#F69C00'}>
+              <Trans>
+                0 Trading Fees and 0 Slippage
+              </Trans>
+            </Stack>
           </Stack>
           <Stack zIndex={10}>
             <Link to={'/futures'}>
@@ -300,113 +340,116 @@ const Home = () => {
               </Stack>
             </Link>
           </Stack>
-          <Stack zIndex={10} height={"660px"} alignItems={'center'}>
+          <Stack zIndex={10} height={"660px"} alignItems={'center'} position={'relative'} width={'100%'}>
             <Stack>
               <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
             </Stack>
-            <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"40px"}>
-              <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
-                <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
-                  padding: "8px",
-                  backgroundColor: "rgba(53, 55, 61, 1)",
-                  borderRadius: "12px",
-                }}>
-                  <Stack>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M15.9375 7.54637C15.9922 6.05868 16.4102 4.75193 17.1816 3.65957C17.9569 2.56168 19.2386 1.78177 20.9931 1.33984C21.0048 1.39387 21.0169 1.44793 21.0295 1.50178V1.78445C21.0295 2.42541 20.874 3.16038 20.5672 3.96882C20.2456 4.75158 19.743 5.48829 19.0754 6.15318C18.4511 6.73904 17.8735 7.1269 17.363 7.30224C17.1945 7.35257 16.9634 7.4021 16.6844 7.4467C16.4362 7.48537 16.1872 7.51864 15.9375 7.54637Z"
-                        fill="#F9F9F9"/>
-                      <path
-                        d="M16.2322 9.75273C14.2504 9.75273 12.8744 8 10.9196 8C8.96477 8 4.9375 9.7968 4.9375 16C4.9375 22.2032 8.51377 26.2 8.91377 26.6667C9.3137 27.1334 10.2388 28.333 11.6719 28.333C13.1051 28.333 14.6741 27.1935 16.2322 27.1935C17.7902 27.1935 19.7512 28.333 21.0315 28.333C22.3118 28.333 22.8384 27.8111 23.7097 26.9109C24.581 26.0107 26.2429 23.2635 26.8233 21.6147C25.8673 21.0457 23.3334 19.5008 23.3334 16C23.3334 13.6662 24.1863 11.7273 25.8921 10.1835C24.773 8.72787 23.4752 8 21.9984 8C19.7833 8 18.214 9.75273 16.2322 9.75273Z"
-                        fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
-                    </svg>
-                  </Stack>
-                  <Stack>
-                    <Stack sx={{
-                      fontSize: "12px",
-                      lineHeight: "16px",
-                      color: "rgba(249, 249, 249, 0.8)",
-                    }}>
-                      <Trans>
-                        GET IT ON
-                      </Trans>
-                    </Stack>
-                    <Stack sx={{
-                      fontSize: "16px",
-                      lineHeight: "22px",
-                      fontWeight: "700",
-                      color: "rgba(249, 249, 249, 1)",
-                    }}>
-                      <Trans>
-                        TestFlight
-                      </Trans>
-                    </Stack>
-                  </Stack>
-                </Stack>
-              </Link>
-              <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
-                <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
-                  padding: "8px",
-                  backgroundColor: "rgba(53, 55, 61, 1)",
-                  borderRadius: "12px",
-                }}>
-                  <Stack>
-                    <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12.7575 14.3594L0.4375 27.2394C0.8375 28.5994 2.1175 29.6394 3.6375 29.6394C4.2775 29.6394 4.8375 29.4794 5.3175 29.1594L19.2375 21.2394L12.7575 14.3594Z"
-                        fill="#EA4335"/>
-                      <path
-                        d="M25.2356 12.1197L19.2356 8.67969L12.5156 14.5997L19.3156 21.2397L25.3156 17.8797C26.3556 17.3197 27.0756 16.1997 27.0756 14.9997C26.9956 13.7997 26.2756 12.6797 25.2356 12.1197Z"
-                        fill="#FBBC04"/>
-                      <path
-                        d="M0.439375 2.75781C0.359375 2.99781 0.359375 3.31781 0.359375 3.63781V26.4378C0.359375 26.7578 0.359375 26.9978 0.439375 27.3178L13.2394 14.7578L0.439375 2.75781Z"
-                        fill="#4285F4"/>
-                      <path
-                        d="M12.8375 14.9994L19.2375 8.67938L5.3975 0.839375C4.9175 0.519375 4.2775 0.359375 3.6375 0.359375C2.1175 0.359375 0.7575 1.39937 0.4375 2.75937L12.8375 14.9994Z"
-                        fill="#34A853"/>
-                    </svg>
-                  </Stack>
-                  <Stack>
-                    <Stack sx={{
-                      fontSize: "12px",
-                      lineHeight: "16px",
-                      color: "rgba(249, 249, 249, 0.8)",
-                    }}>
-                      <Trans>
-                        GET IT ON
-                      </Trans>
-                    </Stack>
-                    <Stack sx={{
-                      fontSize: "16px",
-                      lineHeight: "22px",
-                      fontWeight: "700",
-                      color: "rgba(249, 249, 249, 1)",
-                    }}>
-                      <Trans>
-                        Google Play
-                      </Trans>
-                    </Stack>
-                  </Stack>
-                </Stack>
-              </Link>
+            <Stack position={'absolute'} right={0} bottom={0}>
+              <img src={'/images/home_icon16.png'} alt={''} width={'124px'} height={'150px'}/>
             </Stack>
           </Stack>
         </Stack>
-        <Stack alignItems={'center'} py={'40px'} px={'20px'} sx={{
-          boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',
+        <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} padding={'20px'} sx={{
+          backgroundColor: '#1F2329',
         }}>
-          <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} color={'#030308'}>
+          <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+            <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
+              padding: "8px",
+              backgroundColor: "rgba(53, 55, 61, 1)",
+              borderRadius: "12px",
+            }}>
+              <Stack>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.9375 7.54637C15.9922 6.05868 16.4102 4.75193 17.1816 3.65957C17.9569 2.56168 19.2386 1.78177 20.9931 1.33984C21.0048 1.39387 21.0169 1.44793 21.0295 1.50178V1.78445C21.0295 2.42541 20.874 3.16038 20.5672 3.96882C20.2456 4.75158 19.743 5.48829 19.0754 6.15318C18.4511 6.73904 17.8735 7.1269 17.363 7.30224C17.1945 7.35257 16.9634 7.4021 16.6844 7.4467C16.4362 7.48537 16.1872 7.51864 15.9375 7.54637Z"
+                    fill="#F9F9F9"/>
+                  <path
+                    d="M16.2322 9.75273C14.2504 9.75273 12.8744 8 10.9196 8C8.96477 8 4.9375 9.7968 4.9375 16C4.9375 22.2032 8.51377 26.2 8.91377 26.6667C9.3137 27.1334 10.2388 28.333 11.6719 28.333C13.1051 28.333 14.6741 27.1935 16.2322 27.1935C17.7902 27.1935 19.7512 28.333 21.0315 28.333C22.3118 28.333 22.8384 27.8111 23.7097 26.9109C24.581 26.0107 26.2429 23.2635 26.8233 21.6147C25.8673 21.0457 23.3334 19.5008 23.3334 16C23.3334 13.6662 24.1863 11.7273 25.8921 10.1835C24.773 8.72787 23.4752 8 21.9984 8C19.7833 8 18.214 9.75273 16.2322 9.75273Z"
+                    fill="#F9F9F9" stroke="#F9F9F9" strokeWidth="2.77083" strokeLinejoin="round"/>
+                </svg>
+              </Stack>
+              <Stack>
+                <Stack sx={{
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  color: "rgba(249, 249, 249, 0.8)",
+                }}>
+                  <Trans>
+                    GET IT ON
+                  </Trans>
+                </Stack>
+                <Stack sx={{
+                  fontSize: "16px",
+                  lineHeight: "22px",
+                  fontWeight: "700",
+                  color: "rgba(249, 249, 249, 1)",
+                }}>
+                  <Trans>
+                    TestFlight
+                  </Trans>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Link>
+          <Link to={"https://play.google.com/store/apps/details?id=com.arithfi"} target={"_blank"}>
+            <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
+              padding: "8px",
+              backgroundColor: "rgba(53, 55, 61, 1)",
+              borderRadius: "12px",
+            }}>
+              <Stack>
+                <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.7575 14.3594L0.4375 27.2394C0.8375 28.5994 2.1175 29.6394 3.6375 29.6394C4.2775 29.6394 4.8375 29.4794 5.3175 29.1594L19.2375 21.2394L12.7575 14.3594Z"
+                    fill="#EA4335"/>
+                  <path
+                    d="M25.2356 12.1197L19.2356 8.67969L12.5156 14.5997L19.3156 21.2397L25.3156 17.8797C26.3556 17.3197 27.0756 16.1997 27.0756 14.9997C26.9956 13.7997 26.2756 12.6797 25.2356 12.1197Z"
+                    fill="#FBBC04"/>
+                  <path
+                    d="M0.439375 2.75781C0.359375 2.99781 0.359375 3.31781 0.359375 3.63781V26.4378C0.359375 26.7578 0.359375 26.9978 0.439375 27.3178L13.2394 14.7578L0.439375 2.75781Z"
+                    fill="#4285F4"/>
+                  <path
+                    d="M12.8375 14.9994L19.2375 8.67938L5.3975 0.839375C4.9175 0.519375 4.2775 0.359375 3.6375 0.359375C2.1175 0.359375 0.7575 1.39937 0.4375 2.75937L12.8375 14.9994Z"
+                    fill="#34A853"/>
+                </svg>
+              </Stack>
+              <Stack>
+                <Stack sx={{
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  color: "rgba(249, 249, 249, 0.8)",
+                }}>
+                  <Trans>
+                    GET IT ON
+                  </Trans>
+                </Stack>
+                <Stack sx={{
+                  fontSize: "16px",
+                  lineHeight: "22px",
+                  fontWeight: "700",
+                  color: "rgba(249, 249, 249, 1)",
+                }}>
+                  <Trans>
+                    Google Play
+                  </Trans>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Link>
+        </Stack>
+        <Stack alignItems={'center'} py={'40px'} px={'20px'}>
+          <Stack fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} color={'#F9F9F9'}>
             <Trans>How to Trade on ArithFi?</Trans>
           </Stack>
           <Stack alignItems={'center'} height={'204px'} mt={'40px'}>
             <Stack>
               <img src={'/images/home_icon3.svg'} alt={''}/>
             </Stack>
-            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
+            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'#F9F9F9'}>
               <Trans>Trade With $ATF</Trans>
             </Stack>
             <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
-                   color={'rgba(3, 3, 8, 0.6)'}>
+                   color={'#F9F9F999'}>
               <Trans>Use $ATF as margin to open positions</Trans>
             </Stack>
           </Stack>
@@ -414,11 +457,11 @@ const Home = () => {
             <Stack>
               <img src={'/images/home_icon4.svg'} alt={''}/>
             </Stack>
-            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
+            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'#F9F9F9'}>
               <Trans>Earn $ATF</Trans>
             </Stack>
             <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
-                   color={'rgba(3, 3, 8, 0.6)'}>
+                   color={'#F9F9F999'}>
               <Trans>Make a profit, you will earn $ATF</Trans>
             </Stack>
           </Stack>
@@ -426,11 +469,11 @@ const Home = () => {
             <Stack>
               <img src={'/images/home_icon5.svg'} alt={''}/>
             </Stack>
-            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'rgba(3, 3, 8, 1)'}>
+            <Stack mt={'24px'} fontSize={'18px'} fontWeight={'700'} lineHeight={'22px'} color={'#F9F9F9'}>
               <Trans>Burn $ATF</Trans>
             </Stack>
             <Stack mt={'16px'} fontSize={'14px'} textAlign={'center'} fontWeight={'400'} lineHeight={'20px'}
-                   color={'rgba(3, 3, 8, 0.6)'}>
+                   color={'#F9F9F999'}>
               <Trans>Incur a loss, your $ATF will be burned</Trans>
             </Stack>
           </Stack>
@@ -449,15 +492,14 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack py={'40px'} px={'20px'} alignItems={'center'} sx={{
-          boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.1)',
-        }}>
+        <Stack py={'40px'} px={'20px'} alignItems={'center'}>
           <Stack sx={{
             fontSize: '24px',
             fontWeight: '700',
             lineHeight: '32px',
             maxWidth: '280px',
             textAlign: 'center',
+            color: "#F9F9F9"
           }}>
             Catch Your Next
             Trading Opportunity
@@ -470,7 +512,7 @@ const Home = () => {
                 fontWeight: '700',
                 lineHeight: '22px',
                 padding: '8px 20px',
-                color: type === 0 ? 'rgba(246, 156, 0, 1)' : 'rgba(3, 3, 8, 1)',
+                color: type === 0 ? 'rgba(246, 156, 0, 1)' : '#F9F9F9',
                 borderBottom: type === 0 ? '2px solid rgba(246, 156, 0, 1)' : '1px solid rgba(28, 28, 35, 0.08)',
                 width: '50%',
                 textAlign: 'center',
@@ -483,7 +525,7 @@ const Home = () => {
                 fontWeight: '700',
                 lineHeight: '22px',
                 padding: '8px 20px',
-                color: type === 0 ? 'rgba(3, 3, 8, 1)' : 'rgba(246, 156, 0, 1)',
+                color: type === 0 ? '#F9F9F9' : 'rgba(246, 156, 0, 1)',
                 borderBottom: type === 0 ? '1px solid rgba(28, 28, 35, 0.08)' : '2px solid rgba(246, 156, 0, 1)',
                 width: '50%',
                 textAlign: 'center',
@@ -505,11 +547,27 @@ const Home = () => {
                   )
                 })
               }
+              <Link to={`/futures`}>
+                <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'} padding={'8px 0 8px 0'}>
+                  <Stack color={'#F69C00'} fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}>
+                    <Trans>
+                      More
+                    </Trans>
+                  </Stack>
+                  <Stack>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" clipRule="evenodd"
+                            d="M8.53615 5.82277C8.63378 5.9204 8.63378 6.07869 8.53615 6.17632L4.29351 10.419C4.19588 10.5166 4.03759 10.5166 3.93996 10.419L3.57601 10.055C3.47837 9.95738 3.47837 9.79909 3.57601 9.70146L7.27792 5.99955L3.57601 2.29764C3.47837 2.2 3.47837 2.04171 3.57601 1.94408L3.93996 1.58013C4.03759 1.4825 4.19588 1.4825 4.29351 1.58013L8.53615 5.82277Z"
+                            fill="#F69C00"/>
+                    </svg>
+                  </Stack>
+                </Stack>
+              </Link>
             </Stack>
           </Stack>
         </Stack>
         <Stack pt={'60px'} pb={'80px'} alignItems={'center'} zIndex={10} sx={{
-          background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)',
+          // background: 'linear-gradient(180deg, #1F2329 100%, #1F2329 0%)',
         }}>
           <Stack zIndex={10} alignItems={'center'} sx={{
             width: '100%',
@@ -519,14 +577,14 @@ const Home = () => {
               <img src={'/images/home_icon13.svg'} alt={''} height={'240px'}/>
             </div>
             <Stack justifyContent={'center'} maxWidth={'600px'} alignItems={'center'} textAlign={'center'}>
-              <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} color={'#1D2129'} sx={{
+            <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} color={'#F9F9F9'} sx={{
                 opacity: 0.8
               }}>
                 <Trans>
                   ATF Coin
                 </Trans>
               </Stack>
-              <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} mt={'8px'} color={'#1D2129'} sx={{
+              <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} mt={'8px'} color={'#F9F9F9CC'} sx={{
                 opacity: 0.8
               }}>
                 <Trans>
@@ -566,23 +624,23 @@ const Home = () => {
               </Link>
             </Stack>
           </Stack>
-          <Stack fontSize={'24px'} fontWeight={'700'} color={'rgba(3, 3, 8, 1)'} mt={'100px'}>
+          <Stack fontSize={'24px'} fontWeight={'700'} color={'#F9F9F9'} mt={'60px'}>
             <Trans>
               Advantages of ArithFi
             </Trans>
           </Stack>
           <Stack direction={'row'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 1)'}
                  gap={'16px'} mt={'40px'}>
-            <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
-                   boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
+            <Stack px={'20px'} py={'12px'} color={'#F9F9F9'} bgcolor={'#1F2329'}
+                   borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 0 Trading Fees
               </Trans>
             </Stack>
-            <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
-                   boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
+            <Stack px={'20px'} py={'12px'} color={'#F9F9F9'} bgcolor={'#1F2329'}
+                   borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
@@ -592,15 +650,15 @@ const Home = () => {
           </Stack>
           <Stack direction={'row'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 1)'}
                  gap={'16px'} mt={'16px'}>
-            <Stack px={'20px'} py={'12px'} color={'#030308'} bgcolor={'white'}
-                   boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'} borderRadius={'8px'} direction={'row'}
+            <Stack px={'20px'} py={'12px'} color={'#F9F9F9'} bgcolor={'#1F2329'}
+                   borderRadius={'8px'} direction={'row'}
                    gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
                 Infinite Liquidity
               </Trans>
             </Stack>
-            <Stack px={'20px'} py={'12px'} bgcolor={'white'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}
+            <Stack px={'20px'} py={'12px'} bgcolor={'#1F2329'} color={'#F9F9F9'}
                    borderRadius={'8px'} direction={'row'} gap={'8px'} alignItems={'center'}>
               <img src={'/images/home_icon6.svg'} alt={''}/>
               <Trans>
@@ -609,29 +667,24 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack pt={'64px'} pb={'80px'} px={'20px'} position={'relative'} sx={{
-          background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
-        }}>
-          <Stack position={'absolute'} right={0} top={-300}>
-            <img src={'/images/home_icon7.svg'} alt={''}/>
-          </Stack>
+        <Stack pt={'24px'} pb={'80px'} px={'20px'} position={'relative'}>
           <Stack maxWidth={'1200px'} width={'100%'} position={'relative'} alignItems={"center"} zIndex={10}>
             <Stack sx={{
               fontSize: '24px',
               fontWeight: '700',
               lineHeight: '32px',
               textAlign: 'center',
-              color: 'rgba(3, 3, 8, 1)',
+              color: '#F9F9F9',
             }}>Common Questions</Stack>
             <Stack mt={'40px'} gap={'16px'} width={"100%"}>
               {
                 commonQuestion.map((item, index) => (
                   <Link key={index} to={item.link} target={"_blank"}>
                     <Stack flexDirection={'row'} justifyContent={"space-between"} alignItems={"center"} key={index}
-                           bgcolor={"white"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
+                           bgcolor={"#1F2329"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
                            sx={{
                              cursor: "pointer",
-                             color: "rgba(3, 3, 8, 1)",
+                             color: "#F9F9F9CC",
                              "&:hover": {
                                color: "#F69C00",
                                "& svg": {
@@ -658,7 +711,7 @@ const Home = () => {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fillRule="evenodd" clipRule="evenodd"
                                 d="M17.0664 11.6465C17.2617 11.8418 17.2617 12.1584 17.0664 12.3536L8.58116 20.8389C8.3859 21.0342 8.06932 21.0342 7.87406 20.8389L7.14615 20.111C6.95089 19.9157 6.95089 19.5992 7.14615 19.4039L14.55 12.0001L7.14615 4.59625C6.95089 4.40099 6.95089 4.0844 7.14615 3.88914L7.87406 3.16124C8.06932 2.96597 8.3859 2.96597 8.58116 3.16124L17.0664 11.6465Z"
-                                fill="#030308" fillOpacity="0.6"/>
+                                fill="#F9F9F9CC" fillOpacity="0.6"/>
                         </svg>
                       </Stack>
                     </Stack>
@@ -668,12 +721,12 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack pt={'40px'} pb={'80px'} alignItems={'center'} bgcolor={'rgba(247, 251, 255, 1)'}>
+        <Stack pt={'40px'} pb={'80px'} alignItems={'center'}>
           <Stack sx={{
             fontSize: '24px',
             lineHeight: '32px',
             fontWeight: '700',
-            color: 'rgba(3, 3, 8, 1)',
+            color: '#F9F9F9CC',
           }}>
             <Trans>
               Integrations & Partners
@@ -684,26 +737,16 @@ const Home = () => {
               integrations.map((item, index) => (
                 <Grid item key={index} md={4}>
                   <Link to={item.href} target={'_blank'}>
-                    <Stack width={'104px'} height={"40px"} bgcolor={'white'} borderRadius={'12px'} sx={{
+                    <Stack width={'104px'} height={"40px"} bgcolor={'#1F2329'} borderRadius={'12px'} sx={{
                       justifyContent: "center",
                       alignItems: "center",
                       cursor: 'pointer',
                       '#color': {
                         display: 'none',
                       },
-                      '&:hover': {
-                        boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
-                        '#black': {
-                          display: 'none',
-                        },
-                        '#color': {
-                          display: 'block',
-                        },
-                      },
                     }}>
                       <Stack alignItems={'center'} justifyContent={'center'}>
                         <img src={item.black} alt={''} id={'black'} height={'40px'}/>
-                        <img src={item.img} alt={''} id={'color'} height={'40px'}/>
                       </Stack>
                     </Stack>
                   </Link>
@@ -717,7 +760,7 @@ const Home = () => {
         }}>
           <Stack px={'20px'} width={'100%'} pb={'56px'} pt={'28px'}
                  sx={{
-                   background: 'white',
+                   background: '#35373D',
                    backgroundImage: `url('/images/home_bg3.png')`,
                    fill: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)',
                    stroke: 'rgba(255, 255, 255, 0.20)',
@@ -726,27 +769,27 @@ const Home = () => {
             <Stack width={'100%'} alignItems={'center'}>
               <img src={'/images/home_icon9.svg'} alt={''}/>
             </Stack>
-            <Stack fontSize={'24px'} fontWeight={'700'} alignItems={'center'} mt={'24px'} color={'#030308'}>
+            <Stack fontSize={'24px'} fontWeight={'700'} alignItems={'center'} mt={'24px'} color={'#F9F9F9'}>
               <Trans>
                 Roadmap of ArithFi
               </Trans>
             </Stack>
-            <Stack fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'} mt={'40px'}>
+            <Stack fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'#F9F9F9CC'} mt={'40px'}>
               <Trans>
                 Expand more assets:
               </Trans>
             </Stack>
-            <Stack fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'} mt={'12px'}>
+            <Stack fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'} mt={'12px'} color={'#F9F9F9'}>
               <Trans>
                 CryptoCurrencies, Forex, Precious Metal, Commodity, Stock
               </Trans>
             </Stack>
-            <Stack fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.6)'} mt={'24px'}>
+            <Stack fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} color={'#F9F9F9CC'} mt={'24px'}>
               <Trans>
                 Expand more products:
               </Trans>
             </Stack>
-            <Stack fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'} mt={'12px'}>
+            <Stack fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'} mt={'12px'} color={'#F9F9F9'}>
               <Trans>
                 Futures, Options, Structure Products
               </Trans>
@@ -984,7 +1027,7 @@ const Home = () => {
   return (
     <Stack sx={{
       overflowX: 'hidden',
-      backgroundColor: 'white',
+      backgroundColor: '#171A1F',
     }}>
       <Stack position={'relative'} sx={{
         width: '100%',
@@ -997,63 +1040,115 @@ const Home = () => {
           backgroundSize: 'cover',
         }}>
         </Stack>
-        <Stack position={'absolute'} zIndex={0} bottom={0} width={'100%'} height={'100%'} sx={{
-          background: 'linear-gradient(180deg, rgba(235, 245, 255, 0.40) 45.89%, rgba(255, 255, 255, 0.40) 99.72%)'
-        }}>
-        </Stack>
         <Stack direction={"row"} zIndex={10} justifyContent={"space-between"} width={'100%'} maxWidth={1200}
                mt={"100px"}>
           <Stack spacing={"24px"}>
-            <Stack sx={{
-              fontSize: '32px',
-              fontWeight: '700',
-              lineHeight: '44px',
-              textAlign: 'start',
-              color: '#F9F9F9',
-              maxWidth: '600px',
-            }}>
-              <Stack>
-                <Trans>
-                  ArithFi,
-                </Trans>
+            <Stack>
+              <Stack sx={{
+                position: "relative",
+                width: '100%',
+              }}>
+                <Stack sx={{
+                  zIndex: 10,
+                  fontSize: '40px',
+                  fontWeight: '700',
+                  lineHeight: '52px',
+                  textAlign: 'start',
+                  color: '#F9F9F9',
+                }}>
+                  <Trans>
+                    ArithFi, the First Decentralized
+                  </Trans>
+                </Stack>
+                <Stack sx={{
+                  position: 'absolute',
+                  width: '100%',
+                  top: '1.5px',
+                  left: '1.5px',
+                  fontSize: '40px',
+                  fontWeight: '700',
+                  lineHeight: '52px',
+                  textAlign: 'start',
+                  color: '#F69C00',
+                }}>
+                  <Trans>
+                    ArithFi, the First Decentralized
+                  </Trans>
+                </Stack>
               </Stack>
-              <Stack>
-                <Trans>
-                  the First Decentralized Derivatives Protocol Achieves
-                </Trans>
+              <Stack sx={{
+                position: "relative",
+                width: '100%',
+              }}>
+                <Stack sx={{
+                  zIndex: 10,
+                  fontSize: '40px',
+                  fontWeight: '700',
+                  lineHeight: '52px',
+                  textAlign: 'start',
+                  color: '#F9F9F9',
+                }}>
+                  <Trans>
+                    Derivatives Protocol Achieves
+                  </Trans>
+                </Stack>
+                <Stack sx={{
+                  position: 'absolute',
+                  width: '100%',
+                  top: '1.5px',
+                  left: '1.5px',
+                  fontSize: '40px',
+                  fontWeight: '700',
+                  lineHeight: '52px',
+                  textAlign: 'start',
+                  color: '#F69C00',
+                }}>
+                  <Trans>
+                    Derivatives Protocol Achieves
+                  </Trans>
+                </Stack>
               </Stack>
-              <Stack>
+              <Stack sx={{
+                fontSize: '28px',
+                fontWeight: '700',
+                lineHeight: '40px',
+                textAlign: 'start',
+                color: '#F69C00',
+              }}>
                 <Trans>
                   0 Trading Fees and 0 Slippage
                 </Trans>
               </Stack>
             </Stack>
-            <Link to={'/futures'}>
-            <Stack sx={{
-                cursor: 'pointer',
-                width: '200px',
-                height: '48px',
-                backgroundColor: '#F69C00',
-                borderRadius: '12px',
-                fontSize: '16px',
-                fontWeight: '700',
-                lineHeight: '22px',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: '#030308',
-                '&:hover': {
-                  backgroundColor: '#FFC933',
-                }
-              }}>
-                <Trans>
-                  Start Trading
-                </Trans>
-              </Stack>
-            </Link>
+            <Stack width={'fit-content'}>
+              <Link to={'/futures'}>
+                <Stack sx={{
+                  cursor: 'pointer',
+                  width: '200px',
+                  height: '48px',
+                  backgroundColor: '#F69C00',
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  fontWeight: '700',
+                  lineHeight: '22px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  color: '#030308',
+                  '&:hover': {
+                    backgroundColor: '#FFC933',
+                  }
+                }}>
+                  <Trans>
+                    Start Trading
+                  </Trans>
+                </Stack>
+              </Link>
+            </Stack>
             <Stack direction={"row"} spacing={'24px'} alignItems={"center"}>
               <Stack sx={{
                 padding: "12px",
-                backgroundColor: "rgba(31, 35, 41, 1)",
+                backgroundColor: '#1F2329',
+                border: "1px solid #FFFFFF14",
                 borderRadius: "12px"
               }}>
                 <Box sx={{
@@ -1122,31 +1217,30 @@ const Home = () => {
             </Stack>
           </Stack>
           <Stack sx={{
-            width: 440,
+            width: 520,
+            position: 'relative',
           }}>
+            <Stack sx={{
+              position: 'absolute',
+              width: '260px',
+              bottom: 0,
+              left: -260,
+            }}>
+              <img src={'/images/home_icon16.png'} alt={''}/>
+            </Stack>
             <img src={'/images/app3.png'} alt={''}/>
           </Stack>
         </Stack>
         <Stack zIndex={'20'} position={'relative'} sx={{
-          marginTop: '100px',
+          marginTop: -3,
           maxWidth: '1200px',
           width: '100%',
           alignItems: 'center',
           padding: '0 48px 48px 48px',
           borderRadius: '18px',
-          backgroundColor: 'white',
-          filter: 'drop-shadow(0px 8px 40px rgba(9, 26, 178, 0.10))'
+          backgroundColor: '#1F2329',
         }}>
-          <Stack direction={'row'} maxWidth={'1200px'} width={'100%'} position={'absolute'} top={0}
-                 justifyContent={'space-between'}>
-            <img src={'/images/home_left.png'} alt={''} style={{
-              height: '68px',
-            }}/>
-            <img src={'/images/home_right.png'} alt={''} style={{
-              height: '68px',
-            }}/>
-          </Stack>
-          <Stack color={'#030308'} sx={{
+          <Stack color={'#F9F9F9'} sx={{
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '44px',
@@ -1172,7 +1266,7 @@ const Home = () => {
                 lineHeight: '32px',
                 marginTop: '40px',
                 marginBottom: '16px',
-              }} color={'#030308'}>
+              }} color={'#F9F9F9'}>
                 <Trans>
                   Trade With $ATF
                 </Trans>
@@ -1182,6 +1276,7 @@ const Home = () => {
                 fontWeight: '400',
                 lineHeight: '22px',
                 textAlign: 'center',
+                color: '#F9F9F999',
               }}>
                 <Trans>
                   Use $ATF as margin to open positions
@@ -1196,7 +1291,7 @@ const Home = () => {
               <Stack>
                 <img src={'/images/home_icon4.svg'} alt={''}/>
               </Stack>
-              <Stack color={'#030308'} sx={{
+              <Stack color={'#F9F9F9'} sx={{
                 fontSize: '24px',
                 fontWeight: '700',
                 lineHeight: '32px',
@@ -1212,6 +1307,7 @@ const Home = () => {
                 fontWeight: '400',
                 lineHeight: '22px',
                 textAlign: 'center',
+                color: '#F9F9F999',
               }}>
                 <Trans>
                   Make a profit, you will earn $ATF
@@ -1226,7 +1322,7 @@ const Home = () => {
               <Stack>
                 <img src={'/images/home_icon5.svg'} alt={''}/>
               </Stack>
-              <Stack color={'#030308'} sx={{
+              <Stack color={'#F9F9F9'} sx={{
                 fontSize: '24px',
                 fontWeight: '700',
                 lineHeight: '32px',
@@ -1242,6 +1338,7 @@ const Home = () => {
                 fontWeight: '400',
                 lineHeight: '22px',
                 textAlign: 'center',
+                color: '#F9F9F999',
               }}>
                 <Trans>
                   Incur a loss, your $ATF will be burned
@@ -1258,7 +1355,7 @@ const Home = () => {
                    marginTop: '62px',
                    backgroundColor: '#35373D',
                    width: '100%',
-                   color: 'white',
+                   color: '#FFFFFF',
                    fontSize: '24px',
                    fontWeight: '700',
                    lineHeight: '32px',
@@ -1287,20 +1384,20 @@ const Home = () => {
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '44px',
-            color: '#030308',
+            color: '#F9F9F9',
           }}>Catch Your Next Trading Opportunity</Stack>
           <Stack mt={'48px'} width={'100%'} spacing={'16px'} direction={'row'}>
             <Stack sx={{
               padding: '20px',
               borderRadius: '8px',
-              backgroundColor: 'white',
+              backgroundColor: '#1F2329',
               width: '50%',
-            }} spacing={'12px'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}>
+            }} spacing={'12px'}>
               <Stack sx={{
                 fontSize: '24px',
                 fontWeight: '700',
                 lineHeight: '32px',
-                color: '#030308',
+                color: '#F9F9F9',
               }}>
                 Crypto
               </Stack>
@@ -1317,19 +1414,35 @@ const Home = () => {
                     )
                   })
                 }
+                <Link to={`/futures`}>
+                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'} padding={'8px 0 8px 0'}>
+                    <Stack color={'#F69C00'} fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}>
+                      <Trans>
+                        More
+                      </Trans>
+                    </Stack>
+                    <Stack>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd"
+                              d="M8.53615 5.82277C8.63378 5.9204 8.63378 6.07869 8.53615 6.17632L4.29351 10.419C4.19588 10.5166 4.03759 10.5166 3.93996 10.419L3.57601 10.055C3.47837 9.95738 3.47837 9.79909 3.57601 9.70146L7.27792 5.99955L3.57601 2.29764C3.47837 2.2 3.47837 2.04171 3.57601 1.94408L3.93996 1.58013C4.03759 1.4825 4.19588 1.4825 4.29351 1.58013L8.53615 5.82277Z"
+                              fill="#F69C00"/>
+                      </svg>
+                    </Stack>
+                  </Stack>
+                </Link>
               </Stack>
             </Stack>
             <Stack sx={{
               padding: '20px',
               borderRadius: '8px',
-              backgroundColor: 'white',
+              backgroundColor: '#1F2329',
               width: '50%',
-            }} spacing={'12px'} boxShadow={'0px 8px 40px 0px rgba(9, 26, 178, 0.10)'}>
+            }} spacing={'12px'}>
               <Stack sx={{
                 fontSize: '24px',
                 fontWeight: '700',
                 lineHeight: '32px',
-                color: '#030308',
+                color: '#F9F9F9',
               }}>Forex</Stack>
               <Stack divider={<Divider orientation="horizontal" light flexItem/>} sx={{
                 color: '#030308',
@@ -1344,6 +1457,22 @@ const Home = () => {
                     )
                   })
                 }
+                <Link to={`/futures?pt=AUD%2FUSD`}>
+                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'} padding={'8px 0 8px 0'}>
+                    <Stack color={'#F69C00'} fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}>
+                      <Trans>
+                        More
+                      </Trans>
+                    </Stack>
+                    <Stack>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd"
+                              d="M8.53615 5.82277C8.63378 5.9204 8.63378 6.07869 8.53615 6.17632L4.29351 10.419C4.19588 10.5166 4.03759 10.5166 3.93996 10.419L3.57601 10.055C3.47837 9.95738 3.47837 9.79909 3.57601 9.70146L7.27792 5.99955L3.57601 2.29764C3.47837 2.2 3.47837 2.04171 3.57601 1.94408L3.93996 1.58013C4.03759 1.4825 4.19588 1.4825 4.29351 1.58013L8.53615 5.82277Z"
+                              fill="#F69C00"/>
+                      </svg>
+                    </Stack>
+                  </Stack>
+                </Link>
               </Stack>
             </Stack>
           </Stack>
@@ -1358,12 +1487,12 @@ const Home = () => {
             <img src={'/images/home_icon13.svg'} alt={''} height={'433px'}/>
           </div>
           <Stack justifyContent={'center'} gap={'40px'} maxWidth={'600px'} px={'24px'}>
-            <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'}>
+            <Stack fontSize={'32px'} fontWeight={'700'} lineHeight={'44px'} color={"#F9F9F9"}>
               <Trans>
                 ATF Coin
               </Trans>
             </Stack>
-            <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'}>
+            <Stack fontSize={'16px'} fontWeight={'400'} lineHeight={'22px'} color={"#F9F9F9CC"}>
               <Trans>
                 ATF is a deflationary token and serves as the settlement token for the ArithFi arithmetic trading model.
                 Holders of ATF tokens can be considered as counterparts to all traders in ArithFi. We believe that
@@ -1401,7 +1530,7 @@ const Home = () => {
             </Link>
           </Stack>
         </Stack>
-        <Stack color={'#030308'} zIndex={10} sx={{
+        <Stack color={'#F9F9F9'} zIndex={10} sx={{
           marginTop: '120px',
           fontWeight: '700',
           fontSize: '32px',
@@ -1412,26 +1541,26 @@ const Home = () => {
           </Trans>
         </Stack>
         <Stack direction={'row'} zIndex={10} gap={'24px'} marginTop={'48px'} marginBottom={'120px'}>
-          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'#1F2329'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '22px',
-            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
+            color: '#F9F9F9',
           }}>
             <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
               <Trans>0 Trading Fees</Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'#1F2329'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '22px',
-            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
+            color: '#F9F9F9',
           }}>
             <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
@@ -1440,13 +1569,13 @@ const Home = () => {
               </Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'#1F2329'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '22px',
-            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
+            color: '#F9F9F9',
           }}>
             <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
@@ -1455,13 +1584,13 @@ const Home = () => {
               </Trans>
             </div>
           </Stack>
-          <Stack direction={'row'} spacing={'8px'} bgcolor={'white'} alignItems={'center'} sx={{
+          <Stack direction={'row'} spacing={'8px'} bgcolor={'#1F2329'} alignItems={'center'} sx={{
             padding: '16px 24px',
             fontSize: '16px',
             fontWeight: '400',
             lineHeight: '22px',
-            boxShadow: '0px 8px 40px 0px rgba(9, 26, 178, 0.10)',
             borderRadius: '8px',
+            color: '#F9F9F9',
           }}>
             <img src={'/images/home_icon6.svg'} alt={''}/>
             <div>
@@ -1473,29 +1602,24 @@ const Home = () => {
         </Stack>
       </Stack>
       <Stack alignItems={'center'} position={'relative'} zIndex={5}>
-        <Stack width={'100%'} paddingTop={'80px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'} sx={{
-          background: 'linear-gradient(180deg, #EBF5FF 0%, #FFF 100%)'
-        }}>
-          <Stack position={'absolute'} right={0} zIndex={5} top={-200}>
-            <img src={'/images/home_icon11.svg'} alt={''}/>
-          </Stack>
+        <Stack width={'100%'} paddingTop={'80px'} paddingBottom={'80px'} zIndex={10} alignItems={'center'}>
           <Stack maxWidth={'1200px'} width={'100%'} position={'relative'} alignItems={"center"} zIndex={10} px={"20px"}>
             <Stack sx={{
               fontSize: '32px',
               fontWeight: '700',
               lineHeight: '44px',
               textAlign: 'center',
-              color: 'rgba(3, 3, 8, 1)',
+              color: '#F9F9F9',
             }}>Common Questions</Stack>
             <Stack mt={'40px'} gap={'16px'} width={"100%"}>
               {
                 commonQuestion.map((item, index) => (
                   <Link key={index} to={item.link} target={"_blank"}>
                     <Stack flexDirection={'row'} justifyContent={"space-between"} alignItems={"center"} key={index}
-                           bgcolor={"white"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
+                           bgcolor={"#1F2329"} px={"40px"} py={"24px"} width={'100%'} borderRadius={"8px"}
                            sx={{
                              cursor: "pointer",
-                             color: "rgba(3, 3, 8, 1)",
+                             color: "#F9F9F9CC",
                              "&:hover": {
                                color: "#F69C00",
                                "& svg": {
@@ -1517,7 +1641,7 @@ const Home = () => {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fillRule="evenodd" clipRule="evenodd"
                                 d="M17.0664 11.6465C17.2617 11.8418 17.2617 12.1584 17.0664 12.3536L8.58116 20.8389C8.3859 21.0342 8.06932 21.0342 7.87406 20.8389L7.14615 20.111C6.95089 19.9157 6.95089 19.5992 7.14615 19.4039L14.55 12.0001L7.14615 4.59625C6.95089 4.40099 6.95089 4.0844 7.14615 3.88914L7.87406 3.16124C8.06932 2.96597 8.3859 2.96597 8.58116 3.16124L17.0664 11.6465Z"
-                                fill="#030308" fillOpacity="0.6"/>
+                                fill="#F9F9F9CC" fillOpacity="0.6"/>
                         </svg>
                       </Stack>
                     </Stack>
@@ -1527,14 +1651,14 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack zIndex={10} width={'100%'} bgcolor={'rgba(247, 251, 255, 1)'} alignItems={'center'}
+        <Stack zIndex={10} width={'100%'} alignItems={'center'}
                py={'120px'}>
           <Stack sx={{
             fontSize: '32px',
             fontWeight: '700',
             lineHeight: '44px',
             textAlign: 'center',
-            color: 'rgba(3, 3, 8, 1)',
+            color: '#F9F9F9CC',
           }}>
             <Trans>
               Integrations & Partners
@@ -1545,7 +1669,7 @@ const Home = () => {
               integrations.map((item, index) => (
                 <Grid item key={index} xl={2}>
                   <Link to={item.href} target={'_blank'}>
-                    <Stack width={'184px'} height={"72px"} bgcolor={'white'} borderRadius={'12px'} sx={{
+                    <Stack width={'184px'} height={"72px"} bgcolor={'#1F2329'} borderRadius={'12px'} sx={{
                       justifyContent: "center",
                       alignItems: "center",
                       cursor: 'pointer',
@@ -1553,7 +1677,6 @@ const Home = () => {
                         display: 'none',
                       },
                       '&:hover': {
-                        boxShadow: '0 8px 40px 0 rgba(9, 26, 178, 0.1)',
                         '#black': {
                           display: 'none',
                         },
@@ -1573,17 +1696,15 @@ const Home = () => {
             }
           </Grid>
         </Stack>
-        <Stack maxWidth={'1200px'} marginTop={'40px'} bgcolor={'white'} width={'100%'}
+        <Stack maxWidth={'1200px'} marginTop={'40px'} width={'100%'}
                zIndex={10} borderRadius={'8px'} padding={'20px'}
                sx={{
-                 background: 'linear-gradient(358deg, #3D404D 1.38%, #222529 98.62%)',
+                 background: 'linear-gradient(0deg, #3D404D 0%, #222529 100%)',
                }}
         >
           <img src={`/images/home_icon2_${lang}.svg`} alt={''}/>
         </Stack>
-        <Stack position={'absolute'} bottom={800} left={0} width={'100%'} height={'1400px'}
-               bgcolor={'rgba(247, 251, 255, 1)'}/>
-        <Stack position={'absolute'} bottom={800} left={0} width={'100%'} height={'640px'} sx={{
+        <Stack position={'absolute'} bottom={800} left={0} width={'100%'} height={'560px'} sx={{
           backgroundImage: `url('/images/home_bg2.svg')`,
           backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat',

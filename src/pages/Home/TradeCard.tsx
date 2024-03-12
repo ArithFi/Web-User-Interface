@@ -33,10 +33,9 @@ export const TradeCard: FC<{
         <Stack direction={'row'} alignItems={'center'} py={'20px'} sx={{
           cursor: 'pointer',
           '&:hover': {
-            backgroundColor: 'rgba(240, 241, 245, 1)',
             '#trade-button': {
               backgroundColor: 'rgba(246, 156, 0, 1)',
-              color: 'rgba(3, 3, 8, 1)',
+              color: '#F9F9F9',
             },
           },
         }}>
@@ -51,7 +50,7 @@ export const TradeCard: FC<{
             </Stack>
             <Stack sx={{
               marginLeft: '8px',
-              color: 'rgba(3, 3, 8, 1)',
+              color: '#F9F9F9',
               fontSize: '14px',
               lineHeight: '20px',
               fontWeight: '700',
@@ -59,7 +58,7 @@ export const TradeCard: FC<{
               {pair1}
             </Stack>
             <Stack sx={{
-              color: 'rgba(3, 3, 8, 0.6)',
+              color: '#F9F9F9',
               fontSize: '12px',
               lineHeight: '16px',
               fontWeight: '400',
@@ -69,7 +68,7 @@ export const TradeCard: FC<{
           </Stack>
           <Stack pr={'12px'} flexShrink={0} sx={{
             textAlign: 'end',
-            color: 'rgba(3, 3, 8, 1)',
+            color: '#F9F9F9',
             fontSize: '14px',
             lineHeight: '20px',
             fontWeight: '700',
@@ -97,9 +96,8 @@ export const TradeCard: FC<{
       <Link to={`/futures?pt=${pair1}%2F${pair2}`}>
         <Stack direction={'row'} alignItems={'center'} p={'20px'} sx={{
           cursor: 'pointer',
-          color: '#030308',
+          color: '#F9F9F9',
           '&:hover': {
-            backgroundColor: 'rgba(240, 241, 245, 1)',
             '#trade-button': {
               backgroundColor: 'rgba(246, 156, 0, 1)',
               color: 'rgba(3, 3, 8, 1)',

@@ -45,6 +45,7 @@ msgid "0 Trading Fees"
 msgstr "0 Trading Fees"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr "0 Trading Fees and 0 Slippage"
 
@@ -263,12 +264,22 @@ msgid "ArithFi Swap"
 msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
-msgstr "ArithFi,"
+#~ msgid "ArithFi,"
+#~ msgstr "ArithFi,"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-msgstr "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
+msgstr "ArithFi, the First"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
+msgstr "ArithFi, the First Decentralized"
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#~ msgstr "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -574,6 +585,11 @@ msgstr "Dark mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr "Decentralized Derivatives"
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr "Default"
@@ -598,6 +614,11 @@ msgstr "Deposit"
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
 msgstr "Deposit Request"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
+msgstr "Derivatives Protocol Achieves"
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -1004,6 +1025,7 @@ msgid "Minimum 50 ATF"
 msgstr "Minimum 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "More"
@@ -1237,6 +1259,11 @@ msgstr "Profit(ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
 msgstr "Profit&Loss"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
+msgstr "Protocol Achieves"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1487,8 +1514,8 @@ msgid "TestFlight"
 msgstr "TestFlight"
 
 #: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr "the First Decentralized Derivatives Protocol Achieves"
+#~ msgid "the First Decentralized Derivatives Protocol Achieves"
+#~ msgstr "the First Decentralized Derivatives Protocol Achieves"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."

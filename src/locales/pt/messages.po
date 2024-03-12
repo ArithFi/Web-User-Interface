@@ -45,6 +45,7 @@ msgid "0 Trading Fees"
 msgstr "0 Taxas de Negociação"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr "0 Taxas de Negociação e 0 Derrapagem"
 
@@ -263,12 +264,22 @@ msgid "ArithFi Swap"
 msgstr "Troca ArithFi"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
+#~ msgid "ArithFi,"
+#~ msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-msgstr "ArithFi, o Primeiro Protocolo Descentralizado de Derivativos Alcança 0 Taxas de Negociação e 0 Derrapagem"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#~ msgstr "ArithFi, o Primeiro Protocolo Descentralizado de Derivativos Alcança 0 Taxas de Negociação e 0 Derrapagem"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -574,6 +585,11 @@ msgstr "Modo escuro"
 msgid "Dashboard"
 msgstr "Painel de controle"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr "Predefinição"
@@ -598,6 +614,11 @@ msgstr "Depósito"
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
 msgstr "Solicitação de Depósito"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
+msgstr ""
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -1004,6 +1025,7 @@ msgid "Minimum 50 ATF"
 msgstr "Mínimo de 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "Mais"
@@ -1237,6 +1259,11 @@ msgstr "Lucro(ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
 msgstr "Lucro e Prejuízo"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1487,8 +1514,8 @@ msgid "TestFlight"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr "O Primeiro Protocolo de Derivativos Descentralizado Alcança"
+#~ msgid "the First Decentralized Derivatives Protocol Achieves"
+#~ msgstr "O Primeiro Protocolo de Derivativos Descentralizado Alcança"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
