@@ -45,6 +45,7 @@ msgid "0 Trading Fees"
 msgstr "0 Phí Giao Dịch"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr "Phí giao dịch 0 và lệch giá 0"
 
@@ -263,12 +264,22 @@ msgid "ArithFi Swap"
 msgstr "Sàn giao dịch ArithFi"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
+#~ msgid "ArithFi,"
+#~ msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-msgstr "ArithFi, Giao thức Phái sinh Phi tập trung đầu tiên đạt được 0 phí giao dịch và 0 trượt giá"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#~ msgstr "ArithFi, Giao thức Phái sinh Phi tập trung đầu tiên đạt được 0 phí giao dịch và 0 trượt giá"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -574,6 +585,11 @@ msgstr "Chế độ tối"
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr "Mặc định"
@@ -598,6 +614,11 @@ msgstr "Nạp tiền"
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
 msgstr "Yêu cầu nạp tiền"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
+msgstr ""
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -1004,6 +1025,7 @@ msgid "Minimum 50 ATF"
 msgstr "Tối thiểu 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "Thêm"
@@ -1237,6 +1259,11 @@ msgstr "Lợi nhuận(ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
 msgstr "Lãi & Lỗ"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1487,8 +1514,8 @@ msgid "TestFlight"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr "Giao thức Phái sinh Phi tập trung Đầu tiên Đạt được"
+#~ msgid "the First Decentralized Derivatives Protocol Achieves"
+#~ msgstr "Giao thức Phái sinh Phi tập trung Đầu tiên Đạt được"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."

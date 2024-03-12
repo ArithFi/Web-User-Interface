@@ -45,6 +45,7 @@ msgid "0 Trading Fees"
 msgstr "0 Ticaret Ücretleri"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr "0 Ticaret Ücreti ve 0 Kayma"
 
@@ -263,12 +264,22 @@ msgid "ArithFi Swap"
 msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
+#~ msgid "ArithFi,"
+#~ msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-msgstr "ArithFi, İlk Merkezi Olmayan Türev Protokolü 0 Ticaret Ücretleri ve 0 Kayma Başarısını Elde Etti"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#~ msgstr "ArithFi, İlk Merkezi Olmayan Türev Protokolü 0 Ticaret Ücretleri ve 0 Kayma Başarısını Elde Etti"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -574,6 +585,11 @@ msgstr "Karanlık Mod"
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr "Varsayılan"
@@ -598,6 +614,11 @@ msgstr "Yatır"
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
 msgstr "Depozito İsteği"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
+msgstr ""
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -1004,6 +1025,7 @@ msgid "Minimum 50 ATF"
 msgstr "Minimum 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "Daha Fazla"
@@ -1239,6 +1261,11 @@ msgstr "Kar (ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
 msgstr "Kar ve Zarar"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
+msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1489,8 +1516,8 @@ msgid "TestFlight"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr "İlk Merkezi Olmayan Türev Protokolü Başarısı"
+#~ msgid "the First Decentralized Derivatives Protocol Achieves"
+#~ msgstr "İlk Merkezi Olmayan Türev Protokolü Başarısı"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
