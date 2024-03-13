@@ -262,10 +262,6 @@ msgid "ArithFi Swap"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-#~ msgid "ArithFi,"
-#~ msgstr ""
-
-#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First"
 msgstr ""
@@ -274,10 +270,6 @@ msgstr ""
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First Decentralized"
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-#~ msgstr ""
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -1022,6 +1014,8 @@ msgstr ""
 
 #: src/pages/Copy/Copy.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "もっと見る"
@@ -1508,10 +1502,6 @@ msgstr "テスト BNB"
 #: src/pages/Home/Home.tsx
 msgid "TestFlight"
 msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "the First Decentralized Derivatives Protocol Achieves"
-#~ msgstr ""
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."

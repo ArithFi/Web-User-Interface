@@ -236,7 +236,7 @@ msgstr "Análisis"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
-msgstr ""
+msgstr "Anuncio"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -252,7 +252,7 @@ msgstr "Aprobar"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
-msgstr ""
+msgstr "ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -264,22 +264,14 @@ msgid "ArithFi Swap"
 msgstr "Intercambio ArithFi"
 
 #: src/pages/Home/Home.tsx
-#~ msgid "ArithFi,"
-#~ msgstr ""
-
-#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First"
-msgstr ""
+msgstr "ArithFi,El primero"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First Decentralized"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-#~ msgstr "ArithFi, el Primer Protocolo de Derivados Descentralizado Logra 0 Comisiones de Trading y 0 Deslizamiento"
+msgstr "ArithFi, el Primer Descentralizado"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -398,7 +390,7 @@ msgstr "Cerrado"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
-msgstr ""
+msgstr "Comunidad"
 
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -424,7 +416,7 @@ msgstr "Conectar Billetera"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -472,7 +464,7 @@ msgstr "Copiado Exitosamente"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
-msgstr ""
+msgstr "Copiar Comercio"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -588,7 +580,7 @@ msgstr "Panel de Control"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Decentralized Derivatives"
-msgstr ""
+msgstr "Derivados Descentralizados"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
@@ -618,7 +610,7 @@ msgstr "Solicitud de Depósito"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Derivatives Protocol Achieves"
-msgstr ""
+msgstr "Logros del Protocolo de Derivados"
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -778,7 +770,7 @@ msgstr "Obtener ATF"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET IT ON"
-msgstr ""
+msgstr "GET IT ON"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -787,12 +779,12 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
-msgstr ""
+msgstr "Google Play"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
-msgstr ""
+msgstr "Guía"
 
 #: src/pages/Copy/MyCopies.tsx
 #: src/pages/Copy/Trader.tsx
@@ -849,7 +841,7 @@ msgstr "Liquidez infinita"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -878,7 +870,7 @@ msgstr "Integraciones y Socios"
 
 #: src/pages/Account/Share/Menu.tsx
 msgid "Invite"
-msgstr ""
+msgstr "Invitación"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -888,7 +880,7 @@ msgstr "Davet Edilen Adres"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
-msgstr ""
+msgstr "Invitados"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
@@ -1025,6 +1017,8 @@ msgid "Minimum 50 ATF"
 msgstr "Mínimo 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
@@ -1231,7 +1225,7 @@ msgstr "Precio"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
@@ -1263,7 +1257,7 @@ msgstr "Rendimiento"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Protocol Achieves"
-msgstr ""
+msgstr "Protocolo Logra"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1307,7 +1301,7 @@ msgstr "Advertencia de Riesgo"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
-msgstr ""
+msgstr "Hoja de Ruta"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1465,7 +1459,7 @@ msgstr "Éxito"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
-msgstr ""
+msgstr "Apoyo"
 
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
@@ -1511,11 +1505,7 @@ msgstr "BNB de Prueba"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "TestFlight"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "the First Decentralized Derivatives Protocol Achieves"
-#~ msgstr "El Primer Protocolo de Derivados Descentralizado Logra"
+msgstr "TestFlight"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
@@ -1579,7 +1569,7 @@ msgstr "Ganancia/Pérdida Hoy"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
-msgstr ""
+msgstr "Tokenómica"
 
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
@@ -1845,7 +1835,7 @@ msgstr "Dónde comprar $ATF"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
-msgstr ""
+msgstr "Libro Blanco"
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
