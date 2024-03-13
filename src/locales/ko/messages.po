@@ -236,7 +236,7 @@ msgstr "분석"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
-msgstr ""
+msgstr "공고"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -252,7 +252,7 @@ msgstr "승인"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
-msgstr ""
+msgstr "ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -264,22 +264,14 @@ msgid "ArithFi Swap"
 msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
-#~ msgid "ArithFi,"
-#~ msgstr ""
-
-#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First"
-msgstr ""
+msgstr "ArithFi, 첫 번째"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi, the First Decentralized"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-#~ msgstr "ArithFi, 최초의 분산형 파생 상품 프로토콜은 0 거래 수수료 및 0 슬리피지를 달성합니다"
+msgstr "ArithFi, 최초의 탈중앙화된"
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -398,7 +390,7 @@ msgstr "닫힘"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
-msgstr ""
+msgstr "커뮤니티"
 
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -424,7 +416,7 @@ msgstr "지갑 연결"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
-msgstr ""
+msgstr "연락처"
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -472,7 +464,7 @@ msgstr "복사 완료"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
-msgstr ""
+msgstr "복사 거래"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -588,7 +580,7 @@ msgstr "대시보드"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Decentralized Derivatives"
-msgstr ""
+msgstr "분산 된 파생 상품"
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
@@ -618,7 +610,7 @@ msgstr "예금 요청"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Derivatives Protocol Achieves"
-msgstr ""
+msgstr "파생물 프로토콜 성취"
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -778,7 +770,7 @@ msgstr "ATF 획득하기"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET IT ON"
-msgstr ""
+msgstr "GET IT ON"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -787,12 +779,12 @@ msgstr "깃허브"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
-msgstr ""
+msgstr "Google Play"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
-msgstr ""
+msgstr "안내서"
 
 #: src/pages/Copy/MyCopies.tsx
 #: src/pages/Copy/Trader.tsx
@@ -849,7 +841,7 @@ msgstr "무한한 유동성"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
-msgstr ""
+msgstr "정보"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -878,7 +870,7 @@ msgstr "통합 및 파트너"
 
 #: src/pages/Account/Share/Menu.tsx
 msgid "Invite"
-msgstr ""
+msgstr "초대"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -888,7 +880,7 @@ msgstr "초청자 주소"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
-msgstr ""
+msgstr "초대 받은 사람들"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
@@ -1025,6 +1017,8 @@ msgid "Minimum 50 ATF"
 msgstr "최소 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
@@ -1231,7 +1225,7 @@ msgstr "가격"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
-msgstr ""
+msgstr "제품"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
@@ -1263,7 +1257,7 @@ msgstr "손익"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Protocol Achieves"
-msgstr ""
+msgstr "프로토콜이 성취합니다"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1307,7 +1301,7 @@ msgstr "위험 경고"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
-msgstr ""
+msgstr "로드맵"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1465,7 +1459,7 @@ msgstr "성공"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
-msgstr ""
+msgstr "지원"
 
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
@@ -1511,11 +1505,7 @@ msgstr "테스트 BNB"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "TestFlight"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-#~ msgid "the First Decentralized Derivatives Protocol Achieves"
-#~ msgstr "첫 번째 탈중앙화 파생 상품 프로토콜 달성"
+msgstr "TestFlight"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
@@ -1579,7 +1569,7 @@ msgstr "오늘의 손익"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
-msgstr ""
+msgstr "토큰노믹스"
 
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
@@ -1845,7 +1835,7 @@ msgstr "$ATF를 어디서 구매할 수 있나요?"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
-msgstr ""
+msgstr "화이트 페이퍼"
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"
