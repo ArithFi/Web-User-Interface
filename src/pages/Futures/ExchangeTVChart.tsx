@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { HidePriceTable, SelectedTokenDown } from "../../components/icons";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";

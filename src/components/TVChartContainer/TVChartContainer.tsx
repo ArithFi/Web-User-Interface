@@ -81,7 +81,7 @@ export default function TVChartContainer({symbol}: Props) {
         setChartDataLoading(true);
       }
     };
-  }, [nowTheme, isMobile]);
+  }, [nowTheme, isBigMobile]);
 
   useEffect(() => {
     if (!symbol) return

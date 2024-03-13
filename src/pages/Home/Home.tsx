@@ -969,7 +969,7 @@ const Home = () => {
                   </Stack>
                   <Stack spacing={"8px"}>
                     {item.children.map((item, index) => (
-                      <a href={item.url} key={index} target={'_blank'}>
+                      <a href={item.url} key={index} target={'_blank'} rel={'noreferrer'}>
                         <Stack fontSize={"12px"} lineHeight={"16px"} color={"rgba(249, 249, 249, 0.6)"}>
                           {item.text}
                         </Stack>
@@ -989,7 +989,7 @@ const Home = () => {
                   </Stack>
                   <Stack spacing={"8px"}>
                     {item.children.map((item, index) => (
-                      <a href={item.url} key={index} target={'_blank'}>
+                      <a href={item.url} key={index} target={'_blank'} rel={'noreferrer'}>
                         <Stack fontSize={"12px"} lineHeight={"16px"} color={"rgba(249, 249, 249, 0.6)"}>
                           {item.text}
                         </Stack>
