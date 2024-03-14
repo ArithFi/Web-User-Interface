@@ -352,7 +352,7 @@ const Home = () => {
         <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} padding={'20px'} sx={{
           backgroundColor: '#1F2329',
         }}>
-          <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+          <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
             <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
               padding: "8px",
               backgroundColor: "rgba(53, 55, 61, 1)",
@@ -836,7 +836,7 @@ const Home = () => {
             <img src={'/images/app.png'} alt={''} width={'203px'} height={'440px'}/>
           </Stack>
           <Stack direction={"row"} spacing={'12px'} justifyContent={'center'} mt={"24px"}>
-            <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+            <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
               <Stack direction={"row"} width={"165px"} spacing={"8px"} alignItems={"center"} sx={{
                 padding: "8px",
                 backgroundColor: "rgba(53, 55, 61, 1)",
@@ -1194,7 +1194,7 @@ const Home = () => {
                       </defs>
                     </svg>
                   </Link>
-                  <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+                  <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
                     <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
                       padding: "8px",
                       borderRadius: "8px",
@@ -1808,7 +1808,7 @@ const Home = () => {
                           </defs>
                         </svg>
                       </Link>
-                      <Link to={"https://testflight.apple.com/join/SEb1TLyN"} target={"_blank"}>
+                      <Link to={"https://itunes.apple.com/us/app/6475583769"} target={"_blank"}>
                         <Stack direction={"row"} spacing={"8px"} alignItems={"center"} sx={{
                           padding: "8px",
                           borderRadius: "8px",
