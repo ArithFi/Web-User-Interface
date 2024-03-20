@@ -536,10 +536,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 <ChartDataValue>
                   {hr.highPrice
                     ? numberWithCommas(
-                      Number(hr.highPrice).toFixed(
-                        props.tokenPair.getTokenPriceDecimals()
+                        Number(hr.highPrice).toFixed(
+                          props.tokenPair.getTokenPriceDecimals()
+                        )
                       )
-                    )
                     : "-"}
                 </ChartDataValue>
               </Box>
@@ -550,10 +550,10 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
                 <ChartDataValue>
                   {hr.lowPrice
                     ? numberWithCommas(
-                      Number(hr.lowPrice).toFixed(
-                        props.tokenPair.getTokenPriceDecimals()
+                        Number(hr.lowPrice).toFixed(
+                          props.tokenPair.getTokenPriceDecimals()
+                        )
                       )
-                    )
                     : "-"}
                 </ChartDataValue>
               </Box>
@@ -645,10 +645,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           <></>
         ) : (
           <Box height={height}>
-            <TVChartContainer
-              symbol={props.tokenPair}
-            />
-
+            <TVChartContainer symbol={props.tokenPair} />
           </Box>
         )}
       </Stack>
