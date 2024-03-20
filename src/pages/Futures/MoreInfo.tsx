@@ -35,8 +35,6 @@ const FuturesMoreInfo: FC = () => {
       spacing={"16px"}
       sx={(theme) => ({
         paddingY: "31.5px",
-        border: `1px solid ${theme.normal.border}`,
-        borderRadius: "12px",
         width: "100%",
       })}
     >

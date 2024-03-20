@@ -12,11 +12,6 @@ interface CopyTablePositionProps {
 }
 
 const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
-  const TokenIcon = useMemo(() => {
-    return props.tokenPair.getToken()
-      ? props.tokenPair.getToken()!.icon
-      : "ETH".getToken()!.icon;
-  }, [props.tokenPair]);
   return (
     <Stack
       direction={"row"}
@@ -27,26 +22,8 @@ const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
         height: "44px",
       })}
     >
-      <Box
-        sx={{
-          width: "24px",
-          height: "24px",
-          "& svg": { width: "24px", height: "24px", display: "block" },
-        }}
-      >
-        <TokenIcon />
-      </Box>
       <Stack spacing={"2px"}>
-        <Box
-          component={"p"}
-          sx={(theme) => ({
-            fontWeight: 700,
-            fontSize: 14,
-            color: theme.normal.text0,
-          })}
-        >
-          {props.tokenPair}
-        </Box>
+        
         <Stack direction={"row"} spacing={"4px"}>
           <Stack
             direction={"row"}
@@ -99,6 +76,16 @@ const CopyTablePosition: FC<CopyTablePositionProps> = ({ ...props }) => {
             })}
           >{`${props.lever}X`}</Box>
         </Stack>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 14,
+            color: theme.normal.text0,
+          })}
+        >
+          {props.tokenPair}
+        </Box>
       </Stack>
     </Stack>
   );

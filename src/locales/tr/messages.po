@@ -45,6 +45,7 @@ msgid "0 Trading Fees"
 msgstr "0 Ticaret Ücretleri"
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr "0 Ticaret Ücreti ve 0 Kayma"
 
@@ -235,7 +236,7 @@ msgstr "Analiz"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
-msgstr ""
+msgstr "Duyuru"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -251,7 +252,7 @@ msgstr "Onayla"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "ArithFi"
-msgstr ""
+msgstr "ArithFi"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -263,12 +264,14 @@ msgid "ArithFi Swap"
 msgstr "ArithFi Swap"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
-msgstr ""
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
+msgstr "ArithFi，İlk"
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
-msgstr "ArithFi, İlk Merkezi Olmayan Türev Protokolü 0 Ticaret Ücretleri ve 0 Kayma Başarısını Elde Etti"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
+msgstr "ArithFi, "
 
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -387,7 +390,7 @@ msgstr "Closed"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Community"
-msgstr ""
+msgstr "Topluluk"
 
 #: src/hooks/useFuturesAdd.ts
 #: src/hooks/useFuturesClose.ts
@@ -413,7 +416,7 @@ msgstr "Cüzdanı Bağla"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Contact"
-msgstr ""
+msgstr "İletişim"
 
 #: src/pages/Copy/Components/CopyRoute.tsx
 #: src/pages/Copy/Components/CopySettingModal.tsx
@@ -461,7 +464,7 @@ msgstr "Başarıyla Kopyalandı"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Copy Trade"
-msgstr ""
+msgstr "Kopya Ticaret"
 
 #: src/pages/Copy/Components/CopySettingModal.tsx
 msgid "Copy Trader Service Agreement"
@@ -574,6 +577,11 @@ msgstr "Karanlık Mod"
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr "Merkezi Olmayan Türevler"
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr "Varsayılan"
@@ -598,6 +606,11 @@ msgstr "Yatır"
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
 msgstr "Depozito İsteği"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
+msgstr "Türevler Protokolü Başarıları"
 
 #: src/pages/Share/Head/ConnectButton.tsx
 #: src/pages/Share/Modal/MyWalletModal.tsx
@@ -757,7 +770,7 @@ msgstr "ATF Alın"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "GET IT ON"
-msgstr ""
+msgstr "GET IT ON"
 
 #: src/pages/Share/Head/NavMenuV2Base.tsx
 msgid "Github"
@@ -766,12 +779,12 @@ msgstr "Github"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Google Play"
-msgstr ""
+msgstr "Google Play"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Guide"
-msgstr ""
+msgstr "Rehber"
 
 #: src/pages/Copy/MyCopies.tsx
 #: src/pages/Copy/Trader.tsx
@@ -828,7 +841,7 @@ msgstr "Sınırsız Likidite"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
-msgstr ""
+msgstr "Bilgi"
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -857,7 +870,7 @@ msgstr "Entegrasyonlar ve Ortaklar"
 
 #: src/pages/Account/Share/Menu.tsx
 msgid "Invite"
-msgstr ""
+msgstr "Davet"
 
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
@@ -867,7 +880,7 @@ msgstr "Davet Edilen Adres"
 #: src/pages/Account/Referral/Referral.tsx
 #: src/pages/Account/Referral/Referral.tsx
 msgid "Invitees"
-msgstr ""
+msgstr "Davetliler"
 
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "it will trigger Market order, and the estimated PNL will be"
@@ -1004,6 +1017,9 @@ msgid "Minimum 50 ATF"
 msgstr "Minimum 50 ATF"
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "Daha Fazla"
@@ -1211,7 +1227,7 @@ msgstr "Fiyat"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Products"
-msgstr ""
+msgstr "Ürünler"
 
 #: src/pages/Copy/Copy.tsx
 msgid "Profit (ATF)"
@@ -1239,6 +1255,11 @@ msgstr "Kar (ATF)"
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
 msgstr "Kar ve Zarar"
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
+msgstr "Protokol Başarıyor"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1282,7 +1303,7 @@ msgstr "Risk Uyarısı"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Roadmap"
-msgstr ""
+msgstr "Yol Haritası"
 
 #: src/pages/Home/Home.tsx
 msgid "Roadmap of ArithFi"
@@ -1440,7 +1461,7 @@ msgstr "Başarı"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Support"
-msgstr ""
+msgstr "Destek"
 
 #: src/components/NormalInput/ArithFiInputSelect.tsx
 #: src/hooks/useSwap.ts
@@ -1486,11 +1507,7 @@ msgstr "Test BNB"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "TestFlight"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
-msgstr "İlk Merkezi Olmayan Türev Protokolü Başarısı"
+msgstr "TestFlight"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
@@ -1554,7 +1571,7 @@ msgstr "Bugünkü Kar/Zarar"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Tokenomics"
-msgstr ""
+msgstr "Tokenomikler"
 
 #: src/pages/Share/Modal/WithdrawModal.tsx
 msgid "Total"
@@ -1820,7 +1837,7 @@ msgstr "$ATF nereden alınır?"
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "White Paper"
-msgstr ""
+msgstr "Beyaz Kağıt"
 
 #: src/pages/Home/Home.tsx
 msgid "Why ArithFi's SCP Model Does NOT have a death spiral?"

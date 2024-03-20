@@ -43,6 +43,7 @@ msgid "0 Trading Fees"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "0 Trading Fees and 0 Slippage"
 msgstr ""
 
@@ -261,11 +262,13 @@ msgid "ArithFi Swap"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi,"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First"
 msgstr ""
 
 #: src/pages/Home/Home.tsx
-msgid "ArithFi, the First Decentralized Derivatives Protocol Achieves 0 Trading Fees and 0 Slippage"
+#: src/pages/Home/Home.tsx
+msgid "ArithFi, the First Decentralized"
 msgstr ""
 
 #: src/pages/Account/Share/Menu.tsx
@@ -572,6 +575,11 @@ msgstr ""
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Decentralized Derivatives"
+msgstr ""
+
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Default"
 msgstr ""
@@ -595,6 +603,11 @@ msgstr ""
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Deposit Request"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Derivatives Protocol Achieves"
 msgstr ""
 
 #: src/pages/Share/Head/ConnectButton.tsx
@@ -1000,6 +1013,9 @@ msgid "Minimum 50 ATF"
 msgstr ""
 
 #: src/pages/Copy/Copy.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Share/Modal/ConnectWalletModal.tsx
 msgid "More"
 msgstr "もっと見る"
@@ -1232,6 +1248,11 @@ msgstr ""
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 msgid "Profit&Loss"
+msgstr ""
+
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
+msgid "Protocol Achieves"
 msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1480,10 +1501,6 @@ msgstr "テスト BNB"
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "TestFlight"
-msgstr ""
-
-#: src/pages/Home/Home.tsx
-msgid "the First Decentralized Derivatives Protocol Achieves"
 msgstr ""
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx

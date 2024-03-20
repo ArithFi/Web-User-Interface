@@ -18,12 +18,15 @@ import OrderTablePosition from "./OrderTablePosition";
 import FuturesTableTitle from "./TableTitle";
 import { Trans, t } from "@lingui/macro";
 import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
+import { FuturesPrice } from "../Futures";
+import GreyButton from "../../../components/MainButton/GreyButton";
 
 interface FuturesOrderListProps {
   dataArray: Array<FuturesOrderService>;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
   forexOpen: boolean;
+  price: FuturesPrice | undefined;
   style?: React.CSSProperties;
 }
 
@@ -59,6 +62,7 @@ const OrderTable: FC<FuturesOrderListProps> = ({ ...props }) => {
         buttonCallBack={props.buttonCallBack}
         updateList={props.updateList}
         forexOpen={props.forexOpen}
+        price={props.price}
       />
     );
   });
@@ -72,14 +76,37 @@ const OrderTable: FC<FuturesOrderListProps> = ({ ...props }) => {
     <FuturesTableTitle
       dataArray={[
         t`Symbol`,
-        t`Actual Margin`,
-        t`Open Price`,
-        t`Stop Order`,
+        t`Size`,
+        t`Margin`,
+        t`Limit Order`,
+        t`Market Price`,
+        t`TP/SL`,
         t`Time`,
         t`Operate`,
       ]}
       style={props.style}
       noOrder={noOrder}
+      helps={[
+        {
+          index: 1,
+          helpInfo: (
+            <p>
+              <Trans>Leverage*Initial Margin</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 2,
+          helpInfo: (
+            <p>
+              <Trans>
+                Initial Margin + Added Margin,Added Margin is the margin for Add
+                the user's position.
+              </Trans>
+            </p>
+          ),
+        },
+      ]}
     >
       {rows}
     </FuturesTableTitle>
@@ -91,6 +118,7 @@ interface OrderTableRowProps {
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
   forexOpen: boolean;
+  price: FuturesPrice | undefined;
 }
 
 const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
@@ -98,7 +126,6 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
     isLong,
     lever,
     showLimitPrice,
-    showBalance,
     mainButtonTitle,
     mainButtonLoading,
     mainButtonDis,
@@ -109,7 +136,10 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
     tp,
     sl,
     openTime,
-  } = useFuturesOrder(props.data, props.updateList);
+    showSize,
+    showMargin,
+    nowPrice,
+  } = useFuturesOrder(props.data, props.updateList, props.price);
   return (
     <TableRow
       sx={(theme) => ({ "&: hover": { background: theme.normal.bg1 } })}
@@ -136,12 +166,28 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
           sx={(theme) => ({
             "& p": {
               fontWeight: 700,
-              fontSize: 14,
+              fontSize: 10,
               color: theme.normal.text0,
             },
           })}
         >
-          <p>{showBalance}ATF</p>
+          <p>{showSize}</p>
+        </Stack>
+      </TableCell>
+      <TableCell>
+        <Stack
+          direction={"row"}
+          spacing={"4px"}
+          alignItems={"flex-end"}
+          sx={(theme) => ({
+            "& p": {
+              fontWeight: 700,
+              fontSize: 10,
+              color: theme.normal.text0,
+            },
+          })}
+        >
+          <p>{showMargin}</p>
         </Stack>
       </TableCell>
       <TableCell>
@@ -149,11 +195,23 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
           component={"p"}
           sx={(theme) => ({
             fontWeight: 700,
-            fontSize: 14,
+            fontSize: 10,
             color: theme.normal.text0,
           })}
         >
           {showLimitPrice}
+        </Box>
+      </TableCell>
+      <TableCell>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {nowPrice}
         </Box>
       </TableCell>
       <TableCell>
@@ -162,7 +220,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
             spacing={"4px"}
             sx={(theme) => ({
               "& p": {
-                fontSize: 12,
+                fontSize: 10,
                 fontWeight: 400,
                 color: theme.normal.text0,
               },
@@ -223,7 +281,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
           spacing={"4px"}
           sx={(theme) => ({
             fontWeight: "400",
-            fontSize: "12px",
+            fontSize: "10px",
             lineHeight: "16px",
             color: theme.normal.text0,
           })}
@@ -251,7 +309,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
             />
           ) : (
             <>
-              <MainButton
+              <GreyButton
                 title={t`Limit`}
                 onClick={() =>
                   props.buttonCallBack({
@@ -269,7 +327,7 @@ const OrderTableRow: FC<OrderTableRowProps> = ({ ...props }) => {
                   borderRadius: `8px`,
                 }}
               />
-              <MainButton
+              <GreyButton
                 title={mainButtonTitle}
                 isLoading={mainButtonLoading}
                 disable={mainButtonDis}

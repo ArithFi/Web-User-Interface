@@ -66,51 +66,71 @@ function useFuturesPOrder(
     data.direction,
     price,
   ]);
-  const showMarginAssets = useMemo(() => {
-    return data.balance.toFixed(2);
-  }, [data.balance]);
+  const showSize = useMemo(() => {
+    if (data.leverage != null && data.margin != null) {
+      return `${(data.leverage * data.margin).floor(2)} ATF`;
+    }
+    return "-";
+  }, [data.leverage, data.margin]);
 
-  const showPercentNum = useMemo(() => {
-    const balance_num = data.margin + data.append;
-    const marginAssets_num = data.balance;
-    if (marginAssets_num >= balance_num) {
-      return parseFloat(
-        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(2)
-      );
-    } else {
-      return -parseFloat(
-        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
-      );
+  const showMargin = useMemo(() => {
+    if (data.margin != null && data.append != null) {
+      return `${(data.margin + data.append).floor(2)} ATF`;
     }
+    return "-";
+  }, [data.append, data.margin]);
+  const unrealizedPnL = useMemo(() => {
+    if (data.margin != null && data.append != null && data.balance != null) {
+      return data.balance - (data.margin + data.append);
+    }
+    return undefined;
   }, [data.append, data.balance, data.margin]);
-  const showPercent = useMemo(() => {
-    if (showPercentNum > 0) {
-      return `+${showPercentNum}`;
-    } else if (showPercentNum < 0) {
-      return `${showPercentNum}`;
-    } else {
-      return "0";
+  const showUnrealizedPnL = useMemo(() => {
+    if (unrealizedPnL != null) {
+      const format = unrealizedPnL.floor(2);
+      return `${Number(format) >= 0 ? "+" : ""}${format} ATF`;
     }
-  }, [showPercentNum]);
+    return "-";
+  }, [unrealizedPnL]);
+
+  const ROI = useMemo(() => {
+    if (unrealizedPnL != null && data.margin != null && data.append != null) {
+      const percent = unrealizedPnL / (data.margin + data.append);
+      return percent;
+    }
+    return undefined;
+  }, [data.append, data.margin, unrealizedPnL]);
+  const showROI = useMemo(() => {
+    if (ROI != null) {
+      return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
+    }
+    return "-";
+  }, [ROI]);
+  const showMarginRatio = useMemo(() => {
+    if (data.marginRatio != null) {
+      return `${(data.marginRatio * 10).floor(2)}%`;
+    }
+    return "-";
+  }, [data.marginRatio]);
   const isRed = useMemo(() => {
-    return showPercent.indexOf("-") === 0;
-  }, [showPercent]);
+    return showROI.indexOf("-") === 0;
+  }, [showROI]);
   const openTime = useMemo(() => {
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);
   const nowPrice = useMemo(() => {
-    const nowPrice = price?.[data.product.toLocaleUpperCase()];
-    return nowPrice
-      ? nowPrice.bigNumberToShowPrice(18, data.product.getTokenPriceDecimals())
-      : "0";
-  }, [data.product, price]);
+    if (data.lastPrice != null) {
+      return data.lastPrice.floor(data.product.getTokenPriceDecimals())
+    }
+    return "0"
+  }, [data.lastPrice, data.product]);
   const shareOrder = useMemo(() => {
     const info: Order = {
       owner: data.walletAddress.toString(),
       leverage: `${data.leverage.toString()}X`,
       orientation: data.direction ? `Long` : `Short`,
-      actualRate: showPercentNum,
+      actualRate: Number(showROI),
       index: parseInt(data.id.toString()),
       openPrice: parseFloat(
         data.orderPrice.toFixed(data.product.getTokenPriceDecimals())
@@ -132,7 +152,7 @@ function useFuturesPOrder(
     data.product,
     data.walletAddress,
     nowPrice,
-    showPercentNum,
+    showROI,
     sl,
     tp,
   ]);
@@ -144,13 +164,17 @@ function useFuturesPOrder(
     tp,
     sl,
     showLiqPrice,
-    showMarginAssets,
-    showPercent,
+    showUnrealizedPnL,
+    showSize,
+    showMargin,
+    showROI,
+    showMarginRatio,
     isRed,
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
     openTime,
+    nowPrice
   };
 }
 

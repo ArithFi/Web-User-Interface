@@ -10,14 +10,10 @@ interface OrderTablePositionProps {
   isLong: boolean;
   style?: React.CSSProperties;
   isCopy?: boolean;
+  status?: number;
 }
 
 const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
-  const TokenIcon = useMemo(() => {
-    return props.tokenPair.getToken()
-      ? props.tokenPair.getToken()!.icon
-      : "ETH".getToken()!.icon;
-  }, [props.tokenPair]);
   const showCopy = useMemo(() => {
     return props.isCopy ? <Box component={"button"} sx={(theme) => ({
       backgroundColor: theme.normal.primary_light_hover,
@@ -32,6 +28,37 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
       <Trans>Copy</Trans>
     </Box> : <></>
   }, [props.isCopy])
+  const showResult = useMemo(() => {
+    if (props.status != null && (props.status === -1 || props.status === -2 || props.status === -3)) {
+      return <Box
+      component={"button"}
+      sx={(theme) => ({
+        fontWeight: 700,
+        fontSize: "10px",
+        lineHeight: "14px",
+        paddingX: "4px",
+        border: "1px solid",
+        width: "fit-content",
+        borderColor: props.status === -2 || props.status === -3 ? theme.normal.success : theme.normal.danger,
+        color: props.status === -2 || props.status === -3 ? theme.normal.success : theme.normal.danger,
+        borderRadius: "4px",
+        whiteSpace:"nowrap"
+      })}
+    >
+      {props.status === -1 && (
+        <Trans>Liquidated</Trans>
+      )}
+      {props.status === -3 && (
+        <Trans>TP Executed</Trans>
+      )}
+      {props.status === -2 && (
+        <Trans>SL Executed</Trans>
+      )}
+    </Box>
+    } else {
+      return <></>
+    }
+  }, [props.status])
   return (
     <Stack
       direction={"row"}
@@ -42,23 +69,9 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
         height: "44px",
       })}
     >
-      <Stack
-        direction={"row"}
-        sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
-      >
-        <TokenIcon/>
-      </Stack>
       <Stack spacing={"2px"}>
-        <Box
-          component={"p"}
-          sx={(theme) => ({
-            fontWeight: 700,
-            fontSize: 14,
-            color: theme.normal.text0,
-          })}
-        >{props.tokenPair}</Box>
+        
         <Stack direction={"row"} spacing={"4px"}>
-          {showCopy}
           <Stack
             direction={"row"}
             justifyContent={"center"}
@@ -109,7 +122,17 @@ const OrderTablePosition: FC<OrderTablePositionProps> = ({ ...props }) => {
               fontSize: 10,
             })}
           >{`${props.lever}X`}</Box>
+          {showCopy}
+          {showResult}
         </Stack>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 14,
+            color: theme.normal.text0,
+          })}
+        >{props.tokenPair}</Box>
       </Stack>
     </Stack>
   );

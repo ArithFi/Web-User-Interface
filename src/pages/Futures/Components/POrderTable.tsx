@@ -20,6 +20,7 @@ import OrderTablePosition from "./OrderTablePosition";
 import FuturesTableTitle from "./TableTitle";
 import { Trans, t } from "@lingui/macro";
 import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
+import GreyButton from "../../../components/MainButton/GreyButton";
 
 interface FuturesPOrderListProps {
   dataArray: Array<FuturesOrderService>;
@@ -53,23 +54,66 @@ const POrderTable: FC<FuturesPOrderListProps> = ({ ...props }) => {
     <FuturesTableTitle
       dataArray={[
         t`Symbol`,
-        t`Actual Margin`,
+        t`Unrealized PnL`,
+        t`Size`,
+        t`Margin`,
+        t`Margin Ratio`,
         t`Open Price`,
+        t`Mark Price`,
         t`Liq Price`,
-        t`Stop Order`,
+        t`TP/SL`,
         t`Time`,
         t`Operate`,
       ]}
       noOrder={noOrder}
       helps={[
         {
+          index: 1,
+          helpInfo: (
+            <p>
+              <Trans>Including funding amounts.</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 2,
+          helpInfo: (
+            <p>
+              <Trans>Leverage*Initial Margin</Trans>
+            </p>
+          ),
+        },
+        {
           index: 3,
           helpInfo: (
             <p>
               <Trans>
+                Initial Margin + Added Margin,Added Margin is the margin for Add
+                the user's position.
+              </Trans>
+            </p>
+          ),
+        },
+        {
+          index: 4,
+          helpInfo: (
+            <p>
+              <Trans>
+                The lower the Margin Ratio, the lower your liquidation level
+                will be relative to your position size. Your positions will be
+                liquidated once Margin Ratio reaches 100%.
+              </Trans>
+            </p>
+          ),
+        },
+        {
+          index: 7,
+          helpInfo: (
+            <p>
+              <Trans>
                 Due to the market volatility, the actual liquidation price may
-                be different from the theoretical liquidation price . Here is
-                the theoretical liquidation price, for reference only.
+                be different from the theoretical liquidation price. Here is the
+                theoretical liquidation price, for reference only.
               </Trans>
             </p>
           ),
@@ -124,13 +168,17 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
     tp,
     sl,
     showLiqPrice,
-    showMarginAssets,
-    showPercent,
+    showUnrealizedPnL,
+    showSize,
+    showMargin,
+    showROI,
+    showMarginRatio,
     isRed,
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
     openTime,
+    nowPrice,
   } = useFuturesPOrder(props.data, props.price);
   return (
     <TableRow
@@ -157,21 +205,21 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
           <Box
             sx={(theme) => ({
               fontWeight: 700,
-              fontSize: 14,
+              fontSize: 10,
               color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {showMarginAssets}ATF
+            {showUnrealizedPnL}
           </Box>
           <Box
             sx={(theme) => ({
               display: "block",
               fontWeight: 400,
-              fontSize: 10,
+              fontSize: 12,
               color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {showPercent}%
+            {`(${showROI})`}
           </Box>
         </Stack>
       </TableCell>
@@ -180,7 +228,43 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
           component={"p"}
           sx={(theme) => ({
             fontWeight: 700,
-            fontSize: 14,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showSize}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showMargin}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showMarginRatio}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
             color: theme.normal.text0,
           })}
         >
@@ -192,7 +276,19 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
           component={"p"}
           sx={(theme) => ({
             fontWeight: 700,
-            fontSize: 14,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {nowPrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
             color: theme.normal.text0,
           })}
         >
@@ -205,7 +301,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
             spacing={"4px"}
             sx={(theme) => ({
               "& p": {
-                fontSize: 12,
+                fontSize: 10,
                 fontWeight: 400,
                 color: theme.normal.text0,
               },
@@ -267,7 +363,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
           spacing={"4px"}
           sx={(theme) => ({
             fontWeight: "400",
-            fontSize: "12px",
+            fontSize: "10px",
             lineHeight: "16px",
             color: theme.normal.text0,
           })}
@@ -301,7 +397,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
                 <></>
               ) : (
                 <>
-                  <MainButton
+                  <GreyButton
                     title={t`Add`}
                     onClick={() =>
                       props.buttonCallBack({
@@ -322,7 +418,7 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
                 </>
               )}
 
-              <MainButton
+              <GreyButton
                 title={t`Close`}
                 onClick={() =>
                   props.buttonCallBack({
@@ -356,174 +452,3 @@ const POrderTableRow: FC<POrderTableRowProps> = ({ ...props }) => {
 };
 
 export default POrderTable;
-
-// interface POrderTableRowCloseProps {
-//   data: FuturesOrderService;
-//   price: FuturesPrice | undefined;
-//   hideOrder: (orderIndex: BigNumber, hash: string) => void;
-// }
-// const POrderTableCloseRow: FC<POrderTableRowCloseProps> = ({ ...props }) => {
-//   const {
-//     tokenName,
-//     isLong,
-//     lever,
-//     showBasePrice,
-//     tp,
-//     sl,
-//     showLiqPrice,
-//     showMarginAssets,
-//     showPercent,
-//     isRed,
-//     showTitle,
-//     showShareOrderModal,
-//     setShowShareOrderModal,
-//     shareOrder,
-//   } = useFuturesPOrderClose(props.data, props.price);
-//   return (
-//     <TableRow
-//       sx={(theme) => ({ "&: hover": { background: theme.normal.bg1 } })}
-//     >
-//       <ShareMyOrderModal
-//         value={shareOrder}
-//         open={showShareOrderModal}
-//         onClose={() => {
-//           setShowShareOrderModal(false);
-//         }}
-//         isClosed={false}
-//       />
-//       <TableCell>
-//         <OrderTablePosition
-//           tokenName={tokenName}
-//           isLong={isLong}
-//           lever={lever}
-//         />
-//       </TableCell>
-//       <TableCell sx={tdNoPadding}>
-//         <Stack
-//           direction={"row"}
-//           spacing={"4px"}
-//           alignItems={"flex-end"}
-//           sx={(theme) => ({
-//             "& p": {
-//               fontWeight: 700,
-//               fontSize: 14,
-//               color: theme.normal.text0,
-//             },
-//             "& span": {
-//               fontWeight: 400,
-//               fontSize: 10,
-//               color: isRed ? theme.normal.danger : theme.normal.success,
-//             },
-//           })}
-//         >
-//           <p>{showMarginAssets}ATF</p>
-//           <span>{showPercent}%</span>
-//         </Stack>
-//       </TableCell>
-//       <TableCell sx={tdNoPadding}>
-//         <Box
-//           component={"p"}
-//           sx={(theme) => ({
-//             fontWeight: 700,
-//             fontSize: 14,
-//             color: theme.normal.text0,
-//           })}
-//         >
-//           {showBasePrice}USDT
-//         </Box>
-//       </TableCell>
-//       <TableCell sx={tdNoPadding}>
-//         <Box
-//           component={"p"}
-//           sx={(theme) => ({
-//             fontWeight: 700,
-//             fontSize: 14,
-//             color: theme.normal.text0,
-//           })}
-//         >
-//           {showLiqPrice}USDT
-//         </Box>
-//       </TableCell>
-//       <TableCell sx={tdNoPadding}>
-//         <Stack
-//           spacing={"4px"}
-//           sx={(theme) => ({
-//             "& p": {
-//               fontSize: 12,
-//               fontWeight: 400,
-//               color: theme.normal.text0,
-//             },
-//             "& span": { marginRight: "4px", color: theme.normal.text2 },
-//           })}
-//         >
-//           <Box component={"p"}>
-//             <span>
-//               <Trans>TP</Trans>
-//             </span>
-//             {tp}USDT
-//           </Box>
-//           <Box component={"p"}>
-//             <span>
-//               <Trans>SL</Trans>
-//             </span>
-//             {sl}USDT
-//           </Box>
-//         </Stack>
-//       </TableCell>
-//       <TableCell>
-//         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>
-//           <Stack
-//             direction={"row"}
-//             spacing={"8px"}
-//             alignItems={"center"}
-//             component={"button"}
-//             onClick={() =>
-//               props.hideOrder(props.data.index, props.data.closeHash ?? "")
-//             }
-//             sx={(theme) => ({
-//               border: `1px solid ${theme.normal.primary_light_active}`,
-//               borderRadius: "8px",
-//               height: "36px",
-//               paddingX: "12px",
-//               fontWeight: 700,
-//               fontSize: "12px",
-//               color: theme.normal.primary,
-//               "& svg": {
-//                 width: "14px",
-//                 height: "14px",
-//                 display: "block",
-//                 "& path": {
-//                   fill: theme.normal.primary,
-//                 },
-//               },
-//               "&:hover": {
-//                 cursor: "pointer",
-//                 color: theme.normal.highDark,
-//                 background: theme.normal.primary_hover,
-//                 "& svg path": {
-//                   fill: theme.normal.highDark,
-//                 },
-//               },
-//               "&:active": {
-//                 color: theme.normal.highDark,
-//                 background: theme.normal.primary_active,
-//                 "& svg path": {
-//                   fill: theme.normal.highDark,
-//                 },
-//               },
-//             })}
-//           >
-//             <p>{showTitle}</p>
-//             <Close />
-//           </Stack>
-//           <FuturesOrderShare
-//             component={"button"}
-//             onClick={() => setShowShareOrderModal(true)}
-//           >
-//             <Share />
-//           </FuturesOrderShare>
-//         </Stack>
-//       </TableCell>
-//     </TableRow>
-//   );
-// };

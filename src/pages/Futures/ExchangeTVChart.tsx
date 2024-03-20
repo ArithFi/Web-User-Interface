@@ -1,15 +1,14 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { HidePriceTable, SelectedTokenDown } from "../../components/icons";
 import SelectListMenu from "../../components/SelectListMemu/SelectListMenu";
 import useWindowWidth, { WidthType } from "../../hooks/useWindowWidth";
 import { FuturesPrice, FuturesPricePercent } from "./Futures";
 import TVChartContainer from "../../components/TVChartContainer/TVChartContainer";
-import { TVDataProvider } from "../../domain/tradingview/TVDataProvider";
 import { formatAmount, numberWithCommas } from "../../lib/numbers";
 import { styled } from "@mui/material";
-import { get24HrFromBinance } from "../../domain/prices";
+import { get24HrFromBinance } from "../../lib/prices";
 import { Trans } from "@lingui/macro";
 import TokenListBaseView from "./TokenList/TokenListBaseView";
 import TokenListModal from "./TokenList/TokenListModal";
@@ -146,59 +145,14 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     }
   }, [width]);
   const TokenIcon = props.tokenPair.getToken()!.icon;
-  // const RightTokenIcon = props.tokenPair.split("/")[1].getToken()!.icon;
-  const dataProvider = useRef();
   const [hr, setHr] = useState({
     priceChangePercent: "",
     highPrice: "",
     lowPrice: "",
   });
-  // const defaultPriceListTab = useMemo(() => {
-  //   const index = priceToken.indexOf(props.tokenPair)
-
-  // }, [])
-
-  // const tokenPairList = useMemo(() => {
-  //   return priceToken
-  //     .map((item) => {
-  //       const token = item.getToken();
-  //       return {
-  //         icon1: token!.icon,
-  //         icon2: USDTLogo,
-  //         title: `${token!.symbol}/USDT`,
-  //       };
-  //     })
-  //     .map((item, index) => {
-  //       return (
-  //         <Stack
-  //           key={`SelectTokenList + ${index}`}
-  //           direction={"row"}
-  //           alignItems={"center"}
-  //           sx={(theme) => ({
-  //             height: "40px",
-  //             paddingX: "20px",
-  //             "&:hover": {
-  //               background: theme.normal.bg1,
-  //             },
-  //           })}
-  //         >
-  //           <TwoIconWithString
-  //             icon1={item.icon1}
-  //             icon2={item.icon2}
-  //             title={item.title.split("/")[0]}
-  //             selected={item.title === props.tokenPair}
-  //             onClick={() => {
-  //               props.changeTokenPair(item.title);
-  //               handleClose();
-  //             }}
-  //           />
-  //         </Stack>
-  //       );
-  //     });
-  // }, [props]);
 
   const average = useMemo(() => {
-    const nowPrice = props.basePrice?.[props.tokenPair]
+    const nowPrice = props.basePrice?.[props.tokenPair];
     if (props.tokenPair && nowPrice != null) {
       return formatAmount(
         nowPrice,
@@ -227,11 +181,6 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     }, 1_000);
     return () => clearInterval(interval);
   }, [fetchHr]);
-
-  useEffect(() => {
-    // @ts-ignore
-    dataProvider.current = new TVDataProvider();
-  }, []);
 
   const mobileTop = useMemo(() => {
     return (
@@ -376,10 +325,9 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
     } else {
       const topPairItem = (tokenPair: string) => {
         const TokenIcon = tokenPair.getToken()!.icon;
-        const percentBase = props.basePricePercent?.[tokenPair]
-        const percent = percentBase != null
-          ? Number(percentBase.floor(4))
-          : undefined;
+        const percentBase = props.basePricePercent?.[tokenPair];
+        const percent =
+          percentBase != null ? Number(percentBase.floor(4)) : undefined;
         return (
           <Stack
             key={`TopPairItem+${tokenPair}`}
@@ -454,14 +402,14 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
       return (
         <Stack
           direction={"row"}
-          justifyContent={"space-between"}
+          spacing={"32px"}
           alignItems={"center"}
           sx={(theme) => ({
             paddingX: "20px",
-            width: "100%",
+            width: ["100%","100%","100%","100%","calc(100vw - 450px)"],
+            overflowX: "auto",
             height: "52px",
-            borderRadius: "12px",
-            border: `1px solid ${theme.normal.border}`,
+            borderBottom: `1px solid ${theme.normal.border}`,
           })}
         >
           {topPairs.map((item) => {
@@ -473,14 +421,15 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
   }, [favPairs, isBigMobile, props]);
 
   return (
-    <Stack width={"100%"} spacing={"16px"}>
+    <Stack width={"100%"}>
       {topPair}
 
       <Stack
         width={"100%"}
         sx={(theme) => ({
-          border: isBigMobile ? `0px` : `1px solid ${theme.normal.border}`,
-          borderRadius: isBigMobile ? "0px" : "12px",
+          borderBottom: isBigMobile
+            ? `0px`
+            : `1px solid ${theme.normal.border}`,
         })}
       >
         {isBigMobile ? (
@@ -696,10 +645,7 @@ const ExchangeTVChart: FC<ExchangeTVChartProps> = ({ ...props }) => {
           <></>
         ) : (
           <Box height={height}>
-            <TVChartContainer
-              symbol={props.tokenPair}
-              dataProvider={dataProvider.current!}
-            />
+            <TVChartContainer symbol={props.tokenPair} />
           </Box>
         )}
       </Stack>

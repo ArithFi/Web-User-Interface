@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { BigNumber } from "ethers";
-import { FC, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { FC, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import ArithFiTabs from "../../components/ArithFiTabs/ArithFiTabs";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import OrderList from "./Components/OrderList";
@@ -48,7 +48,8 @@ export interface FuturesOrderService {
   closePrice: number;
   closeValue: number;
   pt0: number | null;
-  pt1: number | null
+  pt1: number | null;
+  marginRatio: number | null;
 }
 
 interface FuturesOrderListProps {
@@ -90,7 +91,6 @@ export const NoOrderMobile = styled(Box)(({ theme }) => ({
 }));
 
 const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
-  const { isBigMobile } = useWindowWidth();
   const [modalInfo, setModalInfo] = useState<FuturesModalInfo>();
   const setModalInfoValue = (value: FuturesModalInfo) => {
     setModalInfo(value);
@@ -117,6 +117,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           price={props.price}
           buttonCallBack={setModalInfoValue}
           forexOpen={props.forexOpen}
+          style={{ minWidth: "1200px" }}
         />
       );
     } else if (tabsValue === 1 && width > 890) {
@@ -126,6 +127,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           buttonCallBack={setModalInfoValue}
           updateList={props.updateList}
           forexOpen={props.forexOpen}
+          price={props.price}
         />
       );
     } else if (tabsValue === 2 && width > 890) {
@@ -139,7 +141,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           spacing={"16px"}
           sx={{
             marginTop: "16px",
-            paddingX: isBigMobile ? "20px" : "0px",
+            paddingX: "20px",
             paddingBottom: "24px",
           }}
         >
@@ -170,7 +172,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           spacing={"16px"}
           sx={{
             marginTop: "16px",
-            paddingX: isBigMobile ? "20px" : "0px",
+            paddingX: "20px",
             paddingBottom: "24px",
           }}
         >
@@ -182,6 +184,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
                 buttonCallBack={setModalInfoValue}
                 updateList={props.updateList}
                 forexOpen={props.forexOpen}
+                price={props.price}
               />
             );
           })}
@@ -201,7 +204,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
           spacing={"16px"}
           sx={{
             marginTop: "16px",
-            paddingX: isBigMobile ? "20px" : "0px",
+            paddingX: "20px",
             paddingBottom: "24px",
           }}
         >
@@ -225,7 +228,6 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
       );
     }
   }, [
-    isBigMobile,
     props.forexOpen,
     props.historyList,
     props.limitOrderList,
@@ -378,7 +380,7 @@ const FuturesOrderList: FC<FuturesOrderListProps> = ({ ...props }) => {
       >
         {tabs}
       </Stack>
-      {orderList}
+      <Stack sx={{ overflowX: "auto", width:["100%","100%","100%","100%","calc(100vw - 450px)"]}}>{orderList}</Stack>
     </Stack>
   );
 };

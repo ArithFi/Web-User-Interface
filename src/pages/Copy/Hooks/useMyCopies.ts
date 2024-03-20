@@ -89,6 +89,7 @@ function useMyCopies() {
               closeValue: 0,
               pt0: item["pt0"],
               pt1: item["pt1"],
+              marginRatio: item["marginRatio"],
             };
             return result;
           }
@@ -138,6 +139,7 @@ function useMyCopies() {
               closeValue: item["closeValue"],
               pt0: item["pt0"],
               pt1: item["pt1"],
+              marginRatio: item["marginRatio"],
             };
             return result;
           }

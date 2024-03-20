@@ -18,6 +18,7 @@ import { FuturesOrderService } from "../../Futures/OrderList";
 import { lipPrice } from "../../../hooks/useFuturesNewOrder";
 import { formatTVDate } from "../../../lib/dates";
 import { copyKOLInfo } from "../../../lib/ArithFiRequest";
+import { FuturesOrderListTitleAndValue } from "../../Futures/Components/FuturesOrderListTitleAndValue";
 
 interface MyCopiesCurrentProps {
   list: FuturesOrderService[];
@@ -54,7 +55,7 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
       );
     });
     return (
-      <Stack paddingX={"12px"} spacing={"16px"} paddingBottom={"20px"}>
+      <Stack paddingX={"20px"} spacing={"16px"} paddingBottom={"20px"}>
         {items}
       </Stack>
     );
@@ -66,14 +67,71 @@ const MyCopiesCurrent: FC<MyCopiesCurrentProps> = ({ ...props }) => {
         dataArray={[
           t`Symbol`,
           t`Trader`,
-          t`Actual Margin`,
+          t`Unrealized PnL`,
+          t`Size`,
+          t`Margin`,
+          t`Margin Ratio`,
           t`Open Price`,
-          t`Market Price`,
+          t`Mark Price`,
           t`Liq Price`,
+          t`TP/SL`,
+          t`Time`,
           t`Operate`,
         ]}
         noOrder={noOrder}
-        helps={[]}
+        helps={[
+          {
+            index: 2,
+            helpInfo: (
+              <p>
+                <Trans>Including funding amounts.</Trans>
+              </p>
+            ),
+          },
+          {
+            index: 3,
+            helpInfo: (
+              <p>
+                <Trans>Leverage*Initial Margin</Trans>
+              </p>
+            ),
+          },
+          {
+            index: 4,
+            helpInfo: (
+              <p>
+                <Trans>
+                  Initial Margin + Added Margin,Added Margin is the margin for
+                  Add the user's position.
+                </Trans>
+              </p>
+            ),
+          },
+          {
+            index: 5,
+            helpInfo: (
+              <p>
+                <Trans>
+                  The lower the Margin Ratio, the lower your liquidation level
+                  will be relative to your position size. Your positions will be
+                  liquidated once Margin Ratio reaches 100%.
+                </Trans>
+              </p>
+            ),
+          },
+          {
+            index: 8,
+            helpInfo: (
+              <p>
+                <Trans>
+                  Due to the market volatility, the actual liquidation price may
+                  be different from the theoretical liquidation price. Here is
+                  the theoretical liquidation price, for reference only.
+                </Trans>
+              </p>
+            ),
+          },
+        ]}
         noNeedPadding
       >
         {rows}
@@ -118,26 +176,81 @@ const Item: FC<RowProps> = ({ ...props }) => {
       })();
     }
   }, [avatar, props.data.kolAddress]);
-  const profitLossRate = useMemo(() => {
-    const balance_num = props.data.margin + props.data.append;
-    const marginAssets_num = props.data.balance;
-    if (marginAssets_num >= balance_num) {
-      return parseFloat(
-        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(4)
-      );
-    } else {
-      return -parseFloat(
-        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(4)
-      );
+  const tp = useMemo(() => {
+    return props.data.takeProfitPrice === 0
+      ? String().placeHolder
+      : props.data.takeProfitPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        );
+  }, [props.data.product, props.data.takeProfitPrice]);
+  const sl = useMemo(() => {
+    return props.data.stopLossPrice === 0
+      ? String().placeHolder
+      : props.data.stopLossPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        );
+  }, [props.data.product, props.data.stopLossPrice]);
+  const showSize = useMemo(() => {
+    if (props.data.leverage != null && props.data.margin != null) {
+      return `${(props.data.leverage * props.data.margin).floor(2)} ATF`;
     }
+    return "-";
+  }, [props.data.leverage, props.data.margin]);
+
+  const showMargin = useMemo(() => {
+    if (props.data.margin != null && props.data.append != null) {
+      return `${(props.data.margin + props.data.append).floor(2)} ATF`;
+    }
+    return "-";
+  }, [props.data.append, props.data.margin]);
+  const unrealizedPnL = useMemo(() => {
+    if (
+      props.data.margin != null &&
+      props.data.append != null &&
+      props.data.balance != null
+    ) {
+      return props.data.balance - (props.data.margin + props.data.append);
+    }
+    return undefined;
   }, [props.data.append, props.data.balance, props.data.margin]);
+  const showUnrealizedPnL = useMemo(() => {
+    if (unrealizedPnL != null) {
+      const format = unrealizedPnL.floor(2);
+      return `${Number(format) >= 0 ? "+" : ""}${format} ATF`;
+    }
+    return "-";
+  }, [unrealizedPnL]);
+  const ROI = useMemo(() => {
+    if (
+      unrealizedPnL != null &&
+      props.data.margin != null &&
+      props.data.append != null
+    ) {
+      const percent = unrealizedPnL / (props.data.margin + props.data.append);
+      return percent;
+    }
+    return undefined;
+  }, [props.data.append, props.data.margin, unrealizedPnL]);
+  const showROI = useMemo(() => {
+    if (ROI != null) {
+      return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
+    }
+    return "-";
+  }, [ROI]);
+  const showMarginRatio = useMemo(() => {
+    if (props.data.marginRatio != null) {
+      return `${(props.data.marginRatio * 10).floor(2)}%`;
+    }
+    return "-";
+  }, [props.data.marginRatio]);
+  const isRed = useMemo(() => {
+    return showROI.indexOf("-") === 0;
+  }, [showROI]);
 
   const isLong = props.data.direction;
   const lever = props.data.leverage;
-
   const kolAddress = props.data.kolAddress.showAddress();
-  const balance = props.data.balance.floor(2);
-  const profitLossRateString = profitLossRate.floor(2) + "%";
+
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
@@ -178,9 +291,10 @@ const Item: FC<RowProps> = ({ ...props }) => {
     props.data.pt0,
     props.data.pt1,
   ]);
-
-  const openTime = new Date(props.data.timestamp * 1000);
-  const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
+  const openTime = useMemo(() => {
+    const time = new Date(props.data.timestamp * 1000);
+    return [time.toLocaleDateString(), time.toLocaleTimeString()];
+  }, [props.data.timestamp]);
   const kolIcon = () => {
     if (avatar !== "") {
       return (
@@ -223,11 +337,9 @@ const Item: FC<RowProps> = ({ ...props }) => {
   return (
     <Stack
       key={`MyCopiesCurrentMobile + ${props.data.id}`}
-      spacing={"20px"}
+      spacing={"12px"}
       sx={(theme) => ({
-        borderRadius: "12px",
-        background: theme.normal.bg1,
-        padding: "20px 12px",
+        width: "100%",
       })}
     >
       <CopyListPosition
@@ -236,145 +348,119 @@ const Item: FC<RowProps> = ({ ...props }) => {
         isLong={isLong}
       />
       <Stack spacing={"8px"}>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Stack spacing={"4px"} width={"100%"}>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <FuturesOrderListTitleAndValue
+            title={t`Unrealized PnL`}
+            value={showUnrealizedPnL}
+            spacing="4px"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Including funding amounts.`}
+          />
+          <FuturesOrderListTitleAndValue
+            title={t`ROI`}
+            value={showROI}
+            alignItems="flex-end"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Unrealized PNL/Initial Margin. Including funding amounts.`}
+          />
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Size`}
+              value={showSize}
+              help={t`Leverage*Initial Margin`}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Margin`}
+              value={showMargin}
+              help={t`Initial Margin + Added Margin,Added Margin is the margin for Add
+              the user's position.`}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Margin Ratio`}
+              value={showMarginRatio}
+              alignItems="flex-end"
+              help={t`The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%.`}
+            />
+          </Stack>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Open Price`}
+              value={orderPrice}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Mark Price`}
+              value={marketPrice}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Liq Price`}
+              value={lipPriceString}
+              alignItems="flex-end"
+              help={t`Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only.`}
+            />
+          </Stack>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"flex-start"}
+            spacing={"4px"}
+          >
             <Box
               sx={(theme) => ({
-                fontSize: "12px",
-                fontWeight: "400",
-                lineHeight: "16px",
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
                 color: theme.normal.text2,
               })}
             >
-              <Trans>Open Price</Trans>
+              {`TP/SL`}
             </Box>
             <Box
               sx={(theme) => ({
-                fontSize: "14px",
-                fontWeight: "700",
-                lineHeight: "20px",
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
                 color: theme.normal.text0,
               })}
             >
-              {orderPrice}
+              {`${tp} / ${sl}`}
             </Box>
           </Stack>
-
-          <Stack spacing={"4px"} width={"100%"}>
-            <Box
-              sx={(theme) => ({
-                fontSize: "12px",
-                fontWeight: "400",
-                lineHeight: "16px",
-                color: theme.normal.text2,
-              })}
-            >
-              <Trans>Actual Margin</Trans>
-            </Box>
-            <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  lineHeight: "20px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {balance}ATF
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "10px",
-                  fontWeight: "400",
-                  lineHeight: "14px",
-                  color:
-                    profitLossRate >= 0
-                      ? theme.normal.success
-                      : theme.normal.danger,
-                })}
-              >
-                {profitLossRateString}
-              </Box>
-            </Stack>
-          </Stack>
-        </Stack>
-        <ArithFiLine />
-        <Stack spacing={"8px"}>
-          <Stack direction={"row"}>
-            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Market Price</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {marketPrice}
-              </Box>
-            </Stack>
-            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Liq Price</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {lipPriceString}
-              </Box>
-            </Stack>
-          </Stack>
-
-          <Stack direction={"row"}>
-            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Open Time</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text0,
-                })}
-              >
-                {openTimeString}
-              </Box>
-            </Stack>
-          </Stack>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Time`} ${openTime[0]} ${openTime[1]}`}
+          </Box>
         </Stack>
       </Stack>
       <Stack
@@ -432,6 +518,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
           )}
         </Box>
       </Stack>
+      <ArithFiLine />
     </Stack>
   );
 };
@@ -461,26 +548,80 @@ const Row: FC<RowProps> = ({ ...props }) => {
       })();
     }
   }, [avatar, props.data.kolAddress]);
-
-  const profitLossRate = useMemo(() => {
-    const balance_num = props.data.margin + props.data.append;
-    const marginAssets_num = props.data.balance;
-    if (marginAssets_num >= balance_num) {
-      return parseFloat(
-        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(2)
-      );
-    } else {
-      return -parseFloat(
-        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
-      );
+  const tp = useMemo(() => {
+    return props.data.takeProfitPrice === 0
+      ? String().placeHolder
+      : props.data.takeProfitPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        );
+  }, [props.data.product, props.data.takeProfitPrice]);
+  const sl = useMemo(() => {
+    return props.data.stopLossPrice === 0
+      ? String().placeHolder
+      : props.data.stopLossPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        );
+  }, [props.data.product, props.data.stopLossPrice]);
+  const showSize = useMemo(() => {
+    if (props.data.leverage != null && props.data.margin != null) {
+      return `${(props.data.leverage * props.data.margin).floor(2)} ATF`;
     }
+    return "-";
+  }, [props.data.leverage, props.data.margin]);
+
+  const showMargin = useMemo(() => {
+    if (props.data.margin != null && props.data.append != null) {
+      return `${(props.data.margin + props.data.append).floor(2)} ATF`;
+    }
+    return "-";
+  }, [props.data.append, props.data.margin]);
+  const unrealizedPnL = useMemo(() => {
+    if (
+      props.data.margin != null &&
+      props.data.append != null &&
+      props.data.balance != null
+    ) {
+      return props.data.balance - (props.data.margin + props.data.append);
+    }
+    return undefined;
   }, [props.data.append, props.data.balance, props.data.margin]);
+  const showUnrealizedPnL = useMemo(() => {
+    if (unrealizedPnL != null) {
+      const format = unrealizedPnL.floor(2);
+      return `${Number(format) >= 0 ? "+" : ""}${format} ATF`;
+    }
+    return "-";
+  }, [unrealizedPnL]);
+  const ROI = useMemo(() => {
+    if (
+      unrealizedPnL != null &&
+      props.data.margin != null &&
+      props.data.append != null
+    ) {
+      const percent = unrealizedPnL / (props.data.margin + props.data.append);
+      return percent;
+    }
+    return undefined;
+  }, [props.data.append, props.data.margin, unrealizedPnL]);
+  const showROI = useMemo(() => {
+    if (ROI != null) {
+      return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
+    }
+    return "-";
+  }, [ROI]);
+  const showMarginRatio = useMemo(() => {
+    if (props.data.marginRatio != null) {
+      return `${(props.data.marginRatio * 10).floor(2)}%`;
+    }
+    return "-";
+  }, [props.data.marginRatio]);
+  const isRed = useMemo(() => {
+    return showROI.indexOf("-") === 0;
+  }, [showROI]);
 
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const kolAddress = props.data.kolAddress.showAddress();
-  const balance = props.data.balance.floor(2);
-  const profitLossRateString = profitLossRate.floor(2) + "%";
 
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
@@ -522,9 +663,11 @@ const Row: FC<RowProps> = ({ ...props }) => {
     props.data.pt0,
     props.data.pt1,
   ]);
+  const openTime = useMemo(() => {
+    const time = new Date(props.data.timestamp * 1000);
+    return [time.toLocaleDateString(), time.toLocaleTimeString()];
+  }, [props.data.timestamp]);
 
-  const openTime = new Date(props.data.timestamp * 1000);
-  const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
   const kolIcon = () => {
     if (avatar !== "") {
       return (
@@ -607,76 +750,22 @@ const Row: FC<RowProps> = ({ ...props }) => {
           <Box
             sx={(theme) => ({
               fontWeight: "700",
-              fontSize: "12px",
+              fontSize: "10px",
               lineHeight: "16px",
-              color:
-                profitLossRate >= 0
-                  ? theme.normal.success
-                  : theme.normal.danger,
+              color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {balance}ATF
+            {showUnrealizedPnL}
           </Box>
           <Box
             sx={(theme) => ({
               fontWeight: "400",
               fontSize: "12px",
               lineHeight: "16px",
-              color:
-                profitLossRate >= 0
-                  ? theme.normal.success
-                  : theme.normal.danger,
+              color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {profitLossRateString}
-          </Box>
-        </Stack>
-      </TableCell>
-      <TableCell sx={tdNoPadding}>
-        <Stack spacing={"4px"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "700",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text0,
-            })}
-          >
-            {orderPrice}
-          </Box>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text2,
-            })}
-          >
-            {openTimeString}
-          </Box>
-        </Stack>
-      </TableCell>
-      <TableCell sx={tdNoPadding}>
-        <Stack spacing={"4px"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "700",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text0,
-            })}
-          >
-            {marketPrice}
-          </Box>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text2,
-            })}
-          >
-            {String().placeHolder}
+            {showROI}
           </Box>
         </Stack>
       </TableCell>
@@ -684,7 +773,72 @@ const Row: FC<RowProps> = ({ ...props }) => {
         <Box
           sx={(theme) => ({
             fontWeight: "700",
-            fontSize: "12px",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {showSize}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {showMargin}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {showMarginRatio}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {orderPrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {marketPrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
             lineHeight: "16px",
             color: theme.normal.text0,
             paddingRight: "20px",
@@ -692,6 +846,46 @@ const Row: FC<RowProps> = ({ ...props }) => {
         >
           {lipPriceString}
         </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            "& p": {
+              fontSize: 10,
+              fontWeight: 400,
+              color: theme.normal.text0,
+            },
+            "& span": { marginRight: "4px", color: theme.normal.text2 },
+          })}
+        >
+          <Box component={"p"}>
+            <span>
+              <Trans>TP</Trans>
+            </span>
+            {tp}
+          </Box>
+          <Box component={"p"}>
+            <span>
+              <Trans>SL</Trans>
+            </span>
+            {sl}
+          </Box>
+        </Stack>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            fontWeight: "400",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+          })}
+        >
+          <Box>{openTime[0]}</Box>
+          <Box>{openTime[1]}</Box>
+        </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>
         <Stack

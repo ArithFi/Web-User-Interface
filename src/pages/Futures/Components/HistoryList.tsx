@@ -4,14 +4,12 @@ import { FC } from "react";
 import ArithFiLine from "../../../components/ArithFiLine";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
 import { FuturesModalInfo } from "../OrderList";
-import FuturesOrderListInfo, {
-  FuturesOrderListInfoMain,
-} from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
-import { Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import useFuturesHistory, {
   FuturesHistoryService,
 } from "../../../hooks/useFuturesHistory";
+import { FuturesOrderListTitleAndValue } from "./FuturesOrderListTitleAndValue";
 
 interface HistoryListProps {
   data: FuturesHistoryService;
@@ -25,24 +23,25 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
     tp,
     sl,
     showOpenPrice,
-    showMarginAssets,
     showPercent,
     isRed,
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
-    time,
     showClosePrice,
+    showSize,
+    showMargin,
+    openTime,
+    closeTime,
+    showRealizedPnL,
+    showF,
   } = useFuturesHistory(props.data);
 
   return (
     <Stack
-      spacing={"20px"}
+      spacing={"12px"}
       sx={(theme) => ({
-        padding: "20px",
         width: "100%",
-        borderRadius: "12px",
-        background: theme.normal.bg1,
       })}
     >
       <ShareMyOrderModal
@@ -58,131 +57,129 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
         lever={lever}
         isLong={isLong}
         shareCallBack={() => setShowShareOrderModal(true)}
+        status={props.data.status}
       />
       <Stack spacing={"8px"}>
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Open Price</Trans>
-            </Box>
-            <Box component={"p"}>{showOpenPrice}</Box>
-          </FuturesOrderListInfoMain>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Actual Margin</Trans>
-            </Box>
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"flex-end"}
-              component={"p"}
-            >
-              <Box component={"span"}>{showMarginAssets}ATF</Box>
-              <Box component={"span"} className={isRed ? "Short" : "Long"}>{showPercent}%</Box>
-            </Stack>
-          </FuturesOrderListInfoMain>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <FuturesOrderListTitleAndValue
+            title={t`Realized PnL`}
+            value={showRealizedPnL}
+            spacing="4px"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={`Including funding amounts.`}
+          />
+          <FuturesOrderListTitleAndValue
+            title={t`ROI`}
+            value={`${showPercent}%`}
+            alignItems="flex-end"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Realized PNL/Initial Margin. Including funding amounts.`}
+          />
         </Stack>
-        <ArithFiLine />
-        {!(tp === String().placeHolder && sl === String().placeHolder) ? (
-          <Stack direction={"row"} justifyContent={"space-around"}>
-            <FuturesOrderListInfo
-              direction={"row"}
-              spacing={"4px"}
-              width={"100%"}
-            >
-              <Box component={"p"}>
-                <Trans>Take Profit</Trans>
-              </Box>
-              <Box component={"p"}>{tp}</Box>
-            </FuturesOrderListInfo>
-            <FuturesOrderListInfo
-              direction={"row"}
-              spacing={"4px"}
-              width={"100%"}
-            >
-              <Box component={"p"}>
-                <Trans>Stop Loss</Trans>
-              </Box>
-              <Box component={"p"}>{sl}</Box>
-            </FuturesOrderListInfo>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Size`}
+              value={showSize}
+              help={t`Leverage*Initial Margin`}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Margin`}
+              value={showMargin}
+              help={t`Initial Margin + Added Margin,Added Margin is the margin for Add
+              the user's position.`}
+            />
+            <></>
           </Stack>
-        ) : (
-          <></>
-        )}
-
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfo
-            direction={"row"}
-            spacing={"4px"}
-            width={"100%"}
-          >
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"center"}
-              component={"p"}
-            >
-              <Box component={"p"}>
-                <Trans>Close Price</Trans>
-              </Box>
-            </Stack>
-            <Box component={"p"}>{showClosePrice}</Box>
-          </FuturesOrderListInfo>
-          <FuturesOrderListInfo
-            direction={"row"}
-            spacing={"4px"}
-            width={"100%"}
-          >
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"center"}
-              component={"p"}
-            >
-              <Box component={"p"}>
-                <Trans>Time</Trans>
-              </Box>
-            </Stack>
-            <Box component={"p"}>{time}</Box>
-          </FuturesOrderListInfo>
         </Stack>
-        <Stack direction={"row"} justifyContent={"flex-start"}>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Open Price`}
+              value={showOpenPrice}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Close Price`}
+              value={showClosePrice}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Founding Fee`}
+              value={showF}
+              alignItems="flex-end"
+              help={t``}
+            />
+          </Stack>
+        </Stack>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"flex-start"}
+            spacing={"4px"}
+          >
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text2,
+              })}
+            >
+              {`TP/SL`}
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text0,
+              })}
+            >
+              {`${tp} / ${sl}`}
+            </Box>
+          </Stack>
+        </Stack>
+        <Stack direction={"row"} justifyContent={"space-between"}>
           <Box
-            component={"p"}
             sx={(theme) => ({
-              fontWeight: 700,
               fontSize: "10px",
+              fontWeight: 400,
               lineHeight: "14px",
-              padding: "3px 4px",
-              border: "1px solid",
-              width: "fit-content",
-              borderColor:
-                props.data.orderType === "Closed"
-                  ? theme.normal.border
-                  : props.data.orderType === "Liquidated"
-                  ? theme.normal.danger_light_hover
-                  : theme.normal.success_light_hover,
-              color:
-                props.data.orderType === "Closed"
-                  ? theme.normal.text2
-                  : props.data.orderType === "Liquidated"
-                  ? theme.normal.danger
-                  : theme.normal.success,
-              borderRadius: "4px",
+              color: theme.normal.text2,
             })}
           >
-            {props.data.orderType === "Closed" && <Trans>Closed</Trans>}
-            {props.data.orderType === "Liquidated" && <Trans>Liquidated</Trans>}
-            {props.data.orderType === "TP Executed" && (
-              <Trans>TP Executed</Trans>
-            )}
-            {props.data.orderType === "SL Executed" && (
-              <Trans>SL Executed</Trans>
-            )}
+            {`${t`Open Time`} ${openTime[0]} ${openTime[1]}`}
           </Box>
-          <Box>{""}</Box>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Close Time`} ${closeTime[0]} ${closeTime[1]}`}
+          </Box>
         </Stack>
       </Stack>
+      <ArithFiLine />
     </Stack>
   );
 };

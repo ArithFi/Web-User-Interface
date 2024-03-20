@@ -12,11 +12,6 @@ interface CopyListPositionProps {
 }
 
 const CopyListPosition: FC<CopyListPositionProps> = ({ ...props }) => {
-  const TokenIcon = useMemo(() => {
-    return props.tokenPair.getToken()
-      ? props.tokenPair.getToken()!.icon
-      : "ETH".getToken()!.icon;
-  }, [props.tokenPair]);
   return (
     <Stack
       direction={"row"}
@@ -33,26 +28,11 @@ const CopyListPosition: FC<CopyListPositionProps> = ({ ...props }) => {
         })}
       >
         <Box
-          sx={{
-            width: "24px",
-            height: "24px",
-            "& svg": {
-              width: "24px",
-              height: "24px",
-              display: "block",
-            },
-          }}
-        >
-          <TokenIcon />
-        </Box>
-
-        <Box
           component={"p"}
           sx={(theme) => ({
             fontWeight: 700,
             fontSize: 14,
-            color: theme.normal.text0,
-            marginLeft: "8px !important",
+            color: theme.normal.text0
           })}
         >{props.tokenPair}</Box>
 
