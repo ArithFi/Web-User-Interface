@@ -94,12 +94,12 @@ function useFuturesPOrder(
   }, [unrealizedPnL]);
 
   const ROI = useMemo(() => {
-    if (unrealizedPnL != null && data.margin != null && data.append != null) {
-      const percent = unrealizedPnL / (data.margin + data.append);
+    if (unrealizedPnL != null && data.margin != null) {
+      const percent = unrealizedPnL / data.margin;
       return percent;
     }
     return undefined;
-  }, [data.append, data.margin, unrealizedPnL]);
+  }, [data.margin, unrealizedPnL]);
   const showROI = useMemo(() => {
     if (ROI != null) {
       return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
@@ -108,7 +108,7 @@ function useFuturesPOrder(
   }, [ROI]);
   const showMarginRatio = useMemo(() => {
     if (data.marginRatio != null) {
-      return `${(data.marginRatio * 10).floor(2)}%`;
+      return `${(data.marginRatio * 100).floor(2)}%`;
     }
     return "-";
   }, [data.marginRatio]);

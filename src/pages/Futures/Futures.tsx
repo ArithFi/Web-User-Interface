@@ -436,7 +436,7 @@ const Futures: FC = () => {
               }
               const baseValue = item["margin"] + item["append"];
               const closeValue = item["closeValue"];
-              return ((closeValue - baseValue) / baseValue) * 100;
+              return ((closeValue - baseValue) / item["margin"]) * 100;
             };
             return {
               actualMargin: item["closeValue"],

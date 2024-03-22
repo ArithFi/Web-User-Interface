@@ -184,14 +184,13 @@ const Item: FC<RowProps> = ({ ...props }) => {
   const ROI = useMemo(() => {
     if (
       realizedPnL != null &&
-      props.data.margin != null &&
-      props.data.append != null
+      props.data.margin != null
     ) {
-      const percent = realizedPnL / (props.data.margin + props.data.append);
+      const percent = realizedPnL / props.data.margin;
       return percent;
     }
     return undefined;
-  }, [props.data.append, props.data.margin, realizedPnL]);
+  }, [props.data.margin, realizedPnL]);
   const showROI = useMemo(() => {
     if (ROI != null) {
       return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
@@ -544,14 +543,13 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const ROI = useMemo(() => {
     if (
       realizedPnL != null &&
-      props.data.margin != null &&
-      props.data.append != null
+      props.data.margin != null
     ) {
-      const percent = realizedPnL / (props.data.margin + props.data.append);
+      const percent = realizedPnL / props.data.margin;
       return percent;
     }
     return undefined;
-  }, [props.data.append, props.data.margin, realizedPnL]);
+  }, [props.data.margin, realizedPnL]);
   const showROI = useMemo(() => {
     if (ROI != null) {
       return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;

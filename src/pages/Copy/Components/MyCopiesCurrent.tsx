@@ -223,14 +223,13 @@ const Item: FC<RowProps> = ({ ...props }) => {
   const ROI = useMemo(() => {
     if (
       unrealizedPnL != null &&
-      props.data.margin != null &&
-      props.data.append != null
+      props.data.margin != null
     ) {
-      const percent = unrealizedPnL / (props.data.margin + props.data.append);
+      const percent = unrealizedPnL / props.data.margin;
       return percent;
     }
     return undefined;
-  }, [props.data.append, props.data.margin, unrealizedPnL]);
+  }, [props.data.margin, unrealizedPnL]);
   const showROI = useMemo(() => {
     if (ROI != null) {
       return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
@@ -239,7 +238,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
   }, [ROI]);
   const showMarginRatio = useMemo(() => {
     if (props.data.marginRatio != null) {
-      return `${(props.data.marginRatio * 10).floor(2)}%`;
+      return `${(props.data.marginRatio * 100).floor(2)}%`;
     }
     return "-";
   }, [props.data.marginRatio]);
@@ -595,14 +594,13 @@ const Row: FC<RowProps> = ({ ...props }) => {
   const ROI = useMemo(() => {
     if (
       unrealizedPnL != null &&
-      props.data.margin != null &&
-      props.data.append != null
+      props.data.margin != null
     ) {
-      const percent = unrealizedPnL / (props.data.margin + props.data.append);
+      const percent = unrealizedPnL / props.data.margin;
       return percent;
     }
     return undefined;
-  }, [props.data.append, props.data.margin, unrealizedPnL]);
+  }, [props.data.margin, unrealizedPnL]);
   const showROI = useMemo(() => {
     if (ROI != null) {
       return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
@@ -611,7 +609,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
   }, [ROI]);
   const showMarginRatio = useMemo(() => {
     if (props.data.marginRatio != null) {
-      return `${(props.data.marginRatio * 10).floor(2)}%`;
+      return `${(props.data.marginRatio * 100).floor(2)}%`;
     }
     return "-";
   }, [props.data.marginRatio]);
