@@ -43,7 +43,7 @@ const HistoryTable: FC<FuturesHistoryListProps> = ({ ...props }) => {
         t`Margin`,
         t`Open Price`,
         t`Close Price`,
-        t`Founding Amount`,
+        t`Funding Amount`,
         t`TP/SL`,
         t`Open Time`,
         t`Close Time`,

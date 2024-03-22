@@ -721,17 +721,14 @@ msgstr "For users/smart contracts using Arith Protocol perpetual contracts, plea
 msgid "Forex"
 msgstr "Forex"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Founding Amount"
-msgstr "Founding Amount"
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "From"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Funding Amount"
 msgstr "Funding Amount"
 

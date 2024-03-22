@@ -222,7 +222,7 @@ msgstr "Anuncio"
 
 #: src/pages/Home/Home.tsx
 msgid "App Store"
-msgstr ""
+msgstr "App Store"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -612,7 +612,7 @@ msgstr "Doc"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only."
-msgstr ""
+msgstr "Debido a la volatilidad del mercado, el precio de liquidación real puede ser diferente del precio teórico de liquidación. Aquí está el precio teórico de liquidación, solo para referencia."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -721,19 +721,16 @@ msgstr "Para los usuarios/contratos inteligentes que utilizan contratos perpetuo
 msgid "Forex"
 msgstr "Forex"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Founding Amount"
-msgstr ""
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "Desde"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Funding Amount"
-msgstr ""
+msgstr "Monto Fundacional"
 
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
@@ -833,7 +830,7 @@ msgstr "Imagen"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Including funding amounts."
-msgstr ""
+msgstr "Incluyendo Montos de Financiamiento"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -859,6 +856,8 @@ msgid ""
 "Initial Margin + Added Margin,Added Margin is the margin for Add\n"
 "the user's position."
 msgstr ""
+"Margen Inicial + Margen Adicional, El Margen Adicional es el margen para agregar\n"
+"La posición del usuario"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -866,7 +865,7 @@ msgstr ""
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Initial Margin + Added Margin,Added Margin is the margin for Add the user's position."
-msgstr ""
+msgstr "Margen Inicial + Margen Adicional, el Margen Adicional es el margen necesario para agregar la posición del usuario."
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -958,7 +957,7 @@ msgstr "Obtener más información"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Leverage*Initial Margin"
-msgstr ""
+msgstr "Apalancamiento*Margen Inicial"
 
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
@@ -970,7 +969,7 @@ msgstr "Límite"
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 msgid "Limit Order"
-msgstr ""
+msgstr "Orden de Límite"
 
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
@@ -1033,21 +1032,21 @@ msgstr "Si obtienes ganancias, ganarás $ATF"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Margin"
-msgstr ""
+msgstr "Margen"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Margin Ratio"
-msgstr ""
+msgstr "Ratio de margen"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Mark Price"
-msgstr ""
+msgstr "Precio de marcado"
 
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
@@ -1334,12 +1333,12 @@ msgstr "Protocolo Logra"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Realized PnL"
-msgstr ""
+msgstr "PnL Realizado"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 msgid "Realized PNL/Initial Margin. Including funding amounts."
-msgstr ""
+msgstr "PNL Realizado/Margen Inicial. Incluyendo cantidades de financiamiento."
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1475,7 +1474,7 @@ msgstr "Corto"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1601,14 +1600,14 @@ msgstr "El mercado de divisas está cerrado. Por favor, espere a que el mercado 
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 msgid "The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL."
-msgstr ""
+msgstr "La cantidad de financiación en ArithFi es una compensación o penalización de flujo de efectivo intercambiada entre titulares de posiciones largas y cortas, que se refleja directamente en el PNL."
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%."
-msgstr ""
+msgstr "Cuanto más bajo sea el Ratio de Margen, más bajo será su nivel de liquidación en relación con el tamaño de su posición. Sus posiciones serán liquidadas una vez que el Ratio de Margen alcance el 100%."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1755,7 +1754,7 @@ msgstr "TP Ejecutado"
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "TP/SL"
-msgstr ""
+msgstr "TP/SL"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
@@ -1881,7 +1880,7 @@ msgstr "Ganancias y Pérdidas no Realizadas (ATF)"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 msgid "Unrealized PNL/Initial Margin. Including funding amounts."
-msgstr ""
+msgstr "PNL no realizada/Margen inicial. Incluyendo montos de financiamiento."
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"

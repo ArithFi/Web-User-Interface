@@ -121,7 +121,7 @@ const HistoryList: FC<HistoryListProps> = ({ ...props }) => {
               value={showClosePrice}
             />
             <FuturesOrderListTitleAndValue
-              title={t`Founding Amount`}
+              title={t`Funding Amount`}
               value={showF}
               alignItems="flex-end"
               help={t`The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL.`}

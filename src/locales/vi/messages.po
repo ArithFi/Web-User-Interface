@@ -222,7 +222,7 @@ msgstr "Thông báo"
 
 #: src/pages/Home/Home.tsx
 msgid "App Store"
-msgstr ""
+msgstr "App Store"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -612,7 +612,7 @@ msgstr "Doc"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only."
-msgstr ""
+msgstr "Do biến động của thị trường, giá thanh lý thực tế có thể khác biệt so với giá thanh lý lý thuyết. Đây là giá thanh lý lý thuyết, chỉ để tham khảo."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -721,19 +721,16 @@ msgstr "Đối với người dùng/hợp đồng thông minh sử dụng hợp 
 msgid "Forex"
 msgstr "Ngoại hối"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Founding Amount"
-msgstr ""
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "Từ"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Funding Amount"
-msgstr ""
+msgstr "Số Tiền Khởi Đầu"
 
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
@@ -833,7 +830,7 @@ msgstr "Hình ảnh"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Including funding amounts."
-msgstr ""
+msgstr "Bao gồm số tiền quỹ"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -859,6 +856,8 @@ msgid ""
 "Initial Margin + Added Margin,Added Margin is the margin for Add\n"
 "the user's position."
 msgstr ""
+"Biên Bản Ban Đầu + Biên Bản Thêm, Biên Bản Thêm là biên bản cho phép thêm vào\n"
+"Vị trí của người dùng"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -866,7 +865,7 @@ msgstr ""
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Initial Margin + Added Margin,Added Margin is the margin for Add the user's position."
-msgstr ""
+msgstr "Biên Bản Ban Đầu + Biên Bản Bổ Sung, Biên Bản Bổ Sung là biên bản cần thiết để thêm vị trí của người dùng."
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -958,7 +957,7 @@ msgstr "Tìm hiểu thêm"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Leverage*Initial Margin"
-msgstr ""
+msgstr "Đòn Bẩy*Biên Bản Ban Đầu"
 
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
@@ -970,7 +969,7 @@ msgstr "Giới hạn"
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 msgid "Limit Order"
-msgstr ""
+msgstr "Lệnh Giới Hạn"
 
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
@@ -1033,21 +1032,21 @@ msgstr "Đạt lợi nhuận, bạn sẽ kiếm được $ATF"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Margin"
-msgstr ""
+msgstr "Đòn bẩy"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Margin Ratio"
-msgstr ""
+msgstr "Tỷ lệ đòn bẩy"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Mark Price"
-msgstr ""
+msgstr "Giá đánh dấu"
 
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
@@ -1334,12 +1333,12 @@ msgstr "Giao thức đạt được"
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Realized PnL"
-msgstr ""
+msgstr "Lợi nhuận/Lỗ đã thực hiện"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 msgid "Realized PNL/Initial Margin. Including funding amounts."
-msgstr ""
+msgstr "Lợi nhuận/Lỗ đã thực hiện/Marigin Ban Đầu. Bao gồm số tiền vay."
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1475,7 +1474,7 @@ msgstr "Bán"
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "Size"
-msgstr ""
+msgstr "Kích thước"
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
@@ -1601,14 +1600,14 @@ msgstr "Рынок валют закрыт. Пожалуйста, дождите
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 msgid "The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL."
-msgstr ""
+msgstr "Số tiền tài trợ trong ArithFi là một khoản bồi thường hoặc phạt trao đổi dòng tiền mặt giữa các chủ sở hữu vị thế dài và ngắn, được phản ánh trực tiếp trong PNL."
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%."
-msgstr ""
+msgstr "Càng thấp Tỷ lệ Margin, mức độ thanh lý của bạn sẽ thấp hơn so với kích thước vị thế của bạn. Các vị thế của bạn sẽ được thanh lý khi Tỷ lệ Margin đạt 100%."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1755,7 +1754,7 @@ msgstr "TP Executed"
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "TP/SL"
-msgstr ""
+msgstr "TP/SL"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
@@ -1881,7 +1880,7 @@ msgstr "PnL chưa thực hiện(ATF)"
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 msgid "Unrealized PNL/Initial Margin. Including funding amounts."
-msgstr ""
+msgstr "Lợi nhuận chưa thực hiện/Giá trị Margin ban đầu. Bao gồm các khoản tài trợ."
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"

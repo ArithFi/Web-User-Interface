@@ -717,17 +717,14 @@ msgstr ""
 msgid "Forex"
 msgstr ""
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Founding Amount"
-msgstr ""
-
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "送信元"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Funding Amount"
 msgstr ""
 
