@@ -52,7 +52,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
           t`Margin`,
           t`Open Price`,
           t`Close Price`,
-          t`Founding Fee`,
+          t`Funding Amount`,
           t`TP/SL`,
           t`Open Time`,
           t`Close Time`,
@@ -82,6 +82,18 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
                 <Trans>
                   Initial Margin + Added Margin,Added Margin is the margin for
                   Add the user's position.
+                </Trans>
+              </p>
+            ),
+          },
+          {
+            index: 7,
+            helpInfo: (
+              <p>
+                <Trans>
+                  The funding amount in ArithFi is a cash flow compensation or
+                  penalty exchanged between holders of long and short positions,
+                  which is directly reflected in the PNL.
                 </Trans>
               </p>
             ),
@@ -368,10 +380,10 @@ const Item: FC<RowProps> = ({ ...props }) => {
               value={closePrice}
             />
             <FuturesOrderListTitleAndValue
-              title={t`Founding Fee`}
+              title={t`Funding Amount`}
               value={showF}
               alignItems="flex-end"
-              help={t``}
+              help={t`The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL.`}
             />
           </Stack>
         </Stack>

@@ -43,7 +43,7 @@ const HistoryTable: FC<FuturesHistoryListProps> = ({ ...props }) => {
         t`Margin`,
         t`Open Price`,
         t`Close Price`,
-        t`Founding Fee`,
+        t`Founding Amount`,
         t`TP/SL`,
         t`Open Time`,
         t`Close Time`,
@@ -72,6 +72,18 @@ const HistoryTable: FC<FuturesHistoryListProps> = ({ ...props }) => {
           helpInfo: (
             <p>
               <Trans>Initial Margin + Added Margin,Added Margin is the margin for Add the user's position.</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 6,
+          helpInfo: (
+            <p>
+              <Trans>
+                The funding amount in ArithFi is a cash flow compensation or
+                penalty exchanged between holders of long and short positions,
+                which is directly reflected in the PNL.
+              </Trans>
             </p>
           ),
         },

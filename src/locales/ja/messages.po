@@ -13,11 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-msgid ""
-msgstr ""
-
 #: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "{0}"
 msgstr ""
@@ -722,16 +717,19 @@ msgstr ""
 msgid "Forex"
 msgstr ""
 
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Founding Fee"
+msgid "Founding Amount"
 msgstr ""
 
 #: src/pages/Swap/Components/SwapInputItem.tsx
 msgid "From"
 msgstr "送信元"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+msgid "Funding Amount"
+msgstr ""
 
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
@@ -1592,6 +1590,13 @@ msgstr ""
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
+msgstr ""
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL."
 msgstr ""
 
 #: src/pages/Copy/Components/MyCopiesCurrent.tsx
