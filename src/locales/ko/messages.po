@@ -120,11 +120,6 @@ msgstr "7일 동안의 팔로워 수익"
 msgid "7D PnL"
 msgstr "7일 수익"
 
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr "수익이 발생하는 각 복사 거래 주문에 10% 사전 수익 공유 공제가 이루어집니다. 이 PnL = 총 이익 - 10% 사전 공제된 이익으로 계산됩니다. 수익 공유 전잉여액은 결제 시 환불됩니다."
-
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
@@ -151,19 +146,6 @@ msgstr "계정"
 #: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "행동"
-
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
-#: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Components/POrderTable.tsx
-msgid "Actual Margin"
-msgstr "실제 마진"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -237,6 +219,10 @@ msgstr "분석"
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
 msgstr "공고"
+
+#: src/pages/Home/Home.tsx
+msgid "App Store"
+msgstr "App Store"
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -378,14 +364,12 @@ msgid "Close Risk"
 msgstr "위험 경고 닫기"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
-msgid "Close Time"
-msgstr "종료 시간"
-
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Closed"
-msgstr "닫힘"
+msgid "Close Time"
+msgstr "종료 시간"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
@@ -623,10 +607,12 @@ msgstr "연결 해제"
 msgid "Doc"
 msgstr "Doc"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
-msgstr "시장 변동성으로 인해 실제 청산 가격은 이론적인 청산 가격과 다를 수 있습니다. 이곳에서는 참고용 이론적 청산 가격이 제시됩니다."
+msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only."
+msgstr "시장 변동성으로 인해 실제 청산 가격이 이론적 청산 가격과 다를 수 있습니다. 여기 이론적 청산 가격이 참고용으로 제공됩니다."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -739,6 +725,13 @@ msgstr "외환"
 msgid "From"
 msgstr "교환할 토큰"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "Funding Amount"
+msgstr "창립액"
+
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -765,6 +758,8 @@ msgstr "$ATF 얻기"
 msgid "Get ATF"
 msgstr "ATF 획득하기"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -828,6 +823,15 @@ msgstr "당신이 소유한 안전한 장치를 사용하고 있다면, 이 옵�
 msgid "Image"
 msgstr "이미지"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Including funding amounts."
+msgstr "자금액을 포함하여"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
@@ -842,6 +846,26 @@ msgstr "무한한 유동성"
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
 msgstr "정보"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+msgid ""
+"Initial Margin + Added Margin,Added Margin is the margin for Add\n"
+"the user's position."
+msgstr ""
+"초기 마진 + 추가 마진, 추가 마진은 추가용 마진입니다\n"
+"“사용자의 위치”"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Initial Margin + Added Margin,Added Margin is the margin for Add the user's position."
+msgstr "초기 마진 + 추가 마진, 추가 마진은 사용자의 포지션을 추가하기 위한 마진입니다."
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -922,12 +946,30 @@ msgstr "최종 가격"
 msgid "Learn more"
 msgstr "자세히 알아보기"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Leverage*Initial Margin"
+msgstr "레버리지*초기 마진"
+
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "지정가"
+
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+msgid "Limit Order"
+msgstr "한정 주문"
 
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
@@ -952,8 +994,8 @@ msgstr "링크 지갑"
 msgid "Liq Price"
 msgstr "청산 가격"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "Liquidated"
 msgstr "청산됨"
 
@@ -979,6 +1021,33 @@ msgstr "손실 거래"
 msgid "Make a profit, you will earn $ATF"
 msgstr "이익을 내면 $ATF를 얻게 됩니다"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Margin"
+msgstr "마진"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Margin Ratio"
+msgstr "마진 비율"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Mark Price"
+msgstr "마크 가격"
+
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
@@ -992,10 +1061,10 @@ msgstr "시장가"
 msgid "Market Closed"
 msgstr "시장 폐쇄"
 
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr "시장 가격"
@@ -1119,8 +1188,6 @@ msgstr "포지션 열기"
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
@@ -1132,9 +1199,11 @@ msgstr "오픈 가격"
 msgid "Open Short"
 msgstr "숏 포지션 진입"
 
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Open Time"
 msgstr "개시 시간"
 
@@ -1261,8 +1330,15 @@ msgstr "프로토콜이 성취합니다"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
-msgid "Realized Pnl"
-msgstr "실현 PnL"
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "Realized PnL"
+msgstr "실현된 PnL"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+msgid "Realized PNL/Initial Margin. Including funding amounts."
+msgstr "실현된 PNL/초기 마진. 자금액 포함."
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1309,8 +1385,12 @@ msgstr "ArithFi의 로드맵"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "ROI"
@@ -1383,14 +1463,29 @@ msgstr "공유"
 msgid "Short"
 msgstr "숏"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Size"
+msgstr "크기"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "SL"
 msgstr "SL"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "SL Executed"
 msgstr "SL 실행됨"
 
@@ -1431,19 +1526,10 @@ msgstr "복사 중지"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "손절매"
-
-#: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
-#: src/pages/Futures/Components/POrderTable.tsx
-msgid "Stop Order"
-msgstr "스탑 오더"
 
 #: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/Modal/StopLimitModal.tsx
@@ -1490,9 +1576,6 @@ msgstr "심볼 선호도"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
@@ -1504,12 +1587,27 @@ msgstr "테스트 BNB"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "TestFlight"
 msgstr "TestFlight"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
 msgstr "외환 시장이 닫혔습니다. 어떤 조치를 취하기 전에 시장이 열릴 때까지 기다려 주십시오."
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL."
+msgstr "ArithFi의 자금액은 롱 포지션과 숏 포지션 보유자 간에 교환되는 현금 흐름 보상 또는 패널티로, PNL에 직접 반영됩니다."
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%."
+msgstr "마진 비율이 낮을수록 포지션 크기에 비해 손해 청산 수준이 낮아집니다. 마진 비율이 100%에 도달하면 포지션이 청산됩니다."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1547,8 +1645,8 @@ msgstr "이것은 당신의 복사 거래 총 이익을 나타냅니다. 손익 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
@@ -1633,6 +1731,8 @@ msgstr "총 사용자"
 msgid "Total Volume"
 msgstr "총 거래량"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1643,10 +1743,18 @@ msgstr "TP"
 msgid "TP and SL price you set will trigger immediately."
 msgstr "설정한 TP 및 SL 가격이 즉시 트리거됩니다."
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "TP Executed"
 msgstr "TP 실행됨"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "TP/SL"
+msgstr "TP/SL"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
@@ -1747,8 +1855,12 @@ msgstr "트위터"
 msgid "Type"
 msgstr "유형"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 msgid "Unrealized PnL"
 msgstr "미실현 손익"
 
@@ -1764,6 +1876,11 @@ msgstr "미실현 이익 및 손실 (ATF)"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Unrealized PnL(ATF)"
 msgstr "미실현 이익 및 손실 (ATF)"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+msgid "Unrealized PNL/Initial Margin. Including funding amounts."
+msgstr "미실현 이익/초기 마진. 자금액 포함."
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"

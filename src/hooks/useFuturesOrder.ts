@@ -9,11 +9,15 @@ import {
 } from "./useTransactionReceipt";
 import { SnackBarType } from "../components/SnackBar/NormalSnackBar";
 import { FuturesOrderService } from "../pages/Futures/OrderList";
+import { FuturesPrice } from "../pages/Futures/Futures";
 
-function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
+function useFuturesOrder(
+  data: FuturesOrderService,
+  updateList: () => void,
+  price: FuturesPrice | undefined
+) {
   const { account, signature } = useArithFi();
   const [loading, setLoading] = useState<boolean>(false);
-  const tokenName = data.product.split("/")[0];
   const isLong = data.direction;
   const lever = data.leverage;
   const [showShareOrderModal, setShowShareOrderModal] =
@@ -21,9 +25,6 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
   const showLimitPrice = useMemo(() => {
     return data.orderPrice.toFixed(data.product.getTokenPriceDecimals());
   }, [data.orderPrice, data.product]);
-  const showBalance = useMemo(() => {
-    return data.margin.toFixed(2);
-  }, [data.margin]);
   const { addTransactionNotice } = usePendingTransactionsBase();
   const showTriggerTitle = useMemo(() => {
     const isEdit = data.takeProfitPrice === 0 && data.stopLossPrice === 0;
@@ -87,6 +88,25 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     const time = new Date(data.timestamp * 1000);
     return [time.toLocaleDateString(), time.toLocaleTimeString()];
   }, [data.timestamp]);
+  const showSize = useMemo(() => {
+    if (data.leverage != null && data.margin != null) {
+      return `${(data.leverage * data.margin).floor(2)} ATF`;
+    }
+    return "-";
+  }, [data.leverage, data.margin]);
+  const showMargin = useMemo(() => {
+    if (data.margin != null && data.append != null) {
+      return `${(data.margin + data.append).floor(2)} ATF`;
+    }
+    return "-";
+  }, [data.append, data.margin]);
+  const nowPrice = useMemo(() => {
+    const basePrice = price?.[data.product]
+    if (basePrice != null) {
+      return basePrice.bigNumberToShowPrice(18, data.product.getTokenPriceDecimals())
+    }
+    return "0";
+  }, [data.product, price]);
 
   const shareOrder = useMemo(() => {
     const info: Order = {
@@ -119,11 +139,9 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     tp,
   ]);
   return {
-    tokenName,
     isLong,
     lever,
     showLimitPrice,
-    showBalance,
     mainButtonTitle,
     mainButtonLoading,
     mainButtonDis,
@@ -135,6 +153,9 @@ function useFuturesOrder(data: FuturesOrderService, updateList: () => void) {
     sl,
     openTime,
     showTriggerTitle,
+    showSize,
+    showMargin,
+    nowPrice,
   };
 }
 

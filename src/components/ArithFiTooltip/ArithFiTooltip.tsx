@@ -4,7 +4,7 @@ import Tooltip, { tooltipClasses, TooltipProps } from "@mui/material/Tooltip";
 import { FC } from "react";
 import { Tip } from "../icons";
 
-const ArithFiTooltip = styled(({ className, ...props }: TooltipProps) => (
+export const ArithFiTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {

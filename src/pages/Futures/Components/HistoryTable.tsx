@@ -38,15 +38,56 @@ const HistoryTable: FC<FuturesHistoryListProps> = ({ ...props }) => {
     <FuturesTableTitle
       dataArray={[
         t`Symbol`,
-        t`Actual Margin`,
+        t`Realized PnL`,
+        t`Size`,
+        t`Margin`,
         t`Open Price`,
-        t`Stop Order`,
         t`Close Price`,
-        t`Time`,
+        t`Funding Amount`,
+        t`TP/SL`,
+        t`Open Time`,
+        t`Close Time`,
         t`Operate`,
       ]}
       noOrder={noOrder}
-      helps={[]}
+      helps={[
+        {
+          index: 1,
+          helpInfo: (
+            <p>
+              <Trans>Including funding amounts.</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 2,
+          helpInfo: (
+            <p>
+              <Trans>Leverage*Initial Margin</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 3,
+          helpInfo: (
+            <p>
+              <Trans>Initial Margin + Added Margin,Added Margin is the margin for Add the user's position.</Trans>
+            </p>
+          ),
+        },
+        {
+          index: 6,
+          helpInfo: (
+            <p>
+              <Trans>
+                The funding amount in ArithFi is a cash flow compensation or
+                penalty exchanged between holders of long and short positions,
+                which is directly reflected in the PNL.
+              </Trans>
+            </p>
+          ),
+        },
+      ]}
       style={props.style}
       noNeedPadding
     >
@@ -70,14 +111,18 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
     tp,
     sl,
     showOpenPrice,
-    showMarginAssets,
     showPercent,
     isRed,
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
-    time,
     showClosePrice,
+    showSize,
+    showMargin,
+    openTime,
+    closeTime,
+    showRealizedPnL,
+    showF,
   } = useFuturesHistory(props.data);
 
   return (
@@ -97,29 +142,30 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
           tokenPair={props.data.tokenPair}
           isLong={isLong}
           lever={lever}
+          status={props.data.status}
         />
       </TableCell>
       <TableCell sx={tdNoPadding}>
-        <Stack
-          direction={"row"}
-          spacing={"4px"}
-          alignItems={"flex-end"}
-          sx={(theme) => ({
-            "& p": {
+        <Stack spacing={"4px"}>
+          <Box
+            sx={(theme) => ({
               fontWeight: 700,
-              fontSize: 14,
-              color: theme.normal.text0,
-            },
-            "& span": {
-              display: "block",
-              fontWeight: 400,
               fontSize: 10,
               color: isRed ? theme.normal.danger : theme.normal.success,
-            },
-          })}
-        >
-          <p>{showMarginAssets}ATF</p>
-          <span>{showPercent}%</span>
+            })}
+          >
+            {showRealizedPnL}
+          </Box>
+          <Box
+            sx={(theme) => ({
+              display: "block",
+              fontWeight: 400,
+              fontSize: 12,
+              color: isRed ? theme.normal.danger : theme.normal.success,
+            })}
+          >
+            {`(${showPercent}%)`}
+          </Box>
         </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>
@@ -127,7 +173,31 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
           component={"p"}
           sx={(theme) => ({
             fontWeight: 700,
-            fontSize: 14,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showSize}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showMargin}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
             color: theme.normal.text0,
           })}
         >
@@ -135,11 +205,36 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
         </Box>
       </TableCell>
       <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showClosePrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showF}
+        </Box>
+      </TableCell>
+
+      <TableCell sx={tdNoPadding}>
         <Stack
           spacing={"4px"}
           sx={(theme) => ({
             "& p": {
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: 400,
               color: theme.normal.text0,
             },
@@ -161,67 +256,32 @@ const HistoryTableRow: FC<HistoryTableRowProps> = ({ ...props }) => {
         </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>
-        <Stack direction={"row"}>
-          <Stack spacing={"4px"}>
-            <Box
-              component={"p"}
-              sx={(theme) => ({
-                fontWeight: 700,
-                fontSize: 14,
-                color: theme.normal.text0,
-              })}
-            >
-              {showClosePrice}
-            </Box>
-            <Box
-              component={"p"}
-              sx={(theme) => ({
-                fontWeight: 700,
-                fontSize: "10px",
-                lineHeight: "14px",
-                padding: "3px 4px",
-                border: "1px solid",
-                width: "fit-content",
-                borderColor:
-                  props.data.orderType === "Closed"
-                    ? theme.normal.border
-                    : props.data.orderType === "Liquidated"
-                    ? theme.normal.danger_light_hover
-                    : theme.normal.success_light_hover,
-                color:
-                  props.data.orderType === "Closed"
-                    ? theme.normal.text2
-                    : props.data.orderType === "Liquidated"
-                    ? theme.normal.danger
-                    : theme.normal.success,
-                borderRadius: "4px",
-              })}
-            >
-              {props.data.orderType === "Closed" && <Trans>Closed</Trans>}
-              {props.data.orderType === "Liquidated" && (
-                <Trans>Liquidated</Trans>
-              )}
-              {props.data.orderType === "TP Executed" && (
-                <Trans>TP Executed</Trans>
-              )}
-              {props.data.orderType === "SL Executed" && (
-                <Trans>SL Executed</Trans>
-              )}
-            </Box>
-          </Stack>
-        </Stack>
-      </TableCell>
-      <TableCell sx={tdNoPadding}>
-        <Box
-          component={"p"}
+        <Stack
+          spacing={"4px"}
           sx={(theme) => ({
-            fontWeight: 400,
-            fontSize: 12,
+            fontWeight: "400",
+            fontSize: "10px",
+            lineHeight: "16px",
             color: theme.normal.text0,
           })}
         >
-          {time}
-        </Box>
+          <Box>{openTime[0]}</Box>
+          <Box>{openTime[1]}</Box>
+        </Stack>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            fontWeight: "400",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+          })}
+        >
+          <Box>{closeTime[0]}</Box>
+          <Box>{closeTime[1]}</Box>
+        </Stack>
       </TableCell>
       <TableCell>
         <Stack direction={"row"} justifyContent={"flex-end"} spacing={"8px"}>

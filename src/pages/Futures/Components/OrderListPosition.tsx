@@ -11,14 +11,10 @@ interface OrderListPositionProps {
   shareCallBack: () => void;
   style?: React.CSSProperties;
   isCopy?: boolean;
+  status?: number;
 }
 
 const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
-  const TokenIcon = useMemo(() => {
-    return props.tokenPair.getToken()
-      ? props.tokenPair.getToken()!.icon
-      : "ETH".getToken()!.icon;
-  }, [props.tokenPair]);
   const showCopy = useMemo(() => {
     return props.isCopy ? (
       <Box
@@ -40,6 +36,42 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
       <></>
     );
   }, [props.isCopy]);
+  const showResult = useMemo(() => {
+    if (
+      props.status != null &&
+      (props.status === -1 || props.status === -2 || props.status === -3)
+    ) {
+      return (
+        <Box
+          component={"button"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: "10px",
+            lineHeight: "14px",
+            paddingX: "4px",
+            border: "1px solid",
+            width: "fit-content",
+            borderColor:
+              props.status === -2 || props.status === -3
+                ? theme.normal.success
+                : theme.normal.danger,
+            color:
+              props.status === -2 || props.status === -3
+                ? theme.normal.success
+                : theme.normal.danger,
+            borderRadius: "4px",
+            whiteSpace: "nowrap",
+          })}
+        >
+          {props.status === -1 && <Trans>Liquidated</Trans>}
+          {props.status === -3 && <Trans>TP Executed</Trans>}
+          {props.status === -2 && <Trans>SL Executed</Trans>}
+        </Box>
+      );
+    } else {
+      return <></>;
+    }
+  }, [props.status]);
   return (
     <Stack
       direction={"row"}
@@ -55,22 +87,6 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
           height: "24px",
         })}
       >
-        <Stack
-          direction={"row"}
-          sx={{ "& svg": { width: "24px", height: "24px", display: "block" } }}
-        >
-          <TokenIcon/>
-        </Stack>
-        <Box
-          component={"p"}
-          sx={(theme) => ({
-            fontWeight: 700,
-            fontSize: 14,
-            color: theme.normal.text0,
-            marginLeft: "8px !important",
-          })}
-        >{`${props.tokenPair}`}</Box>
-        {showCopy}
         <Stack
           direction={"row"}
           justifyContent={"center"}
@@ -108,6 +124,15 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
           )}
         </Stack>
         <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 14,
+            color: theme.normal.text0,
+            marginLeft: "8px !important",
+          })}
+        >{`${props.tokenPair}`}</Box>
+        <Box
           component={"button"}
           sx={(theme) => ({
             border: `1px solid ${theme.normal.border}`,
@@ -120,6 +145,8 @@ const OrderListPosition: FC<OrderListPositionProps> = ({ ...props }) => {
             fontSize: 10,
           })}
         >{`${props.lever}X`}</Box>
+        {showCopy}
+        {showResult}
       </Stack>
       <Box
         component={"button"}

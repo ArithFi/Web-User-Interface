@@ -120,11 +120,6 @@ msgstr "Прибыль/Убыток за 7 дней от подписчиков"
 msgid "7D PnL"
 msgstr "Прибыль/Убыток за 7 дней"
 
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order. This PnL = Total Profit - 10% Pre-Deducted Profit. Your surplus pre-profit-sharing will be refunded at settlement."
-msgstr "На каждом прибыльном ордере по копированию торгов будет удерживаться 10% предварительного учета прибыли. Этот PnL = Общая прибыль - 10% Предварительно удержанной прибыли. Ваш избыток до предоставления прибыли будет возвращен при расчете."
-
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "A 10% pre-profit-sharing deduction will be made on each profitable copy trading order.The actual settlement will calculate the total PNL, and the final settlement amount will prevail."
@@ -151,19 +146,6 @@ msgstr "Учетные записи"
 #: src/pages/Account/Assets/Components/TransactionTable.tsx
 msgid "Action"
 msgstr "Действие"
-
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Copy/Components/MyCopiesHistory.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
-#: src/pages/Futures/Components/POrderList.tsx
-#: src/pages/Futures/Components/POrderTable.tsx
-msgid "Actual Margin"
-msgstr "Фактический залог"
 
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -237,6 +219,10 @@ msgstr "Анализ"
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Announcement"
 msgstr "Объявление"
+
+#: src/pages/Home/Home.tsx
+msgid "App Store"
+msgstr "App Store\""
 
 #: src/pages/Futures/Modal/ApproveNoticeModal.tsx
 msgid "Approval required"
@@ -378,14 +364,12 @@ msgid "Close Risk"
 msgstr "Риск закрытия"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
-msgid "Close Time"
-msgstr "Время закрытия"
-
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
-msgid "Closed"
-msgstr "Закрыто"
+msgid "Close Time"
+msgstr "Время закрытия"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Share/Foot/ArithFiFoot.tsx
@@ -623,10 +607,12 @@ msgstr "Отключить"
 msgid "Doc"
 msgstr "Doc"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
-msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price . Here is the theoretical liquidation price, for reference only."
-msgstr "Из-за волатильности рынка фактическая цена ликвидации может отличаться от теоретической. Это только теоретическая цена ликвидации, предназначенная только для справки."
+msgid "Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only."
+msgstr "Из-за волатильности рынка фактическая цена ликвидации может отличаться от теоретической цены ликвидации. Вот теоретическая цена ликвидации, только для справки."
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -739,6 +725,13 @@ msgstr "Форекс"
 msgid "From"
 msgstr "От"
 
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "Funding Amount"
+msgstr "Сумма основания"
+
 #: src/pages/Account/Assets/Assets.tsx
 #: src/pages/Account/Share/Menu.tsx
 #: src/pages/Account/Share/MobileMenu.tsx
@@ -765,6 +758,8 @@ msgstr "Получить $ATF"
 msgid "Get ATF"
 msgstr "Получить ATF"
 
+#: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
@@ -828,6 +823,15 @@ msgstr "Если вы используете безопасное устройс
 msgid "Image"
 msgstr "Изображение"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Including funding amounts."
+msgstr "Включая суммы финансирования"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "Incur a loss, your $ATF will be burned"
@@ -842,6 +846,26 @@ msgstr "Бесконечная ликвидность"
 #: src/pages/Share/Foot/ArithFiFoot.tsx
 msgid "Information"
 msgstr "Информация"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+msgid ""
+"Initial Margin + Added Margin,Added Margin is the margin for Add\n"
+"the user's position."
+msgstr ""
+"Начальная маржа + Дополнительная маржа, Дополнительная маржа - маржа для добавления\n"
+"Позиция пользователя"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Initial Margin + Added Margin,Added Margin is the margin for Add the user's position."
+msgstr "Начальная маржа + Дополнительная маржа, Дополнительная маржа - это маржа, необходимая для добавления позиции пользователя."
 
 #: src/hooks/useSwap.ts
 #: src/pages/Share/Modal/DepositModal.tsx
@@ -922,12 +946,30 @@ msgstr "Последняя цена"
 msgid "Learn more"
 msgstr "Узнать больше"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Leverage*Initial Margin"
+msgstr "Плечо*Начальная маржа"
+
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Limit"
 msgstr "Лимит"
+
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+msgid "Limit Order"
+msgstr " Лимитный ордер"
 
 #: src/pages/Futures/Modal/EditLimitModal.tsx
 #: src/pages/Futures/Modal/EditLimitModal.tsx
@@ -952,8 +994,8 @@ msgstr "Связать кошелек"
 msgid "Liq Price"
 msgstr "Цена ликвидации"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "Liquidated"
 msgstr "Ликвидирован"
 
@@ -979,6 +1021,33 @@ msgstr "Убыточные сделки"
 msgid "Make a profit, you will earn $ATF"
 msgstr "Получите прибыль, и вы заработаете $ATF"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Margin"
+msgstr "Маржа"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Margin Ratio"
+msgstr "Маржинальное отношение"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Mark Price"
+msgstr "Цена маркировки"
+
 #: src/pages/Futures/NewOrder.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market"
@@ -992,10 +1061,10 @@ msgstr "Рынок"
 msgid "Market Closed"
 msgstr "Рынок закрыт"
 
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Market Price"
 msgstr "Рыночная цена"
@@ -1119,8 +1188,6 @@ msgstr "Открыть позицию"
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Futures/Components/HistoryList.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 #: src/pages/Futures/Modal/AddModal.tsx
@@ -1132,9 +1199,11 @@ msgstr "Цена открытия"
 msgid "Open Short"
 msgstr "Открыть короткую позицию"
 
-#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
 msgid "Open Time"
 msgstr "Время открытия"
 
@@ -1261,8 +1330,15 @@ msgstr "Протокол достигает"
 
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/MyCopiesHistory.tsx
-msgid "Realized Pnl"
-msgstr "Realizovannaya pribyl'/ubytok"
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "Realized PnL"
+msgstr "Реализованная прибыль/убыток"
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+msgid "Realized PNL/Initial Margin. Including funding amounts."
+msgstr "Реализованная прибыль/убыток/Начальная маржа. Включая суммы финансирования."
 
 #: src/hooks/useTransactionReceipt.ts
 msgid "Received"
@@ -1309,8 +1385,12 @@ msgstr "Дорожная карта ArithFi"
 
 #: src/pages/Copy/Components/KolInfo.tsx
 #: src/pages/Copy/Components/KolInfo.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
 #: src/pages/Copy/Components/TraderCurrent.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 msgid "ROI"
@@ -1383,14 +1463,29 @@ msgstr "Поделиться"
 msgid "Short"
 msgstr "Шорт"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderList.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "Size"
+msgstr "Размер"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
 msgid "SL"
 msgstr "SL"
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "SL Executed"
 msgstr "SL Выполнено"
 
@@ -1431,19 +1526,10 @@ msgstr "Прекратить копирование"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Stop Loss"
 msgstr "Стоп-лосс"
-
-#: src/pages/Futures/Components/HistoryTable.tsx
-#: src/pages/Futures/Components/OrderTable.tsx
-#: src/pages/Futures/Components/POrderTable.tsx
-msgid "Stop Order"
-msgstr "Стоп-ордер"
 
 #: src/pages/Futures/Modal/StopLimitModal.tsx
 #: src/pages/Futures/Modal/StopLimitModal.tsx
@@ -1490,9 +1576,6 @@ msgstr "Предпочтение символа"
 
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
 #: src/pages/Dashboard/Modal/ShareNewOrderModal.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/OrderList.tsx
-#: src/pages/Futures/Components/POrderList.tsx
 #: src/pages/Futures/Modal/SettingTPAndSL.tsx
 #: src/pages/Futures/NewOrder.tsx
 msgid "Take Profit"
@@ -1504,12 +1587,27 @@ msgstr "Тест BNB"
 
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
+#: src/pages/Home/Home.tsx
 msgid "TestFlight"
 msgstr "TestFlight"
 
 #: src/pages/Copy/Components/CopyNoStopModal.tsx
 msgid "The foreign exchange market is closed. Please wait for the market to open before taking any action."
 msgstr "Рынок валют закрыт. Пожалуйста, дождитесь открытия рынка, прежде чем принимать какие-либо действия."
+
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryList.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+msgid "The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL."
+msgstr "Сумма финансирования в ArithFi - это компенсация или штраф за обмен денежным потоком между держателями длинных и коротких позиций, что непосредственно отражается в PNL."
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%."
+msgstr "Чем ниже коэффициент маржи, тем ниже будет ваш уровень ликвидации относительно размера вашей позиции. Ваши позиции будут ликвидированы, как только коэффициент маржи достигнет 100%."
 
 #: src/pages/Share/Modal/DepositModal.tsx
 msgid "The maximum deposit amount is"
@@ -1547,8 +1645,8 @@ msgstr "Это показывает вашу общую прибыль от ко
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Futures/Components/OrderList.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderList.tsx
@@ -1633,6 +1731,8 @@ msgstr "Общее количество пользователей"
 msgid "Total Volume"
 msgstr "Общий объем"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
 #: src/pages/Futures/Components/HistoryTable.tsx
 #: src/pages/Futures/Components/OrderTable.tsx
 #: src/pages/Futures/Components/POrderTable.tsx
@@ -1643,10 +1743,18 @@ msgstr "TP"
 msgid "TP and SL price you set will trigger immediately."
 msgstr "Цена TP и SL, которую вы установили, сработает немедленно."
 
-#: src/pages/Futures/Components/HistoryList.tsx
-#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderListPosition.tsx
+#: src/pages/Futures/Components/OrderTablePosition.tsx
 msgid "TP Executed"
 msgstr "TP Выполнено"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesHistory.tsx
+#: src/pages/Futures/Components/HistoryTable.tsx
+#: src/pages/Futures/Components/OrderTable.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
+msgid "TP/SL"
+msgstr "TP/SL"
 
 #: src/pages/Account/Futures/Futures.tsx
 #: src/pages/Home/Home.tsx
@@ -1747,8 +1855,12 @@ msgstr "Twitter"
 msgid "Type"
 msgstr "Тип"
 
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
 #: src/pages/Copy/Components/MyCopiesMyTraders.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+#: src/pages/Futures/Components/POrderTable.tsx
 msgid "Unrealized PnL"
 msgstr "Нереализованный PnL"
 
@@ -1764,6 +1876,11 @@ msgstr "Не реализованный PnL (ATF)"
 #: src/pages/Copy/MyCopies.tsx
 msgid "Unrealized PnL(ATF)"
 msgstr "Не реализованный PnL(ATF)"
+
+#: src/pages/Copy/Components/MyCopiesCurrent.tsx
+#: src/pages/Futures/Components/POrderList.tsx
+msgid "Unrealized PNL/Initial Margin. Including funding amounts."
+msgstr "Нереализованная прибыль/Начальная маржа. Включая суммы финансирования."
 
 #: src/pages/Account/ProfitSharing/ProfitSharing.tsx
 msgid "Unsettled"

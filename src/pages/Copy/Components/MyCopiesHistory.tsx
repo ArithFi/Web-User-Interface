@@ -10,10 +10,10 @@ import CopyTablePosition from "./CopyTablePosition";
 import CopyListPosition from "./CopyListPosition";
 import ArithFiLine from "../../../components/ArithFiLine";
 import { DefaultKolIcon } from "../../../components/icons";
-import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
 import { FuturesOrderService } from "../../Futures/OrderList";
 import { formatTVDate } from "../../../lib/dates";
 import { copyKOLInfo } from "../../../lib/ArithFiRequest";
+import { FuturesOrderListTitleAndValue } from "../../Futures/Components/FuturesOrderListTitleAndValue";
 
 interface MyCopiesHistoryProps {
   list: FuturesOrderService[];
@@ -35,7 +35,7 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
       return <Item key={`MyCopiesHistory + ${index}`} data={item} />;
     });
     return (
-      <Stack paddingX={"12px"} spacing={"16px"} paddingBottom={"20px"}>
+      <Stack paddingX={"20px"} spacing={"16px"} paddingBottom={"20px"}>
         {items}
       </Stack>
     );
@@ -47,22 +47,53 @@ const MyCopiesHistory: FC<MyCopiesHistoryProps> = ({ ...props }) => {
         dataArray={[
           t`Symbol`,
           t`Trader`,
-          t`Actual Margin`,
+          t`Realized PnL`,
+          t`Size`,
+          t`Margin`,
           t`Open Price`,
           t`Close Price`,
-          t`Realized Pnl`,
+          t`Funding Amount`,
+          t`TP/SL`,
+          t`Open Time`,
+          t`Close Time`,
         ]}
         noOrder={noOrder}
         helps={[
           {
-            index: 5,
+            index: 2,
+            helpInfo: (
+              <p>
+                <Trans>Including funding amounts.</Trans>
+              </p>
+            ),
+          },
+          {
+            index: 3,
+            helpInfo: (
+              <p>
+                <Trans>Leverage*Initial Margin</Trans>
+              </p>
+            ),
+          },
+          {
+            index: 4,
             helpInfo: (
               <p>
                 <Trans>
-                  A 10% pre-profit-sharing deduction will be made on each
-                  profitable copy trading order. This PnL = Total Profit - 10%
-                  Pre-Deducted Profit. Your surplus pre-profit-sharing will be
-                  refunded at settlement.
+                  Initial Margin + Added Margin,Added Margin is the margin for
+                  Add the user's position.
+                </Trans>
+              </p>
+            ),
+          },
+          {
+            index: 7,
+            helpInfo: (
+              <p>
+                <Trans>
+                  The funding amount in ArithFi is a cash flow compensation or
+                  penalty exchanged between holders of long and short positions,
+                  which is directly reflected in the PNL.
                 </Trans>
               </p>
             ),
@@ -110,50 +141,127 @@ const Item: FC<RowProps> = ({ ...props }) => {
       })();
     }
   }, [avatar, props.data.kolAddress]);
+  const realizedPnL = useMemo(() => {
+    if (
+      props.data.closeValue != null &&
+      props.data.margin != null &&
+      props.data.append != null
+    ) {
+      if (props.data.status === -1) {
+        return -(props.data.margin + props.data.append);
+      }
+      return props.data.closeValue - (props.data.margin + props.data.append);
+    }
+    return undefined;
+  }, [
+    props.data.append,
+    props.data.closeValue,
+    props.data.margin,
+    props.data.status,
+  ]);
+  const showRealizedPnL = useMemo(() => {
+    if (realizedPnL != null) {
+      const format = realizedPnL.floor(2);
+      return `${Number(format) >= 0 ? "+" : ""}${format} ATF`;
+    }
+    return "-";
+  }, [realizedPnL]);
+  const showSize = useMemo(() => {
+    if (props.data.leverage != null && props.data.margin != null) {
+      return `${(Number(props.data.leverage) * props.data.margin).floor(
+        2
+      )} ATF`;
+    }
+    return "-";
+  }, [props.data.leverage, props.data.margin]);
+
+  const showMargin = useMemo(() => {
+    if (props.data.margin != null && props.data.append != null) {
+      return `${(props.data.margin + props.data.append).floor(2)} ATF`;
+    }
+    return "-";
+  }, [props.data.append, props.data.margin]);
+  const ROI = useMemo(() => {
+    if (
+      realizedPnL != null &&
+      props.data.margin != null
+    ) {
+      const percent = realizedPnL / props.data.margin;
+      return percent;
+    }
+    return undefined;
+  }, [props.data.margin, realizedPnL]);
+  const showROI = useMemo(() => {
+    if (ROI != null) {
+      return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
+    }
+    return "-";
+  }, [ROI]);
+  const isRed = useMemo(() => {
+    return showROI.indexOf("-") === 0;
+  }, [showROI]);
   const isLong = props.data.direction;
   const lever = props.data.leverage;
-
   const kolAddress = props.data.kolAddress.showAddress();
-  
-  const balance = props.data.status === -1 ? String().placeHolder : props.data.balance.floor(2);
-  const profitLoss = useMemo(() => {
-    const baseValue = props.data.margin + props.data.append;
-    if (props.data.status === -1) {
-      return -(baseValue)
-    }
-    const closeValue = props.data.closeValue;
-    return closeValue - baseValue;
-  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
-  const profitLossRate = useMemo(() => {
-    if (props.data.status === -1) {
-      return -100
-    }
-    const balance_num = props.data.margin + props.data.append;
-    const marginAssets_num = props.data.closeValue;
-    if (marginAssets_num >= balance_num) {
-      return parseFloat(
-        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(2)
-      );
-    } else {
-      return -parseFloat(
-        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
-      );
-    }
-  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
-  const profitLossRateString = profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-  const marketPrice = props.data.closePrice.floor(
+  const closePrice = props.data.closePrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-
+  const showF = useMemo(() => {
+    if (
+      props.data.pt0 != null &&
+      props.data.pt1 != null &&
+      props.data.closePrice != null &&
+      props.data.orderPrice &&
+      props.data.direction != null &&
+      props.data.leverage != null &&
+      props.data.margin != null
+    ) {
+      let F = 0;
+      const u = props.data.pt1 - props.data.pt0;
+      const priceRatio = props.data.closePrice / props.data.orderPrice;
+      const v = props.data.direction
+        ? props.data.margin * Number(props.data.leverage) * priceRatio
+        : props.data.margin * Number(props.data.leverage) * (2 - priceRatio);
+      F = -Number((u * v).floor(2));
+      return `${F > 0 ? "+" : ""}${F} ATF`;
+    }
+    return "- ATF";
+  }, [
+    props.data.closePrice,
+    props.data.direction,
+    props.data.leverage,
+    props.data.margin,
+    props.data.orderPrice,
+    props.data.pt0,
+    props.data.pt1,
+  ]);
+  const tp = useMemo(() => {
+    return props.data.takeProfitPrice
+      ? props.data.takeProfitPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        )
+      : String().placeHolder;
+  }, [props.data.product, props.data.takeProfitPrice]);
+  const sl = useMemo(() => {
+    return props.data.stopLossPrice
+      ? props.data.stopLossPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        )
+      : String().placeHolder;
+  }, [props.data.product, props.data.stopLossPrice]);
   const openTime = new Date(props.data.timestamp * 1000);
-  const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
+  const openTimeString = [
+    openTime.toLocaleDateString(),
+    openTime.toLocaleTimeString(),
+  ];
   const closeTime = new Date(props.data.closeTime * 1000);
-  const closeTimeString = `${closeTime.toLocaleDateString()} ${closeTime.toLocaleTimeString()}`;
-  const pnl =
-    profitLossRate > 0 ? profitLoss - (profitLoss * 10) / 100 : profitLoss;
+  const closeTimeString = [
+    closeTime.toLocaleDateString(),
+    closeTime.toLocaleTimeString(),
+  ];
 
   const kolIcon = () => {
     if (avatar !== "") {
@@ -197,11 +305,9 @@ const Item: FC<RowProps> = ({ ...props }) => {
   return (
     <Stack
       key={`MyCopiesHistoryMobile + ${props.data.id}`}
-      spacing={"20px"}
+      spacing={"12px"}
       sx={(theme) => ({
-        borderRadius: "12px",
-        background: theme.normal.bg1,
-        padding: "20px 12px",
+        width: "100%",
       })}
     >
       <CopyListPosition
@@ -210,184 +316,127 @@ const Item: FC<RowProps> = ({ ...props }) => {
         isLong={isLong}
       />
       <Stack spacing={"8px"}>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Stack spacing={"4px"} width={"100%"}>
-            <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Realized Pnl</Trans>
-              </Box>
-              <ArithFiTooltipFC
-                title={
-                  <p>
-                    <Trans>
-                      A 10% pre-profit-sharing deduction will be made on each
-                      profitable copy trading order. This PnL = Total Profit -
-                      10% Pre-Deducted Profit. Your surplus pre-profit-sharing
-                      will be refunded at settlement.
-                    </Trans>
-                  </p>
-                }
-              />
-            </Stack>
-            <Box
-              sx={(theme) => ({
-                fontSize: "14px",
-                fontWeight: "700",
-                lineHeight: "20px",
-                color: pnl >= 0 ? theme.normal.success : theme.normal.danger,
-              })}
-            >
-              {pnl.floor(2)}ATF
-            </Box>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <FuturesOrderListTitleAndValue
+            title={t`Realized PnL`}
+            value={showRealizedPnL}
+            spacing="4px"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={`Including funding amounts.`}
+          />
+          <FuturesOrderListTitleAndValue
+            title={t`ROI`}
+            value={showROI}
+            alignItems="flex-end"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Realized PNL/Initial Margin. Including funding amounts.`}
+          />
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Size`}
+              value={showSize}
+              help={t`Leverage*Initial Margin`}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Margin`}
+              value={showMargin}
+              help={t`Initial Margin + Added Margin,Added Margin is the margin for Add
+              the user's position.`}
+            />
+            <></>
           </Stack>
-          <Stack spacing={"4px"} width={"100%"}>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Open Price`}
+              value={orderPrice}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Close Price`}
+              value={closePrice}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Funding Amount`}
+              value={showF}
+              alignItems="flex-end"
+              help={t`The funding amount in ArithFi is a cash flow compensation or penalty exchanged between holders of long and short positions, which is directly reflected in the PNL.`}
+            />
+          </Stack>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"flex-start"}
+            spacing={"4px"}
+          >
             <Box
               sx={(theme) => ({
-                fontSize: "12px",
-                fontWeight: "400",
-                lineHeight: "16px",
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
                 color: theme.normal.text2,
               })}
             >
-              <Trans>Actual Margin</Trans>
+              {`TP/SL`}
             </Box>
-            <Stack direction={"row"} spacing={"4px"} alignItems={"flex-end"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  lineHeight: "20px",
-                  color: theme.normal.text2,
-                })}
-              >
-                {balance}ATF
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "10px",
-                  fontWeight: "400",
-                  lineHeight: "14px",
-                  color:
-                    profitLossRate >= 0
-                      ? theme.normal.success
-                      : theme.normal.danger,
-                })}
-              >
-                {profitLossRateString}
-              </Box>
-            </Stack>
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text0,
+              })}
+            >
+              {`${tp} / ${sl}`}
+            </Box>
           </Stack>
         </Stack>
-        <ArithFiLine />
-        <Stack spacing={"8px"}>
-          <Stack direction={"row"}>
-            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Open Price</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                {orderPrice}
-              </Box>
-            </Stack>
 
-            <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                <Trans>Close Price</Trans>
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  fontSize: "12px",
-                  fontWeight: "400",
-                  lineHeight: "16px",
-                  color: theme.normal.text2,
-                })}
-              >
-                {marketPrice}
-              </Box>
-            </Stack>
-          </Stack>
-
-          <Stack spacing={"8px"}>
-            <Stack direction={"row"}>
-              <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Open Time</Trans>
-                </Box>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  {openTimeString}
-                </Box>
-              </Stack>
-
-              <Stack direction={"row"} spacing={"4px"} width={"100%"}>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  <Trans>Close Time</Trans>
-                </Box>
-                <Box
-                  sx={(theme) => ({
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    lineHeight: "16px",
-                    color: theme.normal.text2,
-                  })}
-                >
-                  {closeTimeString}
-                </Box>
-              </Stack>
-            </Stack>
-          </Stack>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Open Time`} ${openTimeString[0]} ${openTimeString[1]}`}
+          </Box>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Close Time`} ${closeTimeString[0]} ${closeTimeString[1]}`}
+          </Box>
         </Stack>
       </Stack>
       <Stack
@@ -421,6 +470,7 @@ const Item: FC<RowProps> = ({ ...props }) => {
           </Stack>
         </Stack>
       </Stack>
+      <ArithFiLine />
     </Stack>
   );
 };
@@ -450,48 +500,127 @@ const Row: FC<RowProps> = ({ ...props }) => {
       })();
     }
   }, [avatar, props.data.kolAddress]);
+  const realizedPnL = useMemo(() => {
+    if (
+      props.data.closeValue != null &&
+      props.data.margin != null &&
+      props.data.append != null
+    ) {
+      if (props.data.status === -1) {
+        return -(props.data.margin + props.data.append);
+      }
+      return props.data.closeValue - (props.data.margin + props.data.append);
+    }
+    return undefined;
+  }, [
+    props.data.append,
+    props.data.closeValue,
+    props.data.margin,
+    props.data.status,
+  ]);
+  const showRealizedPnL = useMemo(() => {
+    if (realizedPnL != null) {
+      const format = realizedPnL.floor(2);
+      return `${Number(format) >= 0 ? "+" : ""}${format} ATF`;
+    }
+    return "-";
+  }, [realizedPnL]);
+  const showSize = useMemo(() => {
+    if (props.data.leverage != null && props.data.margin != null) {
+      return `${(Number(props.data.leverage) * props.data.margin).floor(
+        2
+      )} ATF`;
+    }
+    return "-";
+  }, [props.data.leverage, props.data.margin]);
+
+  const showMargin = useMemo(() => {
+    if (props.data.margin != null && props.data.append != null) {
+      return `${(props.data.margin + props.data.append).floor(2)} ATF`;
+    }
+    return "-";
+  }, [props.data.append, props.data.margin]);
+  const ROI = useMemo(() => {
+    if (
+      realizedPnL != null &&
+      props.data.margin != null
+    ) {
+      const percent = realizedPnL / props.data.margin;
+      return percent;
+    }
+    return undefined;
+  }, [props.data.margin, realizedPnL]);
+  const showROI = useMemo(() => {
+    if (ROI != null) {
+      return `${ROI >= 0 ? "+" : ""}${(ROI * 100).floor(2)}%`;
+    }
+    return "-";
+  }, [ROI]);
+  const isRed = useMemo(() => {
+    return showROI.indexOf("-") === 0;
+  }, [showROI]);
   const isLong = props.data.direction;
   const lever = props.data.leverage;
   const kolAddress = props.data.kolAddress.showAddress();
-  const balance = props.data.status === -1 ? String().placeHolder : props.data.balance.floor(2);
-  const profitLoss = useMemo(() => {
-    const baseValue = props.data.margin + props.data.append;
-    if (props.data.status === -1) {
-      return -(baseValue)
-    }
-    const closeValue = props.data.closeValue;
-    return closeValue - baseValue;
-  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
-  const profitLossRate = useMemo(() => {
-    if (props.data.status === -1) {
-      return -100
-    }
-    const balance_num = props.data.margin + props.data.append;
-    const marginAssets_num = props.data.closeValue;
-    if (marginAssets_num >= balance_num) {
-      return parseFloat(
-        (((marginAssets_num - balance_num) * 100) / balance_num).toFixed(2)
-      );
-    } else {
-      return -parseFloat(
-        (((balance_num - marginAssets_num) * 100) / balance_num).toFixed(2)
-      );
-    }
-  }, [props.data.append, props.data.closeValue, props.data.margin, props.data.status]);
-  const profitLossRateString = profitLossRate.floor(2) + "%";
   const orderPrice = props.data.orderPrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-  const marketPrice = props.data.closePrice.floor(
+  const closePrice = props.data.closePrice.floor(
     props.data.product.getTokenPriceDecimals()
   );
-
+  const showF = useMemo(() => {
+    if (
+      props.data.pt0 != null &&
+      props.data.pt1 != null &&
+      props.data.closePrice != null &&
+      props.data.orderPrice &&
+      props.data.direction != null &&
+      props.data.leverage != null &&
+      props.data.margin != null
+    ) {
+      let F = 0;
+      const u = props.data.pt1 - props.data.pt0;
+      const priceRatio = props.data.closePrice / props.data.orderPrice;
+      const v = props.data.direction
+        ? props.data.margin * Number(props.data.leverage) * priceRatio
+        : props.data.margin * Number(props.data.leverage) * (2 - priceRatio);
+      F = -Number((u * v).floor(2));
+      return `${F > 0 ? "+" : ""}${F} ATF`;
+    }
+    return "- ATF";
+  }, [
+    props.data.closePrice,
+    props.data.direction,
+    props.data.leverage,
+    props.data.margin,
+    props.data.orderPrice,
+    props.data.pt0,
+    props.data.pt1,
+  ]);
+  const tp = useMemo(() => {
+    return props.data.takeProfitPrice
+      ? props.data.takeProfitPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        )
+      : String().placeHolder;
+  }, [props.data.product, props.data.takeProfitPrice]);
+  const sl = useMemo(() => {
+    return props.data.stopLossPrice
+      ? props.data.stopLossPrice.toFixed(
+          props.data.product.getTokenPriceDecimals()
+        )
+      : String().placeHolder;
+  }, [props.data.product, props.data.stopLossPrice]);
   const openTime = new Date(props.data.timestamp * 1000);
-  const openTimeString = `${openTime.toLocaleDateString()} ${openTime.toLocaleTimeString()}`;
+  const openTimeString = [
+    openTime.toLocaleDateString(),
+    openTime.toLocaleTimeString(),
+  ];
   const closeTime = new Date(props.data.closeTime * 1000);
-  const closeTimeString = `${closeTime.toLocaleDateString()} ${closeTime.toLocaleTimeString()}`;
-  const pnl =
-    profitLossRate > 0 ? profitLoss - (profitLoss * 10) / 100 : profitLoss;
+  const closeTimeString = [
+    closeTime.toLocaleDateString(),
+    closeTime.toLocaleTimeString(),
+  ];
 
   const kolIcon = () => {
     if (avatar !== "") {
@@ -575,80 +704,146 @@ const Row: FC<RowProps> = ({ ...props }) => {
           <Box
             sx={(theme) => ({
               fontWeight: "700",
-              fontSize: "12px",
+              fontSize: "10px",
               lineHeight: "16px",
-              color:
-                profitLossRate >= 0
-                  ? theme.normal.success
-                  : theme.normal.danger,
+              color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {balance}ATF
+            {showRealizedPnL}
           </Box>
           <Box
             sx={(theme) => ({
               fontWeight: "400",
               fontSize: "12px",
               lineHeight: "16px",
-              color:
-                profitLossRate >= 0
-                  ? theme.normal.success
-                  : theme.normal.danger,
+              color: isRed ? theme.normal.danger : theme.normal.success,
             })}
           >
-            {profitLossRateString}
+            {showROI}
           </Box>
         </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>
-        <Stack spacing={"4px"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "700",
-              fontSize: "12px",
-              lineHeight: "16px",
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {showSize}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {showMargin}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {orderPrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          sx={(theme) => ({
+            fontWeight: "700",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+            paddingRight: "20px",
+          })}
+        >
+          {closePrice}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Box
+          component={"p"}
+          sx={(theme) => ({
+            fontWeight: 700,
+            fontSize: 10,
+            color: theme.normal.text0,
+          })}
+        >
+          {showF}
+        </Box>
+      </TableCell>
+      <TableCell sx={tdNoPadding}>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            "& p": {
+              fontSize: 10,
+              fontWeight: 400,
               color: theme.normal.text0,
-            })}
-          >
-            {orderPrice}
+            },
+            "& span": { marginRight: "4px", color: theme.normal.text2 },
+          })}
+        >
+          <Box component={"p"}>
+            <span>
+              <Trans>TP</Trans>
+            </span>
+            {tp}
           </Box>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text2,
-            })}
-          >
-            {openTimeString}
+          <Box component={"p"}>
+            <span>
+              <Trans>SL</Trans>
+            </span>
+            {sl}
           </Box>
         </Stack>
       </TableCell>
       <TableCell sx={tdNoPadding}>
-        <Stack spacing={"4px"}>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "700",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text0,
-            })}
-          >
-            {marketPrice}
-          </Box>
-          <Box
-            sx={(theme) => ({
-              fontWeight: "400",
-              fontSize: "12px",
-              lineHeight: "16px",
-              color: theme.normal.text2,
-            })}
-          >
-            {closeTimeString}
-          </Box>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            fontWeight: "400",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+          })}
+        >
+          <Box>{openTimeString[0]}</Box>
+          <Box>{openTimeString[1]}</Box>
         </Stack>
       </TableCell>
+
       <TableCell>
+        <Stack
+          spacing={"4px"}
+          sx={(theme) => ({
+            fontWeight: "400",
+            fontSize: "10px",
+            lineHeight: "16px",
+            color: theme.normal.text0,
+          })}
+        >
+          <Box>{closeTimeString[0]}</Box>
+          <Box>{closeTimeString[1]}</Box>
+        </Stack>
+      </TableCell>
+
+      {/* <TableCell>
         <Stack>
           <Box
             sx={(theme) => ({
@@ -661,7 +856,7 @@ const Row: FC<RowProps> = ({ ...props }) => {
             {pnl.floor(2)}ATF
           </Box>
         </Stack>
-      </TableCell>
+      </TableCell> */}
     </TableRow>
   );
 };

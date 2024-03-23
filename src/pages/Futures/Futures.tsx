@@ -195,7 +195,8 @@ const Futures: FC = () => {
           : undefined;
         result[key] = price;
         return result;
-      },{}
+      },
+      {}
     );
     var newPercent = Object.keys(listPriceBase["data"]).reduce(
       (result: any, key) => {
@@ -204,7 +205,8 @@ const Futures: FC = () => {
           : undefined;
         result[key] = Number(percent);
         return result;
-      },{}
+      },
+      {}
     );
 
     return [newPrice, newPercent];
@@ -356,8 +358,10 @@ const Futures: FC = () => {
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
               copy: item["pid"] != null,
-              pt0:item["pt0"],
-              pt1:item["pt1"]
+              pt0: item["pt0"],
+              pt1: item["pt1"],
+              lastPrice: item["lastPrice"],
+              marginRatio: item["marginRatio"],
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -388,6 +392,8 @@ const Futures: FC = () => {
               stopLossPrice: item["stopLossPrice"],
               takeProfitPrice: item["takeProfitPrice"],
               status: item["status"],
+              lastPrice: item["lastPrice"],
+              marginRatio: item["marginRatio"],
             };
           })
           .filter((item: any) => item.leverage.toString() !== "0");
@@ -423,16 +429,19 @@ const Futures: FC = () => {
               }
             };
             const timestamp = new Date(item["closeAt"]).getTime();
+            const openTime = new Date(item["openAt"]).getTime();
             const actualRate = () => {
               if (status === -1) {
-                return -100
+                return -100;
               }
               const baseValue = item["margin"] + item["append"];
               const closeValue = item["closeValue"];
-              return ((closeValue - baseValue) / baseValue) * 100;
+              return ((closeValue - baseValue) / item["margin"]) * 100;
             };
             return {
               actualMargin: item["closeValue"],
+              margin: item["margin"],
+              append: item["append"],
               actualRate: actualRate(),
               index: item["id"],
               initialMargin: item["margin"] + item["append"],
@@ -445,6 +454,7 @@ const Futures: FC = () => {
               sl: item["stopLossPrice"],
               sp: item["takeProfitPrice"],
               time: timestamp / 1000,
+              openAt: openTime / 1000,
               tokenPair: item["product"],
               status: item["status"],
               pt0: item["pt0"],
@@ -525,10 +535,10 @@ const Futures: FC = () => {
   }, [getHistoryList, getList]);
 
   const paddingY = useMemo(() => {
-    return isBigMobile ? 0 : 24;
+    return isBigMobile ? 0 : 0;
   }, [isBigMobile]);
   const paddingX = useMemo(() => {
-    return isBigMobile ? 0 : 40;
+    return isBigMobile ? 0 : 0;
   }, [isBigMobile]);
 
   const exchangeTvChart = useCallback(() => {
@@ -586,25 +596,20 @@ const Futures: FC = () => {
       case WidthType.xl:
       case WidthType.xxl:
         return (
-          <Stack direction={"row"} justifyContent={"center"} paddingX={"40px"}>
-            <Stack
-              spacing={"16px"}
-              width={"100%"}
-              maxWidth={"1600px"}
-              paddingY={`${paddingY}px`}
-            >
-              <Stack
-                direction={"row"}
-                spacing={"16px"}
-                width={"100%"}
-                maxWidth={"1600px"}
-              >
-                <Stack spacing={"16px"} width={"100%"}>
+          <Stack direction={"row"} justifyContent={"center"}>
+            <Stack spacing={"16px"} width={"100%"} paddingY={`${paddingY}px`}>
+              <Stack direction={"row"} width={"100%"}>
+                <Stack
+                  spacing={"16px"}
+                  width={"100%"}
+                  sx={(theme) => ({
+                    borderRight: `1px solid ${theme.normal.border}`,
+                  })}
+                >
                   {exchangeTvChart()}
-                  {/* {exchangeTvChart()} */}
                   {orderList()}
                 </Stack>
-                <Stack spacing={"16px"} width={"450px"}>
+                <Stack width={"450px"}>
                   {newOrder()}
                   {moreInfo()}
                 </Stack>

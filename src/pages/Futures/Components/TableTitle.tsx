@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -7,8 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import {ArithFiTooltipFC} from "../../../components/ArithFiTooltip/ArithFiTooltip";
-import {Trans} from "@lingui/macro";
+import {
+  ArithFiTooltip,
+} from "../../../components/ArithFiTooltip/ArithFiTooltip";
+import { Trans } from "@lingui/macro";
 
 export interface FuturesTableTitleHelp {
   index: number;
@@ -26,9 +28,9 @@ interface FuturesTableTitleProps {
 }
 
 const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
-                                                         children,
-                                                         ...props
-                                                       }) => {
+  children,
+  ...props
+}) => {
   const cells = props.dataArray.map((item, index) => {
     const help = props.helps
       ? props.helps.filter((item) => item.index === index).length > 0
@@ -39,12 +41,16 @@ const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
       <></>
     );
     const paddingConfig = props.noNeedPadding
-      ? {padding: "0px !important"}
+      ? { padding: "0px !important" }
       : {};
     return (
       <TableCell
         key={`TableTitle + ${props.dataArray.length} + ${index}`}
-        align={index === props.dataArray.length - 1 && !props.freeRight ? "right" : "left"}
+        align={
+          index === props.dataArray.length - 1 && !props.freeRight
+            ? "right"
+            : "left"
+        }
         sx={
           index !== 0 && index !== props.dataArray.length - 1
             ? paddingConfig
@@ -52,9 +58,21 @@ const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
         }
       >
         {help ? (
-          <Stack direction={"row"} alignItems={"center"} spacing={"4px"} whiteSpace={'nowrap'}>
-            <Box>{item}</Box>
-            <ArithFiTooltipFC title={helpInfo}/>
+          <Stack direction={"row"} alignItems={"center"} whiteSpace={"nowrap"}>
+            <ArithFiTooltip
+              title={helpInfo}
+              placement="top-start"
+              arrow
+              disableFocusListener
+              enterTouchDelay={10}
+            >
+              <Box sx={(theme) => ({
+
+          borderBottom: `${help ? "1px" : "0px"} solid ${
+            theme.normal.text2
+          }`,
+        })}>{item}</Box>
+            </ArithFiTooltip>
           </Stack>
         ) : (
           <>{item}</>
@@ -64,7 +82,7 @@ const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
   });
   return (
     <TableContainer component={"div"} style={props.style}>
-      <Table sx={{width: "100%"}} aria-label="simple table">
+      <Table sx={{ width: "100%" }} aria-label="simple table">
         <TableHead
           sx={(theme) => ({
             "& th": {
@@ -91,7 +109,7 @@ const FuturesTableTitle: FC<FuturesTableTitleProps> = ({
         >
           {children}
           {props.noOrder ? (
-            <TableRow sx={{"& td": {borderBottom: "0px"}}}>
+            <TableRow sx={{ "& td": { borderBottom: "0px" } }}>
               <TableCell
                 colSpan={cells.length}
                 sx={(theme) => ({

@@ -10,27 +10,28 @@ import {
   FuturesModalType,
   FuturesOrderService,
 } from "../OrderList";
-import FuturesOrderListInfo, {
-  FuturesOrderListInfoMain,
-} from "./FuturesOrderListInfo";
+import FuturesOrderListInfo from "./FuturesOrderListInfo";
 import OrderListPosition from "./OrderListPosition";
 import { Trans, t } from "@lingui/macro";
 import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
+import { FuturesOrderListTitleAndValue } from "./FuturesOrderListTitleAndValue";
+import { FuturesPrice } from "../Futures";
+import ArithFiLine from "../../../components/ArithFiLine";
+import GreyButton from "../../../components/MainButton/GreyButton";
 
 interface OrderListProps {
   data: FuturesOrderService;
   buttonCallBack: (value: FuturesModalInfo) => void;
   updateList: () => void;
   forexOpen: boolean;
+  price: FuturesPrice | undefined;
 }
 
 const OrderList: FC<OrderListProps> = ({ ...props }) => {
   const {
-    tokenName,
     isLong,
     lever,
     showLimitPrice,
-    showBalance,
     mainButtonTitle,
     mainButtonLoading,
     mainButtonDis,
@@ -41,16 +42,16 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
     tp,
     sl,
     openTime,
+    showSize,
+    showMargin,
+    nowPrice,
     showTriggerTitle,
-  } = useFuturesOrder(props.data, props.updateList);
+  } = useFuturesOrder(props.data, props.updateList, props.price);
   return (
     <Stack
-      spacing={"20px"}
+      spacing={"12px"}
       sx={(theme) => ({
-        padding: "20px",
         width: "100%",
-        borderRadius: "12px",
-        background: theme.normal.bg1,
       })}
     >
       <ShareNewOrderModal
@@ -67,67 +68,79 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
         shareCallBack={() => setShowShareOrderModal(true)}
       />
       <Stack spacing={"8px"}>
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Open Price</Trans>
-            </Box>
-            <Box component={"p"}>{showLimitPrice}</Box>
-          </FuturesOrderListInfoMain>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Actual Margin</Trans>
-            </Box>
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"flex-end"}
-              component={"p"}
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"50%"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Size`}
+              value={showSize}
+              help={t`Leverage*Initial Margin`}
+            />
+          </Box>
+          <Box width={"50%"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Margin`}
+              value={showMargin}
+              help={t`Initial Margin + Added Margin,Added Margin is the margin for Add
+              the user's position.`}
+            />
+          </Box>
+        </Stack>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"50%"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Limit Order`}
+              value={showLimitPrice}
+            />
+          </Box>
+
+          <Box width={"50%"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Market Price`}
+              value={nowPrice}
+            />
+          </Box>
+        </Stack>
+
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"flex-start"}
+            spacing={"4px"}
+          >
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text2,
+              })}
             >
-              <span>{showBalance}ATF</span>
-            </Stack>
-          </FuturesOrderListInfoMain>
+              {`TP/SL`}
+            </Box>
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text0,
+              })}
+            >
+              {`${tp} / ${sl}`}
+            </Box>
+          </Stack>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Time`} ${openTime[0]} ${openTime[1]}`}
+          </Box>
         </Stack>
       </Stack>
-      {!(tp === String().placeHolder && sl === String().placeHolder) ? (
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfo
-            direction={"row"}
-            spacing={"4px"}
-            width={"100%"}
-          >
-            <Box component={"p"}>
-              <Trans>Take Profit</Trans>
-            </Box>
-            <Box component={"p"}>{tp}</Box>
-          </FuturesOrderListInfo>
-          <FuturesOrderListInfo
-            direction={"row"}
-            spacing={"4px"}
-            width={"100%"}
-          >
-            <Box component={"p"}>
-              <Trans>Stop Loss</Trans>
-            </Box>
-            <Box component={"p"}>{sl}</Box>
-          </FuturesOrderListInfo>
-        </Stack>
-      ) : (
-        <></>
-      )}
-      <Stack direction={"row"} justifyContent={"space-around"}>
-        <FuturesOrderListInfo direction={"row"} spacing={"4px"} width={"100%"}>
-          <Box component={"p"}>
-            <Trans>Time</Trans>
-          </Box>
-          <Box component={"p"}>
-            {openTime[0]} {openTime[1]}
-          </Box>
-        </FuturesOrderListInfo>
-        <FuturesOrderListInfo direction={"row"} spacing={"4px"} width={"100%"}>
-          <Box component={"p"}></Box>
-        </FuturesOrderListInfo>
-      </Stack>
+
       <Stack direction={"row"} spacing={"8px"}>
         {isForesNewOrder(props.data.product) && !props.forexOpen ? (
           <>
@@ -140,7 +153,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
           </>
         ) : (
           <>
-            <MainButton
+            <GreyButton
               title={t`Limit`}
               onClick={() =>
                 props.buttonCallBack({
@@ -150,7 +163,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
               }
               style={{ height: "40px", fontSize: 14 }}
             />
-            <MainButton
+            <GreyButton
               title={showTriggerTitle}
               onClick={() =>
                 props.buttonCallBack({
@@ -160,7 +173,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
               }
               style={{ height: "40px", fontSize: 14 }}
             />
-            <MainButton
+            <GreyButton
               title={mainButtonTitle}
               isLoading={mainButtonLoading}
               disable={mainButtonDis}
@@ -170,6 +183,7 @@ const OrderList: FC<OrderListProps> = ({ ...props }) => {
           </>
         )}
       </Stack>
+      <ArithFiLine />
     </Stack>
   );
 };

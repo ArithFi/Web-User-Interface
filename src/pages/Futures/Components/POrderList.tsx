@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { FC } from "react";
 import MainButton from "../../../components/MainButton/MainButton";
 import ArithFiLine from "../../../components/ArithFiLine";
-import { ArithFiTooltipFC } from "../../../components/ArithFiTooltip/ArithFiTooltip";
+
 import useFuturesPOrder from "../../../hooks/useFuturesPOrder";
 import ShareMyOrderModal from "../../Dashboard/Modal/ShareMyOrderModal";
 import { FuturesPrice } from "../Futures";
@@ -12,12 +12,12 @@ import {
   FuturesModalType,
   FuturesOrderService,
 } from "../OrderList";
-import FuturesOrderListInfo, {
-  FuturesOrderListInfoMain,
-} from "./FuturesOrderListInfo";
+
 import OrderListPosition from "./OrderListPosition";
-import { Trans, t } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { isForesNewOrder } from "../../../hooks/useFuturesNewOrder";
+import { FuturesOrderListTitleAndValue } from "./FuturesOrderListTitleAndValue";
+import GreyButton from "../../../components/MainButton/GreyButton";
 
 interface POrderListProps {
   data: FuturesOrderService;
@@ -31,27 +31,28 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
     isLong,
     lever,
     showBasePrice,
-    showTriggerTitle,
     tp,
     sl,
     showLiqPrice,
-    showMarginAssets,
-    showPercent,
+    showTriggerTitle,
+    showUnrealizedPnL,
+    showSize,
+    showMargin,
+    showROI,
+    showMarginRatio,
     isRed,
     showShareOrderModal,
     setShowShareOrderModal,
     shareOrder,
     openTime,
+    nowPrice,
   } = useFuturesPOrder(props.data, props.price);
 
   return (
     <Stack
-      spacing={"20px"}
+      spacing={"12px"}
       sx={(theme) => ({
-        padding: "20px",
         width: "100%",
-        borderRadius: "12px",
-        background: theme.normal.bg1,
       })}
     >
       <ShareMyOrderModal
@@ -70,108 +71,116 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
         isCopy={props.data.copy}
       />
       <Stack spacing={"8px"}>
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Open Price</Trans>
-            </Box>
-            <Box component={"p"}>{showBasePrice}</Box>
-          </FuturesOrderListInfoMain>
-          <FuturesOrderListInfoMain spacing={"4px"} width={"100%"}>
-            <Box component={"p"}>
-              <Trans>Actual Margin</Trans>
-            </Box>
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"flex-end"}
-              component={"p"}
-            >
-              <span>{showMarginAssets}ATF</span>
-              <span className={isRed ? "Short" : "Long"}>{showPercent}%</span>
-            </Stack>
-          </FuturesOrderListInfoMain>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <FuturesOrderListTitleAndValue
+            title={t`Unrealized PnL`}
+            value={showUnrealizedPnL}
+            spacing="4px"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Including funding amounts.`}
+          />
+          <FuturesOrderListTitleAndValue
+            title={t`ROI`}
+            value={showROI}
+            alignItems="flex-end"
+            isRed={isRed}
+            valueSize={"14px"}
+            valueWeight={"700"}
+            valueLineHeight={"20px"}
+            help={t`Unrealized PNL/Initial Margin. Including funding amounts.`}
+          />
         </Stack>
-        <ArithFiLine />
-        {!(tp === String().placeHolder && sl === String().placeHolder) ? (
-          <Stack direction={"row"} justifyContent={"space-around"}>
-            <FuturesOrderListInfo
-              direction={"row"}
-              spacing={"4px"}
-              width={"100%"}
-            >
-              <Box component={"p"}>
-                <Trans>Take Profit</Trans>
-              </Box>
-              <Box component={"p"}>{tp}</Box>
-            </FuturesOrderListInfo>
-            <FuturesOrderListInfo
-              direction={"row"}
-              spacing={"4px"}
-              width={"100%"}
-            >
-              <Box component={"p"}>
-                <Trans>Stop Loss</Trans>
-              </Box>
-              <Box component={"p"}>{sl}</Box>
-            </FuturesOrderListInfo>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Size`}
+              value={showSize}
+              help={t`Leverage*Initial Margin`}
+            />
+          </Box>
+          <Stack
+            direction={"row"}
+            width={"100%"}
+            justifyContent={"space-between"}
+          >
+            <FuturesOrderListTitleAndValue
+              title={t`Margin`}
+              value={showMargin}
+              help={t`Initial Margin + Added Margin,Added Margin is the margin for Add
+              the user's position.`}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Margin Ratio`}
+              value={showMarginRatio}
+              alignItems="flex-end"
+              help={t`The lower the Margin Ratio, the lower your liquidation level will be relative to your position size. Your positions will be liquidated once Margin Ratio reaches 100%.`}
+            />
           </Stack>
-        ) : (
-          <></>
-        )}
-
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfo
-            direction={"row"}
-            spacing={"4px"}
-            width={"100%"}
-          >
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"center"}
-              component={"p"}
-            >
-              <Box component={"p"}>
-                <Trans>Liq Price</Trans>
-              </Box>
-              <ArithFiTooltipFC
-                title={
-                  <p>
-                    <Trans>
-                      Due to the market volatility, the actual liquidation price
-                      may be different from the theoretical liquidation price .
-                      Here is the theoretical liquidation price, for reference
-                      only.
-                    </Trans>
-                  </p>
-                }
-              />
-            </Stack>
-            <Box component={"p"}>{showLiqPrice}</Box>
-          </FuturesOrderListInfo>
         </Stack>
-
-        <Stack direction={"row"} justifyContent={"space-around"}>
-          <FuturesOrderListInfo
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Box width={"150px"}>
+            <FuturesOrderListTitleAndValue
+              title={t`Open Price`}
+              value={showBasePrice}
+            />
+          </Box>
+          <Stack
             direction={"row"}
-            spacing={"4px"}
             width={"100%"}
+            justifyContent={"space-between"}
           >
-            <Stack
-              direction={"row"}
-              spacing={"4px"}
-              alignItems={"center"}
-              component={"p"}
+            <FuturesOrderListTitleAndValue
+              title={t`Mark Price`}
+              value={nowPrice}
+            />
+            <FuturesOrderListTitleAndValue
+              title={t`Liq Price`}
+              value={showLiqPrice}
+              alignItems="flex-end"
+              help={t`Due to the market volatility, the actual liquidation price may be different from the theoretical liquidation price. Here is the theoretical liquidation price, for reference only.`}
+            />
+          </Stack>
+        </Stack>
+        <Stack direction={"row"} justifyContent={"space-between"}>
+          <Stack
+            direction={"row"}
+            justifyContent={"flex-start"}
+            spacing={"4px"}
+          >
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text2,
+              })}
             >
-              <Box component={"p"}>
-                <Trans>Time</Trans>
-              </Box>
-            </Stack>
-            <Box component={"p"}>
-              {openTime[0]} {openTime[1]}
+              {`TP/SL`}
             </Box>
-          </FuturesOrderListInfo>
+            <Box
+              sx={(theme) => ({
+                fontSize: "10px",
+                fontWeight: 400,
+                lineHeight: "14px",
+                color: theme.normal.text0,
+              })}
+            >
+              {`${tp} / ${sl}`}
+            </Box>
+          </Stack>
+          <Box
+            sx={(theme) => ({
+              fontSize: "10px",
+              fontWeight: 400,
+              lineHeight: "14px",
+              color: theme.normal.text2,
+            })}
+          >
+            {`${t`Time`} ${openTime[0]} ${openTime[1]}`}
+          </Box>
         </Stack>
       </Stack>
       <Stack direction={"row"} spacing={"8px"}>
@@ -190,7 +199,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               <></>
             ) : (
               <>
-                <MainButton
+                <GreyButton
                   title={t`Add`}
                   onClick={() =>
                     props.buttonCallBack({
@@ -200,7 +209,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
                   }
                   style={{ height: "40px", fontSize: 14 }}
                 />
-                <MainButton
+                <GreyButton
                   title={showTriggerTitle}
                   onClick={() =>
                     props.buttonCallBack({
@@ -213,7 +222,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
               </>
             )}
 
-            <MainButton
+            <GreyButton
               title={t`Close`}
               onClick={() =>
                 props.buttonCallBack({
@@ -226,6 +235,7 @@ const POrderList: FC<POrderListProps> = ({ ...props }) => {
           </>
         )}
       </Stack>
+      <ArithFiLine />
     </Stack>
   );
 };
