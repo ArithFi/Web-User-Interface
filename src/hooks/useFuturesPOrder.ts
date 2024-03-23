@@ -130,7 +130,7 @@ function useFuturesPOrder(
       owner: data.walletAddress.toString(),
       leverage: `${data.leverage.toString()}X`,
       orientation: data.direction ? `Long` : `Short`,
-      actualRate: Number(showROI),
+      actualRate: (ROI || 0) * 100,
       index: parseInt(data.id.toString()),
       openPrice: parseFloat(
         data.orderPrice.toFixed(data.product.getTokenPriceDecimals())
