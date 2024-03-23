@@ -41,7 +41,9 @@ function useSwap() {
   const [outAmount, setOutAmount] = useState<string>("");
   const [samePrice, setSamePrice] = useState<boolean>(true);
   const { isPendingType } = usePendingTransactions();
-  const mainToken = ["BNB", "ETH"];
+  const mainToken = useMemo(() => {
+    return ["BNB", "ETH"];
+  }, []);
   const tokenArray = useMemo(() => {
     return ["USDT", "ATF", "BNB"];
   }, []);
@@ -342,24 +344,27 @@ function useSwap() {
     swapContract,
     MaxUint256
   );
-  const { transaction: swapTTT } = useSwapExactTokensForTokens(
-    inputAmountTransaction,
-    amountOutMin,
-    swapPathAddress,
-    account.address
-  );
-  const { transaction: swapTTE } = useSwapExactTokensForETH(
-    inputAmountTransaction,
-    amountOutMin,
-    swapPathAddress,
-    account.address
-  );
-  const { transaction: swapETT } = useSwapExactETHForTokens(
-    inputAmountTransaction,
-    amountOutMin,
-    swapPathAddress,
-    account.address
-  );
+  const { transaction: swapTTT, isLoading: TTTTransactionLoading } =
+    useSwapExactTokensForTokens(
+      inputAmountTransaction,
+      amountOutMin,
+      swapPathAddress,
+      account.address
+    );
+  const { transaction: swapTTE, isLoading: TTETransactionLoading } =
+    useSwapExactTokensForETH(
+      inputAmountTransaction,
+      amountOutMin,
+      swapPathAddress,
+      account.address
+    );
+  const { transaction: swapETT, isLoading: ETTTransactionLoading } =
+    useSwapExactETHForTokens(
+      inputAmountTransaction,
+      amountOutMin,
+      swapPathAddress,
+      account.address
+    );
   /**
    * show button title
    */
@@ -386,7 +391,10 @@ function useSwap() {
       swapTTT.isLoading ||
       swapETT.isLoading ||
       swapTTE.isLoading ||
-      pending
+      pending ||
+      TTTTransactionLoading ||
+      TTETransactionLoading ||
+      ETTTransactionLoading
     ) {
       return true;
     } else {
@@ -398,6 +406,9 @@ function useSwap() {
     swapETT.isLoading,
     swapTTE.isLoading,
     pending,
+    TTTTransactionLoading,
+    TTETransactionLoading,
+    ETTTransactionLoading,
   ]);
   const mainButtonDis = useMemo(() => {
     if (!account.address) {
@@ -493,11 +504,12 @@ function useSwap() {
    * update
    */
   useEffect(() => {
-    const time = setInterval(() => {
+    const update = () => {
       uniSwapAmountOutRefetch();
       if (mainToken.includes(swapToken.src)) {
         ETHrefetch();
       } else {
+        srcRefetch();
         srcBalanceRefetch();
       }
       if (mainToken.includes(swapToken.dest)) {
@@ -505,9 +517,11 @@ function useSwap() {
       } else {
         destBalanceRefetch();
       }
-
-      srcRefetch();
+    };
+    const time = setInterval(() => {
+      update();
     }, SWAP_UPDATE * 1000);
+    update()
     return () => {
       clearInterval(time);
     };
@@ -521,17 +535,6 @@ function useSwap() {
     swapToken.src,
     uniSwapAmountOutRefetch,
   ]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (mainToken.includes(swapToken.src)) {
-        ETHrefetch();
-      } else {
-        srcRefetch();
-        srcBalanceRefetch();
-      }
-    }, 3000);
-  }, [ETHrefetch, mainToken, srcBalanceRefetch, srcRefetch, swapToken.src]);
 
   return {
     swapToken,
