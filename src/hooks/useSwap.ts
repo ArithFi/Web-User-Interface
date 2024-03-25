@@ -236,8 +236,8 @@ function useSwap() {
       const token = swapToken.src.getToken();
       if (token && scrBalance && chainsData.chainId) {
         setInputAmount(
-          scrBalance
-            .bigNumberToShowString(token.decimals[chainsData.chainId], 18)
+          Number(scrBalance
+            .bigNumberToShowString(token.decimals[chainsData.chainId], 18)).toFixed(19)
             .formatInputNum4()
         );
       }
