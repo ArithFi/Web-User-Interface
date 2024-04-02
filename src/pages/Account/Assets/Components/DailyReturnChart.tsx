@@ -37,7 +37,7 @@ const ReCharts: FC<ChartsProps> = ({...props}) => {
   const {data} = useSWR(
     `${serviceBaseURL(chainsData.chainId)}/dashboard/personal/return?walletAddress=${
       props.address
-    }&from=${from}&to=${to}&copy=2`,
+    }&from=${from}&to=${to}&copy=3`,
     (url: string) =>
       fetch(url, {
         headers: {
