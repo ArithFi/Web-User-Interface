@@ -13,22 +13,6 @@ const Menu = () => {
   const q = searchParams.get('address');
   const {address} = useAccount()
   const { chainsData, signature } = useArithFi()
-  const {data: isKol} = useSWR(
-    (q || address)
-      ? `${serviceBaseURL(chainsData.chainId)}/copy/kolInvite/get?kolAddress=${
-        q || address
-      }`
-      : undefined,
-    (url: any) =>
-      fetch(url, {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": signature?.signature || ""
-        }
-      })
-        .then((res) => res.json())
-        .then((res: any) => res.data)
-  );
 
   const {data: isCopyKol} = useSWR(
     (q || address)
@@ -63,7 +47,7 @@ const Menu = () => {
     {
       path: ['/account/referral'],
       name: t`Referral`,
-      show: isKol,
+      show: true,
     },
     {
       path: ['/account/profitsharing'],
