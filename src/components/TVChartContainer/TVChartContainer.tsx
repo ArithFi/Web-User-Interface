@@ -21,7 +21,7 @@ export default function TVChartContainer({symbol}: Props) {
     const widgetOptions = {
       debug: false,
       symbol: symbol, // Using ref to avoid unnecessary re-renders on symbol change and still have access to the latest symbol
-      datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(defaultChartProps.datafeedUrl, 500, {
+      datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(defaultChartProps.datafeedUrl, 200, {
         maxResponseLength: 500,
         expectedOrder: "latestFirst",
       }),
