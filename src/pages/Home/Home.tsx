@@ -1,7 +1,7 @@
 import {Trans, t} from "@lingui/macro";
 import {Stack} from "@mui/system";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Link} from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import {TradeCard} from "./TradeCard";
@@ -136,6 +136,8 @@ const Home = () => {
       href: 'https://kyber.network/',
     },
   ];
+  const mobileDownloadRef = useRef(null);
+  const pcDownloadRef = useRef(null);
 
   const cryptoList: any[] = [
     {pair1: 'ETH', pair2: 'USDT'},
@@ -267,6 +269,24 @@ const Home = () => {
     const cache = localStorage.getItem("Language");
     if (cache) {
       setLang(cache)
+    }
+  }, []);
+
+  const scrollToRef = () => {
+    if (mobileDownloadRef.current) {
+      // @ts-ignore
+      mobileDownloadRef.current?.scrollIntoView({behavior: 'smooth'});
+      return
+    }
+    if (pcDownloadRef.current) {
+      // @ts-ignore
+      pcDownloadRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+
+  useEffect(() => {
+    if (window.location.hash === "#/home?download") {
+      scrollToRef();
     }
   }, []);
 
@@ -634,7 +654,7 @@ const Home = () => {
               <img src={'/images/home_icon13.svg'} alt={''} height={'240px'}/>
             </div>
             <Stack justifyContent={'center'} maxWidth={'600px'} alignItems={'center'} textAlign={'center'}>
-            <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} color={'#F9F9F9'} sx={{
+              <Stack fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'} color={'#F9F9F9'} sx={{
                 opacity: 0.8
               }}>
                 <Trans>
@@ -853,10 +873,12 @@ const Home = () => {
             </Stack>
           </Stack>
         </Stack>
-        <Stack height={"660px"} alignItems={'center'} sx={{
+        <Stack height={"720px"}
+               alignItems={'center'} sx={{
           background: 'linear-gradient(180deg, #3D404D 50%, #1A1D23 100%)'
-        }}>
-          <Stack alignItems={"center"} pt={"20px"}>
+        }}
+        >
+          <Stack alignItems={"center"} pt={"20px"} ref={mobileDownloadRef}>
             <Stack direction={'row'} alignItems={'baseline'} sx={{
               fontSize: "20px",
               lineHeight: "28px",
@@ -1270,7 +1292,7 @@ const Home = () => {
                   backgroundColor: "white",
                   padding: "4px",
                 }}>
-                  <QRCodeCanvas value={"https://www.arithfi.com/download.html"} size={72} />
+                  <QRCodeCanvas value={"https://www.arithfi.com/download.html"} size={72}/>
                 </Box>
               </Stack>
               <Stack spacing={"12px"}>
@@ -1553,7 +1575,8 @@ const Home = () => {
                   })
                 }
                 <Link to={`/futures`}>
-                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'} padding={'8px 0 8px 0'}>
+                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'}
+                         padding={'8px 0 8px 0'}>
                     <Stack color={'#F69C00'} fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}>
                       <Trans>
                         More
@@ -1596,7 +1619,8 @@ const Home = () => {
                   })
                 }
                 <Link to={`/futures?pt=AUD%2FUSD`}>
-                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'} padding={'8px 0 8px 0'}>
+                  <Stack direction={'row'} alignItems={'center'} justifyContent={'end'} spacing={'8px'}
+                         padding={'8px 0 8px 0'}>
                     <Stack color={'#F69C00'} fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}>
                       <Trans>
                         More
@@ -1851,7 +1875,7 @@ const Home = () => {
         <Stack width={'100%'} height={'840px'} zIndex={10} justifyContent={"center"} alignItems={'center'} sx={{
           background: 'linear-gradient(180deg, #1D2129 0%, #171A1F 100%)',
           paddingY: 10,
-        }}>
+        }} ref={pcDownloadRef}>
           <Stack maxWidth={'1200px'} width={"100%"} direction={"row"} height={"680px"}>
             <Stack width={0} zIndex={10} position={"relative"}>
               <img src={`/images/app.png`} alt={''} height={680} width={313} style={{
@@ -1861,7 +1885,8 @@ const Home = () => {
                 marginLeft: "80px",
               }}/>
             </Stack>
-            <Stack direction={"row"} width={"100%"} mt={"32px"} height={"600px"} justifyContent={"center"} alignItems={"center"} sx={{
+            <Stack direction={"row"} width={"100%"} mt={"32px"} height={"600px"} justifyContent={"center"}
+                   alignItems={"center"} sx={{
               backgroundColor: "#171A1F",
               borderRadius: "40px",
               border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -1909,7 +1934,7 @@ const Home = () => {
                       backgroundColor: "white",
                       padding: "4px",
                     }}>
-                      <QRCodeCanvas value={"https://www.arithfi.com/download.html"} size={112} />
+                      <QRCodeCanvas value={"https://www.arithfi.com/download.html"} size={112}/>
                     </Box>
                   </Stack>
                   <Stack spacing={"12px"}>
@@ -1929,7 +1954,8 @@ const Home = () => {
                           backgroundColor: "rgba(31, 35, 41, 1)",
                           height: "40px",
                         }}>
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
                             <path
                               d="M11.9531 5.6588C11.9941 4.54303 12.3076 3.56297 12.8862 2.7437C13.4677 1.92028 14.429 1.33535 15.7448 1.00391C15.7536 1.04443 15.7627 1.08497 15.7721 1.12536V1.33736C15.7721 1.81808 15.6555 2.36931 15.4254 2.97564C15.1842 3.56271 14.8072 4.11524 14.3066 4.61391C13.8383 5.0533 13.4051 5.3442 13.0223 5.4757C12.8959 5.51345 12.7226 5.5506 12.5133 5.58405C12.3271 5.61305 12.1404 5.638 11.9531 5.6588Z"
                               fill="#F9F9F9"/>
