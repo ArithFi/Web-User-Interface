@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "26277H2ZQ3.com.arithfi",
+        "paths": ["/trader/*"]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": ["26277H2ZQ3.com.arithfi"]
+  },
+  "webcredentials": {
+    "apps": ["26277H2ZQ3.com.arithfi"]
+  }
+}
