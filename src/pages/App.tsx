@@ -8,6 +8,7 @@ import useWindowWidth from "../hooks/useWindowWidth";
 import {serviceBaseURL} from "../lib/ArithFiRequest";
 import {getQueryVariable} from "../lib/queryVaribale";
 import useArithFi from "../hooks/useArithFi";
+import DownloadAppButton from "./Share/Foot/DownloadAppButton";
 
 const HomePage = lazy(() => import("./Home/Home"));
 const FuturesPage = lazy(() => import("./Futures/Futures"));
@@ -104,6 +105,7 @@ const App: FC = () => {
           </Suspense>
           {/* <TestTheme /> */}
         </MainContent>
+        <DownloadAppButton />
         <ArithFiFoot />
       </HashRouter>
     </Stack>

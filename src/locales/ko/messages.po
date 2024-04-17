@@ -1160,6 +1160,10 @@ msgstr "주문 수"
 msgid "Offset"
 msgstr "오프셋"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "APP을 열고, 언제든지 0 슬리피지 거래"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx

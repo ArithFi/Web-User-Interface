@@ -1160,6 +1160,10 @@ msgstr "Sipariş Sayısı"
 msgid "Offset"
 msgstr "Ofset"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "APP’i açın, herhangi bir zamanda sıfır kayma ile işlem yapın"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx

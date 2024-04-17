@@ -1160,6 +1160,10 @@ msgstr "Número de Órdenes"
 msgid "Offset"
 msgstr "Ofset"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "Abre la APP, comercio sin deslizamiento en cualquier momento"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx

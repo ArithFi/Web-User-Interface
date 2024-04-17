@@ -1160,6 +1160,10 @@ msgstr "Số lượng đơn hàng"
 msgid "Offset"
 msgstr "Bù lại"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "Mở APP, giao dịch không trượt giá vào bất kỳ lúc nào"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
