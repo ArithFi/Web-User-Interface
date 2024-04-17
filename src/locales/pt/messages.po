@@ -1160,6 +1160,10 @@ msgstr "Número de Pedidos"
 msgid "Offset"
 msgstr "Diferença"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "Abra o APP, negociação sem deslizamento a qualquer momento"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx

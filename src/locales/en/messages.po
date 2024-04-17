@@ -1160,6 +1160,10 @@ msgstr "Number of Orders"
 msgid "Offset"
 msgstr "Offset"
 
+#: src/pages/Share/Foot/DownloadAppButton.tsx
+msgid "Open APP, 0 slippage trading at any time"
+msgstr "Open APP, 0 slippage trading at any time"
+
 #: src/pages/Copy/Components/CopyStopModal.tsx
 #: src/pages/Dashboard/Dashboard.tsx
 #: src/pages/Dashboard/Dashboard.tsx
