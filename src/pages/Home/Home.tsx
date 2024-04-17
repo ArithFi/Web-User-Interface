@@ -287,7 +287,9 @@ const Home = () => {
   useEffect(() => {
     if (window.location.hash === "#/home?download") {
       scrollToRef();
-      window.location.href = "arithfi://home";
+      setTimeout(() => {
+        window.location.href = "arithfi://home";
+      }, 1_000)
     }
   }, []);
 

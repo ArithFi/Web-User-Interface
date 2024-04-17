@@ -33,7 +33,9 @@ const Trader: FC = () => {
 
   useEffect(() => {
     if (address && kolInfo?.walletAddress && kolInfo.nickName) {
-      window.location.href = `arithfi://trader?kolAddress=${kolInfo?.walletAddress || address}&kolName=${kolInfo?.nickName || ""}`
+      setTimeout(() => {
+        window.location.href = `arithfi://trader?kolAddress=${kolInfo?.walletAddress || address}&kolName=${kolInfo?.nickName || ""}`
+      }, 1_000)
     }
   }, [address, kolInfo]);
 
