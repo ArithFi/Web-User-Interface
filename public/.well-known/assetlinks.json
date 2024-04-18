@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.arithfi",
+      "sha256_cert_fingerprints": [
+        "84:D8:9F:B4:F0:62:41:EE:BD:03:9F:9A:6F:10:B5:49:89:CD:37:5C:DD:AF:20:16:52:0B:7F:BA:15:1A:E2:FC"
+      ]
+    }
+  }
+]
