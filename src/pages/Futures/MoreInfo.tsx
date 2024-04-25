@@ -6,6 +6,8 @@ import { NEXT } from "../../components/icons";
 import ArithFiLine from "../../components/ArithFiLine";
 import { Trans } from "@lingui/macro";
 import useLanguageWithDoc from "../../hooks/useLanguageWithDoc";
+import useArithFi from "../../hooks/useArithFi";
+import {i18n} from "@lingui/core";
 
 const InfoBox = styled(Box)(({ theme }) => ({
   fontWeight: 700,
@@ -30,6 +32,7 @@ const NextBox = styled(Box)(({ theme }) => ({
 
 const FuturesMoreInfo: FC = () => {
   const { docLink } = useLanguageWithDoc();
+  const { account } = useArithFi();
   return (
     <Stack
       spacing={"16px"}
@@ -98,6 +101,32 @@ const FuturesMoreInfo: FC = () => {
         >
           <InfoBox component={"p"}>
             <Trans>How to Trade</Trans>
+          </InfoBox>
+          <NextBox>
+            <NEXT />
+          </NextBox>
+        </Stack>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          width={"100%"}
+          component={"button"}
+          onClick={() => {
+            let url = "https://rank.arithfi.com/";
+            if (account?.address) {
+              url += `?walletAddress=${account?.address}`;
+            }
+            window.open(url);
+          }}
+          sx={(theme) => ({
+            paddingX: "20px",
+            height: "60px",
+            "&:hover": { cursor: "pointer", background: theme.normal.bg1 },
+          })}
+        >
+          <InfoBox component={"p"}>
+            <Trans>ArithFi Contribution Ranking</Trans>
           </InfoBox>
           <NextBox>
             <NEXT />

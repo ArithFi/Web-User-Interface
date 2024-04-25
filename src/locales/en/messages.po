@@ -240,6 +240,10 @@ msgstr "Approve"
 msgid "ArithFi"
 msgstr "ArithFi"
 
+#: src/pages/Futures/MoreInfo.tsx
+msgid "ArithFi Contribution Ranking"
+msgstr "ArithFi Contribution Ranking"
+
 #: src/pages/Home/Home.tsx
 #: src/pages/Home/Home.tsx
 msgid "ArithFi is based on the SCP (Smart contract Counterparty) model"
