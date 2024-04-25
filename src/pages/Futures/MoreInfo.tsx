@@ -115,7 +115,9 @@ const FuturesMoreInfo: FC = () => {
           onClick={() => {
             let url = "https://rank.arithfi.com/";
             if (account?.address) {
-              url += `?walletAddress=${account?.address}`;
+              url += `?walletAddress=${account?.address}&lang=${i18n.locale}`;
+            } else {
+              url += `?lang=${i18n.locale}`;
             }
             window.open(url);
           }}
